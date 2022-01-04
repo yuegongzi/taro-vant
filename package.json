@@ -1,7 +1,10 @@
 {
   "name": "taro-vant",
   "private": true,
-  "author": "三少 <hi_sanshao@outlook.com>",
+  "authors": {
+    "name": "杨安府",
+    "email": "yanganfu2012@gmail.com"
+  },
   "description": "前端组件库",
   "license": "MIT",
   "keywords": [
@@ -13,10 +16,10 @@
   ],
   "repository": {
     "type": "https",
-    "url": "https://github.com/AntmJS/vantui.git"
+    "url": "https://gitlab.ejiexi.com/common/taro-vant.git"
   },
   "bugs": {
-    "url": "https://github.com/AntmJS/vantui/issues/new"
+    "url": "https://gitlab.ejiexi.com/common/taro-vant/-/issues/new"
   },
   "engines": {
     "node": ">=12",
@@ -85,8 +88,8 @@
     }
   },
   "scripts": {
-    "eslint": "npx eslint -c eslint.config.js '**/*.{js,jsx,ts,tsx}' && npx tsc -p tsconfig.json --skipLibCheck",
-    "stylelint": "npx stylelint --aei --config stylelint.config.js '**/*.{css,less}'",
+    "eslint": "npx eslint -c packages/taro-vant/eslint.config.js '**/*.{js,jsx,ts,tsx}' && npx tsc -p tsconfig.json --skipLibCheck",
+    "stylelint": "npx stylelint --aei --config packages/taro-vant/stylelint.config.js '**/*.{css,less}'",
     "prettier": "npx prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,less}'",
     "clear-all": "rimraf packages/*/node_modules",
     "bootstrap:ci": "npx lerna bootstrap --npm-client=yarn",
@@ -98,43 +101,44 @@
     "release:beta": "lerna publish --force-publish=* --exact --skip-temp-tag  --preid=beta --npm-tag=beta",
     "release": "npm run release:lerna && npm run changelog && node ./pullRequest.js",
     "test": "npx lerna run test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "up": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
-    "@antmjs/babel-preset": "^1.12.0",
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
-    "@octokit/core": "^3.4.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.0",
-    "@rollup/plugin-image": "^2.1.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "@rollup/plugin-typescript": "^8.2.5",
-    "@types/node": "^16.3.2",
-    "@types/react": "^17.0.14",
-    "@types/react-dom": "^17.0.9",
-    "all-contributors-cli": "^6.20.0",
-    "commitizen": "^4.2.4",
-    "conventional-changelog-cli": "^2.1.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "execa": "^5.0.0",
-    "fs-extra": "^10.0.0",
-    "globby": "^11.0.3",
-    "husky": "^7.0.0",
-    "lerna": "^4.0.0",
-    "lint-staged": "^11.0.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.48.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-copy-watch": "^0.0.1",
-    "rollup-plugin-styles": "^3.14.1",
-    "run-s": "^0.0.0",
-    "typescript": "^4.3.5",
-    "@umijs/fabric": "^2.10.0"
+    "@antmjs/babel-preset": "1.17.3",
+    "@commitlint/cli": "16.0.1",
+    "@commitlint/config-conventional": "16.0.0",
+    "@octokit/core": "3.5.1",
+    "@rollup/plugin-babel": "5.3.0",
+    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-image": "2.1.1",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "13.1.2",
+    "@rollup/plugin-typescript": "8.3.0",
+    "@types/node": "17.0.7",
+    "@types/react": "17.0.38",
+    "@types/react-dom": "17.0.11",
+    "@umijs/fabric": "^2.10.0",
+    "all-contributors-cli": "6.20.0",
+    "commitizen": "4.2.4",
+    "conventional-changelog-cli": "2.2.2",
+    "cz-conventional-changelog": "3.3.0",
+    "execa": "6.0.0",
+    "fs-extra": "10.0.0",
+    "globby": "12.0.2",
+    "husky": "7.0.4",
+    "lerna": "4.0.0",
+    "lint-staged": "12.1.5",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.5.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rimraf": "3.0.2",
+    "rollup": "2.63.0",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-copy-watch": "0.0.1",
+    "rollup-plugin-styles": "3.14.1",
+    "run-s": "0.0.0",
+    "typescript": "4.5.4"
   }
 }

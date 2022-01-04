@@ -1,6 +1,7 @@
-const path = require('path')
+/* eslint-disable */
+var path = require('path')
 
-const configName = {
+var configName = {
   weapp: {
     srcConfigName: 'project.weapp.json',
     distConfigName: 'project.config.json',
@@ -19,7 +20,7 @@ const configName = {
   },
 }
 
-module.exports = function (ctx) {
+module.exports = function(ctx) {
   ctx.onBuildFinish(() => {
     if (process.env.TARO_ENV !== 'h5') {
       const { appPath, sourcePath, outputPath } = ctx.paths

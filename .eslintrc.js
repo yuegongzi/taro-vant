@@ -18,5 +18,5 @@ module.exports = {
     "dot-location":[2,'object'],
     "no-case-declarations":'error',
     "no-empty-pattern":'error'
-  },
+  }
 };

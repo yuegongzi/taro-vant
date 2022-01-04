@@ -6,7 +6,7 @@ import {
   useImperativeHandle,
   forwardRef,
   memo,
-} from 'react'
+} from "react"
 // import { requestAnimationFrame } from '../common/utils'
 import * as computed from './wxs'
 import VanPicker from './../picker'

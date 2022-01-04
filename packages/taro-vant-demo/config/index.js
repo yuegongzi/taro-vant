@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable  */
 const npath = require('path')
 const pkg = require('../package.json')
 const miniChain = require('./webpack/miniChain')
