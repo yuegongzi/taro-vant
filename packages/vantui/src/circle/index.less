@@ -1,0 +1,19 @@
+@import '../style/var.less';
+.van-circle {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  font-size: @circle-font-color;
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+
+    .theme(color, '@circle-text-color');
+
+    background-color: inherit;
+  }
+}
