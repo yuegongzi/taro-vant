@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Tag, Card, Button } from 'packages/taro-vant'
+import { Tag, Card, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -19,33 +19,33 @@ export default class Index extends Component {
   render() {
     const { imageURL } = this.state
     return (
-      <DemoPage title="Card 商品卡片">
-        <View className="container">
-          <DemoBlock title="基础用法">
+      <DemoPage title='Card 商品卡片'>
+        <View className='container'>
+          <DemoBlock title='基础用法'>
             <Card
-              num="2"
-              price="2.00"
-              desc="描述信息"
-              title="2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男"
+              num='2'
+              price='2.00'
+              desc='描述信息'
+              title='2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男'
               thumb={imageURL}
-            ></Card>
+             />
           </DemoBlock>
-          <DemoBlock title="高级用法">
+          <DemoBlock title='高级用法'>
             <Card
-              num="2"
-              tag="标签"
-              price="2.00"
-              originPrice="10.00"
-              desc="描述信息"
-              title="2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男"
+              num='2'
+              tag='标签'
+              price='2.00'
+              originPrice='10.00'
+              desc='描述信息'
+              title='2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男'
               thumb={imageURL}
               renderTags={
                 <>
                   <View>
-                    <Tag plain type="danger" className="tag">
+                    <Tag plain type='danger' className='tag'>
                       标签1
                     </Tag>
-                    <Tag plain type="danger">
+                    <Tag plain type='danger'>
                       标签2
                     </Tag>
                   </View>
@@ -53,17 +53,17 @@ export default class Index extends Component {
               }
               renderFooter={
                 <>
-                  <View className="van-card__footer">
-                    <Button size="mini" round className="button">
+                  <View className='van-card__footer'>
+                    <Button size='mini' round className='button'>
                       按钮
                     </Button>
-                    <Button size="mini" round>
+                    <Button size='mini' round>
                       按钮
                     </Button>
                   </View>
                 </>
               }
-            ></Card>
+             />
           </DemoBlock>
         </View>
       </DemoPage>

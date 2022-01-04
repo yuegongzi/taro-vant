@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { NoticeBar } from 'packages/taro-vant'
+import { NoticeBar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -19,41 +19,41 @@ export default class Index extends Component {
   render() {
     const { text, shortText } = this.state
     return (
-      <DemoPage title="NoticeBar 通知栏">
+      <DemoPage title='NoticeBar 通知栏'>
         <>
-          <DemoBlock title="基础用法">
-            <NoticeBar text={text} leftIcon="volume-o"></NoticeBar>
+          <DemoBlock title='基础用法'>
+            <NoticeBar text={text} leftIcon='volume-o' />
           </DemoBlock>
-          <DemoBlock title="滚动模式">
+          <DemoBlock title='滚动模式'>
             <NoticeBar
-              className="margin-top"
+              className='margin-top'
               scrollable
               text={shortText}
-            ></NoticeBar>
+             />
             <NoticeBar
-              className="margin-top"
+              className='margin-top'
               scrollable={false}
               text={text}
-            ></NoticeBar>
+             />
           </DemoBlock>
-          <DemoBlock title="多行展示">
-            <NoticeBar wrapable scrollable={false} text={text}></NoticeBar>
+          <DemoBlock title='多行展示'>
+            <NoticeBar wrapable scrollable={false} text={text} />
           </DemoBlock>
-          <DemoBlock title="通知栏模式">
-            <NoticeBar mode="closeable" text={shortText}></NoticeBar>
+          <DemoBlock title='通知栏模式'>
+            <NoticeBar mode='closeable' text={shortText} />
             <NoticeBar
-              className="margin-top"
-              mode="link"
+              className='margin-top'
+              mode='link'
               text={shortText}
-            ></NoticeBar>
+             />
           </DemoBlock>
-          <DemoBlock title="自定义样式">
+          <DemoBlock title='自定义样式'>
             <NoticeBar
               text={shortText}
-              color="#1989fa"
-              background="#ecf9ff"
-              leftIcon="info-o"
-            ></NoticeBar>
+              color='#1989fa'
+              background='#ecf9ff'
+              leftIcon='info-o'
+             />
           </DemoBlock>
         </>
       </DemoPage>

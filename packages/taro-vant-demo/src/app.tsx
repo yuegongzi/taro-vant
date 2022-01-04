@@ -20,7 +20,7 @@ export default class Index extends Component {
         '/use-in-react',
       ]
       if (devGuidePaths.includes(path)) {
-        url = `/pages/dashboard/index`
+        url = '/pages/dashboard/index'
       }
       return url
     }
@@ -39,7 +39,7 @@ export default class Index extends Component {
     if (pathMatch && pathMatch[1]) {
       setTimeout(() => {
         window.location.href =
-          '/vantui/mobile.html#' + getUrl('/' + pathMatch[1])
+          '/taro-vant/mobile.html#' + getUrl('/' + pathMatch[1])
       }, 600)
     }
   }

@@ -1,12 +1,12 @@
 module.exports = {
-  name: 'vantui-doc',
+  name: 'taro-vant-doc',
   build: {
     srcDir: '',
     css: {
       preprocessor: 'less',
     },
     site: {
-      publicPath: '/vantui/',
+      publicPath: '/taro-vant/',
       searchConfig: {},
     },
   },
@@ -37,7 +37,7 @@ module.exports = {
       // },
       // syncPathFromSimulator: true,
     },
-    title: '@antmjs/vantui',
+    title: 'taro-vant',
     logo: 'https://antm-js.gitee.io/resource/antmjs-vantui.jpg',
     links: [
       {

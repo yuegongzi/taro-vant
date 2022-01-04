@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { TabbarItem, Tabbar, Image } from 'packages/taro-vant'
+import { TabbarItem, Tabbar, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -40,12 +40,12 @@ export default class Index extends Component {
     const { active, active2, active3, active4, icon, active5, active6 } =
       this.state
     return (
-      <DemoPage title="Tabbar 标签栏">
+      <DemoPage title='Tabbar 标签栏'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <Tabbar
               active={active}
-              className="tabbar-position"
+              className='tabbar-position'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.onChange({
@@ -59,16 +59,16 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem icon="home-o">标签</TabbarItem>
-              <TabbarItem icon="search">标签</TabbarItem>
-              <TabbarItem icon="friends-o">标签</TabbarItem>
-              <TabbarItem icon="setting-o">标签</TabbarItem>
+              <TabbarItem icon='home-o'>标签</TabbarItem>
+              <TabbarItem icon='search'>标签</TabbarItem>
+              <TabbarItem icon='friends-o'>标签</TabbarItem>
+              <TabbarItem icon='setting-o'>标签</TabbarItem>
             </Tabbar>
           </DemoBlock>
-          <DemoBlock title="通过名称匹配">
+          <DemoBlock title='通过名称匹配'>
             <Tabbar
               active={active2}
-              className="tabbar-position"
+              className='tabbar-position'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.onChange({
@@ -82,24 +82,24 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem name="home" icon="home-o">
+              <TabbarItem name='home' icon='home-o'>
                 标签
               </TabbarItem>
-              <TabbarItem name="search" icon="search">
+              <TabbarItem name='search' icon='search'>
                 标签
               </TabbarItem>
-              <TabbarItem name="friends" icon="friends-o">
+              <TabbarItem name='friends' icon='friends-o'>
                 标签
               </TabbarItem>
-              <TabbarItem name="setting" icon="setting-o">
+              <TabbarItem name='setting' icon='setting-o'>
                 标签
               </TabbarItem>
             </Tabbar>
           </DemoBlock>
-          <DemoBlock title="显示徽标">
+          <DemoBlock title='显示徽标'>
             <Tabbar
               active={active3}
-              className="tabbar-position"
+              className='tabbar-position'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.onChange({
@@ -113,22 +113,22 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem icon="home-o">标签</TabbarItem>
-              <TabbarItem icon="search" dot>
+              <TabbarItem icon='home-o'>标签</TabbarItem>
+              <TabbarItem icon='search' dot>
                 标签
               </TabbarItem>
-              <TabbarItem icon="friends-o" info="5">
+              <TabbarItem icon='friends-o' info='5'>
                 标签
               </TabbarItem>
-              <TabbarItem icon="setting-o" info="20">
+              <TabbarItem icon='setting-o' info='20'>
                 标签
               </TabbarItem>
             </Tabbar>
           </DemoBlock>
-          <DemoBlock title="自定义图标">
+          <DemoBlock title='自定义图标'>
             <Tabbar
               active={active4}
-              className="tabbar-position"
+              className='tabbar-position'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.onChange({
@@ -143,38 +143,38 @@ export default class Index extends Component {
               }}
             >
               <TabbarItem
-                info="3"
+                info='3'
                 renderIcon={
                   <>
                     <Image
                       src={icon.normal}
-                      mode="aspectFit"
-                      style="width: 30px; height: 18px;"
-                    ></Image>
+                      mode='aspectFit'
+                      style='width: 30px; height: 18px;'
+                     />
                   </>
                 }
                 renderIconActive={
                   <>
                     <Image
                       src={icon.active}
-                      mode="aspectFit"
-                      style="width: 30px; height: 18px;"
-                    ></Image>
+                      mode='aspectFit'
+                      style='width: 30px; height: 18px;'
+                     />
                   </>
                 }
               >
                 自定义
               </TabbarItem>
-              <TabbarItem icon="search">标签</TabbarItem>
-              <TabbarItem icon="setting-o">标签</TabbarItem>
+              <TabbarItem icon='search'>标签</TabbarItem>
+              <TabbarItem icon='setting-o'>标签</TabbarItem>
             </Tabbar>
           </DemoBlock>
-          <DemoBlock title="自定义颜色">
+          <DemoBlock title='自定义颜色'>
             <Tabbar
               active={active5}
-              className="tabbar-position"
-              activeColor="#07c160"
-              inactiveColor="#000"
+              className='tabbar-position'
+              activeColor='#07c160'
+              inactiveColor='#000'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.onChange({
@@ -188,16 +188,16 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem icon="home-o">标签</TabbarItem>
-              <TabbarItem icon="search">标签</TabbarItem>
-              <TabbarItem icon="friends-o">标签</TabbarItem>
-              <TabbarItem icon="setting-o">标签</TabbarItem>
+              <TabbarItem icon='home-o'>标签</TabbarItem>
+              <TabbarItem icon='search'>标签</TabbarItem>
+              <TabbarItem icon='friends-o'>标签</TabbarItem>
+              <TabbarItem icon='setting-o'>标签</TabbarItem>
             </Tabbar>
           </DemoBlock>
-          <DemoBlock title="切换标签事件">
+          <DemoBlock title='切换标签事件'>
             <Tabbar
               active={active6}
-              className="tabbar-position"
+              className='tabbar-position'
               safeAreaInsetBottom={false}
               onChange={(e) => {
                 this.handleChange({
@@ -211,10 +211,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem icon="home-o">标签1</TabbarItem>
-              <TabbarItem icon="search">标签2</TabbarItem>
-              <TabbarItem icon="friends-o">标签3</TabbarItem>
-              <TabbarItem icon="setting-o">标签4</TabbarItem>
+              <TabbarItem icon='home-o'>标签1</TabbarItem>
+              <TabbarItem icon='search'>标签2</TabbarItem>
+              <TabbarItem icon='friends-o'>标签3</TabbarItem>
+              <TabbarItem icon='setting-o'>标签4</TabbarItem>
             </Tabbar>
           </DemoBlock>
         </>

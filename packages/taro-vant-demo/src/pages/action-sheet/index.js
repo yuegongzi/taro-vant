@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { ActionSheet, Button } from 'packages/taro-vant'
+import { ActionSheet, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -90,7 +90,7 @@ export default class Index extends Component {
               show={show1}
               actions={action1}
               onClose={this.toggleActionSheet1}
-            ></ActionSheet>
+             />
           </DemoBlock>
           <DemoBlock title='选项状态' padding>
             <Button type='primary' onClick={this.toggleActionSheet2}>
@@ -100,7 +100,7 @@ export default class Index extends Component {
               show={show2}
               actions={action2}
               onClose={this.toggleActionSheet2}
-            ></ActionSheet>
+             />
           </DemoBlock>
           <DemoBlock title='展示取消按钮' padding>
             <Button type='primary' onClick={this.toggleActionSheet3}>
@@ -111,7 +111,7 @@ export default class Index extends Component {
               actions={action1}
               cancelText='取消'
               onClose={this.toggleActionSheet3}
-            ></ActionSheet>
+             />
           </DemoBlock>
           <DemoBlock title='展示描述信息' padding>
             <Button type='primary' onClick={this.toggleActionSheet4}>
@@ -122,7 +122,7 @@ export default class Index extends Component {
               actions={action1}
               description='这是一段描述信息'
               onClose={this.toggleActionSheet4}
-            ></ActionSheet>
+             />
           </DemoBlock>
           <DemoBlock title='展示标题栏' padding>
             <Button type='primary' onClick={this.toggleActionSheet5}>
@@ -146,7 +146,7 @@ export default class Index extends Component {
               onClose={this.toggleActionSheet6}
               actions={action6}
               onGetuserinfo={this.onGetUserInfo}
-            ></ActionSheet>
+             />
           </DemoBlock>
         </>
       </DemoPage>

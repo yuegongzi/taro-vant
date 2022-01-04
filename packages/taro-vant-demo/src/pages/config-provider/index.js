@@ -7,7 +7,7 @@ import {
   Field,
   CellGroup,
   Button,
-} from 'packages/taro-vant'
+} from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -41,15 +41,15 @@ export default class Index extends Component {
   render() {
     const { rate, slider, themeVars } = this.state
     return (
-      <DemoPage title="ConfigProvider 全局配置">
+      <DemoPage title='ConfigProvider 全局配置'>
         <>
-          <DemoBlock title="默认主题">
+          <DemoBlock title='默认主题'>
             <CellGroup>
               <Field
-                label="评分"
+                label='评分'
                 renderInput={
                   <>
-                    <View style="width: 100%">
+                    <View style='width: 100%'>
                       <Rate
                         value={rate}
                         onChange={(e) => {
@@ -63,17 +63,17 @@ export default class Index extends Component {
                             },
                           })
                         }}
-                      ></Rate>
+                       />
                     </View>
                   </>
                 }
-              ></Field>
+               />
               <Field
-                label="滑块"
+                label='滑块'
                 border={false}
                 renderInput={
                   <>
-                    <View style="width: 100%">
+                    <View style='width: 100%'>
                       <Slider
                         value={slider}
                         onChange={(e) => {
@@ -87,26 +87,26 @@ export default class Index extends Component {
                             },
                           })
                         }}
-                      ></Slider>
+                       />
                     </View>
                   </>
                 }
-              ></Field>
+               />
             </CellGroup>
-            <View style="margin: 16px">
-              <Button round block type="primary">
+            <View style='margin: 16px'>
+              <Button round block type='primary'>
                 提交
               </Button>
             </View>
           </DemoBlock>
-          <DemoBlock title="定制主题">
+          <DemoBlock title='定制主题'>
             <ConfigProvider themeVars={themeVars}>
               <CellGroup>
                 <Field
-                  label="评分"
+                  label='评分'
                   renderInput={
                     <>
-                      <View style="width: 100%">
+                      <View style='width: 100%'>
                         <Rate
                           value={rate}
                           onChange={(e) => {
@@ -120,17 +120,17 @@ export default class Index extends Component {
                               },
                             })
                           }}
-                        ></Rate>
+                         />
                       </View>
                     </>
                   }
-                ></Field>
+                 />
                 <Field
-                  label="滑块"
+                  label='滑块'
                   border={false}
                   renderInput={
                     <>
-                      <View style="width: 100%">
+                      <View style='width: 100%'>
                         <Slider
                           value={slider}
                           onChange={(e) => {
@@ -144,14 +144,14 @@ export default class Index extends Component {
                               },
                             })
                           }}
-                        ></Slider>
+                         />
                       </View>
                     </>
                   }
-                ></Field>
+                 />
               </CellGroup>
-              <View style="margin: 16px">
-                <Button round block type="primary">
+              <View style='margin: 16px'>
+                <Button round block type='primary'>
                   提交
                 </Button>
               </View>

@@ -10,7 +10,7 @@ import {
   Button,
   Tag,
   Image,
-} from 'packages/taro-vant'
+} from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 // import DemoBlock from '../../components/demo-block/index'
@@ -39,7 +39,7 @@ const mockRequest = async (_startIndex, isRefresh, name) => {
     list.push(
       <View>
         <Text style={{ marginRight: '20px' }}> {name}</Text>
-        <Tag type="success">{`index:${startIndex + i}`}</Tag>
+        <Tag type='success'>{`index:${startIndex + i}`}</Tag>
       </View>,
     )
   }
@@ -85,7 +85,7 @@ export default class Index extends Component {
       '基础用法',
     )
     this.setState({
-      basicsList: [...this.state.basicsList, ...append],
+      basicsList: [ ...this.state.basicsList, ...append ],
       basicsFinished: append.length === 0,
     })
   }
@@ -122,7 +122,7 @@ export default class Index extends Component {
       this.error = false
     }
     this.setState({
-      errorList: [...this.state.errorList, ...append],
+      errorList: [ ...this.state.errorList, ...append ],
     })
   }
 
@@ -175,7 +175,7 @@ export default class Index extends Component {
     }
 
     this.setState({
-      searchList: [...this.state.searchList, ...append],
+      searchList: [ ...this.state.searchList, ...append ],
       searchFinished: append.length === 0,
     })
   }
@@ -190,13 +190,13 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="PowerScrollView 滚动列表">
+      <DemoPage title='PowerScrollView 滚动列表'>
         <Tabs animated>
-          <Tab title="基础用法" key="basics">
+          <Tab title='基础用法' key='basics'>
             <PowerScrollView
-              finishedText="没有更多了"
+              finishedText='没有更多了'
               className={`${this.isMin ? 'min-' : ''}pull-basics`}
-              successText="刷新成功"
+              successText='刷新成功'
               successDuration={1500}
               onScrollToUpper={this.basicsDoRefresh}
               onScrollToLower={this.basicsLoadMore}
@@ -208,22 +208,22 @@ export default class Index extends Component {
               ))}
             </PowerScrollView>
           </Tab>
-          <Tab title="错误提示" key="error">
+          <Tab title='错误提示' key='error'>
             <PowerScrollView
               className={`${this.isMin ? 'min-' : ''}pull-error`}
-              errorText="请求失败，点击重新加载"
-              finishedText="没有更多了"
+              errorText='请求失败，点击重新加载'
+              finishedText='没有更多了'
               onScrollToUpper={this.errorDoRefresh}
               onScrollToLower={this.errorLoadMore}
               lowerThreshold={300}
-              headHeight="80"
+              headHeight='80'
               total={TOTAL}
               renderHead={({ status, distance }) => {
                 if (status === 'pulling') {
                   return (
                     <Image
-                      className="doge"
-                      src="https://img01.yzcdn.cn/vant/doge.png"
+                      className='doge'
+                      src='https://img01.yzcdn.cn/vant/doge.png'
                       style={{ transform: `scale(${distance / 80})` }}
                     />
                   )
@@ -231,16 +231,16 @@ export default class Index extends Component {
                 if (status === 'loosing') {
                   return (
                     <Image
-                      className="doge"
-                      src="https://img01.yzcdn.cn/vant/doge.png"
+                      className='doge'
+                      src='https://img01.yzcdn.cn/vant/doge.png'
                     />
                   )
                 }
                 if (status === 'loading') {
                   return (
                     <Image
-                      className="doge"
-                      src="https://img01.yzcdn.cn/vant/doge-fire.jpg"
+                      className='doge'
+                      src='https://img01.yzcdn.cn/vant/doge-fire.jpg'
                     />
                   )
                 }
@@ -251,16 +251,16 @@ export default class Index extends Component {
               ))}
             </PowerScrollView>
           </Tab>
-          <Tab title="配合搜索使用" key="search">
-            <View className="header">
-              <View className="left">
+          <Tab title='配合搜索使用' key='search'>
+            <View className='header'>
+              <View className='left'>
                 <Search
                   defaultValue={this.state.searchValue}
                   onChange={this.handleChange}
                 />
               </View>
-              <View className="right">
-                <Button size="small" type="primary" onClick={this.doSearch}>
+              <View className='right'>
+                <Button size='small' type='primary' onClick={this.doSearch}>
                   搜索
                 </Button>
               </View>
@@ -271,18 +271,18 @@ export default class Index extends Component {
                 this.state.searchList.length > 0 ? (
                   <PowerScrollView
                     className={`${this.isMin ? 'min-' : ''}pull-search`}
-                    successText="刷新成功"
-                    finishedText="--- 我是有底线的 ---"
+                    successText='刷新成功'
+                    finishedText='--- 我是有底线的 ---'
                     onScrollToUpper={this.searchDoRefresh}
                     onScrollToLower={this.searchLoadMore}
                     lowerThreshold={300}
-                    headHeight="80"
+                    headHeight='80'
                     finished={this.state.searchFinished}
                     renderHead={({ distance, status }) => {
                       return (
                         <Image
-                          className="doge"
-                          src="https://img-blog.csdnimg.cn/20210515142150468.gif"
+                          className='doge'
+                          src='https://img-blog.csdnimg.cn/20210515142150468.gif'
                           style={
                             status === 'pulling'
                               ? { transform: `scale(${distance / 80})` }
@@ -297,8 +297,8 @@ export default class Index extends Component {
                     ))}
                   </PowerScrollView>
                 ) : (
-                  <View className="placeholder">
-                    <View className="loadingWrapper">
+                  <View className='placeholder'>
+                    <View className='loadingWrapper'>
                       <Loading />
                     </View>
                     正在拼命加载数据

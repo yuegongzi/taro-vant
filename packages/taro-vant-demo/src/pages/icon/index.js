@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Tabs, Tab, Icon, Col } from 'packages/taro-vant'
+import { Tabs, Tab, Icon, Col } from 'taro-vant'
 
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
@@ -29,91 +29,91 @@ export default class Index extends Component {
   render() {
     const { active, demoIcon, demoImage, icons } = this.state
     return (
-      <DemoPage title="Icon 图标">
-        <Tabs active={active} color="#1989fa" onChange={this.onSwitch}>
-          <Tab title="用法示例" className="demo-tab-pane">
-            <DemoBlock title="基础用法">
-              <Col className="col" span="6">
-                <Icon name={demoIcon} size="32px" className="icon"></Icon>
+      <DemoPage title='Icon 图标'>
+        <Tabs active={active} color='#1989fa' onChange={this.onSwitch}>
+          <Tab title='用法示例' className='demo-tab-pane'>
+            <DemoBlock title='基础用法'>
+              <Col className='col' span='6'>
+                <Icon name={demoIcon} size='32px' className='icon' />
               </Col>
-              <Col className="col" span="6">
-                <Icon name={demoImage} size="32px" className="icon"></Icon>
-              </Col>
-            </DemoBlock>
-            <DemoBlock title="提示信息">
-              <Col className="col" span="6">
-                <Icon name={demoIcon} size="32px" className="icon" dot></Icon>
-              </Col>
-              <Col className="col" span="6">
-                <Icon
-                  name={demoIcon}
-                  size="32px"
-                  className="icon"
-                  info="9"
-                ></Icon>
-              </Col>
-              <Col className="col" span="6">
-                <Icon
-                  name={demoIcon}
-                  size="32px"
-                  className="icon"
-                  info="99+"
-                ></Icon>
+              <Col className='col' span='6'>
+                <Icon name={demoImage} size='32px' className='icon' />
               </Col>
             </DemoBlock>
-            <DemoBlock title="图标颜色">
-              <Col className="col" span="6">
-                <Icon
-                  name={demoIcon}
-                  size="32px"
-                  className="icon"
-                  color="#1989fa"
-                ></Icon>
+            <DemoBlock title='提示信息'>
+              <Col className='col' span='6'>
+                <Icon name={demoIcon} size='32px' className='icon' dot />
               </Col>
-              <Col className="col" span="6">
+              <Col className='col' span='6'>
                 <Icon
                   name={demoIcon}
-                  size="32px"
-                  className="icon"
-                  color="#07c160"
-                ></Icon>
+                  size='32px'
+                  className='icon'
+                  info='9'
+                 />
+              </Col>
+              <Col className='col' span='6'>
+                <Icon
+                  name={demoIcon}
+                  size='32px'
+                  className='icon'
+                  info='99+'
+                 />
               </Col>
             </DemoBlock>
-            <DemoBlock title="图标大小">
-              <Col className="col" span="6">
-                <Icon name={demoIcon} size="40" className="icon"></Icon>
+            <DemoBlock title='图标颜色'>
+              <Col className='col' span='6'>
+                <Icon
+                  name={demoIcon}
+                  size='32px'
+                  className='icon'
+                  color='#1989fa'
+                 />
               </Col>
-              <Col className="col" span="6">
-                <Icon name={demoIcon} size="3rem" className="icon"></Icon>
+              <Col className='col' span='6'>
+                <Icon
+                  name={demoIcon}
+                  size='32px'
+                  className='icon'
+                  color='#07c160'
+                 />
+              </Col>
+            </DemoBlock>
+            <DemoBlock title='图标大小'>
+              <Col className='col' span='6'>
+                <Icon name={demoIcon} size='40' className='icon' />
+              </Col>
+              <Col className='col' span='6'>
+                <Icon name={demoIcon} size='3rem' className='icon' />
               </Col>
             </DemoBlock>
           </Tab>
-          <Tab title="基础图标" className="demo-tab-pane">
+          <Tab title='基础图标' className='demo-tab-pane'>
             {icons.basic.map((item) => {
               return (
-                <Col key={item.index} className="col" span="6">
-                  <Icon name={item} size="32px" className="icon"></Icon>
-                  <View className="text">{item}</View>
+                <Col key={item.index} className='col' span='6'>
+                  <Icon name={item} size='32px' className='icon' />
+                  <View className='text'>{item}</View>
                 </Col>
               )
             })}
           </Tab>
-          <Tab title="线框风格" className="demo-tab-pane">
+          <Tab title='线框风格' className='demo-tab-pane'>
             {icons.outline.map((item) => {
               return (
-                <Col key={item.index} className="col" span="6">
-                  <Icon name={item} size="32px" className="icon"></Icon>
-                  <View className="text">{item}</View>
+                <Col key={item.index} className='col' span='6'>
+                  <Icon name={item} size='32px' className='icon' />
+                  <View className='text'>{item}</View>
                 </Col>
               )
             })}
           </Tab>
-          <Tab title="实底风格" className="demo-tab-pane">
+          <Tab title='实底风格' className='demo-tab-pane'>
             {icons.filled.map((item) => {
               return (
-                <Col key={item.index} className="col" span="6">
-                  <Icon name={item} size="32px" className="icon"></Icon>
-                  <View className="text">{item}</View>
+                <Col key={item.index} className='col' span='6'>
+                  <Icon name={item} size='32px' className='icon' />
+                  <View className='text'>{item}</View>
                 </Col>
               )
             })}

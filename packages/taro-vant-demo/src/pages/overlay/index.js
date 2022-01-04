@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Overlay, Button } from 'packages/taro-vant'
+import { Overlay, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -37,21 +37,21 @@ export default class Index extends Component {
   render() {
     const { show, showEmbedded } = this.state
     return (
-      <DemoPage title="Overlay 遮罩层">
+      <DemoPage title='Overlay 遮罩层'>
         <>
-          <DemoBlock title="基础用法" padding>
-            <Button type="primary" onClick={this.onClickShow}>
+          <DemoBlock title='基础用法' padding>
+            <Button type='primary' onClick={this.onClickShow}>
               显示遮罩层
             </Button>
-            <Overlay show={show} onClick={this.onClickHide}></Overlay>
+            <Overlay show={show} onClick={this.onClickHide} />
           </DemoBlock>
-          <DemoBlock title="嵌入内容" padding>
-            <Button type="primary" onClick={this.onClickShowEmbedded}>
+          <DemoBlock title='嵌入内容' padding>
+            <Button type='primary' onClick={this.onClickShowEmbedded}>
               嵌入内容
             </Button>
             <Overlay show={showEmbedded} onClick={this.onClickHideEmbedded}>
-              <View className="wrapper">
-                <View className="block" onClick={this.noop}></View>
+              <View className='wrapper'>
+                <View className='block' onClick={this.noop} />
               </View>
             </Overlay>
           </DemoBlock>

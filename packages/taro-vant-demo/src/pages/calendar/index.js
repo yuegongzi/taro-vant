@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Calendar, Cell } from 'packages/taro-vant'
+import { Calendar, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -189,12 +189,12 @@ export default class Index extends Component {
       confirmDisabledText,
     } = this.state
     return (
-      <DemoPage title="Calendar 日历">
+      <DemoPage title='Calendar 日历'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <Cell
               isLink
-              title="选择单个日期"
+              title='选择单个日期'
               value={computed.formatFullDate(date.selectSingle)}
               onClick={(e) => {
                 this.show({
@@ -207,10 +207,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="选择多个日期"
+              title='选择多个日期'
               value={computed.formatMultiple(date.selectMultiple)}
               onClick={(e) => {
                 this.show({
@@ -223,10 +223,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="选择日期区间"
+              title='选择日期区间'
               value={computed.formatRange(date.selectRange)}
               onClick={(e) => {
                 this.show({
@@ -239,12 +239,12 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
           </DemoBlock>
-          <DemoBlock title="快捷选择">
+          <DemoBlock title='快捷选择'>
             <Cell
               isLink
-              title="选择单个日期"
+              title='选择单个日期'
               value={computed.formatFullDate(date.quickSelect1)}
               onClick={(e) => {
                 this.show({
@@ -257,10 +257,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="选择日期区间"
+              title='选择日期区间'
               value={computed.formatRange(date.quickSelect2)}
               onClick={(e) => {
                 this.show({
@@ -273,12 +273,12 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
           </DemoBlock>
-          <DemoBlock title="自定义日历">
+          <DemoBlock title='自定义日历'>
             <Cell
               isLink
-              title="自定义颜色"
+              title='自定义颜色'
               value={computed.formatRange(date.customColor)}
               onClick={(e) => {
                 this.show({
@@ -291,10 +291,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="自定义日期范围"
+              title='自定义日期范围'
               value={computed.formatFullDate(date.customRange)}
               onClick={(e) => {
                 this.show({
@@ -307,10 +307,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="自定义按钮文字"
+              title='自定义按钮文字'
               value={computed.formatRange(date.customConfirm)}
               onClick={(e) => {
                 this.show({
@@ -323,10 +323,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="自定义日期文案"
+              title='自定义日期文案'
               value={computed.formatRange(date.customDayText)}
               onClick={(e) => {
                 this.show({
@@ -339,10 +339,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="自定义弹出位置"
+              title='自定义弹出位置'
               value={computed.formatFullDate(date.customPosition)}
               onClick={(e) => {
                 this.show({
@@ -355,10 +355,10 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <Cell
               isLink
-              title="日期区间最大范围"
+              title='日期区间最大范围'
               value={computed.formatRange(date.maxRange)}
               onClick={(e) => {
                 this.show({
@@ -371,18 +371,18 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
           </DemoBlock>
-          <DemoBlock title="平铺展示">
+          <DemoBlock title='平铺展示'>
             <Calendar
-              title="日历"
+              title='日历'
               poppable={false}
               showConfirm={false}
               minDate={tiledMinDate}
               maxDate={tiledMaxDate}
               firstDayOfWeek={firstDayOfWeek}
-              className="tiled-calendar"
-            ></Calendar>
+              className='tiled-calendar'
+             />
           </DemoBlock>
           <Calendar
             show={showCalendar}
@@ -405,7 +405,7 @@ export default class Index extends Component {
             onOpened={this.onOpened}
             onClose={this.onClose}
             onClosed={this.onClosed}
-          ></Calendar>
+           />
         </>
       </DemoPage>
     )

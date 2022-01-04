@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Search } from 'packages/taro-vant'
+import { Search } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -56,53 +56,53 @@ export default class Index extends Component {
   render() {
     const { value } = this.state
     return (
-      <DemoPage title="Search 搜索">
+      <DemoPage title='Search 搜索'>
         <>
-          <DemoBlock title="基本用法">
+          <DemoBlock title='基本用法'>
             <Search
               defaultValue={value}
-              placeholder="请输入搜索关键词"
+              placeholder='请输入搜索关键词'
               onSearch={this.onSearch}
-            ></Search>
+             />
           </DemoBlock>
-          <DemoBlock title="事件监听">
+          <DemoBlock title='事件监听'>
             <Search
               defaultValue={value}
               showAction
-              placeholder="请输入搜索关键词"
+              placeholder='请输入搜索关键词'
               onSearch={this.onSearch}
               onCancel={this.onCancel}
               onClear={this.onClear}
-            ></Search>
+             />
           </DemoBlock>
-          <DemoBlock title="搜索框内容对齐">
+          <DemoBlock title='搜索框内容对齐'>
             <Search
               defaultValue={value}
-              inputAlign="center"
-              placeholder="请输入搜索关键词"
-            ></Search>
+              inputAlign='center'
+              placeholder='请输入搜索关键词'
+             />
           </DemoBlock>
-          <DemoBlock title="禁用搜索框">
+          <DemoBlock title='禁用搜索框'>
             <Search
               disabled
               defaultValue={value}
-              placeholder="请输入搜索关键词"
-            ></Search>
+              placeholder='请输入搜索关键词'
+             />
           </DemoBlock>
-          <DemoBlock title="自定义背景色">
+          <DemoBlock title='自定义背景色'>
             <Search
               defaultValue={value}
-              shape="round"
-              background="#4fc08d"
-              placeholder="请输入搜索关键词"
-            ></Search>
+              shape='round'
+              background='#4fc08d'
+              placeholder='请输入搜索关键词'
+             />
           </DemoBlock>
-          <DemoBlock title="自定义按钮">
+          <DemoBlock title='自定义按钮'>
             <Search
               value={value}
-              label="地址"
-              shape="round"
-              placeholder="请输入搜索关键词"
+              label='地址'
+              shape='round'
+              placeholder='请输入搜索关键词'
               onSearch={this.onSearch}
               onChange={this.onChange}
               renderAction={
@@ -110,7 +110,7 @@ export default class Index extends Component {
                   <View onClick={this.onClick}>搜索</View>
                 </>
               }
-            ></Search>
+             />
           </DemoBlock>
         </>
       </DemoPage>

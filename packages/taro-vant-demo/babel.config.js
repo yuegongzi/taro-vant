@@ -61,12 +61,12 @@ module.exports = {
     [
       'import',
       {
-        libraryName: '@antmjs/vantui',
+        libraryName: 'taro-vant',
         libraryDirectory: 'es',
         style: (name) => `${name}/style/less`,
         // style: true,
       },
-      '@antmjs/vantui',
+      'taro-vant',
     ],
   ],
 }

@@ -1,20 +1,20 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const npath = require('path')
 const apis = require('@tarojs/taro-h5/dist/taroApis')
-module.exports = function (chain) {
+module.exports = function(chain) {
   // 内部exclude = [filename => /node_modules/.test(filename) && !(/taro/.test(filename))];
   // taro编译由下面compile-node-modules来处理
-  chain.module
-    .rule('script')
-    .exclude.clear()
-    .add((filename) => /node_modules/.test(filename))
+  chain.module.
+    rule('script').
+    exclude.clear().
+    add((filename) => /node_modules/.test(filename))
   // node_modules需要二次编译的在这里处理，taro相关的包不能加载polyfill
-  chain.module
-    .rule('compile-node-modules')
-    .test(/node_modules\/@tarojs(.+?)\.[tj]sx?$/i)
-    .use('taro-loader')
-    .loader(npath.join(process.cwd(), 'node_modules/babel-loader/lib/index.js'))
-    .options({
+  chain.module.
+    rule('compile-node-modules').
+    test(/node_modules\/@tarojs(.+?)\.[tj]sx?$/i).
+    use('taro-loader').
+    loader(npath.join(process.cwd(), 'node_modules/babel-loader/lib/index.js')).
+    options({
       presets: [
         [
           '@antmjs/babel-preset',
@@ -60,7 +60,7 @@ module.exports = function (chain) {
               regenerator: true, // 使用到@babel/runtime
               useESModules: false,
             },
-            exclude: [/@babel[/|\\\\]runtime/, /core-js/],
+            exclude: [ /@babel[/|\\\\]runtime/, /core-js/ ],
           },
         ],
       ],

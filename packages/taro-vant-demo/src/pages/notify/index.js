@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Notify, Button } from 'packages/taro-vant'
+import { Notify, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -49,18 +49,18 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="Notify 消息通知">
+      <DemoPage title='Notify 消息通知'>
         <>
-          <DemoBlock padding title="基础用法">
-            <Button type="danger" onClick={this.showNotify}>
+          <DemoBlock padding title='基础用法'>
+            <Button type='danger' onClick={this.showNotify}>
               基础用法
             </Button>
           </DemoBlock>
-          <DemoBlock padding title="通知类型">
-            <View className="demo-margin-bottom">
+          <DemoBlock padding title='通知类型'>
+            <View className='demo-margin-bottom'>
               <Button
-                className="demo-margin-right"
-                type="info"
+                className='demo-margin-right'
+                type='info'
                 onClick={(e) => {
                   this.showNotifyByType({
                     detail: e.detail,
@@ -76,8 +76,8 @@ export default class Index extends Component {
                 主要通知
               </Button>
               <Button
-                className="demo-margin-right"
-                type="primary"
+                className='demo-margin-right'
+                type='primary'
                 onClick={(e) => {
                   this.showNotifyByType({
                     detail: e.detail,
@@ -93,10 +93,10 @@ export default class Index extends Component {
                 成功通知
               </Button>
             </View>
-            <View className="demo-margin-bottom">
+            <View className='demo-margin-bottom'>
               <Button
-                className="demo-margin-right"
-                type="danger"
+                className='demo-margin-right'
+                type='danger'
                 onClick={(e) => {
                   this.showNotifyByType({
                     detail: e.detail,
@@ -112,7 +112,7 @@ export default class Index extends Component {
                 危险通知
               </Button>
               <Button
-                type="warning"
+                type='warning'
                 onClick={(e) => {
                   this.showNotifyByType({
                     detail: e.detail,
@@ -129,28 +129,28 @@ export default class Index extends Component {
               </Button>
             </View>
           </DemoBlock>
-          <DemoBlock padding title="自定义通知">
+          <DemoBlock padding title='自定义通知'>
             <Button
-              type="primary"
-              className="demo-margin-right"
+              type='primary'
+              className='demo-margin-right'
               onClick={this.showCustomColor}
             >
               自定义颜色
             </Button>
-            <Button type="primary" onClick={this.showCustomDuration}>
+            <Button type='primary' onClick={this.showCustomDuration}>
               自定义时长
             </Button>
           </DemoBlock>
-          <DemoBlock padding title="插入状态栏高度">
+          <DemoBlock padding title='插入状态栏高度'>
             <Button
-              type="primary"
-              className="demo-margin-right"
+              type='primary'
+              className='demo-margin-right'
               onClick={this.showSafe}
             >
               插入状态栏高度
             </Button>
           </DemoBlock>
-          <Notify id="van-notify"></Notify>
+          <Notify id='van-notify' />
         </>
       </DemoPage>
     )

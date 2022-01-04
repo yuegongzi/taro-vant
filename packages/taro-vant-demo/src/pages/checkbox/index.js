@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Image, CheckboxGroup, Checkbox, CellGroup, Cell } from 'packages/taro-vant'
+import { Image, CheckboxGroup, Checkbox, CellGroup, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -18,8 +18,8 @@ export default class Index extends Component {
     checkboxLabel: true,
     checkboxSize: true,
     checkboxShape: true,
-    list: ['a', 'b', 'c'],
-    result: ['a', 'b'],
+    list: [ 'a', 'b', 'c' ],
+    result: [ 'a', 'b' ],
     result2: [],
     result3: [],
     result4: [],
@@ -60,12 +60,12 @@ export default class Index extends Component {
       result3,
     } = this.state
     return (
-      <DemoPage title="Checkbox 复选框">
+      <DemoPage title='Checkbox 复选框'>
         <>
-          <DemoBlock title="基本用法">
+          <DemoBlock title='基本用法'>
             <Checkbox
               value={checkbox1}
-              className="demo-checkbox"
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -81,19 +81,19 @@ export default class Index extends Component {
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="禁用状态">
-            <Checkbox disabled value={false} className="demo-checkbox">
+          <DemoBlock title='禁用状态'>
+            <Checkbox disabled value={false} className='demo-checkbox'>
               复选框
             </Checkbox>
-            <Checkbox disabled value={true} className="demo-checkbox">
+            <Checkbox disabled value={true} className='demo-checkbox'>
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="自定义形状">
+          <DemoBlock title='自定义形状'>
             <Checkbox
               value={checkboxShape}
-              shape="square"
-              className="demo-checkbox"
+              shape='square'
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -109,11 +109,11 @@ export default class Index extends Component {
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="自定义颜色">
+          <DemoBlock title='自定义颜色'>
             <Checkbox
               value={checkbox2}
-              checkedColor="#07c160"
-              className="demo-checkbox"
+              checkedColor='#07c160'
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -129,11 +129,11 @@ export default class Index extends Component {
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="自定义大小">
+          <DemoBlock title='自定义大小'>
             <Checkbox
-              iconSize="25px"
+              iconSize='25px'
               value={checkboxSize}
-              className="demo-checkbox"
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -149,10 +149,10 @@ export default class Index extends Component {
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="自定义图标">
+          <DemoBlock title='自定义图标'>
             <Checkbox
               value={checkbox3}
-              className="demo-checkbox"
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -167,21 +167,21 @@ export default class Index extends Component {
               renderIcon={
                 <>
                   <Image
-                    className="icon"
-                    mode="widthFix"
+                    className='icon'
+                    mode='widthFix'
                     src={checkbox3 ? activeIcon : inactiveIcon}
-                  ></Image>
+                   />
                 </>
               }
             >
               自定义图标
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="禁用文本点击">
+          <DemoBlock title='禁用文本点击'>
             <Checkbox
               labelDisabled
               value={checkboxLabel}
-              className="demo-checkbox"
+              className='demo-checkbox'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -197,7 +197,7 @@ export default class Index extends Component {
               复选框
             </Checkbox>
           </DemoBlock>
-          <DemoBlock title="复选框组">
+          <DemoBlock title='复选框组'>
             <CheckboxGroup
               value={result}
               onChange={(e) => {
@@ -214,16 +214,16 @@ export default class Index extends Component {
             >
               {list.map((item) => {
                 return (
-                  <Checkbox key={item} name={item} className="demo-checkbox">
+                  <Checkbox key={item} name={item} className='demo-checkbox'>
                     {'复选框 ' + item}
                   </Checkbox>
                 )
               })}
             </CheckboxGroup>
           </DemoBlock>
-          <DemoBlock title="水平排列">
+          <DemoBlock title='水平排列'>
             <CheckboxGroup
-              direction="horizontal"
+              direction='horizontal'
               value={result4}
               onChange={(e) => {
                 this.onChange({
@@ -239,17 +239,17 @@ export default class Index extends Component {
             >
               {list.map((item) => {
                 return (
-                  <Checkbox key={item} name={item} className="demo-checkbox">
+                  <Checkbox key={item} name={item} className='demo-checkbox'>
                     {'复选框 ' + item}
                   </Checkbox>
                 )
               })}
             </CheckboxGroup>
           </DemoBlock>
-          <DemoBlock title="限制最大可选数">
+          <DemoBlock title='限制最大可选数'>
             <CheckboxGroup
               value={result2}
-              max="2"
+              max='2'
               onChange={(e) => {
                 this.onChange({
                   detail: e.detail,
@@ -264,14 +264,14 @@ export default class Index extends Component {
             >
               {list.map((item) => {
                 return (
-                  <Checkbox key={item} name={item} className="demo-checkbox">
+                  <Checkbox key={item} name={item} className='demo-checkbox'>
                     {'复选框 ' + item}
                   </Checkbox>
                 )
               })}
             </CheckboxGroup>
           </DemoBlock>
-          <DemoBlock title="搭配单元格组件使用">
+          <DemoBlock title='搭配单元格组件使用'>
             <CheckboxGroup value={result3}>
               <CellGroup>
                 {list.map((item, index) => {
@@ -279,10 +279,10 @@ export default class Index extends Component {
                     <Cell
                       key={item}
                       title={'复选框 ' + item}
-                      valueClass="value-class"
+                      valueClass='value-class'
                       clickable
                       data-index={index}
-                      data-name="result3"
+                      data-name='result3'
                       onClick={(e) => {
                         this.toggle({
                           detail: e.detail,

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { GridItem, Grid, SidebarItem, Sidebar, Notify } from 'packages/taro-vant'
+import { GridItem, Grid, SidebarItem, Sidebar, Notify } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import './index.scss'
@@ -19,47 +19,47 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="Sidebar 侧边导航">
+      <DemoPage title='Sidebar 侧边导航'>
         <>
           <Grid columnNum={2} border={false}>
             <GridItem>
-              <h3 className="demo-sidebar-title">基础用法</h3>
-              <Sidebar className="custom-sidebar" activeKey={0}>
-                <SidebarItem title="标签名"></SidebarItem>
-                <SidebarItem title="标签名"></SidebarItem>
-                <SidebarItem title="标签名"></SidebarItem>
+              <h3 className='demo-sidebar-title'>基础用法</h3>
+              <Sidebar className='custom-sidebar' activeKey={0}>
+                <SidebarItem title='标签名' />
+                <SidebarItem title='标签名' />
+                <SidebarItem title='标签名' />
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className="demo-sidebar-title">徽标提示</h3>
-              <Sidebar className="custom-sidebar" activeKey={0}>
-                <SidebarItem title="标签名" dot></SidebarItem>
-                <SidebarItem title="标签名" badge="5"></SidebarItem>
-                <SidebarItem title="标签名" badge="99+"></SidebarItem>
+              <h3 className='demo-sidebar-title'>徽标提示</h3>
+              <Sidebar className='custom-sidebar' activeKey={0}>
+                <SidebarItem title='标签名' dot />
+                <SidebarItem title='标签名' badge='5' />
+                <SidebarItem title='标签名' badge='99+' />
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className="demo-sidebar-title">禁用选项</h3>
-              <Sidebar className="custom-sidebar" activeKey={0}>
-                <SidebarItem title="标签名"></SidebarItem>
-                <SidebarItem title="标签名" disabled></SidebarItem>
-                <SidebarItem title="标签名"></SidebarItem>
+              <h3 className='demo-sidebar-title'>禁用选项</h3>
+              <Sidebar className='custom-sidebar' activeKey={0}>
+                <SidebarItem title='标签名' />
+                <SidebarItem title='标签名' disabled />
+                <SidebarItem title='标签名' />
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className="demo-sidebar-title">监听切换事件</h3>
+              <h3 className='demo-sidebar-title'>监听切换事件</h3>
               <Sidebar
-                className="custom-sidebar"
+                className='custom-sidebar'
                 onChange={this.onChange}
                 activeKey={0}
               >
-                <SidebarItem title="标签名 1"></SidebarItem>
-                <SidebarItem title="标签名 2"></SidebarItem>
-                <SidebarItem title="标签名 3"></SidebarItem>
+                <SidebarItem title='标签名 1' />
+                <SidebarItem title='标签名 2' />
+                <SidebarItem title='标签名 3' />
               </Sidebar>
             </GridItem>
           </Grid>
-          <Notify id="van-notify"></Notify>
+          <Notify id='van-notify' />
         </>
       </DemoPage>
     )

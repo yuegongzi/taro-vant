@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Rate, Toast } from 'packages/taro-vant'
+import { Rate, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -32,67 +32,67 @@ export default class Index extends Component {
     const { value1, value2, value3, value4, value5, value6, value8 } =
       this.state
     return (
-      <DemoPage title="Rate 评分">
+      <DemoPage title='Rate 评分'>
         <>
-          <DemoBlock title="基础用法">
-            <Rate className="rate-position" defaultValue={value1}></Rate>
+          <DemoBlock title='基础用法'>
+            <Rate className='rate-position' defaultValue={value1} />
           </DemoBlock>
-          <DemoBlock title="自定义图标">
+          <DemoBlock title='自定义图标'>
             <Rate
-              className="rate-position"
-              icon="like"
-              voidIcon="like-o"
+              className='rate-position'
+              icon='like'
+              voidIcon='like-o'
               defaultValue={value2}
-            ></Rate>
+             />
           </DemoBlock>
-          <DemoBlock title="自定义样式">
+          <DemoBlock title='自定义样式'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               defaultValue={value3}
               size={25}
-              color="#ffd21e"
-              voidIcon="star"
-              voidColor="#eee"
-            ></Rate>
+              color='#ffd21e'
+              voidIcon='star'
+              voidColor='#eee'
+             />
           </DemoBlock>
-          <DemoBlock title="半星">
+          <DemoBlock title='半星'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               defaultValue={value4}
               allowHalf
-              voidIcon="star"
-              voidColor="#eee"
-            ></Rate>
+              voidIcon='star'
+              voidColor='#eee'
+             />
           </DemoBlock>
-          <DemoBlock title="自定义数量">
+          <DemoBlock title='自定义数量'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               defaultValue={value5}
               count={6}
-            ></Rate>
+             />
           </DemoBlock>
-          <DemoBlock title="禁用状态">
+          <DemoBlock title='禁用状态'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               defaultValue={value6}
               disabled
-            ></Rate>
+             />
           </DemoBlock>
-          <DemoBlock title="只读状态">
+          <DemoBlock title='只读状态'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               defaultValue={value6}
               readonly
-            ></Rate>
+             />
           </DemoBlock>
-          <DemoBlock title="监听 change 事件">
+          <DemoBlock title='监听 change 事件'>
             <Rate
-              className="rate-position"
+              className='rate-position'
               value={value8}
               onChange={this.onChange}
-            ></Rate>
+             />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

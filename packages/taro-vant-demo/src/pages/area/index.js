@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Toast, Area } from 'packages/taro-vant'
+import { Toast, Area } from 'taro-vant'
 
 import { areaList } from '@vant/area-data'
 import DemoPage from '../../components/demo-page/index'
@@ -35,9 +35,9 @@ export default class Index extends Component {
   render() {
     const { value, loading, areaList } = this.state
     return (
-      <DemoPage title="Area 省市区选择">
+      <DemoPage title='Area 省市区选择'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <Area
               value={value}
               loading={loading}
@@ -45,39 +45,39 @@ export default class Index extends Component {
               onChange={this.onChange}
               onConfirm={this.onConfirm}
               onCancel={this.onCancel}
-            ></Area>
+             />
           </DemoBlock>
-          <DemoBlock title="选中省市县">
+          <DemoBlock title='选中省市县'>
             <Area
               value={value}
               loading={loading}
               areaList={areaList}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-            ></Area>
+             />
           </DemoBlock>
-          <DemoBlock title="配置显示列">
+          <DemoBlock title='配置显示列'>
             <Area
-              title="标题"
+              title='标题'
               columnsNum={2}
               loading={loading}
               areaList={areaList}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-            ></Area>
+             />
           </DemoBlock>
-          <DemoBlock title="配置列占位提示文字">
+          <DemoBlock title='配置列占位提示文字'>
             <Area
-              title="标题"
+              title='标题'
               columnsNum={2}
               loading={loading}
               areaList={areaList}
-              columnsPlaceholder={['请选择', '请选择', '请选择']}
+              columnsPlaceholder={[ '请选择', '请选择', '请选择' ]}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-            ></Area>
+             />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

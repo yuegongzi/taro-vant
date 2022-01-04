@@ -1,6 +1,6 @@
 import type { ButtonProps } from '../../types/button.d'
 import Taro from '@tarojs/taro'
-import { Button as TaroButton, Block, View } from '@tarojs/components'
+import { Block, Button as TaroButton, View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import { Icon } from '../icon/index'
 import { Loading } from '../loading/index'
@@ -52,7 +52,7 @@ export function Button(props: ButtonProps) {
         (hairline ? 'van-hairline--surround' : '') +
         ` ${className || ''}`
       }
-      hoverClass="van-button--active hover-class"
+      hoverClass='van-button--active hover-class'
       style={utils.style([
         computed.rootStyle({
           plain,
@@ -64,9 +64,9 @@ export function Button(props: ButtonProps) {
       {...others}
     >
       {loading ? (
-        <View style="display: flex">
+        <View style='display: flex'>
           <Loading
-            className="loading-class"
+            className='loading-class'
             size={loadingSize}
             type={loadingType}
             color={computed.loadingColor({
@@ -74,26 +74,27 @@ export function Button(props: ButtonProps) {
               color,
               plain,
             })}
-          ></Loading>
+          />
           {loadingText && (
-            <View className="van-button__loading-text">{loadingText}</View>
+            <View className='van-button__loading-text'>{loadingText}</View>
           )}
         </View>
       ) : (
         <Block>
           {icon && (
             <Icon
-              size="1.2em"
+              size='1.2em'
               name={icon}
               classPrefix={classPrefix}
-              className="van-button__icon"
-              style="line-height: inherit;"
-            ></Icon>
+              className='van-button__icon'
+              style='line-height: inherit;'
+            />
           )}
-          <View className="van-button__text">{children}</View>
+          <View className='van-button__text'>{children}</View>
         </Block>
       )}
     </TaroButton>
   )
 }
+
 export default Button

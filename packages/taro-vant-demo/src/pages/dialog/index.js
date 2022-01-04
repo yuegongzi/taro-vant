@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Image, Dialog, Cell } from 'packages/taro-vant'
+import { Image, Dialog, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -90,50 +90,50 @@ export default class Index extends Component {
   render() {
     const { show } = this.state
     return (
-      <DemoPage title="Dialog 弹出框">
+      <DemoPage title='Dialog 弹出框'>
         <>
-          <DemoBlock card title="提示弹窗" padding>
-            <Cell title="提示弹窗" onClick={this.onClickAlert} isLink></Cell>
+          <DemoBlock card title='提示弹窗' padding>
+            <Cell title='提示弹窗' onClick={this.onClickAlert} isLink />
             <Cell
-              title="提示弹窗（无标题）"
+              title='提示弹窗（无标题）'
               onClick={this.onClickAlert2}
               isLink
-            ></Cell>
-            <Cell title="确认弹窗" onClick={this.onClickConfirm} isLink></Cell>
+             />
+            <Cell title='确认弹窗' onClick={this.onClickConfirm} isLink />
           </DemoBlock>
-          <DemoBlock card title="圆角按钮样式" padding>
+          <DemoBlock card title='圆角按钮样式' padding>
             <Cell
-              title="提示弹窗"
+              title='提示弹窗'
               onClick={this.onClickThemeAlert}
               isLink
-            ></Cell>
+             />
             <Cell
-              title="提示弹窗（无标题）"
+              title='提示弹窗（无标题）'
               onClick={this.onClickThemeAlert2}
               isLink
-            ></Cell>
+             />
           </DemoBlock>
-          <DemoBlock card title="异步关闭" padding>
-            <Cell title="异步关闭" onClick={this.onClickAsyncClose}></Cell>
+          <DemoBlock card title='异步关闭' padding>
+            <Cell title='异步关闭' onClick={this.onClickAsyncClose} />
           </DemoBlock>
-          <DemoBlock card title="组件调用" padding>
-            <Cell title="组件调用" onClick={this.showCustomDialog}></Cell>
+          <DemoBlock card title='组件调用' padding>
+            <Cell title='组件调用' onClick={this.showCustomDialog} />
           </DemoBlock>
           <Dialog
-            title="标题"
+            title='标题'
             show={show}
             showCancelButton
             onClose={this.onClose}
-            confirmButtonOpenType="getUserInfo"
+            confirmButtonOpenType='getUserInfo'
             onGetuserinfo={this.getUserInfo}
           >
             <Image
-              className="demo-image"
-              height="240px"
-              src="https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg"
-            ></Image>
+              className='demo-image'
+              height='240px'
+              src='https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg'
+             />
           </Dialog>
-          <Dialog id="van-dialog"></Dialog>
+          <Dialog id='van-dialog' />
         </>
       </DemoPage>
     )

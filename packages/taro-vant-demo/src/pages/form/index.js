@@ -17,7 +17,7 @@ import {
   Rate,
   Stepper,
   Dialog,
-} from 'packages/taro-vant'
+} from 'taro-vant'
 import { Input, View } from '@tarojs/components'
 import { showLoading, hideLoading } from '@tarojs/taro'
 import DemoPage from '../../components/demo-page/index'
@@ -77,8 +77,8 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="Form 表单">
-        <Dialog id="vanDialog" />
+      <DemoPage title='Form 表单'>
+        <Dialog id='vanDialog' />
         <Form
           initialValues={{
             name: '我是初始值',
@@ -90,87 +90,87 @@ export default class Index extends Component {
           ref={(el) => (this.form = el)}
           onFinish={(e) => console.info(e)}
         >
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <FormItem
-              label="用户名"
-              name="userName"
+              label='用户名'
+              name='userName'
               required={true}
               rules={{
                 rule: /[\u4e00-\u9fa5]/,
                 message: '用户名仅支持中文',
               }}
-              trigger="onInput"
-              validateTrigger="onBlur"
+              trigger='onInput'
+              validateTrigger='onBlur'
               valueFormat={(e) => e.detail.value}
-              renderRight={<Icon name="user-o" />}
+              renderRight={<Icon name='user-o' />}
             >
-              <Input placeholder="请输入用户名（中文）" />
+              <Input placeholder='请输入用户名（中文）' />
             </FormItem>
 
             <FormItem
-              label="密码"
-              name="password"
+              label='密码'
+              name='password'
               required={true}
-              trigger="onInput"
-              validateTrigger="onBlur"
+              trigger='onInput'
+              validateTrigger='onBlur'
               valueFormat={(e) => e.detail.value}
-              renderRight={<Icon name="eye-o" />}
+              renderRight={<Icon name='eye-o' />}
             >
-              <Input placeholder="请输入密码" type="password" />
+              <Input placeholder='请输入密码' type='password' />
             </FormItem>
 
-            <FormItem label="是否打开" name="opened" valueKey="checked">
-              <Switch activeColor="#07c160" inactiveColor="#07c160" />
+            <FormItem label='是否打开' name='opened' valueKey='checked'>
+              <Switch activeColor='#07c160' inactiveColor='#07c160' />
             </FormItem>
 
-            <FormItem label="单选框" name="singleSelect">
-              <RadioGroup direction="horizontal">
-                <Radio name="1" checkedColor="#07c160">
+            <FormItem label='单选框' name='singleSelect'>
+              <RadioGroup direction='horizontal'>
+                <Radio name='1' checkedColor='#07c160'>
                   单选框 1
                 </Radio>
-                <Radio name="2" checkedColor="#07c160">
+                <Radio name='2' checkedColor='#07c160'>
                   单选框 2
                 </Radio>
               </RadioGroup>
             </FormItem>
 
-            <FormItem label="复选框" name="muiltSelect">
-              <CheckboxGroup direction="horizontal">
-                <Checkbox name="1" shape="square" checkedColor="#07c160">
+            <FormItem label='复选框' name='muiltSelect'>
+              <CheckboxGroup direction='horizontal'>
+                <Checkbox name='1' shape='square' checkedColor='#07c160'>
                   复选框 1
                 </Checkbox>
-                <Checkbox name="2" shape="square" checkedColor="#07c160">
+                <Checkbox name='2' shape='square' checkedColor='#07c160'>
                   复选框 2
                 </Checkbox>
               </CheckboxGroup>
             </FormItem>
 
-            <FormItem label="滑块选择" name="slider">
+            <FormItem label='滑块选择' name='slider'>
               <Slider
-                activeColor="#07c160"
+                activeColor='#07c160'
                 style={{ width: '200px', marginTop: '10px' }}
               />
             </FormItem>
 
-            <FormItem label="评分" name="rate">
-              <Rate activeColor="#07c160" />
+            <FormItem label='评分' name='rate'>
+              <Rate activeColor='#07c160' />
             </FormItem>
 
-            <FormItem label="步进器" name="stepper">
+            <FormItem label='步进器' name='stepper'>
               <Stepper />
             </FormItem>
           </DemoBlock>
 
-          <DemoBlock title="异步处理和自定义校验">
+          <DemoBlock title='异步处理和自定义校验'>
             <FormItem
-              name="file"
+              name='file'
               required
-              layout="vertical"
-              label="上传图片(图片大小不得大于 0.1M)"
-              valueKey="fileList"
+              layout='vertical'
+              label='上传图片(图片大小不得大于 0.1M)'
+              valueKey='fileList'
               valueFormat={this.valueFormatUpload}
-              validateTrigger="onAfterRead"
-              trigger="onAfterRead"
+              validateTrigger='onAfterRead'
+              trigger='onAfterRead'
               rules={{
                 rule: (values, call) => {
                   values.forEach((item, index) => {
@@ -182,30 +182,30 @@ export default class Index extends Component {
                 },
               }}
             >
-              <Uploader name="file1" onDelete={this.deleteFile}></Uploader>
+              <Uploader name='file1' onDelete={this.deleteFile} />
             </FormItem>
           </DemoBlock>
 
-          <DemoBlock title="自定义组件">
+          <DemoBlock title='自定义组件'>
             <FormItem
-              label="日期选择"
-              name="dateTime"
+              label='日期选择'
+              name='dateTime'
               valueFormat={(e) => e.detail.value}
-              valueKey="value"
-              trigger="onConfirm"
-              renderRight={<Icon name="arrow" />}
+              valueKey='value'
+              trigger='onConfirm'
+              renderRight={<Icon name='arrow' />}
             >
               <DatetimePickerBox />
             </FormItem>
 
             <View style={{ marginBottom: '100px' }} />
 
-            <View className="van-button-submit-box">
+            <View className='van-button-submit-box'>
               <Button
-                type="primary"
-                className="van-button-submit"
+                type='primary'
+                className='van-button-submit'
                 // onClick={this.handleClick}
-                formType="submit"
+                formType='submit'
               >
                 提交
               </Button>
@@ -266,12 +266,12 @@ class DatetimePickerBox extends Component {
           {value ? this.formatDate(value) : '请选择日期'}
         </View>
         <Popup
-          position="bottom"
+          position='bottom'
           show={this.state.show}
           onClose={() => this.toggleShow(false)}
         >
           <DatetimePicker
-            type="datetime"
+            type='datetime'
             value={this.state.innerValue || new Date(value)}
             onChange={this.onChange.bind(this)}
             onConfirm={this.onConfirm}

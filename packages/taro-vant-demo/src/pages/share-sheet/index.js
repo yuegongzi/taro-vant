@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { ShareSheet, Toast, Cell } from 'packages/taro-vant'
+import { ShareSheet, Toast, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -104,12 +104,12 @@ export default class Index extends Component {
       optionsWithDesc,
     } = this.state
     return (
-      <DemoPage title="ShareSheet 分享面板">
+      <DemoPage title='ShareSheet 分享面板'>
         <>
-          <DemoBlock card title="基础用法">
+          <DemoBlock card title='基础用法'>
             <Cell
               isLink
-              title="显示分享面板"
+              title='显示分享面板'
               onClick={(e) => {
                 this.onShowShareSheet({
                   detail: e.detail,
@@ -121,19 +121,19 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <ShareSheet
               show={show.basic}
-              title="立即分享给好友"
+              title='立即分享给好友'
               options={options}
               onClose={this.onClose}
               onSelect={this.onSelect}
-            ></ShareSheet>
+             />
           </DemoBlock>
-          <DemoBlock card title="展示多行选项">
+          <DemoBlock card title='展示多行选项'>
             <Cell
               isLink
-              title="显示分享面板"
+              title='显示分享面板'
               onClick={(e) => {
                 this.onShowShareSheet({
                   detail: e.detail,
@@ -145,19 +145,19 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <ShareSheet
               show={show.multiLine}
-              title="立即分享给好友"
+              title='立即分享给好友'
               options={multiLineOptions}
               onClose={this.onClose}
               onSelect={this.onSelect}
-            ></ShareSheet>
+             />
           </DemoBlock>
-          <DemoBlock card title="自定义图标">
+          <DemoBlock card title='自定义图标'>
             <Cell
               isLink
-              title="显示分享面板"
+              title='显示分享面板'
               onClick={(e) => {
                 this.onShowShareSheet({
                   detail: e.detail,
@@ -169,18 +169,18 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <ShareSheet
               show={show.customIcon}
               options={customIconOptions}
               onClose={this.onClose}
               onSelect={this.onSelect}
-            ></ShareSheet>
+             />
           </DemoBlock>
-          <DemoBlock card title="展示描述信息">
+          <DemoBlock card title='展示描述信息'>
             <Cell
               isLink
-              title="显示分享面板"
+              title='显示分享面板'
               onClick={(e) => {
                 this.onShowShareSheet({
                   detail: e.detail,
@@ -192,17 +192,17 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></Cell>
+             />
             <ShareSheet
               show={show.withDesc}
-              title="立即分享给好友"
+              title='立即分享给好友'
               options={optionsWithDesc}
-              description="描述信息"
+              description='描述信息'
               onClose={this.onClose}
               onSelect={this.onSelect}
-            ></ShareSheet>
+             />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

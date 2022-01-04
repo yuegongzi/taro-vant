@@ -111,7 +111,6 @@
   },
   "dependencies": {
     "@antmjs/mini-fix": "1.17.2",
-    "@antmjs/vantui": "1.4.6",
     "@babel/runtime-corejs3": "7.16.7",
     "@tarojs/components": "3.3.19",
     "@tarojs/react": "3.3.19",
@@ -121,7 +120,8 @@
     "@vant/icons": "1.7.3",
     "core-js": "3.20.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "taro-vant": "^0.0.1"
   },
   "devDependencies": {
     "@antmjs/iconfont": "1.17.2",
@@ -133,6 +133,7 @@
     "@tarojs/webpack-runner": "3.3.19",
     "@types/react": "17.0.38",
     "@types/webpack-env": "1.16.3",
+    "babel-loader": "^8.2.3",
     "babel-plugin-import": "1.13.3",
     "babel-plugin-transform-taroapi": "3.3.19",
     "cross-env": "7.0.3",

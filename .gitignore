@@ -1,6 +1,6 @@
 *.log
 *.swp
-
+yarn.lock
 .cache
 .temp
 ../../.idea
@@ -34,3 +34,4 @@ packages/taro-vant-demo/dist
 packages/react-demo/build
 packages/react-demo/dist
 packages/react-demo/src/pages
+!/yarn.lock

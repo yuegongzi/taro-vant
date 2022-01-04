@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { DatetimePicker, Toast } from 'packages/taro-vant'
+import { DatetimePicker, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -76,11 +76,11 @@ export default class Index extends Component {
       maxHour,
     } = this.state
     return (
-      <DemoPage title="DatetimePicker 时间选择">
+      <DemoPage title='DatetimePicker 时间选择'>
         <>
-          <DemoBlock title="选择完整时间">
+          <DemoBlock title='选择完整时间'>
             <DatetimePicker
-              type="datetime"
+              type='datetime'
               loading={loading}
               value={currentDate1}
               minDate={minDate}
@@ -95,11 +95,11 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></DatetimePicker>
+             />
           </DemoBlock>
-          <DemoBlock title="选择日期（年月日）">
+          <DemoBlock title='选择日期（年月日）'>
             <DatetimePicker
-              type="date"
+              type='date'
               value={currentDate2}
               minDate={minDate}
               onInput={(e) => {
@@ -114,11 +114,11 @@ export default class Index extends Component {
                 })
               }}
               formatter={this.formatter}
-            ></DatetimePicker>
+             />
           </DemoBlock>
-          <DemoBlock title="选择日期（年月）">
+          <DemoBlock title='选择日期（年月）'>
             <DatetimePicker
-              type="year-month"
+              type='year-month'
               value={currentDate3}
               minDate={minDate}
               onInput={(e) => {
@@ -132,11 +132,11 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></DatetimePicker>
+             />
           </DemoBlock>
-          <DemoBlock title="选择时间">
+          <DemoBlock title='选择时间'>
             <DatetimePicker
-              type="time"
+              type='time'
               value={currentDate4}
               minHour={minHour}
               maxHour={maxHour}
@@ -151,16 +151,16 @@ export default class Index extends Component {
                   },
                 })
               }}
-            ></DatetimePicker>
+             />
           </DemoBlock>
-          <DemoBlock title="选项过滤器">
+          <DemoBlock title='选项过滤器'>
             <DatetimePicker
-              type="time"
+              type='time'
               value={currentDate4}
               filter={this.filter}
-            ></DatetimePicker>
+             />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

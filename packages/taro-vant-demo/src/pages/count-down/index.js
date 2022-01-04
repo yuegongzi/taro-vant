@@ -1,7 +1,7 @@
 import { Text } from '@tarojs/components'
 import { Component } from 'react'
 
-import { GridItem, Grid, Toast, CountDown } from 'packages/taro-vant'
+import { GridItem, Grid, Toast, CountDown } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -46,59 +46,59 @@ export default class Index extends Component {
   render() {
     const { time, timeData } = this.state
     return (
-      <DemoPage title="CountDown 倒计时">
+      <DemoPage title='CountDown 倒计时'>
         <>
-          <DemoBlock title="基础用法">
-            <CountDown time={time}></CountDown>
+          <DemoBlock title='基础用法'>
+            <CountDown time={time} />
           </DemoBlock>
-          <DemoBlock title="自定义格式">
-            <CountDown time={time} format="DD 天 HH 时 mm 分 ss 秒"></CountDown>
+          <DemoBlock title='自定义格式'>
+            <CountDown time={time} format='DD 天 HH 时 mm 分 ss 秒' />
           </DemoBlock>
-          <DemoBlock title="毫秒级渲染">
+          <DemoBlock title='毫秒级渲染'>
             <CountDown
               millisecond
               time={time}
-              format="HH:mm:ss:SSS"
-            ></CountDown>
+              format='HH:mm:ss:SSS'
+             />
           </DemoBlock>
-          <DemoBlock title="自定义样式">
+          <DemoBlock title='自定义样式'>
             <CountDown time={time} onChange={this.onChange}>
-              <Text className="item">{timeData.hours}</Text>
-              <Text className="item">{timeData.minutes}</Text>
-              <Text className="item">{timeData.seconds}</Text>
+              <Text className='item'>{timeData.hours}</Text>
+              <Text className='item'>{timeData.minutes}</Text>
+              <Text className='item'>{timeData.seconds}</Text>
             </CountDown>
           </DemoBlock>
-          <DemoBlock title="手动控制">
+          <DemoBlock title='手动控制'>
             <CountDown
-              className="control-count-down"
+              className='control-count-down'
               ref={(c) => {
                 this.controlCountDown = c
               }}
               millisecond
               time={3000}
               autoStart={false}
-              format="ss:SSS"
+              format='ss:SSS'
               onFinish={this.finished}
-            ></CountDown>
-            <Grid clickable columnNum="3">
+             />
+            <Grid clickable columnNum='3'>
               <GridItem
-                text="开始"
-                icon="play-circle-o"
+                text='开始'
+                icon='play-circle-o'
                 onClick={this.start}
-              ></GridItem>
+               />
               <GridItem
-                text="暂停"
-                icon="pause-circle-o"
+                text='暂停'
+                icon='pause-circle-o'
                 onClick={this.pause}
-              ></GridItem>
+               />
               <GridItem
-                text="重置"
-                icon="replay"
+                text='重置'
+                icon='replay'
                 onClick={this.reset}
-              ></GridItem>
+               />
             </Grid>
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

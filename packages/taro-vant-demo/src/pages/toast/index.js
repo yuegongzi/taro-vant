@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Toast, Button } from 'packages/taro-vant'
+import { Toast, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -63,50 +63,50 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="Toast 轻提示">
+      <DemoPage title='Toast 轻提示'>
         <>
-          <DemoBlock title="文字提示" padding>
+          <DemoBlock title='文字提示' padding>
             <Button
-              type="primary"
+              type='primary'
               onClick={this.showToast}
-              className="demo-margin-right"
+              className='demo-margin-right'
             >
               文字提示
             </Button>
-            <Button type="primary" onClick={this.showLongToast}>
+            <Button type='primary' onClick={this.showLongToast}>
               长文字提示
             </Button>
           </DemoBlock>
-          <DemoBlock title="加载提示" padding>
+          <DemoBlock title='加载提示' padding>
             <Button
-              type="primary"
+              type='primary'
               onClick={this.showLoadingToast}
-              className="demo-margin-right"
+              className='demo-margin-right'
             >
               加载提示
             </Button>
-            <Button type="primary" onClick={this.showCustomLoadingToast}>
+            <Button type='primary' onClick={this.showCustomLoadingToast}>
               自定义加载图标
             </Button>
           </DemoBlock>
-          <DemoBlock title="成功/失败提示" padding>
+          <DemoBlock title='成功/失败提示' padding>
             <Button
-              type="info"
+              type='info'
               onClick={this.showSuccessToast}
-              className="demo-margin-right"
+              className='demo-margin-right'
             >
               成功提示
             </Button>
-            <Button type="danger" onClick={this.showFailToast}>
+            <Button type='danger' onClick={this.showFailToast}>
               失败提示
             </Button>
           </DemoBlock>
-          <DemoBlock title="动态更新提示" padding>
-            <Button type="primary" onClick={this.showCustomizedToast}>
+          <DemoBlock title='动态更新提示' padding>
+            <Button type='primary' onClick={this.showCustomizedToast}>
               动态更新提示
             </Button>
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

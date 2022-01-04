@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Picker, Toast } from 'packages/taro-vant'
+import { Picker, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 export default class Index extends Component {
@@ -8,23 +8,23 @@ export default class Index extends Component {
   }
 
   state = {
-    column1: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+    column1: [ '杭州', '宁波', '温州', '嘉兴', '湖州' ],
     column2: [
       { text: '杭州', disabled: true },
       { text: '宁波' },
       { text: '温州' },
     ],
     column3: {
-      浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-      福建: ['福州', '厦门', '莆田', '三明', '泉州'],
+      浙江: [ '杭州', '宁波', '温州', '嘉兴', '湖州' ],
+      福建: [ '福州', '厦门', '莆田', '三明', '泉州' ],
     },
     column4: [
       {
-        values: ['浙江', '福建'],
+        values: [ '浙江', '福建' ],
         className: 'column1',
       },
       {
-        values: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+        values: [ '杭州', '宁波', '温州', '嘉兴', '湖州' ],
         className: 'column2',
         defaultIndex: 2,
       },
@@ -53,38 +53,38 @@ export default class Index extends Component {
   render() {
     const { column1, column4, column2 } = this.state
     return (
-      <DemoPage title="Picker 选择器">
+      <DemoPage title='Picker 选择器'>
         <>
-          <DemoBlock title="基础用法">
-            <Picker columns={column1} onChange={this.onChange1}></Picker>
+          <DemoBlock title='基础用法'>
+            <Picker columns={column1} onChange={this.onChange1} />
           </DemoBlock>
-          <DemoBlock title="默认选中项">
+          <DemoBlock title='默认选中项'>
             <Picker
               columns={column1}
               defaultIndex={2}
               onChange={this.onChange1}
-            ></Picker>
+             />
           </DemoBlock>
-          <DemoBlock title="展示顶部栏">
+          <DemoBlock title='展示顶部栏'>
             <Picker
               showToolbar
-              title="标题"
+              title='标题'
               columns={column1}
               onChange={this.onChange1}
               onConfirm={this.onConfirm}
               onCancel={this.onCancel}
-            ></Picker>
+             />
           </DemoBlock>
-          <DemoBlock title="多列联动">
-            <Picker columns={column4} onChange={this.onChange2}></Picker>
+          <DemoBlock title='多列联动'>
+            <Picker columns={column4} onChange={this.onChange2} />
           </DemoBlock>
-          <DemoBlock title="禁用选项">
-            <Picker columns={column2}></Picker>
+          <DemoBlock title='禁用选项'>
+            <Picker columns={column2} />
           </DemoBlock>
-          <DemoBlock title="加载状态">
-            <Picker loading columns={column4}></Picker>
+          <DemoBlock title='加载状态'>
+            <Picker loading columns={column4} />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

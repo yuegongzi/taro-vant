@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Toast, Steps, Button } from 'packages/taro-vant'
+import { Toast, Steps, Button } from 'taro-vant'
 
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
@@ -53,40 +53,40 @@ export default class Index extends Component {
   render() {
     const { steps, active, customIconSteps } = this.state
     return (
-      <DemoPage title="Steps 步骤条">
+      <DemoPage title='Steps 步骤条'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <Steps
               steps={steps}
               active={active}
               onClickStep={this.onClick}
-              className="demo-margin-bottom"
-            ></Steps>
-            <Button className="demo-margin-left" onClick={this.nextStep}>
+              className='demo-margin-bottom'
+             />
+            <Button className='demo-margin-left' onClick={this.nextStep}>
               下一步
             </Button>
           </DemoBlock>
-          <DemoBlock title="自定义样式">
+          <DemoBlock title='自定义样式'>
             <Steps
               steps={steps}
               active={active}
-              activeIcon="success"
-              activeColor="#38f"
-              inactiveIcon="arrow"
-            ></Steps>
+              activeIcon='success'
+              activeColor='#38f'
+              inactiveIcon='arrow'
+             />
           </DemoBlock>
-          <DemoBlock title="自定义图标">
-            <Steps steps={customIconSteps} active={active}></Steps>
+          <DemoBlock title='自定义图标'>
+            <Steps steps={customIconSteps} active={active} />
           </DemoBlock>
-          <DemoBlock title="竖向步骤条">
+          <DemoBlock title='竖向步骤条'>
             <Steps
               steps={steps}
               active={active}
-              direction="vertical"
-              activeColor="#ee0a24"
-            ></Steps>
+              direction='vertical'
+              activeColor='#ee0a24'
+             />
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

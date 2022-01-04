@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Taro, { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Uploader, Button } from 'packages/taro-vant'
+import { Uploader, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
@@ -17,7 +17,7 @@ export default class Index extends Component {
       { url: 'https://img.yzcdn.cn/vant/leaf.jpg' },
       { url: 'https://img.yzcdn.cn/vant/tree.jpg' },
     ],
-    fileList3: [{ url: 'https://img.yzcdn.cn/vant/sand.jpg' }],
+    fileList3: [ { url: 'https://img.yzcdn.cn/vant/sand.jpg' } ],
     fileList4: [],
     fileList5: [],
     fileList6: [],
@@ -79,13 +79,13 @@ export default class Index extends Component {
       const uploadTasks = fileList.map((file, index) =>
         this.uploadFilePromise(`my-photo${index}.png`, file),
       )
-      Promise.all(uploadTasks)
-        .then((data) => {
+      Promise.all(uploadTasks).
+        then((data) => {
           showToast({ title: '上传成功', icon: 'none' })
           const fileList = data.map((item) => ({ url: item.fileID }))
           this.setState({ cloudPath: data, fileList6: fileList })
-        })
-        .catch((e) => {
+        }).
+        catch((e) => {
           showToast({ title: '上传失败', icon: 'none' })
           console.log(e)
         })
@@ -111,106 +111,106 @@ export default class Index extends Component {
       fileList6,
     } = this.state
     return (
-      <DemoPage title="Uploader 文件上传" className="page-uploader">
+      <DemoPage title='Uploader 文件上传' className='page-uploader'>
         <>
-          <DemoBlock title="基础用法" padding>
+          <DemoBlock title='基础用法' padding>
             <Uploader
-              name="1"
+              name='1'
               fileList={fileList1}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="上传视频" padding>
+          <DemoBlock title='上传视频' padding>
             <Uploader
-              name="7"
-              accept="video"
+              name='7'
+              accept='video'
               fileList={fileList7}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="文件预览" padding>
+          <DemoBlock title='文件预览' padding>
             <Uploader
-              name="2"
+              name='2'
               fileList={fileList2}
               multiple
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="隐藏上传按钮" padding>
+          <DemoBlock title='隐藏上传按钮' padding>
             <Uploader
-              name="2"
+              name='2'
               fileList={fileList2}
               multiple
               showUpload={false}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="上传状态" padding>
+          <DemoBlock title='上传状态' padding>
             <Uploader
-              name="8"
+              name='8'
               fileList={fileList8}
               multiple
               maxCount={2}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="限制上传数量" padding>
+          <DemoBlock title='限制上传数量' padding>
             <Uploader
-              name="3"
+              name='3'
               fileList={fileList3}
               multiple
               maxCount={2}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="自定义上传样式" padding>
+          <DemoBlock title='自定义上传样式' padding>
             <Uploader
-              name="4"
+              name='4'
               fileList={fileList4}
               maxCount={2}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
             >
-              <Button icon="photo" type="primary">
+              <Button icon='photo' type='primary'>
                 上传图片
               </Button>
             </Uploader>
           </DemoBlock>
-          <DemoBlock title="上传前校验" padding>
+          <DemoBlock title='上传前校验' padding>
             <Uploader
-              name="5"
+              name='5'
               fileList={fileList5}
               onBeforeRead={this.beforeRead}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
               useBeforeRead={true}
-            ></Uploader>
+             />
           </DemoBlock>
-          <DemoBlock title="云存储上传" padding>
+          <DemoBlock title='云存储上传' padding>
             <Uploader
-              name="6"
+              name='6'
               fileList={fileList6}
               onBeforeRead={this.beforeRead}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
               useBeforeRead={true}
-            ></Uploader>
-            <View className="demo-margin-bottom">
-              <Button type="primary" onClick={this.uploadToCloud}>
+             />
+            <View className='demo-margin-bottom'>
+              <Button type='primary' onClick={this.uploadToCloud}>
                 上传至云存储
               </Button>
             </View>

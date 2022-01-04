@@ -1,4 +1,4 @@
-import { Icon } from 'packages/taro-vant'
+import { Icon } from 'taro-vant'
 import { View } from '@tarojs/components'
 import {
   navigateBack,
@@ -23,7 +23,7 @@ export default function Page(props) {
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [path])
+  }, [ path ])
 
   useShareAppMessage(() => {
     return {
@@ -35,13 +35,13 @@ export default function Page(props) {
   return (
     <View className={`demo-page ${className}`}>
       {'h5' === process.env.TARO_ENV && (
-        <View className="demo-nav">
+        <View className='demo-nav'>
           <Icon
-            name="arrow-left"
-            className="demo-nav__back"
+            name='arrow-left'
+            className='demo-nav__back'
             onClick={() => navigateBack()}
           />
-          <View className="demo-nav__title">{title} </View>
+          <View className='demo-nav__title'>{title} </View>
         </View>
       )}
       {children}

@@ -57,7 +57,7 @@ export default {
   ],
   window: {
     navigationBarBackgroundColor: '#f8f8f8',
-    navigationBarTitleText: 'antmjs-vantui',
+    navigationBarTitleText: 'taro-vant',
     navigationBarTextStyle: 'black',
     backgroundTextStyle: 'dark',
     backgroundColor: '#f8f8f8',

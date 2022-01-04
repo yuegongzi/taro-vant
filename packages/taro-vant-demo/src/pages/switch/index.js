@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Switch, Dialog } from 'packages/taro-vant'
+import { Switch, Dialog } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -25,11 +25,11 @@ export default class Index extends Component {
       selector: '#switch-demo',
       title: '提示',
       message: '是否切换开关？',
-    })
-      .then(() => {
+    }).
+      then(() => {
         this.setState({ checked2: detail })
-      })
-      .catch((e) => {
+      }).
+      catch((e) => {
         console.log(e)
       })
   }
@@ -37,44 +37,44 @@ export default class Index extends Component {
   render() {
     const { checked, checked2 } = this.state
     return (
-      <DemoPage title="Switch 开关">
+      <DemoPage title='Switch 开关'>
         <>
-          <DemoBlock title="基础用法" padding>
-            <Switch checked={checked} onChange={this.onChange}></Switch>
+          <DemoBlock title='基础用法' padding>
+            <Switch checked={checked} onChange={this.onChange} />
           </DemoBlock>
-          <DemoBlock title="禁用状态" padding>
+          <DemoBlock title='禁用状态' padding>
             <Switch
               checked={checked}
               disabled
               onChange={this.onChange}
-            ></Switch>
+             />
           </DemoBlock>
-          <DemoBlock title="加载状态" padding>
-            <Switch checked={checked} loading onChange={this.onChange}></Switch>
+          <DemoBlock title='加载状态' padding>
+            <Switch checked={checked} loading onChange={this.onChange} />
           </DemoBlock>
-          <DemoBlock title="自定义大小" padding>
+          <DemoBlock title='自定义大小' padding>
             <Switch
               checked={checked}
-              size="24px"
+              size='24px'
               onChange={this.onChange}
-            ></Switch>
+             />
           </DemoBlock>
-          <DemoBlock title="自定义颜色" padding>
+          <DemoBlock title='自定义颜色' padding>
             <Switch
               checked={checked}
-              activeColor="#07c160"
-              inactiveColor="#ee0a24"
+              activeColor='#07c160'
+              inactiveColor='#ee0a24'
               onChange={this.onChange}
-            ></Switch>
+             />
           </DemoBlock>
-          <DemoBlock title="异步控制" padding>
+          <DemoBlock title='异步控制' padding>
             <Switch
               checked={checked2}
-              size="36px"
+              size='36px'
               onChange={this.onChange2}
-            ></Switch>
+             />
           </DemoBlock>
-          <Dialog id="switch-demo"></Dialog>
+          <Dialog id='switch-demo' />
         </>
       </DemoPage>
     )

@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { NavBar, Icon } from 'packages/taro-vant'
+import { NavBar, Icon } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -22,28 +22,28 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="NavBar 导航栏">
+      <DemoPage title='NavBar 导航栏'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <NavBar
-              title="标题"
-              rightText="按钮"
+              title='标题'
+              rightText='按钮'
               leftArrow
               onClickLeft={this.onClickLeft}
               onClickRight={this.onClickRight}
-            ></NavBar>
+             />
           </DemoBlock>
-          <DemoBlock title="高级用法">
+          <DemoBlock title='高级用法'>
             <NavBar
-              title="标题"
-              leftText="返回"
+              title='标题'
+              leftText='返回'
               leftArrow
               renderRight={
                 <>
-                  <Icon name="search" className="icon" size="36"></Icon>
+                  <Icon name='search' className='icon' size='36' />
                 </>
               }
-            ></NavBar>
+             />
           </DemoBlock>
         </>
       </DemoPage>

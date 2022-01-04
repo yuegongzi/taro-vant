@@ -1,7 +1,7 @@
 import { View, Text } from '@tarojs/components'
 import { Component } from 'react'
 
-import { Row, Loading, Image, Col } from 'packages/taro-vant'
+import { Row, Loading, Image, Col } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -28,86 +28,86 @@ export default class Index extends Component {
   render() {
     const { src, fits } = this.state
     return (
-      <DemoPage title="Image 图片">
+      <DemoPage title='Image 图片'>
         <>
-          <DemoBlock title="基础用法" padding>
+          <DemoBlock title='基础用法' padding>
             <Row>
-              <Image width="100" height="100" src={src}></Image>
+              <Image width='100' height='100' src={src} />
             </Row>
           </DemoBlock>
-          <DemoBlock title="填充模式" padding>
-            <Row gutter="20">
+          <DemoBlock title='填充模式' padding>
+            <Row gutter='20'>
               {fits.map((fit) => {
                 return (
-                  <Col key={fit.fit} span="8">
+                  <Col key={fit.fit} span='8'>
                     <Image
                       fit={fit}
-                      width="100%"
-                      height="27vw"
+                      width='100%'
+                      height='27vw'
                       src={src}
-                    ></Image>
-                    <View className="text">{fit}</View>
+                     />
+                    <View className='text'>{fit}</View>
                   </Col>
                 )
               })}
             </Row>
           </DemoBlock>
-          <DemoBlock title="圆形图片" padding>
-            <Row gutter="20">
+          <DemoBlock title='圆形图片' padding>
+            <Row gutter='20'>
               {fits.map((fit) => {
                 return (
-                  <Col key={fit.fit} span="8">
+                  <Col key={fit.fit} span='8'>
                     <Image
                       round
                       fit={fit}
-                      width="100%"
-                      height="27vw"
+                      width='100%'
+                      height='27vw'
                       src={src}
-                    ></Image>
-                    <View className="text">{fit}</View>
+                     />
+                    <View className='text'>{fit}</View>
                   </Col>
                 )
               })}
             </Row>
           </DemoBlock>
-          <DemoBlock title="加载中提示" padding>
-            <Row gutter="20">
-              <Col span="8">
-                <Image width="100%" height="27vw"></Image>
-                <View className="text">默认提示</View>
+          <DemoBlock title='加载中提示' padding>
+            <Row gutter='20'>
+              <Col span='8'>
+                <Image width='100%' height='27vw' />
+                <View className='text'>默认提示</View>
               </Col>
-              <Col span="8">
+              <Col span='8'>
                 <Image
-                  width="100%"
-                  height="27vw"
+                  width='100%'
+                  height='27vw'
                   renderLoading={
                     <>
-                      <Loading type="spinner" size="20" vertical></Loading>
+                      <Loading type='spinner' size='20' vertical />
                     </>
                   }
-                ></Image>
-                <View className="text">自定义提示</View>
+                 />
+                <View className='text'>自定义提示</View>
               </Col>
             </Row>
           </DemoBlock>
-          <DemoBlock title="加载失败提示" padding>
-            <Row gutter="20">
-              <Col span="8">
-                <Image width="100%" height="27vw" src="x"></Image>
-                <View className="text">默认提示</View>
+          <DemoBlock title='加载失败提示' padding>
+            <Row gutter='20'>
+              <Col span='8'>
+                <Image width='100%' height='27vw' src='x' />
+                <View className='text'>默认提示</View>
               </Col>
-              <Col span="8">
+              <Col span='8'>
                 <Image
-                  width="100%"
-                  height="27vw"
-                  src="x"
+                  width='100%'
+                  height='27vw'
+                  src='x'
                   renderError={
                     <>
                       <Text>加载失败</Text>
                     </>
                   }
-                ></Image>
-                <View className="text">自定义提示</View>
+                 />
+                <View className='text'>自定义提示</View>
               </Col>
             </Row>
           </DemoBlock>

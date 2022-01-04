@@ -5,7 +5,7 @@ import {
   GoodsActionButton,
   GoodsActionIcon,
   GoodsAction,
-} from 'packages/taro-vant'
+} from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -26,92 +26,92 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title="GoodsAction 商品导航">
+      <DemoPage title='GoodsAction 商品导航'>
         <>
-          <DemoBlock title="基础用法">
+          <DemoBlock title='基础用法'>
             <GoodsAction
-              className="goods-action-position"
+              className='goods-action-position'
               safeAreaInsetBottom={false}
             >
               <GoodsActionIcon
-                icon="chat-o"
-                text="客服"
-                openType="contact"
-              ></GoodsActionIcon>
+                icon='chat-o'
+                text='客服'
+                openType='contact'
+               />
               <GoodsActionIcon
-                icon="cart-o"
-                text="购物车"
+                icon='cart-o'
+                text='购物车'
                 onClick={this.onClickIcon}
-              ></GoodsActionIcon>
+               />
               <GoodsActionButton
-                text="加入购物车"
-                type="warning"
+                text='加入购物车'
+                type='warning'
                 onClick={this.onClickButton}
-              ></GoodsActionButton>
+               />
               <GoodsActionButton
-                text="立即购买"
+                text='立即购买'
                 onClick={this.onClickButton}
-              ></GoodsActionButton>
+               />
             </GoodsAction>
           </DemoBlock>
-          <DemoBlock title="提示信息">
+          <DemoBlock title='提示信息'>
             <GoodsAction
-              className="goods-action-position"
+              className='goods-action-position'
               safeAreaInsetBottom={false}
             >
-              <GoodsActionIcon icon="chat-o" text="客服" dot></GoodsActionIcon>
+              <GoodsActionIcon icon='chat-o' text='客服' dot />
               <GoodsActionIcon
-                icon="cart-o"
-                text="购物车"
-                info="5"
-              ></GoodsActionIcon>
-              <GoodsActionIcon icon="shop-o" text="店铺"></GoodsActionIcon>
+                icon='cart-o'
+                text='购物车'
+                info='5'
+               />
+              <GoodsActionIcon icon='shop-o' text='店铺' />
               <GoodsActionButton
-                text="加入购物车"
-                type="warning"
-              ></GoodsActionButton>
-              <GoodsActionButton text="立即购买"></GoodsActionButton>
+                text='加入购物车'
+                type='warning'
+               />
+              <GoodsActionButton text='立即购买' />
             </GoodsAction>
           </DemoBlock>
-          <DemoBlock title="自定义按钮颜色">
+          <DemoBlock title='自定义按钮颜色'>
             <GoodsAction
-              className="goods-action-position"
+              className='goods-action-position'
               safeAreaInsetBottom={false}
             >
-              <GoodsActionIcon icon="chat-o" text="客服"></GoodsActionIcon>
-              <GoodsActionIcon icon="shop-o" text="店铺"></GoodsActionIcon>
+              <GoodsActionIcon icon='chat-o' text='客服' />
+              <GoodsActionIcon icon='shop-o' text='店铺' />
               <GoodsActionButton
-                color="#be99ff"
-                type="warning"
-                text="加入购物车"
-              ></GoodsActionButton>
+                color='#be99ff'
+                type='warning'
+                text='加入购物车'
+               />
               <GoodsActionButton
-                color="#7232dd"
-                text="立即购买"
-              ></GoodsActionButton>
+                color='#7232dd'
+                text='立即购买'
+               />
             </GoodsAction>
           </DemoBlock>
-          <DemoBlock title="朴素按钮">
+          <DemoBlock title='朴素按钮'>
             <GoodsAction
-              className="goods-action-position"
+              className='goods-action-position'
               safeAreaInsetBottom={false}
             >
-              <GoodsActionIcon icon="chat-o" text="客服"></GoodsActionIcon>
-              <GoodsActionIcon icon="shop-o" text="店铺"></GoodsActionIcon>
+              <GoodsActionIcon icon='chat-o' text='客服' />
+              <GoodsActionIcon icon='shop-o' text='店铺' />
               <GoodsActionButton
-                color="#7232dd"
-                text="加入购物车"
-                type="warning"
-              ></GoodsActionButton>
+                color='#7232dd'
+                text='加入购物车'
+                type='warning'
+               />
               <GoodsActionButton
-                type="primary"
+                type='primary'
                 plain
-                color="#7232dd"
-                text="立即购买"
-              ></GoodsActionButton>
+                color='#7232dd'
+                text='立即购买'
+               />
             </GoodsAction>
           </DemoBlock>
-          <Toast id="van-toast"></Toast>
+          <Toast id='van-toast' />
         </>
       </DemoPage>
     )

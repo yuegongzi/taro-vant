@@ -6,7 +6,7 @@ import {
   Switch,
   Cell,
   Button,
-} from 'packages/taro-vant'
+} from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -63,17 +63,17 @@ export default class Index extends Component {
       switch2,
     } = this.state
     return (
-      <DemoPage title="Dropdown Menu">
+      <DemoPage title='Dropdown Menu'>
         <>
-          <DemoBlock className="white" title="基础用法">
+          <DemoBlock className='white' title='基础用法'>
             <DropdownMenu>
-              <DropdownItem value={value1} options={option1}></DropdownItem>
-              <DropdownItem value={value2} options={option2}></DropdownItem>
+              <DropdownItem value={value1} options={option1} />
+              <DropdownItem value={value2} options={option2} />
             </DropdownMenu>
           </DemoBlock>
-          <DemoBlock className="white" title="自定义菜单内容">
+          <DemoBlock className='white' title='自定义菜单内容'>
             <DropdownMenu>
-              <DropdownItem value={value1} options={option1}></DropdownItem>
+              <DropdownItem value={value1} options={option1} />
               <DropdownItem
                 ref={(el) => (this.instance = el)}
                 title={itemTitle}
@@ -83,61 +83,61 @@ export default class Index extends Component {
                   renderRightIcon={
                     <>
                       <Switch
-                        size="24px"
-                        style="height: 26px"
+                        size='24px'
+                        style='height: 26px'
                         checked={switch1}
-                        activeColor="#ee0a24"
+                        activeColor='#ee0a24'
                         onChange={this.onSwitch1Change}
-                      ></Switch>
+                       />
                     </>
                   }
-                ></Cell>
+                 />
                 <Cell
                   title={switchTitle2}
                   renderRightIcon={
                     <>
                       <Switch
-                        size="24px"
-                        style="height: 26px"
+                        size='24px'
+                        style='height: 26px'
                         checked={switch2}
-                        activeColor="#ee0a24"
+                        activeColor='#ee0a24'
                         onChange={this.onSwitch2Change}
-                      ></Switch>
+                       />
                     </>
                   }
-                ></Cell>
-                <View style="padding: 5px 16px;">
-                  <Button type="danger" block round onClick={this.onConfirm}>
+                 />
+                <View style='padding: 5px 16px;'>
+                  <Button type='danger' block round onClick={this.onConfirm}>
                     确认
                   </Button>
                 </View>
               </DropdownItem>
             </DropdownMenu>
           </DemoBlock>
-          <DemoBlock className="white" title="自定义选中状态颜色">
-            <DropdownMenu activeColor="#1989fa">
-              <DropdownItem value={value1} options={option1}></DropdownItem>
-              <DropdownItem value={value2} options={option2}></DropdownItem>
+          <DemoBlock className='white' title='自定义选中状态颜色'>
+            <DropdownMenu activeColor='#1989fa'>
+              <DropdownItem value={value1} options={option1} />
+              <DropdownItem value={value2} options={option2} />
             </DropdownMenu>
           </DemoBlock>
-          <DemoBlock className="white" title="向上展开">
-            <DropdownMenu direction="up">
-              <DropdownItem value={value1} options={option1}></DropdownItem>
-              <DropdownItem value={value2} options={option2}></DropdownItem>
+          <DemoBlock className='white' title='向上展开'>
+            <DropdownMenu direction='up'>
+              <DropdownItem value={value1} options={option1} />
+              <DropdownItem value={value2} options={option2} />
             </DropdownMenu>
           </DemoBlock>
-          <DemoBlock className="white" title="禁用菜单">
+          <DemoBlock className='white' title='禁用菜单'>
             <DropdownMenu>
               <DropdownItem
                 value={value1}
                 disabled
                 options={option1}
-              ></DropdownItem>
+               />
               <DropdownItem
                 value={value2}
                 disabled
                 options={option2}
-              ></DropdownItem>
+               />
             </DropdownMenu>
           </DemoBlock>
         </>
