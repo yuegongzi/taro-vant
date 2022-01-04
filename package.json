@@ -1,5 +1,5 @@
 {
-  "name": "vantui",
+  "name": "taro-vant",
   "private": true,
   "author": "三少 <hi_sanshao@outlook.com>",
   "description": "前端组件库",
@@ -102,8 +102,6 @@
   },
   "dependencies": {
     "@antmjs/babel-preset": "^1.12.0",
-    "@antmjs/eslint": "^1.12.0",
-    "@antmjs/stylelint": "^1.12.0",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@octokit/core": "^3.4.0",
@@ -120,7 +118,6 @@
     "commitizen": "^4.2.4",
     "conventional-changelog-cli": "^2.1.1",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.27.0",
     "execa": "^5.0.0",
     "fs-extra": "^10.0.0",
     "globby": "^11.0.3",
@@ -137,7 +134,7 @@
     "rollup-plugin-copy-watch": "^0.0.1",
     "rollup-plugin-styles": "^3.14.1",
     "run-s": "^0.0.0",
-    "stylelint": "^13.13.1",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "@umijs/fabric": "^2.10.0"
   }
 }

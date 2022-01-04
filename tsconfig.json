@@ -47,7 +47,7 @@
     "packages/**/lib",
     "packages/**/types",
     "packages/**/__test__",
-    "packages/vantui-demo/config"
+    "packages/taro-vant-demo/config"
   ],
   "compileOnSave": false
 }

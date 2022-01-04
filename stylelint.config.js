@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@antmjs/stylelint'],
+   extends: [require.resolve('@umijs/fabric/dist/stylelint')],
 }

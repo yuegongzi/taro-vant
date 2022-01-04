@@ -1,0 +1,35 @@
+{
+  "name": "taro-vant-doc",
+  "private": true,
+  "version": "0.0.1",
+  "description": "taro-vant 文档",
+  "scripts": {
+    "dev": "node ./scripts/ts-to-md && npx vant-cli dev",
+    "test:coverage": "open test/coverage/index.html",
+    "build": "node ./scripts/ts-to-md && sh ./build.sh",
+    "release": "npx gh-pages -d site",
+    "docs-ts": "node ./scripts/ts-to-md"
+  },
+  "authors": {
+    "name": "杨安府",
+    "email": "yanganfu2012@gmail.com"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vant/cli": "^3.9.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "ast-to-markdown": "^1.0.0",
+    "cross-env": "^7.0.3",
+    "glob": "^7.2.0",
+    "markdown-to-ast": "^6.0.3",
+    "prettier": "^2.4.1",
+    "vue": "^3.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 51",
+    "iOS >= 10"
+  ]
+}

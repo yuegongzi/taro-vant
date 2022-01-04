@@ -9,7 +9,7 @@
     "packages/*"
   ],
   "ignoreChanges": [
-    "packages/vantui-demo/**",
+    "packages/taro-vant-demo/**",
     "**/*.md",
     "**/__test__/**"
   ],

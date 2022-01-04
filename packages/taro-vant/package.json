@@ -1,0 +1,73 @@
+{
+  "name": "taro-vant",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "module": "es/index.esm.js",
+  "style": "lib/index.css",
+  "typings": "types/index.d.ts",
+  "authors": {
+    "name": "杨安府",
+    "email": "yanganfu2012@gmail.com"
+  },
+  "description": "一套适用于Taro3的 Vant UI库",
+  "license": "MIT",
+  "keywords": [
+    "vant ui",
+    "vant-weapp",
+    "Taro",
+    "React"
+  ],
+  "repository": {
+    "type": "https",
+    "url": "https://gitlab.ejiexi.com/common/taro-vant.git"
+  },
+  "bugs": {
+    "url": "https://gitlab.ejiexi.com/common/taro-vant/-/issues/new"
+  },
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6.4",
+    "yarn": ">=1.22"
+  },
+  "browserslist": [
+    "Chrome >= 35",
+    "ChromeAndroid >= 35",
+    "iOS >= 8",
+    "Safari >= 8",
+    "Android >= 4.1",
+    "QQAndroid >= 4.1",
+    "UCAndroid >= 4.1"
+  ],
+  "scripts": {
+    "iconfont": "npx antm-icon --font-family antmuifont --input-path https://at.alicdn.com/t/font_2744513_7eeet2akdo.css --output-path src/style/components/iconfont.less",
+    "watch": "npx antm-vantui-cli watch",
+    "build": "npx antm-vantui-cli build",
+    "up": "yarn upgrade-interactive --latest"
+  },
+  "peerDependencies": {
+    "@tarojs/components": ">=3.3.0",
+    "@tarojs/taro": ">=3.3.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "dependencies": {
+    "@antmjs/iconfont": "1.9.4",
+    "@babel/runtime-corejs3": "7.14.7",
+    "@vant/icons": "1.7.1",
+    "classnames": "2.3.1",
+    "dayjs": "1.10.6",
+    "lodash.flow": "3.5.0",
+    "prop-types": "15.7.2",
+    "rc-util": "5.14.0",
+    "rollup-plugin-styles": "3.14.1"
+  },
+  "devDependencies": {
+    "@antmjs/vantui-cli": "1.17.1",
+    "@tarojs/components": "3.3.9",
+    "@tarojs/taro": "3.3.9",
+    "@types/lodash.flow": "3.5.6",
+    "@types/react": "17.0.17",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}
