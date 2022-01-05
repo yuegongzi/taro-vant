@@ -1,10 +1,12 @@
 export const ROW_HEIGHT = 64
+
 export function formatMonthTitle(date: any) {
   if (!(date instanceof Date)) {
     date = new Date(date)
   }
   return `${date.getFullYear()}年${date.getMonth() + 1}月`
 }
+
 export function compareMonth(date1: any, date2: any) {
   if (!(date1 instanceof Date)) {
     date1 = new Date(date1)
@@ -21,6 +23,7 @@ export function compareMonth(date1: any, date2: any) {
   }
   return year1 > year2 ? 1 : -1
 }
+
 export function compareDay(day1: any, day2: any) {
   if (!(day1 instanceof Date)) {
     day1 = new Date(day1)
@@ -36,27 +39,33 @@ export function compareDay(day1: any, day2: any) {
   }
   return compareMonthResult
 }
+
 export function getDayByOffset(date: any, offset: any) {
   date = new Date(date)
   date.setDate(date.getDate() + offset)
   return date
 }
+
 export function getPrevDay(date: any) {
   return getDayByOffset(date, -1)
 }
+
 export function getNextDay(date: any) {
   return getDayByOffset(date, 1)
 }
+
 export function getToday() {
   const today = new Date()
   today.setHours(0, 0, 0, 0)
   return today
 }
+
 export function calcDateNum(date: any) {
   const day1 = new Date(date[0]).getTime()
   const day2 = new Date(date[1]).getTime()
   return (day2 - day1) / 86400000 + 1
 }
+
 export function copyDates(dates: any) {
   if (Array.isArray(dates)) {
     return dates.map((date) => {
@@ -68,9 +77,11 @@ export function copyDates(dates: any) {
   }
   return new Date(dates)
 }
+
 export function getMonthEndDay(year: number, month: number) {
   return 32 - new Date(year, month - 1, 32).getDate()
 }
+
 export function getMonths(minDate: any, maxDate: any) {
   const months = []
   const cursor = new Date(minDate)
@@ -80,4 +91,21 @@ export function getMonths(minDate: any, maxDate: any) {
     cursor.setMonth(cursor.getMonth() + 1)
   } while (compareMonth(cursor, maxDate) !== 1)
   return months
+}
+
+
+export function getButtonDisabled(type: string, currentDate: any) {
+  if (currentDate == null) {
+    return true
+  }
+
+  if (type === 'range') {
+    return !currentDate[0] || !currentDate[1]
+  }
+
+  if (type === 'multiple') {
+    return !currentDate.length
+  }
+
+  return !currentDate
 }

@@ -11,9 +11,8 @@ import {
   useImperativeHandle, useMemo,
 } from 'react'
 import Taro from '@tarojs/taro'
-import * as utils from '../wxs/utils'
 import Toast from '../toast'
-import { createNamespace, requestAnimationFrame, uuid } from '../utils'
+import { computedStyle, createNamespace, requestAnimationFrame, uuid } from '../utils'
 import Popup from '../popup'
 import Button from '../button'
 import type { CalendarProps, ICalendarInstance } from './PropsType'
@@ -29,8 +28,8 @@ import {
   compareMonth,
   getMonths,
   getDayByOffset,
+  getButtonDisabled
 } from './utils'
-import * as computed from './wxs'
 import Month from './components/month'
 import Header from './components/header'
 import clsx from 'clsx'
@@ -263,7 +262,6 @@ function Index(
       if (maxRange && calcDateNum(date) > maxRange) {
         if (showRangePrompt) {
           Toast.show({
-            // duration: 0,
             id,
             message: rangePrompt || `选择天数不能超过 ${maxRange} 天`,
           })
@@ -427,7 +425,7 @@ function Index(
         >
           <View
             className={clsx(bem(),className)}
-            style={utils.style([ style ])}
+            style={computedStyle([ style ])}
             {...others}
           >
             <Header
@@ -442,11 +440,11 @@ function Index(
               renderTitle={renderTitle}
              />
             <ScrollView
-              className={`van-calendar__body  van-calendar__body${compIndex}`}
+              className={clsx(bem('body'),`van-calendar__body${compIndex}`)}
               scrollY
               scrollIntoView={scrollIntoView}
             >
-              {computed.getMonths(minDate, maxDate).map((item: any, index) => {
+              {getMonths(minDate, maxDate).map((item: any, index) => {
                 return (
                   <Month
                     key={`van-calendar-month___${index}`}
@@ -471,16 +469,12 @@ function Index(
               })}
             </ScrollView>
             <View
-              className={utils.bem('calendar__footer', {
-                safeAreaInsetBottom,
-              })}
+              className={clsx(bem('footer',{ safeAreaInsetBottom }))}
             >
               {renderFooter}
             </View>
             <View
-              className={utils.bem('calendar__footer', {
-                safeAreaInsetBottom,
-              })}
+              className={clsx(bem('footer',{ safeAreaInsetBottom }))}
             >
               {showConfirm && (
                 <Button
@@ -488,12 +482,12 @@ function Index(
                   block
                   type='danger'
                   color={color}
-                  className='van-calendar__confirm'
-                  disabled={computed.getButtonDisabled(type, currentDate)}
+                  className={clsx(bem('confirm'))}
+                  disabled={getButtonDisabled(type, currentDate)}
                   // nativeType="text"
                   onClick={onConfirm_}
                 >
-                  {computed.getButtonDisabled(type, currentDate)
+                  {getButtonDisabled(type, currentDate)
                     ? confirmDisabledText
                     : confirmText}
                 </Button>
@@ -503,8 +497,8 @@ function Index(
         </Popup>
       ) : (
         <View
-          className={`van-calendar ${className || ''}`}
-          style={utils.style([ style ])}
+          className={clsx(bem(),className)}
+          style={computedStyle([ style ])}
           {...others}
         >
           <Header
@@ -521,8 +515,7 @@ function Index(
             scrollY
             scrollIntoView={scrollIntoView}
           >
-            {computed.
-              getMonths(minDate, maxDate).
+            {getMonths(minDate, maxDate).
               map((item: any, index: number) => {
                 return (
                   <Month
@@ -562,11 +555,11 @@ function Index(
                 type='danger'
                 color={color}
                 className={clsx(bem('confirm'))}
-                disabled={computed.getButtonDisabled(type, currentDate)}
+                disabled={getButtonDisabled(type, currentDate)}
                 // nativeType="text"
                 onClick={onConfirm_}
               >
-                {computed.getButtonDisabled(type, currentDate)
+                {getButtonDisabled(type, currentDate)
                   ? confirmDisabledText
                   : confirmText}
               </Button>
