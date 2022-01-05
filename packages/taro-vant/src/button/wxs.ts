@@ -1,4 +1,4 @@
-import { style } from '../wxs/style'
+import { computedStyle } from '../utils'
 
 export function rootStyle(data: any) {
   if (!data.color) {
@@ -17,7 +17,7 @@ export function rootStyle(data: any) {
     properties['border-color'] = data.color
   }
 
-  return style([ properties ])
+  return computedStyle([ properties ])
 }
 
 export function loadingColor(data: any) {

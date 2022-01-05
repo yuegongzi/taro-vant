@@ -26,6 +26,18 @@ export interface CellProps extends StandardProps {
   children?: ReactNode | JSX.Element | JSX.Element[]
 }
 
+export interface CellGroupProps extends StandardProps {
+  title?: string
+  border?: boolean
+  inset?: boolean
+  children?: ReactNode
+}
+
+declare const CellGroup: ComponentClass<CellGroupProps>
+
+export { CellGroup }
+
+
 declare const Cell: ComponentClass<CellProps>
 
 export { Cell }

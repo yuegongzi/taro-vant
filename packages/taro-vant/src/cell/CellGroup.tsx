@@ -1,9 +1,12 @@
 import './style/index.less';
 import { View, Block } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { CellGroupProps } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function CellGroup(props: CellGroupProps) {
+const [ bem ]=createNamespace('cell-group')
+
+function CellGroup(props: CellGroupProps) {
   const {
     inset,
     title,
@@ -18,23 +21,17 @@ export function CellGroup(props: CellGroupProps) {
     <Block>
       {title && (
         <View
-          className={utils.bem('cell-group__title', {
+          className={clsx(bem('title', {
             inset,
-          })}
+          }))}
         >
           {title}
         </View>
       )}
       <View
-        className={
-          ' ' +
-          utils.bem('cell-group', {
-            inset,
-          }) +
-          ' ' +
-          (border ? 'van-hairline--top-bottom' : '') +
-          ` ${className || ''}`
-        }
+        className={clsx(bem({ inset },{
+          ['van-hairline--top-bottom']: border
+        }),className)}
         style={style}
         {...others}
       >

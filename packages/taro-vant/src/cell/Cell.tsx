@@ -4,11 +4,14 @@ import type { ITouchEvent } from '@tarojs/components';
 import { View, Block } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import type { CellProps } from './PropsType'
-import { jumpLink } from '../common/jumpLink'
+import { createNamespace, jumpLink } from '../utils'
 import Icon from '../icon'
-import * as computed from './wxs'
+import { computedTitleStyle } from './wxs'
+import clsx from 'clsx'
 
-export function Cell(props: CellProps) {
+const [ bem ]=createNamespace('cell')
+
+ function Cell(props: CellProps) {
   const {
     url,
     linkType,
@@ -45,54 +48,48 @@ export function Cell(props: CellProps) {
   )
   return (
     <View
-      className={
-        ' ' +
-        utils.bem('cell', [
-          size,
-          {
-            center,
-            required,
-            borderless: !border,
-            clickable: isLink || clickable,
-          },
-        ]) +
-        ` ${className || ''}`
-      }
-      hoverClass='van-cell--hover hover-class'
+      className={clsx(bem([
+        size,{
+          center,
+          required,
+          borderless: !border,
+          clickable: isLink || clickable,
+        },
+      ]),className)}
+      hoverClass={clsx(bem('',[ 'hover' ],true))}
       hoverStayTime={70}
       style={utils.style([ style ])}
       onClick={_click}
       {...others}
     >
       {icon ? (
-        <Icon
-          name={icon}
-          className='van-cell__left-icon-wrap van-cell__left-icon'
+        <Icon name={icon}
+          className={clsx(bem('left-icon-wrap'),bem('left-icon'))}
          />
       ) : (
         renderIcon
       )}
       <View
-        style={computed.titleStyle({
+        style={computedTitleStyle({
           titleWidth,
           titleStyle,
         })}
-        className='van-cell__title title-class'
+        className={clsx(bem('title'))}
       >
         {title || title === 0 ? <Block>{title}</Block> : renderTitle}
         {(label || renderLabel) && (
-          <View className='van-cell__label label-class'>
+          <View className={clsx(bem('label'))}>
             {renderLabel || (label && <Block>{label}</Block>)}
           </View>
         )}
       </View>
-      <View className='van-cell__value value-class'>
+      <View className={clsx(bem('value'))}>
         {value || value === 0 ? <Block>{value}</Block> : children}
       </View>
       {isLink ? (
         <Icon
           name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
-          className='van-cell__right-icon-wrap right-icon-class van-cell__right-icon'
+          className={clsx(bem('right-icon-wrap'),bem('right-icon'))}
          />
       ) : (
         renderRightIcon

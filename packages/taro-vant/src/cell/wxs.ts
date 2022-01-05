@@ -1,8 +1,7 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { computedStyle,addUnit } from '../utils'
 
-function titleStyle(data: any) {
-  return style([
+export function computedTitleStyle(data: any) {
+  return computedStyle([
     {
       'max-width': addUnit(data.titleWidth),
       'min-width': addUnit(data.titleWidth),
@@ -11,4 +10,3 @@ function titleStyle(data: any) {
   ])
 }
 
-export { titleStyle }

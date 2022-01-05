@@ -1,4 +1,7 @@
-import Cell from './Cell';
+import Cell from './Cell'
+import CellGroup from './CellGroup'
 
-export default Cell;
-export type { CellProps } from './PropsType';
+const CellNameSpace = Object.assign(Cell, { group: CellGroup })
+export { CellNameSpace as Cell }
+export default CellNameSpace
+export type { CellProps, CellGroupProps } from './PropsType'
