@@ -214,7 +214,6 @@ function Dialog(props: DialogProps) {
 
       {theme === 'round-button' ? (
         <GoodsAction className={clsx(bem('footer',[ 'round-button' ]))}>
-          {/*TODO 等检测*/}
           {showCancelButton && (
             <GoodsActionButton
               loading={cancelLoading}

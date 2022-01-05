@@ -1,24 +1,17 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import {
-  cloneElement,
-  useCallback,
-  useMemo,
-  useRef,
-  useEffect,
-  useState,
-  useLayoutEffect,
-  Children,
-} from 'react'
+import { Children, cloneElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { DropdownMenuProps } from './PropsType'
-import { getRect } from '../common/utils'
-import * as utils from '../wxs/utils'
-import * as computed from './wxs'
+import { displayTitle } from './wxs'
+import { computedStyle, createNamespace, getRect } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('dropdown-menu')
 
 let ARRAY: any[] = []
 let currentIndexInit = 0
 
-export function DropdownMenu(props: DropdownMenuProps) {
+function DropdownMenu(props: DropdownMenuProps) {
   const {
     activeColor,
     overlay = true,
@@ -37,18 +30,18 @@ export function DropdownMenu(props: DropdownMenuProps) {
   const TimerKey = useRef<Date>()
   const [ currentIndex, setCurrentIndex ] = useState<number>()
 
-  const close = useCallback(function () {
+  const close = useCallback(function() {
     childrenInstance.current.forEach((child) => {
       child.toggle(false, { immediate: true })
     })
   }, [])
 
-  useLayoutEffect(function () {
+  useLayoutEffect(function() {
     setCurrentIndex(currentIndexInit++)
   }, [])
 
   useLayoutEffect(
-    function () {
+    function() {
       TimerKey.current = new Date()
       ARRAY.push({
         closeOnClickOutside,
@@ -59,20 +52,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
     [ closeOnClickOutside, close ],
   )
 
-  useLayoutEffect(
-    function () {
-      updateItemListData()
-    },
-    [ others.children ],
-  )
-
-  useEffect(function () {
-    return function () {
-      ARRAY = (ARRAY || []).filter((item) => item && item.TimerKey !== TimerKey)
-    }
-  }, [])
-
-  const updateItemListData = function () {
+  const updateItemListData = function() {
     setTimeout(() => {
       if (childrenInstance.current) {
         setItemListData(childrenInstance.current.map((child) => child))
@@ -80,7 +60,21 @@ export function DropdownMenu(props: DropdownMenuProps) {
     }, 333)
   }
 
-  const toggleItem = useCallback(function (active: number) {
+  useLayoutEffect(
+    function() {
+      updateItemListData()
+    },
+    [ others.children ],
+  )
+
+  useEffect(function() {
+    return function() {
+      ARRAY = (ARRAY || []).filter((item) => item && item.TimerKey !== TimerKey)
+    }
+  }, [])
+
+
+  const toggleItem = useCallback(function(active: number) {
     childrenInstance.current.forEach((item: any, index: number) => {
       const { showPopup } = item
       if (index === Number(active)) {
@@ -92,7 +86,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
   }, [])
 
   const onTitleTap = useCallback(
-    function (event: any) {
+    function(event: any) {
       const { index } = event.currentTarget.dataset
       const child = childrenInstance.current[index]
       if (!child.disabled) {
@@ -113,32 +107,29 @@ export function DropdownMenu(props: DropdownMenuProps) {
     [ toggleItem ],
   )
 
-  const setChildrenInstance = useCallback(function (
-    index: number,
-    instance: any,
-  ) {
-    childrenInstance.current[index] = instance
-  },
-  [])
-
-  const getChildWrapperStyle = useCallback(
-    function () {
-      return getRect(null, `.van-dropdown-menu${currentIndex}`).then(
-        (rect: any) => {
-          const wrapperStyle: any = {
-            zIndex: zIndex,
-            rect: rect,
-          }
-
-          return wrapperStyle
-        },
-      )
+  const setChildrenInstance = useCallback(function(
+      index: number,
+      instance: any,
+    ) {
+      childrenInstance.current[index] = instance
     },
-    [ zIndex, currentIndex ],
-  )
+    [])
+
+  const getChildWrapperStyle = useCallback(() => {
+    return getRect(null, `.van-dropdown-menu--${currentIndex}`).then(
+      (rect: any) => {
+        const wrapperStyle: any = {
+          zIndex: zIndex,
+          rect: rect,
+        }
+
+        return wrapperStyle
+      },
+    )
+  }, [ zIndex, currentIndex ])
 
   const ResetChildren = useMemo(
-    function () {
+    function() {
       const res: JSX.Element[] = []
       Children.map(others.children, (children, index) => {
         res.push(
@@ -177,32 +168,30 @@ export function DropdownMenu(props: DropdownMenuProps) {
 
   return (
     <View
-      className={`van-dropdown-menu van-dropdown-menu${currentIndex} van-dropdown-menu--top-bottom  ${className}`}
-      style={utils.style([ style, { position: 'relative' } ])}
+      className={clsx(bem([
+        `${currentIndex}`, 'top-bottom',
+      ]), className)}
+      style={computedStyle([ style, { position: 'relative' } ])}
     >
       {(itemListData || []).map((item: any, index: number) => {
         return (
           <View
             key={item.index}
             data-index={index}
-            className={utils.bem('dropdown-menu__item', {
+            className={clsx(bem('item', {
               disabled: item.disabled,
-            })}
+            }))}
             onClick={onTitleTap}
           >
             <View
-              className={
-                item.titleClass +
-                ' ' +
-                utils.bem('dropdown-menu__title', {
-                  active: item.showPopup,
-                  down: item.showPopup === (direction === 'down'),
-                })
-              }
+              className={clsx(bem('title', {
+                active: item.showPopup,
+                down: item.showPopup === (direction === 'down'),
+              }), item.titleClass)}
               style={item.showPopup ? 'color:' + activeColor : ''}
             >
-              <View className={`van-ellipsis ${item.titleClass || ''}`}>
-                {computed.displayTitle(item)}
+              <View className={clsx('van-ellipsis', item.titleClass)}>
+                {displayTitle(item)}
               </View>
             </View>
           </View>

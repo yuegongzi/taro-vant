@@ -1,22 +1,15 @@
-import './style/index.less';
-import { View, Block } from '@tarojs/components'
-import {
-  useState,
-  useEffect,
-  useCallback,
-  useImperativeHandle,
-  forwardRef,
-  memo,
-} from 'react'
+import './style/index.less'
+import { Block, View } from '@tarojs/components'
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState } from 'react'
 import Taro from '@tarojs/taro'
-import type {
-  DropdownItemProps,
-  IDropdownItemInstance,
-} from '../dropdown-menu/PropsType'
-import * as utils from '../wxs/utils'
-import VanIcon from '../icon/index'
-import VanCell from '../cell'
-import VanPopup from '../popup'
+import type { DropdownItemProps, IDropdownItemInstance } from './PropsType'
+import Icon from '../icon'
+import Cell from '../cell'
+import Popup from '../popup'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('dropdown-item')
 
 function Index(
   props: DropdownItemProps & {
@@ -40,7 +33,8 @@ function Index(
     onOpened,
     onClose,
     onClosed,
-    onChange = () => {},
+    onChange = () => {
+    },
     options = [],
     className = '',
     style,
@@ -54,26 +48,19 @@ function Index(
   const [ displayTitle, setDisplayTitle ] = useState('')
   const [ value_, setValue ] = useState<number | string | undefined>('')
 
-  useEffect(
-    function () {
+  useEffect(()=> {
       setValue(value)
-    },
-    [ value ],
-  )
+    }, [ value ])
 
-  const rerender = useCallback(
-    function () {
+  const rerender = useCallback(()=> {
       Taro.nextTick(() => {
         if (parentInstance) {
           parentInstance.updateItemListData()
         }
       })
-    },
-    [ parentInstance ],
-  )
+    }, [ parentInstance ])
 
-  const toggle = useCallback(
-    function (show?: any, options = {}) {
+  const toggle = useCallback(function(show?: any, options = {}) {
       if (typeof show !== 'boolean') {
         show = !showPopup
       }
@@ -84,36 +71,38 @@ function Index(
       setTransition(!options.immediate)
       setShowPopup(show)
       if (show) {
-        !parentInstance
-          ? void 0
-          : parentInstance.getChildWrapperStyle().then((wrapperStyle: any) => {
-              const rect = wrapperStyle.rect
-              delete wrapperStyle.rect
-              if (wrapperStyle) {
-                wrapperStyle.width = '100vw'
-                wrapperStyle.position = 'absolute'
-              }
+        if (!parentInstance) {
+          void 0
+        } else {
+          parentInstance.getChildWrapperStyle().then((wrapperStyle: any) => {
+            const rect = wrapperStyle.rect
+            delete wrapperStyle.rect
+            if (wrapperStyle) {
+              wrapperStyle.width = '100vw'
+              wrapperStyle.position = 'absolute'
+            }
 
-              if (parentInstance.direction === 'down') {
-                wrapperStyle.top = rect.height + 'PX'
-                wrapperStyle.height = '100vh'
-                setWrapperStyle(wrapperStyle)
-                setShowWrapper(true)
-                rerender()
-              }
+            if (parentInstance.direction === 'down') {
+              wrapperStyle.top = rect.height + 'PX'
+              wrapperStyle.height = '100vh'
+              setWrapperStyle(wrapperStyle)
+              setShowWrapper(true)
+              rerender()
+            }
 
-              if (parentInstance.direction === 'up') {
-                wrapperStyle.height = '100vh'
-                wrapperStyle.top = 0
-                wrapperStyle.transform = 'translateY(-100%)'
-                wrapperStyle.WebkitTransform = 'translateY(-100%)'
-                wrapperStyle.MozTransform = 'translateY(-100%)'
-                wrapperStyle.OTransform = 'translateY(-100%)'
-                setWrapperStyle(wrapperStyle)
-                setShowWrapper(true)
-                rerender()
-              }
-            })
+            if (parentInstance.direction === 'up') {
+              wrapperStyle.height = '100vh'
+              wrapperStyle.top = 0
+              wrapperStyle.transform = 'translateY(-100%)'
+              wrapperStyle.WebkitTransform = 'translateY(-100%)'
+              wrapperStyle.MozTransform = 'translateY(-100%)'
+              wrapperStyle.OTransform = 'translateY(-100%)'
+              setWrapperStyle(wrapperStyle)
+              setShowWrapper(true)
+              rerender()
+            }
+          })
+        }
       } else {
         rerender()
       }
@@ -122,7 +111,7 @@ function Index(
   )
 
   useEffect(
-    function () {
+    function() {
       setChildrenInstance(index, {
         title,
         titleClass,
@@ -154,14 +143,14 @@ function Index(
   )
 
   const onClosed_ = useCallback(
-    function () {
+    function() {
       if (onClosed) onClosed()
       setShowWrapper(false)
     },
     [ onClosed ],
   )
 
-  const onOptionTap = function (_event: any, option: any) {
+  const onOptionTap = function(_event: any, option: any) {
     const shouldEmitChange = value_ !== option.value
     setShowPopup(false)
     setValue(option.value)
@@ -180,14 +169,12 @@ function Index(
 
   return showWrapper ? (
     <View
-      className={
-        utils.bem('dropdown-item', parentInstance.direction) + ' ' + className
-      }
-      style={utils.style([ wrapperStyle, style ])}
+      className={clsx(bem([ parentInstance.direction ]), className)}
+      style={computedStyle([ wrapperStyle, style ])}
     >
-      <VanPopup
+      <Popup
         show={showPopup}
-        style={utils.style([ { position: 'absolute' }, popupStyle ])}
+        style={computedStyle([ { position: 'absolute' }, popupStyle ])}
         overlayStyle='position: absolute;'
         overlay={!!parentInstance.overlay}
         position={parentInstance.direction === 'down' ? 'top' : 'bottom'}
@@ -201,19 +188,19 @@ function Index(
       >
         <View>
           {(options || []).map((item: any, index: number) => (
-            <VanCell
+            <Cell
               key={`${index}VanCell`}
               data-option={item}
-              className={utils.bem('dropdown-item__option', {
+              className={clsx(bem('option', {
                 active: item.value === value_,
-              })}
+              }))}
               clickable
               icon={item.icon}
               onClick={(e) => onOptionTap(e, item)}
               renderTitle={
                 <Block>
                   <View
-                    className='van-dropdown-item__title'
+                    className={clsx(bem('title'))}
                     style={
                       item.value === value_
                         ? 'color:' + parentInstance.activeColor
@@ -226,17 +213,17 @@ function Index(
               }
             >
               {item.value === value_ && (
-                <VanIcon
+                <Icon
                   name='success'
-                  className='van-dropdown-item__icon'
+                  className={clsx(bem('icon'))}
                   color={parentInstance.activeColor}
-                 />
+                />
               )}
-            </VanCell>
+            </Cell>
           ))}
           {others.children}
         </View>
-      </VanPopup>
+      </Popup>
     </View>
   ) : (
     <></>
@@ -244,5 +231,4 @@ function Index(
 }
 
 const DropdownItem = memo(forwardRef(Index))
-export { DropdownItem }
 export default DropdownItem

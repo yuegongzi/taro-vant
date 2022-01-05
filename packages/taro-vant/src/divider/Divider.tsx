@@ -1,8 +1,11 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { DividerProps } from './PropsType'
-import * as computed from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+import { rootStyle } from './wxs'
+
+const [ bem ] = createNamespace('divider')
 
 export function Divider(props: DividerProps) {
   const {
@@ -20,19 +23,15 @@ export function Divider(props: DividerProps) {
 
   return (
     <View
-      className={
-        ' ' +
-        utils.bem('divider', [
-          {
-            dashed,
-            hairline,
-          },
-          contentPosition,
-        ]) +
-        ` ${className || ''}`
-      }
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx(bem([
+        {
+          dashed,
+          hairline,
+        },
+        contentPosition,
+      ]), className)}
+      style={computedStyle([
+        rootStyle({
           borderColor,
           textColor,
           fontSize,
@@ -45,4 +44,5 @@ export function Divider(props: DividerProps) {
     </View>
   )
 }
+
 export default Divider

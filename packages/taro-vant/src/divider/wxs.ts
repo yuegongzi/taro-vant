@@ -1,8 +1,7 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
 
-function rootStyle(data: any) {
-  return style([
+export function rootStyle(data: any) {
+  return computedStyle([
     {
       'border-color': data.borderColor,
       color: data.textColor,
@@ -10,5 +9,3 @@ function rootStyle(data: any) {
     },
   ])
 }
-
-export { rootStyle }

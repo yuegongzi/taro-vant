@@ -1,4 +1,9 @@
-import DropdownMenu from './DropdownMenu';
+import DropdownMenu from './DropdownMenu'
+import DropdownItem from './DropdownItem'
 
-export default DropdownMenu;
-export type { DropdownMenuProps } from './PropsType';
+const DropdownMenuNameSpace = Object.assign(DropdownMenu, {
+  Item: DropdownItem,
+})
+export { DropdownMenuNameSpace as DropdownMenu }
+export default DropdownMenuNameSpace
+export type { DropdownMenuProps, DropdownItemProps } from './PropsType'
