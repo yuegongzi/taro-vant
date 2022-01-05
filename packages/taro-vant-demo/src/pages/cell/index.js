@@ -5,7 +5,8 @@ import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const CellGroup = Cell.Group;
+
+
 export default class Index extends Component {
   constructor() {
     super()
@@ -17,7 +18,7 @@ export default class Index extends Component {
       <DemoPage title='Cell 单元格'>
         <>
           <DemoBlock title='基础用法'>
-            <CellGroup>
+            <Cell.Group>
               <Cell title='单元格' value='内容' />
               <Cell
                 title='单元格'
@@ -25,16 +26,16 @@ export default class Index extends Component {
                 label='描述信息'
                 border={false}
                />
-            </CellGroup>
+            </Cell.Group>
           </DemoBlock>
           <DemoBlock title='卡片风格'>
-            <CellGroup inset>
+            <Cell.Group inset>
               <Cell title='单元格' value='内容' />
               <Cell title='单元格' value='内容' label='描述信息' />
-            </CellGroup>
+            </Cell.Group>
           </DemoBlock>
           <DemoBlock title='单元格大小'>
-            <CellGroup>
+            <Cell.Group>
               <Cell title='单元格' value='内容' size='large' />
               <Cell
                 title='单元格'
@@ -47,7 +48,7 @@ export default class Index extends Component {
                   </>
                 }
                />
-            </CellGroup>
+            </Cell.Group>
           </DemoBlock>
           <DemoBlock title='展示图标'>
             <Cell
@@ -78,12 +79,12 @@ export default class Index extends Component {
              />
           </DemoBlock>
           <DemoBlock title='分组标题'>
-            <CellGroup title='分组 1'>
+            <Cell.Group title='分组 1'>
               <Cell title='单元格' value='内容' />
-            </CellGroup>
-            <CellGroup title='分组 2'>
+            </Cell.Group>
+            <Cell.Group title='分组 2'>
               <Cell title='单元格' value='内容' />
-            </CellGroup>
+            </Cell.Group>
           </DemoBlock>
           <DemoBlock title='使用插槽'>
             <Cell
