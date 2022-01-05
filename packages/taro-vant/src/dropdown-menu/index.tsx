@@ -9,12 +9,12 @@ import {
   useLayoutEffect,
   Children,
 } from 'react'
-import { DropdownMenuProps } from '../../types/dropdown-menu'
+import type { DropdownMenuProps } from './PropsType'
 import { getRect } from '../common/utils'
 import * as utils from '../wxs/utils'
 import * as computed from './wxs'
 
-let ARRAY: Array<any> = []
+let ARRAY: any[] = []
 let currentIndexInit = 0
 
 export function DropdownMenu(props: DropdownMenuProps) {
@@ -31,10 +31,10 @@ export function DropdownMenu(props: DropdownMenuProps) {
     ...others
   } = props
 
-  const [itemListData, setItemListData] = useState<Array<any>>([])
-  const childrenInstance = useRef<Array<any>>([])
+  const [ itemListData, setItemListData ] = useState<any[]>([])
+  const childrenInstance = useRef<any[]>([])
   const TimerKey = useRef<Date>()
-  const [currentIndex, setCurrentIndex] = useState<number>()
+  const [ currentIndex, setCurrentIndex ] = useState<number>()
 
   const close = useCallback(function () {
     childrenInstance.current.forEach((child) => {
@@ -55,14 +55,14 @@ export function DropdownMenu(props: DropdownMenuProps) {
         close,
       })
     },
-    [closeOnClickOutside, close],
+    [ closeOnClickOutside, close ],
   )
 
   useLayoutEffect(
     function () {
       updateItemListData()
     },
-    [others.children],
+    [ others.children ],
   )
 
   useEffect(function () {
@@ -109,7 +109,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
         })
       }
     },
-    [toggleItem],
+    [ toggleItem ],
   )
 
   const setChildrenInstance = useCallback(function (
@@ -133,12 +133,12 @@ export function DropdownMenu(props: DropdownMenuProps) {
         },
       )
     },
-    [zIndex, currentIndex],
+    [ zIndex, currentIndex ],
   )
 
   const ResetChildren = useMemo(
     function () {
-      const res: Array<JSX.Element> = []
+      const res: JSX.Element[] = []
       Children.map(others.children, (children, index) => {
         res.push(
           cloneElement(children as JSX.Element, {
@@ -177,7 +177,7 @@ export function DropdownMenu(props: DropdownMenuProps) {
   return (
     <View
       className={`van-dropdown-menu van-dropdown-menu${currentIndex} van-dropdown-menu--top-bottom  ${className}`}
-      style={utils.style([style, { position: 'relative' }])}
+      style={utils.style([ style, { position: 'relative' } ])}
     >
       {(itemListData || []).map((item: any, index: number) => {
         return (

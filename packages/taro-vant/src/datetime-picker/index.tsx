@@ -1,10 +1,10 @@
 import { useState, useCallback, useRef, useLayoutEffect } from 'react'
-import { PickerChangeEvents } from 'packages/taro-vant/types/picker'
+import type { PickerChangeEvents } from '../picker/PropsType'
 import VanPicker from '../picker/index'
-import {
+import type {
   DatetimePickerProps,
   DatetimePickerEventsByInstance,
-} from '../../types/datetime-picker'
+} from './PropsType'
 import * as utils from '../wxs/utils'
 import {
   defaultFormatter,
@@ -43,8 +43,8 @@ export function DatetimePicker(props: DatetimePickerProps) {
   } = props
 
   const PickRef = useRef<any>(null)
-  const [innerValue, setInnerValue] = useState<any>(Date.now())
-  const [columns, setColumns] = useState<any[]>([])
+  const [ innerValue, setInnerValue ] = useState<any>(Date.now())
+  const [ columns, setColumns ] = useState<any[]>([])
   const minHour_ = minHour
   const maxHour_ = maxHour
   const minMinute_ = minMinute
@@ -54,7 +54,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
     if (PickRef.current) {
       const { setColumnValues } = PickRef.current
       PickRef.current.setColumnValues = (...args: any) =>
-        setColumnValues.apply(PickRef.current, [args[1], args[2], false])
+        setColumnValues.apply(PickRef.current, [ args[1], args[2], false ])
     }
     return PickRef.current
   }, [])
@@ -96,7 +96,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
         [`${type}Minute`]: minute,
       }
     },
-    [maxDate, minDate],
+    [ maxDate, minDate ],
   )
 
   const getRanges = useCallback(
@@ -104,11 +104,11 @@ export function DatetimePicker(props: DatetimePickerProps) {
       const res = [
         {
           type: 'hour',
-          range: [minHour_, maxHour_],
+          range: [ minHour_, maxHour_ ],
         },
         {
           type: 'minute',
-          range: [minMinute_, maxMinute_],
+          range: [ minMinute_, maxMinute_ ],
         },
       ]
       if (type === 'time') {
@@ -125,23 +125,23 @@ export function DatetimePicker(props: DatetimePickerProps) {
       const result = [
         {
           type: 'year',
-          range: [minYear, maxYear],
+          range: [ minYear, maxYear ],
         },
         {
           type: 'month',
-          range: [minMonth, maxMonth],
+          range: [ minMonth, maxMonth ],
         },
         {
           type: 'day',
-          range: [minDate, maxDate],
+          range: [ minDate, maxDate ],
         },
         {
           type: 'hour',
-          range: [minHour, maxHour],
+          range: [ minHour, maxHour ],
         },
         {
           type: 'minute',
-          range: [minMinute, maxMinute],
+          range: [ minMinute, maxMinute ],
         },
       ]
       if (type === 'date') result.splice(3, 2)
@@ -149,7 +149,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
 
       return result
     },
-    [getBoundary, innerValue, maxHour_, maxMinute_, minHour_, minMinute_, type],
+    [ getBoundary, innerValue, maxHour_, maxMinute_, minHour_, minMinute_, type ],
   )
 
   const getOriginColumns = useCallback(
@@ -167,7 +167,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
       })
       return results
     },
-    [filter, getRanges],
+    [ filter, getRanges ],
   )
 
   const updateColumns = useCallback(
@@ -179,16 +179,16 @@ export function DatetimePicker(props: DatetimePickerProps) {
       }))
       return setColumns(results)
     },
-    [formatter, getOriginColumns],
+    [ formatter, getOriginColumns ],
   )
 
   const updateColumnValue = useCallback(
     function (value: string) {
-      let values: Array<any> = []
+      let values: any[] = []
       const picker = getPicker()
       if (type === 'time') {
         const pair: any = value.split(':')
-        values = [formatter('hour', pair[0]), formatter('minute', pair[1])]
+        values = [ formatter('hour', pair[0]), formatter('minute', pair[1]) ]
       } else {
         const date = new Date(value)
         values = [
@@ -216,7 +216,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
         }, 16)
       })
     },
-    [formatter, getPicker, type, updateColumns],
+    [ formatter, getPicker, type, updateColumns ],
   )
 
   const correctValue = useCallback(
@@ -230,7 +230,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
       }
       // time type
       if (!isDateType) {
-        let [hour, minute] = value.split(':')
+        let [ hour, minute ] = value.split(':')
         hour = padZero(range(hour, minHour, maxHour))
         minute = padZero(range(minute, minMinute, maxMinute))
         return `${hour}:${minute}`
@@ -240,7 +240,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
       value = Math.min(value, maxDate as number)
       return value
     },
-    [maxDate, maxHour, maxMinute, minDate, minHour, minMinute, type],
+    [ maxDate, maxHour, maxMinute, minDate, minHour, minMinute, type ],
   )
 
   // useLayoutEffect(
@@ -272,7 +272,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [type, minDate, maxDate, minHour, maxHour, minMinute, maxMinute],
+    [ type, minDate, maxDate, minHour, maxHour, minMinute, maxMinute ],
   )
 
   const onChange_ = function (e: PickerChangeEvents) {
@@ -295,8 +295,8 @@ export function DatetimePicker(props: DatetimePickerProps) {
 
     if (type === 'time') {
       const indexes = picker.getIndexes()
-      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1]
-        .values[indexes[1]]}`
+      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1].
+        values[indexes[1]]}`
     } else {
       const indexes = picker.getIndexes()
       const values = indexes.map(
@@ -350,7 +350,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
     <VanPicker
       ref={PickRef}
       className={`van-datetime-picker column-class ${others.className || ''}`}
-      style={utils.style([others.style])}
+      style={utils.style([ others.style ])}
       title={title}
       columns={columns}
       itemHeight={itemHeight}
@@ -369,7 +369,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
           } as any)
       }}
       onCancel={onCancel}
-    ></VanPicker>
+     />
   )
 }
 

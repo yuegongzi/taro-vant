@@ -2,11 +2,11 @@
 import { View } from '@tarojs/components'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import * as utils from '../wxs/utils'
-import { PopupProps } from '../../types/popup'
+import type { PopupProps } from './PropsType'
 import { Popup as InnerPopup } from '../common/zIndex'
 import VanIcon from './../icon'
 import * as computed from './wxs'
-import { useTransition } from './../mixins/transition'
+import { useTransition } from '../mixins/transition'
 import VanOverlay from './../overlay'
 
 export function Popup(this: any, props: PopupProps) {
@@ -41,17 +41,17 @@ export function Popup(this: any, props: PopupProps) {
   } = props
   const _onClickCloseIcon = useCallback(() => {
     onClose?.()
-  }, [onClose])
+  }, [ onClose ])
 
   const _onClickOverlay = useCallback(() => {
     onClickOverlay?.()
     if (closeOnClickOverlay) {
       onClose?.()
     }
-  }, [closeOnClickOverlay, onClickOverlay, onClose])
+  }, [ closeOnClickOverlay, onClickOverlay, onClose ])
 
-  const [_name, setName] = useState<any>('')
-  const [_duration, setDuration] = useState(duration)
+  const [ _name, setName ] = useState<any>('')
+  const [ _duration, setDuration ] = useState(duration)
   const originDuration = useRef<any>(null)
 
   useEffect(() => {
@@ -62,7 +62,7 @@ export function Popup(this: any, props: PopupProps) {
     } else if (originDuration.current != null) {
       setDuration(originDuration.current)
     }
-  }, [duration, position, transition])
+  }, [ duration, position, transition ])
   const { inited, currentDuration, classes, display, onTransitionEnd } =
     useTransition({
       show,
@@ -137,7 +137,7 @@ export function Popup(this: any, props: PopupProps) {
                 getClassName(closeIconPosition)
               }
               onClick={_onClickCloseIcon}
-            ></VanIcon>
+             />
           )}
         </View>
       )}

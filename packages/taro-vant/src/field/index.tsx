@@ -2,9 +2,9 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect, useRef } from 'react'
 import { View, Block, Textarea, Input } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { FieldProps } from '../../types/field'
-import { Cell } from '../cell/index'
-import { Icon } from '../icon/index'
+import type { FieldProps } from './PropsType'
+import { Cell } from '../cell'
+import { Icon } from '../icon'
 import { resizeTextarea } from '../utils'
 import * as computed from './wxs'
 
@@ -16,7 +16,7 @@ export function Field(props: FieldProps) {
   }> = useRef({
     focused: false,
   })
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     innerValue: '',
     showClear: false,
     unitag: 'van-field',
@@ -188,7 +188,7 @@ export function Field(props: FieldProps) {
       setShowClear(innerValue)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [readonly, clearable],
+    [ readonly, clearable ],
   )
 
   useEffect(
@@ -197,7 +197,7 @@ export function Field(props: FieldProps) {
         return { ...pre, innerValue: value }
       })
     },
-    [value],
+    [ value ],
   )
 
   useEffect(() => {
@@ -205,7 +205,7 @@ export function Field(props: FieldProps) {
       adjustTextareaSize()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [innerValue])
+  }, [ innerValue ])
 
   return (
     <Cell
@@ -217,10 +217,10 @@ export function Field(props: FieldProps) {
       required={required}
       clickable={clickable}
       titleWidth={titleWidth}
-      titleStyle="margin-right: 12px;"
+      titleStyle='margin-right: 12px;'
       style={style}
       arrowDirection={arrowDirection}
-      className="van-field"
+      className='van-field'
       renderIcon={<Block>{renderLeftIcon}</Block>}
       renderTitle={
         <Block>
@@ -241,9 +241,9 @@ export function Field(props: FieldProps) {
         </Block>
       }
     >
-      <View className={utils.bem('field__body', [type])}>
+      <View className={utils.bem('field__body', [ type ])}>
         <View
-          className={utils.bem('field__control', [inputAlign, 'custom'])}
+          className={utils.bem('field__control', [ inputAlign, 'custom' ])}
           onClick={onClickInput}
         >
           {renderInput}
@@ -292,7 +292,7 @@ export function Field(props: FieldProps) {
             onConfirm={_confirm}
             onLineChange={onLineChange}
             onKeyboardHeightChange={onKeyboardHeightChange}
-          ></Textarea>
+           />
         ) : (
           <Input
             className={
@@ -333,31 +333,31 @@ export function Field(props: FieldProps) {
             onFocus={_focus}
             onConfirm={_confirm}
             onKeyboardHeightChange={onKeyboardHeightChange}
-          ></Input>
+           />
         )}
         {showClear && (
           <Icon
             name={clearIcon}
-            className="van-field__clear-root van-field__icon-root"
+            className='van-field__clear-root van-field__icon-root'
             onTouchStart={_clear}
-          ></Icon>
+           />
         )}
-        <View className="van-field__icon-container" onClick={onClickIcon}>
+        <View className='van-field__icon-container' onClick={onClickIcon}>
           {(rightIcon || icon) && (
             <Icon
               name={(rightIcon || icon)!}
               className={
                 'van-field__icon-root ' + iconClass + ' right-icon-class'
               }
-            ></Icon>
+             />
           )}
           {renderRightIcon}
           {renderIcon}
         </View>
-        <View className="van-field__button">{renderButton}</View>
+        <View className='van-field__button'>{renderButton}</View>
       </View>
       {showWordLimit && maxlength && (
-        <View className="van-field__word-limit">
+        <View className='van-field__word-limit'>
           <View
             className={utils.bem('field__word-num', {
               full: innerValue.length >= maxlength,

@@ -1,4 +1,4 @@
-import { DialogProps } from '../../types/dialog'
+import type { DialogProps } from './PropsType'
 import { on, off, trigger } from './events'
 const _defaultOptions = {
   show: false,

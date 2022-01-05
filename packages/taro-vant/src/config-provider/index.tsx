@@ -1,5 +1,5 @@
 import { View } from '@tarojs/components'
-import { ConfigProviderProps } from '../../types/config-provider'
+import type { ConfigProviderProps } from './PropsType'
 import * as utils from '../wxs/utils'
 import * as computed from './wxs'
 
@@ -8,7 +8,7 @@ export function ConfigProvider(props: ConfigProviderProps) {
   return (
     <View
       className={`van-config-provider ${className || ''}`}
-      style={utils.style([computed.mapThemeVarsToCSSVars(themeVars), style])}
+      style={utils.style([ computed.mapThemeVarsToCSSVars(themeVars), style ])}
       {...others}
     >
       {children}

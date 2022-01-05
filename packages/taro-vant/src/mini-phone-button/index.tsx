@@ -1,5 +1,5 @@
-import type { MiniPhoneButtonProps } from '../../types/mini-phone-button'
-import { ButtonProps, CommonEventFunction } from '@tarojs/components'
+import type { MiniPhoneButtonProps } from './PropsType'
+import type { ButtonProps, CommonEventFunction } from '@tarojs/components'
 import { Button } from '../button'
 
 declare const my: any
@@ -47,8 +47,8 @@ export function MiniPhoneButton(props: MiniPhoneButtonProps): JSX.Element {
       {process.env.TARO_ENV === 'alipay' ? (
         <Button
           {...others}
-          openType="getAuthorize"
-          scope="phoneNumber"
+          openType='getAuthorize'
+          scope='phoneNumber'
           onError={getError}
           onGetAuthorize={getPhone}
         >
@@ -57,7 +57,7 @@ export function MiniPhoneButton(props: MiniPhoneButtonProps): JSX.Element {
       ) : (
         <Button
           {...others}
-          openType="getPhoneNumber"
+          openType='getPhoneNumber'
           onGetPhoneNumber={getPhone}
         >
           {children}

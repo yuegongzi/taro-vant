@@ -1,4 +1,4 @@
-import { NotifyProps } from '../../types/notify'
+import type { NotifyProps } from './PropsType'
 import { trigger } from './events'
 
 const Notify = function (options: NotifyProps | string) {

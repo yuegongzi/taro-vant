@@ -7,12 +7,12 @@ import VanGoodsActionButton from '../goods-action-button/index'
 import VanGoodsAction from '../goods-action/index'
 import VanButton from '../button/index'
 import VanPopup from '../popup/index'
-import { DialogProps } from '../../types/dialog'
+import type { DialogProps } from './PropsType'
 import { on, off, trigger } from './events'
 import * as utils from './../wxs/utils'
 import dialog from './dialog'
 export function Dialog(props: DialogProps) {
-  const [options, setOptions] = useState<DialogProps>({})
+  const [ options, setOptions ] = useState<DialogProps>({})
 
   const {
     show: _show,
@@ -51,9 +51,9 @@ export function Dialog(props: DialogProps) {
     ...others
   } = options
 
-  const [confirmLoading, setConfirmLoading] = useState(false)
-  const [cancelLoading, setCancelLoading] = useState(false)
-  const [show, setShow] = useState(_show)
+  const [ confirmLoading, setConfirmLoading ] = useState(false)
+  const [ cancelLoading, setCancelLoading ] = useState(false)
+  const [ show, setShow ] = useState(_show)
 
   const _close = useCallback(
     (action: 'confirm' | 'cancel' | 'overlay' | 'close') => {
@@ -63,11 +63,11 @@ export function Dialog(props: DialogProps) {
         onClose?.({ detail: action })
       })
     },
-    [onClose],
+    [ onClose ],
   )
   const _onClickOverlay = useCallback(() => {
     _close('overlay')
-  }, [_close])
+  }, [ _close ])
 
   const _stopLoading = useCallback(() => {
     setConfirmLoading(false)
@@ -97,30 +97,30 @@ export function Dialog(props: DialogProps) {
       }
 
       if (beforeClose) {
-        toPromise(beforeClose(action))
-          .then((value: boolean) => {
+        toPromise(beforeClose(action)).
+          then((value: boolean) => {
             if (value) {
               _close(action)
               _stopLoading()
             } else {
               _stopLoading()
             }
-          })
-          .catch(() => {
+          }).
+          catch(() => {
             _stopLoading()
           })
       }
     },
-    [_close, _stopLoading, asyncClose, beforeClose, onCancel, onConfirm],
+    [ _close, _stopLoading, asyncClose, beforeClose, onCancel, onConfirm ],
   )
 
   const _onConfirm = useCallback(() => {
     _handleAction('confirm')
-  }, [_handleAction])
+  }, [ _handleAction ])
 
   const _onCancel = useCallback(() => {
     _handleAction('cancel')
-  }, [_handleAction])
+  }, [ _handleAction ])
 
   useEffect(() => {
     setOptions({
@@ -162,7 +162,7 @@ export function Dialog(props: DialogProps) {
       off('close', closeFn)
       off('stopLoading', stopLoadingFn)
     }
-  }, [_close, _stopLoading, options, props.id])
+  }, [ _close, _stopLoading, options, props.id ])
 
   useEffect(() => {
     return () => {
@@ -182,7 +182,7 @@ export function Dialog(props: DialogProps) {
       overlay={overlay}
       transition={transition}
       className={'van-dialog van-dialog--' + theme + ' ' + `${className || ''}`}
-      style={utils.style(['width: ' + utils.addUnit(width) + ';', style])}
+      style={utils.style([ 'width: ' + utils.addUnit(width) + ';', style ])}
       overlayStyle={overlayStyle}
       closeOnClickOverlay={closeOnClickOverlay}
       onClose={_onClickOverlay}
@@ -209,16 +209,16 @@ export function Dialog(props: DialogProps) {
                 },
               ])}
             >
-              <Text className="van-dialog__message-text">{message}</Text>
+              <Text className='van-dialog__message-text'>{message}</Text>
             </View>
           )}
 
       {theme === 'round-button' ? (
-        <VanGoodsAction className="van-dialog__footer--round-button">
+        <VanGoodsAction className='van-dialog__footer--round-button'>
           {showCancelButton && (
             <VanGoodsActionButton
               loading={cancelLoading}
-              className="van-dialog__button van-hairline--right van-dialog__cancel"
+              className='van-dialog__button van-hairline--right van-dialog__cancel'
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
@@ -227,7 +227,7 @@ export function Dialog(props: DialogProps) {
           )}
           {showConfirmButton && (
             <VanGoodsActionButton
-              className="van-dialog__button van-dialog__confirm"
+              className='van-dialog__button van-dialog__confirm'
               style={'color: ' + confirmButtonColor}
               loading={confirmLoading}
               openType={confirmButtonOpenType}
@@ -244,12 +244,12 @@ export function Dialog(props: DialogProps) {
           )}
         </VanGoodsAction>
       ) : (
-        <View className="van-hairline--top van-dialog__footer">
+        <View className='van-hairline--top van-dialog__footer'>
           {showCancelButton && (
             <VanButton
-              size="large"
+              size='large'
               loading={cancelLoading}
-              className="van-dialog__button van-dialog__cancel"
+              className='van-dialog__button van-dialog__cancel'
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
@@ -258,7 +258,7 @@ export function Dialog(props: DialogProps) {
           )}
           {showConfirmButton && (
             <VanButton
-              size="large"
+              size='large'
               className={`van-dialog__button van-dialog__confirm ${
                 showCancelButton ? 'van-hairline--left' : ''
               }`}

@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { RowProps } from '../../types/row'
+import type { RowProps } from './PropsType'
 import * as computed from './wxs'
 
 export function Row(props: RowProps): JSX.Element {

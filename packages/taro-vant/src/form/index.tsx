@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, forwardRef, memo } from 'react'
 import { Form as TaroForm } from '@tarojs/components'
-import { FormProps, IFormInstanceAPI } from '../../types/form'
+import type { FormProps, IFormInstanceAPI } from './PropsType'
 import FormContext from './core/formContext'
 import useForm from './core/useForm'
 

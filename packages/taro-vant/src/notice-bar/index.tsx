@@ -1,9 +1,10 @@
 import { createAnimation, useReady, nextTick } from '@tarojs/taro'
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { View, Navigator, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View, Navigator } from '@tarojs/components'
 
 import * as utils from '../wxs/utils'
-import { NoticeBarProps } from '../../types/notice-bar'
+import type { NoticeBarProps } from './PropsType'
 import { getRect, requestAnimationFrame } from '../common/utils'
 import VanIcon from '../icon/index'
 import * as computed from './wxs'
@@ -11,7 +12,7 @@ import * as computed from './wxs'
 let NOTICE_BAR_INDEX = 0
 
 export function NoticeBar(props: NoticeBarProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     ready: false,
     show: true,
     animationData: { actions: [] },
@@ -108,10 +109,10 @@ export function NoticeBar(props: NoticeBarProps) {
     setState((state) => {
       return {
         ...state,
-        animationData: ref.current.resetAnimation
-          .translateX(ref.current.wrapWidth)
-          .step()
-          .export(),
+        animationData: ref.current.resetAnimation.
+          translateX(ref.current.wrapWidth).
+          step().
+          export(),
       }
     })
     setTimeout(() => {
@@ -119,10 +120,10 @@ export function NoticeBar(props: NoticeBarProps) {
         setState((state) => {
           return {
             ...state,
-            animationData: ref.current.animation
-              .translateX(-ref.current.contentWidth)
-              .step()
-              .export(),
+            animationData: ref.current.animation.
+              translateX(-ref.current.contentWidth).
+              step().
+              export(),
           }
         })
       })
@@ -166,7 +167,7 @@ export function NoticeBar(props: NoticeBarProps) {
         })
       })
     })
-  }, [state.unitag, scrollable, speed, delay, scroll])
+  }, [ state.unitag, scrollable, speed, delay, scroll ])
 
   const onClickIcon = useCallback(
     (event: ITouchEvent) => {
@@ -182,7 +183,7 @@ export function NoticeBar(props: NoticeBarProps) {
         onClose?.(event)
       }
     },
-    [mode, onClose],
+    [ mode, onClose ],
   )
 
   return (
@@ -208,8 +209,8 @@ export function NoticeBar(props: NoticeBarProps) {
         {leftIcon ? (
           <VanIcon
             name={leftIcon}
-            className="van-notice-bar__left-icon"
-          ></VanIcon>
+            className='van-notice-bar__left-icon'
+           />
         ) : (
           renderLeftIcon
         )}
@@ -229,13 +230,13 @@ export function NoticeBar(props: NoticeBarProps) {
         </View>
         {mode === 'closeable' ? (
           <VanIcon
-            className="van-notice-bar__right-icon"
-            name="cross"
+            className='van-notice-bar__right-icon'
+            name='cross'
             onClick={onClickIcon}
           />
         ) : mode === 'link' ? (
           <Navigator url={url} openType={openType}>
-            <VanIcon className="van-notice-bar__right-icon" name="arrow" />
+            <VanIcon className='van-notice-bar__right-icon' name='arrow' />
           </Navigator>
         ) : (
           renderRightIcon

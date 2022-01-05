@@ -1,14 +1,14 @@
-import type { MiniUserButtonProps } from '../../types/mini-user-button'
+import type { MiniUserButtonProps } from './PropsType'
 import { useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
-import { ButtonProps, CommonEventFunction } from '@tarojs/components'
+import type { ButtonProps, CommonEventFunction } from '@tarojs/components'
 import { Button } from '../button'
 
 declare const my: any
 
 export function MiniUserButton(props: MiniUserButtonProps): JSX.Element {
   const { onGetUserInfo, onFail, desc, children, ...others } = props
-  const [userProfile, setUserProfile] = useState(true)
+  const [ userProfile, setUserProfile ] = useState(true)
 
   useEffect(function () {
     let canIUse = false
@@ -78,8 +78,8 @@ export function MiniUserButton(props: MiniUserButtonProps): JSX.Element {
     return (
       <Button
         {...others}
-        openType="getAuthorize"
-        scope="userInfo"
+        openType='getAuthorize'
+        scope='userInfo'
         onError={getError}
         onGetAuthorize={getUserInfo}
       >
@@ -99,7 +99,7 @@ export function MiniUserButton(props: MiniUserButtonProps): JSX.Element {
           {children}
         </Button>
       ) : (
-        <Button {...others} openType="getUserInfo" onGetUserInfo={getUserInfo}>
+        <Button {...others} openType='getUserInfo' onGetUserInfo={getUserInfo}>
           {children}
         </Button>
       )}

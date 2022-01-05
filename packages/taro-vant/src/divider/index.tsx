@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { DividerProps } from '../../types/divider'
+import type { DividerProps } from './PropsType'
 import * as computed from './wxs'
 
 export function Divider(props: DividerProps) {

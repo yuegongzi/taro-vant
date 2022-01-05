@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import * as utils from '../wxs/utils'
 import { jumpLink } from '../common/jumpLink'
 import { Tag } from '../tag'
-import { CardProps } from '../../types/card'
+import type { CardProps } from './PropsType'
 
 export function Card(props: CardProps) {
   const {
@@ -34,7 +34,7 @@ export function Card(props: CardProps) {
     className,
     ...others
   } = props
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     integerStr: '',
     decimalStr: '',
   })
@@ -50,7 +50,7 @@ export function Card(props: CardProps) {
         }
       })
     },
-    [price],
+    [ price ],
   )
   return (
     <View className={`van-card  ${className || ''}`} style={style} {...others}>
@@ -60,7 +60,7 @@ export function Card(props: CardProps) {
         })}
       >
         <View
-          className="van-card__thumb"
+          className='van-card__thumb'
           onClick={() => {
             thumbLink && jumpLink(thumbLink)
           }}
@@ -70,13 +70,13 @@ export function Card(props: CardProps) {
               src={thumb}
               mode={thumbMode}
               lazyLoad={lazyLoad}
-              className="van-card__img thumb-class"
-            ></Image>
+              className='van-card__img thumb-class'
+             />
           ) : (
             renderThumb
           )}
           {tag ? (
-            <Tag mark type="danger" className="van-card__tag">
+            <Tag mark type='danger' className='van-card__tag'>
               {tag}
             </Tag>
           ) : (
@@ -93,37 +93,37 @@ export function Card(props: CardProps) {
         >
           <View>
             {title ? (
-              <View className="van-card__title title-class">{title}</View>
+              <View className='van-card__title title-class'>{title}</View>
             ) : (
               renderTitle
             )}
             {desc ? (
-              <View className="van-card__desc desc-class">{desc}</View>
+              <View className='van-card__desc desc-class'>{desc}</View>
             ) : (
               renderDesc
             )}
             {renderTags}
           </View>
-          <View className="van-card__bottom">
+          <View className='van-card__bottom'>
             {renderPriceTop}
             {price ? (
-              <View className="van-card__price price-class">
+              <View className='van-card__price price-class'>
                 <Text>{currency}</Text>
-                <Text className="van-card__price-integer">{integerStr}</Text>
-                <Text className="van-card__price-decimal">{decimalStr}</Text>
+                <Text className='van-card__price-integer'>{integerStr}</Text>
+                <Text className='van-card__price-decimal'>{decimalStr}</Text>
               </View>
             ) : (
               renderPrice
             )}
             {originPrice ? (
-              <View className="van-card__origin-price origin-price-class">
+              <View className='van-card__origin-price origin-price-class'>
                 {currency + ' ' + originPrice}
               </View>
             ) : (
               renderOriginPrice
             )}
             {num ? (
-              <View className="van-card__num num-class">{'x ' + num}</View>
+              <View className='van-card__num num-class'>{'x ' + num}</View>
             ) : (
               renderNum
             )}
@@ -131,7 +131,7 @@ export function Card(props: CardProps) {
           </View>
         </View>
       </View>
-      <View className="van-card__footer">{renderFooter}</View>
+      <View className='van-card__footer'>{renderFooter}</View>
     </View>
   )
 }

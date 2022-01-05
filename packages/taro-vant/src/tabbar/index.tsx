@@ -1,38 +1,30 @@
 import Taro from '@tarojs/taro'
-import {
-  useState,
-  isValidElement,
-  cloneElement,
-  useEffect,
-  useCallback,
-} from 'react'
+import { cloneElement, isValidElement, useCallback, useEffect, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
-import { View, Block } from '@tarojs/components'
+import { Block, View } from '@tarojs/components'
 import { Tabbar as InnerTabbar } from '../common/zIndex'
 import * as utils from '../wxs/utils'
 import { getRect } from '../common/utils'
-import { TabbarProps } from '../../types/tabbar'
-import { TabbarItemProps } from '../../types/tabbar-item'
+import type { TabbarProps } from './PropsType'
+import type { TabbarItemProps } from '../tabbar-item/PropsType'
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children)
-    .map((node: React.ReactElement<TabbarItemProps>) => {
-      if (isValidElement(node)) {
-        const key = node.key !== undefined ? String(node.key) : undefined
-        return {
-          key,
-          ...node.props,
-          node,
-        }
+  return toArray(children).map((node: React.ReactElement<TabbarItemProps>) => {
+    if (isValidElement(node)) {
+      const key = node.key !== undefined ? String(node.key) : undefined
+      return {
+        key,
+        ...node.props,
+        node,
       }
+    }
 
-      return null
-    })
-    .filter((tab) => tab)
+    return null
+  }).filter((tab) => tab)
 }
 
 export function Tabbar(props: TabbarProps) {
-  const [state, setState]: any = useState({
+  const [ state, setState ]: any = useState({
     height: 50,
     current: 0,
   })
@@ -54,7 +46,7 @@ export function Tabbar(props: TabbarProps) {
     ...others
   } = props
   const _change = useCallback(
-    function (data) {
+    function(data) {
       setState((pre: any) => {
         return {
           ...pre,
@@ -63,7 +55,7 @@ export function Tabbar(props: TabbarProps) {
       })
       onChange?.({ detail: data })
     },
-    [onChange],
+    [ onChange ],
   )
   const tabs = parseTabList(children)
   const newChildren: any = tabs.map((tab, index) => {
@@ -78,7 +70,7 @@ export function Tabbar(props: TabbarProps) {
   })
 
   useEffect(
-    function () {
+    function() {
       setState((pre: any) => {
         return {
           ...pre,
@@ -86,11 +78,11 @@ export function Tabbar(props: TabbarProps) {
         }
       })
     },
-    [active],
+    [ active ],
   )
 
   useEffect(
-    function () {
+    function() {
       if (!fixed || !placeholder) {
         return
       }
@@ -105,7 +97,7 @@ export function Tabbar(props: TabbarProps) {
         })
       })
     },
-    [fixed, placeholder],
+    [ fixed, placeholder ],
   )
   // useEffect(
   //   function () {
@@ -131,15 +123,16 @@ export function Tabbar(props: TabbarProps) {
           ' custom-class' +
           ` ${className || ''}`
         }
-        style={utils.style([zIndex ? 'z-index: ' + zIndex : '', style])}
+        style={utils.style([ zIndex ? 'z-index: ' + zIndex : '', style ])}
         {...others}
       >
         {newChildren}
       </View>
       {fixed && placeholder && (
-        <View style={'height: ' + height + 'px;'}></View>
+        <View style={'height: ' + height + 'px;'} />
       )}
     </Block>
   )
 }
+
 export default Tabbar

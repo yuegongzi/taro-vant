@@ -1,7 +1,7 @@
 import { View, Image } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { IconProps } from '../../types/icon'
-import { Info } from '../info/index'
+import type { IconProps } from './PropsType'
+import { Info } from '../info'
 import * as computed from './wxs'
 
 export function Icon(props: IconProps) {
@@ -34,10 +34,10 @@ export function Icon(props: IconProps) {
       {...others}
     >
       {(info || info === 0 || dot) && (
-        <Info dot={dot} info={info} className="van-icon__info"></Info>
+        <Info dot={dot} info={info} className='van-icon__info' />
       )}
       {computed.isImage(name) && (
-        <Image src={name!} mode="aspectFit" className="van-icon__image"></Image>
+        <Image src={name!} mode='aspectFit' className='van-icon__image' />
       )}
     </View>
   )

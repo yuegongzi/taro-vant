@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { InfoProps } from '../../types/info'
+import type { InfoProps } from './PropsType'
 
 export function Info(props: InfoProps) {
   const { dot, info = null, style, className, ...others } = props
@@ -17,7 +17,7 @@ export function Info(props: InfoProps) {
             '  ' +
             className
           }
-          style={utils.style([style])}
+          style={utils.style([ style ])}
           {...others}
         >
           {dot ? '' : info}

@@ -1,9 +1,9 @@
-import type { ButtonProps } from '../../types/button.d'
+import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
 import { Block, Button as TaroButton, View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { Icon } from '../icon/index'
-import { Loading } from '../loading/index'
+import { Icon } from '../icon'
+import { Loading } from '../loading'
 import * as computed from './wxs'
 
 export function Button(props: ButtonProps) {

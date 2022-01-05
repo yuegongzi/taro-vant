@@ -7,7 +7,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { View, Canvas, CoverView } from '@tarojs/components'
 import { Current } from '@tarojs/runtime'
 
-import { CircleProps } from '../../types/circle'
+import type { CircleProps } from './PropsType'
 import { getSystemInfoSync } from '../common/utils'
 import { isObj } from '../common/validator'
 import { adaptor } from './canvas'
@@ -21,7 +21,7 @@ const STEP = 1
 let CIRCLE_INDEX = 0
 
 export function Circle(props: CircleProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     ready: false,
     hoverColor: '',
     unitag: 'van-circle',
@@ -106,10 +106,10 @@ export function Circle(props: CircleProps) {
     }
     const dpr = getSystemInfoSync().pixelRatio
     return new Promise((resolve: any) => {
-      createSelectorQuery()
-        .select(`.${state.unitag}`)
-        .node()
-        .exec((res: any) => {
+      createSelectorQuery().
+        select(`.${state.unitag}`).
+        node().
+        exec((res: any) => {
           const canvas = res[0].node
           if (canvas) {
             const ctx = canvas.getContext(type)
@@ -123,7 +123,7 @@ export function Circle(props: CircleProps) {
           }
         })
     })
-  }, [size, type, state.unitag])
+  }, [ size, type, state.unitag ])
 
   const setHoverColor = function () {
     if (isObj(color)) {
@@ -131,9 +131,9 @@ export function Circle(props: CircleProps) {
       return getContext().then((context: any) => {
         if (context) {
           const LinearColor = context.createLinearGradient(size, 0, 0, 0)
-          Object.keys(color)
-            .sort((a, b) => parseFloat(a) - parseFloat(b))
-            .map((key: any) =>
+          Object.keys(color).
+            sort((a, b) => parseFloat(a) - parseFloat(b)).
+            map((key: any) =>
               LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
             )
           setState((state) => {
@@ -174,13 +174,13 @@ export function Circle(props: CircleProps) {
         context.fill()
       }
     },
-    [clockwise, lineCap, size, strokeWidth],
+    [ clockwise, lineCap, size, strokeWidth ],
   )
   const renderLayerCircle = useCallback(
     (context: any) => {
       presetCanvas(context, layerColor, 0, PERIMETER, fill)
     },
-    [fill, layerColor, presetCanvas],
+    [ fill, layerColor, presetCanvas ],
   )
   const renderHoverCircle = useCallback(
     (context: any, formatValue: any) => {
@@ -191,7 +191,7 @@ export function Circle(props: CircleProps) {
         : 3 * Math.PI - (BEGIN_ANGLE + progress)
       presetCanvas(context, state.hoverColor, BEGIN_ANGLE, endAngle)
     },
-    [clockwise, presetCanvas, state.hoverColor],
+    [ clockwise, presetCanvas, state.hoverColor ],
   )
   const drawCircle = useCallback(
     (currentValue: any) => {
@@ -207,7 +207,7 @@ export function Circle(props: CircleProps) {
         }
       })
     },
-    [getContext, renderHoverCircle, renderLayerCircle, size],
+    [ getContext, renderHoverCircle, renderLayerCircle, size ],
   )
   const clearMockInterval = function () {
     if (ref.current.interval) {
@@ -240,13 +240,13 @@ export function Circle(props: CircleProps) {
       }, 1000 / speed)
     }
     run()
-  }, [drawCircle, speed, value])
+  }, [ drawCircle, speed, value ])
 
   useEffect(() => {
     if (state.ready) {
       reRender()
     }
-  }, [reRender, state.ready, value])
+  }, [ reRender, state.ready, value ])
 
   useEffect(() => {
     if (state.ready) {
@@ -289,11 +289,11 @@ export function Circle(props: CircleProps) {
         style={'width: ' + `${size}px` + ';height:' + `${size}px`}
         id={state.unitag}
         canvasId={state.unitag}
-      ></Canvas>
+       />
       {!text ? (
-        <View className="van-circle__text">{children}</View>
+        <View className='van-circle__text'>{children}</View>
       ) : (
-        <CoverView className="van-circle__text">{text}</CoverView>
+        <CoverView className='van-circle__text'>{text}</CoverView>
       )}
     </View>
   )

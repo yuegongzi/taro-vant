@@ -1,8 +1,9 @@
 import { View } from '@tarojs/components'
-import { TransitionPropsCom } from '../../types/transition'
+import type { TransitionPropsCom } from './PropsType'
 import * as utils from '../wxs/utils'
 import * as computed from './wxs'
-import { useTransition } from './../mixins/transition'
+import { useTransition } from '../mixins/transition'
+
 export function Transition(props: TransitionPropsCom) {
   const {
     onBeforeEnter,
@@ -63,4 +64,5 @@ export function Transition(props: TransitionPropsCom) {
     </>
   )
 }
+
 export default Transition

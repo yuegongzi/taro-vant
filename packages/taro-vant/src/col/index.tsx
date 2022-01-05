@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { ColProps } from '../../types/col'
+import type { ColProps } from './PropsType'
 import * as computed from './wxs'
 
 export function Col(props: ColProps): JSX.Element {
@@ -18,7 +18,7 @@ export function Col(props: ColProps): JSX.Element {
     <View
       className={
         '' +
-        utils.bem('col', [span]) +
+        utils.bem('col', [ span ]) +
         ' ' +
         (offset ? 'van-col--offset-' + offset : '') +
         ' ' +

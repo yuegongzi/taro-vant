@@ -7,14 +7,14 @@ import {
   useImperativeHandle,
 } from 'react'
 import { View } from '@tarojs/components'
-import {
+import type {
   PickerProps,
   IPickerInstance,
   PickerChangeEvents,
-} from '../../types/picker'
-import { PickerColumn } from '../picker-column/index'
+} from './PropsType'
+import { PickerColumn } from '../picker-column'
 import * as utils from '../wxs/utils'
-import { Loading } from '../loading/index'
+import { Loading } from '../loading'
 import * as computed from './wxs'
 
 const Picker = forwardRef(function Index(
@@ -41,7 +41,7 @@ const Picker = forwardRef(function Index(
     ...others
   } = props
 
-  const children = useRef<Array<any>>([])
+  const children = useRef<any[]>([])
   const handleIndex = useRef<number>(-1)
 
   useEffect(
@@ -50,11 +50,11 @@ const Picker = forwardRef(function Index(
         setColumns().catch(() => {})
       }
     },
-    [columns, children],
+    [ columns, children ],
   )
 
   const emit = function (event: any) {
-    const type = event?.currentTarget?.dataset['type']
+    const type = event?.currentTarget?.dataset.type
     const simple = columns && columns.length && !columns[0].values
     if (typeof event === 'number' || !type) {
       if (onChange) {
@@ -126,13 +126,13 @@ const Picker = forwardRef(function Index(
   const setColumns = useCallback(
     function () {
       const simple = columns && columns.length && !columns[0].values
-      const columns_ = simple ? [{ values: columns }] : columns
+      const columns_ = simple ? [ { values: columns } ] : columns
       const stack = (columns_ || []).map((column, index) =>
         setColumnValues(index, column.values),
       )
       return Promise.all(stack)
     },
-    [columns],
+    [ columns ],
   )
 
   const setColumnValues = useCallback(function (index, options) {
@@ -223,29 +223,29 @@ const Picker = forwardRef(function Index(
   return (
     <View
       className={`van-picker  ${className}`}
-      style={utils.style([style])}
+      style={utils.style([ style ])}
       {...others}
       onTouchMove={onTouchMove_}
     >
       {toolbarPosition === 'top' && showToolbar && (
-        <View className="van-picker__toolbar toolbar-class">
+        <View className='van-picker__toolbar toolbar-class'>
           <View
-            className="van-picker__cancel"
-            hoverClass="van-picker__cancel--hover"
+            className='van-picker__cancel'
+            hoverClass='van-picker__cancel--hover'
             hoverStayTime={70}
-            data-type="cancel"
+            data-type='cancel'
             onClick={emit}
           >
             {cancelButtonText || '取消'}
           </View>
           {title && (
-            <View className="van-picker__title van-ellipsis">{title}</View>
+            <View className='van-picker__title van-ellipsis'>{title}</View>
           )}
           <View
-            className="van-picker__confirm"
-            hoverClass="van-picker__confirm--hover"
+            className='van-picker__confirm'
+            hoverClass='van-picker__confirm--hover'
             hoverStayTime={70}
-            data-type="confirm"
+            data-type='confirm'
             onClick={emit}
           >
             {confirmButtonText || '确定'}
@@ -253,12 +253,12 @@ const Picker = forwardRef(function Index(
         </View>
       )}
       {loading && (
-        <View className="van-picker__loading">
-          <Loading color="#1989fa"></Loading>
+        <View className='van-picker__loading'>
+          <Loading color='#1989fa' />
         </View>
       )}
       <View
-        className="van-picker__columns"
+        className='van-picker__columns'
         style={computed.columnsStyle({
           itemHeight,
           visibleItemCount,
@@ -268,7 +268,7 @@ const Picker = forwardRef(function Index(
         {computed.columns(columns).map((item: any, index: number) => {
           return (
             <PickerColumn
-              className="van-picker__column column-class"
+              className='van-picker__column column-class'
               key={`van-picker__column_${index}column-class`}
               data-index={index}
               index={index}
@@ -277,45 +277,45 @@ const Picker = forwardRef(function Index(
               defaultIndex={item.defaultIndex || defaultIndex}
               itemHeight={itemHeight}
               visibleItemCount={visibleItemCount}
-              activeClass="active-class"
+              activeClass='active-class'
               onChange={onChange_}
               ref={(el) => (children.current[index] = el)}
-            ></PickerColumn>
+             />
           )
         })}
         <View
-          className="van-picker__mask"
+          className='van-picker__mask'
           style={computed.maskStyle({
             itemHeight,
             visibleItemCount,
           })}
-        ></View>
+         />
         <View
-          className="van-picker__frame van-hairline--top-bottom"
+          className='van-picker__frame van-hairline--top-bottom'
           style={computed.frameStyle({
             itemHeight,
           })}
-        ></View>
+         />
       </View>
       {toolbarPosition === 'bottom' && showToolbar && (
-        <View className="van-picker__toolbar toolbar-class">
+        <View className='van-picker__toolbar toolbar-class'>
           <View
-            className="van-picker__cancel"
-            hoverClass="van-picker__cancel--hover"
+            className='van-picker__cancel'
+            hoverClass='van-picker__cancel--hover'
             hoverStayTime={70}
-            data-type="cancel"
+            data-type='cancel'
             onClick={emit}
           >
             {cancelButtonText}
           </View>
           {title && (
-            <View className="van-picker__title van-ellipsis">{title}</View>
+            <View className='van-picker__title van-ellipsis'>{title}</View>
           )}
           <View
-            className="van-picker__confirm"
-            hoverClass="van-picker__confirm--hover"
+            className='van-picker__confirm'
+            hoverClass='van-picker__confirm--hover'
             hoverStayTime={70}
-            data-type="confirm"
+            data-type='confirm'
             onClick={emit}
           >
             {confirmButtonText}

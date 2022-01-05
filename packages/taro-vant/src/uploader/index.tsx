@@ -1,15 +1,16 @@
 import { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import type {
+  ITouchEvent } from '@tarojs/components';
 import {
   View,
   Block,
   Text,
   Image,
-  Video,
-  ITouchEvent,
+  Video
 } from '@tarojs/components'
 
-import { UploaderProps } from '../../types/uploader'
+import type { UploaderProps } from './PropsType'
 import VanLoading from '../loading/index'
 import VanIcon from '../icon/index'
 import { isBoolean, isPromise } from '../common/validator'
@@ -18,8 +19,8 @@ import * as computed from './wxs'
 import { isImageFile, chooseFile, isVideoFile } from './utils'
 
 export function Uploader(props: UploaderProps) {
-  const [state, setState] = useState({
-    lists: [] as Array<any>,
+  const [ state, setState ] = useState({
+    lists: [] as any[],
     isInCount: true,
   })
 
@@ -58,7 +59,7 @@ export function Uploader(props: UploaderProps) {
 
   const fileList = useMemo(() => {
     return isArray(props.fileList) ? props.fileList : []
-  }, [props.fileList])
+  }, [ props.fileList ])
 
   const formatFileList = useCallback(
     (fileList: any) => {
@@ -77,7 +78,7 @@ export function Uploader(props: UploaderProps) {
         }
       })
     },
-    [maxCount],
+    [ maxCount ],
   )
   const getDetail = useCallback(
     (index?: number) => {
@@ -86,7 +87,7 @@ export function Uploader(props: UploaderProps) {
         index: index == null ? fileList?.length : index,
       }
     },
-    [fileList?.length, name],
+    [ fileList?.length, name ],
   )
   const _onAfterRead = useCallback(
     (event: ITouchEvent) => {
@@ -102,7 +103,7 @@ export function Uploader(props: UploaderProps) {
       event.detail = Object.assign({ file }, getDetail())
       onAfterRead?.(event)
     },
-    [getDetail, maxSize, onAfterRead, onOversize],
+    [ getDetail, maxSize, onAfterRead, onOversize ],
   )
   const _onBeforeRead = useCallback(
     (event: ITouchEvent) => {
@@ -138,7 +139,7 @@ export function Uploader(props: UploaderProps) {
         _onAfterRead(event)
       }
     },
-    [_onAfterRead, getDetail, onBeforeRead, useBeforeRead],
+    [ _onAfterRead, getDetail, onBeforeRead, useBeforeRead ],
   )
   const startUpload = useCallback(
     (event: ITouchEvent) => {
@@ -152,8 +153,8 @@ export function Uploader(props: UploaderProps) {
         sizeType,
         camera,
         maxCount: maxCount - state.lists.length,
-      })
-        .then((res: any) => {
+      }).
+        then((res: any) => {
           Object.defineProperty(event, 'detail', {
             value: {
               file: multiple ? res : res[0],
@@ -161,8 +162,8 @@ export function Uploader(props: UploaderProps) {
             writable: true,
           })
           _onBeforeRead(event)
-        })
-        .catch((error) => {
+        }).
+        catch((error) => {
           onError?.(error)
         })
     },
@@ -186,7 +187,7 @@ export function Uploader(props: UploaderProps) {
       const { index } = event.currentTarget.dataset
       const params = Object.assign(Object.assign({}, getDetail(index)), {
         file: fileList?.[index],
-        fileList: fileList && isArray(fileList) ? [...fileList] : fileList,
+        fileList: fileList && isArray(fileList) ? [ ...fileList ] : fileList,
       })
       Object.defineProperty(event, 'detail', {
         value: params,
@@ -194,7 +195,7 @@ export function Uploader(props: UploaderProps) {
       })
       onDelete?.(event)
     },
-    [fileList, getDetail, onDelete],
+    [ fileList, getDetail, onDelete ],
   )
   const onPreviewImage = useCallback(
     (event: ITouchEvent) => {
@@ -202,16 +203,16 @@ export function Uploader(props: UploaderProps) {
       const { index } = event.currentTarget.dataset
       const item = state.lists[index]
       TaroPreviewImage({
-        urls: state.lists
-          .filter((item) => isImageFile(item))
-          .map((item) => item.url),
+        urls: state.lists.
+          filter((item) => isImageFile(item)).
+          map((item) => item.url),
         current: item.url,
         fail() {
           showToast({ title: '预览图片失败', icon: 'none' })
         },
       })
     },
-    [previewFullImage, state.lists],
+    [ previewFullImage, state.lists ],
   )
   const onPreviewVideo = useCallback(() => {
     if (!previewFullImage) return
@@ -220,9 +221,9 @@ export function Uploader(props: UploaderProps) {
       // eslint-disable-next-line
       // @ts-ignore
       wx.previewMedia({
-        sources: state.lists
-          .filter((item) => isVideoFile(item))
-          .map((item) =>
+        sources: state.lists.
+          filter((item) => isVideoFile(item)).
+          map((item) =>
             Object.assign(Object.assign({}, item), { type: 'video' }),
           ),
         // current: index,
@@ -234,7 +235,7 @@ export function Uploader(props: UploaderProps) {
         },
       })
     }
-  }, [previewFullImage, state.lists])
+  }, [ previewFullImage, state.lists ])
   const onPreviewFile = useCallback(
     (event: ITouchEvent) => {
       const { index } = event.currentTarget.dataset
@@ -243,7 +244,7 @@ export function Uploader(props: UploaderProps) {
         showMenu: true,
       })
     },
-    [state.lists],
+    [ state.lists ],
   )
   const _onClickPreview = useCallback(
     (event: ITouchEvent) => {
@@ -255,7 +256,7 @@ export function Uploader(props: UploaderProps) {
       })
       onClickPreview?.(event)
     },
-    [getDetail, onClickPreview, state.lists],
+    [ getDetail, onClickPreview, state.lists ],
   )
 
   useEffect(() => {
@@ -265,13 +266,13 @@ export function Uploader(props: UploaderProps) {
 
   return (
     <View className={`van-uploader ${className}`} style={style} {...others}>
-      <View className="van-uploader__wrapper">
+      <View className='van-uploader__wrapper'>
         {previewImage &&
           state.lists.map((item: any, index) => {
             return (
               <View
                 key={item.index || index}
-                className="van-uploader__preview"
+                className='van-uploader__preview'
                 data-index={index}
                 onClick={_onClickPreview}
               >
@@ -282,29 +283,29 @@ export function Uploader(props: UploaderProps) {
                     // eslint-disable-next-line
                     // @ts-ignore
                     alt={item.name || '图片' + index}
-                    className="van-uploader__preview-image"
+                    className='van-uploader__preview-image'
                     style={computed.sizeStyle({
                       previewSize,
                     })}
                     data-index={index}
                     onClick={onPreviewImage}
-                  ></Image>
+                   />
                 ) : item.isVideo ? (
                   <Video
                     src={item.url}
                     title={item.name || '视频' + index}
                     poster={item.thumb}
                     autoplay={item.autoplay}
-                    className="van-uploader__preview-image"
+                    className='van-uploader__preview-image'
                     style={computed.sizeStyle({
                       previewSize,
                     })}
                     data-index={index}
                     onClick={onPreviewVideo}
-                  ></Video>
+                   />
                 ) : (
                   <View
-                    className="van-uploader__file"
+                    className='van-uploader__file'
                     style={computed.sizeStyle({
                       previewSize,
                     })}
@@ -312,26 +313,26 @@ export function Uploader(props: UploaderProps) {
                     onClick={onPreviewFile}
                   >
                     <VanIcon
-                      name="description"
-                      className="van-uploader__file-icon"
-                    ></VanIcon>
-                    <View className="van-uploader__file-name van-ellipsis">
+                      name='description'
+                      className='van-uploader__file-icon'
+                     />
+                    <View className='van-uploader__file-name van-ellipsis'>
                       {item.name || item.url}
                     </View>
                   </View>
                 )}
                 {(item.status === 'uploading' || item.status === 'failed') && (
-                  <View className="van-uploader__mask">
+                  <View className='van-uploader__mask'>
                     {item.status === 'failed' ? (
                       <VanIcon
-                        name="close"
-                        className="van-uploader__mask-icon"
-                      ></VanIcon>
+                        name='close'
+                        className='van-uploader__mask-icon'
+                       />
                     ) : (
-                      <VanLoading className="van-uploader__loading"></VanLoading>
+                      <VanLoading className='van-uploader__loading' />
                     )}
                     {item.message && (
-                      <Text className="van-uploader__mask-message">
+                      <Text className='van-uploader__mask-message'>
                         {item.message}
                       </Text>
                     )}
@@ -340,13 +341,13 @@ export function Uploader(props: UploaderProps) {
                 {deletable && item.deletable && (
                   <View
                     data-index={index}
-                    className="van-uploader__preview-delete"
+                    className='van-uploader__preview-delete'
                     onClick={deleteItem}
                   >
                     <VanIcon
-                      name="cross"
-                      className="van-uploader__preview-delete-icon"
-                    ></VanIcon>
+                      name='cross'
+                      className='van-uploader__preview-delete-icon'
+                     />
                   </View>
                 )}
               </View>
@@ -355,7 +356,7 @@ export function Uploader(props: UploaderProps) {
         {/*  上传样式  */}
         {state.isInCount && (
           <Block>
-            <View className="van-uploader__slot" onClick={startUpload}>
+            <View className='van-uploader__slot' onClick={startUpload}>
               {children}
             </View>
             {/*  默认上传样式  */}
@@ -372,10 +373,10 @@ export function Uploader(props: UploaderProps) {
               >
                 <VanIcon
                   name={uploadIcon}
-                  className="van-uploader__upload-icon"
-                ></VanIcon>
+                  className='van-uploader__upload-icon'
+                 />
                 {uploadText && (
-                  <Text className="van-uploader__upload-text">
+                  <Text className='van-uploader__upload-text'>
                     {uploadText}
                   </Text>
                 )}

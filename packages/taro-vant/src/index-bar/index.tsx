@@ -1,4 +1,5 @@
-import { ITouchEvent, View, ITouch } from '@tarojs/components'
+import type { ITouchEvent, ITouch } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import {
   useCallback,
   useState,
@@ -14,8 +15,9 @@ import toArray from 'rc-util/lib/Children/toArray'
 import * as utils from '../wxs/utils'
 import { getRect, getAllRect, isDef } from '../common/utils'
 import { GREEN } from '../common/color'
-import { usePageScroll } from './../mixins/page-scroll'
-import { IndexBarProps } from './../../types/index-bar'
+import { usePageScroll } from '../mixins/page-scroll'
+import type { IndexBarProps } from './PropsType'
+
 const genIndexList = () => {
   const indexList = []
   const charCodeOfA = 'A'.charCodeAt(0)
@@ -26,8 +28,8 @@ const genIndexList = () => {
 }
 
 function parseIndexAnchor(children: React.ReactNode): any[] {
-  return toArray(children)
-    .map(
+  return toArray(children).
+    map(
       (node: React.ReactElement<{ index: number | string }>, index: number) => {
         if (isValidElement(node)) {
           const key = node.key !== undefined ? String(node.key) : index
@@ -40,8 +42,8 @@ function parseIndexAnchor(children: React.ReactNode): any[] {
 
         return null
       },
-    )
-    .filter((indexAnchor) => !!indexAnchor)
+    ).
+    filter((indexAnchor) => !!indexAnchor)
 }
 
 export function IndexBar(props: IndexBarProps) {
@@ -57,9 +59,9 @@ export function IndexBar(props: IndexBarProps) {
     style,
   } = props
 
-  const [activeAnchorIndex, setActiveAnchorIndex] = useState<any>(null)
-  const [showSidebar, setShowSidebar] = useState(true)
-  const [changeData, setChangeData] = useState<any>([])
+  const [ activeAnchorIndex, setActiveAnchorIndex ] = useState<any>(null)
+  const [ showSidebar, setShowSidebar ] = useState(true)
+  const [ changeData, setChangeData ] = useState<any>([])
   const timerRef = useRef<any>(null)
   const scrollTopRef = useRef<number>(0)
   const sidebarRef = useRef<any>(null)
@@ -95,7 +97,7 @@ export function IndexBar(props: IndexBarProps) {
       // console.log(props, anchor.node?.props?.index)
       return cloneElement(anchor.node, props)
     })
-  }, [changeData, children])
+  }, [ changeData, children ])
 
   // 应该在 子组件中调用
   const _setAnchorsRect = useCallback(() => {
@@ -122,7 +124,7 @@ export function IndexBar(props: IndexBarProps) {
         scrollTop: top + stickyOffsetTop, // + scrollTopRef.current,
       })
     },
-    [stickyOffsetTop],
+    [ stickyOffsetTop ],
   )
 
   const _setListRect = useCallback(() => {
@@ -163,11 +165,11 @@ export function IndexBar(props: IndexBarProps) {
       }
     }
     return -1
-  }, [sticky, stickyOffsetTop])
+  }, [ sticky, stickyOffsetTop ])
 
   const _setRect = useCallback(() => {
-    return Promise.all([_setAnchorsRect(), _setListRect(), _setSiderbarRect()])
-  }, [_setAnchorsRect, _setListRect, _setSiderbarRect])
+    return Promise.all([ _setAnchorsRect(), _setListRect(), _setSiderbarRect() ])
+  }, [ _setAnchorsRect, _setListRect, _setSiderbarRect ])
 
   const _onScroll = useCallback(() => {
     // console.log('执行', _children?.length)
@@ -266,7 +268,7 @@ export function IndexBar(props: IndexBarProps) {
         (event === null || event === void 0 ? void 0 : event.scrollTop) || 0
       _onScroll()
     },
-    [_onScroll],
+    [ _onScroll ],
   )
 
   usePageScroll(scroller)
@@ -291,14 +293,14 @@ export function IndexBar(props: IndexBarProps) {
         onSelect?.({ detail: currentItem.index })
       }
     },
-    [_scrollIntoView, indexList, onSelect],
+    [ _scrollIntoView, indexList, onSelect ],
   )
 
   const _onClick = useCallback(
     (event) => {
       _scrollToAnchor(Number(event.target.dataset.index))
     },
-    [_scrollToAnchor],
+    [ _scrollToAnchor ],
   )
 
   const _onTouchMove = useCallback(
@@ -318,7 +320,7 @@ export function IndexBar(props: IndexBarProps) {
       }
       _scrollToAnchor(index)
     },
-    [_scrollToAnchor],
+    [ _scrollToAnchor ],
   )
 
   const _onTouchStop = useCallback(() => {
@@ -337,21 +339,21 @@ export function IndexBar(props: IndexBarProps) {
         })
       }, 100)
     })
-  }, [_onScroll, _setRect])
+  }, [ _onScroll, _setRect ])
 
   useEffect(() => {
     _updateData()
-  }, [_updateData])
+  }, [ _updateData ])
 
   return (
     <View
       className={`van-index-bar ${className || ''}`}
-      style={utils.style([style])}
+      style={utils.style([ style ])}
     >
       {_children}
       {showSidebar && (
         <View
-          className="van-index-bar__sidebar"
+          className='van-index-bar__sidebar'
           onClick={_onClick}
           onTouchMove={_onTouchMove}
           onTouchEnd={_onTouchStop}
@@ -361,7 +363,7 @@ export function IndexBar(props: IndexBarProps) {
             return (
               <View
                 key={index}
-                className="van-index-bar__index"
+                className='van-index-bar__index'
                 style={
                   'z-index: ' +
                   (zIndex + 1) +

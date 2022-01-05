@@ -1,4 +1,4 @@
-import type { MiniLoginButtonProps } from '../../types/mini-login-button'
+import type { MiniLoginButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
 import { Button } from '../button'
 
@@ -10,7 +10,7 @@ export function MiniLoginButton(props: MiniLoginButtonProps): JSX.Element {
   const onLogin = function () {
     if (process.env.TARO_ENV === 'alipay') {
       my.getAuthCode({
-        scopes: ['auth_base'],
+        scopes: [ 'auth_base' ],
         success(res: any) {
           if (res.authCode) {
             onGetLoginCode({

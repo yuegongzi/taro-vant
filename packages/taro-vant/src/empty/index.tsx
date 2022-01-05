@@ -1,5 +1,5 @@
 import { View, Image } from '@tarojs/components'
-import { EmptyProps } from '../../types/empty'
+import type { EmptyProps } from './PropsType'
 import * as computed from './wxs'
 
 export function Empty(props: EmptyProps) {
@@ -16,18 +16,18 @@ export function Empty(props: EmptyProps) {
 
   return (
     <View className={` van-empty ${className}`} style={style} {...others}>
-      <View className="van-empty__image">{renderImage}</View>
-      <View className="van-empty__image">
+      <View className='van-empty__image'>{renderImage}</View>
+      <View className='van-empty__image'>
         {image && (
           <Image
-            className="van-empty__image__img"
+            className='van-empty__image__img'
             src={computed.imageUrl(image)}
           />
         )}
       </View>
-      <View className="van-empty__description">{renderDescription}</View>
-      <View className="van-empty__description">{description}</View>
-      <View className="van-empty__bottom">{children}</View>
+      <View className='van-empty__description'>{renderDescription}</View>
+      <View className='van-empty__description'>{description}</View>
+      <View className='van-empty__bottom'>{children}</View>
     </View>
   )
 }

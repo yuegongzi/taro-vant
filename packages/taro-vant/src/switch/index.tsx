@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
-import { ITouchEvent, View } from '@tarojs/components'
-
+import type { ITouchEvent } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { SwitchProps } from '../../types/switch'
+import type { SwitchProps } from './PropsType'
 import VanLoading from '../loading/index'
 import * as computed from './wxs'
 
@@ -34,7 +34,7 @@ export function Switch(props: SwitchProps) {
       })
       onChange?.(event)
     },
-    [activeValue, checked, disabled, inactiveValue, loading, onChange],
+    [ activeValue, checked, disabled, inactiveValue, loading, onChange ],
   )
 
   return (
@@ -58,7 +58,7 @@ export function Switch(props: SwitchProps) {
       {...others}
       onClick={onClick}
     >
-      <View className="van-switch__node node-class">
+      <View className='van-switch__node node-class'>
         {loading && (
           <VanLoading
             color={computed.loadingColor({
@@ -67,11 +67,12 @@ export function Switch(props: SwitchProps) {
               inactiveColor,
               activeValue,
             })}
-            className="van-switch__loading"
-          ></VanLoading>
+            className='van-switch__loading'
+          />
         )}
       </View>
     </View>
   )
 }
+
 export default Switch

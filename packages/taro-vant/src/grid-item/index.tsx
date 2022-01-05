@@ -1,6 +1,6 @@
 import { View, Text } from '@tarojs/components'
 import { useState, useEffect, useCallback } from 'react'
-import { GridItemProps } from '../../types/grid-item'
+import type { GridItemProps } from './PropsType'
 import { jumpLink } from '../common/jumpLink'
 import * as utils from '../wxs/utils'
 import VanIcon from '../icon/index'
@@ -31,7 +31,7 @@ export function GridItem(
     ...others
   } = props
 
-  const [parentState, setParentState] = useState<any>({})
+  const [ parentState, setParentState ] = useState<any>({})
 
   useEffect(
     function () {
@@ -40,7 +40,7 @@ export function GridItem(
       })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [index, setChildrenInstance],
+    [ index, setChildrenInstance ],
   )
 
   useEffect(function () {
@@ -75,7 +75,7 @@ export function GridItem(
         columnNum,
       })
     },
-    [parentInstance, index],
+    [ parentInstance, index ],
   )
 
   return (
@@ -125,7 +125,7 @@ export function GridItem(
       >
         {others.children || (
           <>
-            <View className="van-grid-item__icon icon-class">
+            <View className='van-grid-item__icon icon-class'>
               {icon ? (
                 <VanIcon
                   name={icon}
@@ -134,12 +134,12 @@ export function GridItem(
                   dot={dot}
                   info={badge || info}
                   size={parentState?.iconSize}
-                ></VanIcon>
+                 />
               ) : (
                 parentState.renderIcon
               )}
             </View>
-            <View className="van-grid-item__text text-class">
+            <View className='van-grid-item__text text-class'>
               {text ? <Text>{text}</Text> : parentState.renderText}
             </View>
           </>

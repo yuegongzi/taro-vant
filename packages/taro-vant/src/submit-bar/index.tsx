@@ -1,8 +1,8 @@
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 import { Icon } from '../icon'
 import { Button } from '../button'
-import { SubmitBarProps } from '../../types/submit-bar'
+import type { SubmitBarProps } from './PropsType'
 
 export function SubmitBar(props: SubmitBarProps) {
   const {
@@ -26,7 +26,7 @@ export function SubmitBar(props: SubmitBarProps) {
     className,
     ...others
   } = props
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     hasTip: false,
     integerStr: '',
     decimalStr: '',
@@ -34,15 +34,15 @@ export function SubmitBar(props: SubmitBarProps) {
   })
   const { hasTip, integerStr, decimalStr, hasPrice } = state
   useEffect(
-    function () {
+    function() {
       setState((pre) => {
         return { ...pre, hasTip: typeof tip === 'string' }
       })
     },
-    [tip],
+    [ tip ],
   )
   useEffect(
-    function () {
+    function() {
       const priceStrArr =
         typeof price === 'number' &&
         (price / 100).toFixed(decimalLength).split('.')
@@ -55,7 +55,7 @@ export function SubmitBar(props: SubmitBarProps) {
         }
       })
     },
-    [decimalLength, price],
+    [ decimalLength, price ],
   )
   return (
     <View
@@ -64,30 +64,30 @@ export function SubmitBar(props: SubmitBarProps) {
       {...others}
     >
       {renderTop}
-      <View className="van-submit-bar__tip">
+      <View className='van-submit-bar__tip'>
         {tipIcon && (
           <Icon
-            size="12px"
+            size='12px'
             name={tipIcon}
-            className="van-submit-bar__tip-icon"
-          ></Icon>
+            className='van-submit-bar__tip-icon'
+          />
         )}
-        {hasTip && <View className="van-submit-bar__tip-text">{tip}</View>}
+        {hasTip && <View className='van-submit-bar__tip-text'>{tip}</View>}
         {renderTip}
       </View>
-      <View className="bar-class van-submit-bar__bar">
+      <View className='bar-class van-submit-bar__bar'>
         {children}
         {hasPrice && (
-          <View className="van-submit-bar__text">
+          <View className='van-submit-bar__text'>
             <Text>{label || '合计：'}</Text>
-            <Text className="van-submit-bar__price price-class">
-              <Text className="van-submit-bar__currency">{currency}</Text>
-              <Text className="van-submit-bar__price-integer">
+            <Text className='van-submit-bar__price price-class'>
+              <Text className='van-submit-bar__currency'>{currency}</Text>
+              <Text className='van-submit-bar__price-integer'>
                 {integerStr}
               </Text>
               <Text>{decimalStr}</Text>
             </Text>
-            <Text className="van-submit-bar__suffix-label">{suffixLabel}</Text>
+            <Text className='van-submit-bar__suffix-label'>{suffixLabel}</Text>
           </View>
         )}
         <Button
@@ -95,14 +95,15 @@ export function SubmitBar(props: SubmitBarProps) {
           type={buttonType}
           loading={loading}
           disabled={disabled}
-          className="van-submit-bar__button button-class"
+          className='van-submit-bar__button button-class'
           onClick={onSubmit}
         >
           {loading ? '' : buttonText}
         </Button>
       </View>
-      {safeAreaInsetBottom && <View className="van-submit-bar__safe"></View>}
+      {safeAreaInsetBottom && <View className='van-submit-bar__safe' />}
     </View>
   )
 }
+
 export default SubmitBar

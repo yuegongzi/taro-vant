@@ -1,11 +1,12 @@
-import { View, ScrollView } from '@tarojs/components'
-import { useCallback, useState, useEffect } from 'react'
+import { ScrollView, View } from '@tarojs/components'
+import { useCallback, useEffect, useState } from 'react'
 import * as utils from '../wxs/utils'
 import VanSidebarItem from '../sidebar-item/index'
 import VanSidebar from '../sidebar/index'
 import VanIcon from '../icon/index'
 import * as computed from './wxs'
-import { TreeSelectProps } from './../../types/tree-select'
+import type { TreeSelectProps } from './PropsType'
+
 export function TreeSelect(props: TreeSelectProps) {
   const {
     items = [],
@@ -18,7 +19,7 @@ export function TreeSelect(props: TreeSelectProps) {
     onClickNav,
     renderContent,
   } = props
-  const [subItems, setSubItems] = useState<any[]>([])
+  const [ subItems, setSubItems ] = useState<any[]>([])
   const _onSelectItem = useCallback(
     (event, item) => {
       const isArray = Array.isArray(activeId)
@@ -35,7 +36,7 @@ export function TreeSelect(props: TreeSelectProps) {
         onClickItem?.(event)
       }
     },
-    [activeId, max, onClickItem],
+    [ activeId, max, onClickItem ],
   )
 
   const _onClickNav = useCallback(
@@ -45,42 +46,42 @@ export function TreeSelect(props: TreeSelectProps) {
         onClickNav?.({ detail: { index } })
       }
     },
-    [onClickNav, items],
+    [ onClickNav, items ],
   )
 
   useEffect(() => {
     const { children = [] } = items[mainActiveIndex] || {}
     setSubItems(children)
-  }, [items, mainActiveIndex, setSubItems])
+  }, [ items, mainActiveIndex, setSubItems ])
 
   return (
     <View
-      className="van-tree-select"
+      className='van-tree-select'
       style={'height: ' + utils.addUnit(height)}
     >
-      <ScrollView scrollY className="van-tree-select__nav">
+      <ScrollView scrollY className='van-tree-select__nav'>
         <VanSidebar
           activeKey={mainActiveIndex}
           onChange={_onClickNav}
-          className="van-tree-select__nav__inner"
+          className='van-tree-select__nav__inner'
         >
           {items.map((item: any, index: number) => {
             return (
               <VanSidebarItem
                 key={index}
-                className="main-item-class"
+                className='main-item-class'
                 // activeClass="main-active-class"
                 // disabledClass="main-disabled-class"
                 badge={item.badge}
                 dot={item.dot}
                 title={item.text}
                 disabled={item.disabled}
-              ></VanSidebarItem>
+              />
             )
           })}
         </VanSidebar>
       </ScrollView>
-      <ScrollView scrollY className="van-tree-select__content">
+      <ScrollView scrollY className='van-tree-select__content'>
         {renderContent}
         {subItems.map((item: any) => {
           return (
@@ -108,9 +109,9 @@ export function TreeSelect(props: TreeSelectProps) {
               {computed.isActive(activeId, item.id) && (
                 <VanIcon
                   name={selectedIcon}
-                  size="16px"
-                  className="van-tree-select__selected"
-                ></VanIcon>
+                  size='16px'
+                  className='van-tree-select__selected'
+                />
               )}
             </View>
           )
@@ -119,4 +120,5 @@ export function TreeSelect(props: TreeSelectProps) {
     </View>
   )
 }
+
 export default TreeSelect

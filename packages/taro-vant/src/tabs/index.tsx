@@ -1,25 +1,19 @@
-import { nextTick, createSelectorQuery } from '@tarojs/taro'
-import {
-  useState,
-  isValidElement,
-  cloneElement,
-  useEffect,
-  useRef,
-  useMemo,
-} from 'react'
+import { createSelectorQuery, nextTick } from '@tarojs/taro'
+import { cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
-import { View, ScrollView } from '@tarojs/components'
+import { ScrollView, View } from '@tarojs/components'
 import { Tabs as InnerTabs } from '../common/zIndex'
 import * as utils from '../wxs/utils'
 import { isDef } from '../common/validator'
-import { Sticky } from '../sticky/index'
-import { getRect, getAllRect, requestAnimationFrame } from '../common/utils'
-import { Info } from '../info/index'
-import { TabsProps } from '../../types/tabs'
-import { TabProps } from '../../types/tab'
+import { Sticky } from '../sticky'
+import { getAllRect, getRect, requestAnimationFrame } from '../common/utils'
+import { Info } from '../info'
+import type { TabsProps } from './PropsType'
+import type { TabProps } from '../tab/PropsType'
 import * as computed from './wxs'
 
 const MIN_DISTANCE = 10
+
 function getDirection(x: number, y: number) {
   if (x > y && x > MIN_DISTANCE) {
     return 'horizontal'
@@ -31,23 +25,22 @@ function getDirection(x: number, y: number) {
 }
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children)
-    .map((node: React.ReactElement<TabProps>) => {
-      if (isValidElement(node)) {
-        const key = node.key !== undefined ? String(node.key) : undefined
-        return {
-          key,
-          ...node.props,
-          node,
-        }
+  return toArray(children).map((node: React.ReactElement<TabProps>) => {
+    if (isValidElement(node)) {
+      const key = node.key !== undefined ? String(node.key) : undefined
+      return {
+        key,
+        ...node.props,
+        node,
       }
+    }
 
-      return null
-    })
-    .filter((tab) => tab)
+    return null
+  }).filter((tab) => tab)
 }
 
 let comIndex = 0
+
 export function Tabs(props: TabsProps) {
   const ref = useRef({
     skipInit: false,
@@ -62,7 +55,7 @@ export function Tabs(props: TabsProps) {
   })
 
   const indexRef = useRef(comIndex)
-  const [state, setState]: any = useState({
+  const [ state, setState ]: any = useState({
     tabs: [],
     scrollLeft: 0,
     scrollable: false,
@@ -119,7 +112,7 @@ export function Tabs(props: TabsProps) {
 
   const tabs = useMemo(() => {
     return parseTabList(children)
-  }, [children])
+  }, [ children ])
 
   const newChildren = useMemo(() => {
     return tabs.map((tab, index) => {
@@ -131,9 +124,9 @@ export function Tabs(props: TabsProps) {
         index,
       })
     }) as any[]
-  }, [animated, currentIndex, lazyRender, tabs])
+  }, [ animated, currentIndex, lazyRender, tabs ])
 
-  const trigger = function (
+  const trigger = function(
     eventName: 'onClick' | 'onChange' | 'onDisabled',
     child?: any,
   ) {
@@ -155,14 +148,14 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const getCurrentName = function () {
+  const getCurrentName = function() {
     const activeTab: any = newChildren[currentIndex]
     if (activeTab) {
       return activeTab.props.name || activeTab.props.index
     }
   }
 
-  const setCurrentIndex = function (cIndex: number) {
+  const setCurrentIndex = function(cIndex: number) {
     if (!isDef(cIndex) || cIndex >= newChildren.length || cIndex < 0) {
       return
     }
@@ -185,7 +178,7 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const setCurrentIndexByName = function (name: any) {
+  const setCurrentIndexByName = function(name: any) {
     const matched = newChildren.filter(
       (child: any) => (child.props.name || child.props.index) === name,
     )
@@ -194,7 +187,7 @@ export function Tabs(props: TabsProps) {
     }
   }
 
-  const resize = function (index?: number) {
+  const resize = function(index?: number) {
     if (type !== 'line') {
       return
     }
@@ -202,15 +195,13 @@ export function Tabs(props: TabsProps) {
     Promise.all([
       getAllRect(null, `.tabs-com-index${indexRef.current} .van-tab`),
       getRect(null, `.tabs-com-index${indexRef.current} .van-tabs__line`),
-    ]).then(([rects = [], lineRect]: any) => {
+    ]).then(([ rects = [], lineRect ]: any) => {
       if (rects && lineRect) {
         const rect = rects[index!]
         if (rect == null) {
           return
         }
-        let lineOffsetLeft = rects
-          .slice(0, index)
-          .reduce((prev: number, curr: any) => prev + curr.width, 0)
+        let lineOffsetLeft = rects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
         lineOffsetLeft += (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8)
         setState((pre: any) => {
           return { ...pre, lineOffsetLeft }
@@ -227,7 +218,7 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const onTap = function (event: any) {
+  const onTap = function(event: any) {
     let { index } = event.currentTarget.dataset
     index = parseInt(index)
     const child = newChildren[index]
@@ -241,7 +232,7 @@ export function Tabs(props: TabsProps) {
     }
   }
 
-  const scrollIntoView = function (index?: number) {
+  const scrollIntoView = function(index?: number) {
     if (!scrollable) {
       return
     }
@@ -249,12 +240,10 @@ export function Tabs(props: TabsProps) {
     Promise.all([
       getAllRect(null, `.tabs-com-index${indexRef.current} .van-tab`),
       getRect(null, `.tabs-com-index${indexRef.current} .van-tabs__nav`),
-    ]).then(([tabRects, navRect]: any) => {
+    ]).then(([ tabRects, navRect ]: any) => {
       if (tabRects && navRect) {
         const tabRect = tabRects[index!]
-        const offsetLeft = tabRects
-          .slice(0, index)
-          .reduce((prev: number, curr: any) => prev + curr.width, 0)
+        const offsetLeft = tabRects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
         setState((pre: any) => {
           return {
             ...pre,
@@ -275,20 +264,20 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const resetTouchStatus = function () {
+  const resetTouchStatus = function() {
     ref.current.direction = ''
     ref.current.deltaX = 0
     ref.current.deltaY = 0
     ref.current.offsetX = 0
     ref.current.offsetY = 0
   }
-  const touchStart = function (event: any) {
+  const touchStart = function(event: any) {
     resetTouchStatus()
     const touch = event.touches[0]
     ref.current.startX = touch.clientX
     ref.current.startY = touch.clientY
   }
-  const touchMove = function (event: any) {
+  const touchMove = function(event: any) {
     const touch = event.touches[0]
     ref.current.deltaX = touch.clientX - ref.current.startX
     ref.current.deltaY = touch.clientY - ref.current.startY
@@ -298,7 +287,7 @@ export function Tabs(props: TabsProps) {
       ref.current.direction ||
       getDirection(ref.current.offsetX, ref.current.offsetY)
   }
-  const getAvaiableTab = function (direction: number) {
+  const getAvaiableTab = function(direction: number) {
     const step = direction > 0 ? -1 : 1
     for (
       let i = step;
@@ -318,17 +307,17 @@ export function Tabs(props: TabsProps) {
     return -1
   }
 
-  const onTouchStart = function (event: any) {
+  const onTouchStart = function(event: any) {
     if (!swipeable) return
     touchStart(event)
   }
 
-  const onTouchMove = function (event: any) {
+  const onTouchMove = function(event: any) {
     if (!swipeable || !ref.current.swiping) return
     touchMove(event)
   }
 
-  const onTouchEnd = function () {
+  const onTouchEnd = function() {
     if (!swipeable || !ref.current.swiping) return
     const { direction, deltaX, offsetX } = ref.current
     const minSwipeDistance = 50
@@ -342,7 +331,7 @@ export function Tabs(props: TabsProps) {
     ref.current.swiping = false
   }
 
-  useEffect(function () {
+  useEffect(function() {
     ref.current.swiping = true
     setState((pre: any) => {
       return {
@@ -364,25 +353,25 @@ export function Tabs(props: TabsProps) {
   }, [])
 
   useEffect(
-    function () {
+    function() {
       resize()
       scrollIntoView()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [lineWidth],
+    [ lineWidth ],
   )
   useEffect(
-    function () {
+    function() {
       if (active !== getCurrentName()) {
         setCurrentIndexByName(active)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [active],
+    [ active ],
   )
 
   useEffect(
-    function () {
+    function() {
       setState((pre: any) => {
         return {
           ...pre,
@@ -391,18 +380,18 @@ export function Tabs(props: TabsProps) {
       })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [swipeThreshold],
+    [ swipeThreshold ],
   )
 
   // 解决异步加载的时候默认的下划线不出现的问题
   useEffect(
-    function () {
+    function() {
       nextTick(() => {
         resize()
       })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [newChildren],
+    [ newChildren ],
   )
 
   return (
@@ -410,7 +399,7 @@ export function Tabs(props: TabsProps) {
       className={
         `tabs-com-index${indexRef.current} ` +
         ' ' +
-        utils.bem('tabs', [type] + ` ${className || ''}`)
+        utils.bem('tabs', [ type ] + ` ${className || ''}`)
       }
       style={style}
       {...others}
@@ -436,7 +425,7 @@ export function Tabs(props: TabsProps) {
             scrollX={scrollable}
             scrollWithAnimation={scrollWithAnimation}
             scrollLeft={scrollLeft}
-            className={utils.bem('tabs__scroll', [type])}
+            className={utils.bem('tabs__scroll', [ type ])}
             style={color ? 'border-color: ' + color : ''}
           >
             <View
@@ -452,7 +441,7 @@ export function Tabs(props: TabsProps) {
             >
               {type === 'line' && (
                 <View
-                  className="van-tabs__line"
+                  className='van-tabs__line'
                   style={computed.lineStyle({
                     color,
                     lineOffsetLeft,
@@ -461,7 +450,7 @@ export function Tabs(props: TabsProps) {
                     duration,
                     lineWidth,
                   })}
-                ></View>
+                />
               )}
               {tabs.map((item: any, index: any) => {
                 return (
@@ -499,8 +488,8 @@ export function Tabs(props: TabsProps) {
                         <Info
                           info={item.info}
                           dot={item.dot}
-                          className="van-tab__title__info"
-                        ></Info>
+                          className='van-tab__title__info'
+                        />
                       )}
                     </View>
                   </View>
@@ -512,7 +501,7 @@ export function Tabs(props: TabsProps) {
         </View>
       </Sticky>
       <View
-        className="van-tabs__content"
+        className='van-tabs__content'
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}

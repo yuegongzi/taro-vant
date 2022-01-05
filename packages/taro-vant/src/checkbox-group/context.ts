@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { CheckboxGroupProps } from '../../types/checkbox-group'
+import type { CheckboxGroupProps } from './PropsType'
 
 const CheckboxGroupContext = createContext<CheckboxGroupProps>({})
 

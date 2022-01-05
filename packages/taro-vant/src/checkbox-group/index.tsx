@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components'
 
 import * as utils from '../wxs/utils'
-import { CheckboxGroupProps } from '../../types/checkbox-group'
+import type { CheckboxGroupProps } from './PropsType'
 import CheckboxGroupContext from './context'
 
 export function CheckboxGroup(props: CheckboxGroupProps) {

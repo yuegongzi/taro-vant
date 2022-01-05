@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import { cloneElement, useCallback, useMemo, useRef, useEffect } from 'react'
-import { GridProps } from '../../types/grid'
+import type { GridProps } from './PropsType'
 import * as utils from '../wxs/utils'
 import * as computed from './wxs'
 
@@ -20,7 +20,7 @@ export function Grid(props: GridProps) {
     ...others
   } = props
 
-  const childrenInstance = useRef<Array<any>>([])
+  const childrenInstance = useRef<any[]>([])
 
   const updateChildren = useCallback(function () {
     childrenInstance.current.forEach((child) => {
@@ -32,7 +32,7 @@ export function Grid(props: GridProps) {
     function () {
       updateChildren()
     },
-    [updateChildren],
+    [ updateChildren ],
   )
 
   const setChildrenInstance = useCallback(function (
@@ -45,7 +45,7 @@ export function Grid(props: GridProps) {
 
   const ResetChildren = useMemo(
     function () {
-      const res: Array<JSX.Element> = []
+      const res: JSX.Element[] = []
       if (others.children && Array.isArray(others.children)) {
         others.children.forEach((child, index) => {
           res.push(
@@ -71,7 +71,7 @@ export function Grid(props: GridProps) {
       return res
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [others.children],
+    [ others.children ],
   )
 
   return (

@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { View, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { Icon } from '../icon/index'
+import { Icon } from '../icon'
 import { getAllRect } from '../common/utils'
-import { RateProps } from '../../types/rate'
+import type { RateProps } from './PropsType'
 let comIndex = 0
 export function Rate(props: RateProps) {
   const {
@@ -27,9 +28,9 @@ export function Rate(props: RateProps) {
     ...others
   } = props
   const indexRef = useRef(comIndex)
-  const [countArray, setCountArray] = useState(Array.from({ length: count }))
-  const noControlled = useMemo(() => typeof value === 'undefined', [value])
-  const [innerValue, setInnerValue] = useState(
+  const [ countArray, setCountArray ] = useState(Array.from({ length: count }))
+  const noControlled = useMemo(() => typeof value === 'undefined', [ value ])
+  const [ innerValue, setInnerValue ] = useState(
     noControlled ? defaultValue : (value as number),
   )
   useEffect(() => {
@@ -60,9 +61,9 @@ export function Rate(props: RateProps) {
         null,
         `.rate-com-index${indexRef.current} .van-rate__icon`,
       ).then((list: any) => {
-        const targetIndex = list
-          .sort((a: any, b: any) => a.right - b.right)
-          .findIndex(
+        const targetIndex = list.
+          sort((a: any, b: any) => a.right - b.right).
+          findIndex(
             (item: any) => clientX >= item.left && clientX <= item.right,
           )
         if (targetIndex !== -1) {
@@ -94,7 +95,7 @@ export function Rate(props: RateProps) {
     function () {
       setCountArray(Array.from({ length: count }))
     },
-    [count],
+    [ count ],
   )
 
   const rateValue = noControlled ? innerValue : (value as number)
@@ -128,7 +129,7 @@ export function Rate(props: RateProps) {
                     disabled,
                     full: index + 1 <= rateValue,
                   },
-                ]) + ` icon-class`
+                ]) + ' icon-class'
               }
               style={utils.style({
                 fontSize: utils.addUnit(size),
@@ -143,7 +144,7 @@ export function Rate(props: RateProps) {
                   : voidColor
               }
               onClick={onSelect}
-            ></Icon>
+             />
             {allowHalf && (
               <Icon
                 name={index + 0.5 <= rateValue ? icon : voidIcon}
@@ -154,7 +155,7 @@ export function Rate(props: RateProps) {
                       disabled,
                       full: index + 0.5 <= rateValue,
                     },
-                  ]) + ` icon-class`
+                  ]) + ' icon-class'
                 }
                 style={utils.style({
                   fontSize: utils.addUnit(size),
@@ -169,7 +170,7 @@ export function Rate(props: RateProps) {
                     : voidColor
                 }
                 onClick={onSelect}
-              ></Icon>
+               />
             )}
           </View>
         )

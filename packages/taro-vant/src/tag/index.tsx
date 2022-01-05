@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { TagProps } from '../../types/tag'
+import type { TagProps } from './PropsType'
 import { Icon } from '../icon'
 import * as computed from './wxs'
 
@@ -48,7 +48,7 @@ export function Tag(props: TagProps) {
     >
       {children}
       {closeable && (
-        <Icon name="cross" className="van-tag__close" onClick={onClose}></Icon>
+        <Icon name='cross' className='van-tag__close' onClick={onClose} />
       )}
     </View>
   )

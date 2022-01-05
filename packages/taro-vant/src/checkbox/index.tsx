@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, useContext } from 'react'
-import { ITouchEvent, View } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 
 import * as utils from '../wxs/utils'
 import VanIcon from '../icon/index'
-import { CheckboxProps } from '../../types/checkbox'
+import type { CheckboxProps } from './PropsType'
 import CheckboxGroupContext from '../checkbox-group/context'
 import { isEmptyObject } from '../utils/type'
 import * as computed from './wxs'
@@ -13,7 +14,7 @@ export function Checkbox(
     parent: any
   },
 ) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     value: undefined,
     parentDisabled: false,
     direction: 'vertical',
@@ -57,7 +58,7 @@ export function Checkbox(
         value,
       }
     })
-  }, [props.value])
+  }, [ props.value ])
 
   useEffect(() => {
     if (!isEmptyObject(parentData)) {
@@ -78,7 +79,7 @@ export function Checkbox(
         }
       })
     }
-  }, [props, parentData])
+  }, [ props, parentData ])
 
   const setParentValue = useCallback(
     (parent: any, event: ITouchEvent) => {
@@ -102,7 +103,7 @@ export function Checkbox(
         }
       }
     },
-    [name, onChange],
+    [ name, onChange ],
   )
   const emitChange = useCallback(
     (event: ITouchEvent) => {
@@ -112,7 +113,7 @@ export function Checkbox(
         onChange?.(event)
       }
     },
-    [parentData, onChange, setParentValue],
+    [ parentData, onChange, setParentValue ],
   )
   const toggle = useCallback(
     (event: ITouchEvent) => {
@@ -124,7 +125,7 @@ export function Checkbox(
         emitChange(event)
       }
     },
-    [disabled, emitChange, state.parentDisabled, state.value],
+    [ disabled, emitChange, state.parentDisabled, state.value ],
   )
   const onClickLabel = useCallback(
     (event: ITouchEvent) => {
@@ -136,7 +137,7 @@ export function Checkbox(
         emitChange(event)
       }
     },
-    [disabled, emitChange, labelDisabled, state.parentDisabled, state.value],
+    [ disabled, emitChange, labelDisabled, state.parentDisabled, state.value ],
   )
 
   return (
@@ -167,10 +168,10 @@ export function Checkbox(
           {children}
         </View>
       )}
-      <View className="van-checkbox__icon-wrap" onClick={toggle}>
+      <View className='van-checkbox__icon-wrap' onClick={toggle}>
         {renderIcon || (
           <VanIcon
-            name="success"
+            name='success'
             className={
               utils.bem('checkbox__icon', [
                 shape,
@@ -189,7 +190,7 @@ export function Checkbox(
                 iconSize,
               }) + ';line-height:1.25em;'
             }
-          ></VanIcon>
+           />
         )}
       </View>
       {labelPosition === 'right' && (

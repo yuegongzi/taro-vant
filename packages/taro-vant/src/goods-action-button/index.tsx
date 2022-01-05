@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
-import { ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components'
 import VanButton from '../button'
 import * as utils from '../wxs/utils'
 import { jumpLink } from '../common/jumpLink'
-import { GoodsActionIconProps } from '../../types/goods-action-icon'
+import type { GoodsActionIconProps } from '../goods-action-icon/PropsType'
 
 export function GoodsActionButton(
   props: GoodsActionIconProps & {
@@ -30,7 +30,7 @@ export function GoodsActionButton(
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
-    [linkType, onClick, url],
+    [ linkType, onClick, url ],
   )
   return (
     <VanButton

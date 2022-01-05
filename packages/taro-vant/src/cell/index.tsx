@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
-import { View, Block, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View, Block } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { CellProps } from '../../types/cell'
+import type { CellProps } from './PropsType'
 import { jumpLink } from '../common/jumpLink'
 import { Icon } from '../icon'
 import * as computed from './wxs'
@@ -39,7 +40,7 @@ export function Cell(props: CellProps) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
-    [linkType, onClick, url],
+    [ linkType, onClick, url ],
   )
   return (
     <View
@@ -56,17 +57,17 @@ export function Cell(props: CellProps) {
         ]) +
         ` ${className || ''}`
       }
-      hoverClass="van-cell--hover hover-class"
+      hoverClass='van-cell--hover hover-class'
       hoverStayTime={70}
-      style={utils.style([style])}
+      style={utils.style([ style ])}
       onClick={_click}
       {...others}
     >
       {icon ? (
         <Icon
           name={icon}
-          className="van-cell__left-icon-wrap van-cell__left-icon"
-        ></Icon>
+          className='van-cell__left-icon-wrap van-cell__left-icon'
+         />
       ) : (
         renderIcon
       )}
@@ -75,23 +76,23 @@ export function Cell(props: CellProps) {
           titleWidth,
           titleStyle,
         })}
-        className="van-cell__title title-class"
+        className='van-cell__title title-class'
       >
         {title || title === 0 ? <Block>{title}</Block> : renderTitle}
         {(label || renderLabel) && (
-          <View className="van-cell__label label-class">
+          <View className='van-cell__label label-class'>
             {renderLabel || (label && <Block>{label}</Block>)}
           </View>
         )}
       </View>
-      <View className="van-cell__value value-class">
+      <View className='van-cell__value value-class'>
         {value || value === 0 ? <Block>{value}</Block> : children}
       </View>
       {isLink ? (
         <Icon
           name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
-          className="van-cell__right-icon-wrap right-icon-class van-cell__right-icon"
-        ></Icon>
+          className='van-cell__right-icon-wrap right-icon-class van-cell__right-icon'
+         />
       ) : (
         renderRightIcon
       )}

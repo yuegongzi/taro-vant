@@ -1,8 +1,9 @@
-import { View, Input, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View, Input } from '@tarojs/components'
 import { useCallback, useEffect, useState, useRef } from 'react'
 import * as utils from '../wxs/utils'
 import { isDef } from '../common/validator'
-import { StepperProps } from './../../types/stepper'
+import type { StepperProps } from './PropsType'
 import * as computed from './wxs'
 const LONG_PRESS_START_TIME = 600
 const LONG_PRESS_INTERVAL = 200
@@ -46,7 +47,7 @@ export function Stepper(props: StepperProps) {
     renderPlus,
     ...others
   } = props
-  const [currentValue, setCurrentValue] = useState<any>()
+  const [ currentValue, setCurrentValue ] = useState<any>()
   const eventTypeRef = useRef('')
   const longPressTimerRef = useRef<any>(0)
   const isLongPressRef = useRef(false)
@@ -59,7 +60,7 @@ export function Stepper(props: StepperProps) {
       }
       return value
     },
-    [integer],
+    [ integer ],
   )
   // limit value range
   const _format = useCallback(
@@ -74,7 +75,7 @@ export function Stepper(props: StepperProps) {
       }
       return value
     },
-    [decimalLength, _filter, max, min],
+    [ decimalLength, _filter, max, min ],
   )
 
   const _check = useCallback(() => {
@@ -82,7 +83,7 @@ export function Stepper(props: StepperProps) {
     if (!equal(val, currentValue)) {
       setCurrentValue(val)
     }
-  }, [_format, currentValue])
+  }, [ _format, currentValue ])
 
   const _isDisabled = useCallback(
     (type) => {
@@ -91,7 +92,7 @@ export function Stepper(props: StepperProps) {
       }
       return disabled || disableMinus || currentValue <= min
     },
-    [currentValue, disableMinus, disablePlus, disabled, max, min],
+    [ currentValue, disableMinus, disablePlus, disabled, max, min ],
   )
   const _emitChange = useCallback(
     (value) => {
@@ -100,7 +101,7 @@ export function Stepper(props: StepperProps) {
       }
       onChange?.({ detail: value })
     },
-    [asyncChange, onChange],
+    [ asyncChange, onChange ],
   )
   const _onInput = useCallback(
     (event) => {
@@ -117,14 +118,14 @@ export function Stepper(props: StepperProps) {
       }
       _emitChange(formatted)
     },
-    [decimalLength, _emitChange, _filter],
+    [ decimalLength, _emitChange, _filter ],
   )
 
   const _onFocus = useCallback(
     (event) => {
       onFocus?.(event)
     },
-    [onFocus],
+    [ onFocus ],
   )
   const _onBlur = useCallback(
     (event) => {
@@ -132,7 +133,7 @@ export function Stepper(props: StepperProps) {
       _emitChange(value)
       onBlur?.(Object.assign(Object.assign({}, event.detail), { value }))
     },
-    [_emitChange, _format, onBlur],
+    [ _emitChange, _format, onBlur ],
   )
   const _onChange = useCallback(
     (currentValue) => {
@@ -176,7 +177,7 @@ export function Stepper(props: StepperProps) {
         currentValue,
       )
     },
-    [_onChange],
+    [ _onChange ],
   )
   const _onTap = useCallback(
     (event) => {
@@ -184,7 +185,7 @@ export function Stepper(props: StepperProps) {
       eventTypeRef.current = type
       _onChange(currentValue)
     },
-    [_onChange, currentValue],
+    [ _onChange, currentValue ],
   )
   const _onTouchStart = useCallback(
     (event) => {
@@ -201,7 +202,7 @@ export function Stepper(props: StepperProps) {
         _longPressStep(currentValue)
       }, LONG_PRESS_START_TIME)
     },
-    [longPress, asyncChange, _longPressStep, _onChange, currentValue],
+    [ longPress, asyncChange, _longPressStep, _onChange, currentValue ],
   )
   const _onTouchEnd = useCallback(
     (event: ITouchEvent) => {
@@ -213,12 +214,12 @@ export function Stepper(props: StepperProps) {
       }
       clearTimeout(longPressTimerRef.current)
     },
-    [longPress],
+    [ longPress ],
   )
 
   useEffect(() => {
     _check()
-  }, [decimalLength, min, max, integer, _check])
+  }, [ decimalLength, min, max, integer, _check ])
 
   useEffect(() => {
     if (!equal(value, currentValue)) {
@@ -228,12 +229,12 @@ export function Stepper(props: StepperProps) {
   }, [_format, value])
   return (
     <View
-      className={utils.bem('stepper', [theme]) + ` ${className || ''}`}
+      className={utils.bem('stepper', [ theme ]) + ` ${className || ''}`}
       {...others}
     >
       {showMinus && (
         <View
-          data-type="minus"
+          data-type='minus'
           style={computed.buttonStyle({
             buttonSize,
           })}
@@ -243,7 +244,7 @@ export function Stepper(props: StepperProps) {
               disabled: disabled || disableMinus || currentValue <= min,
             })
           }
-          hoverClass="van-stepper__minus--hover"
+          hoverClass='van-stepper__minus--hover'
           // hoverStayTime="70"
           onClick={_onTap}
           onTouchStart={_onTouchStart}
@@ -270,10 +271,10 @@ export function Stepper(props: StepperProps) {
         onInput={_onInput}
         onFocus={_onFocus}
         onBlur={_onBlur}
-      ></Input>
+       />
       {showPlus && (
         <View
-          data-type="plus"
+          data-type='plus'
           style={computed.buttonStyle({
             buttonSize,
           })}
@@ -283,7 +284,7 @@ export function Stepper(props: StepperProps) {
               disabled: disabled || disablePlus || currentValue >= max,
             })
           }
-          hoverClass="van-stepper__plus--hover"
+          hoverClass='van-stepper__plus--hover'
           // hoverStayTime="70"
           onClick={_onTap}
           onTouchStart={_onTouchStart}

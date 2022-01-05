@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { ITouchEvent, View } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import { style } from '../wxs/style'
-import { SliderProps } from '../../types/slider'
+import type { SliderProps } from './PropsType'
 import { canIUseModel } from '../common/version'
 import { getRect, addUnit } from '../common/utils'
 
@@ -41,15 +42,15 @@ export function Slider(props: SliderProps) {
     ...others
   } = props
 
-  const [barStyle, setBarStyle] = useState<React.CSSProperties>()
-  const [wrapperStyle, setWrapperStyle] = useState<React.CSSProperties>()
-  const [value_, setValue] = useState<any>()
-  const [dragStatus, setDragStatus] = useState<any>()
-  const [buttonIndex, setButtonIndex] = useState<any>()
-  const [touchState, setTouchState] = useState<any>({})
-  const [newValue, setNewValue] = useState<any>({})
-  const [startValue, setstartValue] = useState<any>()
-  const [currentIndex_, setCurrentIndex] = useState<number>()
+  const [ barStyle, setBarStyle ] = useState<React.CSSProperties>()
+  const [ wrapperStyle, setWrapperStyle ] = useState<React.CSSProperties>()
+  const [ value_, setValue ] = useState<any>()
+  const [ dragStatus, setDragStatus ] = useState<any>()
+  const [ buttonIndex, setButtonIndex ] = useState<any>()
+  const [ touchState, setTouchState ] = useState<any>({})
+  const [ newValue, setNewValue ] = useState<any>({})
+  const [ startValue, setstartValue ] = useState<any>()
+  const [ currentIndex_, setCurrentIndex ] = useState<number>()
 
   useEffect(() => {
     setCurrentIndex(currentIndex++)
@@ -66,7 +67,7 @@ export function Slider(props: SliderProps) {
         offsetY: 0,
       })
     },
-    [touchState],
+    [ touchState ],
   )
 
   const touchStart = useCallback(
@@ -79,7 +80,7 @@ export function Slider(props: SliderProps) {
         startY: touch.startY,
       })
     },
-    [touchState, resetTouchStatus],
+    [ touchState, resetTouchStatus ],
   )
 
   const touchMove = useCallback(
@@ -99,14 +100,14 @@ export function Slider(props: SliderProps) {
       setTouchState(newTouchState)
       return newTouchState
     },
-    [touchState, resetTouchStatus],
+    [ touchState, resetTouchStatus ],
   )
 
   const isRange = useCallback<any>(
     function (value: any) {
       return range && Array.isArray(value)
     },
-    [range],
+    [ range ],
   )
 
   const getScope = useCallback(function (max, min) {
@@ -121,7 +122,7 @@ export function Slider(props: SliderProps) {
       }
       return `${((value_ - Number(min)) * 100) / scope}%`
     },
-    [getScope, isRange, max, min],
+    [ getScope, isRange, max, min ],
   )
 
   const calcOffset = useCallback(
@@ -132,14 +133,14 @@ export function Slider(props: SliderProps) {
       }
       return '0%'
     },
-    [getScope, isRange, max, min],
+    [ getScope, isRange, max, min ],
   )
 
   const format = useCallback(
     function (value) {
       return Math.round(Math.max(min, Math.min(value, max)) / step) * step
     },
-    [max, min, step],
+    [ max, min, step ],
   )
 
   const handleOverlap = useCallback<any>(function (value: any) {
@@ -202,7 +203,7 @@ export function Slider(props: SliderProps) {
       setValue(value)
       updateValue(value)
     },
-    [value, updateValue],
+    [ value, updateValue ],
   )
 
   const onTouchStart = useCallback(
@@ -221,14 +222,14 @@ export function Slider(props: SliderProps) {
       }
       setDragStatus('start')
     },
-    [disabled, format, isRange, touchStart, value_],
+    [ disabled, format, isRange, touchStart, value_ ],
   )
 
   const getRange = useCallback(
     function () {
       return max - min
     },
-    [max, min],
+    [ max, min ],
   )
 
   const onTouchMove = useCallback(
@@ -276,7 +277,7 @@ export function Slider(props: SliderProps) {
         if (onDragEnd) onDragEnd()
       }
     },
-    [disabled, dragStatus, newValue, onDragEnd, updateValue],
+    [ disabled, dragStatus, newValue, onDragEnd, updateValue ],
   )
 
   const onClick = useCallback(
@@ -289,19 +290,19 @@ export function Slider(props: SliderProps) {
           min
 
         if (isRange(value_)) {
-          const [left, right] = value_
+          const [ left, right ] = value_
           const middle = (left + right) / 2
           if (value <= middle) {
-            updateValue([value, right], true)
+            updateValue([ value, right ], true)
           } else {
-            updateValue([left, value], true)
+            updateValue([ left, value ], true)
           }
         } else {
           updateValue(value, true)
         }
       })
     },
-    [disabled, getRange, isRange, min, updateValue, value_, currentIndex_],
+    [ disabled, getRange, isRange, min, updateValue, value_, currentIndex_ ],
   )
 
   return (
@@ -315,7 +316,7 @@ export function Slider(props: SliderProps) {
         ` van-slider${currentIndex_} ` +
         className
       }
-      style={utils.style([wrapperStyle, style])}
+      style={utils.style([ wrapperStyle, style ])}
       onClick={onClick}
       {...others}
     >
@@ -341,7 +342,7 @@ export function Slider(props: SliderProps) {
                 ''
               )
             ) : (
-              <View className={utils.bem('slider__button')}></View>
+              <View className={utils.bem('slider__button')} />
             )}
           </View>
         )}
@@ -360,7 +361,7 @@ export function Slider(props: SliderProps) {
                 ''
               )
             ) : (
-              <View className={utils.bem('slider__button')}></View>
+              <View className={utils.bem('slider__button')} />
             )}
           </View>
         )}
@@ -375,7 +376,7 @@ export function Slider(props: SliderProps) {
             {renderButton ? (
               renderButton?.(value_ as number)
             ) : (
-              <View className={utils.bem('slider__button')}></View>
+              <View className={utils.bem('slider__button')} />
             )}
           </View>
         )}

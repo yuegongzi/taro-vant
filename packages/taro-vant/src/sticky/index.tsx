@@ -4,12 +4,12 @@ import * as utils from '../wxs/utils'
 import { getRect } from '../common/utils'
 import { Sticky as InnerSticky } from '../common/zIndex'
 import { isDef } from '../common/validator'
-import { StickyProps } from '../../types/sticky'
+import type { StickyProps } from './PropsType'
 import { usePageScroll } from './../mixins/page-scroll'
 import * as computed from './wxs'
 export function Sticky(props: StickyProps) {
   const indexRef = useRef(+new Date())
-  const [state, setState] = useState({ height: 0, fixed: false, transform: 0 })
+  const [ state, setState ] = useState({ height: 0, fixed: false, transform: 0 })
   const {
     zIndex = InnerSticky,
     offsetTop = 0,
@@ -35,7 +35,7 @@ export function Sticky(props: StickyProps) {
         }),
       )
     },
-    [container],
+    [ container ],
   )
 
   const setDataAfterDiff = useCallback(
@@ -58,7 +58,7 @@ export function Sticky(props: StickyProps) {
         },
       })
     },
-    [onScroll, state],
+    [ onScroll, state ],
   )
 
   const onMyScroll = useCallback(
@@ -75,8 +75,8 @@ export function Sticky(props: StickyProps) {
         Promise.all([
           getRect(null, `.sticky-com-index${indexRef.current}`),
           getContainerRect(),
-        ])
-          .then(([root, container]: any) => {
+        ]).
+          then(([ root, container ]: any) => {
             if (root && container) {
               if (offsetTop + root.height > container.height + container.top) {
                 setDataAfterDiff({
@@ -93,8 +93,8 @@ export function Sticky(props: StickyProps) {
                 setDataAfterDiff({ fixed: false, transform: 0 })
               }
             }
-          })
-          .catch((e) => {
+          }).
+          catch((e) => {
             console.log(e)
           })
         return
@@ -114,7 +114,7 @@ export function Sticky(props: StickyProps) {
         )
       }
     },
-    [container, disabled, getContainerRect, offsetTop, setDataAfterDiff],
+    [ container, disabled, getContainerRect, offsetTop, setDataAfterDiff ],
   )
 
   useEffect(
@@ -122,7 +122,7 @@ export function Sticky(props: StickyProps) {
       onMyScroll(scrollTop)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [scrollTop, container, disabled, offsetTop],
+    [ scrollTop, container, disabled, offsetTop ],
   )
 
   usePageScroll(function (e: any) {

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { IFormInstanceAPI } from '../../../types/form'
+import type { IFormInstanceAPI } from '.././PropsType'
 import FormStore from './formstore'
 
 export default function useForm(
@@ -7,7 +7,7 @@ export default function useForm(
   defaultFormValue = {},
 ): IFormInstanceAPI {
   const formRef: { current: IFormInstanceAPI | null } = useRef(null)
-  const [, forceUpdate] = useState({})
+  const [ , forceUpdate ] = useState({})
 
   useEffect(
     function () {
@@ -15,7 +15,7 @@ export default function useForm(
         formRef.current.setFields(defaultFormValue)
       }
     },
-    [defaultFormValue],
+    [ defaultFormValue ],
   )
 
   if (!formRef.current) {

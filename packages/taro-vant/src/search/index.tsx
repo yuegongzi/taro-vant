@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo } from 'react'
-import { ITouchEvent, View } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import { Field } from '../field'
-import { SearchProps } from '../../types/search'
+import type { SearchProps } from './PropsType'
 
 export function Search(props: SearchProps) {
   const {
@@ -42,8 +43,8 @@ export function Search(props: SearchProps) {
     ...others
   } = props
 
-  const noControlled = useMemo(() => typeof value === 'undefined', [value])
-  const [innerValue, setInnerValue] = useState(
+  const noControlled = useMemo(() => typeof value === 'undefined', [ value ])
+  const [ innerValue, setInnerValue ] = useState(
     noControlled ? defaultValue : value,
   )
   const _change = function (event: ITouchEvent) {
@@ -76,7 +77,7 @@ export function Search(props: SearchProps) {
         setInnerValue(value)
       }
     },
-    [noControlled, value],
+    [ noControlled, value ],
   )
 
   const searchValue = noControlled ? innerValue : (value as number)
@@ -86,25 +87,25 @@ export function Search(props: SearchProps) {
       className={`${utils.bem('search', {
         withaction: showAction || !!renderAction,
       })}  ${className}`}
-      style={utils.style([{ background: background }, style])}
+      style={utils.style([ { background: background }, style ])}
       {...others}
     >
-      <View className={utils.bem('search__content', [shape])}>
+      <View className={utils.bem('search__content', [ shape ])}>
         {label ? (
-          <View className="van-search__label">{label}</View>
+          <View className='van-search__label'>{label}</View>
         ) : (
           renderLabel
         )}
 
         <Field
-          type="text"
+          type='text'
           leftIcon={!renderLeftIcon ? leftIcon : ''}
           rightIcon={!renderRightIcon ? rightIcon : ''}
           focus={focus}
           error={error}
           border={false}
-          confirmType="search"
-          className="van-search__field field-class"
+          confirmType='search'
+          className='van-search__field field-class'
           value={searchValue}
           disabled={disabled}
           readonly={readonly}
@@ -117,7 +118,7 @@ export function Search(props: SearchProps) {
           placeholder-style={placeholderStyle}
           renderLeftIcon={renderLeftIcon}
           renderRightIcon={renderRightIcon}
-          style="padding: 5px 10px 5px 0; background-color: transparent;"
+          style='padding: 5px 10px 5px 0; background-color: transparent;'
           onBlur={onBlur}
           onFocus={onFocus}
           onChange={_change}
@@ -129,12 +130,12 @@ export function Search(props: SearchProps) {
 
       {(showAction || renderAction) && (
         <View
-          className="van-search__action"
-          hoverClass="van-search__action--hover"
+          className='van-search__action'
+          hoverClass='van-search__action--hover'
           hoverStayTime={70}
         >
           {renderAction || (
-            <View onClick={_cancel} className="cancel-class">
+            <View onClick={_cancel} className='cancel-class'>
               {actionText}
             </View>
           )}

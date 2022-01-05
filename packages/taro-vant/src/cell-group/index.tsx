@@ -1,6 +1,6 @@
 import { View, Block } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { CellGroupProps } from '../../types/cell-group'
+import type { CellGroupProps } from './PropsType'
 
 export function CellGroup(props: CellGroupProps) {
   const {

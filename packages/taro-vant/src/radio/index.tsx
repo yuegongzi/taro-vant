@@ -1,7 +1,8 @@
-import { ITouchEvent, View } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import { useState, useEffect, useCallback, useContext } from 'react'
 import * as utils from '../wxs/utils'
-import { RadioProps } from '../../types/radio'
+import type { RadioProps } from './PropsType'
 import VanIcon from '../icon/index'
 // import { canIUseModel } from '../common/version'
 import RadioGroupContext from '../radio-group/context'
@@ -9,7 +10,7 @@ import { isEmptyObject } from '../utils/type'
 import * as computed from './wxs'
 
 export function Radio(props: RadioProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     value: '',
     direction: '',
     parentDisabled: false,
@@ -52,7 +53,7 @@ export function Radio(props: RadioProps) {
         value: props.value,
       }
     })
-  }, [props.value])
+  }, [ props.value ])
 
   useEffect(() => {
     if (!isEmptyObject(parentData)) {
@@ -67,7 +68,7 @@ export function Radio(props: RadioProps) {
         }
       })
     }
-  }, [props.value, parentData])
+  }, [ props.value, parentData ])
 
   const emitChange = useCallback(
     (event: ITouchEvent) => {
@@ -79,7 +80,7 @@ export function Radio(props: RadioProps) {
         }
       })
     },
-    [onChange],
+    [ onChange ],
   )
   const onClick = useCallback(
     (event: ITouchEvent) => {
@@ -91,7 +92,7 @@ export function Radio(props: RadioProps) {
         emitChange(event)
       }
     },
-    [disabled, emitChange, name, state.parentDisabled],
+    [ disabled, emitChange, name, state.parentDisabled ],
   )
   const onClickLabel = useCallback(
     (event: ITouchEvent) => {
@@ -103,12 +104,12 @@ export function Radio(props: RadioProps) {
         emitChange(event)
       }
     },
-    [disabled, emitChange, labelDisabled, name, state.parentDisabled],
+    [ disabled, emitChange, labelDisabled, name, state.parentDisabled ],
   )
 
   return (
     <View
-      className={utils.bem('radio', [state.direction]) + `  ${className}`}
+      className={utils.bem('radio', [ state.direction ]) + `  ${className}`}
       style={style}
       {...others}
     >
@@ -128,13 +129,13 @@ export function Radio(props: RadioProps) {
         </View>
       )}
       <View
-        className="van-radio__icon-wrap"
+        className='van-radio__icon-wrap'
         style={'font-size: ' + utils.addUnit(iconSize)}
         onClick={onClick}
       >
         {renderIcon || (
           <VanIcon
-            name="success"
+            name='success'
             className={
               utils.bem('radio__icon', [
                 shape,
@@ -152,7 +153,7 @@ export function Radio(props: RadioProps) {
               value: state.value,
               name,
             })}
-          ></VanIcon>
+           />
         )}
       </View>
       {labelPosition === 'right' && (

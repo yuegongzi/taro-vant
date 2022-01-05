@@ -1,4 +1,5 @@
-import { ITouchEvent, View } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View } from '@tarojs/components'
 import {
   useEffect,
   useState,
@@ -7,7 +8,7 @@ import {
   useImperativeHandle,
 } from 'react'
 import * as utils from '../wxs/utils'
-import { SwipeCellProps, ISwiperCellInstance } from '../../types/swipe-cell'
+import type { SwipeCellProps, ISwiperCellInstance } from './PropsType'
 import { range } from '../common/utils'
 
 const THRESHOLD = 0.3
@@ -27,11 +28,11 @@ function Index(
   props: SwipeCellProps,
   ref: React.ForwardedRef<ISwiperCellInstance>,
 ) {
-  const [wrapperStyle, setWrapperStyle] = useState<React.CSSProperties>({})
-  const [offset, setOffset] = useState<number>(0)
-  const [instanceKey, setInstanceKey] = useState<any>({})
-  const [touchState, setTouchState] = useState<any>({})
-  const [startOffset, setStartOffset] = useState<number>(0)
+  const [ wrapperStyle, setWrapperStyle ] = useState<React.CSSProperties>({})
+  const [ offset, setOffset ] = useState<number>(0)
+  const [ instanceKey, setInstanceKey ] = useState<any>({})
+  const [ touchState, setTouchState ] = useState<any>({})
+  const [ startOffset, setStartOffset ] = useState<number>(0)
 
   const {
     leftWidth = 0,
@@ -67,14 +68,14 @@ function Index(
       }
       setWrapperStyle(wrapperStyle_)
     },
-    [leftWidth, rightWidth, wrapperStyle],
+    [ leftWidth, rightWidth, wrapperStyle ],
   )
 
   const close = useCallback(
     function () {
       swipeMove(0)
     },
-    [swipeMove],
+    [ swipeMove ],
   )
 
   useEffect(
@@ -92,7 +93,7 @@ function Index(
         ARRAY = ARRAY.filter((item) => item.key !== instanceKey.key)
       }
     },
-    [close, instanceKey],
+    [ close, instanceKey ],
   )
 
   const resetTouchStatus = useCallback(
@@ -106,7 +107,7 @@ function Index(
         offsetY: 0,
       })
     },
-    [touchState],
+    [ touchState ],
   )
 
   const touchStart = useCallback(
@@ -119,7 +120,7 @@ function Index(
         startY: touch.startY,
       })
     },
-    [touchState, resetTouchStatus],
+    [ touchState, resetTouchStatus ],
   )
 
   const touchMove = useCallback(
@@ -139,7 +140,7 @@ function Index(
       setTouchState(newTouchState)
       return newTouchState
     },
-    [touchState, resetTouchStatus],
+    [ touchState, resetTouchStatus ],
   )
 
   const open = useCallback(
@@ -156,7 +157,7 @@ function Index(
         onOpen(e)
       }
     },
-    [leftWidth, onOpen, rightWidth, swipeMove, name],
+    [ leftWidth, onOpen, rightWidth, swipeMove, name ],
   )
 
   const swipeLeaveTransition = useCallback(
@@ -169,7 +170,7 @@ function Index(
         swipeMove(0)
       }
     },
-    [leftWidth, offset, open, rightWidth, swipeMove],
+    [ leftWidth, offset, open, rightWidth, swipeMove ],
   )
 
   const onClick_ = useCallback(
@@ -196,7 +197,7 @@ function Index(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [asyncClose, onClick, onClose, swipeMove],
+    [ asyncClose, onClick, onClose, swipeMove ],
   )
 
   const startDrag = useCallback(
@@ -205,7 +206,7 @@ function Index(
       setStartOffset(offset)
       touchStart(event)
     },
-    [disabled, offset, touchStart],
+    [ disabled, offset, touchStart ],
   )
 
   const onDrag = useCallback(
@@ -217,7 +218,7 @@ function Index(
       )
       swipeMove(startOffset + touchState.deltaX, true)
     },
-    [disabled, instanceKey.key, startOffset, swipeMove, touchMove],
+    [ disabled, instanceKey.key, startOffset, swipeMove, touchMove ],
   )
 
   const endDrag = useCallback(
@@ -225,7 +226,7 @@ function Index(
       if (disabled) return
       swipeLeaveTransition()
     },
-    [disabled, swipeLeaveTransition],
+    [ disabled, swipeLeaveTransition ],
   )
 
   useImperativeHandle(ref, function () {
@@ -238,8 +239,8 @@ function Index(
   return (
     <View
       className={`van-swipe-cell  ${className}`}
-      data-key="cell"
-      style={utils.style([style])}
+      data-key='cell'
+      style={utils.style([ style ])}
       onClick={onClick_}
       onTouchStart={startDrag}
       onTouchMove={onDrag}
@@ -250,8 +251,8 @@ function Index(
       <View style={wrapperStyle as any}>
         {leftWidth ? (
           <View
-            className="van-swipe-cell__left"
-            data-key="left"
+            className='van-swipe-cell__left'
+            data-key='left'
             onClick={onClick_}
             style={{ width: leftWidth + 'px' }}
           >
@@ -263,8 +264,8 @@ function Index(
         {children}
         {rightWidth ? (
           <View
-            className="van-swipe-cell__right"
-            data-key="right"
+            className='van-swipe-cell__right'
+            data-key='right'
             onClick={onClick_}
             style={{ width: rightWidth + 'px' }}
           >

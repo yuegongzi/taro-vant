@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { TabProps } from '../../types/tab'
+import type { TabProps } from './PropsType'
 
 export function Tab(
   props: TabProps & {
@@ -10,7 +10,7 @@ export function Tab(
     animated?: boolean
   },
 ) {
-  const [inited, setInited] = useState(false)
+  const [ inited, setInited ] = useState(false)
   const {
     children,
     style,
@@ -21,10 +21,10 @@ export function Tab(
     ...others
   } = props
   useEffect(
-    function () {
+    function() {
       setInited((pre) => pre || active)
     },
-    [active],
+    [ active ],
   )
 
   return (
@@ -37,11 +37,12 @@ export function Tab(
         }) +
         ` ${className || ''}`
       }
-      style={utils.style([active || animated ? '' : 'display: none;', style])}
+      style={utils.style([ active || animated ? '' : 'display: none;', style ])}
       {...others}
     >
       {(inited || !lazyRender) && children}
     </View>
   )
 }
+
 export default Tab

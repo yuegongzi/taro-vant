@@ -2,27 +2,27 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { ProgressProps } from '../../types/progress'
+import type { ProgressProps } from './PropsType'
 import { BLUE } from '../common/color'
 import { getRect } from '../common/utils'
 import * as computed from './wxs'
 
 export function Progress(props: ProgressProps) {
-  const [right, setRight] = useState(0)
+  const [ right, setRight ] = useState(0)
   useEffect(
     function () {
       Taro.nextTick(() => {
         Promise.all([
           getRect(null, '.van-progress'),
           getRect(null, '.van-progress__pivot'),
-        ]).then(([portion, pivot]: any) => {
+        ]).then(([ portion, pivot ]: any) => {
           if (portion && pivot) {
             setRight((pivot.width * (props.percentage - 100)) / 100)
           }
         })
       })
     },
-    [props.percentage],
+    [ props.percentage ],
   )
   const {
     strokeWidth = 4,
@@ -52,7 +52,7 @@ export function Progress(props: ProgressProps) {
       {...others}
     >
       <View
-        className="van-progress__portion"
+        className='van-progress__portion'
         style={computed.portionStyle({
           percentage,
           inactive,
@@ -68,7 +68,7 @@ export function Progress(props: ProgressProps) {
               color,
               right,
             })}
-            className="van-progress__pivot"
+            className='van-progress__pivot'
           >
             {computed.pivotText(pivotText, percentage)}
           </View>

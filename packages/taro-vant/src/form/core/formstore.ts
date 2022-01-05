@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { unstable_batchedUpdates } from 'react-dom'
-import { IFormInstanceAPI } from '../../../types/form'
+import type { IFormInstanceAPI } from '.././PropsType'
 
 type IAPI = keyof IFormInstanceAPI
 
@@ -195,9 +195,9 @@ class FormStore {
   }
 
   validateFields(
-    callback: (errs: Array<string>, values: Record<string, string>) => void,
+    callback: (errs: string[], values: Record<string, string>) => void,
   ) {
-    const errorsMess: Array<string> = []
+    const errorsMess: string[] = []
     Object.keys(this.model).forEach((modelName) => {
       const modelStates = this.validateFieldValue(modelName, true)
       if (modelStates === 'reject')
@@ -207,9 +207,9 @@ class FormStore {
   }
 
   submit(
-    cb?: (errs: Array<string> | null, values: Record<string, string>) => void,
+    cb?: (errs: string[] | null, values: Record<string, string>) => void,
   ) {
-    this.validateFields((errorMess: Array<string>) => {
+    this.validateFields((errorMess: string[]) => {
       const { onFinish, onFinishFailed } = this.callback
       const fieldValues = this.getFieldsValue()
       cb && cb(errorMess.length ? errorMess : null, fieldValues)

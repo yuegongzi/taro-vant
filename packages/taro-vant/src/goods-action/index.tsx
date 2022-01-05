@@ -2,12 +2,12 @@ import { cloneElement, isValidElement } from 'react'
 import { View } from '@tarojs/components'
 import toArray from 'rc-util/lib/Children/toArray'
 import * as utils from '../wxs/utils'
-import { GoodsActionProps } from '../../types/goods-action'
-import { GoodsActionButtonProps } from '../../types/goods-action-button'
+import type { GoodsActionProps } from './PropsType'
+import type { GoodsActionButtonProps } from '../goods-action-button/PropsType'
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children)
-    .map((node: React.ReactElement<GoodsActionButtonProps>) => {
+  return toArray(children).
+    map((node: React.ReactElement<GoodsActionButtonProps>) => {
       if (isValidElement(node)) {
         const key = node.key !== undefined ? String(node.key) : undefined
         return {
@@ -18,8 +18,8 @@ function parseTabList(children: React.ReactNode): any[] {
       }
 
       return null
-    })
-    .filter((tab) => tab)
+    }).
+    filter((tab) => tab)
 }
 
 export function GoodsAction(props: GoodsActionProps) {

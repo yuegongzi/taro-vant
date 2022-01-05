@@ -1,4 +1,5 @@
-import { Block, View, ScrollView, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { Block, View, ScrollView } from '@tarojs/components'
 import {
   useState,
   useEffect,
@@ -15,7 +16,7 @@ import { requestAnimationFrame } from '../common/utils'
 import VanToast from '../toast/index'
 import VanPopup from '../popup/index'
 import VanButton from '../button/index'
-import { CalendarProps, ICalendarInstance } from '../../types/calendar'
+import type { CalendarProps, ICalendarInstance } from './PropsType'
 import {
   ROW_HEIGHT,
   getPrevDay,
@@ -90,11 +91,11 @@ function Index(
     ...others
   } = props
 
-  const [subtitle, setSubtitle] = useState('')
-  const [currentDate, setCurrentDate] = useState<any>()
-  const [scrollIntoView, setScrollIntoView] = useState('')
+  const [ subtitle, setSubtitle ] = useState('')
+  const [ currentDate, setCurrentDate ] = useState<any>()
+  const [ scrollIntoView, setScrollIntoView ] = useState('')
   const contentObserver = useRef<any>()
-  const [compIndex, setComindex] = useState(0)
+  const [ compIndex, setComindex ] = useState(0)
 
   useEffect(function () {
     setComindex(init++)
@@ -112,7 +113,7 @@ function Index(
       }
       return date
     },
-    [maxDate, minDate],
+    [ maxDate, minDate ],
   )
 
   const getInitialDate = useCallback(
@@ -122,7 +123,7 @@ function Index(
         if (!Array.isArray(defaultDate)) {
           defaultDate = []
         }
-        const [startDay, endDay] = defaultDate || []
+        const [ startDay, endDay ] = defaultDate || []
         const start = limitDateRange(
           startDay || now,
           minDate,
@@ -132,20 +133,20 @@ function Index(
           endDay || now,
           getNextDay(new Date(minDate)).getTime(),
         )
-        return [start, end]
+        return [ start, end ]
       }
       if (type === 'multiple') {
         if (Array.isArray(defaultDate)) {
           return defaultDate.map((date) => limitDateRange(date))
         }
-        return [limitDateRange(now)]
+        return [ limitDateRange(now) ]
       }
       if (!defaultDate || Array.isArray(defaultDate)) {
         defaultDate = now
       }
       return limitDateRange(defaultDate)
     },
-    [limitDateRange, maxDate, minDate, type],
+    [ limitDateRange, maxDate, minDate, type ],
   )
 
   const scrollIntoViewFn = useCallback(
@@ -166,7 +167,7 @@ function Index(
         })
       })
     },
-    [currentDate, maxDate, minDate, poppable, show, type],
+    [ currentDate, maxDate, minDate, poppable, show, type ],
   )
 
   const reset = useCallback(
@@ -174,7 +175,7 @@ function Index(
       setCurrentDate(getInitialDate())
       scrollIntoViewFn()
     },
-    [getInitialDate, scrollIntoViewFn],
+    [ getInitialDate, scrollIntoViewFn ],
   )
 
   const initRectH5 = useCallback(function () {
@@ -193,7 +194,7 @@ function Index(
         }
       },
       {
-        threshold: [0.6],
+        threshold: [ 0.6 ],
         // root: document.getElementsByClassName('van-calendar__body')[0],
       },
     )
@@ -223,7 +224,7 @@ function Index(
       }
 
       const contentObserver_ = curePage.createIntersectionObserver({
-        thresholds: [0.5, 0.8, 1],
+        thresholds: [ 0.5, 0.8, 1 ],
         observeAll: true,
         selectAll: true,
       })
@@ -236,7 +237,7 @@ function Index(
         }
       })
     },
-    [initRectH5, compIndex],
+    [ initRectH5, compIndex ],
   )
 
   const emit = useCallback(
@@ -251,7 +252,7 @@ function Index(
       } as ITouchEvent
       if (onSelect) onSelect(e)
     },
-    [onSelect],
+    [ onSelect ],
   )
 
   const checkRange = useCallback(
@@ -268,15 +269,15 @@ function Index(
       }
       return true
     },
-    [maxRange, overRange, rangePrompt, showRangePrompt],
+    [ maxRange, overRange, rangePrompt, showRangePrompt ],
   )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function select(date: any, complete?: boolean) {
     if (Array.isArray(date)) {
-      date = date
-        .filter((d: any) => !!d)
-        .map((item: any) => {
+      date = date.
+        filter((d: any) => !!d).
+        map((item: any) => {
           return typeof item === 'number' ? new Date(item) : item
         })
     }
@@ -285,7 +286,7 @@ function Index(
       if (!valid) {
         // auto selected to max range if showConfirm
         if (showConfirm) {
-          emit([date[0], getDayByOffset(date[0], (maxRange || 0) - 1)])
+          emit([ date[0], getDayByOffset(date[0], (maxRange || 0) - 1) ])
         } else {
           emit(date)
         }
@@ -310,7 +311,7 @@ function Index(
         if (onUnselect) onUnselect(e)
       }
     },
-    [onUnselect],
+    [ onUnselect ],
   )
 
   const onClickDay = useCallback(
@@ -318,18 +319,18 @@ function Index(
       const { date } = event
       const currentDate_: any = JSON.parse(JSON.stringify(currentDate))
       if (type === 'range') {
-        const [startDay, endDay] = currentDate_
+        const [ startDay, endDay ] = currentDate_
         if (startDay && !endDay) {
           const compareToStart = compareDay(date, startDay)
           if (compareToStart === 1) {
-            select([startDay, date], true)
+            select([ startDay, date ], true)
           } else if (compareToStart === -1) {
-            select([date, null])
+            select([ date, null ])
           } else if (allowSameDay) {
-            select([date, date])
+            select([ date, date ])
           }
         } else {
-          select([date, null])
+          select([ date, null ])
         }
       } else if (type === 'multiple') {
         let selectedIndex
@@ -345,13 +346,13 @@ function Index(
           setCurrentDate(currentDate_)
           unselect(cancelDate)
         } else {
-          select([...currentDate_, date])
+          select([ ...currentDate_, date ])
         }
       } else {
         select(date, true)
       }
     },
-    [allowSameDay, currentDate, select, type, unselect],
+    [ allowSameDay, currentDate, select, type, unselect ],
   )
 
   const onConfirm_ = useCallback(
@@ -366,7 +367,7 @@ function Index(
       } as ITouchEvent
       if (onConfirm) onConfirm(e)
     },
-    [checkRange, currentDate, onConfirm, type],
+    [ checkRange, currentDate, onConfirm, type ],
   )
 
   useLayoutEffect(
@@ -374,7 +375,7 @@ function Index(
       if (defaultDate)
         setCurrentDate(getInitialDate(defaultDate || new Date().getTime()))
     },
-    [defaultDate, getInitialDate],
+    [ defaultDate, getInitialDate ],
   )
 
   useEffect(
@@ -388,7 +389,7 @@ function Index(
         }, 66)
       }
     },
-    [initRect, poppable, scrollIntoViewFn, show],
+    [ initRect, poppable, scrollIntoViewFn, show ],
   )
 
   useEffect(
@@ -396,7 +397,7 @@ function Index(
       reset()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [type],
+    [ type ],
   )
 
   useImperativeHandle(ref, function () {
@@ -422,7 +423,7 @@ function Index(
         >
           <View
             className={`van-calendar ${className || ''}`}
-            style={utils.style([style])}
+            style={utils.style([ style ])}
             {...others}
           >
             <Header
@@ -435,7 +436,7 @@ function Index(
                 if (onClickSubtitle) onClickSubtitle
               }}
               renderTitle={renderTitle}
-            ></Header>
+             />
             <ScrollView
               className={`van-calendar__body  van-calendar__body${compIndex}`}
               scrollY
@@ -446,7 +447,7 @@ function Index(
                   <Month
                     key={`van-calendar-month___${index}`}
                     id={`month${index} month${item}`}
-                    className="month"
+                    className='month'
                     date={item}
                     type={type}
                     color={color}
@@ -461,7 +462,7 @@ function Index(
                     showMonthTitle={index !== 0 || !showSubtitle}
                     firstDayOfWeek={firstDayOfWeek}
                     onClick={onClickDay}
-                  ></Month>
+                   />
                 )
               })}
             </ScrollView>
@@ -481,9 +482,9 @@ function Index(
                 <VanButton
                   round
                   block
-                  type="danger"
+                  type='danger'
                   color={color}
-                  className="van-calendar__confirm"
+                  className='van-calendar__confirm'
                   disabled={computed.getButtonDisabled(type, currentDate)}
                   // nativeType="text"
                   onClick={onConfirm_}
@@ -499,7 +500,7 @@ function Index(
       ) : (
         <View
           className={`van-calendar ${className || ''}`}
-          style={utils.style([style])}
+          style={utils.style([ style ])}
           {...others}
         >
           <Header
@@ -510,20 +511,20 @@ function Index(
             firstDayOfWeek={firstDayOfWeek}
             onClickSubtitle={onClickSubtitle}
             renderTitle={<Block>{renderTitle}</Block>}
-          ></Header>
+           />
           <ScrollView
             className={`van-calendar__body van-calendar__body${compIndex}`}
             scrollY
             scrollIntoView={scrollIntoView}
           >
-            {computed
-              .getMonths(minDate, maxDate)
-              .map((item: any, index: number) => {
+            {computed.
+              getMonths(minDate, maxDate).
+              map((item: any, index: number) => {
                 return (
                   <Month
                     key={`van-calendar-month___${index}`}
                     id={`month${index} month${item}`}
-                    className="month"
+                    className='month'
                     date={item}
                     type={type}
                     color={color}
@@ -538,7 +539,7 @@ function Index(
                     showMonthTitle={index !== 0 || !showSubtitle}
                     firstDayOfWeek={firstDayOfWeek}
                     onClick={onClickDay}
-                  ></Month>
+                   />
                 )
               })}
           </ScrollView>
@@ -558,9 +559,9 @@ function Index(
               <VanButton
                 round
                 block
-                type="danger"
+                type='danger'
                 color={color}
-                className="van-calendar__confirm"
+                className='van-calendar__confirm'
                 disabled={computed.getButtonDisabled(type, currentDate)}
                 // nativeType="text"
                 onClick={onConfirm_}
@@ -573,7 +574,7 @@ function Index(
           </View>
         </View>
       )}
-      <VanToast id="van-toast"></VanToast>
+      <VanToast id='van-toast' />
     </Block>
   )
 }

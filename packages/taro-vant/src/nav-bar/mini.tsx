@@ -8,11 +8,11 @@ import {
   getSystemInfoSync,
   getMenuButtonBoundingClientRect,
 } from '../common/utils'
-import { MiniNavBarProps } from '../../types/nav-bar'
+import type { MiniNavBarProps } from './PropsType'
 import * as computed from './wxs'
 
 export function MiniNavBar(props: MiniNavBarProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     height: 40,
     fromTop: 44,
     fromLeft: 7,
@@ -47,17 +47,17 @@ export function MiniNavBar(props: MiniNavBarProps) {
     Taro.reLaunch({
       url: homeUrl,
     })
-  }, [homeUrl])
+  }, [ homeUrl ])
 
-  const [backButton, setBackButton] = useState(false)
-  const [homeButton, setHomeButton] = useState(false)
+  const [ backButton, setBackButton ] = useState(false)
+  const [ homeButton, setHomeButton ] = useState(false)
 
   useEffect(
     function () {
       const pages = Taro.getCurrentPages()
       if (pages.length >= 1) {
         const ins: any = pages[pages.length - 1]
-        const url = ins.route || ins.__route__ || ins['$taroPath']
+        const url = ins.route || ins.__route__ || ins.$taroPath
         if (url !== homeUrl) {
           setHomeButton(true)
         }
@@ -66,7 +66,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
         }
       }
     },
-    [homeUrl],
+    [ homeUrl ],
   )
 
   useEffect(function () {
@@ -87,7 +87,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
   return (
     <Block>
       {fixed && placeholder && (
-        <View style={{ height: `${height + fromTop}px` }}></View>
+        <View style={{ height: `${height + fromTop}px` }} />
       )}
       <View
         className={
@@ -110,9 +110,9 @@ export function MiniNavBar(props: MiniNavBarProps) {
         ])}
         {...others}
       >
-        <View className="van-mini-nav-bar__content">
+        <View className='van-mini-nav-bar__content'>
           <View
-            className="van-mini-nav-bar__left"
+            className='van-mini-nav-bar__left'
             style={{ left: `${fromLeft}px` }}
           >
             {backButton && (
@@ -124,7 +124,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
                   height: `${menuHeight}px`,
                 }}
               >
-                <Icon name="arrow-left" size={40} />
+                <Icon name='arrow-left' size={40} />
               </View>
             )}
             {homeButton && (
@@ -136,17 +136,17 @@ export function MiniNavBar(props: MiniNavBarProps) {
                   height: `${menuHeight}px`,
                 }}
               >
-                <Icon name="wap-home" size={40} />
+                <Icon name='wap-home' size={40} />
               </View>
             )}
           </View>
           <View
-            className="van-mini-nav-bar__title title-class van-ellipsis"
+            className='van-mini-nav-bar__title title-class van-ellipsis'
             style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
           >
             {title ? <Block>{title}</Block> : renderTitle}
           </View>
-          <View className="van-mini-nav-bar__right"></View>
+          <View className='van-mini-nav-bar__right' />
         </View>
       </View>
     </Block>

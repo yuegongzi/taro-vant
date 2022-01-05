@@ -2,10 +2,10 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect } from 'react'
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { SkeletonProps } from '../../types/skeleton'
+import type { SkeletonProps } from './PropsType'
 
 export function Skeleton(props: SkeletonProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     isArray: false,
     rowArray: [],
   })
@@ -32,7 +32,7 @@ export function Skeleton(props: SkeletonProps) {
         return { ...pre, rowArray: Array.from({ length: row }) }
       })
     },
-    [row],
+    [ row ],
   )
 
   useEffect(
@@ -41,7 +41,7 @@ export function Skeleton(props: SkeletonProps) {
         return { ...pre, isArray: (rowWidth as any) instanceof Array }
       })
     },
-    [rowWidth],
+    [ rowWidth ],
   )
 
   return loading ? (
@@ -61,17 +61,17 @@ export function Skeleton(props: SkeletonProps) {
       {avatar && (
         <View
           className={
-            'avatar-class ' + utils.bem('skeleton__avatar', [avatarShape])
+            'avatar-class ' + utils.bem('skeleton__avatar', [ avatarShape ])
           }
           style={'width:' + avatarSize + ';height:' + avatarSize}
-        ></View>
+         />
       )}
       <View className={utils.bem('skeleton__content')}>
         {title && (
           <View
             className={'title-class ' + utils.bem('skeleton__title')}
             style={'width:' + titleWidth}
-          ></View>
+           />
         )}
         {rowArray.map((_item, index) => {
           return (
@@ -79,7 +79,7 @@ export function Skeleton(props: SkeletonProps) {
               key={index}
               className={'row-class ' + utils.bem('skeleton__row')}
               style={'width:' + (isArray ? rowWidth[index] : rowWidth)}
-            ></View>
+             />
           )
         })}
       </View>

@@ -3,10 +3,10 @@ import { useCallback } from 'react'
 import * as computed from './wxs'
 import Options from './options'
 import VanPopup from './../popup'
-import {
+import type {
   ShareSheetProps,
   ShareSheetOptionItem,
-} from './../../types/share-sheet'
+} from './PropsType'
 export function ShareSheet(props: ShareSheetProps) {
   const {
     show,
@@ -31,30 +31,30 @@ export function ShareSheet(props: ShareSheetProps) {
 
   const _onClickOverlay = useCallback(() => {
     onClickOverlay?.()
-  }, [onClickOverlay])
+  }, [ onClickOverlay ])
 
   const _onSelect = useCallback(
     (option) => {
       onSelect?.({ detail: option })
     },
-    [onSelect],
+    [ onSelect ],
   )
 
   const _onClose = useCallback(() => {
     onClose?.()
-  }, [onClose])
+  }, [ onClose ])
 
   const _onCancel = useCallback(() => {
     onClose?.()
     onCancel?.()
-  }, [onCancel, onClose])
+  }, [ onCancel, onClose ])
 
   return (
     <VanPopup
       round
-      className="van-share-sheet"
+      className='van-share-sheet'
       show={show}
-      position="bottom"
+      position='bottom'
       overlay={overlay}
       duration={duration}
       zIndex={zIndex}
@@ -65,14 +65,14 @@ export function ShareSheet(props: ShareSheetProps) {
       onClickOverlay={_onClickOverlay}
       {...others}
     >
-      <View className="van-share-sheet__header">
-        <View className="van-share-sheet__title">{renderTitle}</View>
-        {title && <View className="van-share-sheet__title">{title}</View>}
-        <View className="van-share-sheet__description">
+      <View className='van-share-sheet__header'>
+        <View className='van-share-sheet__title'>{renderTitle}</View>
+        {title && <View className='van-share-sheet__title'>{title}</View>}
+        <View className='van-share-sheet__description'>
           {renderDescription}
         </View>
         {description && (
-          <View className="van-share-sheet__description">{description}</View>
+          <View className='van-share-sheet__description'>{description}</View>
         )}
       </View>
       {computed.isMulti(options) ? (
@@ -85,7 +85,7 @@ export function ShareSheet(props: ShareSheetProps) {
                   key={index}
                   options={item}
                   onSelect={_onSelect}
-                ></Options>
+                 />
               )
             },
           )}
@@ -94,9 +94,9 @@ export function ShareSheet(props: ShareSheetProps) {
         <Options
           options={options as ShareSheetOptionItem[]}
           onSelect={_onSelect}
-        ></Options>
+         />
       )}
-      <Button className="van-share-sheet__cancel" onClick={_onCancel}>
+      <Button className='van-share-sheet__cancel' onClick={_onCancel}>
         {cancelText}
       </Button>
     </VanPopup>

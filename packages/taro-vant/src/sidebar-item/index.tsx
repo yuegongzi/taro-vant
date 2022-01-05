@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components'
 import { useCallback, useState, useEffect } from 'react'
 import * as utils from '../wxs/utils'
-import { SidebarItemProps } from '../../types/sidebar-item'
+import type { SidebarItemProps } from './PropsType'
 import VanInfo from '../info/index'
 
 export function SidebarItem(
@@ -28,7 +28,7 @@ export function SidebarItem(
     ...others
   } = props
 
-  const [selected, setselected] = useState<any>()
+  const [ selected, setselected ] = useState<any>()
 
   const setActive = useCallback(function (selected) {
     return setselected(selected)
@@ -38,7 +38,7 @@ export function SidebarItem(
     function () {
       setChildren?.(index, { setActive, selected })
     },
-    [setActive, index, setChildren, selected],
+    [ setActive, index, setChildren, selected ],
   )
 
   const onClick_ = useCallback(
@@ -49,7 +49,7 @@ export function SidebarItem(
         onClick?.(index)
       })
     },
-    [disabled, index, onChange, onClick, setAction],
+    [ disabled, index, onChange, onClick, setAction ],
   )
 
   return (
@@ -67,15 +67,15 @@ export function SidebarItem(
         ' ' +
         className
       }
-      hoverClass="van-sidebar-item--hover"
+      hoverClass='van-sidebar-item--hover'
       hoverStayTime={70}
       onClick={onClick_}
-      style={utils.style([style])}
+      style={utils.style([ style ])}
       {...others}
     >
-      <View className="van-sidebar-item__text">
+      <View className='van-sidebar-item__text'>
         {(badge != null || info !== null || dot) && (
-          <VanInfo dot={dot} info={badge != null ? badge : info}></VanInfo>
+          <VanInfo dot={dot} info={badge != null ? badge : info} />
         )}
         {title ? <View>{title}</View> : renderTitle}
       </View>

@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components'
 
 import * as utils from '../wxs/utils'
-import { RadioGroupProps } from '../../types/radio-group'
+import type { RadioGroupProps } from './PropsType'
 import RadioGroupContext from './context'
 
 export function RadioGroup(props: RadioGroupProps) {
@@ -27,7 +27,7 @@ export function RadioGroup(props: RadioGroupProps) {
     >
       <View
         className={
-          utils.bem('radio-group', [direction]) + ` ${className || ''}`
+          utils.bem('radio-group', [ direction ]) + ` ${className || ''}`
         }
         style={style}
         {...others}

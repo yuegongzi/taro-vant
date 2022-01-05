@@ -1,9 +1,11 @@
-import { View, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { useCallback } from 'react'
 import * as utils from '../wxs/utils'
-import { GREEN, GRAY_DARK } from '../common/color'
+import { GRAY_DARK, GREEN } from '../common/color'
 import VanIcon from '../icon/index'
-import { StepsProps } from './../../types/steps'
+import type { StepsProps } from './PropsType'
+
 export function getStatus(index: number, active: any) {
   if (index < active) {
     return 'finish'
@@ -36,14 +38,14 @@ export function Steps(props: StepsProps) {
       })
       onClickStep?.(event)
     },
-    [onClickStep],
+    [ onClickStep ],
   )
   return (
     <View
-      className={utils.bem('steps', [direction]) + ` ${className || ''}`}
+      className={utils.bem('steps', [ direction ]) + ` ${className || ''}`}
       {...others}
     >
-      <View className="van-step__wrapper">
+      <View className='van-step__wrapper'>
         {steps.map((item, index) => {
           return (
             <View
@@ -51,7 +53,7 @@ export function Steps(props: StepsProps) {
               onClick={_onClick}
               data-index={index}
               className={
-                utils.bem('step', [direction, getStatus(index, active)]) +
+                utils.bem('step', [ direction, getStatus(index, active) ]) +
                 ' van-hairline'
               }
               style={
@@ -61,13 +63,13 @@ export function Steps(props: StepsProps) {
               }
             >
               <View
-                className="van-step__title"
+                className='van-step__title'
                 style={index === active ? 'color: ' + activeColor : ''}
               >
                 <View>{item.text}</View>
-                <View className="desc-class">{item.desc}</View>
+                <View className='desc-class'>{item.desc}</View>
               </View>
-              <View className="van-step__circle-container">
+              <View className='van-step__circle-container'>
                 {index !== active ? (
                   <>
                     {item.inactiveIcon || inactiveIcon ? (
@@ -78,38 +80,38 @@ export function Steps(props: StepsProps) {
                             : activeColor
                         }
                         name={item.inactiveIcon || inactiveIcon || ''}
-                        className="van-step__icon"
-                      ></VanIcon>
+                        className='van-step__icon'
+                      />
                     ) : (
                       <View
-                        className="van-step__circle"
+                        className='van-step__circle'
                         style={
                           'background-color: ' +
                           (active !== undefined && index < active
                             ? activeColor
                             : inactiveColor)
                         }
-                      ></View>
+                      />
                     )}
                   </>
                 ) : (
                   <VanIcon
                     name={item.activeIcon || activeIcon}
                     color={activeColor}
-                    className="van-step__icon"
-                  ></VanIcon>
+                    className='van-step__icon'
+                  />
                 )}
               </View>
               {index !== steps.length - 1 && (
                 <View
-                  className="van-step__line"
+                  className='van-step__line'
                   style={
                     'background-color: ' +
                     (active !== undefined && index < active
                       ? activeColor
                       : inactiveColor)
                   }
-                ></View>
+                />
               )}
             </View>
           )
@@ -118,4 +120,5 @@ export function Steps(props: StepsProps) {
     </View>
   )
 }
+
 export default Steps

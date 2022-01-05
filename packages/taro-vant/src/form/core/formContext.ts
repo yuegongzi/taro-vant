@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { IFormInstanceAPI } from '../../../types/form'
+import type { IFormInstanceAPI } from '.././PropsType'
 
 const FormContext = createContext<IFormInstanceAPI>(null as any)
 

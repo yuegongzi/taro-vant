@@ -1,12 +1,12 @@
 import { View } from '@tarojs/components'
 import { useCallback, useRef, useEffect, useMemo, cloneElement } from 'react'
 import * as utils from '../wxs/utils'
-import { SidebarProps } from '../../types/sidebar'
+import type { SidebarProps } from './PropsType'
 
 export function Sidebar(props: SidebarProps) {
   const { activeKey, onChange, className, children, style, ...others } = props
 
-  const childrenInstance = useRef<Array<any>>([])
+  const childrenInstance = useRef<any[]>([])
 
   const setAction = useCallback(function (activeKey) {
     const childrenInstance_ = childrenInstance.current
@@ -27,7 +27,7 @@ export function Sidebar(props: SidebarProps) {
     function () {
       setAction(activeKey)
     },
-    [setAction, activeKey],
+    [ setAction, activeKey ],
   )
 
   const setChildren = useCallback(function (index: number, instance: any) {
@@ -36,7 +36,7 @@ export function Sidebar(props: SidebarProps) {
 
   const ResetChildren = useMemo(
     function () {
-      const res: Array<JSX.Element> = []
+      const res: JSX.Element[] = []
       if (children && Array.isArray(children)) {
         children.forEach((child, index) => {
           res.push(
@@ -52,12 +52,12 @@ export function Sidebar(props: SidebarProps) {
       }
       return res
     },
-    [children, onChange, setAction, setChildren],
+    [ children, onChange, setAction, setChildren ],
   )
 
   return (
     <View
-      style={utils.style([style])}
+      style={utils.style([ style ])}
       className={`van-sidebar  ${className}`}
       {...others}
     >

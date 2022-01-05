@@ -1,8 +1,9 @@
 import Taro from '@tarojs/taro'
 import { useState, useEffect, useCallback } from 'react'
-import { View, Text, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View, Text } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { NotifyProps } from '../../types/notify'
+import type { NotifyProps } from './PropsType'
 import VanTransition from '../transition/index'
 import { getSystemInfoSync } from '../common/utils'
 import * as computed from './wxs'
@@ -30,7 +31,7 @@ function parseOptions(message: any) {
   return typeof message === 'string' ? { message } : message
 }
 export function Notify(props: NotifyProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     selector: '#van-notify',
     show: false,
     statusBarHeight: undefined,
@@ -57,7 +58,7 @@ export function Notify(props: NotifyProps) {
         id: props.id || defaultId,
       }
     })
-  }, [props])
+  }, [ props ])
 
   useEffect(() => {
     const { statusBarHeight } = getSystemInfoSync()
@@ -129,18 +130,18 @@ export function Notify(props: NotifyProps) {
         }, state.duration)
       }
     },
-    [state.duration],
+    [ state.duration ],
   )
   const onTap = useCallback(
     (event: ITouchEvent) => {
       state.onClick?.(event)
     },
-    [state],
+    [ state ],
   )
 
   return (
     <VanTransition
-      name="slide-down"
+      name='slide-down'
       show={state.show}
       className={`van-notify__container ${className}`}
       style={utils.style([
@@ -161,7 +162,7 @@ export function Notify(props: NotifyProps) {
         })}
       >
         {state.safeAreaInsetTop && (
-          <View style={'height: ' + state.statusBarHeight + 'px'}></View>
+          <View style={'height: ' + state.statusBarHeight + 'px'} />
         )}
         <Text>{state.message}</Text>
       </View>

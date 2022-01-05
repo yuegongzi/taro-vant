@@ -1,9 +1,10 @@
 import { useCallback } from 'react'
-import { Text, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { Text } from '@tarojs/components'
 import VanButton from '../button'
 import VanIcon from '../icon'
 import { jumpLink } from '../common/jumpLink'
-import { GoodsActionIconProps } from '../../types/goods-action-icon'
+import type { GoodsActionIconProps } from './PropsType'
 
 export function GoodsActionIcon(props: GoodsActionIconProps) {
   const {
@@ -25,13 +26,13 @@ export function GoodsActionIcon(props: GoodsActionIconProps) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
-    [linkType, onClick, url],
+    [ linkType, onClick, url ],
   )
 
   return (
     <VanButton
       square
-      size="large"
+      size='large'
       className={`van-goods-action-icon ${className}`}
       style={style}
       onClick={_click}
@@ -42,12 +43,12 @@ export function GoodsActionIcon(props: GoodsActionIconProps) {
           name={icon}
           dot={dot}
           info={info}
-          className="van-goods-action-icon__icon icon-class"
-        ></VanIcon>
+          className='van-goods-action-icon__icon icon-class'
+         />
       ) : (
         renderIcon
       )}
-      <Text className="text-class">{text}</Text>
+      <Text className='text-class'>{text}</Text>
     </VanButton>
   )
 }

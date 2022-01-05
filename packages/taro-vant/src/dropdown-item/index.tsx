@@ -8,10 +8,10 @@ import {
   memo,
 } from 'react'
 import Taro from '@tarojs/taro'
-import {
+import type {
   DropdownItemProps,
   IDropdownItemInstance,
-} from '../../types/dropdown-menu'
+} from '../dropdown-menu/PropsType'
 import * as utils from '../wxs/utils'
 import VanIcon from '../icon/index'
 import VanCell from '../cell'
@@ -46,18 +46,18 @@ function Index(
     ...others
   } = props
 
-  const [wrapperStyle, setWrapperStyle] = useState<any>({})
-  const [transition, setTransition] = useState(true)
-  const [showPopup, setShowPopup] = useState(false)
-  const [showWrapper, setShowWrapper] = useState(true)
-  const [displayTitle, setDisplayTitle] = useState('')
-  const [value_, setValue] = useState<number | string | undefined>('')
+  const [ wrapperStyle, setWrapperStyle ] = useState<any>({})
+  const [ transition, setTransition ] = useState(true)
+  const [ showPopup, setShowPopup ] = useState(false)
+  const [ showWrapper, setShowWrapper ] = useState(true)
+  const [ displayTitle, setDisplayTitle ] = useState('')
+  const [ value_, setValue ] = useState<number | string | undefined>('')
 
   useEffect(
     function () {
       setValue(value)
     },
-    [value],
+    [ value ],
   )
 
   const rerender = useCallback(
@@ -68,7 +68,7 @@ function Index(
         }
       })
     },
-    [parentInstance],
+    [ parentInstance ],
   )
 
   const toggle = useCallback(
@@ -117,7 +117,7 @@ function Index(
         rerender()
       }
     },
-    [showPopup, parentInstance, rerender],
+    [ showPopup, parentInstance, rerender ],
   )
 
   useEffect(
@@ -157,7 +157,7 @@ function Index(
       if (onClosed) onClosed()
       setShowWrapper(false)
     },
-    [onClosed],
+    [ onClosed ],
   )
 
   const onOptionTap = function (_event: any, option: any) {
@@ -182,12 +182,12 @@ function Index(
       className={
         utils.bem('dropdown-item', parentInstance.direction) + ' ' + className
       }
-      style={utils.style([wrapperStyle, style])}
+      style={utils.style([ wrapperStyle, style ])}
     >
       <VanPopup
         show={showPopup}
-        style={utils.style([{ position: 'absolute' }, popupStyle])}
-        overlayStyle="position: absolute;"
+        style={utils.style([ { position: 'absolute' }, popupStyle ])}
+        overlayStyle='position: absolute;'
         overlay={!!parentInstance.overlay}
         position={parentInstance.direction === 'down' ? 'top' : 'bottom'}
         duration={transition ? parentInstance.duration : 0}
@@ -212,7 +212,7 @@ function Index(
               renderTitle={
                 <Block>
                   <View
-                    className="van-dropdown-item__title"
+                    className='van-dropdown-item__title'
                     style={
                       item.value === value_
                         ? 'color:' + parentInstance.activeColor
@@ -226,10 +226,10 @@ function Index(
             >
               {item.value === value_ && (
                 <VanIcon
-                  name="success"
-                  className="van-dropdown-item__icon"
+                  name='success'
+                  className='van-dropdown-item__icon'
                   color={parentInstance.activeColor}
-                ></VanIcon>
+                 />
               )}
             </VanCell>
           ))}

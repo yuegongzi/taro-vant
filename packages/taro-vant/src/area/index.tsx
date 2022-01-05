@@ -1,18 +1,12 @@
-import {
-  useCallback,
-  useRef,
-  useMemo,
-  useEffect,
-  useImperativeHandle,
-  forwardRef,
-  memo,
-} from "react"
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
 // import { requestAnimationFrame } from '../common/utils'
 import * as computed from './wxs'
 import VanPicker from './../picker'
-import { AreaProps } from './../../types/area'
-import { PickerEvents } from './../../types/picker'
+import type { AreaProps } from './PropsType'
+import type { PickerEvents } from '../picker/PropsType'
+
 const EMPTY_CODE = '000000'
+
 function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   const {
     value,
@@ -38,7 +32,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   //   { values: [] },
   // ])
   const columns = useMemo(
-    () => [{ values: [] }, { values: [] }, { values: [] }],
+    () => [ { values: [] }, { values: [] }, { values: [] } ],
     [],
   )
   const typeToColumnsPlaceholderRef = useRef<any>({})
@@ -60,14 +54,14 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
         return value
       })
     },
-    [columnsPlaceholder],
+    [ columnsPlaceholder ],
   )
 
   const _getConfig = useCallback(
     (type: 'province' | 'city' | 'county') => {
       return (areaList && (areaList as any)[`${type}_list`]) || ({} as any)
     },
-    [areaList],
+    [ areaList ],
   )
 
   const _getList = useCallback(
@@ -96,8 +90,8 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
           type === 'province'
             ? ''
             : type === 'city'
-            ? EMPTY_CODE.slice(2, 4)
-            : EMPTY_CODE.slice(4, 6)
+              ? EMPTY_CODE.slice(2, 4)
+              : EMPTY_CODE.slice(4, 6)
         result.unshift({
           code: `${code === undefined ? '' : code}${codeFill}`,
           name: typeToColumnsPlaceholderRef.current?.[type],
@@ -105,7 +99,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       }
       return result
     },
-    [_getConfig],
+    [ _getConfig ],
   )
 
   const _getIndex = useCallback(
@@ -124,7 +118,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       }
       return 0
     },
-    [_getList],
+    [ _getList ],
   )
 
   const _getPicker = useCallback(() => {
@@ -136,7 +130,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
     (event) => {
       onCancel?.(event)
     },
-    [onCancel],
+    [ onCancel ],
   )
 
   const _onConfirm = useCallback(
@@ -151,7 +145,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
         },
       } as PickerEvents)
     },
-    [_parseValues, onConfirm],
+    [ _parseValues, onConfirm ],
   )
   const _getDefaultCode = useCallback(() => {
     if (columnsPlaceholder.length) {
@@ -166,7 +160,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       return cityCodes[0]
     }
     return ''
-  }, [_getConfig, columnsPlaceholder])
+  }, [ _getConfig, columnsPlaceholder ])
 
   const _setValues = useCallback(() => {
     const picker = _getPicker()
@@ -200,10 +194,9 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       )
       indexes.push(_getIndex('county', code))
     }
-    return Promise.all(stack)
-      .then(() => picker.setIndexes(indexes))
-      .catch(() => {})
-  }, [_getDefaultCode, _getIndex, _getList, _getPicker, columnsNum])
+    return Promise.all(stack).then(() => picker.setIndexes(indexes)).catch(() => {
+    })
+  }, [ _getDefaultCode, _getIndex, _getList, _getPicker, columnsNum ])
 
   const _onChange = useCallback(
     (event) => {
@@ -213,17 +206,17 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       ;(_a = _setValues()) === null || _a === void 0
         ? void 0
         : _a.then(() => {
-            const event_ = {
-              detail: {
-                picker,
-                values: _parseValues(picker.getValues()),
-                index,
-              },
-            }
-            onChange?.(event_)
-          })
+          const event_ = {
+            detail: {
+              picker,
+              values: _parseValues(picker.getValues()),
+              index,
+            },
+          }
+          onChange?.(event_)
+        })
     },
-    [_parseValues, _setValues, onChange],
+    [ _parseValues, _setValues, onChange ],
   )
 
   const _getValues = useCallback(() => {
@@ -234,7 +227,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
     return _parseValues(
       (picker.getValues() as any[]).filter((value) => !!value),
     )
-  }, [_getPicker, _parseValues])
+  }, [ _getPicker, _parseValues ])
 
   const getDetail = useCallback(() => {
     const values = _getValues()
@@ -259,14 +252,14 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       area.county = names[2] || ''
     }
     return area
-  }, [_getValues])
+  }, [ _getValues ])
 
   const reset = useCallback(
     (code) => {
       codeRef.current = code || ''
       return _setValues()
     },
-    [_setValues],
+    [ _setValues ],
   )
   useEffect(() => {
     typeToColumnsPlaceholderRef.current = {
@@ -274,15 +267,15 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       city: columnsPlaceholder[1] || '',
       county: columnsPlaceholder[2] || '',
     }
-  }, [columnsPlaceholder])
+  }, [ columnsPlaceholder ])
 
   useEffect(() => {
     codeRef.current = value
-  }, [value])
+  }, [ value ])
 
   useEffect(() => {
     _setValues()
-  }, [_setValues, areaList, value])
+  }, [ _setValues, areaList, value ])
 
   useImperativeHandle(ref, () => {
     return {
@@ -299,9 +292,9 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   return (
     <VanPicker
       ref={pickerRef as any}
-      className="van-area__picker"
+      className='van-area__picker'
       showToolbar
-      valueKey="name"
+      valueKey='name'
       title={title}
       loading={loading}
       columns={computed.displayColumns(columns, columnsNum)}

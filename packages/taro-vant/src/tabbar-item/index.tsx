@@ -2,7 +2,7 @@ import { View, Block } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import { Icon } from '../icon'
 import { Info } from '../info'
-import { TabbarItemProps } from '../../types/tabbar-item'
+import type { TabbarItemProps } from './PropsType'
 
 export function TabbarItem(
   props: TabbarItemProps & {
@@ -62,23 +62,23 @@ export function TabbarItem(
       {...others}
       onClick={_click}
     >
-      <View className="van-tabbar-item__icon">
+      <View className='van-tabbar-item__icon'>
         {icon ? (
           <Icon
             size={38}
             info={info}
             name={icon}
             classPrefix={iconPrefix}
-            className="van-tabbar-item__icon__inner"
-          ></Icon>
+            className='van-tabbar-item__icon__inner'
+           />
         ) : (
           <Block>
             {active === (name ?? index) ? renderIconActive : renderIcon}
           </Block>
         )}
-        <Info dot={dot} className="van-tabbar-item__info"></Info>
+        <Info dot={dot} className='van-tabbar-item__info' />
       </View>
-      <View className="van-tabbar-item__text">{children}</View>
+      <View className='van-tabbar-item__text'>{children}</View>
     </View>
   ) : (
     <></>

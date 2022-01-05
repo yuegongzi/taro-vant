@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { View, CustomWrapper } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { PickerColumnProps } from '../../types/picker-column'
+import type { PickerColumnProps } from './PropsType'
 import { range } from '../common/utils'
 import { isObj } from '../common/validator'
 import * as computed from './wxs'
@@ -32,13 +32,13 @@ function Index(
     ...others
   } = props
 
-  const [options, setOptions] = useState<Array<any>>([])
-  const [currentIndex, setCurrentIndex] = useState<unknown>()
-  const [duration, setDuration] = useState(0)
-  const [startY, setStartY] = useState(0)
-  const [offset, setOffset] = useState(0)
-  const [startOffset, setStartOffset] = useState(0)
-  const [canInit, setCanInit] = useState(true)
+  const [ options, setOptions ] = useState<any[]>([])
+  const [ currentIndex, setCurrentIndex ] = useState<unknown>()
+  const [ duration, setDuration ] = useState(0)
+  const [ startY, setStartY ] = useState(0)
+  const [ offset, setOffset ] = useState(0)
+  const [ startOffset, setStartOffset ] = useState(0)
+  const [ canInit, setCanInit ] = useState(true)
 
   const isDisabled = useCallback(function (option) {
     return isObj(option) && option.disabled
@@ -48,7 +48,7 @@ function Index(
     function (index: number): any {
       const initialOptions_ = (
         options.length ? options : initialOptions
-      ) as Array<any>
+      ) as any[]
       const count = initialOptions_.length
       index = range(index, 0, count)
       for (let i = index; i < count; i++) {
@@ -62,7 +62,7 @@ function Index(
         }
       }
     },
-    [isDisabled, options, initialOptions],
+    [ isDisabled, options, initialOptions ],
   )
 
   const setIndex = useCallback(
@@ -77,7 +77,7 @@ function Index(
       }
       return setOffset(offset)
     },
-    [adjustIndex, curColIndex, currentIndex, itemHeight, onChange],
+    [ adjustIndex, curColIndex, currentIndex, itemHeight, onChange ],
   )
 
   useEffect(function () {
@@ -92,7 +92,7 @@ function Index(
         setOptions(initialOptions || [])
       }
     },
-    [canInit, initialOptions],
+    [ canInit, initialOptions ],
   )
 
   const onTouchMove = useCallback(
@@ -108,7 +108,7 @@ function Index(
         ),
       )
     },
-    [startOffset, itemHeight, options, startY],
+    [ startOffset, itemHeight, options, startY ],
   )
 
   const onTouchStart = useCallback(
@@ -117,7 +117,7 @@ function Index(
       setStartOffset(offset)
       setDuration(0)
     },
-    [offset],
+    [ offset ],
   )
 
   const onTouchEnd = useCallback(
@@ -134,7 +134,7 @@ function Index(
         }, 5.5)
       }
     },
-    [startOffset, offset, itemHeight, options.length, setIndex],
+    [ startOffset, offset, itemHeight, options.length, setIndex ],
   )
 
   const onClickItem = useCallback(
@@ -144,21 +144,21 @@ function Index(
         setIndex(Number(index), true)
       })
     },
-    [setIndex],
+    [ setIndex ],
   )
 
   const getCurrentIndex = useCallback(
     function () {
       return currentIndex
     },
-    [currentIndex],
+    [ currentIndex ],
   )
 
   const getValue = useCallback(
     function () {
       return options[currentIndex as number]
     },
-    [options, currentIndex],
+    [ options, currentIndex ],
   )
 
   const getOptionText = useCallback(
@@ -167,7 +167,7 @@ function Index(
         ? option[valueKey]
         : option
     },
-    [valueKey],
+    [ valueKey ],
   )
 
   const setValue = useCallback(
@@ -179,7 +179,7 @@ function Index(
       }
       return Promise.resolve()
     },
-    [setIndex, getOptionText, options],
+    [ setIndex, getOptionText, options ],
   )
 
   useImperativeHandle(ref, () => {

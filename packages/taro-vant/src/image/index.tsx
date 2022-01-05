@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import { View, Image as TaroImage } from '@tarojs/components'
-import { ImageProps } from '../../types/image'
+import type { ImageProps } from './PropsType'
 import * as utils from '../wxs/utils'
 import VanIcon from '../icon/index'
 import * as computed from './wxs'
-import { FitType } from './wxs'
+import type { FitType } from './wxs'
 
 type TaroImageMode =
   | 'center'
@@ -33,15 +33,15 @@ export function Image(props: ImageProps) {
     ...others
   } = props
 
-  const [loading, setLoading] = useState<boolean>()
-  const [error, setError] = useState(false)
+  const [ loading, setLoading ] = useState<boolean>()
+  const [ error, setError ] = useState(false)
 
   useEffect(
     function () {
       if (loading === undefined) setLoading(true)
       setError(false)
     },
-    [loading],
+    [ loading ],
   )
 
   const onLoad = useCallback(function () {
@@ -66,7 +66,7 @@ export function Image(props: ImageProps) {
       }
       return style
     },
-    [fit],
+    [ fit ],
   )
 
   return (
@@ -95,27 +95,27 @@ export function Image(props: ImageProps) {
           src={src}
           mode={computed.mode(fit || ('none' as FitType)) as TaroImageMode}
           lazyLoad={lazyLoad}
-          className="image-class van-image__img"
+          className='image-class van-image__img'
           showMenuByLongpress={showMenuByLongpress}
           onLoad={onLoad}
           onError={onError}
           style={styleH5}
-        ></TaroImage>
+         />
       )}
       {loading && showLoading && (
-        <View className="loading-class van-image__loading">
+        <View className='loading-class van-image__loading'>
           {renderLoading || (
-            <VanIcon name="photo" className="van-image__loading-icon"></VanIcon>
+            <VanIcon name='photo' className='van-image__loading-icon' />
           )}
         </View>
       )}
       {error && showError && (
-        <View className="error-class van-image__error">
+        <View className='error-class van-image__error'>
           {renderError || (
             <VanIcon
-              name="photo-fail"
-              className="van-image__error-icon"
-            ></VanIcon>
+              name='photo-fail'
+              className='van-image__error-icon'
+             />
           )}
         </View>
       )}

@@ -1,9 +1,10 @@
 import { useReady } from '@tarojs/taro'
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { View, Block, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components';
+import { View, Block } from '@tarojs/components'
 
 import * as utils from '../wxs/utils'
-import { CollapseItemProps } from '../../types/collapse-item'
+import type { CollapseItemProps } from './PropsType'
 import VanCell from '../cell/index'
 import { setContentAnimate } from './animate'
 
@@ -16,7 +17,7 @@ export function CollapseItem(
     mounted: false,
   })
 
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     index: undefined,
     expanded: false,
     animation: { actions: [] },
@@ -89,20 +90,20 @@ export function CollapseItem(
         expanded,
       }
     })
-  }, [parent, name, state.expanded])
+  }, [ parent, name, state.expanded ])
 
   useEffect(() => {
     if (state.ready) {
       updateExpanded()
       ref.current.mounted = true
     }
-  }, [state.ready, updateExpanded])
+  }, [ state.ready, updateExpanded ])
 
   useEffect(() => {
     if (state.ready) {
       updateExpanded()
     }
-  }, [state.ready, updateExpanded, parent.data])
+  }, [ state.ready, updateExpanded, parent.data ])
 
   const onClick = useCallback(
     (event: ITouchEvent) => {
@@ -112,7 +113,7 @@ export function CollapseItem(
       const currentName = name == null ? parent?.index : name
       parent?.handleSwitch(event, currentName, !state.expanded)
     },
-    [parent, disabled, name, state.expanded],
+    [ parent, disabled, name, state.expanded ],
   )
 
   return (
@@ -153,7 +154,7 @@ export function CollapseItem(
         }
         animation={state.animation}
       >
-        <View className="van-collapse-item__content content-class" ref={refDom}>
+        <View className='van-collapse-item__content content-class' ref={refDom}>
           {children}
         </View>
       </View>

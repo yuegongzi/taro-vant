@@ -1,7 +1,7 @@
 import { View, Block } from '@tarojs/components'
 import { useState } from 'react'
 import * as utils from '../wxs/utils'
-import { LoadingProps } from '../../types/loading'
+import type { LoadingProps } from './PropsType'
 import * as computed from './wxs'
 
 export function Loading(props: LoadingProps): JSX.Element {
@@ -17,7 +17,7 @@ export function Loading(props: LoadingProps): JSX.Element {
     ...others
   } = props
 
-  const [array12] = useState(Array.from({ length: 12 }))
+  const [ array12 ] = useState(Array.from({ length: 12 }))
 
   return (
     <View
@@ -29,7 +29,7 @@ export function Loading(props: LoadingProps): JSX.Element {
         ' ' +
         className
       }
-      style={utils.style([style])}
+      style={utils.style([ style ])}
       {...others}
     >
       <View
@@ -45,15 +45,15 @@ export function Loading(props: LoadingProps): JSX.Element {
               return (
                 <View
                   key={`van-loading__dot_${index}`}
-                  className="van-loading__dot"
-                ></View>
+                  className='van-loading__dot'
+                 />
               )
             })}
           </Block>
         )}
       </View>
       <View
-        className="van-loading__text"
+        className='van-loading__text'
         style={computed.textStyle({
           textSize,
         })}

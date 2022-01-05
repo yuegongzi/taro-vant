@@ -1,6 +1,6 @@
 import { View, Text, RichText } from '@tarojs/components'
 import { useState, useEffect, useCallback } from 'react'
-import { ToastProps } from '../../types/toast'
+import type { ToastProps } from './PropsType'
 import VanTransition from '../transition/index'
 import VanOverlay from '../overlay/index'
 import VanIcon from '../icon/index'
@@ -31,7 +31,7 @@ function parseOptions(message: any) {
 }
 
 export function Toast(props: ToastProps) {
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     show: false,
     zIndex: 1000,
     duration: 2000,
@@ -55,7 +55,7 @@ export function Toast(props: ToastProps) {
         id: props.id || defaultId,
       }
     })
-  }, [props])
+  }, [ props ])
 
   const noop = function () {}
   const clear = useCallback((toastOptions: any) => {
@@ -126,15 +126,15 @@ export function Toast(props: ToastProps) {
           show={state.show}
           zIndex={state.zIndex}
           style={state.mask ? '' : 'background-color: transparent;'}
-        ></VanOverlay>
+         />
       )}
       <VanTransition
         show={state.show}
         style={'z-index: ' + state.zIndex}
-        className="van-toast__container"
+        className='van-toast__container'
       >
         <View
-          id="van-toast"
+          id='van-toast'
           className={
             'van-toast van-toast--' +
             (state.type === 'text' || state.type === 'html' ? 'text' : 'icon') +
@@ -149,21 +149,21 @@ export function Toast(props: ToastProps) {
           ) : state.type === 'html' ? (
             <RichText nodes={state.message} />
           ) : (
-            <View className="van-toast__box">
+            <View className='van-toast__box'>
               {state.type === 'loading' ? (
                 <VanLoading
-                  color="white"
+                  color='white'
                   type={state.loadingType}
-                  className="van-toast__loading"
-                ></VanLoading>
+                  className='van-toast__loading'
+                 />
               ) : (
                 <VanIcon
-                  className="van-toast__icon"
+                  className='van-toast__icon'
                   name={state.type}
-                ></VanIcon>
+                 />
               )}
               {state.message && (
-                <Text className="van-toast__text">{state.message}</Text>
+                <Text className='van-toast__text'>{state.message}</Text>
               )}
             </View>
           )}

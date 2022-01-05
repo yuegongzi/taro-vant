@@ -1,6 +1,7 @@
-import type ANTMUI from '../../types/normal'
+import type ANTMUI from './PropsType'
 import { useCallback, useRef, useState } from 'react'
-import { nextTick, createSelectorQuery, SelectorQuery } from '@tarojs/taro'
+import type { SelectorQuery } from '@tarojs/taro';
+import { nextTick, createSelectorQuery } from '@tarojs/taro'
 import { isObject } from './type'
 
 export function useFadeIn(ref: any) {
@@ -16,7 +17,7 @@ export function useFadeIn(ref: any) {
         }
       })
     },
-    [ref],
+    [ ref ],
   )
 }
 
@@ -33,12 +34,12 @@ export function useFadeOut(ref: any) {
         }
       }, 200)
     },
-    [ref],
+    [ ref ],
   )
 }
 
 export function useMask(ref: any) {
-  const [isShowMask, setIsShowMask] = useState(false)
+  const [ isShowMask, setIsShowMask ] = useState(false)
   const maskRef = useRef<HTMLDivElement>()
   const maskfadeOut = useFadeOut(maskRef)
   const maskfadeIn = useFadeIn(maskRef)
@@ -71,10 +72,10 @@ export function delayQuerySelector(
   return new Promise((resolve) => {
     const selector: SelectorQuery = createSelectorQuery()
     delay(delayTime).then(() => {
-      selector
-        .select(selectorStr)
-        .boundingClientRect()
-        .exec((res: any[]) => {
+      selector.
+        select(selectorStr).
+        boundingClientRect().
+        exec((res: any[]) => {
           resolve(res)
         })
     })

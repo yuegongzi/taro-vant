@@ -7,7 +7,7 @@ import {
   useCallback,
 } from 'react'
 import { View, Block } from '@tarojs/components'
-import { CountDownProps, ICountDownRef } from '../../types/count-down'
+import type { CountDownProps, ICountDownRef } from './PropsType'
 import { isSameSecond, parseFormat, parseTimeData } from './util'
 
 function simpleTick(fn: any) {
@@ -20,7 +20,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
     endTime?: number
     remain?: number
   }> = useRef({ tid: null, counting: false })
-  const [state, setState] = useState({
+  const [ state, setState ] = useState({
     formattedTime: '0',
   })
   const { formattedTime } = state
@@ -63,7 +63,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
         onFinish?.()
       }
     },
-    [children, format, onChange, onFinish, pause],
+    [ children, format, onChange, onFinish, pause ],
   )
 
   const microTick = useCallback(
@@ -75,7 +75,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
         }
       })
     },
-    [getRemain, setRemain],
+    [ getRemain, setRemain ],
   )
   const macroTick = useCallback(
     function () {
@@ -89,7 +89,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
         }
       })
     },
-    [getRemain, setRemain],
+    [ getRemain, setRemain ],
   )
 
   const tick = useCallback(
@@ -100,7 +100,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
         macroTick()
       }
     },
-    [macroTick, microTick, millisecond],
+    [ macroTick, microTick, millisecond ],
   )
   // 开始
   const start = useCallback(
@@ -112,7 +112,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
       _ref.current.endTime = Date.now() + _ref.current.remain!
       tick()
     },
-    [tick],
+    [ tick ],
   )
 
   // 重置
@@ -125,7 +125,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
         start()
       }
     },
-    [autoStart, pause, setRemain, start, time],
+    [ autoStart, pause, setRemain, start, time ],
   )
 
   useImperativeHandle(ref, () => ({
@@ -145,7 +145,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
       reset()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [time],
+    [ time ],
   )
 
   const tid = _ref.current.tid

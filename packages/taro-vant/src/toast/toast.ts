@@ -1,5 +1,5 @@
 import { isObj } from '../common/validator'
-import { ToastProps } from '../../types/toast'
+import type { ToastProps } from './PropsType'
 import { trigger } from './events'
 
 function parseOptions(message: ToastProps | string) {
@@ -7,6 +7,7 @@ function parseOptions(message: ToastProps | string) {
 }
 
 const createMethod = (type: string) => (options: ToastProps | string) =>
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   Toast(Object.assign({ type }, parseOptions(options)))
 
 const Toast = function (options: ToastProps | string) {
