@@ -1,11 +1,13 @@
 import './style/index.less';
 import { View } from '@tarojs/components'
-
-import * as utils from '../wxs/utils'
 import type { CheckboxGroupProps } from './PropsType'
 import CheckboxGroupContext from './context'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function CheckboxGroup(props: CheckboxGroupProps) {
+const [ bem ] = createNamespace('checkbox')
+
+ function CheckboxGroup(props: CheckboxGroupProps) {
   const {
     max,
     value = [],
@@ -23,13 +25,9 @@ export function CheckboxGroup(props: CheckboxGroupProps) {
       value={{ value, max, disabled, direction, onChange }}
     >
       <View
-        className={
-          utils.bem('checkbox-group', [
-            {
-              horizontal: direction === 'horizontal',
-            },
-          ]) + ` ${className || ''}`
-        }
+        className={clsx(bem({
+          horizontal: direction === 'horizontal',
+        }),className)}
         style={style}
         {...others}
       >

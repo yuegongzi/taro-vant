@@ -1,14 +1,15 @@
-import './style/index.less';
-import { useState, useEffect, useCallback, useContext } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
+import './style/index.less'
+import { useCallback, useContext, useEffect, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-
-import * as utils from '../wxs/utils'
-import VanIcon from '../icon/index'
+import Icon from '../icon'
 import type { CheckboxProps } from './PropsType'
-import CheckboxGroupContext from '../checkbox-group/context'
-import { isEmptyObject } from '../utils/type'
-import * as computed from './wxs'
+import CheckboxGroupContext from './context'
+import { createNamespace, isEmptyObject } from '../utils'
+import clsx from 'clsx'
+import { iconStyle } from './wxs'
+
+const [ bem ] = createNamespace('checkbox')
 
 export function Checkbox(
   props: CheckboxProps & {
@@ -143,47 +144,35 @@ export function Checkbox(
 
   return (
     <View
-      className={
-        utils.bem('checkbox', [
-          {
-            horizontal: state.direction === 'horizontal',
-          },
-        ]) + `  ${className}`
-      }
+      className={clsx(bem({
+        horizontal: state.direction === 'horizontal',
+      }), className)}
       style={style}
       {...others}
     >
       {labelPosition === 'left' && (
         <View
-          className={
-            'label-class ' +
-            utils.bem('checkbox__label', [
-              labelPosition,
-              {
-                disabled: disabled || state.parentDisabled,
-              },
-            ])
-          }
+          className={clsx(bem('label', [
+            labelPosition, { disabled: disabled || state.parentDisabled },
+          ]))}
           onClick={onClickLabel}
         >
           {children}
         </View>
       )}
-      <View className='van-checkbox__icon-wrap' onClick={toggle}>
+      <View className={clsx(bem('icon-wrap'))} onClick={toggle}>
         {renderIcon || (
-          <VanIcon
+          <Icon
             name='success'
-            className={
-              utils.bem('checkbox__icon', [
-                shape,
-                {
-                  disabled: disabled || state.parentDisabled,
-                  checked: state.value,
-                },
-              ]) + ' icon-class'
-            }
+            className={clsx(bem('icon', [
+              shape,
+              {
+                disabled: disabled || state.parentDisabled,
+                checked: state.value,
+              },
+            ]))}
             style={
-              computed.iconStyle({
+              iconStyle({
                 checkedColor,
                 value: state.value,
                 disabled,
@@ -191,20 +180,17 @@ export function Checkbox(
                 iconSize,
               }) + ';line-height:1.25em;'
             }
-           />
+          />
         )}
       </View>
       {labelPosition === 'right' && (
         <View
-          className={
-            'label-class ' +
-            utils.bem('checkbox__label', [
-              labelPosition,
-              {
-                disabled: disabled || state.parentDisabled,
-              },
-            ])
-          }
+          className={clsx(bem('label'), [
+            labelPosition,
+            {
+              disabled: disabled || state.parentDisabled,
+            },
+          ])}
           onClick={onClickLabel}
         >
           {children}
