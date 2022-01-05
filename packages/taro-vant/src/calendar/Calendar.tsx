@@ -449,7 +449,6 @@ function Index(
                   <Month
                     key={`van-calendar-month___${index}`}
                     id={`month${index} month${item}`}
-                    className='month'
                     date={item}
                     type={type}
                     color={color}
@@ -521,7 +520,6 @@ function Index(
                   <Month
                     key={`van-calendar-month___${index}`}
                     id={`month${index} month${item}`}
-                    className='month'
                     date={item}
                     type={type}
                     color={color}
@@ -574,5 +572,4 @@ function Index(
 
 const Calendar = forwardRef(Index)
 
-export { Calendar }
 export default Calendar

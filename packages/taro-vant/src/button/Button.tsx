@@ -1,7 +1,7 @@
 import './style/index.less'
 import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
-import { Block, Button as TaroButton, View } from '@tarojs/components'
+import { Block, Button , View } from '@tarojs/components'
 import Icon from '../icon'
 import Loading from '../loading'
 import { rootStyle,loadingColor } from './wxs'
@@ -10,7 +10,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('button')
 
-export function Button(props: ButtonProps) {
+function Index(props: ButtonProps) {
   const {
     type = 'default',
     size = 'normal',
@@ -35,7 +35,7 @@ export function Button(props: ButtonProps) {
   } = props
 
   return (
-    <TaroButton
+    <Button
       className={clsx(bem([
         type,
         size,
@@ -51,7 +51,7 @@ export function Button(props: ButtonProps) {
         },
       ]), { ['van-hairline--surround']: hairline }, className)
       }
-      hoverClass={clsx(bem('',[ 'active' ],true),'hover-class')}
+      hoverClass={clsx(bem('',[ 'active' ],true))}
       style={computedStyle([
         rootStyle({
           plain,
@@ -65,7 +65,6 @@ export function Button(props: ButtonProps) {
       {loading ? (
         <View style='display: flex'>
           <Loading
-            className='loading-class'
             size={loadingSize}
             type={loadingType}
             color={loadingColor({
@@ -91,8 +90,8 @@ export function Button(props: ButtonProps) {
           <View className={clsx(bem('text'))}>{children}</View>
         </Block>
       )}
-    </TaroButton>
+    </Button>
   )
 }
 
-export default Button
+export default Index

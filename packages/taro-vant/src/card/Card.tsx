@@ -1,12 +1,14 @@
 import './style/index.less';
 import { View, Text, Image } from '@tarojs/components'
 import { useEffect, useState } from 'react'
-import * as utils from '../wxs/utils'
-import { jumpLink } from '../common/jumpLink'
+import { jumpLink ,createNamespace } from '../utils'
 import Tag from '../tag'
 import type { CardProps } from './PropsType'
+import clsx from 'clsx'
 
-export function Card(props: CardProps) {
+const [ bem ]=createNamespace('card')
+
+function Card(props: CardProps) {
   const {
     tag,
     num,
@@ -54,16 +56,16 @@ export function Card(props: CardProps) {
     [ price ],
   )
   return (
-    <View className={`van-card  ${className || ''}`} style={style} {...others}>
+    <View className={clsx(bem(),className)} style={style} {...others}>
       <View
-        className={utils.bem('card__header', {
-          center: centered,
-        })}
+        className={clsx(bem('header',{   center: centered }))}
       >
         <View
-          className='van-card__thumb'
+          className={clsx(bem('thumb'))}
           onClick={() => {
-            thumbLink && jumpLink(thumbLink)
+            if(thumbLink){
+              jumpLink(thumbLink)
+            }
           }}
         >
           {thumb ? (
@@ -71,13 +73,13 @@ export function Card(props: CardProps) {
               src={thumb}
               mode={thumbMode}
               lazyLoad={lazyLoad}
-              className='van-card__img thumb-class'
+              className={clsx(bem('img'))}
              />
           ) : (
             renderThumb
           )}
           {tag ? (
-            <Tag mark type='danger' className='van-card__tag'>
+            <Tag mark type='danger' className={clsx(bem('tag'))}>
               {tag}
             </Tag>
           ) : (
@@ -85,46 +87,45 @@ export function Card(props: CardProps) {
           )}
         </View>
         <View
-          className={
-            'van-card__content ' +
-            utils.bem('card__content', {
-              center: centered,
-            })
-          }
+          className={clsx(bem('content',{
+            center: centered,
+          }))}
         >
           <View>
             {title ? (
-              <View className='van-card__title title-class'>{title}</View>
+              <View className={
+                clsx(bem('title'))
+              }>{title}</View>
             ) : (
               renderTitle
             )}
             {desc ? (
-              <View className='van-card__desc desc-class'>{desc}</View>
+              <View className={clsx(bem('desc'))}>{desc}</View>
             ) : (
               renderDesc
             )}
             {renderTags}
           </View>
-          <View className='van-card__bottom'>
+          <View className={clsx(bem('bottom'))}>
             {renderPriceTop}
             {price ? (
-              <View className='van-card__price price-class'>
+              <View className={clsx(bem('price'))}>
                 <Text>{currency}</Text>
-                <Text className='van-card__price-integer'>{integerStr}</Text>
-                <Text className='van-card__price-decimal'>{decimalStr}</Text>
+                <Text className={clsx(bem('price-integer'))}>{integerStr}</Text>
+                <Text className={clsx(bem('price-decimal'))}>{decimalStr}</Text>
               </View>
             ) : (
               renderPrice
             )}
             {originPrice ? (
-              <View className='van-card__origin-price origin-price-class'>
+              <View className={clsx(bem('origin-price'))}>
                 {currency + ' ' + originPrice}
               </View>
             ) : (
               renderOriginPrice
             )}
             {num ? (
-              <View className='van-card__num num-class'>{'x ' + num}</View>
+              <View className={clsx(bem('num'))}>{'x ' + num}</View>
             ) : (
               renderNum
             )}
@@ -132,7 +133,7 @@ export function Card(props: CardProps) {
           </View>
         </View>
       </View>
-      <View className='van-card__footer'>{renderFooter}</View>
+      <View className={clsx(bem('footer'))}>{renderFooter}</View>
     </View>
   )
 }
