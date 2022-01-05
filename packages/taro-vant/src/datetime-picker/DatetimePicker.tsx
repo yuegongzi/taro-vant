@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('datetime-picker')
 
-export function DatetimePicker(props: DatetimePickerProps) {
+ function DatetimePicker(props: DatetimePickerProps) {
   const {
     value = null,
     filter,

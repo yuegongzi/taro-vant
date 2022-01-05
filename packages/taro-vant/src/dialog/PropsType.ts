@@ -1,8 +1,8 @@
 import type { ComponentClass, ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
-import type { ButtonProps } from '../button/PropsType'
-import type { PopupProps } from '../popup/PropsType'
+import type { ButtonProps } from '../button'
+import type { PopupProps } from '../popup'
 
 export interface DialogProps
   extends StandardProps,
@@ -61,6 +61,6 @@ interface dialog {
 // & DialogCom
 declare const Dialog: ComponentClass<DialogProps> & dialog
 
-export { Dialog  }
+export { Dialog }
 export type { dialog }
 

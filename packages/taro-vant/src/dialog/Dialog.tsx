@@ -1,19 +1,22 @@
-import './style/index.less';
-import { Block, View, Text } from '@tarojs/components'
-import { useState, useCallback, useEffect } from 'react'
+import './style/index.less'
+import { Block, Text, View } from '@tarojs/components'
+import { useCallback, useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 import { GRAY, RED } from '../common/color'
 import { toPromise } from '../common/utils'
-import VanGoodsActionButton from '../goods-action-button/index'
-import VanGoodsAction from '../goods-action/index'
-import VanButton from '../button/index'
-import VanPopup from '../popup/index'
+import GoodsActionButton from '../goods-action-button'
+import GoodsAction from '../goods-action'
+import Button from '../button'
+import Popup from '../popup'
 import type { DialogProps } from './PropsType'
-import { on, off, trigger } from './events'
-import * as utils from './../wxs/utils'
+import { off, on, trigger } from './events'
 import dialog from './dialog-func'
+import { addUnit, computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Dialog(props: DialogProps) {
+const [ bem ] = createNamespace('dialog')
+
+function Dialog(props: DialogProps) {
   const [ options, setOptions ] = useState<DialogProps>({})
 
   const {
@@ -99,18 +102,16 @@ export function Dialog(props: DialogProps) {
       }
 
       if (beforeClose) {
-        toPromise(beforeClose(action)).
-          then((value: boolean) => {
-            if (value) {
-              _close(action)
-              _stopLoading()
-            } else {
-              _stopLoading()
-            }
-          }).
-          catch(() => {
+        toPromise(beforeClose(action)).then((value: boolean) => {
+          if (value) {
+            _close(action)
             _stopLoading()
-          })
+          } else {
+            _stopLoading()
+          }
+        }).catch(() => {
+          _stopLoading()
+        })
       }
     },
     [ _close, _stopLoading, asyncClose, beforeClose, onCancel, onConfirm ],
@@ -178,22 +179,22 @@ export function Dialog(props: DialogProps) {
   }, [])
 
   return (
-    <VanPopup
+    <Popup
       show={show}
       zIndex={zIndex}
       overlay={overlay}
       transition={transition}
-      className={'van-dialog van-dialog--' + theme + ' ' + `${className || ''}`}
-      style={utils.style([ 'width: ' + utils.addUnit(width) + ';', style ])}
+      className={clsx(bem([ theme ]), className)}
+      style={computedStyle([ 'width: ' + addUnit(width) + ';', style ])}
       overlayStyle={overlayStyle}
       closeOnClickOverlay={closeOnClickOverlay}
       onClose={_onClickOverlay}
     >
       {(title || renderTitle) && (
         <View
-          className={utils.bem('dialog__header', {
+          className={clsx(bem('header', {
             isolated: !(message || renderTitle),
-          })}
+          }))}
         >
           {/* {renderTitle || } */}
           {renderTitle ? renderTitle : title && <Block>{title}</Block>}
@@ -202,34 +203,31 @@ export function Dialog(props: DialogProps) {
       {children
         ? children
         : message && (
-            <View
-              className={utils.bem('dialog__message', [
-                theme,
-                messageAlign,
-                {
-                  hasTitle: title,
-                },
-              ])}
-            >
-              <Text className='van-dialog__message-text'>{message}</Text>
-            </View>
-          )}
+        <View
+          className={clsx(bem('message', [
+            theme, messageAlign, { hasTitle: title },
+          ]))}
+        >
+          <Text className={clsx(bem('message-text'))}>{message}</Text>
+        </View>
+      )}
 
       {theme === 'round-button' ? (
-        <VanGoodsAction className='van-dialog__footer--round-button'>
+        <GoodsAction className={clsx(bem('footer',[ 'round-button' ]))}>
+          {/*TODO 等检测*/}
           {showCancelButton && (
-            <VanGoodsActionButton
+            <GoodsActionButton
               loading={cancelLoading}
-              className='van-dialog__button van-hairline--right van-dialog__cancel'
+              className={clsx(bem('button'),bem('cancel'),'van-hairline--right')}
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
               {cancelButtonText}
-            </VanGoodsActionButton>
+            </GoodsActionButton>
           )}
           {showConfirmButton && (
-            <VanGoodsActionButton
-              className='van-dialog__button van-dialog__confirm'
+            <GoodsActionButton
+              className={clsx(bem('button'),bem('confirm'))}
               style={'color: ' + confirmButtonColor}
               loading={confirmLoading}
               openType={confirmButtonOpenType}
@@ -242,28 +240,28 @@ export function Dialog(props: DialogProps) {
               {...others}
             >
               {confirmButtonText}
-            </VanGoodsActionButton>
+            </GoodsActionButton>
           )}
-        </VanGoodsAction>
+        </GoodsAction>
       ) : (
-        <View className='van-hairline--top van-dialog__footer'>
+        <View className={clsx(bem('footer'),'van-hairline--top')}>
           {showCancelButton && (
-            <VanButton
+            <Button
               size='large'
               loading={cancelLoading}
-              className='van-dialog__button van-dialog__cancel'
+              className={clsx(bem('button'),bem('cancel'))}
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
               {cancelButtonText}
-            </VanButton>
+            </Button>
           )}
           {showConfirmButton && (
-            <VanButton
+            <Button
               size='large'
-              className={`van-dialog__button van-dialog__confirm ${
-                showCancelButton ? 'van-hairline--left' : ''
-              }`}
+              className={clsx(bem('button'),bem('confirm'),{
+                ['van-hairline--left']:showCancelButton
+              })}
               loading={confirmLoading}
               style={'color: ' + confirmButtonColor}
               openType={confirmButtonOpenType}
@@ -277,30 +275,30 @@ export function Dialog(props: DialogProps) {
               {...others}
             >
               {confirmButtonText}
-            </VanButton>
+            </Button>
           )}
         </View>
       )}
-    </VanPopup>
+    </Popup>
   )
 }
 
-Dialog.alert = function (options: DialogProps) {
+Dialog.alert = function(options: DialogProps) {
   return dialog.alert(options)
 }
-Dialog.confirm = function (options: DialogProps) {
+Dialog.confirm = function(options: DialogProps) {
   return dialog.confirm(options)
 }
-Dialog.close = function () {
+Dialog.close = function() {
   dialog.close()
 }
-Dialog.stopLoading = function () {
+Dialog.stopLoading = function() {
   dialog.stopLoading()
 }
-Dialog.setDefaultOptions = function (options: DialogProps) {
+Dialog.setDefaultOptions = function(options: DialogProps) {
   dialog.setDefaultOptions(options)
 }
-Dialog.resetDefaultOptions = function () {
+Dialog.resetDefaultOptions = function() {
   dialog.resetDefaultOptions()
 }
 
