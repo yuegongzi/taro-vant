@@ -1,9 +1,13 @@
-import './style/index.less';
-import { View, Image } from '@tarojs/components'
+import './style/index.less'
+import { Image, View } from '@tarojs/components'
 import type { EmptyProps } from './PropsType'
-import * as computed from './wxs'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
+import { imageUrl } from './wxs'
 
-export function Empty(props: EmptyProps) {
+const [ bem ] = createNamespace('empty')
+
+function Empty(props: EmptyProps) {
   const {
     image = 'default',
     description,
@@ -16,20 +20,21 @@ export function Empty(props: EmptyProps) {
   } = props
 
   return (
-    <View className={` van-empty ${className}`} style={style} {...others}>
-      <View className='van-empty__image'>{renderImage}</View>
-      <View className='van-empty__image'>
+    <View className={clsx(bem(), className)} style={style} {...others}>
+      <View className={clsx(bem('image'))}>{renderImage}</View>
+      <View className={clsx(bem('image'))}>
         {image && (
           <Image
-            className='van-empty__image__img'
-            src={computed.imageUrl(image)}
+            className={clsx(bem('image__img'))}
+            src={imageUrl(image)}
           />
         )}
       </View>
-      <View className='van-empty__description'>{renderDescription}</View>
-      <View className='van-empty__description'>{description}</View>
-      <View className='van-empty__bottom'>{children}</View>
+      <View className={clsx(bem('description'))}>{renderDescription}</View>
+      <View className={clsx(bem('description'))}>{description}</View>
+      <View className={clsx(bem('bottom'))}>{children}</View>
     </View>
   )
 }
+
 export default Empty
