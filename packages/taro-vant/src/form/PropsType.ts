@@ -1,18 +1,15 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
+import type { FormInstance, NamePath, Rule, Store } from 'rc-field-form/es/interface'
 
 /**
  * @title FormProps
  */
 export interface FormProps extends StandardProps {
   /**
-   * @description 传入form实例（const formStore1 = useRef()）
-   */
-  form?: IFormInstanceAPI
-  /**
    * @description 初始化表单仓库值
    */
-  initialValues?: Record<string, any>
+  initialValues?: Store
   /**
    * @description 第一级必须是FormItem组件
    */
@@ -24,12 +21,17 @@ export interface FormProps extends StandardProps {
   /**
    * @description 表单提交触发，配合button.formType = submit
    */
-  onFinish?: () => void
-
+  onFinish?: (values: any) => void
   /**
-   * @description 表单提交失败触发
+   * @description 垂直 ｜ 水平
+   * @default horizontal
    */
-  onFinishFailed?: () => void
+  layout?: 'vertical' | 'horizontal'
+  /**
+   * @description 标签宽度
+   * @default 5.2em
+   */
+  labelWidth?: string;
 }
 
 /**
@@ -39,15 +41,15 @@ export interface FormItemProps extends StandardProps {
   /**
    * @description 对应表单字段名
    */
-  name: string
+  name: NamePath
   /**
    * @description 第一级操作表单组件
    */
-  children: ReactNode
+  children: any
   /**
    * @description 表单label
    */
-  label: ReactNode
+  label: string
   /**
    * @description 垂直 ｜ 水平
    * @default horizontal
@@ -66,32 +68,21 @@ export interface FormItemProps extends StandardProps {
   /**
    * @description label的外层className
    */
-  labelClassName?: string
-  /**
-   * @description required的外层className
-   */
-  requiredClassName?: string
-  /**
-   * @description 表单组件的外层className
-   */
-  controllClassName?: string
+  labelClass?: string
   /**
    * @description formItem最外层className
    */
   className?: string
   /**
-   * @description 自定义必填标识
-   */
-  requiredIcon?: ReactNode
-  /**
-   * @description 验证后反馈的信息，可设置为校验成功、失败、都展示或隐藏
-   * @default failed
-   */
-  feedback?: 'success' | 'failed' | 'all' | 'hidden'
-  /**
    * @description 自定义渲染右边内容
    */
-  renderRight?: ReactNode
+  right?: ReactNode
+
+  /**
+   * @description 标签宽度
+   * @default 5.2em
+   */
+  labelWidth?: string;
   /**
    * @description 表单交互触发方法
    * @default onChange
@@ -101,7 +92,7 @@ export interface FormItemProps extends StandardProps {
    * @description 表单控制展示的具体值的字段名
    * @default value
    */
-  valueKey?: string
+  valuePropName?: string
   /**
    * @description 根据表单交互回掉函数（时间）参数的重新定义
    * @default value
@@ -114,10 +105,16 @@ export interface FormItemProps extends StandardProps {
   /**
    * @description 正则校验值，或者自定义校验后call回掉函数返回错误信息
    */
-  rules?: {
-    rule: ((value: any, call: (errMess: string) => void) => void) | RegExp
-    message?: string
-  }
+  rules?: Rule[],
+  /**
+   * @description 隐藏该项
+   */
+  hide?: boolean;
+  /**
+   * 自定义表单项
+   */
+  customField?: boolean;
+
 }
 
 /**
@@ -125,61 +122,6 @@ export interface FormItemProps extends StandardProps {
  * @description 通过ref获取到的form的实例
  */
 export type IFormInstanceAPI = {
-  /**
-   * @description 注册校验规则
-   */
-  registerValidateFields: (
-    name: string,
-    control: Record<string, any>,
-    model: Record<string, any>,
-  ) => void
-  /**
-   * @description 注册校验规则
-   */
-  unRegisterValidate: (name: string) => void
-  /**
-   * @description 重置表单
-   */
-  resetFields: () => void
-  /**
-   * @description 设置多个表单值
-   */
-  setFields: (object: Record<string, any>) => void
-  /**
-   * @description 设置单个表单值
-   */
-  setFieldsValue: (name: string, modelValue: any) => any
-  /**
-   * @description 获取所有表单值
-   */
-  getFieldsValue: () => void
-  /**
-   * @description 获取单个表单值
-   */
-  getFieldValue: (name: string) => any
-  /**
-   * @description 校验表单，并获取错误信息和所有表单值
-   */
-  validateFields: (
-    callback: (errorMess: string[], values: Record<string, any>) => void,
-  ) => void
-  /**
-   * @description 校验表单，并获取错误信息和所有表单值，触发form.onFinish和onFinishFailed
-   */
-  submit: (
-    callback?: (
-      errs: string[] | null,
-      values: Record<string, string>,
-    ) => void,
-  ) => void
-} & {
-  dispatch: (params: { type: string }, name?: string, ...arg: any[]) => any
-  setCallback: Record<string,
-    undefined | ((values?: Record<string, any>) => void)>
+  form?: FormInstance
 }
 
-declare const Form: ComponentClass<FormProps>
-
-declare const FormItem: ComponentClass<FormItemProps>
-
-export { Form, FormItem }

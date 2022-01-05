@@ -5,12 +5,13 @@ import {
   Rate,
   Slider,
   Field,
-  CellGroup,
+  Cell,
   Button,
 } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
+const CellGroup = Cell.Group;
 
 export default class Index extends Component {
   constructor() {

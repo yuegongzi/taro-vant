@@ -2,7 +2,6 @@
 import { Component } from 'react'
 import {
   Form,
-  FormItem,
   Button,
   Switch,
   Uploader,
@@ -11,18 +10,20 @@ import {
   Popup,
   Radio,
   RadioGroup,
-  CheckboxGroup,
   Checkbox,
   Slider,
   Rate,
   Stepper,
   Dialog,
+  Field
 } from 'taro-vant'
 import { Input, View } from '@tarojs/components'
 import { showLoading, hideLoading } from '@tarojs/taro'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+const FormItem = Form.Item;
+const CheckboxGroup = Checkbox.Group;
 
 export default class Index extends Component {
   constructor() {
@@ -95,16 +96,12 @@ export default class Index extends Component {
               label='用户名'
               name='userName'
               required={true}
-              rules={{
-                rule: /[\u4e00-\u9fa5]/,
-                message: '用户名仅支持中文',
-              }}
               trigger='onInput'
               validateTrigger='onBlur'
               valueFormat={(e) => e.detail.value}
               renderRight={<Icon name='user-o' />}
             >
-              <Input placeholder='请输入用户名（中文）' />
+              <Field placeholder='请输入用户名（中文）' />
             </FormItem>
 
             <FormItem
@@ -119,8 +116,8 @@ export default class Index extends Component {
               <Input placeholder='请输入密码' type='password' />
             </FormItem>
 
-            <FormItem label='是否打开' name='opened' valueKey='checked'>
-              <Switch activeColor='#07c160' inactiveColor='#07c160' />
+            <FormItem label='是否打开' name='opened' >
+              <Switch activeColor='#07c160' size='45' />
             </FormItem>
 
             <FormItem label='单选框' name='singleSelect'>
@@ -134,7 +131,7 @@ export default class Index extends Component {
               </RadioGroup>
             </FormItem>
 
-            <FormItem label='复选框' name='muiltSelect'>
+            <FormItem label='复选框' name='muiltSelect'  >
               <CheckboxGroup direction='horizontal'>
                 <Checkbox name='1' shape='square' checkedColor='#07c160'>
                   复选框 1
@@ -171,16 +168,6 @@ export default class Index extends Component {
               valueFormat={this.valueFormatUpload}
               validateTrigger='onAfterRead'
               trigger='onAfterRead'
-              rules={{
-                rule: (values, call) => {
-                  values.forEach((item, index) => {
-                    if (item.size > 0.1 * 1024 * 1024) {
-                      return call(`图片(${index + 1})大小不得大于 0.1M`)
-                    }
-                    call(null)
-                  })
-                },
-              }}
             >
               <Uploader name='file1' onDelete={this.deleteFile} />
             </FormItem>

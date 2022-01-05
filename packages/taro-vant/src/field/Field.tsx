@@ -5,7 +5,7 @@ import { Block, Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
-import { createNamespace, resizeTextarea } from '../utils'
+import { assembly, COMPONENT_TYPE_KEY, createNamespace, resizeTextarea } from '../utils'
 import clsx from 'clsx'
 import { inputStyle } from './wxs'
 
@@ -13,7 +13,7 @@ let FIELD_INDEX = 0
 
 const [ bem ] = createNamespace('field')
 
-export function Field(props: FieldProps) {
+function Field(props: FieldProps) {
   const ref: React.MutableRefObject<{
     focused: boolean
   }> = useRef({
@@ -88,7 +88,6 @@ export function Field(props: FieldProps) {
     onLineChange,
     onKeyboardHeightChange,
   } = props
-
   useEffect(() => {
     setState((state) => {
       return {
@@ -110,16 +109,12 @@ export function Field(props: FieldProps) {
 
   const emitChange = function(event?: any) {
     event = event || { detail: { value: '' } }
-    Object.defineProperty(event, 'detail', {
-      value: event.detail.value,
-    })
     setState((pre: any) => {
       return { ...pre, innerValue: event.detail }
     })
-    Taro.nextTick(() => {
-      onInput?.(event)
-      onChange?.(event)
-    })
+    const ev = assembly(event,event.detail.value)
+    onInput?.(ev)
+    onChange?.(ev)
   }
 
   const setShowClear = function(value: any) {
@@ -137,7 +132,7 @@ export function Field(props: FieldProps) {
   }
 
   const _input = function(event: any) {
-    const { value = '' } = event.detail || {}
+    const value = event.detail.value || ''
     setShowClear(value)
     emitChange(event)
   }
@@ -378,4 +373,6 @@ export function Field(props: FieldProps) {
   )
 }
 
-export default Field
+export const FIELD_KEY = Symbol('switch')
+
+export default Object.assign(Field, { [COMPONENT_TYPE_KEY]: FIELD_KEY })

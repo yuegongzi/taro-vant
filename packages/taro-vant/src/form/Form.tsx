@@ -1,61 +1,44 @@
-import './style/index.less';
-import React, { useImperativeHandle, forwardRef, memo } from 'react'
-import { Form as TaroForm } from '@tarojs/components'
+import './style/index.less'
+import React, { forwardRef, memo, useImperativeHandle } from 'react'
+import Form, { useForm } from 'rc-field-form'
 import type { FormProps, IFormInstanceAPI } from './PropsType'
-import FormContext from './core/formContext'
-import useForm from './core/useForm'
+import FormContext from './formContext'
+import message from './message'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-function Index(
-  props: FormProps,
-  ref: React.ForwardedRef<IFormInstanceAPI>,
-): JSX.Element {
+const [ bem ] = createNamespace('form')
+
+function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX.Element {
+  const [ form ] = useForm()
   const {
-    form,
     initialValues = {},
-    children,
-    className = '',
+    className,
     onFinish,
-    onFinishFailed,
+    children,
+    labelWidth = '5.2em',
+    layout,
+    ...options
   } = props
-  const formInstance = useForm(form, initialValues)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { setCallback, dispatch, ...formInstanceAPI } = formInstance
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  setCallback({
-    onFinish: onFinish,
-    onFinishFailed: onFinishFailed,
-  })
+  const _onFinish = (values: any) => {
+    onFinish?.(values)
+  }
 
-  useImperativeHandle(ref, () => formInstanceAPI as IFormInstanceAPI, [
-    formInstanceAPI,
-  ])
-
-  const RenderChildren = (
-    <FormContext.Provider value={formInstance as any}>
-      {children}
+  useImperativeHandle(ref, () => ({ form }))
+  return (<FormContext.Provider value={{ labelWidth,layout }}>
+      {/*@ts-ignore*/}
+      <Form
+        {...options}
+        initialValues={initialValues}
+        component={false}
+        form={form}
+        validateMessages={message}
+        onFinish={_onFinish}
+        className={clsx(bem(), className)}>
+        {children}
+      </Form>
     </FormContext.Provider>
-  )
-
-  return (
-    <TaroForm
-      className={`${className} vant-form`}
-      onReset={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        formInstance.resetFields()
-      }}
-      onSubmit={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        formInstance.submit()
-      }}
-    >
-      {RenderChildren}
-    </TaroForm>
   )
 }
 
-const Form = memo(forwardRef(Index))
-export { Form }
-export default Form
+export default memo(forwardRef(Index))

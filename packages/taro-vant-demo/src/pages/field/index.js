@@ -1,12 +1,11 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { Field, CellGroup, Button } from 'taro-vant'
+import { Field, Cell, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-
+const CellGroup = Cell.Group;
 export default class Index extends Component {
   constructor() {
     super()

@@ -6,6 +6,7 @@ import * as utils from '../wxs/utils'
 import type { SwitchProps } from './PropsType'
 import VanLoading from '../loading/index'
 import * as computed from './wxs'
+import { assembly, COMPONENT_TYPE_KEY } from '../utils'
 
 export function Switch(props: SwitchProps) {
   const {
@@ -28,12 +29,9 @@ export function Switch(props: SwitchProps) {
       if (disabled || loading) {
         return
       }
-
       const value = checked === activeValue ? inactiveValue : activeValue
-      Object.defineProperty(event, 'detail', {
-        value: value,
-      })
-      onChange?.(event)
+      const ev = assembly(event,value)
+      onChange?.(ev)
     },
     [ activeValue, checked, disabled, inactiveValue, loading, onChange ],
   )
@@ -76,4 +74,6 @@ export function Switch(props: SwitchProps) {
   )
 }
 
-export default Switch
+export const SWITCH_KEY = Symbol('switch')
+
+export default Object.assign(Switch, { [COMPONENT_TYPE_KEY]: SWITCH_KEY })

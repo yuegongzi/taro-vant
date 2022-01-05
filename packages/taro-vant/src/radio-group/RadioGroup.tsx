@@ -4,6 +4,7 @@ import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import type { RadioGroupProps } from './PropsType'
 import RadioGroupContext from './context'
+import { assembly } from '../utils'
 
 export function RadioGroup(props: RadioGroupProps) {
   const {
@@ -17,13 +18,17 @@ export function RadioGroup(props: RadioGroupProps) {
     ...others
   } = props
 
+  const _onChange = (e: any) => {
+    onChange?.(assembly(e,e.detail))
+  }
+
   return (
     <RadioGroupContext.Provider
       value={{
         value,
         direction,
         disabled,
-        onChange,
+        onChange: _onChange,
       }}
     >
       <View

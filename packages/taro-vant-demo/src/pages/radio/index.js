@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
-import { RadioGroup, Radio, Image, CellGroup, Cell } from 'taro-vant'
+import { RadioGroup, Radio, Image, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-
+const CellGroup = Cell.Group;
 export default class Index extends Component {
   constructor() {
     super()

@@ -1,1 +1,66 @@
 // empty
+@import '../../style/var.less';
+
+.van-form {
+  height: auto;
+}
+
+.van-form-item {
+  line-height: @form-line-height;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  margin: 0 @form-space-horizontal;
+  padding: @form-space-vertical 0;
+  background-color: @form-background-color;
+  border-bottom: @form-border-bottom;
+
+  &__label {
+    width: @form-label-width;
+    font-size: @form-label-font-size;
+    flex: none;
+    box-sizing: border-box;
+    color: @form-label-color;
+    text-align: left;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &__label-star {
+    color: @form-message-color;
+  }
+
+  &__required-box {
+    min-width: 14px;
+  }
+
+  &__wrapper {
+    background-color: @form-background-color;
+    box-sizing: border-box;
+  }
+
+  &__message{
+    font-size: @form-message-font-size;
+    margin-top: @form-message-margin-top;
+    color: @form-message-color;
+  }
+
+  &__control {
+    margin-left: @form-controll-margin-left;
+    font-size: @form-controll-font-size;
+    flex: 1;
+  }
+
+  &__control-item {
+    display: flex;
+    font-size: @form-label-font-size;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    >input{
+      width: 100%;
+    }
+  }
+}

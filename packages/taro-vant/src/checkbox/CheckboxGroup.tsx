@@ -2,7 +2,7 @@ import './style/index.less';
 import { View } from '@tarojs/components'
 import type { CheckboxGroupProps } from './PropsType'
 import CheckboxGroupContext from './context'
-import { createNamespace } from '../utils'
+import { assembly, createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('checkbox')
@@ -19,10 +19,12 @@ const [ bem ] = createNamespace('checkbox')
     children,
     ...others
   } = props
-
+  const _onChange = (e: any) => {
+      onChange?.(assembly(e,e.detail))
+  }
   return (
     <CheckboxGroupContext.Provider
-      value={{ value, max, disabled, direction, onChange }}
+      value={{ value, max, disabled, direction, onChange: _onChange }}
     >
       <View
         className={clsx(bem({

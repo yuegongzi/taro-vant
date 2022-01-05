@@ -1,0 +1,1 @@
+export const COMPONENT_TYPE_KEY = '__TARO_VANT_COMPONENT';

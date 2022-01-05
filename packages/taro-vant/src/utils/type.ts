@@ -76,3 +76,14 @@ export function isImageUrl(url: any) {
 export function isVideoUrl(url: any) {
   return VIDEO_REGEXP.test(url)
 }
+
+const None = [ undefined, null, 'undefined', '', 'null', ' ' ];
+export const isAnyBlank = (...args: any) => {
+  for (const i of args) {
+    if (None.includes(i)) {
+      return true;
+    }
+  }
+  return false;
+};
+
