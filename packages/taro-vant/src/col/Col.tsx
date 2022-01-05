@@ -1,8 +1,11 @@
 import './style/index.less';
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { ColProps } from './PropsType'
-import * as computed from './wxs'
+import { rootStyle } from './wxs'
+import { createNamespace,computedStyle } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('col')
 
 export function Col(props: ColProps): JSX.Element {
   const {
@@ -17,16 +20,9 @@ export function Col(props: ColProps): JSX.Element {
 
   return (
     <View
-      className={
-        '' +
-        utils.bem('col', [ span ]) +
-        ' ' +
-        (offset ? 'van-col--offset-' + offset : '') +
-        ' ' +
-        className
-      }
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx(bem([ span ]),offset ? `van-col--offset-${offset}` : '',className)}
+      style={computedStyle([
+        rootStyle({
           gutter,
         }),
         style,

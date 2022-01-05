@@ -1,11 +1,11 @@
 import { Component } from 'react'
 
-import { Image, CheckboxGroup, Checkbox, CellGroup, Cell } from 'taro-vant'
+import { Image, Checkbox, CellGroup, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-
+const CheckboxGroup = Checkbox.Group;
 export default class Index extends Component {
   constructor() {
     super()

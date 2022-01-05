@@ -1,15 +1,17 @@
-import './style/index.less';
+import './style/index.less'
 import { useReady } from '@tarojs/taro'
-import { useState, useEffect, useRef, useCallback } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
-import { View, Block } from '@tarojs/components'
-
-import * as utils from '../wxs/utils'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
+import { Block, View } from '@tarojs/components'
 import type { CollapseItemProps } from './PropsType'
-import VanCell from '../cell/index'
+import Cell from '../cell'
 import { setContentAnimate } from './animate'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function CollapseItem(
+const [ bem ] = createNamespace('collapse-item')
+
+function CollapseItem(
   props: CollapseItemProps & {
     parent?: any
   },
@@ -57,7 +59,6 @@ export function CollapseItem(
     }
   })
   useEffect(() => {
-    // if (process.env.TARO_ENV === 'h5') {
     setTimeout(() => {
       setState((state) => {
         return {
@@ -66,7 +67,6 @@ export function CollapseItem(
         }
       })
     }, 0)
-    // }
   }, [])
 
   const refDom = useRef(null)
@@ -119,15 +119,13 @@ export function CollapseItem(
 
   return (
     <View
-      className={
-        'van-collapse-item  ' +
-        (state.index !== 0 ? 'van-hairline--top' : '') +
-        ` ${className || ''}`
-      }
+      className={clsx(bem(), {
+        ['van-hairline--top']: state.index !== 0,
+      }, className)}
       style={style}
       {...others}
     >
-      <VanCell
+      <Cell
         title={title}
         icon={icon}
         value={value}
@@ -135,31 +133,27 @@ export function CollapseItem(
         isLink={isLink}
         clickable={clickable}
         border={border && state.expanded}
-        className={
-          utils.bem('collapse-item__title', {
-            disabled,
-            expanded: state.expanded,
-          }) + ' van-cell'
-        }
+        className={clsx(bem('title', {
+          disabled,
+          expanded: state.expanded,
+        }), 'van-cell')}
         onClick={onClick}
         renderTitle={<Block>{renderTitle}</Block>}
         renderIcon={<Block>{renderIcon}</Block>}
         renderRightIcon={<Block>{renderRightIcon}</Block>}
       >
         {renderValue}
-      </VanCell>
+      </Cell>
       <View
-        className={
-          utils.bem('collapse-item__wrapper', {}) +
-          ' van-collapse-item__animation-box'
-        }
+        className={clsx(bem('wrapper'), bem('animation-box'))}
         animation={state.animation}
       >
-        <View className='van-collapse-item__content content-class' ref={refDom}>
+        <View className={clsx(bem('content'))} ref={refDom}>
           {children}
         </View>
       </View>
     </View>
   )
 }
+
 export default CollapseItem

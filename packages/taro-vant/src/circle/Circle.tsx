@@ -1,27 +1,25 @@
-import './style/index.less';
-import {
-  createSelectorQuery,
-  createCanvasContext,
-  useReady,
-} from '@tarojs/taro'
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { View, Canvas, CoverView } from '@tarojs/components'
+import './style/index.less'
+import { createCanvasContext, createSelectorQuery, useReady } from '@tarojs/taro'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Canvas, CoverView, View } from '@tarojs/components'
 import { Current } from '@tarojs/runtime'
-
 import type { CircleProps } from './PropsType'
-import { getSystemInfoSync } from '../common/utils'
-import { isObj } from '../common/validator'
+import { createNamespace, getSystemInfoSync, isObj } from '../utils'
 import { adaptor } from './canvas'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('circle')
 
 function format(rate: number) {
   return Math.min(Math.max(rate, 0), 100)
 }
+
 const PERIMETER = 2 * Math.PI
 const BEGIN_ANGLE = -Math.PI / 2
 const STEP = 1
 let CIRCLE_INDEX = 0
 
-export function Circle(props: CircleProps) {
+function Circle(props: CircleProps) {
   const [ state, setState ] = useState({
     ready: false,
     hoverColor: '',
@@ -101,42 +99,38 @@ export function Circle(props: CircleProps) {
       let ctx = null
       try {
         ctx = createCanvasContext(state.unitag)
-      } catch (error) {}
+      } catch (error) {
+      }
 
       return Promise.resolve(ctx)
     }
     const dpr = getSystemInfoSync().pixelRatio
     return new Promise((resolve: any) => {
-      createSelectorQuery().
-        select(`.${state.unitag}`).
-        node().
-        exec((res: any) => {
-          const canvas = res[0].node
-          if (canvas) {
-            const ctx = canvas.getContext(type)
-            if (!ref.current.inited) {
-              ref.current.inited = true
-              canvas.width = size * dpr
-              canvas.height = size * dpr
-              ctx.scale(dpr, dpr)
-            }
-            resolve(adaptor(ctx))
+      createSelectorQuery().select(`.${state.unitag}`).node().exec((res: any) => {
+        const canvas = res[0].node
+        if (canvas) {
+          const ctx = canvas.getContext(type)
+          if (!ref.current.inited) {
+            ref.current.inited = true
+            canvas.width = size * dpr
+            canvas.height = size * dpr
+            ctx.scale(dpr, dpr)
           }
-        })
+          resolve(adaptor(ctx))
+        }
+      })
     })
   }, [ size, type, state.unitag ])
 
-  const setHoverColor = function () {
+  const setHoverColor = function() {
     if (isObj(color)) {
       const _color = color as Record<string, string>
       return getContext().then((context: any) => {
         if (context) {
           const LinearColor = context.createLinearGradient(size, 0, 0, 0)
-          Object.keys(color).
-            sort((a, b) => parseFloat(a) - parseFloat(b)).
-            map((key: any) =>
-              LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
-            )
+          Object.keys(color).sort((a, b) => parseFloat(a) - parseFloat(b)).map((key: any) =>
+            LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
+          )
           setState((state) => {
             return {
               ...state,
@@ -210,7 +204,7 @@ export function Circle(props: CircleProps) {
     },
     [ getContext, renderHoverCircle, renderLayerCircle, size ],
   )
-  const clearMockInterval = function () {
+  const clearMockInterval = function() {
     if (ref.current.interval) {
       clearTimeout(ref.current.interval)
       ref.current.interval = null
@@ -275,7 +269,7 @@ export function Circle(props: CircleProps) {
   return (
     <View
       id={`page-${state.unitag}`}
-      className={`van-circle ${className}`}
+      className={clsx(bem(), className)}
       style={style}
       {...others}
     >
@@ -285,16 +279,16 @@ export function Circle(props: CircleProps) {
         width={size}
         height={size}
         nativeProps={{ width: size, height: size }}
-        className={`van-circle__canvas ${state.unitag}`}
+        className={clsx(bem('canvas'), `${state.unitag}`)}
         type={type}
         style={'width: ' + `${size}px` + ';height:' + `${size}px`}
         id={state.unitag}
         canvasId={state.unitag}
-       />
+      />
       {!text ? (
-        <View className='van-circle__text'>{children}</View>
+        <View className={clsx(bem('text'))}>{children}</View>
       ) : (
-        <CoverView className='van-circle__text'>{text}</CoverView>
+        <CoverView className={clsx(bem('text'))}>{text}</CoverView>
       )}
     </View>
   )

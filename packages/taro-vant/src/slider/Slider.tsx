@@ -5,8 +5,7 @@ import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import { style } from '../wxs/style'
 import type { SliderProps } from './PropsType'
-import { canIUseModel } from '../common/version'
-import { getRect, addUnit } from '../common/utils'
+import { getRect, addUnit,canIUseModel } from '../utils'
 
 const MIN_DISTANCE = 10
 function getDirection(x: number, y: number) {

@@ -1,12 +1,11 @@
-import { style } from '../wxs/utils'
-import { addUnit } from '../wxs/add-unit'
+import { computedStyle,addUnit } from '../utils'
 
 function rootStyle(data: any) {
   if (!data.gutter) {
     return ''
   }
 
-  return style({
+  return computedStyle({
     'padding-right': addUnit(data.gutter / 2),
     'padding-left': addUnit(data.gutter / 2),
   })

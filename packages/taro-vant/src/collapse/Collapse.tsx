@@ -1,9 +1,12 @@
-import './style/index.less';
-import { cloneElement, useCallback, useMemo, Children } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
+import './style/index.less'
+import { Children, cloneElement, useCallback, useMemo } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-
 import type { CollapseProps } from './PropsType'
+import clsx from 'clsx'
+import { createNamespace } from '../utils'
+
+const [ bem ] = createNamespace('collapse')
 
 export function Collapse(props: CollapseProps) {
   const {
@@ -62,11 +65,9 @@ export function Collapse(props: CollapseProps) {
 
   return (
     <View
-      className={
-        ' van-collapse ' +
-        (border ? 'van-hairline--top-bottom' : '') +
-        ` ${className || ''}`
-      }
+      className={clsx(bem(), {
+        ['van-hairline--top-bottom']: border,
+      }, className)}
       style={style}
       {...others}
     >
@@ -74,4 +75,5 @@ export function Collapse(props: CollapseProps) {
     </View>
   )
 }
+
 export default Collapse

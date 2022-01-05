@@ -1,35 +1,6 @@
 import { createAnimation } from '@tarojs/taro'
-// import { canIUseAnimate } from '../common/version'
-import { getRect } from '../common/utils'
-// function useAnimate(context: any, expanded: any, mounted: any, height: any) {
-//   const selector = '.van-collapse-item__wrapper'
-//   if (expanded) {
-//     context.animate(
-//       selector,
-//       [
-//         { height: 0, ease: 'ease-in-out', offset: 0 },
-//         { height: `${height}px`, ease: 'ease-in-out', offset: 1 },
-//         { height: `auto`, ease: 'ease-in-out', offset: 1 },
-//       ],
-//       mounted ? 300 : 0,
-//       () => {
-//         context.clearAnimation(selector)
-//       },
-//     )
-//     return
-//   }
-//   context.animate(
-//     selector,
-//     [
-//       { height: `${height}px`, ease: 'ease-in-out', offset: 0 },
-//       { height: 0, ease: 'ease-in-out', offset: 1 },
-//     ],
-//     300,
-//     () => {
-//       context.clearAnimation(selector)
-//     },
-//   )
-// }
+import { getRect } from '../utils'
+
 function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
   const animation = createAnimation({
     duration: 0,
@@ -39,14 +10,14 @@ function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
     if (height === 0) {
       animation.height('auto').top(1).step()
     } else {
-      animation
-        .height(height)
-        .top(1)
-        .step({
+      animation.
+        height(height).
+        top(1).
+        step({
           duration: mounted ? 300 : 1,
-        })
-        .height('auto')
-        .step()
+        }).
+        height('auto').
+        step()
     }
     const animationclass = animation.export()
     setState?.((state: any) => {
@@ -71,6 +42,7 @@ function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
     })
   }
 }
+
 export function setContentAnimate(
   context: any,
   expanded: any,
@@ -78,13 +50,13 @@ export function setContentAnimate(
   setState: any,
   ref?: any,
 ) {
-  getRect(context, '.van-collapse-item__content')
-    .then((rect: any) => {
+  getRect(context, '.van-collapse-item__content').
+    then((rect: any) => {
       return process.env.TARO_ENV === 'h5'
         ? ref.current.clientHeight
         : rect?.height
-    })
-    .then((height) => {
+    }).
+    then((height) => {
       useAnimation(expanded, mounted, height, setState)
     })
 }
