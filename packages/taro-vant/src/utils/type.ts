@@ -47,3 +47,32 @@ export function isFunction(args: unknown): boolean {
 export function isSymbol(args: unknown): boolean {
   return toString.call(args) === '[object Symbol]'
 }
+
+
+export function isPlainObject(val: any) {
+  return val !== null && typeof val === 'object' && !Array.isArray(val)
+}
+
+export function isPromise(val: any) {
+  return isPlainObject(val) && isFunction(val.then) && isFunction(val.catch)
+}
+
+export function isDef(value: any) {
+  return value !== undefined && value !== null
+}
+
+export function isObj(x: any) {
+  const type = typeof x
+  return x !== null && (type === 'object' || type === 'function')
+}
+
+const IMAGE_REGEXP = /\.(jpeg|jpg|gif|png|svg|webp|jfif|bmp|dpg)/i
+const VIDEO_REGEXP = /\.(mp4|mpg|mpeg|dat|asf|avi|rm|rmvb|mov|wmv|flv|mkv)/i
+
+export function isImageUrl(url: any) {
+  return IMAGE_REGEXP.test(url)
+}
+
+export function isVideoUrl(url: any) {
+  return VIDEO_REGEXP.test(url)
+}

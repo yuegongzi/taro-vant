@@ -3,11 +3,11 @@ import type { ITouchEvent } from '@tarojs/components'
 import { Button, View } from '@tarojs/components'
 import type { FC } from 'react'
 import { useCallback } from 'react'
-import { createNamespace } from '../wxs'
+import { createNamespace } from '../utils'
 import type { ActionSheetItem, ActionSheetProps } from './PropsType'
-import VanLoading from '../loading'
-import VanPopup from '../popup'
-import VanIcon from '../icon'
+import Loading from '../loading'
+import Popup from '../popup'
+import Icon from '../icon'
 import './style/index.less'
 import clsx from 'clsx'
 
@@ -67,7 +67,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
   }, [ onClickOverlay, onClose ])
 
   return (
-    <VanPopup
+    <Popup
       show={show}
       position='bottom'
       round={round}
@@ -83,7 +83,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
         {title && (
           <View className={clsx(bem('header'))}>
             {title}
-            <VanIcon
+            <Icon
               name='cross'
               className={clsx(bem('close'))}
               onClick={_onClose}
@@ -134,7 +134,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
                       )}
                     </>
                   ) : (
-                    <VanLoading
+                    <Loading
                       className={clsx(bem('loading'))}
                       size='22px'
                     />
@@ -159,7 +159,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
           </>
         )}
       </>
-    </VanPopup>
+    </Popup>
   )
 }
 

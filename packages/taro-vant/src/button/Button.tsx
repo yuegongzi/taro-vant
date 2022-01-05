@@ -1,11 +1,14 @@
-import './style/index.less';
+import './style/index.less'
 import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
 import { Block, Button as TaroButton, View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import Icon from '../icon'
 import Loading from '../loading'
-import * as computed from './wxs'
+import { rootStyle,loadingColor } from './wxs'
+import { createNamespace,computedStyle } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('button')
 
 export function Button(props: ButtonProps) {
   const {
@@ -33,29 +36,24 @@ export function Button(props: ButtonProps) {
 
   return (
     <TaroButton
-      className={
-        ' ' +
-        utils.bem('button', [
-          type,
-          size,
-          {
-            block,
-            round,
-            plain,
-            square,
-            loading,
-            disabled,
-            hairline,
-            unclickable: disabled || loading,
-          },
-        ]) +
-        ' ' +
-        (hairline ? 'van-hairline--surround' : '') +
-        ` ${className || ''}`
+      className={clsx(bem([
+        type,
+        size,
+        {
+          block,
+          round,
+          plain,
+          square,
+          loading,
+          disabled,
+          hairline,
+          unclickable: disabled || loading,
+        },
+      ]), { ['van-hairline--surround']: hairline }, className)
       }
-      hoverClass='van-button--active hover-class'
-      style={utils.style([
-        computed.rootStyle({
+      hoverClass={clsx(bem('',[ 'active' ],true),'hover-class')}
+      style={computedStyle([
+        rootStyle({
           plain,
           color,
         }),
@@ -70,14 +68,14 @@ export function Button(props: ButtonProps) {
             className='loading-class'
             size={loadingSize}
             type={loadingType}
-            color={computed.loadingColor({
+            color={loadingColor({
               type,
               color,
               plain,
             })}
           />
           {loadingText && (
-            <View className='van-button__loading-text'>{loadingText}</View>
+            <View className={clsx(bem('loading-text'))}>{loadingText}</View>
           )}
         </View>
       ) : (
@@ -87,11 +85,10 @@ export function Button(props: ButtonProps) {
               size='1.2em'
               name={icon}
               classPrefix={classPrefix}
-              className='van-button__icon'
-              style='line-height: inherit;'
+              className={clsx(bem('icon'))}
             />
           )}
-          <View className='van-button__text'>{children}</View>
+          <View className={clsx(bem('text'))}>{children}</View>
         </Block>
       )}
     </TaroButton>

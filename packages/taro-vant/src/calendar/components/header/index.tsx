@@ -1,7 +1,10 @@
 import { View } from '@tarojs/components'
 import React, { useState, useCallback, useEffect } from 'react'
+import { createNamespace } from '../../../utils'
+import clsx from 'clsx'
 
-type ICalenarHeaderProps = {
+const [ bem ] = createNamespace('calendar')
+type ICalendarHeaderProps = {
   title?: string | React.ReactNode
   subtitle?: string | React.ReactNode
   showTitle?: boolean
@@ -11,7 +14,7 @@ type ICalenarHeaderProps = {
   onClickSubtitle?: (a: any) => void
 }
 
-export default function Index(props: ICalenarHeaderProps) {
+export default function Index(props: ICalendarHeaderProps) {
   const {
     title = '日期选择',
     showTitle,
@@ -22,49 +25,49 @@ export default function Index(props: ICalenarHeaderProps) {
     onClickSubtitle,
   } = props
 
-  const [weekdays, setWeekDays] = useState<Array<any>>([])
+  const [ weekdays, setWeekDays ] = useState<any[]>([])
 
   const initWeekDay = useCallback(
     function () {
-      const defaultWeeks = ['日', '一', '二', '三', '四', '五', '六']
+      const defaultWeeks = [ '日', '一', '二', '三', '四', '五', '六' ]
       const firstDayOfWeek_ = firstDayOfWeek || 0
       setWeekDays([
         ...defaultWeeks.slice(firstDayOfWeek_, 7),
         ...defaultWeeks.slice(0, firstDayOfWeek_),
       ])
     },
-    [firstDayOfWeek],
+    [ firstDayOfWeek ],
   )
 
   useEffect(
     function () {
       initWeekDay()
     },
-    [initWeekDay],
+    [ initWeekDay ],
   )
 
   return (
-    <View className="van-calendar__header">
+    <View className={clsx(bem('header'))}>
       {showTitle && (
         <View>
           {renderTitle && (
-            <View className="van-calendar__header-title">{renderTitle}</View>
+            <View className={clsx(bem('header-title'))}>{renderTitle}</View>
           )}
-          <View className="van-calendar__header-title">{title}</View>
+          <View className={clsx(bem('header-title'))}>{title}</View>
         </View>
       )}
       {showSubtitle && (
         <View
-          className="van-calendar__header-subtitle"
+          className={clsx(bem('header-subtitle'))}
           onClick={onClickSubtitle}
         >
           {subtitle}
         </View>
       )}
-      <View className="van-calendar__weekdays">
+      <View className={clsx(bem('weekdays'))}>
         {weekdays.map((item: any) => {
           return (
-            <View key={item.index} className="van-calendar__weekday">
+            <View key={item.index} className={clsx(bem('weekday'))}>
               {item}
             </View>
           )

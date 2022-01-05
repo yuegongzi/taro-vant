@@ -1,16 +1,13 @@
 import { View } from '@tarojs/components'
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-} from 'react'
-import * as utils from '../../../wxs/utils'
-import { getMonthEndDay, compareDay, getPrevDay, getNextDay } from '../../utils'
-import * as computed from './wxs'
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react'
+import { createNamespace } from '../../../utils'
+import clsx from 'clsx'
+import { compareDay, getMonthEndDay, getNextDay, getPrevDay } from '../../utils'
+import { formatMonthTitle, getDayStyle, getMark, getMonthStyle } from './wxs'
 
-type ICalenarMonthProps = {
+const [ bem ] = createNamespace('calendar')
+
+type ICalendarMonthProps = {
   date?: string
   type?: string
   color?: string
@@ -29,7 +26,7 @@ type ICalenarMonthProps = {
   className?: string
 }
 
-function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
+function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   const {
     date,
     rowHeight,
@@ -48,22 +45,22 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
     id,
   } = props
 
-  const [visible, setVisible] = useState<boolean>(true)
-  const [days, setDays_] = useState<Array<any>>([])
+  const [ visible, setVisible ] = useState<boolean>(true)
+  const [ days, setDays_ ] = useState<any[]>([])
 
   const onClick_ = useCallback(
-    function (event: any) {
+    function(event: any) {
       const { index } = event.currentTarget.dataset
       const item = days[index]
       if (item.type !== 'disabled') {
         if (onClick) onClick(item)
       }
     },
-    [days, onClick],
+    [ days, onClick ],
   )
 
   const getMultipleDayType = useCallback(
-    function (day) {
+    function(day) {
       if (!Array.isArray(currentDate)) {
         return ''
       }
@@ -84,15 +81,15 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
       }
       return ''
     },
-    [currentDate],
+    [ currentDate ],
   )
 
   const getRangeDayType = useCallback(
-    function (day) {
+    function(day) {
       if (!Array.isArray(currentDate)) {
         return ''
       }
-      const [startDay, endDay] = currentDate
+      const [ startDay, endDay ] = currentDate
       if (!startDay) {
         return ''
       }
@@ -115,11 +112,11 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
       }
       return ''
     },
-    [allowSameDay, currentDate],
+    [ allowSameDay, currentDate ],
   )
 
   const getDayType = useCallback(
-    function (day) {
+    function(day) {
       if (compareDay(day, minDate) < 0 || compareDay(day, maxDate) > 0) {
         return 'disabled'
       }
@@ -135,11 +132,11 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
       }
       return ''
     },
-    [currentDate, getMultipleDayType, getRangeDayType, maxDate, minDate, type],
+    [ currentDate, getMultipleDayType, getRangeDayType, maxDate, minDate, type ],
   )
 
   const getBottomInfo = useCallback(
-    function (type_): any {
+    function(type_): any {
       if (type === 'range') {
         if (type_ === 'start') {
           return '开始'
@@ -152,11 +149,11 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
         }
       }
     },
-    [type],
+    [ type ],
   )
 
   const setDays = useCallback(
-    function () {
+    function() {
       const days = []
       const startDate = new Date(date || 0)
       const year = startDate.getFullYear()
@@ -181,17 +178,17 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
       }
       setDays_(days)
     },
-    [date, formatter, getBottomInfo, getDayType],
+    [ date, formatter, getBottomInfo, getDayType ],
   )
 
   useEffect(
-    function () {
+    function() {
       setDays()
     },
-    [setDays],
+    [ setDays ],
   )
 
-  useImperativeHandle(ref, function () {
+  useImperativeHandle(ref, function() {
     return {
       setVisible,
       visible,
@@ -201,30 +198,30 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
   return (
     <View
       id={id}
-      className={`van-calendar__month ${className}`}
-      style={computed.getMonthStyle(
+      className={clsx(bem('month'), className)}
+      style={getMonthStyle(
         visible,
         date,
         rowHeight ? Number(rowHeight) : 0,
       )}
     >
       {showMonthTitle && (
-        <View className="van-calendar__month-title">
-          {computed.formatMonthTitle(date)}
+        <View className={clsx(bem('month-title'))}>
+          {formatMonthTitle(date)}
         </View>
       )}
       {visible && (
-        <View className="van-calendar__days">
+        <View className={clsx(bem('days'))}>
           {showMark && (
-            <View className="van-calendar__month-mark">
-              {computed.getMark(date)}
+            <View className={clsx(bem('month-mark'))}>
+              {getMark(date)}
             </View>
           )}
           {days.map((item: any, index: number) => {
             return (
               <View
                 key={item.index}
-                style={computed.getDayStyle(
+                style={getDayStyle(
                   item.type,
                   index,
                   date,
@@ -232,26 +229,24 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
                   color,
                   firstDayOfWeek,
                 )}
-                className={
-                  utils.bem('calendar__day', [item.type]) + ' ' + item.className
-                }
+                className={clsx(bem('day', [ item.type ]), item.className)}
                 data-index={index}
                 onClick={onClick_}
               >
                 {item.type === 'selected' ||
                 currentDate === item.date.getTime() ? (
                   <View
-                    className="van-calendar__selected-day"
-                    style={'background: ' + color}
+                    className={clsx(bem('selected-day'))}
+                    style={{ background: color }}
                   >
                     {item.topInfo && (
-                      <View className="van-calendar__top-info">
+                      <View className={clsx(bem('top-info'))}>
                         {item.topInfo}
                       </View>
                     )}
                     {item.text}
                     {item.bottomInfo && (
-                      <View className="van-calendar__bottom-info">
+                      <View className={clsx(bem('bottom-info'))}>
                         {item.bottomInfo}
                       </View>
                     )}
@@ -259,13 +254,13 @@ function Index(props: ICalenarMonthProps, ref: React.ForwardedRef<any>) {
                 ) : (
                   <View>
                     {item.topInfo && (
-                      <View className="van-calendar__top-info">
+                      <View className={clsx(bem('top-info'))}>
                         {item.topInfo}
                       </View>
                     )}
                     {item.text}
                     {item.bottomInfo && (
-                      <View className="van-calendar__bottom-info">
+                      <View className={clsx(bem('bottom-info'))}>
                         {item.bottomInfo}
                       </View>
                     )}

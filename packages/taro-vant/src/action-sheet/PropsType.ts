@@ -1,6 +1,6 @@
 import type { ComponentClass, ReactNode } from 'react'
 import type { StandardProps, ButtonProps, ITouchEvent } from '@tarojs/components'
-import type { PopupProps } from '../popup/PropsType'
+import type { PopupProps } from '../popup'
 
 export interface ActionSheetItem extends Omit<ButtonProps, 'children'> {
   name?: string

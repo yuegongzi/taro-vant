@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 
-function addUnit(value: any) {
+export function addUnit(value: any) {
   if (value == null) {
     return undefined
   }
@@ -8,4 +8,3 @@ function addUnit(value: any) {
   return /^-?\d+(\.\d+)?$/.test('' + value) ? Taro.pxTransform(value) : value
 }
 
-export { addUnit }

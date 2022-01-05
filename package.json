@@ -88,8 +88,8 @@
     }
   },
   "scripts": {
-    "eslint": "npx eslint -c packages/taro-vant/eslint.config.js '**/*.{js,jsx,ts,tsx}' && npx tsc -p tsconfig.json --skipLibCheck",
-    "stylelint": "npx stylelint --aei --config packages/taro-vant/stylelint.config.js '**/*.{css,less}'",
+    "eslint": "npx eslint -c .eslintrc.js '**/*.{js,jsx,ts,tsx}' && npx tsc -p tsconfig.json --skipLibCheck",
+    "stylelint": "npx stylelint --aei --config .stylelintrc.js '**/*.{css,less}'",
     "prettier": "npx prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,less}'",
     "clear-all": "rimraf packages/*/node_modules",
     "bootstrap:ci": "npx lerna bootstrap --npm-client=yarn",

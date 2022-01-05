@@ -1,5 +1,4 @@
-function isArray(array: any) {
+export function isArray(array: any) {
   return array && toString.call(array) === '[object Array]'
 }
 
-export { isArray }

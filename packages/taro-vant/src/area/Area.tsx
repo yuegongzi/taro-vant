@@ -1,12 +1,14 @@
-import './style/index.less';
+import './style/index.less'
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
-// import { requestAnimationFrame } from '../common/utils'
-import * as computed from './wxs'
-import VanPicker from './../picker'
+import { displayColumns } from './wxs'
+import Picker from '../picker'
 import type { AreaProps } from './PropsType'
 import type { PickerEvents } from '../picker/PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
 const EMPTY_CODE = '000000'
+const [ bem ] = createNamespace('area')
 
 function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   const {
@@ -27,19 +29,11 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   } = props
   const pickerRef = useRef<any>(null)
   const codeRef = useRef<any>('')
-  // const [columns, setColumns] = useState<any[]>([
-  //   { values: [] },
-  //   { values: [] },
-  //   { values: [] },
-  // ])
   const columns = useMemo(
     () => [ { values: [] }, { values: [] }, { values: [] } ],
     [],
   )
   const typeToColumnsPlaceholderRef = useRef<any>({})
-  // const [typeToColumnsPlaceholder, setTypeToColumnsPlaceholder] = useState<any>(
-  //   {},
-  // )
   const _parseValues = useCallback(
     (values: any[]) => {
       return values.map((value: any, index: number) => {
@@ -70,14 +64,12 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       if (type !== 'province' && !code) {
         return []
       }
-      // console.log(typeToColumnsPlaceholder)
       const list = _getConfig(type)
       let result = Object.keys(list).map((code) => ({
         code,
         name: list[code],
       }))
       if (code != null) {
-        // oversea code
         if (code[0] === '9' && type === 'city') {
           code = '9'
         }
@@ -86,7 +78,6 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
         )
       }
       if (typeToColumnsPlaceholderRef.current?.[type] && result.length) {
-        // set columns placeholder
         const codeFill =
           type === 'province'
             ? ''
@@ -107,7 +98,6 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
     (type, code) => {
       let compareNum = type === 'province' ? 2 : type === 'city' ? 4 : 6
       const list = _getList(type, code.slice(0, compareNum - 2))
-      // oversea code
       if (code[0] === '9' && type === 'province') {
         compareNum = 1
       }
@@ -123,7 +113,6 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
   )
 
   const _getPicker = useCallback(() => {
-    // console.log(picker)
     return pickerRef.current as any
   }, [])
 
@@ -199,14 +188,14 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
     })
   }, [ _getDefaultCode, _getIndex, _getList, _getPicker, columnsNum ])
 
-  const _onChange = useCallback(
-    (event) => {
+  const _onChange = useCallback((event) => {
       let _a
       const { index, value, picker } = event.detail
       codeRef.current = value[index].code
-      ;(_a = _setValues()) === null || _a === void 0
-        ? void 0
-        : _a.then(() => {
+      if ((_a = _setValues()) === null || _a === void 0) {
+        void 0
+      } else {
+        _a.then(() => {
           const event_ = {
             detail: {
               picker,
@@ -216,6 +205,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
           }
           onChange?.(event_)
         })
+      }
     },
     [ _parseValues, _setValues, onChange ],
   )
@@ -284,21 +274,16 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       getDetail,
     }
   })
-  // useEffect(() => {
-  //   requestAnimationFrame(() => {
-  //     _setValues()
-  //     // console.log('我应当就跑一次')
-  //   })
-  // }, [])
+
   return (
-    <VanPicker
+    <Picker
       ref={pickerRef as any}
-      className='van-area__picker'
+      className={clsx(bem('picker'))}
       showToolbar
       valueKey='name'
       title={title}
       loading={loading}
-      columns={computed.displayColumns(columns, columnsNum)}
+      columns={displayColumns(columns, columnsNum)}
       itemHeight={itemHeight}
       visibleItemCount={visibleItemCount}
       cancelButtonText={cancelButtonText}

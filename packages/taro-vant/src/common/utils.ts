@@ -2,9 +2,9 @@ import Taro, {
   getSystemInfoSync as TaroGetSystemInfoSync,
   createSelectorQuery,
 } from '@tarojs/taro'
-import { isDef, isPlainObject, isPromise } from './validator'
+import {  isPlainObject, isPromise } from './validator'
 import { canIUseNextTick } from './version'
-export { isDef } from './validator'
+
 export function range(num: any, min: any, max: any) {
   return Math.min(Math.max(num, min), max)
 }
@@ -33,12 +33,13 @@ export function getMenuButtonBoundingClientRect() {
   return menuInfo
 }
 
-export function addUnit(value: any) {
-  if (!isDef(value)) {
-    return undefined
-  }
-  return /^-?\d+(\.\d+)?$/.test('' + value) ? Taro.pxTransform(value) : value
-}
+// export function addUnit(value: any) {
+//   if (!isDef(value)) {
+//     return undefined
+//   }
+//   return /^-?\d+(\.\d+)?$/.test('' + value) ? Taro.pxTransform(value) : value
+// }
+
 export function requestAnimationFrame(cb: any) {
   const systemInfo = getSystemInfoSync()
   if (systemInfo.platform === 'devtools') {
@@ -46,10 +47,10 @@ export function requestAnimationFrame(cb: any) {
       cb()
     }, 33.333333333333336)
   }
-  return createSelectorQuery()
-    .selectViewport()
-    .boundingClientRect()
-    .exec(() => {
+  return createSelectorQuery().
+    selectViewport().
+    boundingClientRect().
+    exec(() => {
       cb()
     })
 }
@@ -70,10 +71,10 @@ export function getRect(context: any, selector: any) {
     if (context) {
       query = query.in(context)
     }
-    query
-      .select(selector)
-      .boundingClientRect()
-      .exec((rect: any = []) => {
+    query.
+      select(selector).
+      boundingClientRect().
+      exec((rect: any = []) => {
         return resolve(rect[0])
       })
   })
@@ -84,10 +85,10 @@ export function getAllRect(context: any, selector: any) {
     if (context) {
       query = query.in(context)
     }
-    query
-      .selectAll(selector)
-      .boundingClientRect()
-      .exec((rect = []) => resolve(rect[0]))
+    query.
+      selectAll(selector).
+      boundingClientRect().
+      exec((rect = []) => resolve(rect[0]))
   })
 }
 export function toPromise(promiseLike: any) {

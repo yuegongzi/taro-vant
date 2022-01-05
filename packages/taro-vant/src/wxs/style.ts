@@ -2,40 +2,37 @@ import * as array from './array'
 import * as object from './object'
 
 function kebabCase(word: any) {
-  const newWord = word
-    .replace(new RegExp('[A-Z]', 'g'), function (i: any) {
-      return '-' + i
-    })
-    ?.toLowerCase()
-
-  return newWord
+  return word.replace(new RegExp('[A-Z]', 'g'), function(i: any) {
+    return '-' + i
+  })?.toLowerCase()
 }
 
-function style(styles: any): string {
+export function computedStyle(styles: any): string {
   if (array.isArray(styles)) {
-    return styles
-      .filter(function (item: any) {
+    return styles.
+      filter(function(item: any) {
         return item != null && item !== ''
-      })
-      .map(function (item: any) {
-        return style(item)
-      })
-      .join(';')
+      }).
+      map(function(item: any) {
+        return computedStyle(item)
+      }).
+      join(';')
   }
 
   if (toString.call(styles) === '[object Object]') {
-    return object
-      .keys(styles)
-      .filter(function (key: any) {
+    return object.
+      keys(styles).
+      filter(function(key: any) {
         return styles[key] != null && styles[key] !== ''
-      })
-      .map(function (key: any) {
-        return [kebabCase(key), [styles[key]]].join(':')
-      })
-      .join(';')
+      }).
+      map(function(key: any) {
+        return [ kebabCase(key), [ styles[key] ] ].join(':')
+      }).
+      join(';')
   }
 
   return styles
 }
 
-export { style }
+export { computedStyle as style }
+

@@ -1,6 +1,6 @@
 import { style } from '../wxs/style'
 
-function rootStyle(data: any) {
+export function rootStyle(data: any) {
   if (!data.color) {
     return ''
   }
@@ -17,10 +17,10 @@ function rootStyle(data: any) {
     properties['border-color'] = data.color
   }
 
-  return style([properties])
+  return style([ properties ])
 }
 
-function loadingColor(data: any) {
+export function loadingColor(data: any) {
   if (data.plain) {
     return data.color ? data.color : '#c9c9c9'
   }
@@ -32,4 +32,3 @@ function loadingColor(data: any) {
   return '#fff'
 }
 
-export { rootStyle, loadingColor }

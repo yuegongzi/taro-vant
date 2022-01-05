@@ -8,15 +8,14 @@ import {
   useRef,
   useLayoutEffect,
   forwardRef,
-  useImperativeHandle,
+  useImperativeHandle, useMemo,
 } from 'react'
 import Taro from '@tarojs/taro'
 import * as utils from '../wxs/utils'
-import Toast from '../toast/toast'
-import { requestAnimationFrame } from '../common/utils'
-import VanToast from '../toast/index'
-import VanPopup from '../popup/index'
-import VanButton from '../button/index'
+import Toast from '../toast'
+import { createNamespace, requestAnimationFrame, uuid } from '../utils'
+import Popup from '../popup'
+import Button from '../button'
 import type { CalendarProps, ICalendarInstance } from './PropsType'
 import {
   ROW_HEIGHT,
@@ -32,8 +31,11 @@ import {
   getDayByOffset,
 } from './utils'
 import * as computed from './wxs'
-import Month from './components/month/index'
-import Header from './components/header/index'
+import Month from './components/month'
+import Header from './components/header'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('calendar')
 
 const initialMinDate = getToday().getTime()
 let init = 0
@@ -96,10 +98,10 @@ function Index(
   const [ currentDate, setCurrentDate ] = useState<any>()
   const [ scrollIntoView, setScrollIntoView ] = useState('')
   const contentObserver = useRef<any>()
-  const [ compIndex, setComindex ] = useState(0)
-
+  const [ compIndex, setCompIndex ] = useState(0)
+  const id = useMemo(()=>uuid(),[])
   useEffect(function () {
-    setComindex(init++)
+    setCompIndex(init++)
   }, [])
 
   const limitDateRange = useCallback(
@@ -260,8 +262,9 @@ function Index(
     function (date) {
       if (maxRange && calcDateNum(date) > maxRange) {
         if (showRangePrompt) {
-          Toast({
+          Toast.show({
             // duration: 0,
+            id,
             message: rangePrompt || `选择天数不能超过 ${maxRange} 天`,
           })
         }
@@ -271,6 +274,21 @@ function Index(
       return true
     },
     [ maxRange, overRange, rangePrompt, showRangePrompt ],
+  )
+
+  const onConfirm_ = useCallback(
+    function (_, date?: any) {
+      if (type === 'range' && !checkRange(currentDate)) {
+        return
+      }
+      const e = {
+        detail: {
+          value: date || copyDates(currentDate),
+        },
+      } as ITouchEvent
+      if (onConfirm) onConfirm(e)
+    },
+    [ checkRange, currentDate, onConfirm, type ],
   )
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -356,21 +374,6 @@ function Index(
     [ allowSameDay, currentDate, select, type, unselect ],
   )
 
-  const onConfirm_ = useCallback(
-    function (_, date?: any) {
-      if (type === 'range' && !checkRange(currentDate)) {
-        return
-      }
-      const e = {
-        detail: {
-          value: date || copyDates(currentDate),
-        },
-      } as ITouchEvent
-      if (onConfirm) onConfirm(e)
-    },
-    [ checkRange, currentDate, onConfirm, type ],
-  )
-
   useLayoutEffect(
     function () {
       if (defaultDate)
@@ -410,8 +413,8 @@ function Index(
   return (
     <Block>
       {poppable ? (
-        <VanPopup
-          className={'van-calendar__popup--' + position}
+        <Popup
+          className={clsx(bem('popup',[ position ]))}
           show={show}
           round={round}
           position={position}
@@ -423,7 +426,7 @@ function Index(
           onAfterLeave={onClosed}
         >
           <View
-            className={`van-calendar ${className || ''}`}
+            className={clsx(bem(),className)}
             style={utils.style([ style ])}
             {...others}
           >
@@ -434,7 +437,7 @@ function Index(
               showSubtitle={showSubtitle}
               firstDayOfWeek={firstDayOfWeek}
               onClickSubtitle={() => {
-                if (onClickSubtitle) onClickSubtitle
+                onClickSubtitle?.()
               }}
               renderTitle={renderTitle}
              />
@@ -480,7 +483,7 @@ function Index(
               })}
             >
               {showConfirm && (
-                <VanButton
+                <Button
                   round
                   block
                   type='danger'
@@ -493,11 +496,11 @@ function Index(
                   {computed.getButtonDisabled(type, currentDate)
                     ? confirmDisabledText
                     : confirmText}
-                </VanButton>
+                </Button>
               )}
             </View>
           </View>
-        </VanPopup>
+        </Popup>
       ) : (
         <View
           className={`van-calendar ${className || ''}`}
@@ -514,7 +517,7 @@ function Index(
             renderTitle={<Block>{renderTitle}</Block>}
            />
           <ScrollView
-            className={`van-calendar__body van-calendar__body${compIndex}`}
+            className={clsx(bem('body'),`van-calendar__body${compIndex}`)}
             scrollY
             scrollIntoView={scrollIntoView}
           >
@@ -545,24 +548,20 @@ function Index(
               })}
           </ScrollView>
           <View
-            className={utils.bem('calendar__footer', {
-              safeAreaInsetBottom,
-            })}
+            className={clsx(bem('footer',{ safeAreaInsetBottom }))}
           >
             {renderFooter}
           </View>
           <View
-            className={utils.bem('calendar__footer', {
-              safeAreaInsetBottom,
-            })}
+            className={clsx(bem('footer',{ safeAreaInsetBottom }))}
           >
             {showConfirm && (
-              <VanButton
+              <Button
                 round
                 block
                 type='danger'
                 color={color}
-                className='van-calendar__confirm'
+                className={clsx(bem('confirm'))}
                 disabled={computed.getButtonDisabled(type, currentDate)}
                 // nativeType="text"
                 onClick={onConfirm_}
@@ -570,12 +569,12 @@ function Index(
                 {computed.getButtonDisabled(type, currentDate)
                   ? confirmDisabledText
                   : confirmText}
-              </VanButton>
+              </Button>
             )}
           </View>
         </View>
       )}
-      <VanToast id='van-toast' />
+      <Toast id={id} />
     </Block>
   )
 }
