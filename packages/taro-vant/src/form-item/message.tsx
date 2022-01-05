@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 
 type Iprops = {
   status?: 'reject' | 'pendding' | 'resolve'
@@ -43,12 +43,12 @@ export default function Message(props: Iprops) {
       mess,
       ifShow,
     }
-  }, [status, message, required, name, value, feedback])
+  }, [ status, message, required, name, value, feedback ])
 
   return (
     <>
       {config.ifShow ? (
-        <View className="vant-form-message">
+        <View className='vant-form-message'>
           <Text style={{ color: config.color }}>{config.mess}</Text>
         </View>
       ) : (

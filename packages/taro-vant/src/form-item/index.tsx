@@ -1,13 +1,6 @@
-import {
-  useState,
-  useContext,
-  useEffect,
-  cloneElement,
-  isValidElement,
-  useMemo,
-} from 'react'
+import { cloneElement, isValidElement, useContext, useEffect, useMemo, useState } from 'react'
 import { View } from '@tarojs/components'
-import { FormItemProps, IFormInstanceAPI } from '../../types/form'
+import type { FormItemProps, IFormInstanceAPI } from '../form/PropsType'
 import FormContext from '../form/core/formContext'
 import Label from './label'
 import Message from './message'
@@ -36,7 +29,7 @@ export function FormItem(props: FormItemProps) {
   } = props
   const formInstance = useContext<IFormInstanceAPI>(FormContext)
   const { registerValidateFields, dispatch, unRegisterValidate } = formInstance
-  const [, forceUpdate] = useState({})
+  const [ , forceUpdate ] = useState({})
 
   const onStoreChange = useMemo(() => {
     const onStoreChange = {
@@ -46,17 +39,17 @@ export function FormItem(props: FormItemProps) {
     }
     return onStoreChange
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formInstance])
+  }, [ formInstance ])
 
   useEffect(() => {
     /* 注册表单 */
     name && registerValidateFields(name, onStoreChange, { ...rules, required })
 
-    return function () {
+    return function() {
       name && unRegisterValidate(name)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [onStoreChange])
+  }, [ onStoreChange ])
 
   const getControlled = (child: any) => {
     const props = { ...child.props }

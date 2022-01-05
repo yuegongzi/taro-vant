@@ -1,41 +1,43 @@
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
-import { isObj } from './../common/validator'
-import { TransitionProps } from './../../types/mixins/transition'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { isObj } from '../common/validator'
+import type { TransitionProps } from './PropsType'
+
 const getClassNames = (name: string) => ({
   enter: `van-${name}-enter van-${name}-enter-active enter-class enter-active-class`,
   'enter-to': `van-${name}-enter-to van-${name}-enter-active enter-to-class enter-active-class`,
   leave: `van-${name}-leave van-${name}-leave-active leave-class leave-active-class`,
   'leave-to': `van-${name}-leave-to van-${name}-leave-active leave-to-class leave-active-class`,
 })
+
 export function useTransition({
-  show = false,
-  duration = 300,
-  name = 'fade',
-  onBeforeEnter,
-  onBeforeLeave,
-  onAfterEnter,
-  onAfterLeave,
-  onEnter,
-  onLeave,
-  enterClass,
-  enterActiveClass,
-  enterToClass,
-  leaveClass,
-  leaveActiveClass,
-  leaveToClass,
-}: TransitionProps) {
+                                show = false,
+                                duration = 300,
+                                name = 'fade',
+                                onBeforeEnter,
+                                onBeforeLeave,
+                                onAfterEnter,
+                                onAfterLeave,
+                                onEnter,
+                                onLeave,
+                                enterClass,
+                                enterActiveClass,
+                                enterToClass,
+                                leaveClass,
+                                leaveActiveClass,
+                                leaveToClass,
+                              }: TransitionProps) {
   const transitionEnded = useRef(false)
   const status = useRef('')
-  const [display, setDisplay] = useState(false)
-  const [inited, setInited] = useState(false)
-  const [currentDuration, setCurrentDuration] = useState(0)
-  const [classes, setClasses] = useState('')
+  const [ display, setDisplay ] = useState(false)
+  const [ inited, setInited ] = useState(false)
+  const [ currentDuration, setCurrentDuration ] = useState(0)
+  const [ classes, setClasses ] = useState('')
   const classNames = useMemo(() => {
     const names = getClassNames(name)
     if (!name) {
-      names['enter'] += ` ${enterClass ?? ''}`
+      names.enter += ` ${enterClass ?? ''}`
       names['enter-to'] += `${enterToClass ?? ''} ${enterActiveClass ?? ''} `
-      names['leave'] += `  ${leaveClass ?? ''}`
+      names.leave += `  ${leaveClass ?? ''}`
       names['leave-to'] += ` ${leaveToClass ?? ''} ${leaveActiveClass ?? ''}`
     }
     return names
@@ -63,7 +65,7 @@ export function useTransition({
       // this.setData({ display: false })
       setDisplay(false)
     }
-  }, [display, onAfterEnter, onAfterLeave, show])
+  }, [ display, onAfterEnter, onAfterLeave, show ])
   const _enter = useCallback(() => {
     // debugger
     // const { duration, name } = this.data
@@ -89,7 +91,7 @@ export function useTransition({
         setClasses(classNames['enter-to'])
       })
     })
-  }, [duration, onBeforeEnter, onEnter, classNames])
+  }, [ duration, onBeforeEnter, onEnter, classNames ])
   const _leave = useCallback(() => {
     if (!display) {
       return
@@ -115,10 +117,10 @@ export function useTransition({
         setClasses(classNames['leave-to'])
       })
     })
-  }, [classNames, display, duration, onBeforeLeave, onLeave, onTransitionEnd])
+  }, [ classNames, display, duration, onBeforeLeave, onLeave, onTransitionEnd ])
   useEffect(() => {
     show ? _enter() : _leave()
-  }, [_enter, _leave, show])
+  }, [ _enter, _leave, show ])
 
   return {
     display,
