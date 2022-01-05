@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import type { IFormInstanceAPI } from '.././PropsType'
+import type { IFormInstanceAPI } from '../PropsType'
 import FormStore from './formstore'
 
 export default function useForm(

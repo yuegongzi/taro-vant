@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { unstable_batchedUpdates } from 'react-dom'
-import type { IFormInstanceAPI } from '.././PropsType'
+import type { IFormInstanceAPI } from '../PropsType'
+import { isFunction } from '../../utils'
 
 type IAPI = keyof IFormInstanceAPI
 
@@ -22,6 +22,7 @@ const formInstanceApi = [
 ]
 
 const isReg = (value: any) => value instanceof RegExp
+
 class FormStore {
   static instance: FormStore
   public FormUpdate: () => any
@@ -31,6 +32,7 @@ class FormStore {
   public callback: Record<string, any>
   public penddingValidateQueue: any[]
   public defaultFormValue: Record<string, any>
+
   constructor(forceUpdate: any, defaultFormValue: Record<string, any>) {
     this.FormUpdate = forceUpdate
     this.model = {}
@@ -82,8 +84,7 @@ class FormStore {
   ): void {
     if (this.defaultFormValue[name])
       model['value'] = this.defaultFormValue[name]
-    const validate = FormStore.createValidate(model)
-    this.model[name] = validate
+    this.model[name] = FormStore.createValidate(model)
     this.control[name] = control
   }
 
@@ -187,7 +188,7 @@ class FormStore {
       unstable_batchedUpdates(() => {
         do {
           const notify = this.penddingValidateQueue.shift()
-          notify && notify()
+          notify?.()
         } while (this.penddingValidateQueue.length > 0)
         this.isSchedule = false
       })
@@ -212,14 +213,16 @@ class FormStore {
     this.validateFields((errorMess: string[]) => {
       const { onFinish, onFinishFailed } = this.callback
       const fieldValues = this.getFieldsValue()
-      cb && cb(errorMess.length ? errorMess : null, fieldValues)
-      if (!errorMess)
-        onFinishFailed &&
-          typeof onFinishFailed === 'function' &&
+      cb?.(errorMess.length ? errorMess : null, fieldValues)
+      if (!errorMess) {
+        if (onFinishFailed && isFunction(onFinishFailed)) {
           onFinishFailed()
-      onFinish &&
-        typeof onFinish === 'function' &&
-        onFinish(this.getFieldsValue())
+        }
+        if (onFinish && isFunction(onFinish)) {
+          onFinish(this.getFieldsValue())
+        }
+      }
+
     })
   }
 }
