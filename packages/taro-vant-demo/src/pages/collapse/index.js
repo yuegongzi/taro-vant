@@ -1,11 +1,12 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { CollapseItem, Collapse, Toast, Icon } from 'taro-vant'
+import { Collapse, Toast, Icon } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
+const CollapseItem = Collapse.Item;
 export default class Index extends Component {
   constructor() {
     super()

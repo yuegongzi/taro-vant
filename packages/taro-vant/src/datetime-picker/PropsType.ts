@@ -1,6 +1,6 @@
 import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
-import type { PickerProps } from '../picker/PropsType'
+import type { PickerProps } from '../picker'
 
 /**
  * @title DatetimePickerProps

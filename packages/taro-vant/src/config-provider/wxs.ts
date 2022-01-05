@@ -1,15 +1,9 @@
-import { keys } from '../wxs/object'
-import { style } from '../wxs/style'
+import { computedStyle, keys } from '../utils'
 
 function kebabCase(word: any) {
-  const newWord = word
-    .replace(/[A-Z]/g, function (i: any) {
-      return '-' + i
-    })
-    ?.toLowerCase()
-    .replace(/^-/, '')
-
-  return newWord
+  return word.replace(/[A-Z]/g, function(i: any) {
+    return '-' + i
+  })?.toLowerCase().replace(/^-/, '')
 }
 
 function mapThemeVarsToCSSVars(themeVars: any) {
@@ -19,7 +13,7 @@ function mapThemeVarsToCSSVars(themeVars: any) {
     cssVars[cssVarsKey] = themeVars[key]
   })
 
-  return style(cssVars)
+  return computedStyle(cssVars)
 }
 
 export { kebabCase, mapThemeVarsToCSSVars }

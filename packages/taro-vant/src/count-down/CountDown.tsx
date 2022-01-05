@@ -1,19 +1,17 @@
-import './style/index.less';
-import {
-  useEffect,
-  useState,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-  useCallback,
-} from 'react'
-import { View, Block } from '@tarojs/components'
+import './style/index.less'
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react'
+import { Block, View } from '@tarojs/components'
 import type { CountDownProps, ICountDownRef } from './PropsType'
 import { isSameSecond, parseFormat, parseTimeData } from './util'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('count-down')
 
 function simpleTick(fn: any) {
   return setTimeout(fn, 30)
 }
+
 function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   const _ref: React.MutableRefObject<{
     tid: any
@@ -39,16 +37,16 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   } = props
 
   // 暂停
-  const pause = useCallback(function () {
+  const pause = useCallback(function() {
     _ref.current.counting = false
     clearTimeout(_ref.current.tid)
   }, [])
 
-  const getRemain = useCallback(function () {
+  const getRemain = useCallback(function() {
     return Math.max(_ref.current.endTime! - Date.now(), 0)
   }, [])
   const setRemain = useCallback(
-    function (remain?: number) {
+    function(remain?: number) {
       _ref.current.remain = remain
       const timeData = parseTimeData(remain)
       if (children) {
@@ -68,7 +66,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   )
 
   const microTick = useCallback(
-    function () {
+    function() {
       _ref.current.tid = simpleTick(() => {
         setRemain(getRemain())
         if (_ref.current.remain !== 0) {
@@ -79,7 +77,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
     [ getRemain, setRemain ],
   )
   const macroTick = useCallback(
-    function () {
+    function() {
       _ref.current.tid = simpleTick(() => {
         const remain = getRemain()
         if (!isSameSecond(remain, _ref.current.remain) || remain === 0) {
@@ -94,7 +92,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   )
 
   const tick = useCallback(
-    function () {
+    function() {
       if (millisecond) {
         microTick()
       } else {
@@ -105,7 +103,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   )
   // 开始
   const start = useCallback(
-    function () {
+    function() {
       if (_ref.current.counting) {
         return
       }
@@ -118,7 +116,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
 
   // 重置
   const reset = useCallback(
-    function () {
+    function() {
       pause()
       _ref.current.remain = time
       setRemain(_ref.current.remain)
@@ -142,7 +140,7 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   }))
 
   useEffect(
-    function () {
+    function() {
       reset()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -150,19 +148,20 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
   )
 
   const tid = _ref.current.tid
-  useEffect(function () {
-    return function () {
-      tid && clearTimeout(tid)
+  useEffect(function() {
+    return function() {
+      if (tid) {
+        clearTimeout(tid)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
-    <View className={`van-count-down ${className}`} style={style} {...others}>
+    <View className={clsx(bem(), className)} style={style} {...others}>
       {children ? children : <Block>{formattedTime}</Block>}
     </View>
   )
 }
 
 const CountDown = forwardRef(Index)
-export { CountDown }
 export default CountDown

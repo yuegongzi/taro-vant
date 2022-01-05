@@ -136,7 +136,7 @@ function CollapseItem(
         className={clsx(bem('title', {
           disabled,
           expanded: state.expanded,
-        }), 'van-cell')}
+        }))}
         onClick={onClick}
         renderTitle={<Block>{renderTitle}</Block>}
         renderIcon={<Block>{renderIcon}</Block>}

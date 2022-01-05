@@ -1,22 +1,13 @@
-import './style/index.less';
-import { useState, useCallback, useRef, useLayoutEffect } from 'react'
-import type { PickerChangeEvents } from '../picker/PropsType'
-import VanPicker from '../picker'
-import type {
-  DatetimePickerProps,
-  DatetimePickerEventsByInstance,
-} from './PropsType'
-import * as utils from '../wxs/utils'
-import {
-  defaultFormatter,
-  getMonthEndDay,
-  getTrueValue,
-  times,
-  padZero,
-  range,
-  isValidDate,
-  currentYear,
-} from './wxs'
+import './style/index.less'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import type { PickerChangeEvents } from '../picker'
+import Picker from '../picker'
+import type { DatetimePickerEventsByInstance, DatetimePickerProps } from './PropsType'
+import { currentYear, defaultFormatter, getMonthEndDay, getTrueValue, isValidDate, padZero, range, times } from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('datetime-picker')
 
 export function DatetimePicker(props: DatetimePickerProps) {
   const {
@@ -51,7 +42,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
   const minMinute_ = minMinute
   const maxMinute_ = maxMinute
 
-  const getPicker = useCallback(function () {
+  const getPicker = useCallback(function() {
     if (PickRef.current) {
       const { setColumnValues } = PickRef.current
       PickRef.current.setColumnValues = (...args: any) =>
@@ -61,7 +52,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
   }, [])
 
   const getBoundary = useCallback(
-    function (type, innerValue) {
+    function(type, innerValue) {
       const value = new Date(innerValue)
       const yearDate = `${type}Date` === 'maxDate' ? maxDate : minDate
       const boundary = new Date(yearDate)
@@ -101,7 +92,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const getRanges = useCallback(
-    function (nowValue?: any): any {
+    function(nowValue?: any): any {
       const res = [
         {
           type: 'hour',
@@ -154,8 +145,8 @@ export function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const getOriginColumns = useCallback(
-    function (nowValue?: any) {
-      const results = getRanges(nowValue).map(({ type, range }: any) => {
+    function(nowValue?: any) {
+      return getRanges(nowValue).map(({ type, range }: any) => {
         let values = times(range[1] - range[0] + 1, (index: number) => {
           const value = range[0] + index
           return type === 'year' ? `${value}` : padZero(value)
@@ -166,13 +157,12 @@ export function DatetimePicker(props: DatetimePickerProps) {
 
         return { type, values }
       })
-      return results
     },
     [ filter, getRanges ],
   )
 
   const updateColumns = useCallback(
-    function (nowValue?: any) {
+    function(nowValue?: any) {
       const results = getOriginColumns(nowValue).map((column: any) => ({
         values: column.values.map((value: any) =>
           formatter(column.type, value),
@@ -184,7 +174,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const updateColumnValue = useCallback(
-    function (value: string) {
+    function(value: string) {
       let values: any[] = []
       const picker = getPicker()
       if (type === 'time') {
@@ -221,7 +211,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const correctValue = useCallback(
-    function (value: any) {
+    function(value: any) {
       // validate value
       const isDateType = type !== 'time'
       if (isDateType && !isValidDate(value)) {
@@ -244,17 +234,8 @@ export function DatetimePicker(props: DatetimePickerProps) {
     [ maxDate, maxHour, maxMinute, minDate, minHour, minMinute, type ],
   )
 
-  // useLayoutEffect(
-  //   function () {
-  //     const val = correctValue(value)
-  //     updateColumnValue(val)
-  //   },
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   [correctValue],
-  // )
-
   useLayoutEffect(
-    function () {
+    function() {
       const val = correctValue(value)
       const isEqual = val === innerValue
       if (!isEqual) {
@@ -276,7 +257,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
     [ type, minDate, maxDate, minHour, maxHour, minMinute, maxMinute ],
   )
 
-  const onChange_ = function (e: PickerChangeEvents) {
+  const onChange_ = function(e: PickerChangeEvents) {
     const valueArr: any = e.detail.value
     let value: any
     const picker = getPicker()
@@ -296,8 +277,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
 
     if (type === 'time') {
       const indexes = picker.getIndexes()
-      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1].
-        values[indexes[1]]}`
+      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1].values[indexes[1]]}`
     } else {
       const indexes = picker.getIndexes()
       const values = indexes.map(
@@ -348,10 +328,10 @@ export function DatetimePicker(props: DatetimePickerProps) {
   }
 
   return (
-    <VanPicker
+    <Picker
       ref={PickRef}
-      className={`van-datetime-picker column-class ${others.className || ''}`}
-      style={utils.style([ others.style ])}
+      className={clsx(bem(),others.className)}
+      style={computedStyle([ others.style ])}
       title={title}
       columns={columns}
       itemHeight={itemHeight}
@@ -360,7 +340,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
       confirmButtonText={confirmButtonText}
       cancelButtonText={cancelButtonText}
       onChange={onChange_}
-      onConfirm={function (event) {
+      onConfirm={function(event) {
         if (onConfirm)
           onConfirm({
             detail: {
@@ -370,7 +350,7 @@ export function DatetimePicker(props: DatetimePickerProps) {
           } as any)
       }}
       onCancel={onCancel}
-     />
+    />
   )
 }
 
