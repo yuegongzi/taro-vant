@@ -36,16 +36,16 @@ Notify.show('通知内容');
 
 ```js
 // 主要通知
-Notify.show({ type: 'primary', message: '通知内容' });
+NotifyFunc.show({ type: 'primary', message: '通知内容' });
 
 // 成功通知
-Notify.show({ type: 'success', message: '通知内容' });
+NotifyFunc.show({ type: 'success', message: '通知内容' });
 
 // 危险通知
-Notify.show({ type: 'danger', message: '通知内容' });
+NotifyFunc.show({ type: 'danger', message: '通知内容' });
 
 // 警告通知
-Notify.show({ type: 'warning', message: '通知内容' });
+NotifyFunc.show({ type: 'warning', message: '通知内容' });
 ```
 
 ### 自定义通知
@@ -53,13 +53,13 @@ Notify.show({ type: 'warning', message: '通知内容' });
 自定义消息通知的颜色和展示时长。
 
 ```js
-Notify.show({
+NotifyFunc.show({
   message: '自定义颜色',
   color: '#ad0000',
   background: '#ffe1e1',
 });
 
-Notify.show({
+NotifyFunc.show({
   message: '自定义时长',
   duration: 1000,
 });
@@ -68,7 +68,7 @@ Notify.show({
 ### 自定义选择器
 
 ```js
-Notify.show({
+NotifyFunc.show({
   message: '自定义节点选择器',
   duration: 1000,
   selector: '#customSelector',

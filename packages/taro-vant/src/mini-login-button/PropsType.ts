@@ -1,5 +1,5 @@
 import type { ComponentClass } from 'react'
-import type { ButtonProps } from '../button/PropsType'
+import type { ButtonProps } from '../button'
 
 export interface MiniLoginButtonProps extends ButtonProps {
   onFail: (error: Taro.General.CallbackResult) => void

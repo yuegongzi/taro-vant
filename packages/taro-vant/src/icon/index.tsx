@@ -1,45 +1,4 @@
-import { View, Image } from '@tarojs/components'
-import * as utils from '../wxs/utils'
-import type { IconProps } from './PropsType'
-import { Info } from '../info'
-import * as computed from './wxs'
+import Icon from './Icon';
 
-export function Icon(props: IconProps) {
-  const {
-    classPrefix = 'van-icon',
-    name,
-    color,
-    size,
-    dot,
-    info,
-    style,
-    className,
-    ...others
-  } = props
-  return (
-    <View
-      className={
-        computed.rootClass({
-          classPrefix,
-          name,
-        }) + ` ${className || ''}`
-      }
-      style={utils.style([
-        computed.rootStyle({
-          color,
-          size,
-        }),
-        style,
-      ])}
-      {...others}
-    >
-      {(info || info === 0 || dot) && (
-        <Info dot={dot} info={info} className='van-icon__info' />
-      )}
-      {computed.isImage(name) && (
-        <Image src={name!} mode='aspectFit' className='van-icon__image' />
-      )}
-    </View>
-  )
-}
-export default Icon
+export default Icon;
+export type { IconProps } from './PropsType';

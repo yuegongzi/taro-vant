@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect, useCallback } from 'react'
 import { View, Block } from '@tarojs/components'
 import * as utils from '../wxs/utils'
-import { Icon } from '../icon'
+import Icon from '../icon'
 import { Navbar } from '../common/zIndex'
 import {
   getSystemInfoSync,

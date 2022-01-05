@@ -1,39 +1,4 @@
-import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
-import type { ColProps } from './PropsType'
-import * as computed from './wxs'
+import Col from './Col';
 
-export function Col(props: ColProps): JSX.Element {
-  const {
-    span,
-    offset,
-    gutter = 14,
-    children,
-    className,
-    style,
-    ...others
-  } = props
-
-  return (
-    <View
-      className={
-        '' +
-        utils.bem('col', [ span ]) +
-        ' ' +
-        (offset ? 'van-col--offset-' + offset : '') +
-        ' ' +
-        className
-      }
-      style={utils.style([
-        computed.rootStyle({
-          gutter,
-        }),
-        style,
-      ])}
-      {...others}
-    >
-      {children}
-    </View>
-  )
-}
-export default Col
+export default Col;
+export type { ColProps } from './PropsType';
