@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { isObj } from '../common/validator'
+import { isObj } from '../utils'
 import type { TransitionProps } from './PropsType'
 
 const getClassNames = (name: string) => ({
@@ -119,7 +119,11 @@ export function useTransition({
     })
   }, [ classNames, display, duration, onBeforeLeave, onLeave, onTransitionEnd ])
   useEffect(() => {
-    show ? _enter() : _leave()
+    if(show){
+      _enter()
+    }else {
+      _leave()
+    }
   }, [ _enter, _leave, show ])
 
   return {

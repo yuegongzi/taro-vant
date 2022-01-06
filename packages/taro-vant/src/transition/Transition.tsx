@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import type { TransitionPropsCom } from './PropsType'
 import * as utils from '../wxs/utils'
 import * as computed from './wxs'
-import { useTransition } from '../mixins/transition'
+import { useTransition } from '../hooks'
 
 export function Transition(props: TransitionPropsCom) {
   const {

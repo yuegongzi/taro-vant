@@ -7,7 +7,7 @@ import type { PopupProps } from './PropsType'
 import { Popup as InnerPopup } from '../common/zIndex'
 import VanIcon from './../icon'
 import * as computed from './wxs'
-import { useTransition } from '../mixins/transition'
+import { useTransition } from '../hooks'
 import VanOverlay from './../overlay'
 
 export function Popup(this: any, props: PopupProps) {

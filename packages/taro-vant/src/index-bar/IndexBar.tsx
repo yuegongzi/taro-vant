@@ -16,7 +16,7 @@ import toArray from 'rc-util/lib/Children/toArray'
 import * as utils from '../wxs/utils'
 import { getRect, getAllRect, isDef } from '../utils'
 import { GREEN } from '../common/color'
-import { usePageScroll } from '../mixins/page-scroll'
+import { usePageScroll } from '../hooks'
 import type { IndexBarProps } from './PropsType'
 
 const genIndexList = () => {

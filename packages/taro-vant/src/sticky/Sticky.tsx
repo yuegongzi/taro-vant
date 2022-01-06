@@ -6,7 +6,7 @@ import { getRect } from '../common/utils'
 import { Sticky as InnerSticky } from '../common/zIndex'
 import { isDef } from '../common/validator'
 import type { StickyProps } from './PropsType'
-import { usePageScroll } from '../mixins/page-scroll'
+import { usePageScroll } from '../hooks'
 import * as computed from './wxs'
 export function Sticky(props: StickyProps) {
   const indexRef = useRef(+new Date())
