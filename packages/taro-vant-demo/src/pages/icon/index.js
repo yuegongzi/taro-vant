@@ -42,22 +42,20 @@ export default class Index extends Component {
             </DemoBlock>
             <DemoBlock title='提示信息'>
               <Col className='col' span='6'>
-                <Icon name={demoIcon} size='32px' className='icon' dot />
+                <Icon name={demoIcon} size='32px'  dot />
               </Col>
               <Col className='col' span='6'>
                 <Icon
                   name={demoIcon}
                   size='32px'
-                  className='icon'
-                  info='9'
+                  badge='9'
                 />
               </Col>
               <Col className='col' span='6'>
                 <Icon
                   name={demoIcon}
                   size='32px'
-                  className='icon'
-                  info='99+'
+                  badge='99+'
                 />
               </Col>
             </DemoBlock>

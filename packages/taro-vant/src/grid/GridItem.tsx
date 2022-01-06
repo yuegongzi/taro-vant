@@ -21,7 +21,6 @@ export function GridItem(
     iconColor,
     iconPrefix = 'van-icon',
     dot,
-    info,
     badge,
     text,
     setChildrenInstance,
@@ -122,7 +121,7 @@ export function GridItem(
                   color={iconColor}
                   classPrefix={iconPrefix}
                   dot={dot}
-                  info={badge || info}
+                  badge={badge}
                   size={parentState?.iconSize}
                 />
               ) : (

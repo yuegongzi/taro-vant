@@ -142,6 +142,10 @@ export default [
     icon: 'photo-o',
     list: [
       {
+        path: '/badge',
+        title: 'Badge 徽标',
+      },
+      {
         path: '/circle',
         title: 'Circle 进度条',
       },

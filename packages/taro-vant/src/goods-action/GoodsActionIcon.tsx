@@ -16,7 +16,7 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
     url,
     linkType,
     dot,
-    info,
+    badge,
     icon,
     style,
     onClick,
@@ -46,7 +46,7 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
         <Icon
           name={icon}
           dot={dot}
-          info={info}
+          badge={badge}
           className={clsx(bem('icon'))}
         />
       ) : (

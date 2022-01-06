@@ -3,6 +3,7 @@ export default {
     'pages/dashboard/index',
     'pages/action-sheet/index',
     'pages/button/index',
+    'pages/badge/index',
     'pages/card/index',
     'pages/cell/index',
     'pages/col/index',

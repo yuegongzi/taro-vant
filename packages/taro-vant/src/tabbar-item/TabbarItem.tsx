@@ -67,7 +67,7 @@ export function TabbarItem(
         {icon ? (
           <Icon
             size={38}
-            info={info}
+            badge={info}
             name={icon}
             classPrefix={iconPrefix}
             className='van-tabbar-item__icon__inner'

@@ -23,7 +23,6 @@ export interface GridItemProps extends StandardProps {
   iconColor?: string
   iconPrefix?: string
   dot?: boolean
-  info?: string | number | undefined
   badge?: string | number | undefined
   text?: string
   url?: string

@@ -30,7 +30,7 @@ export interface GoodsActionIconProps
   linkType?: 'navigateTo' | 'reLaunch' | 'redirectTo'
   text?: string
   dot?: boolean
-  info?: string
+  badge?: string
   icon?: string
   renderIcon?: ReactNode
   children?: ReactNode

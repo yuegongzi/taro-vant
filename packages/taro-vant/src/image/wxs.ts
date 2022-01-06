@@ -1,8 +1,8 @@
-import { style } from '../wxs/utils'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
+
 
 function rootStyle(data: any) {
-  return style([
+  return computedStyle([
     {
       width: addUnit(data.width),
       height: addUnit(data.height),

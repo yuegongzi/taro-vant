@@ -3,7 +3,7 @@ import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo,
 import { displayColumns } from './wxs'
 import Picker from '../picker'
 import type { AreaProps } from './PropsType'
-import type { PickerEvents } from '../picker/PropsType'
+import type { PickerEvents } from '../picker'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
 

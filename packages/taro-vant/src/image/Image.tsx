@@ -1,11 +1,14 @@
-import './style/index.less';
-import { useEffect, useState, useCallback, useMemo } from 'react'
-import { View, Image as TaroImage } from '@tarojs/components'
+import './style/index.less'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Image as TaroImage, View } from '@tarojs/components'
 import type { ImageProps } from './PropsType'
-import * as utils from '../wxs/utils'
-import VanIcon from '../icon/index'
-import * as computed from './wxs'
+import Icon from '../icon/index'
 import type { FitType } from './wxs'
+import { mode, rootStyle } from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('image')
 
 type TaroImageMode =
   | 'center'
@@ -15,7 +18,7 @@ type TaroImageMode =
   | 'widthFix'
   | 'heightFix'
 
-export function Image(props: ImageProps) {
+function Image(props: ImageProps) {
   const {
     src,
     round,
@@ -38,23 +41,23 @@ export function Image(props: ImageProps) {
   const [ error, setError ] = useState(false)
 
   useEffect(
-    function () {
+    function() {
       if (loading === undefined) setLoading(true)
       setError(false)
     },
     [ loading ],
   )
 
-  const onLoad = useCallback(function () {
+  const onLoad = useCallback(function() {
     setLoading(false)
   }, [])
 
-  const onError = useCallback(function () {
+  const onError = useCallback(function() {
     setError(true)
   }, [])
   //样式挂在给img外层的webCompoent
   const styleH5 = useMemo(
-    function () {
+    function() {
       let style = {}
       if (process.env.TARO_ENV === 'h5') {
         if (fit === 'heightFix' || fit === 'widthFix') {
@@ -72,55 +75,49 @@ export function Image(props: ImageProps) {
 
   return (
     <View
-      style={utils.style([
-        computed.rootStyle({
+      style={computedStyle([
+        rootStyle({
           width,
           height,
           radius,
         }),
         style,
       ])}
-      className={
-        ' ' +
-        utils.bem('image', {
-          round,
-        }) +
-        ' ' +
-        className
-      }
+      className={clsx(bem({ round }), className)}
       onClick={others.onClick}
       {...others}
     >
       {!error && (
         <TaroImage
           src={src}
-          mode={computed.mode(fit || ('none' as FitType)) as TaroImageMode}
+          mode={mode(fit || ('none' as FitType)) as TaroImageMode}
           lazyLoad={lazyLoad}
-          className='image-class van-image__img'
+          className={clsx(bem('img'))}
           showMenuByLongpress={showMenuByLongpress}
           onLoad={onLoad}
           onError={onError}
           style={styleH5}
-         />
+        />
       )}
       {loading && showLoading && (
-        <View className='loading-class van-image__loading'>
+        <View className={clsx(bem('loading'))}>
           {renderLoading || (
-            <VanIcon name='photo' className='van-image__loading-icon' />
+            <Icon name='photo' className={clsx(bem('loading-icon'))} />
           )}
         </View>
       )}
       {error && showError && (
-        <View className='error-class van-image__error'>
+        <View className={clsx(bem('error'))}>
           {renderError || (
-            <VanIcon
+            <Icon
               name='photo-fail'
-              className='van-image__error-icon'
-             />
+              className={clsx(bem('error-icon'))}
+            />
           )}
         </View>
       )}
     </View>
   )
 }
+
 export default Image
