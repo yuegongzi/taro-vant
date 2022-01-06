@@ -1,11 +1,12 @@
 import './style/index.less';
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
 import debounce from 'lodash/debounce'
 import Loading from '../loading'
 import Empty from '../empty'
+import Divider from '../divider'
 import { useTouch } from '../hooks'
 import { preventDefault, scrollOffset } from './utils'
 import type { ListProps, PullRefreshStatus } from './PropsType'
@@ -33,7 +34,7 @@ const List: React.FC<ListProps> = (props) => {
     pullDistance = props.refresherThreshold || props.pullDistance,
     onRefresh,
     renderHead,
-    successText,
+    successText = '刷新成功',
     children,
     loadingText = '加载中...',
     loosingText = '释放即可刷新...',
@@ -42,12 +43,12 @@ const List: React.FC<ListProps> = (props) => {
     onScroll: onScrollEvent,
     scrollTop,
     offset,
-    finishedText = '没有更多了',
+    finishedText = <Divider contentPosition='center' dashed>我是有底线的</Divider>,
     renderFinished,
     renderLoading,
     finished: _finished,
     renderError,
-    errorText,
+    errorText = '请求失败，点击重新加载',
     total,
     current,
     pageSize = 20,
@@ -358,6 +359,9 @@ const List: React.FC<ListProps> = (props) => {
     if (finished) {
       const text = renderFinished ? renderFinished : finishedText
       if (text) {
+        if(isValidElement(text)){
+          return  text;
+        }
         return <View className={clsx(bem('finished-text'))}>{text}</View>
       }
     }

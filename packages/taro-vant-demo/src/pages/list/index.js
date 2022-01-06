@@ -184,9 +184,7 @@ export default class Index extends Component {
         <Tabs animated>
           <Tab title='基础用法' key='basics'>
             <List
-              finishedText='没有更多了'
               className={`${this.isMin ? 'min-' : ''}pull-basics`}
-              successText='刷新成功'
               successDuration={1500}
               onScrollToUpper={this.basicsDoRefresh}
               onScrollToLower={this.basicsLoadMore}
@@ -202,7 +200,6 @@ export default class Index extends Component {
             <List
               className={`${this.isMin ? 'min-' : ''}pull-error`}
               errorText='请求失败，点击重新加载'
-              finishedText='没有更多了'
               onScrollToUpper={this.errorDoRefresh}
               onScrollToLower={this.errorLoadMore}
               lowerThreshold={300}
