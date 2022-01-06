@@ -1,5 +1,4 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
 
 function isImage(name: any) {
   return name.indexOf('/') !== -1
@@ -22,7 +21,7 @@ function rootClass(data: any) {
 }
 
 function rootStyle(data: any) {
-  return style([
+  return computedStyle([
     {
       color: data.color,
       'font-size': addUnit(data.size),

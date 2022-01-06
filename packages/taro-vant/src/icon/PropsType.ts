@@ -8,7 +8,8 @@ export interface IconProps extends StandardProps {
   color?: string
   style?: string
   classPrefix?: string
-  name?: string
+  name?: string,
+  spin?: boolean,
 }
 
 declare const Icon: ComponentClass<IconProps>

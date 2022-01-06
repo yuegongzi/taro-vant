@@ -1,9 +1,12 @@
-import './style/index.less';
-import { View, Image } from '@tarojs/components'
-import * as utils from '../wxs/utils'
+import './style/index.less'
+import { Image, View } from '@tarojs/components'
 import type { IconProps } from './PropsType'
 import Info from '../info'
-import * as computed from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import { isImage, rootClass, rootStyle } from './wxs'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('icon')
 
 export function Icon(props: IconProps) {
   const {
@@ -15,18 +18,17 @@ export function Icon(props: IconProps) {
     info,
     style,
     className,
+    spin,
     ...others
   } = props
   return (
     <View
-      className={
-        computed.rootClass({
-          classPrefix,
-          name,
-        }) + ` ${className || ''}`
-      }
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx( rootClass({
+        classPrefix,
+        name,
+      }),className,{ [`${bem([ 'spin' ])}`]: spin })}
+      style={computedStyle([
+        rootStyle({
           color,
           size,
         }),
@@ -35,12 +37,13 @@ export function Icon(props: IconProps) {
       {...others}
     >
       {(info || info === 0 || dot) && (
-        <Info dot={dot} info={info} className='van-icon__info' />
+        <Info dot={dot} info={info} className={clsx(bem('info'))} />
       )}
-      {computed.isImage(name) && (
-        <Image src={name!} mode='aspectFit' className='van-icon__image' />
+      {isImage(name) && (
+        <Image src={name!} className={clsx(bem('image'))} mode='aspectFit' />
       )}
     </View>
   )
 }
+
 export default Icon

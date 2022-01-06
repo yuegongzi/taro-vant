@@ -87,11 +87,19 @@ export default class Index extends Component {
                 <Icon name={demoIcon} size='3rem' className='icon' />
               </Col>
             </DemoBlock>
+            <DemoBlock title='图标旋转'>
+              <Col className='col' span='6'>
+                <Icon name='music' size='40' spin className='icon' />
+              </Col>
+              <Col className='col' span='6'>
+                <Icon name='star' size='40' spin className='icon' />
+              </Col>
+            </DemoBlock>
           </Tab>
           <Tab title='基础图标' className='demo-tab-pane'>
-            {icons.basic.map((item) => {
+            {icons.basic.map((item,index) => {
               return (
-                <Col key={item.index} className='col' span='6'>
+                <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />
                   <View className='text'>{item}</View>
                 </Col>
@@ -99,9 +107,9 @@ export default class Index extends Component {
             })}
           </Tab>
           <Tab title='线框风格' className='demo-tab-pane'>
-            {icons.outline.map((item) => {
+            {icons.outline.map((item,index) => {
               return (
-                <Col key={item.index} className='col' span='6'>
+                <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />
                   <View className='text'>{item}</View>
                 </Col>
@@ -109,9 +117,9 @@ export default class Index extends Component {
             })}
           </Tab>
           <Tab title='实底风格' className='demo-tab-pane'>
-            {icons.filled.map((item) => {
+            {icons.filled.map((item,index) => {
               return (
-                <Col key={item.index} className='col' span='6'>
+                <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />
                   <View className='text'>{item}</View>
                 </Col>
