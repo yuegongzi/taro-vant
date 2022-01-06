@@ -11,9 +11,9 @@ const [ bem ] = createNamespace('grid-item')
 
 export function GridItem(
   props: GridItemProps & {
-    setChildrenInstance: any
-    index: number
-    parentInstance: any
+    setChildrenInstance?: any
+    index?: number
+    parentInstance?: any
   },
 ) {
   const {
@@ -80,7 +80,6 @@ export function GridItem(
     updateStyle()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
   return (
     <View
       className={clsx(bem({ square: parentState?.square }), className)}
@@ -100,8 +99,7 @@ export function GridItem(
       }}
     >
       <View className={clsx(bem('content', [
-        parentState?.direction,
-        {
+        parentState?.direction, {
           center: parentState?.center,
           square: parentState?.square,
           reverse: parentState?.reverse,

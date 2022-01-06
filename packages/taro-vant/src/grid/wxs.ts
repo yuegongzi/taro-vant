@@ -1,4 +1,4 @@
-import { addUnit, computedStyle, style } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 function rootStyle(data: any) {
   return computedStyle({
@@ -7,10 +7,13 @@ function rootStyle(data: any) {
 }
 
 function wrapperStyle(data: any) {
+  if(!data.columnNum){
+    return  {}
+  }
   const width = 100 / data.columnNum + '%'
-
   return computedStyle({
-    width: width,
+    // width: width,
+    'flex-basis':width,
     'padding-top': data.square ? width : null,
     'padding-right': addUnit(data.gutter),
     'margin-top':
@@ -22,10 +25,9 @@ function wrapperStyle(data: any) {
 
 function contentStyle(data: any) {
   return data.square
-    ? style({
+    ? computedStyle({
       right: addUnit(data.gutter),
       bottom: addUnit(data.gutter),
-      height: 'auto',
     })
     : ''
 }

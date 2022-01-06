@@ -1,11 +1,11 @@
 import { Text } from '@tarojs/components'
 import { Component } from 'react'
-
-import { CountDown, Grid, GridItem, Toast } from 'taro-vant'
+import { CountDown, Grid, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
+const GridItem = Grid.Item;
 
 export default class Index extends Component {
   state = {

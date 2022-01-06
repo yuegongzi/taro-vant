@@ -1,14 +1,12 @@
 @import '../../style/var.less';
 
 .van-grid {
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
+  display: flex;
+  flex-wrap:wrap ;
 }
 
 .van-grid-item {
   position: relative;
-  float: left;
   box-sizing: border-box;
 
   &--square {
@@ -40,7 +38,7 @@
     }
 
     &--square {
-      position: absolute;
+      position: absolute !important;
       top: 0;
       right: 0;
       left: 0;

@@ -1,9 +1,10 @@
 import { Component } from 'react'
 
-import { Grid, GridItem, Notify, Sidebar, SidebarItem } from 'taro-vant'
+import { Grid, Notify, Sidebar, SidebarItem } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import './index.scss'
+
+const GridItem = Grid.Item
 
 export default class Index extends Component {
   constructor() {

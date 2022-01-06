@@ -1,10 +1,9 @@
 import { Component } from 'react'
-
-import { Grid, GridItem, Image } from 'taro-vant'
+import { Grid, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+const GridItem = Grid.Item;
 
 export default class Index extends Component {
   state = {
@@ -61,9 +60,9 @@ export default class Index extends Component {
           </DemoBlock>
           <DemoBlock title='正方形格子'>
             <Grid square iconSize='48'>
-              {array8.map((item) => {
+              {array8.map((item,index) => {
                 return (
-                  <GridItem icon='photo-o' text='文字' key={item} />
+                  <GridItem icon='photo-o' text='文字' key={index} />
                 )
               })}
             </Grid>
