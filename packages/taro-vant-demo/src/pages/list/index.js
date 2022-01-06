@@ -1,9 +1,7 @@
 import { Component } from 'react'
 import { Text, View } from '@tarojs/components'
-import { Button, Cell, Image, Loading, PowerScrollView, Search, Tab, Tabs, Tag } from 'taro-vant'
+import { Button, Cell, Image, Loading, List, Search, Tab, Tabs, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
-// import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 const sleep = (t) =>
@@ -182,10 +180,10 @@ export default class Index extends Component {
 
   render() {
     return (
-      <DemoPage title='PowerScrollView 滚动列表'>
+      <DemoPage title='List 长列表'>
         <Tabs animated>
           <Tab title='基础用法' key='basics'>
-            <PowerScrollView
+            <List
               finishedText='没有更多了'
               className={`${this.isMin ? 'min-' : ''}pull-basics`}
               successText='刷新成功'
@@ -198,10 +196,10 @@ export default class Index extends Component {
               {this.state.basicsList.map((e, i) => (
                 <Cell key={i} title={e} />
               ))}
-            </PowerScrollView>
+            </List>
           </Tab>
           <Tab title='错误提示' key='error'>
-            <PowerScrollView
+            <List
               className={`${this.isMin ? 'min-' : ''}pull-error`}
               errorText='请求失败，点击重新加载'
               finishedText='没有更多了'
@@ -241,7 +239,7 @@ export default class Index extends Component {
               {this.state.errorList.map((e, i) => (
                 <Cell key={i} title={e} />
               ))}
-            </PowerScrollView>
+            </List>
           </Tab>
           <Tab title='配合搜索使用' key='search'>
             <View className='header'>
@@ -261,7 +259,7 @@ export default class Index extends Component {
               <>
                 {this.state.searchFinished ||
                 this.state.searchList.length > 0 ? (
-                  <PowerScrollView
+                  <List
                     className={`${this.isMin ? 'min-' : ''}pull-search`}
                     successText='刷新成功'
                     finishedText='--- 我是有底线的 ---'
@@ -287,7 +285,7 @@ export default class Index extends Component {
                     {this.state.searchList.map((e, i) => (
                       <Cell key={i} title={e} />
                     ))}
-                  </PowerScrollView>
+                  </List>
                 ) : (
                   <View className='placeholder'>
                     <View className='loadingWrapper'>

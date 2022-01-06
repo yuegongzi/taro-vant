@@ -3,26 +3,18 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import Loading from '../loading'
 import Empty from '../empty'
-import { useTouch } from './useTouch'
+import { useTouch } from '../hooks'
 import { preventDefault, scrollOffset } from './utils'
-import type { PowerScrollViewProps, PullRefreshStatus } from './PropsType'
+import type { ListProps, PullRefreshStatus } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-/**
- * bem helper
- * b() // 'button'
- * b('text') // 'button__text'
- * b({ disabled }) // 'button button--disabled'
- * b('text', { disabled }) // 'button__text button__text--disabled'
- * b(['disabled', 'primary']) // 'button button--disabled button--primary'
- */
-// const [name, bem, t] = createNamespace('pull-refresh')
-// const pullRefreshBem = (name?: string) =>
-//   name ? 'van-pull-refresh__' + name : 'van-pull-refresh'
-const bem = (name?: string) =>
-  name ? 'van-power-scroll-view__' + name : 'van-power-scroll-view'
+const [ bem ] = createNamespace('list')
+
+
 const sleep = (t: number) =>
   new Promise<void>((resolve) => {
     setTimeout(() => {
@@ -32,34 +24,27 @@ const sleep = (t: number) =>
 const DEFAULT_HEAD_HEIGHT = 50
 const TEXT_STATUS = [ 'pulling', 'loosing', 'success' ]
 
-export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
+const List: React.FC<ListProps> = (props) => {
   const {
     headHeight = DEFAULT_HEAD_HEIGHT,
     successDuration = 500,
     animationDuration = 300,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     disabled,
     pullDistance = props.refresherThreshold || props.pullDistance,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onRefresh,
     renderHead,
-    // immediateCheck,
     successText,
     children,
     loadingText = '加载中...',
     loosingText = '释放即可刷新...',
     pullingText = '下拉即可刷新...',
-    // -- list
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     onLoad,
     onScroll: onScrollEvent,
     scrollTop,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     offset,
     finishedText = '没有更多了',
     renderFinished,
     renderLoading,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     finished: _finished,
     renderError,
     errorText,
@@ -68,11 +53,8 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     pageSize = 20,
     emptyDescription,
     emptyImage,
-    //命名以scrollView 为准
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     upperThreshold,
     lowerThreshold = props.lowerThreshold || props.offset || 250,
-    // 重复的属性  以 vant 为准
     refresherEnabled = props.refresherEnabled ?? props.disabled ?? true,
     onScrollToLower = props.onScrollToLower || props.onLoad,
     onScrollToUpper = props.onScrollToUpper || props.onRefresh,
@@ -93,7 +75,7 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     page: 0,
     pageSize,
   })
-
+  const scrollRef = useRef<TaroElement>()
   const [ finished, setFinished ] = useState<boolean>(_finished || false)
   const currentCount = current ?? Array.from(children as any).length
   const listCount = useRef(0)
@@ -214,10 +196,10 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     }
 
     if (TEXT_STATUS.includes(status)) {
-      return <View className={bem('text')}>{getStatusText()}</View>
+      return <View className={clsx(bem('text'))}>{getStatusText()}</View>
     }
     if (status === 'loading') {
-      return <Loading className={bem('loading')}>{getStatusText()}</Loading>
+      return <Loading className={clsx(bem('loading'))}>{getStatusText()}</Loading>
     }
     return ''
   }, [ distance, getStatusText, status, renderHead ])
@@ -343,8 +325,6 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     [ distance, duration ],
   )
 
-  const scrollRef = useRef<TaroElement>()
-
   // ==LIST=======================================
   const isBanLoad = useCallback(() => {
     return (
@@ -372,47 +352,13 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     }
   }, [ currentCount, isBanLoad, onScrollToLower, total ])
 
-  // const check = useCallback(async () => {
-  //   if (!immediateCheck || !scrollY || isBanLoad()) return
-  //   const scrollParentRect = await boundingClientRect(scrollRef.current!)
-
-  //   if (!scrollParentRect?.height) {
-  //     return
-  //   }
-
-  //   const placeholderRect = await boundingClientRect(placeholder.current!)
-  //   const isReachEdge =
-  //     placeholderRect.bottom - scrollParentRect.bottom <= lowerThreshold
-
-  //   if (isReachEdge) {
-  //     doLoadMore()
-  //   } else {
-  //     reachDownRef.current = true
-  //   }
-  // }, [immediateCheck, scrollY, isBanLoad, lowerThreshold, doLoadMore])
-
-  // useEffect(() => {
-  //   // finished || status !== 'normal' || loadingRef.current || errorRef.current
-  //   if (reachDownRef.current) return
-  //   check()
-  //   console.log('loadingRef.current', loadingRef.current, '--change---')
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [reachDownRef.current])
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     check()
-  //   }, 500)
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-
   const placeholder = useRef<TaroElement>()
 
   const renderFinishedText = useCallback((): React.ReactNode => {
     if (finished) {
       const text = renderFinished ? renderFinished : finishedText
       if (text) {
-        return <View className={bem('finished-text')}>{text}</View>
+        return <View className={clsx(bem('finished-text'))}>{text}</View>
       }
     }
     return null
@@ -421,12 +367,11 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
   const renderLoadingText = useCallback((): React.ReactNode => {
     if (!finished && scrollY) {
       return (
-        <View className={bem('loading')}>
+        <View className={clsx(bem('loading'))}>
           {renderLoading ? (
             renderLoading
           ) : (
-            <Loading className={bem('loading-icon')}>
-              {/* {loadingText || t('loading')} */}
+            <Loading className={clsx(bem('loading-icon'))}>
               {loadingText}
             </Loading>
           )}
@@ -448,7 +393,7 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
       const text = renderError ? renderError : errorText
       if (text) {
         return (
-          <View className={bem('error-text')} onClick={clickErrorText}>
+          <View className={clsx(bem('error-text'))} onClick={clickErrorText}>
             {text}
           </View>
         )
@@ -495,7 +440,7 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
     >
       {/* <View className={bem()}> */}
       <View
-        className={bem('track')}
+        className={clsx(bem('track'))}
         style={trackStyle}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -503,12 +448,12 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
         onTouchStart={onTouchStart}
       >
         <CustomWrapper>
-          <View className={bem('head')} style={getHeadStyle()}>
+          <View className={clsx(bem('head'))} style={getHeadStyle()}>
             {renderStatus()}
           </View>
         </CustomWrapper>
         {children}
-        <View ref={placeholder} className={bem('placeholder')} />
+        <View ref={placeholder} className={clsx(bem('placeholder'))} />
         {ListScrollContent()}
       </View>
       {/* </View> */}
@@ -516,4 +461,4 @@ export const PullRefresh: React.FC<PowerScrollViewProps> = (props) => {
   )
 }
 
-export default PullRefresh
+export default List

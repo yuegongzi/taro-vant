@@ -1,6 +1,6 @@
 export type ScrollElement = Element | Window
-import { ITouchEvent } from '@tarojs/components'
-import { TaroElement } from '@tarojs/runtime'
+import type { ITouchEvent } from '@tarojs/components'
+import type { TaroElement } from '@tarojs/runtime'
 import { createSelectorQuery } from '@tarojs/taro'
 
 function selectorQuery(nodesRef?: TaroElement) {
@@ -10,6 +10,7 @@ function selectorQuery(nodesRef?: TaroElement) {
     return createSelectorQuery().select('#' + nodesRef.uid)
   }
 }
+
 export function scrollOffset(nodesRef: TaroElement) {
   return new Promise<{
     scrollLeft: number // 节点的水平滚动位置
@@ -24,9 +25,9 @@ export function scrollOffset(nodesRef: TaroElement) {
         scrollTop: _nodesRef.scrollTop,
       })
     }
-    return selectorQuery(nodesRef)
-      .scrollOffset()
-      .exec((res) => {
+    return selectorQuery(nodesRef).
+      scrollOffset().
+      exec((res) => {
         resolve(res[0])
       })
   })
@@ -53,13 +54,14 @@ export function boundingClientRect(nodesRef: TaroElement) {
         nodesRef || document.documentElement || document.body
       return resolve(_nodesRef.getBoundingClientRect())
     }
-    return selectorQuery(nodesRef)
-      .boundingClientRect()
-      .exec((res) => {
+    return selectorQuery(nodesRef).
+      boundingClientRect().
+      exec((res) => {
         resolve(res[0])
       })
   })
 }
+
 export const stopPropagation = (event: ITouchEvent) => event.stopPropagation()
 
 export function preventDefault(

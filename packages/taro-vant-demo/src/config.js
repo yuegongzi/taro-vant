@@ -166,13 +166,13 @@ export default [
         title: 'Empty 空状态',
       },
       {
+        path: '/list',
+        title: 'List 长列表',
+      },
+      {
         path: '/notice-bar',
         title: 'NoticeBar 通知栏',
       },
-      // {
-      //   path: '/panel',
-      //   title: 'Panel 面板',
-      // },
       {
         path: '/progress',
         title: 'Progress 进度条',
@@ -196,11 +196,7 @@ export default [
       {
         path: '/tree-select',
         title: 'TreeSelect 分类选择',
-      },
-      {
-        path: '/power-scroll-view',
-        title: 'PowerScrollView 滚动列表',
-      },
+      }
     ],
   },
   {

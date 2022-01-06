@@ -19,16 +19,12 @@ export default class Index extends Component {
           <Image
             mode='aspectFit'
             className='demo-home__image'
-            src='https://antm-js.gitee.io/resource/antmjs-vantui.jpg'
+            src='https://img.yzcdn.cn/vant/logo.png'
           />
-          <View className='demo-home__text'>@antmjs/vantui</View>
+          <View className='demo-home__text'>taro-vant</View>
         </View>
         <View className='demo-home__desc'>
-          Taro-React H5-React通用的UI 组件库
-        </View>
-        <View className='demo-home__desc'>
-          <View>已支持通过Taro编译的小程序、H5</View>
-          <View>已支持React应用</View>
+          轻量、可靠的小程序UI组件库
         </View>
         {list.map((group, index) => {
           return (

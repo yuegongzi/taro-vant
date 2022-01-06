@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'taro-vant',
+  navigationBarTitleText: 'List 长列表',
   enableShareAppMessage: true,
 }

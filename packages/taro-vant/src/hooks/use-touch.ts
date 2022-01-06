@@ -1,5 +1,6 @@
 import { useRef } from 'react'
-import { ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components'
+
 const MIN_DISTANCE = 10
 
 type Direction = '' | 'vertical' | 'horizontal'
@@ -13,6 +14,7 @@ function getDirection(x: number, y: number) {
   }
   return ''
 }
+
 export const useTouch = () => {
   const startX = useRef(0)
   const startY = useRef(0)

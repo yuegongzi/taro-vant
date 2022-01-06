@@ -1,0 +1,61 @@
+@import '../../style/var.less';
+
+.van-list {
+  // overflow: hidden;
+  user-select: none;
+  // height: 100%;
+
+  &__track {
+    position: relative;
+    min-height: 100%;
+    transition-property: transform;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    // text-align: center;
+    transform: translateY(-100%);
+    .theme(height, '@list-head-height');
+    .theme(color, '@list-head-text-color');
+    .theme(font-size, '@list-head-font-size');
+    // .theme(line-height,'@list-head-height');
+  }
+
+  &__loading {
+    .van-loading__spinner {
+      .theme(width, '@list-loading-icon-size');
+      .theme(height, '@list-loading-icon-size');
+    }
+  }
+
+  // ---power-scroll
+  &__loading,
+  &__finished-text,
+  &__error-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // text-align: center;
+    .theme(color, '@list-text-color');
+    .theme(font-size, '@list-text-font-size');
+    .theme(height, '@list-text-line-height');
+  }
+
+  &__placeholder {
+    height: 0;
+    pointer-events: none;
+  }
+
+  &__loading-icon {
+    .van-loading__spinner {
+      .theme(width, '@list-loading-icon-size');
+      .theme(height, '@list-loading-icon-size');
+    }
+  }
+}

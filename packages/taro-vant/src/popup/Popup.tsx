@@ -1,16 +1,17 @@
-import './style/index.less';
-/* eslint-disable react/prop-types */
+import './style/index.less'
 import { View } from '@tarojs/components'
-import { useState, useEffect, useCallback, useRef } from 'react'
-import * as utils from '../wxs/utils'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PopupProps } from './PropsType'
-import { Popup as InnerPopup } from '../common/zIndex'
-import VanIcon from './../icon'
-import * as computed from './wxs'
+import Icon from '../icon'
+import { popupStyle } from './wxs'
 import { useTransition } from '../hooks'
-import VanOverlay from './../overlay'
+import Overlay from '../overlay'
+import { computedStyle, createNamespace, Popup as InnerPopup } from '../utils'
+import clsx from 'clsx'
 
-export function Popup(this: any, props: PopupProps) {
+const [ bem ] = createNamespace('popup')
+
+function Popup(this: any, props: PopupProps) {
   const {
     show,
     duration = 300,
@@ -93,7 +94,7 @@ export function Popup(this: any, props: PopupProps) {
   return (
     <>
       {overlay && (
-        <VanOverlay
+        <Overlay
           show={show}
           zIndex={zIndex}
           style={overlayStyle}
@@ -103,22 +104,16 @@ export function Popup(this: any, props: PopupProps) {
         />
       )}
       {inited && (
-        <View
-          className={
-            classes +
-            ' ' +
-            utils.bem('popup', [
-              position,
-              {
-                round,
-                safe: safeAreaInsetBottom,
-                safeTop: safeAreaInsetTop,
-              },
-            ]) +
-            `  ${className || ''}`
-          }
-          style={utils.style([
-            computed.popupStyle({
+        <View className={clsx(bem([
+          position,
+          {
+            round,
+            safe: safeAreaInsetBottom,
+            safeTop: safeAreaInsetTop,
+          },
+        ]),classes,className)}
+          style={computedStyle([
+            popupStyle({
               zIndex,
               currentDuration,
               display,
@@ -130,19 +125,18 @@ export function Popup(this: any, props: PopupProps) {
         >
           {children}
           {closeable && (
-            // @ts-check
-            <VanIcon
+            <Icon
               name={closeIcon}
-              className={
-                'close-icon-class van-popup__close-icon van-popup__close-icon--' +
-                getClassName(closeIconPosition)
-              }
+              className={clsx(bem('close-icon',[
+                `${ getClassName(closeIconPosition)}`
+              ]))}
               onClick={_onClickCloseIcon}
-             />
+            />
           )}
         </View>
       )}
     </>
   )
 }
+
 export default Popup

@@ -30,7 +30,7 @@ type eventType = {
   pageSize: number
 }
 
-export interface PowerScrollViewProps<T = number>
+export interface ListProps<T = number>
   extends StandardProps,
     PullRefreshProps,
     Omit<ScrollViewProps, 'onScrollToUpper' | 'onScrollToLower'> {
@@ -59,6 +59,6 @@ export interface PowerScrollViewProps<T = number>
   ) => Promise<void>
 }
 
-declare const PowerScrollView: ComponentClass<PowerScrollViewProps>
+declare const List: ComponentClass<ListProps>
 
-export { PowerScrollView }
+export { List }

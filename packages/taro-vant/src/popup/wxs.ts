@@ -1,8 +1,7 @@
-/* eslint-disable */
-import * as utils from '../wxs/utils'
+import { computedStyle } from '../utils'
 
 function popupStyle(data: any) {
-  return utils.style([
+  return computedStyle([
     {
       'z-index': data.zIndex,
       '-webkit-transition-duration': data.currentDuration + 'ms',

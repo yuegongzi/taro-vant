@@ -1,4 +1,5 @@
 @import '../../style/var.less';
+
 .van-popup {
   position: fixed;
   box-sizing: border-box;
@@ -72,7 +73,7 @@
   }
 
   &__close-icon {
-    position: absolute;
+    position: absolute !important;
     .theme(z-index, '@popup-close-icon-z-index');
     .theme(color, '@popup-close-icon-color');
     .theme(font-size, '@popup-close-icon-size');
