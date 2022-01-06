@@ -1,9 +1,7 @@
 import { Component } from 'react'
-
 import { Loading } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-
-import DemoBlock from '../../components/demo-block/index'
+import DemoPage from '../../components/demo-page'
+import DemoBlock from '../../components/demo-block'
 import './index.scss'
 
 export default class Index extends Component {
@@ -20,6 +18,7 @@ export default class Index extends Component {
           <DemoBlock title='加载类型' padding>
             <Loading className='demo-loading' />
             <Loading className='demo-loading' type='spinner' />
+            <Loading className='demo-loading' type='ball' />
           </DemoBlock>
           <DemoBlock title='自定义颜色' padding>
             <Loading className='demo-loading' color='#1989fa' />

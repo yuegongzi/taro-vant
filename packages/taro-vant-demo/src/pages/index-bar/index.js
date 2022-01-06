@@ -1,9 +1,9 @@
 import { Text } from '@tarojs/components'
 import { Component, Fragment } from 'react'
+import { Cell, IndexBar, Tab, Tabs } from 'taro-vant'
+import DemoPage from '../../components/demo-page'
 
-import { Cell, IndexAnchor, IndexBar, Tab, Tabs } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-
+const IndexAnchor = IndexBar.Anchor
 const indexList = []
 const charCodeOfA = 'A'.charCodeAt(0)
 for (let i = 0; i < 26; i++) {

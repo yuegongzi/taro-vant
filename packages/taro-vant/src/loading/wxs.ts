@@ -1,8 +1,7 @@
-import { style } from '../wxs/utils'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
 
 function spinnerStyle(data: any) {
-  return style({
+  return computedStyle({
     color: data.color,
     width: addUnit(data.size),
     height: addUnit(data.size),
@@ -10,7 +9,7 @@ function spinnerStyle(data: any) {
 }
 
 function textStyle(data: any) {
-  return style({
+  return computedStyle({
     'font-size': addUnit(data.textSize),
   })
 }

@@ -1,9 +1,13 @@
-import './style/index.less';
+import './style/index.less'
 import { Text, View } from '@tarojs/components'
 import React from 'react'
-import * as utils from '../wxs/utils'
 import type { IndexAnchorProps } from './PropsType'
-export function IndexAnchor(
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('index-anchor')
+
+function IndexAnchor(
   props: IndexAnchorProps & {
     anchorStyle: React.CSSProperties
     wrapperStyle: React.CSSProperties
@@ -22,15 +26,14 @@ export function IndexAnchor(
   } = props
   return (
     <View
-      className={`van-index-anchor-wrapper ${className || ''}`}
-      style={utils.style([ wrapperStyle, style ])}
+      className={clsx(bem('wrapper',className))}
+      style={computedStyle([ wrapperStyle, style ])}
       {...others}
     >
       <View
-        className={
-          'van-index-anchor ' +
-          (active ? 'van-index-anchor--active van-hairline--bottom' : '')
-        }
+        className={clsx(bem({
+          active,bottom: active
+        }))}
         style={anchorStyle}
       >
         {children ? (
@@ -44,5 +47,6 @@ export function IndexAnchor(
     </View>
   )
 }
+
 IndexAnchor.displayName = 'IndexAnchor'
 export default IndexAnchor

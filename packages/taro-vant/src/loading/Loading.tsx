@@ -1,9 +1,12 @@
-import './style/index.less';
-import { View, Block } from '@tarojs/components'
+import './style/index.less'
+import { Block, View } from '@tarojs/components'
 import { useState } from 'react'
-import * as utils from '../wxs/utils'
 import type { LoadingProps } from './PropsType'
-import * as computed from './wxs'
+import { spinnerStyle, textStyle } from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('loading')
 
 export function Loading(props: LoadingProps): JSX.Element {
   const {
@@ -22,20 +25,13 @@ export function Loading(props: LoadingProps): JSX.Element {
 
   return (
     <View
-      className={
-        ' ' +
-        utils.bem('loading', {
-          vertical,
-        }) +
-        ' ' +
-        className
-      }
-      style={utils.style([ style ])}
+      className={clsx(bem({ vertical }), className)}
+      style={computedStyle([ style ])}
       {...others}
     >
       <View
-        className={'van-loading__spinner van-loading__spinner--' + type}
-        style={computed.spinnerStyle({
+        className={clsx(bem('spinner', [ type ]))}
+        style={spinnerStyle({
           color,
           size,
         })}
@@ -46,16 +42,24 @@ export function Loading(props: LoadingProps): JSX.Element {
               return (
                 <View
                   key={`van-loading__dot_${index}`}
-                  className='van-loading__dot'
-                 />
+                  className={clsx(bem('dot'))}
+                />
               )
             })}
           </Block>
         )}
+        {type === 'ball' && (
+            <View className={clsx(bem('ball'))}>
+              <View />
+              <View />
+              <View />
+            </View>
+          )
+        }
       </View>
       <View
-        className='van-loading__text'
-        style={computed.textStyle({
+        className={clsx(bem('text'))}
+        style={textStyle({
           textSize,
         })}
       >
@@ -65,4 +69,5 @@ export function Loading(props: LoadingProps): JSX.Element {
   )
 }
 
+Loading.displayName = 'Loading'
 export default Loading

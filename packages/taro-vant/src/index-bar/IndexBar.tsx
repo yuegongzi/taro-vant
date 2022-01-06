@@ -1,23 +1,15 @@
-import './style/index.less';
-import type { ITouchEvent, ITouch } from '@tarojs/components';
+import './style/index.less'
+import type { ITouch, ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-import {
-  useCallback,
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  isValidElement,
-  cloneElement,
-} from 'react'
-// import { throttle } from 'lodash'
-import { pageScrollTo, nextTick } from '@tarojs/taro'
+import { cloneElement, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { nextTick, pageScrollTo } from '@tarojs/taro'
 import toArray from 'rc-util/lib/Children/toArray'
-import * as utils from '../wxs/utils'
-import { getRect, getAllRect, isDef } from '../utils'
-import { GREEN } from '../common/color'
+import { computedStyle, createNamespace, getAllRect, getRect, GREEN, isDef } from '../utils'
 import { usePageScroll } from '../hooks'
 import type { IndexBarProps } from './PropsType'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('index-bar')
 
 const genIndexList = () => {
   const indexList = []
@@ -29,25 +21,23 @@ const genIndexList = () => {
 }
 
 function parseIndexAnchor(children: React.ReactNode): any[] {
-  return toArray(children).
-    map(
-      (node: React.ReactElement<{ index: number | string }>, index: number) => {
-        if (isValidElement(node)) {
-          const key = node.key !== undefined ? String(node.key) : index
-          return {
-            key,
-            ...node.props,
-            node,
-          }
+  return toArray(children).map(
+    (node: React.ReactElement<{ index: number | string }>, index: number) => {
+      if (isValidElement(node)) {
+        const key = node.key !== undefined ? String(node.key) : index
+        return {
+          key,
+          ...node.props,
+          node,
         }
+      }
 
-        return null
-      },
-    ).
-    filter((indexAnchor) => !!indexAnchor)
+      return null
+    },
+  ).filter((indexAnchor) => !!indexAnchor)
 }
 
-export function IndexBar(props: IndexBarProps) {
+function IndexBar(props: IndexBarProps) {
   const {
     sticky = true,
     zIndex = 1,
@@ -69,9 +59,7 @@ export function IndexBar(props: IndexBarProps) {
   const scrollToAnchorIndexRef = useRef<any>(null)
   const rectRef = useRef<any>({})
 
-  const realAnchor = useRef<
-    { top: number; height: number; childIndex: number; index: number }[]
-  >([])
+  const realAnchor = useRef<{ top: number; height: number; childIndex: number; index: number }[]>([])
   const _children = useMemo(() => {
     let anchorIndex = 0
     return parseIndexAnchor(children).map((anchor: any, index: number) => {
@@ -91,9 +79,9 @@ export function IndexBar(props: IndexBarProps) {
       }
       const props = data
         ? {
-            ...defaultProps,
-            ...data,
-          }
+          ...defaultProps,
+          ...data,
+        }
         : defaultProps
       // console.log(props, anchor.node?.props?.index)
       return cloneElement(anchor.node, props)
@@ -348,13 +336,13 @@ export function IndexBar(props: IndexBarProps) {
 
   return (
     <View
-      className={`van-index-bar ${className || ''}`}
-      style={utils.style([ style ])}
+      className={clsx(bem(), className)}
+      style={computedStyle([ style ])}
     >
       {_children}
       {showSidebar && (
         <View
-          className='van-index-bar__sidebar'
+          className={clsx(bem('sidebar'))}
           onClick={_onClick}
           onTouchMove={_onTouchMove}
           onTouchEnd={_onTouchStop}
@@ -364,7 +352,7 @@ export function IndexBar(props: IndexBarProps) {
             return (
               <View
                 key={index}
-                className='van-index-bar__index'
+                className={clsx(bem('index'))}
                 style={
                   'z-index: ' +
                   (zIndex + 1) +
@@ -382,4 +370,5 @@ export function IndexBar(props: IndexBarProps) {
     </View>
   )
 }
+IndexBar.displayName= 'IndexBar'
 export default IndexBar

@@ -1,4 +1,5 @@
 @import '../../style/var.less';
+
 .van-index-bar {
   position: relative;
 
@@ -18,5 +19,22 @@
     .theme(padding, '0 @padding-base 0 @padding-md');
     .theme(font-size, '@index-bar-index-font-size');
     .theme(line-height, '@index-bar-index-line-height');
+  }
+}
+
+
+.van-index-anchor {
+  .theme(padding, '@index-anchor-padding');
+  .theme(color, '@index-anchor-text-color');
+  .theme(font-weight, '@index-anchor-font-weight');
+  .theme(font-size, '@index-anchor-font-size');
+  .theme(line-height, '@index-anchor-line-height');
+  .theme(background-color, '@index-anchor-background-color');
+
+  &--active {
+    right: 0;
+    left: 0;
+    .theme(color, '@index-anchor-active-text-color');
+    .theme(background-color, '@index-anchor-active-background-color');
   }
 }

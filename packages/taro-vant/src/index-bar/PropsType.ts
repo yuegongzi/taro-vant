@@ -13,3 +13,12 @@ export interface IndexBarProps extends StandardProps {
 
 declare const IndexBar: ComponentClass<IndexBarProps>
 export { IndexBar }
+
+
+export interface IndexAnchorProps extends StandardProps {
+  index: string | number
+  children?: ReactNode
+}
+
+declare const IndexAnchor: ComponentClass<IndexAnchorProps>
+export { IndexAnchor }
