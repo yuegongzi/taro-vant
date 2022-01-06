@@ -10,7 +10,6 @@ import {
   Icon,
   Popup,
   Radio,
-  RadioGroup,
   Rate,
   Slider,
   Stepper,
@@ -25,6 +24,7 @@ import './index.scss'
 
 const FormItem = Form.Item
 const CheckboxGroup = Checkbox.Group
+const RadioGroup = Radio.Group
 
 export default class Index extends Component {
   constructor() {

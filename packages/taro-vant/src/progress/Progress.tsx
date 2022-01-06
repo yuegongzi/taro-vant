@@ -1,17 +1,19 @@
-import './style/index.less';
+import './style/index.less'
 import Taro from '@tarojs/taro'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import * as utils from '../wxs/utils'
 import type { ProgressProps } from './PropsType'
-import { BLUE } from '../common/color'
-import { getRect } from '../common/utils'
+import { BLUE, createNamespace, getRect } from '../utils'
 import * as computed from './wxs'
+import clsx from 'clsx'
 
-export function Progress(props: ProgressProps) {
+const [ bem ] = createNamespace('progress')
+
+function Progress(props: ProgressProps) {
   const [ right, setRight ] = useState(0)
   useEffect(
-    function () {
+    function() {
       Taro.nextTick(() => {
         Promise.all([
           getRect(null, '.van-progress'),
@@ -42,7 +44,7 @@ export function Progress(props: ProgressProps) {
 
   return (
     <View
-      className={'van-progress  ' + className}
+      className={clsx(bem(),className)}
       style={utils.style([
         computed.rootStyle({
           strokeWidth,
@@ -53,7 +55,7 @@ export function Progress(props: ProgressProps) {
       {...others}
     >
       <View
-        className='van-progress__portion'
+        className={clsx(bem('portion'))}
         style={computed.portionStyle({
           percentage,
           inactive,
@@ -69,7 +71,7 @@ export function Progress(props: ProgressProps) {
               color,
               right,
             })}
-            className='van-progress__pivot'
+            className={clsx(bem('pivot'))}
           >
             {computed.pivotText(pivotText, percentage)}
           </View>
@@ -78,4 +80,5 @@ export function Progress(props: ProgressProps) {
     </View>
   )
 }
+
 export default Progress

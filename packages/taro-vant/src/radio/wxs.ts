@@ -1,5 +1,4 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit, computedStyle } from '../utils'
 
 function iconStyle(data: any) {
   const styles: any = {
@@ -15,7 +14,7 @@ function iconStyle(data: any) {
     styles['background-color'] = data.checkedColor
   }
 
-  return style(styles)
+  return computedStyle(styles)
 }
 
 export { iconStyle }

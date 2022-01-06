@@ -2,13 +2,14 @@ import './style/index.less';
 import type { ITouchEvent } from '@tarojs/components';
 import { View } from '@tarojs/components'
 import { useState, useEffect, useCallback, useContext } from 'react'
-import * as utils from '../wxs/utils'
 import type { RadioProps } from './PropsType'
-import VanIcon from '../icon/index'
-// import { canIUseModel } from '../common/version'
-import RadioGroupContext from '../radio-group/context'
-import { isEmptyObject } from '../utils/type'
+import Icon from '../icon'
+import RadioGroupContext from './context'
+import { createNamespace, isEmptyObject,addUnit } from '../utils'
 import * as computed from './wxs'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('radio')
 
 export function Radio(props: RadioProps) {
   const [ state, setState ] = useState({
@@ -110,42 +111,33 @@ export function Radio(props: RadioProps) {
 
   return (
     <View
-      className={utils.bem('radio', [ state.direction ]) + `  ${className}`}
+      className={clsx(bem([ state.direction ]),className)}
       style={style}
       {...others}
     >
       {labelPosition === 'left' && (
-        <View
-          className={
-            utils.bem('radio__label', [
-              labelPosition,
-              {
-                disabled: disabled || state.parentDisabled,
-              },
-            ]) + ' label-class'
-          }
+        <View className={clsx(bem('label',[
+          labelPosition, { disabled: disabled || state.parentDisabled },
+        ]))}
           onClick={onClickLabel}
         >
           {children}
         </View>
       )}
-      <View
-        className='van-radio__icon-wrap'
-        style={'font-size: ' + utils.addUnit(iconSize)}
+      <View className={clsx(bem('icon-wrap'))}
+        style={'font-size: ' + addUnit(iconSize)}
         onClick={onClick}
       >
         {renderIcon || (
-          <VanIcon
+          <Icon
             name='success'
-            className={
-              utils.bem('radio__icon', [
-                shape,
-                {
-                  disabled: disabled || state.parentDisabled,
-                  checked: state.value === name,
-                },
-              ]) + ' icon-class'
-            }
+            className={clsx(bem('icon', [
+              shape,
+              {
+                disabled: disabled || state.parentDisabled,
+                checked: state.value === name,
+              },
+            ]))}
             style={computed.iconStyle({
               iconSize,
               checkedColor,
@@ -159,15 +151,12 @@ export function Radio(props: RadioProps) {
       </View>
       {labelPosition === 'right' && (
         <View
-          className={
-            'label-class ' +
-            utils.bem('radio__label', [
-              labelPosition,
-              {
-                disabled: disabled || state.parentDisabled,
-              },
-            ])
-          }
+          className={clsx(bem('label', [
+            labelPosition,
+            {
+              disabled: disabled || state.parentDisabled,
+            },
+          ]))}
           onClick={onClickLabel}
         >
           {children}

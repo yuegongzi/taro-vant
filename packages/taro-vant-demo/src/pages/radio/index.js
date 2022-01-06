@@ -1,12 +1,13 @@
 import { Component } from 'react'
 
-import { Cell, Image, Radio, RadioGroup } from 'taro-vant'
+import { Cell, Image, Radio } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 const CellGroup = Cell.Group
+const RadioGroup = Radio.Group
 export default class Index extends Component {
   state = {
     radio1: '1',

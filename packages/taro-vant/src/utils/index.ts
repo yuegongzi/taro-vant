@@ -1,5 +1,4 @@
 export * from './delay'
-export * from './px-transform'
 export * from './style'
 export * from './uuid'
 export * from './scroll'

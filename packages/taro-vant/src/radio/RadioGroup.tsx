@@ -1,12 +1,12 @@
 import './style/index.less';
 import { View } from '@tarojs/components'
-
-import * as utils from '../wxs/utils'
 import type { RadioGroupProps } from './PropsType'
 import RadioGroupContext from './context'
-import { assembly } from '../utils'
+import { assembly, createNamespace } from '../utils'
+import clsx from 'clsx'
+const [ bem ] = createNamespace('radio-group')
 
-export function RadioGroup(props: RadioGroupProps) {
+function RadioGroup(props: RadioGroupProps) {
   const {
     value = null,
     direction = 'vertical',
@@ -31,10 +31,7 @@ export function RadioGroup(props: RadioGroupProps) {
         onChange: _onChange,
       }}
     >
-      <View
-        className={
-          utils.bem('radio-group', [ direction ]) + ` ${className || ''}`
-        }
+      <View className={clsx(bem([ direction ]),className)}
         style={style}
         {...others}
       >
