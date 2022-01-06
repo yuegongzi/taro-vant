@@ -1,4 +1,7 @@
-import NavBar from './NavBar';
+import NavBar from './NavBar'
+import MiniNavBar from './MiniNavBar'
 
-export default NavBar;
-export type { NavBarProps } from './PropsType';
+const NavBarNamespace = Object.assign(NavBar, { MiniNavBar })
+export default NavBarNamespace
+export { NavBarNamespace as NavBar }
+export type { NavBarProps, MiniNavBarProps } from './PropsType'

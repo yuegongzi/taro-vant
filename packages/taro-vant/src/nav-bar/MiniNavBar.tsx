@@ -1,17 +1,15 @@
 import Taro from '@tarojs/taro'
-import { useState, useEffect, useCallback } from 'react'
-import { View, Block } from '@tarojs/components'
-import * as utils from '../wxs/utils'
+import { useCallback, useEffect, useState } from 'react'
+import { Block, View } from '@tarojs/components'
 import Icon from '../icon'
-import { Navbar } from '../common/zIndex'
-import {
-  getSystemInfoSync,
-  getMenuButtonBoundingClientRect,
-} from '../common/utils'
+import { computedStyle, createNamespace, getMenuButtonBoundingClientRect, getSystemInfoSync, Navbar } from '../utils'
 import type { MiniNavBarProps } from './PropsType'
-import * as computed from './wxs'
+import { barStyle } from './wxs'
+import clsx from 'clsx'
 
-export function MiniNavBar(props: MiniNavBarProps) {
+const [ bem ] = createNamespace('mini-nav-bar')
+
+function MiniNavBar(props: MiniNavBarProps) {
   const [ state, setState ] = useState({
     height: 40,
     fromTop: 44,
@@ -53,7 +51,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
   const [ homeButton, setHomeButton ] = useState(false)
 
   useEffect(
-    function () {
+    function() {
       const pages = Taro.getCurrentPages()
       if (pages.length >= 1) {
         const ins: any = pages[pages.length - 1]
@@ -69,7 +67,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
     [ homeUrl ],
   )
 
-  useEffect(function () {
+  useEffect(function() {
     const sysInfo = getSystemInfoSync()
     const menuInfo = getMenuButtonBoundingClientRect()
     if (sysInfo && menuInfo) {
@@ -89,35 +87,26 @@ export function MiniNavBar(props: MiniNavBarProps) {
       {fixed && placeholder && (
         <View style={{ height: `${height + fromTop}px` }} />
       )}
-      <View
-        className={
-          utils.bem('mini-nav-bar', {
-            fixed,
-          }) +
-          '  ' +
-          (border ? 'van-hairline--bottom' : '') +
-          ` ${className || ''}`
-        }
-        style={utils.style([
-          computed.barStyle({
+      <View className={clsx(bem({ fixed }),{ 'van-hairline--bottom':border },className)}
+        style={computedStyle([
+          barStyle({
             zIndex,
             fromTop,
             height,
             fromLeft,
           }) +
-            '; ' +
-            style,
+          '; ' +
+          style,
         ])}
         {...others}
       >
-        <View className='van-mini-nav-bar__content'>
+        <View className={clsx(bem('content'))}>
           <View
-            className='van-mini-nav-bar__left'
+            className={clsx(bem('left'))}
             style={{ left: `${fromLeft}px` }}
           >
             {backButton && (
-              <View
-                className={`van-mini-nav-bar__left-menu van-mini-nav-bar__left-menu-${buttonColor}`}
+              <View className={clsx(bem('left-menu',[ buttonColor ]))}
                 onClick={handleGoBack}
                 style={{
                   width: `${menuHeight}px`,
@@ -128,8 +117,7 @@ export function MiniNavBar(props: MiniNavBarProps) {
               </View>
             )}
             {homeButton && (
-              <View
-                className={`van-mini-nav-bar__left-menu van-mini-nav-bar__left-menu-${buttonColor}`}
+              <View className={clsx(bem('left-menu',[ buttonColor ]))}
                 onClick={handleGoHome}
                 style={{
                   width: `${menuHeight}px`,
@@ -140,16 +128,16 @@ export function MiniNavBar(props: MiniNavBarProps) {
               </View>
             )}
           </View>
-          <View
-            className='van-mini-nav-bar__title title-class van-ellipsis'
+          <View className={clsx(bem('title'),'van-ellipsis')}
             style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
           >
             {title ? <Block>{title}</Block> : renderTitle}
           </View>
-          <View className='van-mini-nav-bar__right' />
+          <View className={clsx(bem('right'))} />
         </View>
       </View>
     </Block>
   )
 }
+
 export default MiniNavBar

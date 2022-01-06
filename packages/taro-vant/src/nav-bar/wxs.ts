@@ -1,13 +1,10 @@
-import { style } from '../wxs/style'
+import { computedStyle } from '../utils'
 
-function barStyle(data: any) {
-  return style({
+export function barStyle(data: any) {
+  return computedStyle({
     'z-index': data.zIndex,
     'padding-top': data.safeAreaInsetTop
       ? data.statusBarHeight + 'px'
       : data.fromTop + 'px',
-    height: data.height + 'px',
   })
 }
-
-export { barStyle }

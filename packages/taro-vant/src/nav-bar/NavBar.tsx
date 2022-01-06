@@ -1,14 +1,15 @@
-import './style/index.less';
-import { useState, useEffect, useCallback } from 'react'
-import { View, Block } from '@tarojs/components'
-import * as utils from '../wxs/utils'
-import { Navbar } from '../common/zIndex'
-import { getRect, getSystemInfoSync } from '../common/utils'
+import './style/index.less'
+import { useCallback, useEffect, useState } from 'react'
+import { Block, View } from '@tarojs/components'
+import { computedStyle, createNamespace, getRect, getSystemInfoSync, Navbar } from '../utils'
 import type { NavBarProps } from './PropsType'
 import Icon from '../icon'
-import * as computed from './wxs'
+import { barStyle } from './wxs'
+import clsx from 'clsx'
 
-export function NavBar(props: NavBarProps) {
+const [ bem ] = createNamespace('nav-bar')
+
+function NavBar(props: NavBarProps) {
   const [ height, setHeight ] = useState(46)
   const [ statusBarHeight, setStatusBarHeight ] = useState(44)
   const {
@@ -30,9 +31,8 @@ export function NavBar(props: NavBarProps) {
     className,
     ...others
   } = props
-
   const setNextHeight = useCallback(
-    function () {
+    function() {
       if (!fixed || !placeholder) {
         return
       }
@@ -45,59 +45,50 @@ export function NavBar(props: NavBarProps) {
     [ fixed, placeholder ],
   )
 
-  useEffect(function () {
+  useEffect(function() {
     const { statusBarHeight } = getSystemInfoSync()
     setHeight(46 + statusBarHeight)
     setStatusBarHeight(statusBarHeight)
   }, [])
 
   useEffect(
-    function () {
+    function() {
       setNextHeight()
     },
     [ setNextHeight ],
   )
-
   return (
     <Block>
       {fixed && placeholder && (
         <View style={'height: ' + height + 'px;'} />
       )}
-      <View
-        className={
-          utils.bem('nav-bar', {
-            fixed,
-          }) +
-          '  ' +
-          (border ? 'van-hairline--bottom' : '') +
-          ` ${className || ''}`
-        }
-        style={utils.style([
-          computed.barStyle({
-            zIndex,
-            statusBarHeight,
-            safeAreaInsetTop,
-          }) +
-            '; ' +
-            style,
-        ])}
-        {...others}
+      <View className={clsx(bem({ fixed }), { 'van-hairline--bottom': border }, className)}
+            style={computedStyle([
+              barStyle({
+                zIndex,
+                statusBarHeight,
+                safeAreaInsetTop
+              }) +
+              '; ' +
+              style,
+            ])}
+            {...others}
       >
-        <View className='van-nav-bar__content'>
-          <View className='van-nav-bar__left' onClick={onClickLeft}>
+        <View className={clsx(bem('content'))}>
+          <View className={clsx(bem('left'))} onClick={onClickLeft}>
             {leftArrow || leftText ? (
               <Block>
                 {leftArrow && (
                   <Icon
                     size={64}
                     name='arrow-left'
-                    className='van-nav-bar__arrow'
-                   />
+                    className={clsx(bem('arrow'))}
+                  />
                 )}
                 {leftText && (
                   <View
-                    className='van-nav-bar__text'
-                    hoverClass='van-nav-bar__text--hover'
+                    className={clsx(bem('text'))}
+                    hoverClass={clsx(bem('text', [ 'hover' ], true))}
                     hoverStayTime={70}
                   >
                     {leftText}
@@ -108,14 +99,14 @@ export function NavBar(props: NavBarProps) {
               renderLeft
             )}
           </View>
-          <View className='van-nav-bar__title title-class van-ellipsis'>
+          <View className={clsx(bem('title'), 'van-ellipsis')}>
             {title ? <Block>{title}</Block> : renderTitle}
           </View>
-          <View className='van-nav-bar__right' onClick={onClickRight}>
+          <View className={clsx(bem('right'))} onClick={onClickRight}>
             {rightText ? (
               <View
-                className='van-nav-bar__text'
-                hoverClass='van-nav-bar__text--hover'
+                className={clsx(bem('text'))}
+                hoverClass={clsx(bem('text', [ 'hover' ], true))}
                 hoverStayTime={70}
               >
                 {rightText}
@@ -129,4 +120,5 @@ export function NavBar(props: NavBarProps) {
     </Block>
   )
 }
+
 export default NavBar

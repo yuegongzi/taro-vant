@@ -29,6 +29,7 @@ let menuInfo: any
 export function getMenuButtonBoundingClientRect() {
   if (menuInfo == null) {
     menuInfo = Taro.getMenuButtonBoundingClientRect()
+    console.log(menuInfo)
   }
   return menuInfo
 }
