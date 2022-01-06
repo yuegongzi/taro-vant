@@ -1,9 +1,12 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import { cloneElement, useCallback, useMemo, useRef, useEffect } from 'react'
+import { cloneElement, useCallback, useEffect, useMemo, useRef } from 'react'
 import type { GridProps } from './PropsType'
-import * as utils from '../wxs/utils'
-import * as computed from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+import { rootStyle } from './wxs'
+
+const [ bem ] = createNamespace('grid')
 
 export function Grid(props: GridProps) {
   const {
@@ -23,29 +26,29 @@ export function Grid(props: GridProps) {
 
   const childrenInstance = useRef<any[]>([])
 
-  const updateChildren = useCallback(function () {
+  const updateChildren = useCallback(function() {
     childrenInstance.current.forEach((child) => {
       child.updateStyle()
     })
   }, [])
 
   useEffect(
-    function () {
+    function() {
       updateChildren()
     },
     [ updateChildren ],
   )
 
-  const setChildrenInstance = useCallback(function (
-    index: number,
-    instance: any,
-  ) {
-    childrenInstance.current[index] = instance
-  },
-  [])
+  const setChildrenInstance = useCallback(function(
+      index: number,
+      instance: any,
+    ) {
+      childrenInstance.current[index] = instance
+    },
+    [])
 
   const ResetChildren = useMemo(
-    function () {
+    function() {
       const res: JSX.Element[] = []
       if (others.children && Array.isArray(others.children)) {
         others.children.forEach((child, index) => {
@@ -77,14 +80,12 @@ export function Grid(props: GridProps) {
 
   return (
     <View
-      className={
-        'van-grid  ' +
-        (border && !gutter ? 'van-hairline--top' : '') +
-        ' ' +
-        className
-      }
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx(bem(), {
+        ['van-hairline--top']: border && !gutter,
+      }, className)}
+
+      style={computedStyle([
+        rootStyle({
           gutter,
         }),
         style,
@@ -94,4 +95,5 @@ export function Grid(props: GridProps) {
     </View>
   )
 }
+
 export default Grid

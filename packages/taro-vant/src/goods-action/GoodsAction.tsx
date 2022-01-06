@@ -1,31 +1,29 @@
-import './style/index.less';
+import './style/index.less'
 import { cloneElement, isValidElement } from 'react'
 import { View } from '@tarojs/components'
 import toArray from 'rc-util/lib/Children/toArray'
-import type { GoodsActionProps,GoodsActionButtonProps } from './PropsType'
+import type { GoodsActionButtonProps, GoodsActionProps } from './PropsType'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('goods-action')
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children).
-    map((node: React.ReactElement<GoodsActionButtonProps>) => {
-      if (isValidElement(node)) {
-        const key = node.key !== undefined ? String(node.key) : undefined
-        return {
-          key,
-          ...node.props,
-          node,
-        }
+  return toArray(children).map((node: React.ReactElement<GoodsActionButtonProps>) => {
+    if (isValidElement(node)) {
+      const key = node.key !== undefined ? String(node.key) : undefined
+      return {
+        key,
+        ...node.props,
+        node,
       }
+    }
 
-      return null
-    }).
-    filter((tab) => tab)
+    return null
+  }).filter((tab) => tab)
 }
 
- function GoodsAction(props: GoodsActionProps) {
+function GoodsAction(props: GoodsActionProps) {
   const {
     safeAreaInsetBottom = true,
     style,
@@ -51,9 +49,7 @@ function parseTabList(children: React.ReactNode): any[] {
 
   return (
     <View
-      className={clsx(bem('goods-action', {
-        safe: safeAreaInsetBottom,
-      }),className)}
+      className={clsx(bem({ safe: safeAreaInsetBottom }), className)}
       style={style}
       {...others}
     >
@@ -62,5 +58,5 @@ function parseTabList(children: React.ReactNode): any[] {
   )
 }
 
-GoodsAction.displayName='GoodsAction'
+GoodsAction.displayName = 'GoodsAction'
 export default GoodsAction

@@ -1,4 +1,7 @@
 import Grid from './Grid';
+import GridItem from './GridItem';
 
-export default Grid;
-export type { GridProps } from './PropsType';
+const GridNamespace = Object.assign(Grid,{ Item: GridItem })
+export default GridNamespace;
+export { GridNamespace as Grid };
+export type { GridProps,GridItemProps } from './PropsType';
