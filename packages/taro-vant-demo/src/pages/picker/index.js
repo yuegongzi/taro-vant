@@ -2,11 +2,8 @@ import { Component } from 'react'
 import { Picker, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
-export default class Index extends Component {
-  constructor() {
-    super()
-  }
 
+export default class Index extends Component {
   state = {
     column1: [ '杭州', '宁波', '温州', '嘉兴', '湖州' ],
     column2: [
@@ -29,6 +26,10 @@ export default class Index extends Component {
         defaultIndex: 2,
       },
     ],
+  }
+
+  constructor() {
+    super()
   }
 
   onChange1 = (event) => {
@@ -63,7 +64,7 @@ export default class Index extends Component {
               columns={column1}
               defaultIndex={2}
               onChange={this.onChange1}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='展示顶部栏'>
             <Picker
@@ -73,7 +74,7 @@ export default class Index extends Component {
               onChange={this.onChange1}
               onConfirm={this.onConfirm}
               onCancel={this.onCancel}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='多列联动'>
             <Picker columns={column4} onChange={this.onChange2} />

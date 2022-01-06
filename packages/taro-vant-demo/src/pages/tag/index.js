@@ -7,15 +7,15 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: {
       success: true,
       primary: true,
     },
+  }
+
+  constructor() {
+    super()
   }
 
   onClose = (event) => {

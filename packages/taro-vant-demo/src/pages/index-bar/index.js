@@ -1,7 +1,7 @@
 import { Text } from '@tarojs/components'
 import { Component, Fragment } from 'react'
 
-import { IndexAnchor, IndexBar, Tabs, Tab, Cell } from 'taro-vant'
+import { Cell, IndexAnchor, IndexBar, Tab, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 const indexList = []
@@ -11,15 +11,15 @@ for (let i = 0; i < 26; i++) {
 }
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     activeTab: 0,
     indexList,
     customIndexList: [ 1, 2, 3, 4, 5, 6, 8, 9, 10 ],
     scrollTop: 0,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {

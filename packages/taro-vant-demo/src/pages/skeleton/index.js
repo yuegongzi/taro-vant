@@ -1,18 +1,18 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Skeleton, Switch, Image } from 'taro-vant'
+import { Image, Skeleton, Switch } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: false,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = ({ detail }) => {
@@ -29,7 +29,7 @@ export default class Index extends Component {
               title
               row='3'
               rowWidth={[ '100%', '100%', '80%' ]}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='显示头像'>
             <Skeleton title avatar row='3' />
@@ -39,13 +39,13 @@ export default class Index extends Component {
               checked={show}
               size='24px'
               onChange={this.onChange}
-             />
+            />
             <Skeleton title avatar row='3' loading={!show}>
               <View className='demo-preview'>
                 <Image
                   className='demo-preview-img'
                   src='https://antm-js.gitee.io/resource/antmjs-vantui.jpg'
-                 />
+                />
                 <View className='demo-content'>
                   <View className='demo-content-h3'>关于 @antmjs/vantui</View>
                   <View className='domo-content-p'>

@@ -7,10 +7,11 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
+  state = {}
+
   constructor() {
     super()
   }
-  state = {}
 
   render() {
     return (
@@ -26,7 +27,7 @@ export default class Index extends Component {
               className='demo-loading'
               type='spinner'
               color='#1989fa'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='加载文案' padding>
             <Loading className='demo-loading' size='24px'>

@@ -1,19 +1,19 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Overlay, Button } from 'taro-vant'
+import { Button, Overlay } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: false,
     showEmbedded: false,
+  }
+
+  constructor() {
+    super()
   }
 
   onClickShow = () => {
@@ -32,7 +32,8 @@ export default class Index extends Component {
     this.setState({ showEmbedded: false })
   }
 
-  noop = () => {}
+  noop = () => {
+  }
 
   render() {
     const { show, showEmbedded } = this.state

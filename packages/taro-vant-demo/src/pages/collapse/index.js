@@ -1,17 +1,13 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Collapse, Toast, Icon } from 'taro-vant'
+import { Collapse, Icon, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-const CollapseItem = Collapse.Item;
+const CollapseItem = Collapse.Item
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     active1: [ 0 ],
     active2: 0,
@@ -24,6 +20,10 @@ export default class Index extends Component {
     content2:
       '网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失',
     content3: '线上拓客，随时预约，贴心顺手的开单收银',
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -165,7 +165,7 @@ export default class Index extends Component {
                       <Icon
                         name='question-o'
                         className='van-icon-question'
-                       />
+                      />
                     </View>
                   </>
                 }

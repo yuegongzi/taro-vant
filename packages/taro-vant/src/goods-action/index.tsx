@@ -1,4 +1,11 @@
-import GoodsAction from './GoodsAction';
+import GoodsAction from './GoodsAction'
+import GoodsActionButton from './GoodsActionButton'
+import GoodsActionIcon from './GoodsActionIcon'
 
-export default GoodsAction;
-export type { GoodsActionProps } from './PropsType';
+const GoodsActionNamespace = Object.assign(GoodsAction, {
+  Icon: GoodsActionIcon,
+  Button: GoodsActionButton,
+})
+export default GoodsActionNamespace
+export { GoodsActionNamespace as GoodsAction }
+export type { GoodsActionProps, GoodsActionIconProps, GoodsActionButtonProps } from './PropsType'

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Tabs, Tab, Icon, Col } from 'taro-vant'
+import { Col, Icon, Tab, Tabs } from 'taro-vant'
 
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
@@ -9,15 +9,15 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     icons,
     active: 0,
     demoIcon: 'chat-o',
     demoImage: 'https://b.yzcdn.cn/vant/icon-demo-1126.png',
+  }
+
+  constructor() {
+    super()
   }
 
   onSwitch = (event) => {
@@ -50,7 +50,7 @@ export default class Index extends Component {
                   size='32px'
                   className='icon'
                   info='9'
-                 />
+                />
               </Col>
               <Col className='col' span='6'>
                 <Icon
@@ -58,7 +58,7 @@ export default class Index extends Component {
                   size='32px'
                   className='icon'
                   info='99+'
-                 />
+                />
               </Col>
             </DemoBlock>
             <DemoBlock title='图标颜色'>
@@ -68,7 +68,7 @@ export default class Index extends Component {
                   size='32px'
                   className='icon'
                   color='#1989fa'
-                 />
+                />
               </Col>
               <Col className='col' span='6'>
                 <Icon
@@ -76,7 +76,7 @@ export default class Index extends Component {
                   size='32px'
                   className='icon'
                   color='#07c160'
-                 />
+                />
               </Col>
             </DemoBlock>
             <DemoBlock title='图标大小'>

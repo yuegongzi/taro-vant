@@ -1,13 +1,16 @@
-import './style/index.less';
+import './style/index.less'
 import { useCallback } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
+import type { ITouchEvent } from '@tarojs/components'
 import { Text } from '@tarojs/components'
-import VanButton from '../button'
-import VanIcon from '../icon'
-import { jumpLink } from '../common/jumpLink'
+import Button from '../button'
+import Icon from '../icon'
 import type { GoodsActionIconProps } from './PropsType'
+import clsx from 'clsx'
+import { createNamespace, jumpLink } from '../utils'
 
-export function GoodsActionIcon(props: GoodsActionIconProps) {
+const [ bem ] = createNamespace('goods-action-icon')
+
+function GoodsActionIcon(props: GoodsActionIconProps) {
   const {
     text,
     url,
@@ -23,7 +26,7 @@ export function GoodsActionIcon(props: GoodsActionIconProps) {
   } = props
 
   const _click: (event: ITouchEvent) => void = useCallback(
-    function (event) {
+    function(event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
@@ -31,26 +34,28 @@ export function GoodsActionIcon(props: GoodsActionIconProps) {
   )
 
   return (
-    <VanButton
+    <Button
       square
       size='large'
-      className={`van-goods-action-icon ${className}`}
+      className={clsx(bem(), className)}
       style={style}
       onClick={_click}
       {...others}
     >
       {icon ? (
-        <VanIcon
+        <Icon
           name={icon}
           dot={dot}
           info={info}
-          className='van-goods-action-icon__icon icon-class'
-         />
+          className={clsx(bem('icon'))}
+        />
       ) : (
         renderIcon
       )}
-      <Text className='text-class'>{text}</Text>
-    </VanButton>
+      <Text>{text}</Text>
+    </Button>
   )
 }
+
+GoodsActionIcon.displayName = 'GoodsActionIcon'
 export default GoodsActionIcon

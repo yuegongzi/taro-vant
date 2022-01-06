@@ -32,6 +32,16 @@ export interface FormProps extends StandardProps {
    * @default 5.2em
    */
   labelWidth?: string;
+  /**
+   * 是否展示圆角风格
+   * @default false
+   */
+  inset?: boolean;
+  /**
+   * 是否显示外边框
+   * @default true
+   */
+  border?: boolean
 }
 
 /**

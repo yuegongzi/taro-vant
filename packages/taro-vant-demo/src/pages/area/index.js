@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Toast, Area } from 'taro-vant'
+import { Area, Toast } from 'taro-vant'
 
 import { areaList } from '@vant/area-data'
 import DemoPage from '../../components/demo-page/index'
@@ -8,14 +8,14 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     areaList: areaList,
     loading: false,
     value: 330302,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -45,7 +45,7 @@ export default class Index extends Component {
               onChange={this.onChange}
               onConfirm={this.onConfirm}
               onCancel={this.onCancel}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='选中省市县'>
             <Area
@@ -54,7 +54,7 @@ export default class Index extends Component {
               areaList={areaList}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='配置显示列'>
             <Area
@@ -64,7 +64,7 @@ export default class Index extends Component {
               areaList={areaList}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='配置列占位提示文字'>
             <Area
@@ -75,7 +75,7 @@ export default class Index extends Component {
               columnsPlaceholder={[ '请选择', '请选择', '请选择' ]}
               onChange={this.onChange}
               onConfirm={this.onConfirm}
-             />
+            />
           </DemoBlock>
           <Toast id='van-toast' />
         </>

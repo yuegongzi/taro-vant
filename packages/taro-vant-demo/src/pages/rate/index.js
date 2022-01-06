@@ -7,10 +7,6 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     value1: 3,
     value2: 3,
@@ -19,6 +15,10 @@ export default class Index extends Component {
     value5: 4,
     value6: 3,
     value8: 2,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -43,7 +43,7 @@ export default class Index extends Component {
               icon='like'
               voidIcon='like-o'
               defaultValue={value2}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义样式'>
             <Rate
@@ -53,7 +53,7 @@ export default class Index extends Component {
               color='#ffd21e'
               voidIcon='star'
               voidColor='#eee'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='半星'>
             <Rate
@@ -62,35 +62,35 @@ export default class Index extends Component {
               allowHalf
               voidIcon='star'
               voidColor='#eee'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义数量'>
             <Rate
               className='rate-position'
               defaultValue={value5}
               count={6}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='禁用状态'>
             <Rate
               className='rate-position'
               defaultValue={value6}
               disabled
-             />
+            />
           </DemoBlock>
           <DemoBlock title='只读状态'>
             <Rate
               className='rate-position'
               defaultValue={value6}
               readonly
-             />
+            />
           </DemoBlock>
           <DemoBlock title='监听 change 事件'>
             <Rate
               className='rate-position'
               value={value8}
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <Toast id='van-toast' />
         </>

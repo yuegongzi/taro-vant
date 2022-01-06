@@ -3,6 +3,7 @@ import React, { forwardRef, memo, useImperativeHandle } from 'react'
 import Form, { useForm } from 'rc-field-form'
 import type { FormProps, IFormInstanceAPI } from './PropsType'
 import FormContext from './formContext'
+import Cell from '../cell'
 import message from './message'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
@@ -18,6 +19,8 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
     children,
     labelWidth = '5.2em',
     layout,
+    inset = false,
+    border = true,
     ...options
   } = props
   const _onFinish = (values: any) => {
@@ -35,7 +38,10 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
         validateMessages={message}
         onFinish={_onFinish}
         className={clsx(bem(), className)}>
-        {children}
+        <Cell.Group inset={inset} border={border}>
+          {children}
+        </Cell.Group>
+
       </Form>
     </FormContext.Provider>
   )

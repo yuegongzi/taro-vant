@@ -7,10 +7,11 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
+  state = {}
+
   constructor() {
     super()
   }
-  state = {}
 
   render() {
     return (

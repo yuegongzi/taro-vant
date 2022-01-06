@@ -2,9 +2,11 @@ import './style/index.less';
 import { cloneElement, isValidElement } from 'react'
 import { View } from '@tarojs/components'
 import toArray from 'rc-util/lib/Children/toArray'
-import * as utils from '../wxs/utils'
-import type { GoodsActionProps } from './PropsType'
-import type { GoodsActionButtonProps } from '../goods-action-button'
+import type { GoodsActionProps,GoodsActionButtonProps } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('goods-action')
 
 function parseTabList(children: React.ReactNode): any[] {
   return toArray(children).
@@ -23,7 +25,7 @@ function parseTabList(children: React.ReactNode): any[] {
     filter((tab) => tab)
 }
 
-export function GoodsAction(props: GoodsActionProps) {
+ function GoodsAction(props: GoodsActionProps) {
   const {
     safeAreaInsetBottom = true,
     style,
@@ -49,13 +51,9 @@ export function GoodsAction(props: GoodsActionProps) {
 
   return (
     <View
-      className={
-        ' ' +
-        utils.bem('goods-action', {
-          safe: safeAreaInsetBottom,
-        }) +
-        ` ${className || ''}`
-      }
+      className={clsx(bem('goods-action', {
+        safe: safeAreaInsetBottom,
+      }),className)}
       style={style}
       {...others}
     >
@@ -64,4 +62,5 @@ export function GoodsAction(props: GoodsActionProps) {
   )
 }
 
+GoodsAction.displayName='GoodsAction'
 export default GoodsAction

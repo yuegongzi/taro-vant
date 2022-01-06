@@ -1,4 +1,4 @@
-export default function (options = {}) {
+export default function(options = {}) {
   return Page({
     onShareAppMessage() {
       return {

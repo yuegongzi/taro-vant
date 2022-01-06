@@ -1,17 +1,13 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { TabbarItem, Tabbar, Image } from 'taro-vant'
+import { Image, Tabbar, TabbarItem } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     active: 0,
     active2: 'home',
@@ -23,6 +19,10 @@ export default class Index extends Component {
       normal: 'https://img.yzcdn.cn/vant/user-inactive.png',
       active: 'https://img.yzcdn.cn/vant/user-active.png',
     },
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -150,7 +150,7 @@ export default class Index extends Component {
                       src={icon.normal}
                       mode='aspectFit'
                       style='width: 30px; height: 18px;'
-                     />
+                    />
                   </>
                 }
                 renderIconActive={
@@ -159,7 +159,7 @@ export default class Index extends Component {
                       src={icon.active}
                       mode='aspectFit'
                       style='width: 30px; height: 18px;'
-                     />
+                    />
                   </>
                 }
               >

@@ -1,17 +1,13 @@
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { Component } from 'react'
 
-import { Row, Loading, Image, Col } from 'taro-vant'
+import { Col, Image, Loading, Row } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     fits: [
       'contain',
@@ -23,6 +19,10 @@ export default class Index extends Component {
       'heightFix',
     ],
     src: 'https://img.yzcdn.cn/vant/cat.jpeg',
+  }
+
+  constructor() {
+    super()
   }
 
   render() {
@@ -45,7 +45,7 @@ export default class Index extends Component {
                       width='100%'
                       height='27vw'
                       src={src}
-                     />
+                    />
                     <View className='text'>{fit}</View>
                   </Col>
                 )
@@ -63,7 +63,7 @@ export default class Index extends Component {
                       width='100%'
                       height='27vw'
                       src={src}
-                     />
+                    />
                     <View className='text'>{fit}</View>
                   </Col>
                 )
@@ -85,7 +85,7 @@ export default class Index extends Component {
                       <Loading type='spinner' size='20' vertical />
                     </>
                   }
-                 />
+                />
                 <View className='text'>自定义提示</View>
               </Col>
             </Row>
@@ -106,7 +106,7 @@ export default class Index extends Component {
                       <Text>加载失败</Text>
                     </>
                   }
-                 />
+                />
                 <View className='text'>自定义提示</View>
               </Col>
             </Row>

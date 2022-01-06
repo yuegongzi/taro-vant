@@ -1,6 +1,7 @@
 import { navigateTo } from '@tarojs/taro'
 import { Component } from 'react'
 import './app.less'
+
 let oldHash = ''
 export default class Index extends Component {
   onPageNotFound() {
@@ -24,6 +25,7 @@ export default class Index extends Component {
       }
       return url
     }
+
     if (process.env.TARO_ENV !== 'h5') return
     window.top?.postMessage({ type: 'iframeReady' }, '*')
     window.addEventListener('message', (event) => {

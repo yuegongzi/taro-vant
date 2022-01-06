@@ -1,20 +1,11 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import {
-  Tabs,
-  Tab,
-  PowerScrollView,
-  Cell,
-  Loading,
-  Search,
-  Button,
-  Tag,
-  Image,
-} from 'taro-vant'
+import { Text, View } from '@tarojs/components'
+import { Button, Cell, Image, Loading, PowerScrollView, Search, Tab, Tabs, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 // import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
 const sleep = (t) =>
   new Promise((resolve) => {
     setTimeout(() => {
@@ -47,9 +38,6 @@ const mockRequest = async (_startIndex, isRefresh, name) => {
 }
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
   error = false
   isMin = process.env.TARO_ENV !== 'h5'
   state = {
@@ -62,6 +50,10 @@ export default class Index extends Component {
     searchList: [],
     searchFinished: false,
     searchValue: 'empty',
+  }
+
+  constructor() {
+    super()
   }
 
   // 基础用法

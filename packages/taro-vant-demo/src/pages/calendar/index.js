@@ -8,10 +8,6 @@ import computed from './index.wxs.js'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     date: {
       maxRange: [],
@@ -45,6 +41,10 @@ export default class Index extends Component {
     confirmText: undefined,
     confirmDisabledText: undefined,
     firstDayOfWeek: 0,
+  }
+
+  constructor() {
+    super()
   }
 
   onConfirm = (event) => {
@@ -207,7 +207,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='选择多个日期'
@@ -223,7 +223,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='选择日期区间'
@@ -239,7 +239,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='快捷选择'>
             <Cell
@@ -257,7 +257,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='选择日期区间'
@@ -273,7 +273,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义日历'>
             <Cell
@@ -291,7 +291,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='自定义日期范围'
@@ -307,7 +307,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='自定义按钮文字'
@@ -323,7 +323,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='自定义日期文案'
@@ -339,7 +339,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='自定义弹出位置'
@@ -355,7 +355,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <Cell
               isLink
               title='日期区间最大范围'
@@ -371,7 +371,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='平铺展示'>
             <Calendar
@@ -382,7 +382,7 @@ export default class Index extends Component {
               maxDate={tiledMaxDate}
               firstDayOfWeek={firstDayOfWeek}
               className='tiled-calendar'
-             />
+            />
           </DemoBlock>
           <Calendar
             show={showCalendar}
@@ -405,7 +405,7 @@ export default class Index extends Component {
             onOpened={this.onOpened}
             onClose={this.onClose}
             onClosed={this.onClosed}
-           />
+          />
         </>
       </DemoPage>
     )

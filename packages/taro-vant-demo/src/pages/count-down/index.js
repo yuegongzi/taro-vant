@@ -1,20 +1,20 @@
 import { Text } from '@tarojs/components'
 import { Component } from 'react'
 
-import { GridItem, Grid, Toast, CountDown } from 'taro-vant'
+import { CountDown, Grid, GridItem, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     time: 30 * 60 * 60 * 1000,
     timeData: {},
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (e) => {
@@ -59,7 +59,7 @@ export default class Index extends Component {
               millisecond
               time={time}
               format='HH:mm:ss:SSS'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义样式'>
             <CountDown time={time} onChange={this.onChange}>
@@ -79,23 +79,23 @@ export default class Index extends Component {
               autoStart={false}
               format='ss:SSS'
               onFinish={this.finished}
-             />
+            />
             <Grid clickable columnNum='3'>
               <GridItem
                 text='开始'
                 icon='play-circle-o'
                 onClick={this.start}
-               />
+              />
               <GridItem
                 text='暂停'
                 icon='pause-circle-o'
                 onClick={this.pause}
-               />
+              />
               <GridItem
                 text='重置'
                 icon='replay'
                 onClick={this.reset}
-               />
+              />
             </Grid>
           </DemoBlock>
           <Toast id='van-toast' />

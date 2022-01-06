@@ -8,6 +8,7 @@ export default class Index extends Component {
   constructor() {
     super()
   }
+
   render() {
     // eslint-disable-next-line react/prop-types
     const { padding, title, card } = this.props
@@ -18,9 +19,9 @@ export default class Index extends Component {
           (padding ? 'demo-block--padding' : '')
         }
       >
-        {title && <View className="demo-block__title">{title}</View>}
+        {title && <View className='demo-block__title'>{title}</View>}
         {card ? (
-          <View className="demo-block__card">{this.props.children}</View>
+          <View className='demo-block__card'>{this.props.children}</View>
         ) : (
           this.props.children
         )}

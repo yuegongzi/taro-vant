@@ -1,18 +1,18 @@
 import { Component } from 'react'
 
-import { Tabs, Tab, Empty, Button } from 'taro-vant'
+import { Button, Empty, Tab, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     activeTab: 0,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -47,7 +47,7 @@ export default class Index extends Component {
               className='custom-image'
               image='https://img.yzcdn.cn/vant/custom-empty-image.png'
               description='描述文字'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='底部内容' padding>
             <Empty description='描述文字'>

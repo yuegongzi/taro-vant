@@ -3,6 +3,7 @@ page,
 .van-tabs {
   background-color: #fff;
 }
+
 page,
 .taro_page {
   min-height: 100vh;
@@ -20,6 +21,7 @@ page,
 .pull-error {
   height: calc(100vh - 205px);
 }
+
 .pull-search {
   height: calc(100vh - 338px);
 }
@@ -28,6 +30,7 @@ page,
 .min-pull-error {
   height: calc(100vh - 92px);
 }
+
 .min-pull-search {
   height: calc(100vh - 225px);
 }
@@ -40,9 +43,11 @@ page,
   position: sticky;
   top: 0;
   left: 0;
+
   .left {
     flex: auto;
   }
+
   .right {
     flex: none;
     padding-left: 12px;
@@ -53,6 +58,7 @@ page,
   padding-top: 30vh;
   text-align: center;
   color: #ccc;
+
   .loadingWrapper {
     font-size: 24px;
     margin-bottom: 24px;

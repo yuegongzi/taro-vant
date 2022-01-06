@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { GridItem, Grid, SidebarItem, Sidebar, Notify } from 'taro-vant'
+import { Grid, GridItem, Notify, Sidebar, SidebarItem } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import './index.scss'

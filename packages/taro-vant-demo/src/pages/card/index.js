@@ -1,19 +1,19 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Tag, Card, Button } from 'taro-vant'
+import { Button, Card, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     imageURL:
       'https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg',
+  }
+
+  constructor() {
+    super()
   }
 
   render() {
@@ -28,7 +28,7 @@ export default class Index extends Component {
               desc='描述信息'
               title='2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男'
               thumb={imageURL}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='高级用法'>
             <Card
@@ -63,7 +63,7 @@ export default class Index extends Component {
                   </View>
                 </>
               }
-             />
+            />
           </DemoBlock>
         </View>
       </DemoPage>

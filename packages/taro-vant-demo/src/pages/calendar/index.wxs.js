@@ -2,6 +2,7 @@
 function getDate(date) {
   return new Date(date)
 }
+
 function formatDate(date) {
   if (date) {
     date = getDate(date)

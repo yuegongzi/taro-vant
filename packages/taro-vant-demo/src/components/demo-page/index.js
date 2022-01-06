@@ -1,11 +1,6 @@
 import { Icon } from 'taro-vant'
 import { View } from '@tarojs/components'
-import {
-  navigateBack,
-  pageScrollTo,
-  useRouter,
-  useShareAppMessage,
-} from '@tarojs/taro'
+import { navigateBack, pageScrollTo, useRouter, useShareAppMessage } from '@tarojs/taro'
 import React, { useEffect } from 'react'
 import './index.less'
 

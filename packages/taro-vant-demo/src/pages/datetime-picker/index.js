@@ -7,10 +7,6 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     minHour: 10,
     maxHour: 20,
@@ -21,6 +17,10 @@ export default class Index extends Component {
     currentDate3: new Date(2018, 0, 1),
     currentDate4: '12:00',
     loading: false,
+  }
+
+  constructor() {
+    super()
   }
 
   formatter = (type, value) => {
@@ -95,7 +95,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='选择日期（年月日）'>
             <DatetimePicker
@@ -114,7 +114,7 @@ export default class Index extends Component {
                 })
               }}
               formatter={this.formatter}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='选择日期（年月）'>
             <DatetimePicker
@@ -132,7 +132,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='选择时间'>
             <DatetimePicker
@@ -151,14 +151,14 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='选项过滤器'>
             <DatetimePicker
               type='time'
               value={currentDate4}
               filter={this.filter}
-             />
+            />
           </DemoBlock>
           <Toast id='van-toast' />
         </>

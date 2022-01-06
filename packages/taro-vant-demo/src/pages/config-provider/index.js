@@ -1,23 +1,13 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import {
-  ConfigProvider,
-  Rate,
-  Slider,
-  Field,
-  Cell,
-  Button,
-} from 'taro-vant'
+import { Button, Cell, ConfigProvider, Field, Rate, Slider } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
-const CellGroup = Cell.Group;
+
+const CellGroup = Cell.Group
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     rate: 4,
     slider: 50,
@@ -30,6 +20,10 @@ export default class Index extends Component {
       buttonPrimaryBorderColor: '#07c160',
       buttonPrimaryBackgroundColor: '#07c160',
     },
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -64,11 +58,11 @@ export default class Index extends Component {
                             },
                           })
                         }}
-                       />
+                      />
                     </View>
                   </>
                 }
-               />
+              />
               <Field
                 label='滑块'
                 border={false}
@@ -88,11 +82,11 @@ export default class Index extends Component {
                             },
                           })
                         }}
-                       />
+                      />
                     </View>
                   </>
                 }
-               />
+              />
             </CellGroup>
             <View style='margin: 16px'>
               <Button round block type='primary'>
@@ -121,11 +115,11 @@ export default class Index extends Component {
                               },
                             })
                           }}
-                         />
+                        />
                       </View>
                     </>
                   }
-                 />
+                />
                 <Field
                   label='滑块'
                   border={false}
@@ -145,11 +139,11 @@ export default class Index extends Component {
                               },
                             })
                           }}
-                         />
+                        />
                       </View>
                     </>
                   }
-                 />
+                />
               </CellGroup>
               <View style='margin: 16px'>
                 <Button round block type='primary'>

@@ -1,17 +1,17 @@
 import { Component } from 'react'
 
-import { Toast, Stepper, Cell } from 'taro-vant'
+import { Cell, Stepper, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     value: 1,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -56,7 +56,7 @@ export default class Index extends Component {
               value={value}
               asyncChange
               onChange={this.onChange}
-             />
+            />
           </Cell>
           <Cell center title='自定义大小'>
             <Stepper value={1} inputWidth='40px' buttonSize='32px' />

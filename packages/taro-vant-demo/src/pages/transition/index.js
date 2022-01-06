@@ -1,20 +1,20 @@
 import { Component } from 'react'
 
-import { Transition, Cell } from 'taro-vant'
+import { Cell, Transition } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: false,
     name: 'fade',
     showCustom: false,
+  }
+
+  constructor() {
+    super()
   }
 
   onClickFade = () => {
@@ -105,23 +105,23 @@ export default class Index extends Component {
             title='Fade Right'
             onClick={this.onClickFadeRight}
             isLink
-           />
+          />
           <Cell title='Slide Up' onClick={this.onClickSlideUp} isLink />
           <Cell
             title='Slide Down'
             onClick={this.onClickSlideDown}
             isLink
-           />
+          />
           <Cell
             title='Slide Left'
             onClick={this.onClickSlideLeft}
             isLink
-           />
+          />
           <Cell
             title='Slide Right'
             onClick={this.onClickSlideRight}
             isLink
-           />
+          />
           <Cell title='Custom' onClick={this.onClickCustom} isLink />
           <Transition show={show} name={name} className='block' />
           <Transition
@@ -142,7 +142,7 @@ export default class Index extends Component {
             onBeforeLeave={this.onBeforeLeave}
             onLeave={this.onLeave}
             onAfterLeave={this.onAfterLeave}
-           />
+          />
         </DemoBlock>
       </DemoPage>
     )

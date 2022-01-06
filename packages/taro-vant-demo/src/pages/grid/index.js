@@ -1,21 +1,21 @@
 import { Component } from 'react'
 
-import { GridItem, Grid, Image } from 'taro-vant'
+import { Grid, GridItem, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     array3: [ 0, 1, 2 ],
     array4: [ 0, 1, 2, 3 ],
     array6: [ 0, 1, 2, 3, 4, 5 ],
     array8: [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+  }
+
+  constructor() {
+    super()
   }
 
   render() {
@@ -53,7 +53,7 @@ export default class Index extends Component {
                         (index + 1) +
                         '.jpg'
                       }
-                     />
+                    />
                   </GridItem>
                 )
               })}
@@ -93,13 +93,13 @@ export default class Index extends Component {
                 linkType='navigateTo'
                 url='/pages/dashboard/index'
                 text='Navigate 跳转'
-               />
+              />
               <GridItem
                 icon='search'
                 linkType='reLaunch'
                 url='/pages/dashboard/index'
                 text='ReLaunch 跳转'
-               />
+              />
             </Grid>
           </DemoBlock>
           <DemoBlock title='徽标提示'>

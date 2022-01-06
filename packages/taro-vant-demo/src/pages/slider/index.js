@@ -8,12 +8,12 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     currentValue: 50,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -39,7 +39,7 @@ export default class Index extends Component {
               value='50'
               className='slider'
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='双滑块'>
             <Slider
@@ -47,7 +47,7 @@ export default class Index extends Component {
               value={[ 20, 60 ]}
               className='slider'
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='指定选择范围'>
             <Slider
@@ -55,7 +55,7 @@ export default class Index extends Component {
               min={-50}
               max={50}
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='禁用'>
             <Slider className='slider' value='50' disabled />
@@ -66,7 +66,7 @@ export default class Index extends Component {
               value='50'
               step='10'
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义样式'>
             <Slider
@@ -74,7 +74,7 @@ export default class Index extends Component {
               className='slider'
               barHeight='4px'
               activeColor='#ee0a24'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义按钮'>
             <Slider
@@ -89,7 +89,7 @@ export default class Index extends Component {
                   </>
                 )
               }}
-             />
+            />
           </DemoBlock>
         </>
       </DemoPage>

@@ -1,11 +1,12 @@
 import { Component } from 'react'
 
-import { Toast, Steps, Button } from 'taro-vant'
+import { Button, Steps, Toast } from 'taro-vant'
 
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
+
 const steps = [
   {
     text: '步骤一',
@@ -26,10 +27,6 @@ const steps = [
 ]
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     active: 1,
     steps,
@@ -38,6 +35,10 @@ export default class Index extends Component {
       inactiveIcon: icons.outline[index],
       activeIcon: icons.basic[index],
     })),
+  }
+
+  constructor() {
+    super()
   }
 
   nextStep = () => {
@@ -61,7 +62,7 @@ export default class Index extends Component {
               active={active}
               onClickStep={this.onClick}
               className='demo-margin-bottom'
-             />
+            />
             <Button className='demo-margin-left' onClick={this.nextStep}>
               下一步
             </Button>
@@ -73,7 +74,7 @@ export default class Index extends Component {
               activeIcon='success'
               activeColor='#38f'
               inactiveIcon='arrow'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义图标'>
             <Steps steps={customIconSteps} active={active} />
@@ -84,7 +85,7 @@ export default class Index extends Component {
               active={active}
               direction='vertical'
               activeColor='#ee0a24'
-             />
+            />
           </DemoBlock>
           <Toast id='van-toast' />
         </>

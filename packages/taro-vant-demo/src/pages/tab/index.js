@@ -1,17 +1,13 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Tabs, Tab, Icon } from 'taro-vant'
+import { Icon, Tab, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     tabs2: [ 1, 2 ],
     tabs3: [ 1, 2, 3, 5, 6 ],
@@ -22,6 +18,10 @@ export default class Index extends Component {
       { name: 'b', index: 2 },
       { name: 'c', index: 3 },
     ],
+  }
+
+  constructor() {
+    super()
   }
 
   onClickDisabled = (event) => {
@@ -172,7 +172,7 @@ export default class Index extends Component {
                     name='search'
                     className='right-nav'
                     onClick={this.onClickNavRight}
-                   />
+                  />
                 </>
               }
             >

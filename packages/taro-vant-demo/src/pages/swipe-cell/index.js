@@ -1,12 +1,12 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { SwipeCell, Notify, Dialog, Cell } from 'taro-vant'
+import { Cell, Dialog, Notify, SwipeCell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-const CellGroup = Cell.Group;
+const CellGroup = Cell.Group
 
 export default class Index extends Component {
   constructor() {

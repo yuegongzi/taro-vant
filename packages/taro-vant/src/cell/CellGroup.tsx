@@ -16,7 +16,6 @@ function CellGroup(props: CellGroupProps) {
     className,
     ...others
   } = props
-
   return (
     <Block>
       {title && (
@@ -29,9 +28,9 @@ function CellGroup(props: CellGroupProps) {
         </View>
       )}
       <View
-        className={clsx(bem({ inset },{
+        className={clsx(bem({ inset }),{
           ['van-hairline--top-bottom']: border
-        }),className)}
+        },className)}
         style={style}
         {...others}
       >

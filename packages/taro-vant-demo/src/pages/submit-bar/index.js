@@ -1,7 +1,7 @@
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { Component } from 'react'
 
-import { Toast, Tag, SubmitBar } from 'taro-vant'
+import { SubmitBar, Tag, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -30,7 +30,7 @@ export default class Index extends Component {
               onSubmit={this.onClickButton}
               className='van-submit-bar'
               safeAreaInsetBottom={false}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='禁用状态'>
             <SubmitBar
@@ -42,7 +42,7 @@ export default class Index extends Component {
               onSubmit={this.onClickButton}
               className='van-submit-bar'
               safeAreaInsetBottom={false}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='加载状态'>
             <SubmitBar
@@ -52,7 +52,7 @@ export default class Index extends Component {
               onSubmit={this.onClickButton}
               className='van-submit-bar'
               safeAreaInsetBottom={false}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='高级用法'>
             <SubmitBar

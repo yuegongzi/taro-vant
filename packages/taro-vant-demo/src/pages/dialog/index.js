@@ -1,19 +1,20 @@
 import { Component } from 'react'
 
-import { Image, Dialog, Cell } from 'taro-vant'
+import { Cell, Dialog, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
 const message = '代码是写出来给人看的，附带能在机器上运行'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: false,
+  }
+
+  constructor() {
+    super()
   }
 
   showCustomDialog = () => {
@@ -98,7 +99,7 @@ export default class Index extends Component {
               title='提示弹窗（无标题）'
               onClick={this.onClickAlert2}
               isLink
-             />
+            />
             <Cell title='确认弹窗' onClick={this.onClickConfirm} isLink />
           </DemoBlock>
           <DemoBlock card title='圆角按钮样式' padding>
@@ -106,12 +107,12 @@ export default class Index extends Component {
               title='提示弹窗'
               onClick={this.onClickThemeAlert}
               isLink
-             />
+            />
             <Cell
               title='提示弹窗（无标题）'
               onClick={this.onClickThemeAlert2}
               isLink
-             />
+            />
           </DemoBlock>
           <DemoBlock card title='异步关闭' padding>
             <Cell title='异步关闭' onClick={this.onClickAsyncClose} />
@@ -131,7 +132,7 @@ export default class Index extends Component {
               className='demo-image'
               height='240px'
               src='https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg'
-             />
+            />
           </Dialog>
           <Dialog id='van-dialog' />
         </>

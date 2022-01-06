@@ -1,29 +1,30 @@
 /* eslint-disable react/prop-types */
 import { Component } from 'react'
 import {
-  Form,
   Button,
-  Switch,
-  Uploader,
-  Icon,
+  Checkbox,
   DatetimePicker,
+  Dialog,
+  Field,
+  Form,
+  Icon,
   Popup,
   Radio,
   RadioGroup,
-  Checkbox,
-  Slider,
   Rate,
+  Slider,
   Stepper,
-  Dialog,
-  Field
+  Switch,
+  Uploader,
 } from 'taro-vant'
 import { Input, View } from '@tarojs/components'
-import { showLoading, hideLoading } from '@tarojs/taro'
+import { hideLoading, showLoading } from '@tarojs/taro'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const FormItem = Form.Item;
-const CheckboxGroup = Checkbox.Group;
+
+const FormItem = Form.Item
+const CheckboxGroup = Checkbox.Group
 
 export default class Index extends Component {
   constructor() {
@@ -116,7 +117,7 @@ export default class Index extends Component {
               <Input placeholder='请输入密码' type='password' />
             </FormItem>
 
-            <FormItem label='是否打开' name='opened' >
+            <FormItem label='是否打开' name='opened'>
               <Switch activeColor='#07c160' size='45' />
             </FormItem>
 
@@ -131,7 +132,7 @@ export default class Index extends Component {
               </RadioGroup>
             </FormItem>
 
-            <FormItem label='复选框' name='muiltSelect'  >
+            <FormItem label='复选框' name='muiltSelect'>
               <CheckboxGroup direction='horizontal'>
                 <Checkbox name='1' shape='square' checkedColor='#07c160'>
                   复选框 1

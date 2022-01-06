@@ -7,10 +7,11 @@ import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
+  state = {}
+
   constructor() {
     super()
   }
-  state = {}
 
   render() {
     return (
@@ -60,13 +61,13 @@ export default class Index extends Component {
               loading
               type='primary'
               className='demo-margin-right'
-             />
+            />
             <Button
               loading
               type='primary'
               loadingType='spinner'
               className='demo-margin-right'
-             />
+            />
             <Button loading type='info' loadingText='加载中...' />
           </DemoBlock>
           <DemoBlock title='按钮形状' padding>
@@ -82,7 +83,7 @@ export default class Index extends Component {
               type='primary'
               icon='star-o'
               className='demo-margin-right'
-             />
+            />
             <Button type='primary' icon='star-o' className='demo-margin-right'>
               按钮
             </Button>

@@ -1,16 +1,13 @@
 import { Component } from 'react'
 
-import { RadioGroup, Radio, Image, Cell } from 'taro-vant'
+import { Cell, Image, Radio, RadioGroup } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const CellGroup = Cell.Group;
-export default class Index extends Component {
-  constructor() {
-    super()
-  }
 
+const CellGroup = Cell.Group
+export default class Index extends Component {
   state = {
     radio1: '1',
     radio2: '2',
@@ -26,6 +23,10 @@ export default class Index extends Component {
       active:
         'https://img.yzcdn.cn/public_files/2017/10/13/793c77793db8641c4c325b7f25bf130d.png',
     },
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (event) => {
@@ -211,7 +212,7 @@ export default class Index extends Component {
                       src={radio4 === '1' ? icon.active : icon.normal}
                       className='icon'
                       mode='widthFix'
-                     />
+                    />
                   </>
                 }
               >
@@ -225,7 +226,7 @@ export default class Index extends Component {
                       src={radio4 === '2' ? icon.active : icon.normal}
                       className='icon'
                       mode='widthFix'
-                     />
+                    />
                   </>
                 }
               >
@@ -291,7 +292,7 @@ export default class Index extends Component {
                       <Radio name='1' />
                     </>
                   }
-                 />
+                />
                 <Cell
                   title='单选框 2'
                   clickable
@@ -311,7 +312,7 @@ export default class Index extends Component {
                       <Radio name='2' />
                     </>
                   }
-                 />
+                />
               </CellGroup>
             </RadioGroup>
           </DemoBlock>

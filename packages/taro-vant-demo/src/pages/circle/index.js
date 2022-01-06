@@ -1,23 +1,24 @@
 import { Component } from 'react'
 
-import { Circle, Button } from 'taro-vant'
+import { Button, Circle } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
 const format = (rate) => Math.min(Math.max(rate, 0), 100)
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     value: 25,
     gradientColor: {
       '0%': '#ffd01e',
       '100%': '#ee0a24',
     },
+  }
+
+  constructor() {
+    super()
   }
 
   run = (e) => {
@@ -51,19 +52,19 @@ export default class Index extends Component {
               layerColor='#eee'
               color='#ee0a24'
               text='颜色定制'
-             />
+            />
             <Circle
               type='2d'
               value={value}
               color={gradientColor}
               text='渐变色'
-             />
+            />
             <Circle
               value={value}
               color='#07c160'
               clockwise={false}
               text='逆时针'
-             />
+            />
             <Circle value={value} size='120' text='大小定制' />
           </DemoBlock>
           <Button

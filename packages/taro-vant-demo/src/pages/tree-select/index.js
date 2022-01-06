@@ -1,12 +1,13 @@
 import { Component } from 'react'
 
-import { TreeSelect, Image } from 'taro-vant'
+import { Image, TreeSelect } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import config from './config.js'
 
 import './index.scss'
+
 const items = [
   {
     text: config.pro1Name,
@@ -24,10 +25,6 @@ const items = [
 ]
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     items,
     badgeItems: items.slice(0, 2).map((item, index) => {
@@ -44,6 +41,10 @@ export default class Index extends Component {
     activeId: 0,
     mainActiveIndexMulti: 0,
     activeIdMulti: [],
+  }
+
+  constructor() {
+    super()
   }
 
   onClickNav = ({ detail }) => {
@@ -95,7 +96,7 @@ export default class Index extends Component {
               activeId={activeId}
               onClickItem={this.onClickItem}
               onClickNav={this.onClickNav}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='多选模式'>
             <TreeSelect
@@ -105,7 +106,7 @@ export default class Index extends Component {
               activeId={activeIdMulti}
               onClickItem={this.onClickItemMulti}
               onClickNav={this.onClickNavMulti}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义内容'>
             <TreeSelect
@@ -129,7 +130,7 @@ export default class Index extends Component {
                       src='https://img.yzcdn.cn/vant/apple-1.jpg'
                       width='100%'
                       height='100%'
-                     />
+                    />
                   ) : (
                     mainActiveIndex === 1 && (
                       <Image
@@ -137,12 +138,12 @@ export default class Index extends Component {
                         width='100%'
                         height='100%'
                         slot='content'
-                       />
+                      />
                     )
                   )}
                 </>
               }
-             />
+            />
           </DemoBlock>
           <DemoBlock title='徽标提示'>
             <TreeSelect
@@ -151,7 +152,7 @@ export default class Index extends Component {
               activeId={activeId}
               onClickItem={this.onClickItem}
               onClickNav={this.onClickNav}
-             />
+            />
           </DemoBlock>
         </>
       </DemoPage>

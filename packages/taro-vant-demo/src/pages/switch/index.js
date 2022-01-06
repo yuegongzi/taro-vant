@@ -1,19 +1,19 @@
 import { Component } from 'react'
 
-import { Switch, Dialog } from 'taro-vant'
+import { Dialog, Switch } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     checked: true,
     checked2: true,
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = ({ detail }) => {
@@ -25,13 +25,11 @@ export default class Index extends Component {
       selector: '#switch-demo',
       title: '提示',
       message: '是否切换开关？',
-    }).
-      then(() => {
-        this.setState({ checked2: detail })
-      }).
-      catch((e) => {
-        console.log(e)
-      })
+    }).then(() => {
+      this.setState({ checked2: detail })
+    }).catch((e) => {
+      console.log(e)
+    })
   }
 
   render() {
@@ -47,7 +45,7 @@ export default class Index extends Component {
               checked={checked}
               disabled
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='加载状态' padding>
             <Switch checked={checked} loading onChange={this.onChange} />
@@ -57,7 +55,7 @@ export default class Index extends Component {
               checked={checked}
               size='24px'
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义颜色' padding>
             <Switch
@@ -65,14 +63,14 @@ export default class Index extends Component {
               activeColor='#07c160'
               inactiveColor='#ee0a24'
               onChange={this.onChange}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='异步控制' padding>
             <Switch
               checked={checked2}
               size='36px'
               onChange={this.onChange2}
-             />
+            />
           </DemoBlock>
           <Dialog id='switch-demo' />
         </>

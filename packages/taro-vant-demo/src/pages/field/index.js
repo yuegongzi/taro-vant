@@ -1,16 +1,13 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { Field, Cell, Button } from 'taro-vant'
+import { Button, Cell, Field } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const CellGroup = Cell.Group;
-export default class Index extends Component {
-  constructor() {
-    super()
-  }
 
+const CellGroup = Cell.Group
+export default class Index extends Component {
   state = {
     sms: '',
     value: '',
@@ -20,6 +17,10 @@ export default class Index extends Component {
     username3: '',
     message: '',
     phone: '1365577',
+  }
+
+  constructor() {
+    super()
   }
 
   onClickIcon = () => {
@@ -51,7 +52,7 @@ export default class Index extends Component {
                 border={false}
                 clearable
                 type='password'
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='自定义类型'>
@@ -65,7 +66,7 @@ export default class Index extends Component {
                 rightIconClass='custom-icon'
                 required
                 onClickIcon={this.onClickIcon}
-               />
+              />
               <Field
                 value={password}
                 type='password'
@@ -73,7 +74,7 @@ export default class Index extends Component {
                 placeholder='请输入密码'
                 required
                 border={false}
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='禁用输入框'>
@@ -84,7 +85,7 @@ export default class Index extends Component {
                 leftIcon='contact'
                 disabled
                 border={false}
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='错误提示'>
@@ -94,14 +95,14 @@ export default class Index extends Component {
                 label='用户名'
                 placeholder='请输入用户名'
                 error
-               />
+              />
               <Field
                 value={phone}
                 label='手机号'
                 placeholder='请输入手机号'
                 errorMessage='手机号格式错误'
                 border={false}
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='内容对齐方式'>
@@ -111,7 +112,7 @@ export default class Index extends Component {
                 label='用户名'
                 placeholder='请输入用户名'
                 inputAlign='right'
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='高度自适应'>
@@ -124,7 +125,7 @@ export default class Index extends Component {
                 rows='1'
                 autosize
                 border={false}
-               />
+              />
             </CellGroup>
           </DemoBlock>
           <DemoBlock title='插入按钮'>
@@ -143,7 +144,7 @@ export default class Index extends Component {
                     </Button>
                   </>
                 }
-               />
+              />
             </CellGroup>
           </DemoBlock>
         </>

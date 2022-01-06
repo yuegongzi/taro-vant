@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import { Toast, Button } from 'taro-vant'
+import { Button, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'

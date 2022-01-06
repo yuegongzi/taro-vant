@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 
-import { NavBar, Icon } from 'taro-vant'
+import { Icon, NavBar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -31,7 +31,7 @@ export default class Index extends Component {
               leftArrow
               onClickLeft={this.onClickLeft}
               onClickRight={this.onClickRight}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='高级用法'>
             <NavBar
@@ -43,7 +43,7 @@ export default class Index extends Component {
                   <Icon name='search' className='icon' size='36' />
                 </>
               }
-             />
+            />
           </DemoBlock>
         </>
       </DemoPage>

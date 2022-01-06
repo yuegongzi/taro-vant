@@ -1,23 +1,13 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import {
-  DropdownMenu,
-  Switch,
-  Cell,
-  Button,
-} from 'taro-vant'
+import { Button, Cell, DropdownMenu, Switch } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-const DropdownItem = DropdownMenu.Item;
+const DropdownItem = DropdownMenu.Item
 export default class Index extends Component {
-  constructor() {
-    super()
-    this.instance = null
-  }
-
   state = {
     switchTitle1: '包邮',
     switchTitle2: '团购',
@@ -36,6 +26,11 @@ export default class Index extends Component {
     switch2: false,
     value1: 0,
     value2: 'a',
+  }
+
+  constructor() {
+    super()
+    this.instance = null
   }
 
   onConfirm = () => {
@@ -88,10 +83,10 @@ export default class Index extends Component {
                         checked={switch1}
                         activeColor='#ee0a24'
                         onChange={this.onSwitch1Change}
-                       />
+                      />
                     </>
                   }
-                 />
+                />
                 <Cell
                   title={switchTitle2}
                   renderRightIcon={
@@ -102,10 +97,10 @@ export default class Index extends Component {
                         checked={switch2}
                         activeColor='#ee0a24'
                         onChange={this.onSwitch2Change}
-                       />
+                      />
                     </>
                   }
-                 />
+                />
                 <View style='padding: 5px 16px;'>
                   <Button type='danger' block round onClick={this.onConfirm}>
                     确认
@@ -132,12 +127,12 @@ export default class Index extends Component {
                 value={value1}
                 disabled
                 options={option1}
-               />
+              />
               <DropdownItem
                 value={value2}
                 disabled
                 options={option2}
-               />
+              />
             </DropdownMenu>
           </DemoBlock>
         </>

@@ -1,17 +1,14 @@
 import { Component } from 'react'
 
-import { Image, Checkbox, Cell } from 'taro-vant'
+import { Cell, Checkbox, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const CheckboxGroup = Checkbox.Group;
-const CellGroup = Cell.Group;
-export default class Index extends Component {
-  constructor() {
-    super()
-  }
 
+const CheckboxGroup = Checkbox.Group
+const CellGroup = Cell.Group
+export default class Index extends Component {
   state = {
     checkbox1: true,
     checkbox2: true,
@@ -28,6 +25,10 @@ export default class Index extends Component {
     inactiveIcon: 'https://img.yzcdn.cn/vant/user-inactive.png',
   }
 
+  constructor() {
+    super()
+  }
+
   onChange = (event) => {
     const { key } = event.currentTarget.dataset
     this.setState({ [key]: event.detail })
@@ -42,7 +43,8 @@ export default class Index extends Component {
     })
   }
 
-  noop = () => {}
+  noop = () => {
+  }
 
   render() {
     const {
@@ -171,7 +173,7 @@ export default class Index extends Component {
                     className='icon'
                     mode='widthFix'
                     src={checkbox3 ? activeIcon : inactiveIcon}
-                   />
+                  />
                 </>
               }
             >

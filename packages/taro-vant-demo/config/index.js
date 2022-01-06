@@ -8,6 +8,7 @@ function getVersion() {
   function fillZero(value) {
     return value < 10 ? `0${value}` : `${value}`
   }
+
   const date = new Date()
 
   return `${date.getFullYear() - 2010}.${date.getMonth()}${fillZero(
@@ -143,6 +144,6 @@ let config = {
   ],
 }
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   return merge({}, config, require(`./${process.env.NODE_ENV}`))
 }

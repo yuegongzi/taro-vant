@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Tag, Icon, Cell } from 'taro-vant'
+import { Cell, Icon, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
@@ -8,10 +8,11 @@ import './index.scss'
 
 
 export default class Index extends Component {
+  state = {}
+
   constructor() {
     super()
   }
-  state = {}
 
   render() {
     return (
@@ -25,7 +26,7 @@ export default class Index extends Component {
                 value='内容'
                 label='描述信息'
                 border={false}
-               />
+              />
             </Cell.Group>
           </DemoBlock>
           <DemoBlock title='卡片风格'>
@@ -47,7 +48,7 @@ export default class Index extends Component {
                     <View>描述信息</View>
                   </>
                 }
-               />
+              />
             </Cell.Group>
           </DemoBlock>
           <DemoBlock title='展示图标'>
@@ -56,7 +57,7 @@ export default class Index extends Component {
               value='内容'
               icon='location-o'
               border={false}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='展示箭头'>
             <Cell title='单元格' isLink />
@@ -67,7 +68,7 @@ export default class Index extends Component {
               arrowDirection='down'
               value='内容'
               border={false}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='页面跳转'>
             <Cell title='单元格' isLink url='/pages/dashboard/index' />
@@ -76,7 +77,7 @@ export default class Index extends Component {
               isLink
               url='/pages/dashboard/index'
               linkType='redirectTo'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='分组标题'>
             <Cell.Group title='分组 1'>
@@ -99,7 +100,7 @@ export default class Index extends Component {
                   </View>
                 </>
               }
-             />
+            />
             <Cell
               title='单元格'
               border={false}
@@ -108,7 +109,7 @@ export default class Index extends Component {
                   <Icon name='search' />
                 </>
               }
-             />
+            />
           </DemoBlock>
           <DemoBlock title='垂直居中'>
             <Cell center title='单元格' value='内容' label='描述信息' />

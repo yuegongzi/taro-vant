@@ -1,17 +1,14 @@
-import './style/index.less';
+import './style/index.less'
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
-import VanButton from '../button'
-import * as utils from '../wxs/utils'
-import { jumpLink } from '../common/jumpLink'
-import type { GoodsActionIconProps } from '../goods-action-icon'
+import Button from '../button'
+import type { GoodsActionIconProps } from './PropsType'
+import { createNamespace, jumpLink } from '../utils'
+import clsx from 'clsx'
 
-export function GoodsActionButton(
-  props: GoodsActionIconProps & {
-    isFirst?: boolean
-    isLast?: boolean
-  },
-) {
+const [ bem ] = createNamespace('goods-action-button')
+
+function GoodsActionButton(props: GoodsActionIconProps & { isFirst?: boolean, isLast?: boolean }) {
   const {
     text,
     url,
@@ -27,33 +24,31 @@ export function GoodsActionButton(
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
-    function (event) {
+    function(event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
     [ linkType, onClick, url ],
   )
   return (
-    <VanButton
+    <Button
       type={type}
       plain={plain}
-      className={
-        utils.bem('goods-action-button', [
-          type,
-          {
-            first: isFirst,
-            last: isLast,
-            plain: plain,
-          },
-        ]) + ` van-goods-action-button__inner ${className || ''}`
-      }
+      className={clsx(bem([
+        type,
+        {
+          first: isFirst,
+          last: isLast,
+          plain: plain,
+        },
+      ]), bem('inner'), className)}
       style={style}
       onClick={_click}
       {...others}
     >
       {text}
       {children}
-    </VanButton>
+    </Button>
   )
 }
 

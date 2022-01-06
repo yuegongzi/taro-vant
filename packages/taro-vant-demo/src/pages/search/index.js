@@ -7,12 +7,12 @@ import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     value: '',
+  }
+
+  constructor() {
+    super()
   }
 
   onChange = (e) => {
@@ -63,7 +63,7 @@ export default class Index extends Component {
               defaultValue={value}
               placeholder='请输入搜索关键词'
               onSearch={this.onSearch}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='事件监听'>
             <Search
@@ -73,21 +73,21 @@ export default class Index extends Component {
               onSearch={this.onSearch}
               onCancel={this.onCancel}
               onClear={this.onClear}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='搜索框内容对齐'>
             <Search
               defaultValue={value}
               inputAlign='center'
               placeholder='请输入搜索关键词'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='禁用搜索框'>
             <Search
               disabled
               defaultValue={value}
               placeholder='请输入搜索关键词'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义背景色'>
             <Search
@@ -95,7 +95,7 @@ export default class Index extends Component {
               shape='round'
               background='#4fc08d'
               placeholder='请输入搜索关键词'
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义按钮'>
             <Search
@@ -110,7 +110,7 @@ export default class Index extends Component {
                   <View onClick={this.onClick}>搜索</View>
                 </>
               }
-             />
+            />
           </DemoBlock>
         </>
       </DemoPage>

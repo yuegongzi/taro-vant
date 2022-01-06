@@ -1,16 +1,12 @@
 import { Component } from 'react'
 
-import { Popup, Cell } from 'taro-vant'
+import { Cell, Popup } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: {
       basic: false,
@@ -23,6 +19,10 @@ export default class Index extends Component {
       customCloseIcon: false,
       customIconPosition: false,
     },
+  }
+
+  constructor() {
+    super()
   }
 
   toggle = (type, show) => {
@@ -131,25 +131,25 @@ export default class Index extends Component {
               position='top'
               style='height: 20%'
               onClose={this.hideTop}
-             />
+            />
             <Popup
               show={show.bottom}
               position='bottom'
               style='height: 20%'
               onClose={this.hideBottom}
-             />
+            />
             <Popup
               show={show.left}
               position='left'
               style='width: 20%; height: 100%'
               onClose={this.hideLeft}
-             />
+            />
             <Popup
               show={show.right}
               position='right'
               style='width: 20%; height: 100%'
               onClose={this.hideRight}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='关闭图标'>
             <Cell title='关闭图标' isLink onClick={this.showCloseIcon} />
@@ -157,19 +157,19 @@ export default class Index extends Component {
               title='自定义图标'
               isLink
               onClick={this.showCustomCloseIcon}
-             />
+            />
             <Cell
               title='图标位置'
               isLink
               onClick={this.showCustomIconPosition}
-             />
+            />
             <Popup
               show={show.closeIcon}
               closeable
               position='bottom'
               style='height: 20%'
               onClose={this.hideCloseIcon}
-             />
+            />
             <Popup
               show={show.customCloseIcon}
               closeable
@@ -177,7 +177,7 @@ export default class Index extends Component {
               position='bottom'
               style='height: 20%'
               onClose={this.hideCustomCloseIcon}
-             />
+            />
             <Popup
               show={show.customIconPosition}
               closeable
@@ -185,7 +185,7 @@ export default class Index extends Component {
               position='bottom'
               style='height: 20%'
               onClose={this.hideCustomIconPosition}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='圆角弹窗'>
             <Cell title='圆角弹窗' isLink onClick={this.showRound} />
@@ -195,7 +195,7 @@ export default class Index extends Component {
               position='bottom'
               style='height: 20%'
               onClose={this.hideRound}
-             />
+            />
           </DemoBlock>
         </>
       </DemoPage>

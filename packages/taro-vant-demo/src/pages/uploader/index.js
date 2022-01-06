@@ -1,16 +1,12 @@
 import { Component } from 'react'
 import Taro, { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Uploader, Button } from 'taro-vant'
+import { Button, Uploader } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     fileList1: [],
     fileList2: [
@@ -37,8 +33,15 @@ export default class Index extends Component {
     ],
   }
 
+  constructor() {
+    super()
+  }
+
   beforeRead = (event) => {
-    const { file, callback = () => {} } = event.detail
+    const {
+      file, callback = () => {
+      },
+    } = event.detail
     if (file && file.url && file.url.indexOf('jpeg') < 0) {
       showToast({ title: '请选择jpg图片上传', icon: 'none' })
       callback(false)
@@ -68,7 +71,8 @@ export default class Index extends Component {
     this.setState({ [`fileList${name}`]: _fileList })
   }
 
-  clickPreview = () => {}
+  clickPreview = () => {
+  }
 
   uploadToCloud = () => {
     Taro.cloud.init()
@@ -79,16 +83,14 @@ export default class Index extends Component {
       const uploadTasks = fileList.map((file, index) =>
         this.uploadFilePromise(`my-photo${index}.png`, file),
       )
-      Promise.all(uploadTasks).
-        then((data) => {
-          showToast({ title: '上传成功', icon: 'none' })
-          const fileList = data.map((item) => ({ url: item.fileID }))
-          this.setState({ cloudPath: data, fileList6: fileList })
-        }).
-        catch((e) => {
-          showToast({ title: '上传失败', icon: 'none' })
-          console.log(e)
-        })
+      Promise.all(uploadTasks).then((data) => {
+        showToast({ title: '上传成功', icon: 'none' })
+        const fileList = data.map((item) => ({ url: item.fileID }))
+        this.setState({ cloudPath: data, fileList6: fileList })
+      }).catch((e) => {
+        showToast({ title: '上传失败', icon: 'none' })
+        console.log(e)
+      })
     }
   }
 
@@ -120,7 +122,7 @@ export default class Index extends Component {
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='上传视频' padding>
             <Uploader
@@ -129,7 +131,7 @@ export default class Index extends Component {
               fileList={fileList7}
               onAfterRead={this.afterRead}
               onDelete={this.delete}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='文件预览' padding>
             <Uploader
@@ -139,7 +141,7 @@ export default class Index extends Component {
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='隐藏上传按钮' padding>
             <Uploader
@@ -150,7 +152,7 @@ export default class Index extends Component {
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='上传状态' padding>
             <Uploader
@@ -161,7 +163,7 @@ export default class Index extends Component {
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='限制上传数量' padding>
             <Uploader
@@ -172,7 +174,7 @@ export default class Index extends Component {
               onAfterRead={this.afterRead}
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='自定义上传样式' padding>
             <Uploader
@@ -197,7 +199,7 @@ export default class Index extends Component {
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
               useBeforeRead={true}
-             />
+            />
           </DemoBlock>
           <DemoBlock title='云存储上传' padding>
             <Uploader
@@ -208,7 +210,7 @@ export default class Index extends Component {
               onDelete={this.delete}
               onClickPreview={this.clickPreview}
               useBeforeRead={true}
-             />
+            />
             <View className='demo-margin-bottom'>
               <Button type='primary' onClick={this.uploadToCloud}>
                 上传至云存储

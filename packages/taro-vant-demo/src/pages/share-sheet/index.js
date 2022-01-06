@@ -1,16 +1,12 @@
 import { Component } from 'react'
 
-import { ShareSheet, Toast, Cell } from 'taro-vant'
+import { Cell, ShareSheet, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
-  constructor() {
-    super()
-  }
-
   state = {
     show: {
       basic: false,
@@ -70,6 +66,10 @@ export default class Index extends Component {
     ],
   }
 
+  constructor() {
+    super()
+  }
+
   onShowShareSheet = (event) => {
     this.setState({
       show: {
@@ -121,14 +121,14 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <ShareSheet
               show={show.basic}
               title='立即分享给好友'
               options={options}
               onClose={this.onClose}
               onSelect={this.onSelect}
-             />
+            />
           </DemoBlock>
           <DemoBlock card title='展示多行选项'>
             <Cell
@@ -145,14 +145,14 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <ShareSheet
               show={show.multiLine}
               title='立即分享给好友'
               options={multiLineOptions}
               onClose={this.onClose}
               onSelect={this.onSelect}
-             />
+            />
           </DemoBlock>
           <DemoBlock card title='自定义图标'>
             <Cell
@@ -169,13 +169,13 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <ShareSheet
               show={show.customIcon}
               options={customIconOptions}
               onClose={this.onClose}
               onSelect={this.onSelect}
-             />
+            />
           </DemoBlock>
           <DemoBlock card title='展示描述信息'>
             <Cell
@@ -192,7 +192,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-             />
+            />
             <ShareSheet
               show={show.withDesc}
               title='立即分享给好友'
@@ -200,7 +200,7 @@ export default class Index extends Component {
               description='描述信息'
               onClose={this.onClose}
               onSelect={this.onSelect}
-             />
+            />
           </DemoBlock>
           <Toast id='van-toast' />
         </>
