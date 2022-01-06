@@ -1,4 +1,9 @@
 import Notify from './Notify'
+import notify from './notify-func'
 
-export default Notify
+const NotifyNamespace = Object.assign(Notify,{
+  show:notify,clear:notify.clear
+})
+export default NotifyNamespace
+export { NotifyNamespace as Notify }
 export type { NotifyProps } from './PropsType'

@@ -1,15 +1,15 @@
-import './style/index.less';
-import { createAnimation, useReady, nextTick } from '@tarojs/taro'
-import { useState, useEffect, useRef, useCallback } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
-import { View, Navigator } from '@tarojs/components'
-
-import * as utils from '../wxs/utils'
+import './style/index.less'
+import { createAnimation, nextTick, useReady } from '@tarojs/taro'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
+import { Navigator, View } from '@tarojs/components'
 import type { NoticeBarProps } from './PropsType'
-import { getRect, requestAnimationFrame } from '../common/utils'
-import VanIcon from '../icon/index'
-import * as computed from './wxs'
+import { computedStyle, createNamespace, getRect, requestAnimationFrame } from '../utils'
+import Icon from '../icon'
+import { rootStyle } from './wxs'
+import clsx from 'clsx'
 
+const [ bem ] = createNamespace('notice-bar')
 let NOTICE_BAR_INDEX = 0
 
 export function NoticeBar(props: NoticeBarProps) {
@@ -29,7 +29,7 @@ export function NoticeBar(props: NoticeBarProps) {
     duration: undefined,
   }
 
-  const ref = useRef(params)
+  const ref = useRef<any>(params)
 
   const {
     text = '',
@@ -92,28 +92,16 @@ export function NoticeBar(props: NoticeBarProps) {
     })
   }, [])
 
-  useEffect(() => {
-    if (text && state.ready) {
-      init()
-    }
-
-    return () => {
-      /* eslint-disable-next-line */
-      ref.current.timer && clearTimeout(ref.current.timer)
-    }
-    /* eslint-disable-next-line */
-  }, [text, speed, state.ready])
 
   const scroll = useCallback(() => {
-    ref.current.timer && clearTimeout(ref.current.timer)
+    if (ref.current?.timer) {
+      clearTimeout(ref.current.timer)
+    }
     ref.current.timer = null
     setState((state) => {
       return {
         ...state,
-        animationData: ref.current.resetAnimation.
-          translateX(ref.current.wrapWidth).
-          step().
-          export(),
+        animationData: ref.current.resetAnimation.translateX(ref.current.wrapWidth).step().export(),
       }
     })
     setTimeout(() => {
@@ -121,10 +109,7 @@ export function NoticeBar(props: NoticeBarProps) {
         setState((state) => {
           return {
             ...state,
-            animationData: ref.current.animation.
-              translateX(-ref.current.contentWidth).
-              step().
-              export(),
+            animationData: ref.current.animation.translateX(-ref.current.contentWidth).step().export(),
           }
         })
       })
@@ -137,8 +122,8 @@ export function NoticeBar(props: NoticeBarProps) {
   const init = useCallback(() => {
     requestAnimationFrame(() => {
       Promise.all([
-        getRect(null, `.van-notice-bar__content_${state.unitag}`),
-        getRect(null, `.van-notice-bar__wrap_${state.unitag}`),
+        getRect(null, `.van-notice-bar__content--${state.unitag}`),
+        getRect(null, `.van-notice-bar__wrap--${state.unitag}`),
       ]).then((rects) => {
         const contentRect: any = rects[0]
         const wrapRect: any = rects[1]
@@ -173,7 +158,9 @@ export function NoticeBar(props: NoticeBarProps) {
   const onClickIcon = useCallback(
     (event: ITouchEvent) => {
       if (mode === 'closeable') {
-        ref.current.timer && clearTimeout(ref.current.timer)
+        if (ref.current?.timer) {
+          clearTimeout(ref.current.timer)
+        }
         ref.current.timer = null
         setState((state) => {
           return {
@@ -187,57 +174,58 @@ export function NoticeBar(props: NoticeBarProps) {
     [ mode, onClose ],
   )
 
+  useEffect(() => {
+    if (text && state.ready) {
+      init()
+    }
+    return () => {
+      if (ref.current.timer) {
+        clearTimeout(ref.current.timer)
+      }
+    }
+  }, [ text, speed, state.ready ])
+
   return (
     state.show && (
-      <View
-        className={
-          utils.bem('notice-bar', {
-            withicon: mode,
-            wrapable,
-          }) + ` ${className || ''}`
-        }
-        style={utils.style([
-          computed.rootStyle({
-            color,
-            backgroundColor,
-            background,
-          }),
-          style,
-        ])}
-        {...others}
-        onClick={onClick}
+      <View className={clsx(bem({ withicon: mode, wrapable }), className)}
+            style={computedStyle([
+              rootStyle({
+                color,
+                backgroundColor,
+                background,
+              }),
+              style,
+            ])}
+            {...others}
+            onClick={onClick}
       >
         {leftIcon ? (
-          <VanIcon
+          <Icon
             name={leftIcon}
-            className='van-notice-bar__left-icon'
-           />
+            className={clsx(bem('left-icon'))}
+          />
         ) : (
           renderLeftIcon
         )}
-        <View
-          className={`van-notice-bar__wrap van-notice-bar__wrap_${state.unitag}`}
+        <View className={clsx(bem('wrap', [ `${state.unitag}` ]))}
         >
-          <View
-            className={
-              `van-notice-bar__content van-notice-bar__content_${state.unitag} ` +
-              (scrollable === false && !wrapable ? 'van-ellipsis' : '')
-            }
-            animation={state.animationData}
+          <View className={clsx(bem('content', [ `${state.unitag}` ]), {
+            'van-ellipsis': scrollable === false && !wrapable,
+          })}
+                animation={state.animationData}
           >
             {text}
             {!text && children}
           </View>
         </View>
         {mode === 'closeable' ? (
-          <VanIcon
-            className='van-notice-bar__right-icon'
-            name='cross'
-            onClick={onClickIcon}
+          <Icon className={clsx(bem('right-icon'))}
+                name='cross'
+                onClick={onClickIcon}
           />
         ) : mode === 'link' ? (
           <Navigator url={url} openType={openType}>
-            <VanIcon className='van-notice-bar__right-icon' name='arrow' />
+            <Icon className={clsx(bem('right-icon'))} name='arrow' />
           </Navigator>
         ) : (
           renderRightIcon
@@ -246,4 +234,5 @@ export function NoticeBar(props: NoticeBarProps) {
     )
   )
 }
+
 export default NoticeBar

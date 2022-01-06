@@ -1,15 +1,14 @@
-import { style } from '../wxs/utils'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
 
 function rootStyle(data: any) {
-  return style({
+  return computedStyle({
     'z-index': data.zIndex,
     top: addUnit(data.top),
   })
 }
 
 function notifyStyle(data: any) {
-  return style({
+  return computedStyle({
     background: data.background,
     color: data.color,
   })

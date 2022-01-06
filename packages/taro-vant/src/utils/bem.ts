@@ -28,7 +28,7 @@ function gen(name: string, mods?: Mods): string {
 }
 
 export function createBEM(name: string) {
-  return (el?: Mods, mods?: Mods, pure?: boolean): Mods => {
+  return (el?: Mods, mods?: Mods, hover?: boolean): Mods => {
     if (el && typeof el !== 'string') {
       mods = el
       el = ''
@@ -36,7 +36,7 @@ export function createBEM(name: string) {
 
     el = el ? `${name}__${el}` : name
 
-    return !!pure ? `${gen(el, mods)}` : `${el}${gen(el, mods)}`
+    return !!hover ? `${gen(el, mods)}` : `${el}${gen(el, mods)}`
   }
 }
 

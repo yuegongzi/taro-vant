@@ -1,7 +1,7 @@
 import type { ComponentClass, ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
-import type { TransitionProps } from '../mixins/PropsType'
-import type { OverlayProps } from '../overlay/PropsType'
+import type { TransitionProps } from '../hooks/PropsType'
+import type { OverlayProps } from '../overlay'
 
 export interface PopupProps
   extends TransitionProps,

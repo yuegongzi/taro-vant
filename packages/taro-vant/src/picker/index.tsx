@@ -1,4 +1,7 @@
-import Picker from './Picker';
+import Picker from './Picker'
+import PickerColumn from './PickerColumn'
 
-export default Picker;
-export type { PickerProps,PickerEvents,PickerChangeEvents } from './PropsType';
+const PickerNamespace = Object.assign(Picker, { Column: PickerColumn })
+export default PickerNamespace
+export { PickerNamespace as Picker }
+export type { PickerProps, PickerEvents, PickerChangeEvents, PickerColumnProps } from './PropsType'

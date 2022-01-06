@@ -1,10 +1,13 @@
-import './style/index.less';
+import './style/index.less'
 import { useCallback } from 'react'
-import * as utils from '../wxs/utils'
-import { Overlay as InnerOverlay } from '../common/zIndex'
+import { Overlay as InnerOverlay, createNamespace, computedStyle } from '../utils'
 import type { OverlayProps } from './PropsType'
-import VanTransition from './../transition'
-export function Overlay(props: OverlayProps) {
+import Transition from '../transition'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('overlay')
+
+function Overlay(props: OverlayProps) {
   const {
     show,
     zIndex = InnerOverlay,
@@ -20,26 +23,27 @@ export function Overlay(props: OverlayProps) {
     event.preventDefault()
   }, [])
   return lockScroll ? (
-    <VanTransition
+    <Transition
       show={show}
-      className={'van-overlay' + `  ${className}`}
-      style={utils.style([ { 'z-index': zIndex }, style ])}
+      className={clsx(bem(),className)}
+      style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}
       onTouchMove={_noop}
       {...others}
     >
       {children}
-    </VanTransition>
+    </Transition>
   ) : (
-    <VanTransition
+    <Transition
       show={show}
-      className={'van-overlay' + `  ${className || ''}`}
-      style={utils.style([ { 'z-index': zIndex }, style ])}
+      className={clsx(bem(),className)}
+      style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}
       {...others}
     >
       {children}
-    </VanTransition>
+    </Transition>
   )
 }
+
 export default Overlay

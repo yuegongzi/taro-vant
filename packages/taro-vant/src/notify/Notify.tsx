@@ -3,14 +3,14 @@ import Taro from '@tarojs/taro'
 import { useState, useEffect, useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components';
 import { View, Text } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { NotifyProps } from './PropsType'
-import VanTransition from '../transition/index'
-import { getSystemInfoSync } from '../common/utils'
-import * as computed from './wxs'
+import Transition from '../transition'
 import { on, off, trigger } from './events'
-import notify from './notify-func'
+import { computedStyle, createNamespace, getSystemInfoSync } from '../utils'
+import clsx from 'clsx'
+import { notifyStyle, rootStyle } from './wxs'
 
+const [ bem ] = createNamespace('notify')
 const defaultId = 'van-notify'
 const defaultOptions = {
   selector: '#van-notify',
@@ -45,7 +45,7 @@ export function Notify(props: NotifyProps) {
     safeAreaInsetTop: false,
     top: 0,
     id: defaultId,
-    onClick: (_data: any) => {},
+    onClick: (_: any) => _,
     onOpened: () => {},
     onClose: () => {},
   })
@@ -71,34 +71,6 @@ export function Notify(props: NotifyProps) {
     })
   }, [])
 
-  useEffect(() => {
-    on('notify_show', (notifyOptions) => {
-      const options = Object.assign(
-        Object.assign({}, defaultOptions),
-        parseOptions(notifyOptions),
-      )
-
-      if (options.id === state.id || (!options.id && state.id === defaultId)) {
-        setState((state) => {
-          return {
-            ...state,
-            ...options,
-          }
-        })
-        show(notifyOptions)
-      }
-    })
-
-    on('notify_clear', (notifyOptions) => {
-      hide(notifyOptions)
-    })
-
-    return () => {
-      off('notify_show')
-      off('notify_clear')
-    }
-    /* eslint-disable-next-line */
-  }, [])
 
   const hide = useCallback((notifyOptions: any) => {
     clearTimeout(timer)
@@ -139,14 +111,42 @@ export function Notify(props: NotifyProps) {
     },
     [ state ],
   )
+  useEffect(() => {
+    on('notify_show', (notifyOptions) => {
+      const options = Object.assign(
+        Object.assign({}, defaultOptions),
+        parseOptions(notifyOptions),
+      )
+
+      if (options.id === state.id || (!options.id && state.id === defaultId)) {
+        setState((state) => {
+          return {
+            ...state,
+            ...options,
+          }
+        })
+        show(notifyOptions)
+      }
+    })
+
+    on('notify_clear', (notifyOptions) => {
+      hide(notifyOptions)
+    })
+
+    return () => {
+      off('notify_show')
+      off('notify_clear')
+    }
+    /* eslint-disable-next-line */
+  }, [])
 
   return (
-    <VanTransition
+    <Transition
       name='slide-down'
       show={state.show}
-      className={`van-notify__container ${className}`}
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx(bem('container'),className)}
+      style={computedStyle([
+        rootStyle({
           zIndex: state.zIndex,
           top: state.top,
         }),
@@ -155,9 +155,8 @@ export function Notify(props: NotifyProps) {
       onClick={onTap}
       {...others}
     >
-      <View
-        className={'van-notify van-notify--' + state.type}
-        style={computed.notifyStyle({
+      <View className={clsx(bem([ `${state.type}` ]))}
+        style={notifyStyle({
           background: state.background,
           color: state.color,
         })}
@@ -167,11 +166,9 @@ export function Notify(props: NotifyProps) {
         )}
         <Text>{state.message}</Text>
       </View>
-    </VanTransition>
+    </Transition>
   )
 }
 
-Notify.show = notify
-Notify.clear = notify.clear
 
 export default Notify

@@ -151,3 +151,20 @@ export type IPickerInstance = {
 declare const Picker: ComponentClass<PickerProps>
 
 export { Picker }
+
+
+export interface PickerColumnProps extends StandardProps {
+  valueKey?: string
+  className?: string
+  itemHeight?: number | string
+  visibleItemCount?: number
+  initialOptions?: any[]
+  defaultIndex?: number
+  onChange?: (a: any) => void
+  activeClass?: string
+  refBase?: any,
+}
+
+declare const PickerColumn: ComponentClass<PickerColumnProps>
+
+export { PickerColumn }
