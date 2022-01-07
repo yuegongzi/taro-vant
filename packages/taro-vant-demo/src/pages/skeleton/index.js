@@ -47,7 +47,7 @@ export default class Index extends Component {
                   src='https://img.yzcdn.cn/vant/logo.png'
                 />
                 <View className='demo-content'>
-                  <View className='demo-content-h3'>关于 @antmjs/vantui</View>
+                  <View className='demo-content-h3'>关于 taro-vant</View>
                   <View className='domo-content-p'>
                     一套基于 vant-weapp 开发的在 Taro-React / React
                     框架中使用的多端 UI

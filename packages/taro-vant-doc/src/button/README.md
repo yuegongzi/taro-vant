@@ -166,7 +166,7 @@ import { Button } from "packages/taro-vant";
     按钮
   </Button>
   <Button
-    icon="https://antm-js.gitee.io/resource/antmjs-vantui.jpg"
+    icon="https://img.yzcdn.cn/vant/logo.png"
     type="info"
   >
     按钮

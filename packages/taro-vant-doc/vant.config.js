@@ -38,7 +38,7 @@ module.exports = {
       // syncPathFromSimulator: true,
     },
     title: 'taro-vant',
-    logo: 'https://antm-js.gitee.io/resource/antmjs-vantui.jpg',
+    logo: 'https://img.yzcdn.cn/vant/logo.png',
     links: [
       {
         logo: 'https://b.yzcdn.cn/vant/logo/github.svg',

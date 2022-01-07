@@ -3,7 +3,7 @@
 ### 在React应用中使用需要在如下文件中添加代码
 
 ```bash
-yarn add @tarojs/taro @tarojs/components @antmjs/vantui
+yarn add @tarojs/taro @tarojs/components taro-vant
 yarn add @antmjs/babel-preset --dev
 ```
 

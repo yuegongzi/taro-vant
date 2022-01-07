@@ -2,7 +2,7 @@
 
 ### 背景知识
 
-Taro3的架构摒弃了小程序自定义组件带来的复杂性，所以 @antmjs/vantui 使用与之配套的 [CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) 来实现定制主题。链接中的内容可以帮助你对这两个概念有基本的认识，避免许多不必要的困扰。
+Taro3的架构摒弃了小程序自定义组件带来的复杂性，所以 taro-vant 使用与之配套的 [CSS 变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_custom_properties) 来实现定制主题。链接中的内容可以帮助你对这两个概念有基本的认识，避免许多不必要的困扰。
 
 CSS 变量 的兼容性要求可以在 [这里](https://caniuse.com/#feat=css-variables) 查看。对于不支持 CSS 变量 的设备，定制主题将不会生效，不过不必担心，默认样式仍会生效。
 
@@ -35,12 +35,12 @@ module.exports = {
     [
       'import',
       {
-        libraryName: '@antmjs/vantui',
+        libraryName: 'taro-vant',
         libraryDirectory: 'es',
         // 指定样式路径
         style: (name) => `${name}/style/less`,
       },
-      '@antmjs/vantui',
+      'taro-vant',
     ],
   ],
 };
@@ -50,10 +50,10 @@ module.exports = {
 
 ```js
 // 引入全部样式
-import '@antmjs/vantui/lib/index.less';
+import 'taro-vant/lib/index.less';
 
 // 引入单个组件样式
-import '@antmjs/vantui/lib/button/style/less';
+import 'taro-vant/lib/button/style/less';
 ```
 
 ### 步骤二 修改样式变量

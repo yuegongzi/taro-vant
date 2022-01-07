@@ -132,7 +132,7 @@
   dependencies:
     "@types/throttle-debounce" "^2.1.0"
 
-"@antmjs/vantui-cli@1.17.1":
+"taro-vant-cli@1.17.1":
   version "1.17.1"
   resolved "https://npm.ejiexi.com/@antmjs%2fvantui-cli/-/vantui-cli-1.17.1.tgz#1e1e11dd2108785e052a2231681b50267e3d485d"
   integrity sha512-diFVqhvHCneuOd983/eE14XI9YM+71oV5PZjK59c0h6/vXq3Arb6xv+YGC/IIb0X2zaeU8JBuDz4Qll0IK1+vQ==

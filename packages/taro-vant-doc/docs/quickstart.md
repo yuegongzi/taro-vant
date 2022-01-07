@@ -2,7 +2,7 @@
 
 ### 背景知识
 
-使用 @antmjs/vantui 前，请确保你已经学习过[Taro框架React版](https://taro.zone/) 或者 [React](https://reactjs.org/)。
+使用 taro-vant 前，请确保你已经学习过[Taro框架React版](https://taro.zone/) 或者 [React](https://reactjs.org/)。
 
 ### 差异点
 - 组件属性均用驼峰代替
@@ -17,7 +17,7 @@
 
 - 拉取代码[VantUI](https://github.com/AntmJS/vantui)
 
-- 执行 yarn && yarn bootstrap && npx lerna run build --scope=@antmjs/vantui
+- 执行 yarn && yarn bootstrap && npx lerna run build --scope=taro-vant
 
 > 进入Taro版工程:vantui-demo即 cd packages/vantui-demo && yarn watch:weapp
 
@@ -29,17 +29,17 @@
 
 ```bash
 # 通过 npm 安装
-npm install @antmjs/vantui
+npm install taro-vant
 
 # 通过 yarn 安装
-yarn add @antmjs/vantui
+yarn add taro-vant
 ```
 
 > 由于引用 node_modules 的模块，默认不会编译，所以需要额外给 H5 配置 esnextModules，在 taro 项目的 config/index.js 中新增如下配置项：
 
 ```js
 h5: {
-  esnextModules: ['@antmjs/vantui'],
+  esnextModules: ['taro-vant'],
   postcss: {
     autoprefixer: {
       enable: true,
@@ -91,11 +91,11 @@ npm i babel-plugin-import -D
     [
       "import",
       {
-        "libraryName": "@antmjs/vantui",
+        "libraryName": "taro-vant",
         "libraryDirectory": "es",
         "style": true
       },
-      "@antmjs/vantui"
+      "taro-vant"
     ]
   ]
 }
@@ -107,11 +107,11 @@ npm i babel-plugin-import -D
     [
       "import",
       {
-        "libraryName": "@antmjs/vantui",
+        "libraryName": "taro-vant",
         "libraryDirectory": "es",
         "style": (name) => `${name}/style/less`,
       },
-      "@antmjs/vantui"
+      "taro-vant"
     ]
   ]
 }
@@ -124,8 +124,8 @@ npm i babel-plugin-import -D
 import { Button } from 'packages/taro-vant';
 
 // 编译后代码
-import Button from '@antmjs/vantui/es/button';
-import '@antmjs/vantui/es/button/style';
+import Button from 'taro-vant/es/button';
+import 'taro-vant/es/button/style';
 ```
 
 ### 方式二. 在 Vite 项目中按需引入组件
@@ -146,9 +146,9 @@ export default {
     styleImport({
       libs: [
         {
-          libraryName: '@antmjs/vantui',
+          libraryName: 'taro-vant',
           esModule: true,
-          resolveStyle: (name) => `@antmjs/vantui/es/${name}/style`,
+          resolveStyle: (name) => `taro-vant/es/${name}/style`,
         },
       ],
     }),
@@ -162,9 +162,9 @@ export default {
 
 ```js
 // 引入组件
-import Button from '@antmjs/vantui/es/button';
+import Button from 'taro-vant/es/button';
 // 引入组件对应的样式，若组件没有样式文件，则无须引入
-import '@antmjs/vantui/es/button/style';
+import 'taro-vant/es/button/style';
 ```
 
 ### 方式四. 导入所有组件
@@ -172,7 +172,7 @@ import '@antmjs/vantui/es/button/style';
 Vant 支持一次性导入所有组件，引入所有组件会增加代码包体积，因此不推荐这种做法。
 
 ```js
-import '@antmjs/vantui/lib/index.css';
+import 'taro-vant/lib/index.css';
 ```
 
 > Tips: 配置按需引入后，将不允许直接导入所有组件。

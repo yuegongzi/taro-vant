@@ -1,7 +1,7 @@
 <div class="card">
   <div class="intro" style="text-align: center; padding: 20px;">
-    <img class="intro__logo" style="width: 120px; height: 120px; box-shadow: none;" src="https://antm-js.gitee.io/resource/antmjs-vantui.jpg">
-    <h2 style="margin: 0; font-size: 32px; line-height: 60px;">@antmjs/vantui</h2>
+    <img class="intro__logo" style="width: 120px; height: 120px; box-shadow: none;" src="https://img.yzcdn.cn/vant/logo.png">
+    <h2 style="margin: 0; font-size: 32px; line-height: 60px;">taro-vant</h2>
     <p>基于有赞 VantWeapp 开发的同时支持 Taro 和 React 的 UI 库</p>
   </div>
 </div>
@@ -77,7 +77,7 @@
 
 * Logo暂时还未获得使用许可，如有侵权，请及时联系我们。
 
-### 以下是 @antmjs/vantui 的核心贡献者们
+### 以下是 taro-vant 的核心贡献者们
 
 [![hisanshao](https://avatars.githubusercontent.com/u/26359618?s=100&v=4)](https://github.com/hisanshao/) | [![Chitanda60](https://avatars.githubusercontent.com/u/16026533?s=100&v=4)](https://github.com/Chitanda60/) | [![zuolung](https://avatars.githubusercontent.com/u/19684540?s=100&v=4)](https://github.com/Banlangenn/) | [![hisanshao](https://avatars.githubusercontent.com/u/28145148?s=100&v=4)](https://github.com/zuolung/)
 :---:|:---:|:---:|:---:
@@ -85,7 +85,7 @@
 
 ### 贡献者们
 
-感谢以下小伙伴们为 @antmjs/vantui 发展做出的贡献：
+感谢以下小伙伴们为 taro-vant 发展做出的贡献：
 
 <a href="https://github.com/AntmJS/vantui/graphs/contributors">
   <img src="https://opencollective.com/vantuiantmjs/contributors.svg?width=890&button=false" alt="contributors">
