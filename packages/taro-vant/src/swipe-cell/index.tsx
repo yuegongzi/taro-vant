@@ -1,5 +1,5 @@
-import SwipeCell from './SwipeCell';
+import SwipeCell from './SwipeCell'
 
-export default SwipeCell;
-export  { SwipeCell };
-export type { SwipeCellProps } from './PropsType';
+export default SwipeCell
+export { SwipeCell }
+export type { SwipeCellProps } from './PropsType'

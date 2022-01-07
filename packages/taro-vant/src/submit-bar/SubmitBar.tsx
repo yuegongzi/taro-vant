@@ -64,7 +64,7 @@ function SubmitBar(props: SubmitBarProps) {
   )
   return (
     <View
-      className={clsx(bem(),className)}
+      className={clsx(bem(), className)}
       style={style}
       {...others}
     >
@@ -77,7 +77,7 @@ function SubmitBar(props: SubmitBarProps) {
             className={clsx(bem('tip-icon'))}
           />
         )}
-        {hasTip && <View  className={clsx(bem('tip-text'))} >{tip}</View>}
+        {hasTip && <View className={clsx(bem('tip-text'))}>{tip}</View>}
         {renderTip}
       </View>
       <View className={clsx(bem('bar'))}>
@@ -86,8 +86,8 @@ function SubmitBar(props: SubmitBarProps) {
           <View className={clsx(bem('text'))}>
             <Text>{label || '合计：'}</Text>
             <Text className={clsx(bem('price'))}>
-              <Text className={clsx(bem('currency'))} >{currency}</Text>
-              <Text  className={clsx(bem('price-integer'))} >
+              <Text className={clsx(bem('currency'))}>{currency}</Text>
+              <Text className={clsx(bem('price-integer'))}>
                 {integerStr}
               </Text>
               <Text>{decimalStr}</Text>

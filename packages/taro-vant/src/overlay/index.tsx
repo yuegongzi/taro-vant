@@ -1,5 +1,5 @@
-import Overlay from './Overlay';
+import Overlay from './Overlay'
 
-export default Overlay;
-export { Overlay };
-export type { OverlayProps } from './PropsType';
+export default Overlay
+export { Overlay }
+export type { OverlayProps } from './PropsType'

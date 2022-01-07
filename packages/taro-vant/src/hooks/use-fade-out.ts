@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 
 export function useFadeOut(ref: any) {
   return useCallback(
-    function () {
+    function() {
       if (ref.current) {
         ref.current.style.cssText =
           'transition: opacity .2s linear;opacity: 0;display: block;'

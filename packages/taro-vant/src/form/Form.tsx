@@ -28,7 +28,7 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
   }
 
   useImperativeHandle(ref, () => ({ form }))
-  return (<FormContext.Provider value={{ labelWidth,layout }}>
+  return (<FormContext.Provider value={{ labelWidth, layout }}>
       {/*@ts-ignore*/}
       <Form
         {...options}

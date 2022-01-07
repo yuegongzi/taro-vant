@@ -1,5 +1,5 @@
-import './style/index.less';
-import { View, Block } from '@tarojs/components'
+import './style/index.less'
+import { Block, View } from '@tarojs/components'
 import Icon from '../icon'
 import type { TabbarItemProps } from './PropsType'
 import { computedStyle, createNamespace } from '../utils'
@@ -36,7 +36,7 @@ function TabbarItem(
     ...others
   } = props
 
-  const _click = function () {
+  const _click = function() {
     if (onChange) {
       const _active = name ?? index
       if (_active !== active) {
@@ -51,7 +51,7 @@ function TabbarItem(
     <View
       className={clsx(bem({
         active: active === (name ?? index),
-      }),className)}
+      }), className)}
       style={computedStyle([
         {
           color: active === (name ?? index) ? activeColor : inactiveColor,
@@ -70,7 +70,7 @@ function TabbarItem(
             dot={dot}
             classPrefix={iconPrefix}
             className={clsx(bem('icon__inner'))}
-           />
+          />
         ) : (
           <Block>
             {active === (name ?? index) ? renderIconActive : renderIcon}

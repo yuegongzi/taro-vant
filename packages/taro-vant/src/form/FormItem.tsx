@@ -3,11 +3,11 @@ import FormContext from './formContext'
 import React from 'react'
 import { Field } from 'rc-field-form'
 import FormItemLayout from './component/layout'
-import {  isAnyBlank } from '../utils'
+import { isAnyBlank } from '../utils'
 
 function FormItem(props: FormItemProps) {
   const {
-    name, rules, labelClass, label, layout, labelWidth, valuePropName ,
+    name, rules, labelClass, label, layout, labelWidth, valuePropName,
     required = false, hide = false, customField, children,
   } = props
   if (hide) {
@@ -28,7 +28,7 @@ function FormItem(props: FormItemProps) {
     if (!isAnyBlank(valuePropName)) {
       return valuePropName
     }
-    switch (displayName){
+    switch (displayName) {
       case 'Switch':
         return 'checked'
     }

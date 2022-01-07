@@ -1,4 +1,4 @@
-import Icon from './Icon';
+import Icon from './Icon'
 
-export default Icon;
-export type { IconProps } from './PropsType';
+export default Icon
+export type { IconProps } from './PropsType'

@@ -8,11 +8,11 @@ export function useMask(ref: any) {
   const maskfadeOut = useFadeOut(maskRef)
   const maskfadeIn = useFadeIn(maskRef)
   const actionRef = useRef({
-    show: function () {
+    show: function() {
       setIsShowMask(true)
       maskfadeIn()
     },
-    hide: function () {
+    hide: function() {
       setIsShowMask(false)
       maskfadeOut()
     },

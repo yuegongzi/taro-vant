@@ -1,5 +1,5 @@
-import Progress from './Progress';
+import Progress from './Progress'
 
-export default Progress;
-export { Progress };
-export type { ProgressProps } from './PropsType';
+export default Progress
+export { Progress }
+export type { ProgressProps } from './PropsType'

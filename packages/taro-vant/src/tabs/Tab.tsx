@@ -1,4 +1,4 @@
-import './style/index.less';
+import './style/index.less'
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import type { TabProps } from './PropsType'
@@ -36,7 +36,7 @@ function Tab(
       className={clsx(bem('pane', {
         active,
         inactive: !active,
-      }),className)}
+      }), className)}
       style={computedStyle([ active || animated ? '' : 'display: none;', style ])}
       {...others}
     >

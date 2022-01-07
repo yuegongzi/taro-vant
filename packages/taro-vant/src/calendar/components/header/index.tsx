@@ -1,5 +1,5 @@
 import { View } from '@tarojs/components'
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { createNamespace } from '../../../utils'
 import clsx from 'clsx'
 
@@ -28,7 +28,7 @@ export default function Index(props: ICalendarHeaderProps) {
   const [ weekdays, setWeekDays ] = useState<any[]>([])
 
   const initWeekDay = useCallback(
-    function () {
+    function() {
       const defaultWeeks = [ '日', '一', '二', '三', '四', '五', '六' ]
       const firstDayOfWeek_ = firstDayOfWeek || 0
       setWeekDays([
@@ -40,7 +40,7 @@ export default function Index(props: ICalendarHeaderProps) {
   )
 
   useEffect(
-    function () {
+    function() {
       initWeekDay()
     },
     [ initWeekDay ],

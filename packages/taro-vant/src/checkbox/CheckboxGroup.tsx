@@ -1,4 +1,4 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
 import type { CheckboxGroupProps } from './PropsType'
 import CheckboxGroupContext from './context'
@@ -7,7 +7,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('checkbox-group')
 
- function CheckboxGroup(props: CheckboxGroupProps) {
+function CheckboxGroup(props: CheckboxGroupProps) {
   const {
     max,
     value = [],
@@ -20,7 +20,7 @@ const [ bem ] = createNamespace('checkbox-group')
     ...others
   } = props
   const _onChange = (e: any) => {
-      onChange?.(assembly(e,e.detail))
+    onChange?.(assembly(e, e.detail))
   }
   return (
     <CheckboxGroupContext.Provider
@@ -29,7 +29,7 @@ const [ bem ] = createNamespace('checkbox-group')
       <View
         className={clsx(bem({
           horizontal: direction === 'horizontal',
-        }),className)}
+        }), className)}
         style={style}
         {...others}
       >
@@ -38,4 +38,5 @@ const [ bem ] = createNamespace('checkbox-group')
     </CheckboxGroupContext.Provider>
   )
 }
+
 export default CheckboxGroup

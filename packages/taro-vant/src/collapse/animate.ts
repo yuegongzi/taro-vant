@@ -10,14 +10,9 @@ function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
     if (height === 0) {
       animation.height('auto').top(1).step()
     } else {
-      animation.
-        height(height).
-        top(1).
-        step({
-          duration: mounted ? 300 : 1,
-        }).
-        height('auto').
-        step()
+      animation.height(height).top(1).step({
+        duration: mounted ? 300 : 1,
+      }).height('auto').step()
     }
     const animationclass = animation.export()
     setState?.((state: any) => {
@@ -50,13 +45,11 @@ export function setContentAnimate(
   setState: any,
   ref?: any,
 ) {
-  getRect(context, '.van-collapse-item__content').
-    then((rect: any) => {
-      return process.env.TARO_ENV === 'h5'
-        ? ref.current.clientHeight
-        : rect?.height
-    }).
-    then((height) => {
-      useAnimation(expanded, mounted, height, setState)
-    })
+  getRect(context, '.van-collapse-item__content').then((rect: any) => {
+    return process.env.TARO_ENV === 'h5'
+      ? ref.current.clientHeight
+      : rect?.height
+  }).then((height) => {
+    useAnimation(expanded, mounted, height, setState)
+  })
 }

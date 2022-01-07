@@ -1,4 +1,5 @@
 import { Events } from '@tarojs/taro'
+
 type EventNames = 'alert' | 'close' | 'stopLoading' | 'confirm' | 'cancel'
 
 const events = new Events()

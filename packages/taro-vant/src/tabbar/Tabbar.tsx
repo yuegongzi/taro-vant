@@ -4,7 +4,7 @@ import { cloneElement, isValidElement, useCallback, useEffect, useState } from '
 import toArray from 'rc-util/lib/Children/toArray'
 import { Block, View } from '@tarojs/components'
 import { computedStyle, createNamespace, getRect, Tabbar as InnerTabbar } from '../utils'
-import type { TabbarProps,TabbarItemProps } from './PropsType'
+import type { TabbarItemProps, TabbarProps } from './PropsType'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('tabbar')

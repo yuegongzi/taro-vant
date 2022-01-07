@@ -1,11 +1,11 @@
 import './style/index.less'
 import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
-import { Block, Button , View } from '@tarojs/components'
+import { Block, Button, View } from '@tarojs/components'
 import Icon from '../icon'
 import Loading from '../loading'
-import { rootStyle,loadingColor } from './wxs'
-import { createNamespace,computedStyle } from '../utils'
+import { loadingColor, rootStyle } from './wxs'
+import { computedStyle, createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('button')
@@ -51,7 +51,7 @@ function Index(props: ButtonProps) {
         },
       ]), { ['van-hairline--surround']: hairline }, className)
       }
-      hoverClass={clsx(bem('',[ 'active' ],true))}
+      hoverClass={clsx(bem('', [ 'active' ], true))}
       style={computedStyle([
         rootStyle({
           plain,

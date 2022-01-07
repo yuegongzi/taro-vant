@@ -1,5 +1,6 @@
 import type { DialogProps } from './PropsType'
-import { on, off, trigger } from './events'
+import { off, on, trigger } from './events'
+
 const _defaultOptions = {
   show: false,
   title: '',
@@ -40,9 +41,9 @@ export default {
     const innerOptions =
       options?.theme === 'round-button'
         ? {
-            confirmButtonColor: '#FFFFFF',
-            cancelButtonColor: '#FFFFFF',
-          }
+          confirmButtonColor: '#FFFFFF',
+          cancelButtonColor: '#FFFFFF',
+        }
         : {}
     trigger('alert', {
       ...this.defaultOptions,

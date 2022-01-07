@@ -1,4 +1,4 @@
-import List from './List';
+import List from './List'
 
-export default List;
-export type { ListProps } from './PropsType';
+export default List
+export type { ListProps } from './PropsType'

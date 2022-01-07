@@ -8,48 +8,48 @@ import { View } from '@tarojs/components'
 const [ bem ] = createNamespace('badge')
 
 export function Badge(props: BadgeProps) {
-  const { content, max, dot, showZero = true } = props;
+  const { content, max, dot, showZero = true } = props
 
   const hasContent = () => {
     if (props.content) {
-      return true;
+      return true
     }
     // @ts-ignore
-    return isDef(content) && content !== '' && (showZero || +content !== 0);
-  };
+    return isDef(content) && content !== '' && (showZero || +content !== 0)
+  }
 
   const renderContent = () => {
     if (!dot && hasContent()) {
       // @ts-ignore
       if (isDef(max) && isNumeric(content?.toString()) && +content > max) {
-        return `${max}+`;
+        return `${max}+`
       }
 
-      return content;
+      return content
     }
-    return null;
-  };
+    return null
+  }
 
   const renderBadge = () => {
     if (hasContent() || props.dot) {
       let style: CSSProperties = {
         background: props.color,
-      };
+      }
 
       if (props.offset) {
-        const [ x, y ] = props.offset;
+        const [ x, y ] = props.offset
 
         if (props.children) {
-          style.top = addUnit(y);
-          style.right = addUnit(x);
+          style.top = addUnit(y)
+          style.right = addUnit(x)
         } else {
-          style.marginTop = addUnit(y);
-          style.marginLeft = addUnit(x);
+          style.marginTop = addUnit(y)
+          style.marginLeft = addUnit(x)
         }
       }
 
       if (!props.children) {
-        style = { ...props.style, ...style };
+        style = { ...props.style, ...style }
       }
       return (
         <View
@@ -63,10 +63,10 @@ export function Badge(props: BadgeProps) {
         >
           {renderContent()}
         </View>
-      );
+      )
     }
-    return null;
-  };
+    return null
+  }
 
   if (props.children) {
     return (
@@ -79,9 +79,10 @@ export function Badge(props: BadgeProps) {
         {props.children}
         {renderBadge()}
       </View>
-    );
+    )
   }
 
-  return renderBadge();
+  return renderBadge()
 }
+
 export default Badge

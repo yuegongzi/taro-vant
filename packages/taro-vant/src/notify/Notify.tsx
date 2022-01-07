@@ -1,11 +1,11 @@
-import './style/index.less';
+import './style/index.less'
 import Taro from '@tarojs/taro'
-import { useState, useEffect, useCallback } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
-import { View, Text } from '@tarojs/components'
+import { useCallback, useEffect, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import type { NotifyProps } from './PropsType'
 import Transition from '../transition'
-import { on, off, trigger } from './events'
+import { off, on, trigger } from './events'
 import { computedStyle, createNamespace, getSystemInfoSync } from '../utils'
 import clsx from 'clsx'
 import { notifyStyle, rootStyle } from './wxs'
@@ -25,12 +25,14 @@ const defaultOptions = {
   id: defaultId,
 }
 let timer: any = null
+
 function parseOptions(message: any) {
   if (message == null) {
     return {}
   }
   return typeof message === 'string' ? { message } : message
 }
+
 export function Notify(props: NotifyProps) {
   const [ state, setState ] = useState({
     selector: '#van-notify',
@@ -46,8 +48,10 @@ export function Notify(props: NotifyProps) {
     top: 0,
     id: defaultId,
     onClick: (_: any) => _,
-    onOpened: () => {},
-    onClose: () => {},
+    onOpened: () => {
+    },
+    onClose: () => {
+    },
   })
 
   const { style, className, ...others } = props
@@ -144,7 +148,7 @@ export function Notify(props: NotifyProps) {
     <Transition
       name='slide-down'
       show={state.show}
-      className={clsx(bem('container'),className)}
+      className={clsx(bem('container'), className)}
       style={computedStyle([
         rootStyle({
           zIndex: state.zIndex,
@@ -156,10 +160,10 @@ export function Notify(props: NotifyProps) {
       {...others}
     >
       <View className={clsx(bem([ `${state.type}` ]))}
-        style={notifyStyle({
-          background: state.background,
-          color: state.color,
-        })}
+            style={notifyStyle({
+              background: state.background,
+              color: state.color,
+            })}
       >
         {state.safeAreaInsetTop && (
           <View style={'height: ' + state.statusBarHeight + 'px'} />

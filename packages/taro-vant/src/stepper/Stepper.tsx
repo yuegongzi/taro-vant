@@ -4,7 +4,7 @@ import { Input, View } from '@tarojs/components'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { StepperProps } from './PropsType'
 import * as computed from './wxs'
-import { createNamespace,isDef } from '../utils'
+import { createNamespace, isDef } from '../utils'
 import clsx from 'clsx'
 
 const LONG_PRESS_START_TIME = 600
@@ -232,8 +232,8 @@ export function Stepper(props: StepperProps) {
     // eslint-disable-next-line
   }, [_format, value])
   return (
-    <View className={clsx(bem([ theme ]),className)}
-      {...others}
+    <View className={clsx(bem([ theme ]), className)}
+          {...others}
     >
       {showMinus && (
         <View
@@ -244,7 +244,7 @@ export function Stepper(props: StepperProps) {
           className={clsx(bem('minus', {
             disabled: disabled || disableMinus || currentValue <= min,
           }))}
-          hoverClass={clsx(bem('minus',[ 'hover' ],true))}
+          hoverClass={clsx(bem('minus', [ 'hover' ], true))}
           onClick={_onTap}
           onTouchStart={_onTouchStart}
           onTouchEnd={_onTouchEnd}
@@ -275,9 +275,9 @@ export function Stepper(props: StepperProps) {
             buttonSize,
           })}
           className={clsx(bem('plus', {
-             disabled: disabled || disablePlus || currentValue >= max,
-           }))}
-          hoverClass={clsx(bem('plus',[ 'hover' ],true))}
+            disabled: disabled || disablePlus || currentValue >= max,
+          }))}
+          hoverClass={clsx(bem('plus', [ 'hover' ], true))}
           // hoverStayTime="70"
           onClick={_onTap}
           onTouchStart={_onTouchStart}

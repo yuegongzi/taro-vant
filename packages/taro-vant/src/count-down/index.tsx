@@ -1,5 +1,5 @@
-import CountDown from './CountDown';
+import CountDown from './CountDown'
 
-export default CountDown;
-export { CountDown };
-export type { CountDownProps } from './PropsType';
+export default CountDown
+export { CountDown }
+export type { CountDownProps } from './PropsType'

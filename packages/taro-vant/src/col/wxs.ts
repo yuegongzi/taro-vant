@@ -1,4 +1,4 @@
-import { computedStyle,addUnit } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 function rootStyle(data: any) {
   if (!data.gutter) {

@@ -4,6 +4,7 @@ import type { StandardProps } from '@tarojs/components'
 type eventDetail = {
   detail: { index: number; name?: string; title?: string }
 }
+
 export interface TabsProps extends Omit<StandardProps, 'onClick'> {
   sticky?: boolean
   border?: boolean

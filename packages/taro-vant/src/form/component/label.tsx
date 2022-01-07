@@ -1,4 +1,4 @@
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import clsx from 'clsx'
 import { createNamespace } from '../../utils'
 
@@ -16,13 +16,13 @@ export default function Label(props: LabelProps) {
     label,
     required,
     className,
-    labelWidth = '5.2em'
+    labelWidth = '5.2em',
   } = props
   return (
-    <View className={clsx(bem('label'),className)} style={{ width:labelWidth }}>
+    <View className={clsx(bem('label'), className)} style={{ width: labelWidth }}>
       <View className={clsx(bem('required-box'))}>
         {required && (
-          <Text  className={clsx(bem('label-star'))}>
+          <Text className={clsx(bem('label-star'))}>
             *
           </Text>
         )}

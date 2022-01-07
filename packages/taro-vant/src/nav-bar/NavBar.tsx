@@ -67,7 +67,7 @@ function NavBar(props: NavBarProps) {
               barStyle({
                 zIndex,
                 statusBarHeight,
-                safeAreaInsetTop
+                safeAreaInsetTop,
               }) +
               '; ' +
               style,

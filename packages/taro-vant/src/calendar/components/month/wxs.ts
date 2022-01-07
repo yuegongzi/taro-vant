@@ -20,15 +20,15 @@ function getDayStyle(
     current < firstDayOfWeek
       ? 7 - firstDayOfWeek + current
       : current === 7 && firstDayOfWeek === 0
-      ? 0
-      : current - firstDayOfWeek
+        ? 0
+        : current - firstDayOfWeek
 
   if (index === 0) {
-    style.push(['margin-left', (100 * offset) / 7 + '%'])
+    style.push([ 'margin-left', (100 * offset) / 7 + '%' ])
   }
 
   if (rowHeight !== ROW_HEIGHT) {
-    style.push(['height', rowHeight + 'px'])
+    style.push([ 'height', rowHeight + 'px' ])
   }
 
   if (color) {
@@ -39,17 +39,17 @@ function getDayStyle(
       type === 'multiple-selected' ||
       type === 'multiple-middle'
     ) {
-      style.push(['background', color])
+      style.push([ 'background', color ])
     } else if (type === 'middle') {
-      style.push(['color', color])
+      style.push([ 'color', color ])
     }
   }
 
-  return style
-    .map(function (item) {
+  return style.
+    map(function(item) {
       return item.join(':')
-    })
-    .join(';')
+    }).
+    join(';')
 }
 
 function formatMonthTitle(date: any) {

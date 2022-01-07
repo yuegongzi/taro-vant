@@ -1,10 +1,10 @@
-import './style/index.less';
-import { View, Block } from '@tarojs/components'
+import './style/index.less'
+import { Block, View } from '@tarojs/components'
 import type { CellGroupProps } from './PropsType'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
 
-const [ bem ]=createNamespace('cell-group')
+const [ bem ] = createNamespace('cell-group')
 
 function CellGroup(props: CellGroupProps) {
   const {
@@ -28,9 +28,9 @@ function CellGroup(props: CellGroupProps) {
         </View>
       )}
       <View
-        className={clsx(bem({ inset }),{
-          ['van-hairline--top-bottom']: border
-        },className)}
+        className={clsx(bem({ inset }), {
+          ['van-hairline--top-bottom']: border,
+        }, className)}
         style={style}
         {...others}
       >
@@ -39,4 +39,5 @@ function CellGroup(props: CellGroupProps) {
     </Block>
   )
 }
+
 export default CellGroup

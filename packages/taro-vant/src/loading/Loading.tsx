@@ -49,12 +49,12 @@ export function Loading(props: LoadingProps): JSX.Element {
           </Block>
         )}
         {type === 'ball' && (
-            <View className={clsx(bem('ball'))}>
-              <View />
-              <View />
-              <View />
-            </View>
-          )
+          <View className={clsx(bem('ball'))}>
+            <View />
+            <View />
+            <View />
+          </View>
+        )
         }
       </View>
       <View

@@ -56,11 +56,11 @@ function SidebarItem(
     },
     [ disabled, index, onChange, onClick, setAction ],
   )
-  const _renderTitle = ()=>{
-    if(title){
+  const _renderTitle = () => {
+    if (title) {
       return (<View>{title}</View>)
     }
-    return  renderTitle?.()
+    return renderTitle?.()
   }
   return (
     <View className={clsx(bem({
@@ -77,11 +77,11 @@ function SidebarItem(
           {...others}
     >
       <View className={clsx(bem('text'))}>
-        {(badge != null  || dot) ? (
+        {(badge != null || dot) ? (
           <Badge dot={dot} content={badge}>
             {_renderTitle()}
           </Badge>
-        ): _renderTitle()}
+        ) : _renderTitle()}
 
       </View>
     </View>

@@ -1,4 +1,4 @@
-import './style/index.less';
+import './style/index.less'
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -10,7 +10,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('switch')
 
- function Switch(props: SwitchProps) {
+function Switch(props: SwitchProps) {
   const {
     checked = false,
     loading = false,
@@ -32,7 +32,7 @@ const [ bem ] = createNamespace('switch')
         return
       }
       const value = checked === activeValue ? inactiveValue : activeValue
-      const ev = assembly(event,value)
+      const ev = assembly(event, value)
       onChange?.(ev)
     },
     [ activeValue, checked, disabled, inactiveValue, loading, onChange ],
@@ -40,10 +40,10 @@ const [ bem ] = createNamespace('switch')
 
   return (
     <View
-      className={clsx(bem( {
+      className={clsx(bem({
         on: checked === activeValue,
         disabled,
-      }),className)}
+      }), className)}
       style={computedStyle([
         computed.rootStyle({
           size,

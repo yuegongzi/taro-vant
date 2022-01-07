@@ -1,6 +1,6 @@
 import './style/index.less'
 import { useCallback } from 'react'
-import { Overlay as InnerOverlay, createNamespace, computedStyle } from '../utils'
+import { computedStyle, createNamespace, Overlay as InnerOverlay } from '../utils'
 import type { OverlayProps } from './PropsType'
 import Transition from '../transition'
 import clsx from 'clsx'
@@ -25,7 +25,7 @@ function Overlay(props: OverlayProps) {
   return lockScroll ? (
     <Transition
       show={show}
-      className={clsx(bem(),className)}
+      className={clsx(bem(), className)}
       style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}
       onTouchMove={_noop}
@@ -36,7 +36,7 @@ function Overlay(props: OverlayProps) {
   ) : (
     <Transition
       show={show}
-      className={clsx(bem(),className)}
+      className={clsx(bem(), className)}
       style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}
       {...others}

@@ -1,7 +1,7 @@
-import { addUnit,computedStyle } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 export function displayTitle(item: any) {
-  const match = (item.options || []).filter(function (option: any) {
+  const match = (item.options || []).filter(function(option: any) {
     return option.value === item.value
   })
   const displayTitle = match.length ? match[0].text : ''

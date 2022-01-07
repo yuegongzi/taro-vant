@@ -48,17 +48,17 @@ function Index(
   const [ displayTitle, setDisplayTitle ] = useState('')
   const [ value_, setValue ] = useState<number | string | undefined>('')
 
-  useEffect(()=> {
-      setValue(value)
-    }, [ value ])
+  useEffect(() => {
+    setValue(value)
+  }, [ value ])
 
-  const rerender = useCallback(()=> {
-      Taro.nextTick(() => {
-        if (parentInstance) {
-          parentInstance.updateItemListData()
-        }
-      })
-    }, [ parentInstance ])
+  const rerender = useCallback(() => {
+    Taro.nextTick(() => {
+      if (parentInstance) {
+        parentInstance.updateItemListData()
+      }
+    })
+  }, [ parentInstance ])
 
   const toggle = useCallback(function(show?: any, options = {}) {
       if (typeof show !== 'boolean') {

@@ -1,3 +1,3 @@
-import Init from './Init';
+import Init from './Init'
 
-export default Init;
+export default Init

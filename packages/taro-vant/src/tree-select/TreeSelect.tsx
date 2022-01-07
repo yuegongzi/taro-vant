@@ -5,7 +5,7 @@ import Sidebar from '../sidebar'
 import Icon from '../icon'
 import * as computed from './wxs'
 import type { TreeSelectProps } from './PropsType'
-import { createNamespace,addUnit } from '../utils'
+import { addUnit, createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('tree-select')
@@ -23,7 +23,7 @@ function TreeSelect(props: TreeSelectProps) {
     onClickNav,
     renderContent,
     contentActiveClass,
-    contentDisabledClass
+    contentDisabledClass,
   } = props
   const [ subItems, setSubItems ] = useState<any[]>([])
   const _onSelectItem = useCallback(
@@ -62,7 +62,7 @@ function TreeSelect(props: TreeSelectProps) {
 
   return (
     <View className={clsx(bem())}
-      style={'height: ' + addUnit(height)}
+          style={'height: ' + addUnit(height)}
     >
       <ScrollView scrollY className={clsx(bem('nav'))}>
         <Sidebar
@@ -89,10 +89,10 @@ function TreeSelect(props: TreeSelectProps) {
           return (
             <View
               key={item.id}
-              className={clsx(bem('item',{
+              className={clsx(bem('item', {
                 active: computed.isActive(activeId, item.id),
                 disabled: item.disabled,
-              }),'van-ellipsis',{
+              }), 'van-ellipsis', {
                 [`${contentActiveClass}`]: computed.isActive(activeId, item.id),
                 [`${contentDisabledClass}`]: item.disabled,
               })}

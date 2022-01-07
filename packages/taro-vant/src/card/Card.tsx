@@ -1,12 +1,12 @@
-import './style/index.less';
-import { View, Text, Image } from '@tarojs/components'
+import './style/index.less'
+import { Image, Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
-import { jumpLink ,createNamespace } from '../utils'
+import { createNamespace, jumpLink } from '../utils'
 import Tag from '../tag'
 import type { CardProps } from './PropsType'
 import clsx from 'clsx'
 
-const [ bem ]=createNamespace('card')
+const [ bem ] = createNamespace('card')
 
 function Card(props: CardProps) {
   const {
@@ -43,7 +43,7 @@ function Card(props: CardProps) {
   })
   const { integerStr, decimalStr } = state
   useEffect(
-    function () {
+    function() {
       const priceArr = price.toString().split('.')
       setState((pre: any) => {
         return {
@@ -56,14 +56,14 @@ function Card(props: CardProps) {
     [ price ],
   )
   return (
-    <View className={clsx(bem(),className)} style={style} {...others}>
+    <View className={clsx(bem(), className)} style={style} {...others}>
       <View
-        className={clsx(bem('header',{   center: centered }))}
+        className={clsx(bem('header', { center: centered }))}
       >
         <View
           className={clsx(bem('thumb'))}
           onClick={() => {
-            if(thumbLink){
+            if (thumbLink) {
               jumpLink(thumbLink)
             }
           }}
@@ -74,7 +74,7 @@ function Card(props: CardProps) {
               mode={thumbMode}
               lazyLoad={lazyLoad}
               className={clsx(bem('img'))}
-             />
+            />
           ) : (
             renderThumb
           )}
@@ -87,7 +87,7 @@ function Card(props: CardProps) {
           )}
         </View>
         <View
-          className={clsx(bem('content',{
+          className={clsx(bem('content', {
             center: centered,
           }))}
         >
@@ -137,4 +137,5 @@ function Card(props: CardProps) {
     </View>
   )
 }
+
 export default Card

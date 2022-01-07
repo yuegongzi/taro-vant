@@ -1,5 +1,4 @@
-import type { ComponentClass } from 'react';
-import type React from 'react'
+import type React, { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 type SliderEvent = {

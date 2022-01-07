@@ -10,4 +10,5 @@ function popupStyle(data: any) {
     data.display ? null : 'display: none',
   ])
 }
+
 export { popupStyle }

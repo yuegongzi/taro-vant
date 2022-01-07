@@ -370,5 +370,6 @@ function IndexBar(props: IndexBarProps) {
     </View>
   )
 }
-IndexBar.displayName= 'IndexBar'
+
+IndexBar.displayName = 'IndexBar'
 export default IndexBar

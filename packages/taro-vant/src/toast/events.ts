@@ -1,4 +1,5 @@
 import { Events } from '@tarojs/taro'
+
 type EventNames =
   | 'toast_clear'
   | 'toast_show'

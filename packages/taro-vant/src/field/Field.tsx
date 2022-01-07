@@ -5,7 +5,7 @@ import { Block, Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
-import { assembly,  createNamespace, resizeTextarea } from '../utils'
+import { assembly, createNamespace, resizeTextarea } from '../utils'
 import clsx from 'clsx'
 import { inputStyle } from './wxs'
 
@@ -112,7 +112,7 @@ function Field(props: FieldProps) {
     setState((pre: any) => {
       return { ...pre, innerValue: event.detail }
     })
-    const ev = assembly(event,event.detail.value)
+    const ev = assembly(event, event.detail.value)
     onInput?.(ev)
     onChange?.(ev)
   }

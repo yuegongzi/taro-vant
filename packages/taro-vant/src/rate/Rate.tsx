@@ -4,7 +4,7 @@ import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { RateProps } from './PropsType'
-import { addUnit, computedStyle, createNamespace,getAllRect } from '../utils'
+import { addUnit, computedStyle, createNamespace, getAllRect } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('rate')

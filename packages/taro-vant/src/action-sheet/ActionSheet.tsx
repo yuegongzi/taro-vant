@@ -1,4 +1,4 @@
-import './style/index.less';
+import './style/index.less'
 import type { ITouchEvent } from '@tarojs/components'
 import { Button, View } from '@tarojs/components'
 import type { FC } from 'react'
@@ -8,7 +8,6 @@ import type { ActionSheetItem, ActionSheetProps } from './PropsType'
 import Loading from '../loading'
 import Popup from '../popup'
 import Icon from '../icon'
-import './style/index.less'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('action-sheet')

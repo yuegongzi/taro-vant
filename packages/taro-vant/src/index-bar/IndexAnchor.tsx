@@ -26,13 +26,13 @@ function IndexAnchor(
   } = props
   return (
     <View
-      className={clsx(bem('wrapper',className))}
+      className={clsx(bem('wrapper', className))}
       style={computedStyle([ wrapperStyle, style ])}
       {...others}
     >
       <View
         className={clsx(bem({
-          active,bottom: active
+          active, bottom: active,
         }))}
         style={anchorStyle}
       >

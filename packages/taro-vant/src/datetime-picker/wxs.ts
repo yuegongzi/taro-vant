@@ -1,6 +1,7 @@
 import { isDef } from '../utils'
 
 const currentYear = new Date().getFullYear()
+
 function isValidDate(date: any) {
   return isDef(date) && !isNaN(new Date(date).getTime())
 }

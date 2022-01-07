@@ -22,13 +22,13 @@ export function Icon(props: IconProps) {
     ...others
   } = props
 
-  const renderIcon = ()=>{
+  const renderIcon = () => {
     return (
       <View
-        className={clsx( rootClass({
+        className={clsx(rootClass({
           classPrefix,
           name,
-        }),className,{ [`${bem([ 'spin' ])}`]: spin })}
+        }), className, { [`${bem([ 'spin' ])}`]: spin })}
         style={computedStyle([
           rootStyle({
             color,
@@ -44,9 +44,9 @@ export function Icon(props: IconProps) {
       </View>
     )
   }
-  if(( !isAnyBlank(badge) || dot)){
-    return  (
-      <Badge dot={dot} content={badge} className={clsx(bem('badge'))} >
+  if ((!isAnyBlank(badge) || dot)) {
+    return (
+      <Badge dot={dot} content={badge} className={clsx(bem('badge'))}>
         {renderIcon()}
       </Badge>
     )

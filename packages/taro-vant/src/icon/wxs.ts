@@ -1,4 +1,4 @@
-import { addUnit,computedStyle } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 function isImage(name: any) {
   return name.indexOf('/') !== -1

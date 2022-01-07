@@ -8,5 +8,5 @@ export interface TransitionPropsCom extends TransitionProps, StandardProps {
 
 declare const Transition: ComponentClass<TransitionPropsCom>
 
-export { Transition,TransitionProps }
+export { Transition, TransitionProps }
 

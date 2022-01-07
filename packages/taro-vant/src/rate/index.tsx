@@ -1,5 +1,5 @@
-import Rate from './Rate';
+import Rate from './Rate'
 
-export default Rate;
-export { Rate };
-export type { RateProps } from './PropsType';
+export default Rate
+export { Rate }
+export type { RateProps } from './PropsType'

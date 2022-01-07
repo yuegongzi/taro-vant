@@ -43,7 +43,7 @@ function Progress(props: ProgressProps) {
 
   return (
     <View
-      className={clsx(bem(),className)}
+      className={clsx(bem(), className)}
       style={computedStyle([
         computed.rootStyle({
           strokeWidth,

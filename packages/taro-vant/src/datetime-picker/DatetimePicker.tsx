@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('datetime-picker')
 
- function DatetimePicker(props: DatetimePickerProps) {
+function DatetimePicker(props: DatetimePickerProps) {
   const {
     value = null,
     filter,
@@ -330,7 +330,7 @@ const [ bem ] = createNamespace('datetime-picker')
   return (
     <Picker
       ref={PickRef}
-      className={clsx(bem(),others.className)}
+      className={clsx(bem(), others.className)}
       style={computedStyle([ others.style ])}
       title={title}
       columns={columns}

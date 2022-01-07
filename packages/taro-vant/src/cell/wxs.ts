@@ -1,4 +1,4 @@
-import { computedStyle,addUnit } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 export function computedTitleStyle(data: any) {
   return computedStyle([

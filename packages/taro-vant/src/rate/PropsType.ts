@@ -1,5 +1,5 @@
 import type { ComponentClass } from 'react'
-import type { StandardProps, ITouchEvent } from '@tarojs/components'
+import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface RateProps extends StandardProps {
   value?: number

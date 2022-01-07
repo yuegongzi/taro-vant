@@ -1,4 +1,5 @@
 import { computedStyle } from '../utils'
+
 function rootStyle(data: any) {
   return computedStyle({
     'background-color': data.plain ? '' : data.color,

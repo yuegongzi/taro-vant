@@ -25,11 +25,9 @@ export function scrollOffset(nodesRef: TaroElement) {
         scrollTop: _nodesRef.scrollTop,
       })
     }
-    return selectorQuery(nodesRef).
-      scrollOffset().
-      exec((res) => {
-        resolve(res[0])
-      })
+    return selectorQuery(nodesRef).scrollOffset().exec((res) => {
+      resolve(res[0])
+    })
   })
 }
 
@@ -54,11 +52,9 @@ export function boundingClientRect(nodesRef: TaroElement) {
         nodesRef || document.documentElement || document.body
       return resolve(_nodesRef.getBoundingClientRect())
     }
-    return selectorQuery(nodesRef).
-      boundingClientRect().
-      exec((res) => {
-        resolve(res[0])
-      })
+    return selectorQuery(nodesRef).boundingClientRect().exec((res) => {
+      resolve(res[0])
+    })
   })
 }
 

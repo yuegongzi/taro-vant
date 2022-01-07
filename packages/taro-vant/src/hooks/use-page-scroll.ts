@@ -16,6 +16,7 @@ export function usePageScroll(scroller: any) {
 
       scroller(_event)
     }
+
     el.addEventListener('scroll', listener)
     return () => {
       el.removeEventListener('scroll', listener)

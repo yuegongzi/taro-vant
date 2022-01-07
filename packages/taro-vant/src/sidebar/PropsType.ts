@@ -6,6 +6,7 @@ interface onChangeEvent {
     detail?: number
   }
 }
+
 export interface SidebarProps extends StandardProps {
   onChange?: (a: onChangeEvent) => any
   activeKey: number

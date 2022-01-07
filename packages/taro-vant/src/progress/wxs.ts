@@ -1,4 +1,4 @@
-import { computedStyle,addUnit } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 function pivotText(pivotText: any, percentage: any) {
   return pivotText || percentage + '%'
@@ -26,8 +26,8 @@ function pivotStyle(data: any) {
     background: data.pivotColor
       ? data.pivotColor
       : data.inactive
-      ? '#cacaca'
-      : data.color,
+        ? '#cacaca'
+        : data.color,
   })
 }
 

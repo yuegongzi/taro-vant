@@ -1,11 +1,11 @@
-import './style/index.less';
-import type { ITouchEvent } from '@tarojs/components';
+import './style/index.less'
+import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-import { useState, useEffect, useCallback, useContext } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import type { RadioProps } from './PropsType'
 import Icon from '../icon'
 import RadioGroupContext from './context'
-import { createNamespace, isEmptyObject,addUnit } from '../utils'
+import { addUnit, createNamespace, isEmptyObject } from '../utils'
 import * as computed from './wxs'
 import clsx from 'clsx'
 
@@ -111,22 +111,22 @@ export function Radio(props: RadioProps) {
 
   return (
     <View
-      className={clsx(bem([ state.direction ]),className)}
+      className={clsx(bem([ state.direction ]), className)}
       style={style}
       {...others}
     >
       {labelPosition === 'left' && (
-        <View className={clsx(bem('label',[
+        <View className={clsx(bem('label', [
           labelPosition, { disabled: disabled || state.parentDisabled },
         ]))}
-          onClick={onClickLabel}
+              onClick={onClickLabel}
         >
           {children}
         </View>
       )}
       <View className={clsx(bem('icon-wrap'))}
-        style={'font-size: ' + addUnit(iconSize)}
-        onClick={onClick}
+            style={'font-size: ' + addUnit(iconSize)}
+            onClick={onClick}
       >
         {renderIcon || (
           <Icon
@@ -146,7 +146,7 @@ export function Radio(props: RadioProps) {
               value: state.value,
               name,
             })}
-           />
+          />
         )}
       </View>
       {labelPosition === 'right' && (
@@ -165,4 +165,5 @@ export function Radio(props: RadioProps) {
     </View>
   )
 }
+
 export default Radio

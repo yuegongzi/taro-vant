@@ -254,8 +254,8 @@ function Uploader(props: UploaderProps) {
   }, [fileList])
 
   return (
-    <View className={clsx(bem(),className)} style={style} {...others}>
-      <View  className={clsx(bem('wrapper'))}>
+    <View className={clsx(bem(), className)} style={style} {...others}>
+      <View className={clsx(bem('wrapper'))}>
         {previewImage &&
         state.lists.map((item: any, index) => {
           return (
@@ -293,35 +293,35 @@ function Uploader(props: UploaderProps) {
                   onClick={onPreviewVideo}
                 />
               ) : (
-                <View  className={clsx(bem('file'))}
-                  style={computed.sizeStyle({
-                    previewSize,
-                  })}
-                  data-index={index}
-                  onClick={onPreviewFile}
+                <View className={clsx(bem('file'))}
+                      style={computed.sizeStyle({
+                        previewSize,
+                      })}
+                      data-index={index}
+                      onClick={onPreviewFile}
                 >
                   <Icon
                     name='description'
                     className={clsx(bem('file-icon'))}
                   />
                   <View
-                    className={clsx(bem('file-name'),'van-ellipsis')}>
+                    className={clsx(bem('file-name'), 'van-ellipsis')}>
                     {item.name || item.url}
                   </View>
                 </View>
               )}
               {(item.status === 'uploading' || item.status === 'failed') && (
-                <View  className={clsx(bem('mask'))}>
+                <View className={clsx(bem('mask'))}>
                   {item.status === 'failed' ? (
                     <Icon
                       name='close'
                       className={clsx(bem('mask-icon'))}
                     />
                   ) : (
-                    <Loading  className={clsx(bem('loading'))} />
+                    <Loading className={clsx(bem('loading'))} />
                   )}
                   {item.message && (
-                    <Text  className={clsx(bem('mask-message'))}>
+                    <Text className={clsx(bem('mask-message'))}>
                       {item.message}
                     </Text>
                   )}
@@ -351,11 +351,11 @@ function Uploader(props: UploaderProps) {
             </View>
             {/*  默认上传样式  */}
             {showUpload && (
-              <View className={clsx(bem('upload',{ disabled }))}
-                style={computed.sizeStyle({
-                  previewSize,
-                })}
-                onClick={startUpload}
+              <View className={clsx(bem('upload', { disabled }))}
+                    style={computed.sizeStyle({
+                      previewSize,
+                    })}
+                    onClick={startUpload}
               >
                 <Icon
                   name={uploadIcon}

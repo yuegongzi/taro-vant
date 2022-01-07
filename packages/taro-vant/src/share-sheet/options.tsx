@@ -18,7 +18,7 @@ export default function Index(props: ShareSheetOption) {
           onClick={() => onSelect?.(item, index)}
         >
           <Button className={clsx(bem('button'))}
-            open-type={item.openType || ''}
+                  open-type={item.openType || ''}
           >
             <Image
               src={getIconURL(item.icon)}

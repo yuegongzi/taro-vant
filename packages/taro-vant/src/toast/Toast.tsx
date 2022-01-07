@@ -1,14 +1,14 @@
-import './style/index.less';
-import { View, Text, RichText } from '@tarojs/components'
-import { useState, useEffect, useCallback } from 'react'
+import './style/index.less'
+import { RichText, Text, View } from '@tarojs/components'
+import { useCallback, useEffect, useState } from 'react'
 import type { ToastProps } from './PropsType'
 import Transition from '../transition'
 import Overlay from '../overlay'
 import Icon from '../icon'
 import Loading from '../loading'
-import { on, off, trigger } from './events'
+import { off, on, trigger } from './events'
 import toast from './toast-func'
-import { createNamespace,isObj } from '../utils'
+import { createNamespace, isObj } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('toast')
@@ -30,6 +30,7 @@ const defaultOptions = {
 // let queue: any = []
 let currentOptions = Object.assign({}, defaultOptions)
 let timer: any = null
+
 function parseOptions(message: any) {
   return isObj(message) ? message : { message }
 }
@@ -61,7 +62,8 @@ export function Toast(props: ToastProps) {
     })
   }, [ props ])
 
-  const noop = function () {}
+  const noop = function() {
+  }
   const clear = useCallback((toastOptions: any) => {
     setState((state) => {
       return {
@@ -126,7 +128,7 @@ export function Toast(props: ToastProps) {
           show={state.show}
           zIndex={state.zIndex}
           style={state.mask ? '' : 'background-color: transparent;'}
-         />
+        />
       )}
       <Transition
         show={state.show}
@@ -136,8 +138,8 @@ export function Toast(props: ToastProps) {
         <View
           id='van-toast'
           className={clsx(bem([
-            `${state.type}`,`${state.position}`
-          ]),className)}
+            `${state.type}`, `${state.position}`,
+          ]), className)}
 
           style={style}
           onTouchMove={noop}
@@ -154,14 +156,14 @@ export function Toast(props: ToastProps) {
                   color='white'
                   type={state.loadingType}
                   className={clsx(bem('loading'))}
-                 />
+                />
               ) : (
                 <Icon className={clsx(bem('icon'))}
-                  name={state.type}
-                 />
+                      name={state.type}
+                />
               )}
               {state.message && (
-                <Text className={clsx(bem('text'))} >{state.message}</Text>
+                <Text className={clsx(bem('text'))}>{state.message}</Text>
               )}
             </View>
           )}

@@ -1,4 +1,4 @@
-import { addUnit,computedStyle } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 export function iconStyle(data: any) {
   const styles: any = {

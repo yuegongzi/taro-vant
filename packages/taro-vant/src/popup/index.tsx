@@ -1,5 +1,5 @@
-import Popup from './Popup';
+import Popup from './Popup'
 
-export default Popup;
-export { Popup };
-export type { PopupProps } from './PropsType';
+export default Popup
+export { Popup }
+export type { PopupProps } from './PropsType'

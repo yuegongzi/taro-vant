@@ -3,7 +3,7 @@ import { nextTick } from '@tarojs/taro'
 
 export function useFadeIn(ref: any) {
   return useCallback(
-    function () {
+    function() {
       if (ref.current) {
         ref.current.style.cssText = 'display: block;opacity: 0'
       }

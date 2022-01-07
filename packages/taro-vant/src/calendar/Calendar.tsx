@@ -1,14 +1,15 @@
-import './style/index.less';
-import type { ITouchEvent } from '@tarojs/components';
-import { Block, View, ScrollView } from '@tarojs/components'
+import './style/index.less'
+import type { ITouchEvent } from '@tarojs/components'
+import { Block, ScrollView, View } from '@tarojs/components'
 import {
-  useState,
-  useEffect,
-  useCallback,
-  useRef,
-  useLayoutEffect,
   forwardRef,
-  useImperativeHandle, useMemo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
 } from 'react'
 import Taro from '@tarojs/taro'
 import Toast from '../toast'
@@ -17,18 +18,18 @@ import Popup from '../popup'
 import Button from '../button'
 import type { CalendarProps, ICalendarInstance } from './PropsType'
 import {
-  ROW_HEIGHT,
-  getPrevDay,
-  getNextDay,
-  getToday,
-  compareDay,
-  copyDates,
   calcDateNum,
-  formatMonthTitle,
+  compareDay,
   compareMonth,
-  getMonths,
+  copyDates,
+  formatMonthTitle,
+  getButtonDisabled,
   getDayByOffset,
-  getButtonDisabled
+  getMonths,
+  getNextDay,
+  getPrevDay,
+  getToday,
+  ROW_HEIGHT,
 } from './utils'
 import Month from './components/month'
 import Header from './components/header'
@@ -98,13 +99,13 @@ function Index(
   const [ scrollIntoView, setScrollIntoView ] = useState('')
   const contentObserver = useRef<any>()
   const [ compIndex, setCompIndex ] = useState(0)
-  const id = useMemo(()=>uuid(),[])
-  useEffect(function () {
+  const id = useMemo(() => uuid(), [])
+  useEffect(function() {
     setCompIndex(init++)
   }, [])
 
   const limitDateRange = useCallback(
-    function (date, minDateD = null, maxDateD = null) {
+    function(date, minDateD = null, maxDateD = null) {
       minDateD = minDateD || minDate
       maxDateD = maxDateD || maxDate
       if (compareDay(date, minDateD) === -1) {
@@ -119,7 +120,7 @@ function Index(
   )
 
   const getInitialDate = useCallback(
-    function (defaultDate = null) {
+    function(defaultDate = null) {
       const now = getToday().getTime()
       if (type === 'range') {
         if (!Array.isArray(defaultDate)) {
@@ -152,7 +153,7 @@ function Index(
   )
 
   const scrollIntoViewFn = useCallback(
-    function () {
+    function() {
       requestAnimationFrame(() => {
         const targetDate = type === 'single' ? currentDate : currentDate[0]
         const displayed = show || !poppable
@@ -173,19 +174,19 @@ function Index(
   )
 
   const reset = useCallback(
-    function () {
+    function() {
       setCurrentDate(getInitialDate())
       scrollIntoViewFn()
     },
     [ getInitialDate, scrollIntoViewFn ],
   )
 
-  const initRectH5 = useCallback(function () {
+  const initRectH5 = useCallback(function() {
     if (contentObserver.current != null) {
       contentObserver.current.disconnect()
     }
     const contentObserver_ = new IntersectionObserver(
-      function (res: any) {
+      function(res: any) {
         for (let i = 0; i < res.length; i++) {
           if (res[i].intersectionRatio > 0.6) {
             const item = Number(
@@ -211,7 +212,7 @@ function Index(
   }, [])
 
   const initRect = useCallback(
-    function () {
+    function() {
       if (process.env.TARO_ENV === 'h5') {
         return initRectH5()
       }
@@ -243,7 +244,7 @@ function Index(
   )
 
   const emit = useCallback(
-    function (date) {
+    function(date) {
       const getTime = (date: any) =>
         date instanceof Date ? date.getTime() : date
       setCurrentDate(Array.isArray(date) ? date.map(getTime) : getTime(date))
@@ -258,7 +259,7 @@ function Index(
   )
 
   const checkRange = useCallback(
-    function (date) {
+    function(date) {
       if (maxRange && calcDateNum(date) > maxRange) {
         if (showRangePrompt) {
           Toast.show({
@@ -275,7 +276,7 @@ function Index(
   )
 
   const onConfirm_ = useCallback(
-    function (_, date?: any) {
+    function(_, date?: any) {
       if (type === 'range' && !checkRange(currentDate)) {
         return
       }
@@ -292,11 +293,9 @@ function Index(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function select(date: any, complete?: boolean) {
     if (Array.isArray(date)) {
-      date = date.
-        filter((d: any) => !!d).
-        map((item: any) => {
-          return typeof item === 'number' ? new Date(item) : item
-        })
+      date = date.filter((d: any) => !!d).map((item: any) => {
+        return typeof item === 'number' ? new Date(item) : item
+      })
     }
     if (complete && type === 'range') {
       const valid = checkRange(date)
@@ -317,7 +316,7 @@ function Index(
   }
 
   const unselect = useCallback(
-    function (dateArray) {
+    function(dateArray) {
       const date = dateArray[0]
       if (date && unselect) {
         const e = {
@@ -332,7 +331,7 @@ function Index(
   )
 
   const onClickDay = useCallback(
-    function (event: any) {
+    function(event: any) {
       const { date } = event
       const currentDate_: any = JSON.parse(JSON.stringify(currentDate))
       if (type === 'range') {
@@ -373,7 +372,7 @@ function Index(
   )
 
   useLayoutEffect(
-    function () {
+    function() {
       if (defaultDate)
         setCurrentDate(getInitialDate(defaultDate || new Date().getTime()))
     },
@@ -381,7 +380,7 @@ function Index(
   )
 
   useEffect(
-    function () {
+    function() {
       if (show || !poppable) {
         setTimeout(() => {
           initRect()
@@ -395,14 +394,14 @@ function Index(
   )
 
   useEffect(
-    function () {
+    function() {
       reset()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [ type ],
   )
 
-  useImperativeHandle(ref, function () {
+  useImperativeHandle(ref, function() {
     return {
       reset,
     }
@@ -412,7 +411,7 @@ function Index(
     <Block>
       {poppable ? (
         <Popup
-          className={clsx(bem('popup',[ position ]))}
+          className={clsx(bem('popup', [ position ]))}
           show={show}
           round={round}
           position={position}
@@ -424,7 +423,7 @@ function Index(
           onAfterLeave={onClosed}
         >
           <View
-            className={clsx(bem(),className)}
+            className={clsx(bem(), className)}
             style={computedStyle([ style ])}
             {...others}
           >
@@ -438,9 +437,9 @@ function Index(
                 onClickSubtitle?.()
               }}
               renderTitle={renderTitle}
-             />
+            />
             <ScrollView
-              className={clsx(bem('body'),`van-calendar__body${compIndex}`)}
+              className={clsx(bem('body'), `van-calendar__body${compIndex}`)}
               scrollY
               scrollIntoView={scrollIntoView}
             >
@@ -463,17 +462,17 @@ function Index(
                     showMonthTitle={index !== 0 || !showSubtitle}
                     firstDayOfWeek={firstDayOfWeek}
                     onClick={onClickDay}
-                   />
+                  />
                 )
               })}
             </ScrollView>
             <View
-              className={clsx(bem('footer',{ safeAreaInsetBottom }))}
+              className={clsx(bem('footer', { safeAreaInsetBottom }))}
             >
               {renderFooter}
             </View>
             <View
-              className={clsx(bem('footer',{ safeAreaInsetBottom }))}
+              className={clsx(bem('footer', { safeAreaInsetBottom }))}
             >
               {showConfirm && (
                 <Button
@@ -496,7 +495,7 @@ function Index(
         </Popup>
       ) : (
         <View
-          className={clsx(bem(),className)}
+          className={clsx(bem(), className)}
           style={computedStyle([ style ])}
           {...others}
         >
@@ -508,43 +507,42 @@ function Index(
             firstDayOfWeek={firstDayOfWeek}
             onClickSubtitle={onClickSubtitle}
             renderTitle={<Block>{renderTitle}</Block>}
-           />
+          />
           <ScrollView
-            className={clsx(bem('body'),`van-calendar__body${compIndex}`)}
+            className={clsx(bem('body'), `van-calendar__body${compIndex}`)}
             scrollY
             scrollIntoView={scrollIntoView}
           >
-            {getMonths(minDate, maxDate).
-              map((item: any, index: number) => {
-                return (
-                  <Month
-                    key={`van-calendar-month___${index}`}
-                    id={`month${index} month${item}`}
-                    date={item}
-                    type={type}
-                    color={color}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                    showMark={showMark}
-                    formatter={formatter}
-                    rowHeight={rowHeight}
-                    currentDate={currentDate}
-                    showSubtitle={showSubtitle}
-                    allowSameDay={allowSameDay}
-                    showMonthTitle={index !== 0 || !showSubtitle}
-                    firstDayOfWeek={firstDayOfWeek}
-                    onClick={onClickDay}
-                   />
-                )
-              })}
+            {getMonths(minDate, maxDate).map((item: any, index: number) => {
+              return (
+                <Month
+                  key={`van-calendar-month___${index}`}
+                  id={`month${index} month${item}`}
+                  date={item}
+                  type={type}
+                  color={color}
+                  minDate={minDate}
+                  maxDate={maxDate}
+                  showMark={showMark}
+                  formatter={formatter}
+                  rowHeight={rowHeight}
+                  currentDate={currentDate}
+                  showSubtitle={showSubtitle}
+                  allowSameDay={allowSameDay}
+                  showMonthTitle={index !== 0 || !showSubtitle}
+                  firstDayOfWeek={firstDayOfWeek}
+                  onClick={onClickDay}
+                />
+              )
+            })}
           </ScrollView>
           <View
-            className={clsx(bem('footer',{ safeAreaInsetBottom }))}
+            className={clsx(bem('footer', { safeAreaInsetBottom }))}
           >
             {renderFooter}
           </View>
           <View
-            className={clsx(bem('footer',{ safeAreaInsetBottom }))}
+            className={clsx(bem('footer', { safeAreaInsetBottom }))}
           >
             {showConfirm && (
               <Button

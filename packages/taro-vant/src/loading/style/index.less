@@ -86,16 +86,19 @@
       height: 24px;
       border-radius: 50%;
     }
+
     view:nth-child(1) {
       background: #448aff;
       animation: van-ball--right 1s linear infinite;
       animation-delay: -0.5s;
     }
+
     view:nth-child(2) {
       background: #ef5350;
       animation: van-ball--right 1s linear infinite;
       animation-delay: 0s;
     }
+
     view:nth-child(3) {
       background: #448aff;
       animation: van-ball 1s linear infinite;
@@ -104,14 +107,15 @@
   }
 }
 
- .generate(@n, @i: 1) when (@i =< @n) {
-   .van-loading__dot:nth-of-type(@{i}) {
-     transform: rotate(@i * 30deg);
-     opacity: 1 - (0.75 / 12) * (@i - 1);
-   }
-   .generate(@n, (@i + 1));
- }
- .generate(12);
+.generate(@n, @i: 1) when (@i =< @n) {
+  .van-loading__dot:nth-of-type(@{i}) {
+    transform: rotate(@i * 30deg);
+    opacity: 1 - (0.75 / 12) * (@i - 1);
+  }
+  .generate(@n, (@i + 1));
+}
+
+.generate(12);
 
 @keyframes van-rotate {
   from {

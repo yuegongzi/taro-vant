@@ -1,4 +1,4 @@
-import './style/index.less';
+import './style/index.less'
 import React, { isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'
@@ -359,8 +359,8 @@ const List: React.FC<ListProps> = (props) => {
     if (finished) {
       const text = renderFinished ? renderFinished : finishedText
       if (text) {
-        if(isValidElement(text)){
-          return  text;
+        if (isValidElement(text)) {
+          return text
         }
         return <View className={clsx(bem('finished-text'))}>{text}</View>
       }

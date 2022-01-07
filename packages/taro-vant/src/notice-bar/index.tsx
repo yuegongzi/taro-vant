@@ -1,5 +1,5 @@
-import NoticeBar from './NoticeBar';
+import NoticeBar from './NoticeBar'
 
-export default NoticeBar;
-export { NoticeBar };
-export type { NoticeBarProps } from './PropsType';
+export default NoticeBar
+export { NoticeBar }
+export type { NoticeBarProps } from './PropsType'

@@ -33,5 +33,6 @@ export interface TreeSelectProps extends StandardProps {
   contentActiveClass?: string;
   contentDisabledClass?: string;
 }
+
 declare const TreeSelect: ComponentClass<TreeSelectProps>
 export { TreeSelect }

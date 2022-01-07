@@ -1,6 +1,6 @@
-import { computedStyle,addUnit } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
-function tabClass(active: any, ellipsis: any,tabClass?: string,tabActiveClass?: string) {
+function tabClass(active: any, ellipsis: any, tabClass?: string, tabActiveClass?: string) {
   const classes = [ tabClass ]
 
   if (active) {
@@ -61,7 +61,7 @@ function trackStyle(data: any) {
 function lineStyle(data: any) {
   return computedStyle({
     visibility: data.lineOffsetLeft === 0 ? 'hidden' : 'visible',
-    width: addUnit(data.lineWidth*2),
+    width: addUnit(data.lineWidth * 2),
     transform: 'translateX(' + data.lineOffsetLeft + 'px)',
     '-webkit-transform': 'translateX(' + data.lineOffsetLeft + 'px)',
     'background-color': data.color,

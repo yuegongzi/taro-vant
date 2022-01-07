@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import type { SliderProps } from './PropsType'
-import { addUnit, canIUseModel, createNamespace, getRect,computedStyle } from '../utils'
+import { addUnit, canIUseModel, computedStyle, createNamespace, getRect } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('slider')
@@ -311,7 +311,7 @@ export function Slider(props: SliderProps) {
     [ disabled, getRange, isRange, min, updateValue, value_, currentIndex_ ],
   )
   return (
-    <View className={clsx(bem( [
+    <View className={clsx(bem([
       {
         disabled,
         vertical,

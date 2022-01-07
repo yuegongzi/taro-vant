@@ -119,9 +119,9 @@ export function useTransition({
     })
   }, [ classNames, display, duration, onBeforeLeave, onLeave, onTransitionEnd ])
   useEffect(() => {
-    if(show){
+    if (show) {
       _enter()
-    }else {
+    } else {
       _leave()
     }
   }, [ _enter, _leave, show ])

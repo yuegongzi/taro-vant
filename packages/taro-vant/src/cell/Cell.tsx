@@ -1,16 +1,16 @@
-import './style/index.less';
+import './style/index.less'
 import { useCallback } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
-import { View, Block } from '@tarojs/components'
+import type { ITouchEvent } from '@tarojs/components'
+import { Block, View } from '@tarojs/components'
 import type { CellProps } from './PropsType'
 import { computedStyle, createNamespace, jumpLink } from '../utils'
 import Icon from '../icon'
 import { computedTitleStyle } from './wxs'
 import clsx from 'clsx'
 
-const [ bem ]=createNamespace('cell')
+const [ bem ] = createNamespace('cell')
 
- function Cell(props: CellProps) {
+function Cell(props: CellProps) {
   const {
     url,
     linkType,
@@ -40,7 +40,7 @@ const [ bem ]=createNamespace('cell')
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
-    function (event) {
+    function(event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
@@ -49,14 +49,14 @@ const [ bem ]=createNamespace('cell')
   return (
     <View
       className={clsx(bem([
-        size,{
+        size, {
           center,
           required,
           borderless: !border,
           clickable: isLink || clickable,
         },
-      ]),className)}
-      hoverClass={clsx(bem('',[ 'hover' ],true))}
+      ]), className)}
+      hoverClass={clsx(bem('', [ 'hover' ], true))}
       hoverStayTime={70}
       style={computedStyle([ style ])}
       onClick={_click}
@@ -64,8 +64,8 @@ const [ bem ]=createNamespace('cell')
     >
       {icon ? (
         <Icon name={icon}
-          className={clsx(bem('left-icon-wrap'),bem('left-icon'))}
-         />
+              className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
+        />
       ) : (
         renderIcon
       )}
@@ -83,14 +83,14 @@ const [ bem ]=createNamespace('cell')
           </View>
         )}
       </View>
-      <View className={clsx(bem('value'),valueClass)}>
+      <View className={clsx(bem('value'), valueClass)}>
         {value || value === 0 ? <Block>{value}</Block> : children}
       </View>
       {isLink ? (
         <Icon
           name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
-          className={clsx(bem('right-icon-wrap'),bem('right-icon'))}
-         />
+          className={clsx(bem('right-icon-wrap'), bem('right-icon'))}
+        />
       ) : (
         renderRightIcon
       )}

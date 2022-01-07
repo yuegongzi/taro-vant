@@ -223,7 +223,7 @@ const Picker = forwardRef(function Index(
         <View className={clsx(bem('toolbar'))}>
           <View
             className={clsx(bem('cancel'))}
-            hoverClass={clsx(bem('cancel',[ 'hover' ],true))}
+            hoverClass={clsx(bem('cancel', [ 'hover' ], true))}
             hoverStayTime={70}
             data-type='cancel'
             onClick={emit}
@@ -231,63 +231,63 @@ const Picker = forwardRef(function Index(
             {cancelButtonText || '取消'}
           </View>
           {title && (
-            <View  className={clsx(bem('title'),'van-ellipsis')} >{title}</View>
+            <View className={clsx(bem('title'), 'van-ellipsis')}>{title}</View>
           )}
           <View className={clsx(bem('confirm'))}
-            hoverClass={clsx(bem('confirm',[ 'hover' ],true))}
-            hoverStayTime={70}
-            data-type='confirm'
-            onClick={emit}
+                hoverClass={clsx(bem('confirm', [ 'hover' ], true))}
+                hoverStayTime={70}
+                data-type='confirm'
+                onClick={emit}
           >
             {confirmButtonText || '确定'}
           </View>
         </View>
       )}
       {loading && (
-        <View  className={clsx(bem('loading'))}>
+        <View className={clsx(bem('loading'))}>
           <Loading color='#1989fa' />
         </View>
       )}
       <View className={clsx(bem('columns'))}
-        style={computed.columnsStyle({
-          itemHeight,
-          visibleItemCount,
-        })}
-        onTouchMove={onTouchMove}
+            style={computed.columnsStyle({
+              itemHeight,
+              visibleItemCount,
+            })}
+            onTouchMove={onTouchMove}
       >
         {computed.columns(columns).map((item: any, index: number) => {
           return (
             <PickerColumn className={clsx(bem('column'))}
-              key={`van-picker__column_${index}column-class`}
-              data-index={index}
-              index={index}
-              valueKey={valueKey}
-              initialOptions={item.values}
-              defaultIndex={item.defaultIndex || defaultIndex}
-              itemHeight={itemHeight}
-              visibleItemCount={visibleItemCount}
-              onChange={onChange_}
-              ref={(el) => (children.current[index] = el)}
+                          key={`van-picker__column_${index}column-class`}
+                          data-index={index}
+                          index={index}
+                          valueKey={valueKey}
+                          initialOptions={item.values}
+                          defaultIndex={item.defaultIndex || defaultIndex}
+                          itemHeight={itemHeight}
+                          visibleItemCount={visibleItemCount}
+                          onChange={onChange_}
+                          ref={(el) => (children.current[index] = el)}
             />
           )
         })}
         <View className={clsx(bem('mask'))}
-          style={computed.maskStyle({
-            itemHeight,
-            visibleItemCount,
-          })}
+              style={computed.maskStyle({
+                itemHeight,
+                visibleItemCount,
+              })}
         />
-        <View  className={clsx(bem('frame'),'van-hairline--top-bottom')}
-          style={computed.frameStyle({
-            itemHeight,
-          })}
+        <View className={clsx(bem('frame'), 'van-hairline--top-bottom')}
+              style={computed.frameStyle({
+                itemHeight,
+              })}
         />
       </View>
       {toolbarPosition === 'bottom' && showToolbar && (
         <View className={clsx(bem('toolbar'))}>
           <View
             className={clsx(bem('cancel'))}
-            hoverClass={clsx(bem('cancel',[ 'hover' ],true))}
+            hoverClass={clsx(bem('cancel', [ 'hover' ], true))}
             hoverStayTime={70}
             data-type='cancel'
             onClick={emit}
@@ -295,11 +295,11 @@ const Picker = forwardRef(function Index(
             {cancelButtonText}
           </View>
           {title && (
-            <View  className={clsx(bem('title'),'van-ellipsis')}>{title}</View>
+            <View className={clsx(bem('title'), 'van-ellipsis')}>{title}</View>
           )}
           <View
             className={clsx(bem('confirm'))}
-            hoverClass={clsx(bem('confirm',[ 'hover' ],true))}
+            hoverClass={clsx(bem('confirm', [ 'hover' ], true))}
             hoverStayTime={70}
             data-type='confirm'
             onClick={emit}

@@ -130,19 +130,19 @@ function Sticky(props: StickyProps) {
   })
 
   return (
-    <View className={clsx(bem([ `${indexRef.current}` ]),className)}
-      style={computedStyle([
-        computed.containerStyle({
-          fixed: state.fixed,
-          height: state.height,
-          zIndex,
-        }),
-        style,
-      ])}
-      {...others}
+    <View className={clsx(bem([ `${indexRef.current}` ]), className)}
+          style={computedStyle([
+            computed.containerStyle({
+              fixed: state.fixed,
+              height: state.height,
+              zIndex,
+            }),
+            style,
+          ])}
+          {...others}
     >
       <View
-        className={clsx( bem('wrap', { fixed: state.fixed }))}
+        className={clsx(bem('wrap', { fixed: state.fixed }))}
         style={computedStyle([
           computed.wrapStyle({
             fixed: state.fixed,

@@ -1,6 +1,6 @@
-import './style/index.less';
-import { useState, useEffect, useMemo } from 'react'
-import type { ITouchEvent } from '@tarojs/components';
+import './style/index.less'
+import { useEffect, useMemo, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import Field from '../field'
 import type { SearchProps } from './PropsType'
@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('search')
 
- function Search(props: SearchProps) {
+function Search(props: SearchProps) {
   const {
     value,
     defaultValue = '',
@@ -51,14 +51,14 @@ const [ bem ] = createNamespace('search')
   const [ innerValue, setInnerValue ] = useState(
     noControlled ? defaultValue : value,
   )
-  const _change = function (event: ITouchEvent) {
+  const _change = function(event: ITouchEvent) {
     if (noControlled) {
       setInnerValue(event.detail)
     }
     onChange?.(event)
   }
 
-  const _cancel = function (e: ITouchEvent) {
+  const _cancel = function(e: ITouchEvent) {
     /**
      * 修复修改输入框值时，输入框失焦和赋值同时触发，赋值失效
      * https://github.com/youzan/@vant/weapp/issues/1768
@@ -76,7 +76,7 @@ const [ bem ] = createNamespace('search')
   }
 
   useEffect(
-    function () {
+    function() {
       if (!noControlled) {
         setInnerValue(value)
       }
@@ -88,9 +88,9 @@ const [ bem ] = createNamespace('search')
 
   return (
     <View
-      className={clsx(bem( {
+      className={clsx(bem({
         withaction: showAction || !!renderAction,
-      }),className)}
+      }), className)}
       style={computedStyle([ { background: background }, style ])}
       {...others}
     >
@@ -135,7 +135,7 @@ const [ bem ] = createNamespace('search')
       {(showAction || renderAction) && (
         <View
           className={clsx(bem('action'))}
-          hoverClass={clsx(bem('action',[ 'hover' ],true))}
+          hoverClass={clsx(bem('action', [ 'hover' ], true))}
           hoverStayTime={70}
         >
           {renderAction || (

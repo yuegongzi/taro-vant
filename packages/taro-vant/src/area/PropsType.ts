@@ -1,5 +1,5 @@
 import type { ComponentClass } from 'react'
-import type { PickerProps, IPickerInstance } from '../picker/PropsType'
+import type { IPickerInstance, PickerProps } from '../picker/PropsType'
 
 export interface AreaProps
   extends Omit<PickerProps, 'columns' | 'onChange'>,
@@ -20,6 +20,7 @@ export interface AreaProps
     }
   }) => void
 }
+
 declare const Area: ComponentClass<AreaProps>
 
 export { Area }

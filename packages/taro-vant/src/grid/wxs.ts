@@ -7,13 +7,13 @@ function rootStyle(data: any) {
 }
 
 function wrapperStyle(data: any) {
-  if(!data.columnNum){
-    return  {}
+  if (!data.columnNum) {
+    return {}
   }
   const width = 100 / data.columnNum + '%'
   return computedStyle({
     // width: width,
-    'flex-basis':width,
+    'flex-basis': width,
     'padding-top': data.square ? width : null,
     'padding-right': addUnit(data.gutter),
     'margin-top':

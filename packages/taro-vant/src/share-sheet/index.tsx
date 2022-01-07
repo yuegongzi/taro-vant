@@ -1,5 +1,5 @@
-import ShareSheet from './ShareSheet';
+import ShareSheet from './ShareSheet'
 
-export default ShareSheet;
-export { ShareSheet };
-export type { ShareSheetProps } from './PropsType';
+export default ShareSheet
+export { ShareSheet }
+export type { ShareSheetProps } from './PropsType'

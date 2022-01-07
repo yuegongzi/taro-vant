@@ -36,7 +36,9 @@ export function adaptor(ctx: any) {
     setTextBaseline(val: any) {
       ctx.textBaseline = val
     },
-    createCircularGradient() {},
-    draw() {},
+    createCircularGradient() {
+    },
+    draw() {
+    },
   })
 }

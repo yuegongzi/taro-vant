@@ -1,9 +1,9 @@
 import './style/index.less'
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
 import { displayColumns } from './wxs'
+import type { PickerEvents } from '../picker'
 import Picker from '../picker'
 import type { AreaProps } from './PropsType'
-import type { PickerEvents } from '../picker'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
 

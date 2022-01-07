@@ -87,18 +87,18 @@ function MiniNavBar(props: MiniNavBarProps) {
       {fixed && placeholder && (
         <View style={{ height: `${height + fromTop}px` }} />
       )}
-      <View className={clsx(bem({ fixed }),{ 'van-hairline--bottom':border },className)}
-        style={computedStyle([
-          barStyle({
-            zIndex,
-            fromTop,
-            height,
-            fromLeft,
-          }) +
-          '; ' +
-          style,
-        ])}
-        {...others}
+      <View className={clsx(bem({ fixed }), { 'van-hairline--bottom': border }, className)}
+            style={computedStyle([
+              barStyle({
+                zIndex,
+                fromTop,
+                height,
+                fromLeft,
+              }) +
+              '; ' +
+              style,
+            ])}
+            {...others}
       >
         <View className={clsx(bem('content'))}>
           <View
@@ -106,30 +106,30 @@ function MiniNavBar(props: MiniNavBarProps) {
             style={{ left: `${fromLeft}px` }}
           >
             {backButton && (
-              <View className={clsx(bem('left-menu',[ buttonColor ]))}
-                onClick={handleGoBack}
-                style={{
-                  width: `${menuHeight}px`,
-                  height: `${menuHeight}px`,
-                }}
+              <View className={clsx(bem('left-menu', [ buttonColor ]))}
+                    onClick={handleGoBack}
+                    style={{
+                      width: `${menuHeight}px`,
+                      height: `${menuHeight}px`,
+                    }}
               >
                 <Icon name='arrow-left' size={40} />
               </View>
             )}
             {homeButton && (
-              <View className={clsx(bem('left-menu',[ buttonColor ]))}
-                onClick={handleGoHome}
-                style={{
-                  width: `${menuHeight}px`,
-                  height: `${menuHeight}px`,
-                }}
+              <View className={clsx(bem('left-menu', [ buttonColor ]))}
+                    onClick={handleGoHome}
+                    style={{
+                      width: `${menuHeight}px`,
+                      height: `${menuHeight}px`,
+                    }}
               >
                 <Icon name='wap-home' size={40} />
               </View>
             )}
           </View>
-          <View className={clsx(bem('title'),'van-ellipsis')}
-            style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
+          <View className={clsx(bem('title'), 'van-ellipsis')}
+                style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
           >
             {title ? <Block>{title}</Block> : renderTitle}
           </View>

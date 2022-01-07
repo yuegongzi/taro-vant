@@ -1,5 +1,4 @@
-import type { ForwardRefRenderFunction } from 'react'
-import type { ReactNode } from 'react'
+import type { ForwardRefRenderFunction, ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface ICountDownRef {

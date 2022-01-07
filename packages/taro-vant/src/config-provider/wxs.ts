@@ -8,7 +8,7 @@ function kebabCase(word: any) {
 
 function mapThemeVarsToCSSVars(themeVars: any) {
   const cssVars: any = {}
-  keys(themeVars).forEach(function (key: any) {
+  keys(themeVars).forEach(function(key: any) {
     const cssVarsKey = '--' + kebabCase(key)
     cssVars[cssVarsKey] = themeVars[key]
   })

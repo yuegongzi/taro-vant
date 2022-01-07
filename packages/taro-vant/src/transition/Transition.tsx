@@ -8,7 +8,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('transition')
 
- function Transition(props: TransitionPropsCom) {
+function Transition(props: TransitionPropsCom) {
   const {
     onBeforeEnter,
     onBeforeLeave,
@@ -50,17 +50,17 @@ const [ bem ] = createNamespace('transition')
 
   return (
     <>
-      <View className={clsx(bem(),classes,className)}
-        style={computedStyle([
-          rootStyle({
-            currentDuration,
-            display,
-          }),
-          style,
-        ])}
-        onTransitionEnd={onTransitionEnd}
-        {...others}
-        catchMove
+      <View className={clsx(bem(), classes, className)}
+            style={computedStyle([
+              rootStyle({
+                currentDuration,
+                display,
+              }),
+              style,
+            ])}
+            onTransitionEnd={onTransitionEnd}
+            {...others}
+            catchMove
       >
         {children}
       </View>

@@ -1,5 +1,5 @@
 import type { ComponentClass, ReactNode } from 'react'
-import type { StandardProps, ButtonProps, ITouchEvent } from '@tarojs/components'
+import type { ButtonProps, ITouchEvent, StandardProps } from '@tarojs/components'
 import type { PopupProps } from '../popup'
 
 export interface ActionSheetItem extends Omit<ButtonProps, 'children'> {
@@ -9,6 +9,7 @@ export interface ActionSheetItem extends Omit<ButtonProps, 'children'> {
   loading?: boolean
   disabled?: boolean
 }
+
 export interface ActionSheetProps extends StandardProps, PopupProps {
   actions?: ActionSheetItem[]
   title?: string
@@ -27,5 +28,6 @@ export interface ActionSheetProps extends StandardProps, PopupProps {
   onClose?: () => void
   onClickOverlay?: () => void
 }
+
 declare const ActionSheet: ComponentClass<ActionSheetProps>
 export { ActionSheet }

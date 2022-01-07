@@ -1,4 +1,4 @@
-import { addUnit,computedStyle } from '../utils'
+import { addUnit, computedStyle } from '../utils'
 
 function spinnerStyle(data: any) {
   return computedStyle({

@@ -1,5 +1,5 @@
-import Dialog from './Dialog';
+import Dialog from './Dialog'
 
-export default Dialog;
-export  { Dialog };
-export type { DialogProps } from './PropsType';
+export default Dialog
+export { Dialog }
+export type { DialogProps } from './PropsType'

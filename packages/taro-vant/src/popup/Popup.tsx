@@ -111,24 +111,24 @@ function Popup(this: any, props: PopupProps) {
             safe: safeAreaInsetBottom,
             safeTop: safeAreaInsetTop,
           },
-        ]),classes,className)}
-          style={computedStyle([
-            popupStyle({
-              zIndex,
-              currentDuration,
-              display,
-            }),
-            style,
-          ])}
-          onTransitionEnd={onTransitionEnd}
-          {...others}
+        ]), classes, className)}
+              style={computedStyle([
+                popupStyle({
+                  zIndex,
+                  currentDuration,
+                  display,
+                }),
+                style,
+              ])}
+              onTransitionEnd={onTransitionEnd}
+              {...others}
         >
           {children}
           {closeable && (
             <Icon
               name={closeIcon}
-              className={clsx(bem('close-icon',[
-                `${ getClassName(closeIconPosition)}`
+              className={clsx(bem('close-icon', [
+                `${getClassName(closeIconPosition)}`,
               ]))}
               onClick={_onClickCloseIcon}
             />

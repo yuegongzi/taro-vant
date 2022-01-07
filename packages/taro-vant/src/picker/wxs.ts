@@ -1,4 +1,4 @@
-import { isArray, computedStyle, addUnit,isObj } from '../utils'
+import { addUnit, computedStyle, isArray, isObj } from '../utils'
 
 function columnsStyle(data: any) {
   return computedStyle({
@@ -61,4 +61,4 @@ function styleTran(data: any) {
 }
 
 
-export { columnsStyle, frameStyle, maskStyle, columns,optionText, rootStyle, wrapperStyle, styleTran  }
+export { columnsStyle, frameStyle, maskStyle, columns, optionText, rootStyle, wrapperStyle, styleTran }
