@@ -34,7 +34,7 @@ Taro-Vant将Vant进行移植到Taro版本,并进行部分组件的优化调整�
 
 ## 使用之前
 
-使用 Taro Vant 前，请确保你已经学习过微信官方的 [小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/framework/) 和 [Taro介绍]('https://taro-docs.jd.com/taro/docs/README/index.html')
+使用 Taro Vant 前，请确保你已经学习过微信官方的 [小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/framework/) 和 [Taro介绍](https://taro-docs.jd.com/taro/docs/README/index.html)
 
 ## 安装
 
