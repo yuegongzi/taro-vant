@@ -15,3 +15,21 @@ export interface SidebarProps extends StandardProps {
 declare const Sidebar: ComponentClass<SidebarProps>
 
 export { Sidebar }
+
+
+export interface SidebarItemProps extends StandardProps {
+  dot?: boolean
+  badge?: string
+  info?: string
+  title?: string
+  disabled?: boolean
+  onClick?: (a: any) => void
+  onChange?: (a: onChangeEvent) => void
+  renderTitle?: () => React.ReactNode,
+  activeClass?: string;
+  disabledClass?: string;
+}
+
+declare const SidebarItem: ComponentClass<SidebarItemProps>
+
+export { SidebarItem }

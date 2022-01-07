@@ -1,23 +1,25 @@
-/* stylelint-disable no-descending-specificity */
 @import '../../style/var.less';
+
 .van-steps {
   overflow: hidden;
   .theme(background-color, '@steps-background-color');
 
   &--horizontal {
-    padding: 20px;
+    padding: 20px 20px 0;
 
-    .van-step__wrapper {
+    .van-steps__wrapper {
       position: relative;
       display: flex;
       overflow: hidden;
+      margin: 0 0 20px;
+      padding-bottom: 22px;
     }
   }
 
   &--vertical {
     padding-left: 20px;
 
-    .van-step__wrapper {
+    .van-steps__wrapper {
       padding: 0 0 0 40px;
     }
   }

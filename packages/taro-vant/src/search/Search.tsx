@@ -2,11 +2,14 @@ import './style/index.less';
 import { useState, useEffect, useMemo } from 'react'
 import type { ITouchEvent } from '@tarojs/components';
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import Field from '../field'
 import type { SearchProps } from './PropsType'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Search(props: SearchProps) {
+const [ bem ] = createNamespace('search')
+
+ function Search(props: SearchProps) {
   const {
     value,
     defaultValue = '',
@@ -85,15 +88,15 @@ export function Search(props: SearchProps) {
 
   return (
     <View
-      className={`${utils.bem('search', {
+      className={clsx(bem( {
         withaction: showAction || !!renderAction,
-      })}  ${className}`}
-      style={utils.style([ { background: background }, style ])}
+      }),className)}
+      style={computedStyle([ { background: background }, style ])}
       {...others}
     >
-      <View className={utils.bem('search__content', [ shape ])}>
+      <View className={clsx(bem('content', [ shape ]))}>
         {label ? (
-          <View className='van-search__label'>{label}</View>
+          <View className={clsx(bem('label'))}>{label}</View>
         ) : (
           renderLabel
         )}
@@ -106,7 +109,7 @@ export function Search(props: SearchProps) {
           error={error}
           border={false}
           confirmType='search'
-          className='van-search__field field-class'
+          className={clsx(bem('field'))}
           value={searchValue}
           disabled={disabled}
           readonly={readonly}
@@ -131,12 +134,12 @@ export function Search(props: SearchProps) {
 
       {(showAction || renderAction) && (
         <View
-          className='van-search__action'
-          hoverClass='van-search__action--hover'
+          className={clsx(bem('action'))}
+          hoverClass={clsx(bem('action',[ 'hover' ],true))}
           hoverStayTime={70}
         >
           {renderAction || (
-            <View onClick={_cancel} className='cancel-class'>
+            <View onClick={_cancel}>
               {actionText}
             </View>
           )}

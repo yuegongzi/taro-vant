@@ -1,9 +1,8 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit, computedStyle } from '../utils'
 
 export function inputStyle(autosize: any) {
   if (autosize && autosize.constructor === 'Object') {
-    return style({
+    return computedStyle({
       'min-height': addUnit(autosize.minHeight),
       'max-height': addUnit(autosize.maxHeight),
     })

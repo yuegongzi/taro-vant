@@ -1,5 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 @import '../../style/var.less';
+
 .van-tabs {
   position: relative;
   -webkit-tap-highlight-color: transparent;
@@ -40,7 +41,7 @@
     &--card {
       box-sizing: border-box;
       .theme(margin, '0 @padding-md');
-      .theme(border, '@border-width-base solid @tabs-default-color');
+      //.theme(border, '@border-width-base solid @tabs-default-color');
       .theme(width, 'calc(100% - calc(@padding-md * 2))');
       .theme(border-radius, '@border-radius-sm');
     }
@@ -57,7 +58,7 @@
 
     &--card {
       box-sizing: border-box;
-      .theme(height, '@tabs-card-height');
+      border: 1px solid @tabs-default-color;
       .theme(border, '@border-width-base solid @tabs-default-color');
       .theme(border-radius, '@border-radius-sm');
 
@@ -142,7 +143,7 @@
   }
 
   &__title {
-    &__info {
+    &__badge {
       position: relative !important;
       top: -2px !important;
       // display: inline-block;
@@ -155,5 +156,23 @@
       .theme(width, '@info-dot-size');
       .theme(height, '@info-dot-size');
     }
+  }
+}
+
+
+.van-tab__pane {
+  box-sizing: border-box;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
+  width: 100%;
+
+  &--active {
+    height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: visible;
   }
 }

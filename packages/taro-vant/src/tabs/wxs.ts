@@ -1,11 +1,10 @@
-import { style } from '../wxs/style'
-import * as utils from '../wxs/utils'
+import { computedStyle,addUnit } from '../utils'
 
-function tabClass(active: any, ellipsis: any) {
-  const classes = ['tab-class']
+function tabClass(active: any, ellipsis: any,tabClass?: string,tabActiveClass?: string) {
+  const classes = [ tabClass ]
 
   if (active) {
-    classes.push('tab-active-class')
+    classes.push(tabActiveClass)
   }
 
   if (ellipsis) {
@@ -24,7 +23,7 @@ function tabStyle(data: any) {
 
   // card theme color
   if (data.type === 'card') {
-    return style({
+    return computedStyle({
       'border-color': data.color,
       'background-color': !data.disabled && data.active ? data.color : null,
       color: titleColor || (!data.disabled && !data.active ? data.color : null),
@@ -32,14 +31,14 @@ function tabStyle(data: any) {
     })
   }
 
-  return style({
+  return computedStyle({
     color: titleColor,
     'flex-basis': ellipsis ? 88 / data.swipeThreshold + '%' : null,
   })
 }
 
 function navStyle(color: any, type: any) {
-  return style({
+  return computedStyle({
     'border-color': type === 'card' && color ? color : null,
   })
 }
@@ -49,7 +48,7 @@ function trackStyle(data: any) {
     return ''
   }
 
-  return style({
+  return computedStyle({
     // left: -100 * data.currentIndex + '%',
     transform: `translate3d(${-100 * data.currentIndex}%, 0px, 0px)`,
     '-webkit-transform': `translate3d(${-100 * data.currentIndex}%, 0px, 0px)`,
@@ -60,15 +59,15 @@ function trackStyle(data: any) {
 }
 
 function lineStyle(data: any) {
-  return style({
+  return computedStyle({
     visibility: data.lineOffsetLeft === 0 ? 'hidden' : 'visible',
-    width: utils.addUnit(data.lineWidth),
+    width: addUnit(data.lineWidth*2),
     transform: 'translateX(' + data.lineOffsetLeft + 'px)',
     '-webkit-transform': 'translateX(' + data.lineOffsetLeft + 'px)',
     'background-color': data.color,
-    height: data.lineHeight !== -1 ? utils.addUnit(data.lineHeight) : null,
+    height: data.lineHeight !== -1 ? addUnit(data.lineHeight) : null,
     'border-radius':
-      data.lineHeight !== -1 ? utils.addUnit(data.lineHeight) : null,
+      data.lineHeight !== -1 ? addUnit(data.lineHeight) : null,
     'transition-duration': !data.skipTransition ? data.duration + 's' : null,
     '-webkit-transition-duration': !data.skipTransition
       ? data.duration + 's'

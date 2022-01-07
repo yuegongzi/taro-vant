@@ -1,14 +1,16 @@
-import './style/index.less';
-import { View, Button } from '@tarojs/components'
+import './style/index.less'
+import { Button, View } from '@tarojs/components'
 import { useCallback } from 'react'
-import * as computed from './wxs'
 import Options from './options'
-import VanPopup from './../popup'
-import type {
-  ShareSheetProps,
-  ShareSheetOptionItem,
-} from './PropsType'
-export function ShareSheet(props: ShareSheetProps) {
+import Popup from '../popup'
+import type { ShareSheetOptionItem, ShareSheetProps } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
+import { isMulti } from './wxs'
+
+const [ bem ] = createNamespace('share-sheet')
+
+function ShareSheet(props: ShareSheetProps) {
   const {
     show,
     duration = 300,
@@ -51,9 +53,9 @@ export function ShareSheet(props: ShareSheetProps) {
   }, [ onCancel, onClose ])
 
   return (
-    <VanPopup
+    <Popup
       round
-      className='van-share-sheet'
+      className={clsx(bem())}
       show={show}
       position='bottom'
       overlay={overlay}
@@ -66,17 +68,17 @@ export function ShareSheet(props: ShareSheetProps) {
       onClickOverlay={_onClickOverlay}
       {...others}
     >
-      <View className='van-share-sheet__header'>
-        <View className='van-share-sheet__title'>{renderTitle}</View>
-        {title && <View className='van-share-sheet__title'>{title}</View>}
-        <View className='van-share-sheet__description'>
+      <View className={clsx(bem('header'))}>
+        <View className={clsx(bem('title'))}>{renderTitle}</View>
+        {title && <View className={clsx(bem('title'))}>{title}</View>}
+        <View className={clsx(bem('description'))}>
           {renderDescription}
         </View>
         {description && (
-          <View className='van-share-sheet__description'>{description}</View>
+          <View className={clsx(bem('description'))}>{description}</View>
         )}
       </View>
-      {computed.isMulti(options) ? (
+      {isMulti(options) ? (
         <>
           {(options as ShareSheetOptionItem[][]).map(
             (item: ShareSheetOptionItem[], index: number) => {
@@ -86,7 +88,7 @@ export function ShareSheet(props: ShareSheetProps) {
                   key={index}
                   options={item}
                   onSelect={_onSelect}
-                 />
+                />
               )
             },
           )}
@@ -95,12 +97,13 @@ export function ShareSheet(props: ShareSheetProps) {
         <Options
           options={options as ShareSheetOptionItem[]}
           onSelect={_onSelect}
-         />
+        />
       )}
-      <Button className='van-share-sheet__cancel' onClick={_onCancel}>
+      <Button className={clsx(bem('cancel'))} onClick={_onCancel}>
         {cancelText}
       </Button>
-    </VanPopup>
+    </Popup>
   )
 }
+
 export default ShareSheet

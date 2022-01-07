@@ -1,11 +1,14 @@
-import './style/index.less';
+import './style/index.less'
 import Taro from '@tarojs/taro'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { SkeletonProps } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Skeleton(props: SkeletonProps) {
+const [ bem ] = createNamespace('skeleton')
+
+function Skeleton(props: SkeletonProps) {
   const [ state, setState ] = useState({
     isArray: false,
     rowArray: [],
@@ -28,7 +31,7 @@ export function Skeleton(props: SkeletonProps) {
   } = props
 
   useEffect(
-    function () {
+    function() {
       setState((pre: any) => {
         return { ...pre, rowArray: Array.from({ length: row }) }
       })
@@ -37,7 +40,7 @@ export function Skeleton(props: SkeletonProps) {
   )
 
   useEffect(
-    function () {
+    function() {
       setState((pre: any) => {
         return { ...pre, isArray: (rowWidth as any) instanceof Array }
       })
@@ -47,46 +50,40 @@ export function Skeleton(props: SkeletonProps) {
 
   return loading ? (
     <View
-      className={
-        ' ' +
-        utils.bem('skeleton', [
-          {
-            animate,
-          },
-        ]) +
-        ` ${className || ''}`
-      }
+      className={clsx(bem('skeleton',
+        {
+          animate,
+        }), className)}
       style={style}
       {...others}
     >
       {avatar && (
         <View
-          className={
-            'avatar-class ' + utils.bem('skeleton__avatar', [ avatarShape ])
-          }
+          className={clsx(bem('avatar', [ avatarShape ]))}
           style={'width:' + avatarSize + ';height:' + avatarSize}
-         />
+        />
       )}
-      <View className={utils.bem('skeleton__content')}>
+      <View className={clsx(bem('content'))}>
         {title && (
           <View
-            className={'title-class ' + utils.bem('skeleton__title')}
+            className={clsx(bem('title'))}
             style={'width:' + titleWidth}
-           />
+          />
         )}
         {rowArray.map((_item, index) => {
           return (
             <View
               key={index}
-              className={'row-class ' + utils.bem('skeleton__row')}
+              className={clsx(bem('row'))}
               style={'width:' + (isArray ? rowWidth[index] : rowWidth)}
-             />
+            />
           )
         })}
       </View>
     </View>
   ) : (
-    <View className={utils.bem('skeleton__content')}>{children}</View>
+    <View className={clsx(bem('content'))}>{children}</View>
   )
 }
+
 export default Skeleton

@@ -1,9 +1,10 @@
 import { Component } from 'react'
 import { Text, View } from '@tarojs/components'
-import { Button, Cell, Image, Loading, List, Search, Tab, Tabs, Tag } from 'taro-vant'
+import { Button, Cell, Image, Loading, List, Search, Tabs, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import './index.scss'
 
+const Tab = Tabs.Tab;
 const sleep = (t) =>
   new Promise((resolve) => {
     setTimeout(() => {

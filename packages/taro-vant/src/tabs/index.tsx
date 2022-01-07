@@ -1,4 +1,7 @@
 import Tabs from './Tabs';
+import Tab from './Tab';
 
-export default Tabs;
-export type { TabsProps } from './PropsType';
+const TabsNameSpace = Object.assign(Tabs,{ Tab })
+export default TabsNameSpace;
+export { TabsNameSpace as Tabs };
+export type { TabsProps,TabProps } from './PropsType';

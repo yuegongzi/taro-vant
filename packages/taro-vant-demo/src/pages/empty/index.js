@@ -1,10 +1,12 @@
 import { Component } from 'react'
 
-import { Button, Empty, Tab, Tabs } from 'taro-vant'
+import { Button, Empty,  Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
+const Tab = Tabs.Tab;
 
 export default class Index extends Component {
   state = {

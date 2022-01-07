@@ -1,18 +1,21 @@
-import './style/index.less';
-import type { ITouchEvent } from '@tarojs/components';
-import { View, Input } from '@tarojs/components'
-import { useCallback, useEffect, useState, useRef } from 'react'
-import * as utils from '../wxs/utils'
-import { isDef } from '../common/validator'
+import './style/index.less'
+import type { ITouchEvent } from '@tarojs/components'
+import { Input, View } from '@tarojs/components'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import type { StepperProps } from './PropsType'
 import * as computed from './wxs'
+import { createNamespace,isDef } from '../utils'
+import clsx from 'clsx'
+
 const LONG_PRESS_START_TIME = 600
 const LONG_PRESS_INTERVAL = 200
-// add num and avoid float number
+const [ bem ] = createNamespace('stepper')
+
 function add(num1: number, num2: number) {
   const cardinal = Math.pow(10, 10)
   return Math.round((num1 + num2) * cardinal) / cardinal
 }
+
 function equal(value1: any, value2: any) {
   return String(value1) === String(value2)
 }
@@ -229,8 +232,7 @@ export function Stepper(props: StepperProps) {
     // eslint-disable-next-line
   }, [_format, value])
   return (
-    <View
-      className={utils.bem('stepper', [ theme ]) + ` ${className || ''}`}
+    <View className={clsx(bem([ theme ]),className)}
       {...others}
     >
       {showMinus && (
@@ -239,14 +241,10 @@ export function Stepper(props: StepperProps) {
           style={computed.buttonStyle({
             buttonSize,
           })}
-          className={
-            'minus-class ' +
-            utils.bem('stepper__minus', {
-              disabled: disabled || disableMinus || currentValue <= min,
-            })
-          }
-          hoverClass='van-stepper__minus--hover'
-          // hoverStayTime="70"
+          className={clsx(bem('minus', {
+            disabled: disabled || disableMinus || currentValue <= min,
+          }))}
+          hoverClass={clsx(bem('minus',[ 'hover' ],true))}
           onClick={_onTap}
           onTouchStart={_onTouchStart}
           onTouchEnd={_onTouchEnd}
@@ -256,12 +254,9 @@ export function Stepper(props: StepperProps) {
       )}
       <Input
         type={integer ? 'number' : 'digit'}
-        className={
-          'input-class ' +
-          utils.bem('stepper__input', {
-            disabled: disabled || disableInput,
-          })
-        }
+        className={clsx(bem('input', {
+          disabled: disabled || disableInput,
+        }))}
         style={computed.inputStyle({
           buttonSize,
           inputWidth,
@@ -272,20 +267,17 @@ export function Stepper(props: StepperProps) {
         onInput={_onInput}
         onFocus={_onFocus}
         onBlur={_onBlur}
-       />
+      />
       {showPlus && (
         <View
           data-type='plus'
           style={computed.buttonStyle({
             buttonSize,
           })}
-          className={
-            'plus-class ' +
-            utils.bem('stepper__plus', {
-              disabled: disabled || disablePlus || currentValue >= max,
-            })
-          }
-          hoverClass='van-stepper__plus--hover'
+          className={clsx(bem('plus', {
+             disabled: disabled || disablePlus || currentValue >= max,
+           }))}
+          hoverClass={clsx(bem('plus',[ 'hover' ],true))}
           // hoverStayTime="70"
           onClick={_onTap}
           onTouchStart={_onTouchStart}
@@ -297,4 +289,5 @@ export function Stepper(props: StepperProps) {
     </View>
   )
 }
+
 export default Stepper

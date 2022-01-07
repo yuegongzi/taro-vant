@@ -1,17 +1,20 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { RowProps } from './PropsType'
-import * as computed from './wxs'
+import { rootStyle } from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Row(props: RowProps): JSX.Element {
+const [ bem ] = createNamespace('row')
+
+function Row(props: RowProps): JSX.Element {
   const { gutter, children, className, style, ...others } = props
 
   return (
     <View
-      className={`van-row  ${className}`}
-      style={utils.style([
-        computed.rootStyle({
+      className={clsx(bem(), className)}
+      style={computedStyle([
+        rootStyle({
           gutter,
         }),
         style,

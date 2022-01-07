@@ -1,12 +1,14 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
-import { Col, Icon, Tab, Tabs } from 'taro-vant'
+import { Col, Icon, Tabs } from 'taro-vant'
 
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+
+const Tab = Tabs.Tab;
 
 export default class Index extends Component {
   state = {

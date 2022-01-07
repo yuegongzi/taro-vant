@@ -1,11 +1,10 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,computedStyle } from '../utils'
 
 function rootStyle(data: any) {
   const currentColor =
     data.checked === data.activeValue ? data.activeColor : data.inactiveColor
 
-  return style({
+  return computedStyle({
     'font-size': addUnit(data.size),
     'background-color': currentColor,
   })

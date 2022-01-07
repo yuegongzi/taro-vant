@@ -1,15 +1,18 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import { useCallback, useRef, useEffect, useMemo, cloneElement } from 'react'
-import * as utils from '../wxs/utils'
+import { cloneElement, useCallback, useEffect, useMemo, useRef } from 'react'
 import type { SidebarProps } from './PropsType'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Sidebar(props: SidebarProps) {
+const [ bem ] = createNamespace('sidebar')
+
+function Sidebar(props: SidebarProps) {
   const { activeKey, onChange, className, children, style, ...others } = props
 
   const childrenInstance = useRef<any[]>([])
 
-  const setAction = useCallback(function (activeKey) {
+  const setAction = useCallback(function(activeKey) {
     const childrenInstance_ = childrenInstance.current
     if (!childrenInstance_ || !childrenInstance_.length) {
       return Promise.resolve()
@@ -25,18 +28,18 @@ export function Sidebar(props: SidebarProps) {
   }, [])
 
   useEffect(
-    function () {
+    function() {
       setAction(activeKey)
     },
     [ setAction, activeKey ],
   )
 
-  const setChildren = useCallback(function (index: number, instance: any) {
+  const setChildren = useCallback(function(index: number, instance: any) {
     childrenInstance.current[index] = instance
   }, [])
 
   const ResetChildren = useMemo(
-    function () {
+    function() {
       const res: JSX.Element[] = []
       if (children && Array.isArray(children)) {
         children.forEach((child, index) => {
@@ -58,8 +61,8 @@ export function Sidebar(props: SidebarProps) {
 
   return (
     <View
-      style={utils.style([ style ])}
-      className={`van-sidebar  ${className}`}
+      style={computedStyle([ style ])}
+      className={clsx(bem(), className)}
       {...others}
     >
       {ResetChildren}

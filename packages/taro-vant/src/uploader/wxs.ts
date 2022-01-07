@@ -1,5 +1,4 @@
-import { style } from '../wxs/style'
-import { addUnit } from '../wxs/add-unit'
+import { addUnit,style } from '../utils'
 
 function sizeStyle(data: any) {
   return style({

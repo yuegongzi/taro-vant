@@ -7,6 +7,21 @@ import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 
+const steps1 = [
+  {
+    text: '买家下单',
+  },
+  {
+    text: '商家接单',
+  },
+  {
+    text: '买家提货',
+  },
+  {
+    text: '交易完成',
+  },
+]
+
 const steps = [
   {
     text: '步骤一',
@@ -23,6 +38,21 @@ const steps = [
   {
     text: '步骤四',
     desc: '描述信息',
+  },
+]
+
+const steps2 = [
+  {
+    text: '【城市】物流状态1',
+    desc: '2016-07-12 12:40',
+  },
+  {
+    text: '【城市】物流状态',
+    desc: '2016-07-11 11:00',
+  },
+  {
+    text: '快件已发货',
+    desc: '2016-07-10 09:30',
   },
 ]
 
@@ -58,7 +88,7 @@ export default class Index extends Component {
         <>
           <DemoBlock title='基础用法'>
             <Steps
-              steps={steps}
+              steps={steps1}
               active={active}
               onClickStep={this.onClick}
               className='demo-margin-bottom'
@@ -81,10 +111,10 @@ export default class Index extends Component {
           </DemoBlock>
           <DemoBlock title='竖向步骤条'>
             <Steps
-              steps={steps}
-              active={active}
+              steps={steps2}
+              active={0}
               direction='vertical'
-              activeColor='#ee0a24'
+              activeColor='#07C160'
             />
           </DemoBlock>
           <Toast id='van-toast' />

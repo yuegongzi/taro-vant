@@ -1,8 +1,7 @@
-import { style } from '../wxs/style'
-// import { addUnit } from '../wxs/add-unit'
+import { computedStyle } from '../utils'
 
 function wrapStyle(data: any) {
-  return style({
+  return computedStyle({
     transform: data.transform
       ? 'translate3d(0, ' + data.transform + 'px, 0)'
       : '',
@@ -12,7 +11,7 @@ function wrapStyle(data: any) {
 }
 
 function containerStyle(data: any) {
-  return style({
+  return computedStyle({
     height: data.fixed ? data.height + 'px' : '',
     'z-index': data.zIndex,
   })

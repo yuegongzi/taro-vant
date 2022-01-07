@@ -1,11 +1,15 @@
-import './style/index.less';
+import './style/index.less'
 import { Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 import Icon from '../icon'
 import Button from '../button'
 import type { SubmitBarProps } from './PropsType'
+import { createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function SubmitBar(props: SubmitBarProps) {
+const [ bem ] = createNamespace('submit-bar')
+
+function SubmitBar(props: SubmitBarProps) {
   const {
     tipIcon,
     tip,
@@ -60,35 +64,35 @@ export function SubmitBar(props: SubmitBarProps) {
   )
   return (
     <View
-      className={`van-submit-bar  ${className || ''}`}
+      className={clsx(bem(),className)}
       style={style}
       {...others}
     >
       {renderTop}
-      <View className='van-submit-bar__tip'>
+      <View className={clsx(bem('tip'))}>
         {tipIcon && (
           <Icon
             size='12px'
             name={tipIcon}
-            className='van-submit-bar__tip-icon'
+            className={clsx(bem('tip-icon'))}
           />
         )}
-        {hasTip && <View className='van-submit-bar__tip-text'>{tip}</View>}
+        {hasTip && <View  className={clsx(bem('tip-text'))} >{tip}</View>}
         {renderTip}
       </View>
-      <View className='bar-class van-submit-bar__bar'>
+      <View className={clsx(bem('bar'))}>
         {children}
         {hasPrice && (
-          <View className='van-submit-bar__text'>
+          <View className={clsx(bem('text'))}>
             <Text>{label || '合计：'}</Text>
-            <Text className='van-submit-bar__price price-class'>
-              <Text className='van-submit-bar__currency'>{currency}</Text>
-              <Text className='van-submit-bar__price-integer'>
+            <Text className={clsx(bem('price'))}>
+              <Text className={clsx(bem('currency'))} >{currency}</Text>
+              <Text  className={clsx(bem('price-integer'))} >
                 {integerStr}
               </Text>
               <Text>{decimalStr}</Text>
             </Text>
-            <Text className='van-submit-bar__suffix-label'>{suffixLabel}</Text>
+            <Text className={clsx(bem('suffix-label'))}>{suffixLabel}</Text>
           </View>
         )}
         <Button
@@ -96,13 +100,13 @@ export function SubmitBar(props: SubmitBarProps) {
           type={buttonType}
           loading={loading}
           disabled={disabled}
-          className='van-submit-bar__button button-class'
+          className={clsx(bem('button'))}
           onClick={onSubmit}
         >
           {loading ? '' : buttonText}
         </Button>
       </View>
-      {safeAreaInsetBottom && <View className='van-submit-bar__safe' />}
+      {safeAreaInsetBottom && <View className={clsx(bem('safe'))} />}
     </View>
   )
 }

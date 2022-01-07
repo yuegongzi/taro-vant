@@ -1,10 +1,11 @@
 import { Component } from 'react'
-
-import { Grid, Notify, Sidebar, SidebarItem } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
+import { Grid, Notify, Sidebar } from 'taro-vant'
+import DemoPage from '../../components/demo-page'
 import './index.scss'
+import { Text } from '@tarojs/components'
 
 const GridItem = Grid.Item
+const SidebarItem = Sidebar.Item
 
 export default class Index extends Component {
   constructor() {
@@ -24,7 +25,7 @@ export default class Index extends Component {
         <>
           <Grid columnNum={2} border={false}>
             <GridItem>
-              <h3 className='demo-sidebar-title'>基础用法</h3>
+              <Text className='demo-sidebar-title'>基础用法</Text>
               <Sidebar className='custom-sidebar' activeKey={0}>
                 <SidebarItem title='标签名' />
                 <SidebarItem title='标签名' />
@@ -32,7 +33,7 @@ export default class Index extends Component {
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className='demo-sidebar-title'>徽标提示</h3>
+              <Text className='demo-sidebar-title'>徽标提示</Text>
               <Sidebar className='custom-sidebar' activeKey={0}>
                 <SidebarItem title='标签名' dot />
                 <SidebarItem title='标签名' badge='5' />
@@ -40,7 +41,7 @@ export default class Index extends Component {
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className='demo-sidebar-title'>禁用选项</h3>
+              <Text className='demo-sidebar-title'>禁用选项</Text>
               <Sidebar className='custom-sidebar' activeKey={0}>
                 <SidebarItem title='标签名' />
                 <SidebarItem title='标签名' disabled />
@@ -48,7 +49,7 @@ export default class Index extends Component {
               </Sidebar>
             </GridItem>
             <GridItem>
-              <h3 className='demo-sidebar-title'>监听切换事件</h3>
+              <Text className='demo-sidebar-title'>监听切换事件</Text>
               <Sidebar
                 className='custom-sidebar'
                 onChange={this.onChange}

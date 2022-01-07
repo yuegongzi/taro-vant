@@ -2,13 +2,15 @@ import './style/index.less';
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { SwitchProps } from './PropsType'
-import VanLoading from '../loading/index'
+import Loading from '../loading/index'
 import * as computed from './wxs'
-import { assembly, COMPONENT_TYPE_KEY } from '../utils'
+import { assembly, COMPONENT_TYPE_KEY, computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Switch(props: SwitchProps) {
+const [ bem ] = createNamespace('switch')
+
+ function Switch(props: SwitchProps) {
   const {
     checked = false,
     loading = false,
@@ -38,13 +40,11 @@ export function Switch(props: SwitchProps) {
 
   return (
     <View
-      className={
-        utils.bem('switch', {
-          on: checked === activeValue,
-          disabled,
-        }) + `  ${className}`
-      }
-      style={utils.style([
+      className={clsx(bem( {
+        on: checked === activeValue,
+        disabled,
+      }),className)}
+      style={computedStyle([
         computed.rootStyle({
           size,
           checked,
@@ -57,16 +57,16 @@ export function Switch(props: SwitchProps) {
       {...others}
       onClick={onClick}
     >
-      <View className='van-switch__node node-class'>
+      <View className={clsx(bem('node'))}>
         {loading && (
-          <VanLoading
+          <Loading
             color={computed.loadingColor({
               checked,
               activeColor,
               inactiveColor,
               activeValue,
             })}
-            className='van-switch__loading'
+            className={clsx(bem('loading'))}
           />
         )}
       </View>

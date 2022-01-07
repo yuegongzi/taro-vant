@@ -1,17 +1,17 @@
-import './style/index.less';
+import './style/index.less'
 import { createSelectorQuery, nextTick } from '@tarojs/taro'
 import { cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
 import { ScrollView, View } from '@tarojs/components'
-import { Tabs as InnerTabs } from '../common/zIndex'
-import * as utils from '../wxs/utils'
-import { isDef } from '../common/validator'
+import { createNamespace, getAllRect, getRect, isDef, requestAnimationFrame, Tabs as InnerTabs } from '../utils'
 import Sticky from '../sticky'
-import { getAllRect, getRect, requestAnimationFrame } from '../common/utils'
-import Info from '../info'
-import type { TabsProps } from './PropsType'
-import type { TabProps } from '../tab'
+import type { TabsProps,TabProps } from './PropsType'
 import * as computed from './wxs'
+import clsx from 'clsx'
+import { Badge } from '../badge'
+
+const [ bem ] = createNamespace('tabs')
+const [ tabBem ] = createNamespace('tab')
 
 const MIN_DISTANCE = 10
 
@@ -103,6 +103,8 @@ export function Tabs(props: TabsProps) {
     style,
     className,
     children,
+    tabClass,
+    tabActiveClass,
     ...others
   } = props
 
@@ -156,6 +158,69 @@ export function Tabs(props: TabsProps) {
     }
   }
 
+  const resize = function(index?: number) {
+    if (type !== 'line') {
+      return
+    }
+    index = index ?? currentIndex
+    Promise.all([
+      getAllRect(null, `.van-tabs--${indexRef.current} .van-tab`),
+      getRect(null, `.van-tabs--${indexRef.current} .van-tabs__line`),
+    ]).then(([ rects = [], lineRect ]: any) => {
+      if (rects && lineRect) {
+        const rect = rects[index!]
+        if (rect == null) {
+          return
+        }
+        let lineOffsetLeft = rects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
+        lineOffsetLeft += (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8)
+        setState((pre: any) => {
+          return { ...pre, lineOffsetLeft }
+        })
+        ref.current.swiping = true
+        if (skipTransition) {
+          nextTick(() => {
+            setState((pre: any) => {
+              return { ...pre, skipTransition: false }
+            })
+          })
+        }
+      }
+    })
+  }
+
+  const scrollIntoView = function(index?: number) {
+    if (!scrollable) {
+      return
+    }
+    index = index ?? currentIndex
+    Promise.all([
+      getAllRect(null, `.van-tabs--${indexRef.current} .van-tab`),
+      getRect(null, `.van-tabs--${indexRef.current} .van-tabs__nav`),
+    ]).then(([ tabRects, navRect ]: any) => {
+      if (tabRects && navRect) {
+        const tabRect = tabRects[index!]
+        const offsetLeft = tabRects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
+        setState((pre: any) => {
+          return {
+            ...pre,
+            scrollLeft: offsetLeft - (navRect.width - tabRect.width) / 2,
+          }
+        })
+        if (!scrollWithAnimation) {
+          nextTick(() => {
+            setState((pre: any) => {
+              return {
+                ...pre,
+                scrollWithAnimation: true,
+              }
+            })
+          })
+        }
+      }
+    })
+  }
+
   const setCurrentIndex = function(cIndex: number) {
     if (!isDef(cIndex) || cIndex >= newChildren.length || cIndex < 0) {
       return
@@ -188,36 +253,6 @@ export function Tabs(props: TabsProps) {
     }
   }
 
-  const resize = function(index?: number) {
-    if (type !== 'line') {
-      return
-    }
-    index = index ?? currentIndex
-    Promise.all([
-      getAllRect(null, `.tabs-com-index${indexRef.current} .van-tab`),
-      getRect(null, `.tabs-com-index${indexRef.current} .van-tabs__line`),
-    ]).then(([ rects = [], lineRect ]: any) => {
-      if (rects && lineRect) {
-        const rect = rects[index!]
-        if (rect == null) {
-          return
-        }
-        let lineOffsetLeft = rects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
-        lineOffsetLeft += (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8)
-        setState((pre: any) => {
-          return { ...pre, lineOffsetLeft }
-        })
-        ref.current.swiping = true
-        if (skipTransition) {
-          nextTick(() => {
-            setState((pre: any) => {
-              return { ...pre, skipTransition: false }
-            })
-          })
-        }
-      }
-    })
-  }
 
   const onTap = function(event: any) {
     let { index } = event.currentTarget.dataset
@@ -231,38 +266,6 @@ export function Tabs(props: TabsProps) {
         trigger('onClick', child)
       })
     }
-  }
-
-  const scrollIntoView = function(index?: number) {
-    if (!scrollable) {
-      return
-    }
-    index = index ?? currentIndex
-    Promise.all([
-      getAllRect(null, `.tabs-com-index${indexRef.current} .van-tab`),
-      getRect(null, `.tabs-com-index${indexRef.current} .van-tabs__nav`),
-    ]).then(([ tabRects, navRect ]: any) => {
-      if (tabRects && navRect) {
-        const tabRect = tabRects[index!]
-        const offsetLeft = tabRects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
-        setState((pre: any) => {
-          return {
-            ...pre,
-            scrollLeft: offsetLeft - (navRect.width - tabRect.width) / 2,
-          }
-        })
-        if (!scrollWithAnimation) {
-          nextTick(() => {
-            setState((pre: any) => {
-              return {
-                ...pre,
-                scrollWithAnimation: true,
-              }
-            })
-          })
-        }
-      }
-    })
   }
 
   const resetTouchStatus = function() {
@@ -339,7 +342,7 @@ export function Tabs(props: TabsProps) {
         ...pre,
         container: () =>
           createSelectorQuery().select(
-            `.tabs-com-index${indexRef.current}.van-tabs`,
+            `.van-tabs--${indexRef.current} .van-tabs`,
           ),
       }
     })
@@ -396,14 +399,9 @@ export function Tabs(props: TabsProps) {
   )
 
   return (
-    <View
-      className={
-        `tabs-com-index${indexRef.current} ` +
-        ' ' +
-        utils.bem('tabs', [ type ] + ` ${className || ''}`)
-      }
-      style={style}
-      {...others}
+    <View className={clsx(bem([ type, `${indexRef.current}` ]), className)}
+          style={style}
+          {...others}
     >
       <Sticky
         disabled={!sticky}
@@ -413,12 +411,11 @@ export function Tabs(props: TabsProps) {
         onScroll={onScroll}
       >
         <View
-          className={
-            utils.bem('tabs__wrap', {
-              scrollable,
-            }) +
-            ' ' +
-            (type === 'line' && border ? 'van-hairline--top-bottom' : '')
+          className={clsx(bem('wrap', {
+            scrollable,
+          }), {
+            'van-hairline--top-bottom': type === 'line' && border,
+          })
           }
         >
           {renderNavLeft}
@@ -426,23 +423,22 @@ export function Tabs(props: TabsProps) {
             scrollX={scrollable}
             scrollWithAnimation={scrollWithAnimation}
             scrollLeft={scrollLeft}
-            className={utils.bem('tabs__scroll', [ type ])}
+            className={clsx(bem('scroll', [ type ]))}
             style={color ? 'border-color: ' + color : ''}
           >
             <View
-              className={
-                utils.bem('tabs__nav', [
-                  type,
-                  {
-                    complete: !ellipsis,
-                  },
-                ]) + ' nav-class'
+              className={clsx(bem('nav', [
+                type,
+                {
+                  complete: !ellipsis,
+                },
+              ]))
               }
               style={computed.navStyle(color, type)}
             >
               {type === 'line' && (
                 <View
-                  className='van-tabs__line'
+                  className={clsx(bem('line'))}
                   style={computed.lineStyle({
                     color,
                     lineOffsetLeft,
@@ -459,13 +455,12 @@ export function Tabs(props: TabsProps) {
                     key={index}
                     data-index={index}
                     className={
-                      computed.tabClass(index === currentIndex, ellipsis) +
-                      ' ' +
-                      utils.bem('tab', {
-                        active: index === currentIndex,
-                        disabled: item.disabled,
-                        complete: !ellipsis,
-                      })
+                      clsx(tabBem({
+                          active: index === currentIndex,
+                          disabled: item.disabled,
+                          complete: !ellipsis,
+                        }),
+                        computed.tabClass(index === currentIndex, ellipsis, tabClass, tabActiveClass))
                     }
                     style={computed.tabStyle({
                       active: index === currentIndex,
@@ -480,16 +475,15 @@ export function Tabs(props: TabsProps) {
                     })}
                     onClick={onTap}
                   >
-                    <View
-                      className={ellipsis ? 'van-ellipsis' : ''}
-                      style={item.titleStyle}
+                    <View className={clsx({ 'van-ellipsis': ellipsis })}
+                          style={item.titleStyle}
                     >
                       {item.title}
-                      {(item.info !== null || item.dot) && (
-                        <Info
-                          info={item.info}
+                      {(item.badge !== null || item.dot) && (
+                        <Badge
+                          content={item.badge}
                           dot={item.dot}
-                          className='van-tab__title__info'
+                          className={clsx(tabBem('title__badge'))}
                         />
                       )}
                     </View>
@@ -502,20 +496,14 @@ export function Tabs(props: TabsProps) {
         </View>
       </Sticky>
       <View
-        className='van-tabs__content'
+        className={clsx(bem('content'))}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         onTouchCancel={onTouchEnd}
       >
         <View
-          className={
-            utils.bem('tabs__track', [
-              {
-                animated,
-              },
-            ]) + ' van-tabs__track'
-          }
+          className={clsx(bem('track', { animated }))}
           style={computed.trackStyle({
             duration,
             currentIndex,

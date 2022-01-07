@@ -1,13 +1,16 @@
-import './style/index.less';
+import './style/index.less'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import { useCallback } from 'react'
-import * as utils from '../wxs/utils'
-import { GRAY_DARK, GREEN } from '../common/color'
-import VanIcon from '../icon/index'
+import { createNamespace, GRAY_DARK, GREEN } from '../utils'
+import Icon from '../icon'
 import type { StepsProps } from './PropsType'
+import clsx from 'clsx'
 
-export function getStatus(index: number, active: any) {
+const [ bem ] = createNamespace('steps')
+const [ stepBem ] = createNamespace('step')
+
+function getStatus(index: number, active: any) {
   if (index < active) {
     return 'finish'
   } else if (index === active) {
@@ -17,7 +20,7 @@ export function getStatus(index: number, active: any) {
   return 'inactive'
 }
 
-export function Steps(props: StepsProps) {
+function Steps(props: StepsProps) {
   const {
     steps = [],
     active = 0,
@@ -42,76 +45,69 @@ export function Steps(props: StepsProps) {
     [ onClickStep ],
   )
   return (
-    <View
-      className={utils.bem('steps', [ direction ]) + ` ${className || ''}`}
-      {...others}
+    <View className={clsx(bem([ direction ]), className)}
+          {...others}
     >
-      <View className='van-step__wrapper'>
+      <View className={clsx(bem('wrapper'))}>
         {steps.map((item, index) => {
           return (
             <View
               key={index}
               onClick={_onClick}
               data-index={index}
-              className={
-                utils.bem('step', [ direction, getStatus(index, active) ]) +
-                ' van-hairline'
-              }
+              className={clsx(stepBem([ direction, `${getStatus(index, active)}` ]), 'van-hairline')}
               style={
                 getStatus(index, active) === 'inactive'
                   ? 'color: ' + inactiveColor
                   : ''
               }
             >
-              <View
-                className='van-step__title'
-                style={index === active ? 'color: ' + activeColor : ''}
+              <View className={clsx(stepBem('title'))}
+                    style={index === active ? 'color: ' + activeColor : ''}
               >
                 <View>{item.text}</View>
-                <View className='desc-class'>{item.desc}</View>
+                <View>{item.desc}</View>
               </View>
-              <View className='van-step__circle-container'>
+              <View className={clsx(stepBem('circle-container'))}>
                 {index !== active ? (
                   <>
                     {item.inactiveIcon || inactiveIcon ? (
-                      <VanIcon
+                      <Icon
                         color={
                           getStatus(index, active) === 'inactive'
                             ? inactiveColor
                             : activeColor
                         }
                         name={item.inactiveIcon || inactiveIcon || ''}
-                        className='van-step__icon'
+                        className={clsx(stepBem('icon'))}
                       />
                     ) : (
-                      <View
-                        className='van-step__circle'
-                        style={
-                          'background-color: ' +
-                          (active !== undefined && index < active
-                            ? activeColor
-                            : inactiveColor)
-                        }
+                      <View className={clsx(stepBem('circle'))}
+                            style={
+                              'background-color: ' +
+                              (active !== undefined && index < active
+                                ? activeColor
+                                : inactiveColor)
+                            }
                       />
                     )}
                   </>
                 ) : (
-                  <VanIcon
+                  <Icon
                     name={item.activeIcon || activeIcon}
                     color={activeColor}
-                    className='van-step__icon'
+                    className={clsx(stepBem('icon'))}
                   />
                 )}
               </View>
               {index !== steps.length - 1 && (
-                <View
-                  className='van-step__line'
-                  style={
-                    'background-color: ' +
-                    (active !== undefined && index < active
-                      ? activeColor
-                      : inactiveColor)
-                  }
+                <View className={clsx(stepBem('line'))}
+                      style={
+                        'background-color: ' +
+                        (active !== undefined && index < active
+                          ? activeColor
+                          : inactiveColor)
+                      }
                 />
               )}
             </View>

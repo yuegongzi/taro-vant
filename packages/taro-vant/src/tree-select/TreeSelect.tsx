@@ -1,14 +1,15 @@
-import './style/index.less';
+import './style/index.less'
 import { ScrollView, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import * as utils from '../wxs/utils'
-import VanSidebarItem from '../sidebar-item/index'
-import VanSidebar from '../sidebar/index'
-import VanIcon from '../icon/index'
+import Sidebar from '../sidebar'
+import Icon from '../icon'
 import * as computed from './wxs'
 import type { TreeSelectProps } from './PropsType'
 
-export function TreeSelect(props: TreeSelectProps) {
+const SidebarItem = Sidebar.Item
+
+function TreeSelect(props: TreeSelectProps) {
   const {
     items = [],
     selectedIcon = 'success',
@@ -61,14 +62,14 @@ export function TreeSelect(props: TreeSelectProps) {
       style={'height: ' + utils.addUnit(height)}
     >
       <ScrollView scrollY className='van-tree-select__nav'>
-        <VanSidebar
+        <Sidebar
           activeKey={mainActiveIndex}
           onChange={_onClickNav}
           className='van-tree-select__nav__inner'
         >
           {items.map((item: any, index: number) => {
             return (
-              <VanSidebarItem
+              <SidebarItem
                 key={index}
                 className='main-item-class'
                 // activeClass="main-active-class"
@@ -80,7 +81,7 @@ export function TreeSelect(props: TreeSelectProps) {
               />
             )
           })}
-        </VanSidebar>
+        </Sidebar>
       </ScrollView>
       <ScrollView scrollY className='van-tree-select__content'>
         {renderContent}
@@ -108,7 +109,7 @@ export function TreeSelect(props: TreeSelectProps) {
             >
               {item.text}
               {computed.isActive(activeId, item.id) && (
-                <VanIcon
+                <Icon
                   name={selectedIcon}
                   size='16px'
                   className='van-tree-select__selected'

@@ -1,12 +1,12 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { Icon, Tab, Tabs } from 'taro-vant'
+import { Icon,  Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-
+const Tab = Tabs.Tab;
 export default class Index extends Component {
   state = {
     tabs2: [ 1, 2 ],
@@ -108,6 +108,9 @@ export default class Index extends Component {
           <DemoBlock title='样式风格'>
             <Tabs type='card' tabClass='special-tab'>
               {tabs3.map((item, index) => {
+                if(index > 2){
+                  return  null
+                }
                 return (
                   <Tab key={index} title={'标签 ' + item}>
                     <View className='content-2'>{'内容' + item}</View>
@@ -182,7 +185,7 @@ export default class Index extends Component {
                     key={index}
                     title={'标签 ' + item}
                     dot={index === 1}
-                    info={index === 2 ? 99 : null}
+                    badge={index === 2 ? 99 : null}
                   >
                     <View className='content'>{'内容' + item}</View>
                   </Tab>
