@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
-import type {  NamePath, Rule, Store } from 'rc-field-form/es/interface'
-import { FormInstance } from 'rc-field-form/es/interface'
+import type { NamePath, Rule, Store } from 'rc-field-form/es/interface'
+import type { FormInstance } from 'rc-field-form/es/interface'
 
 /**
  * @title FormProps
@@ -76,11 +76,6 @@ export interface FormItemProps extends StandardProps {
    */
   required?: boolean
   /**
-   * @description 验证表单触发方法名
-   * @default onChange
-   */
-  validateTrigger?: string
-  /**
    * @description label的外层className
    */
   labelClass?: string
@@ -98,11 +93,6 @@ export interface FormItemProps extends StandardProps {
    * @default 5.2em
    */
   labelWidth?: string;
-  /**
-   * @description 表单交互触发方法
-   * @default onChange
-   */
-  trigger?: string
   /**
    * @description 表单控制展示的具体值的字段名
    * @default value

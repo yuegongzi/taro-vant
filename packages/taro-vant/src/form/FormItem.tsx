@@ -8,7 +8,8 @@ import { isAnyBlank } from '../utils'
 function FormItem(props: FormItemProps) {
   const {
     name, rules, labelClass, label, layout, labelWidth, valuePropName,right,
-    required = false, hide = false, customField, children,trigger,validateTrigger,
+    required = false, hide = false, customField, children,
+    ...other
   } = props
   if (hide) {
     return null
@@ -46,14 +47,10 @@ function FormItem(props: FormItemProps) {
           const _valuePropName = getValuePropsName(displayName)
           const placeholder = `请填写${label}`;
           return (
-            <Field name={name}
+            <Field getValueFromEvent={value => value.detail.value}
+                   {...other}
+                   name={name}
                    valuePropName={_valuePropName}
-                   trigger={trigger}
-                   validateTrigger={validateTrigger}
-                   getValueFromEvent={value => {
-                     // console.log('value',value)
-                     return value.detail.value
-                   }}
                    rules={r}>
               {(control, meta) => {
                 const errorMessage = meta.errors?.[0]
