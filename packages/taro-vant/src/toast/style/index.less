@@ -1,4 +1,5 @@
 @import '../../style/var.less';
+
 .van-toast {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,10 @@
   .theme(color, '@toast-text-color');
   .theme(font-size, '@toast-font-size');
   .theme(line-height, '@toast-line-height');
+  .theme(width,'@toast-default-width');
+  .theme(min-height,'@toast-default-min-height');
+  .theme(max-width,'@toast-max-width');
+  .theme(padding,'@toast-default-padding');
 
   // allow newline charactor
   white-space: pre-wrap;
@@ -25,28 +30,41 @@
     .theme(max-width, '@toast-max-width');
   }
 
-  &--text {
+  &--text,&--html {
+    width: fit-content;
+    min-height: 0;
+    padding: 16px 24px;
     .theme(min-width, '@toast-text-min-width');
-    .theme(padding, '@toast-text-padding');
+
+
   }
+
+  //&--html {
+  //  width: fit-content;
+  //  .theme(min-width, '@toast-text-min-width');
+  //  .theme(padding, '@toast-text-padding');
+  //}
 
   &--icon {
     .theme(width, '@toast-default-width');
     .theme(min-height, '@toast-default-min-height');
     .theme(padding, '@toast-default-padding');
 
+
+  }
+
+
+  &__box {
+    display: grid;
+    text-align: center;
+
     .van-toast__icon {
-      .theme(font-size, '@toast-icon-size');
+      .theme(font-size, '@toast-icon-size') !important;
     }
 
     .van-toast__text {
       padding-top: @padding-xs;
     }
-  }
-
-  &__box {
-    display: grid;
-    text-align: center;
   }
 
   &__loading {

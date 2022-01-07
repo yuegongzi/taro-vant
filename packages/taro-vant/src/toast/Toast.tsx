@@ -2,13 +2,16 @@ import './style/index.less';
 import { View, Text, RichText } from '@tarojs/components'
 import { useState, useEffect, useCallback } from 'react'
 import type { ToastProps } from './PropsType'
-import VanTransition from '../transition/index'
-import VanOverlay from '../overlay/index'
-import VanIcon from '../icon/index'
-import VanLoading from '../loading/index'
-import { isObj } from '../common/validator'
+import Transition from '../transition'
+import Overlay from '../overlay'
+import Icon from '../icon'
+import Loading from '../loading'
 import { on, off, trigger } from './events'
 import toast from './toast-func'
+import { createNamespace,isObj } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('toast')
 
 const defaultId = 'van-toast'
 const defaultOptions = {
@@ -98,10 +101,6 @@ export function Toast(props: ToastProps) {
 
     on('toast_clear', (toastOptions) => {
       clear(toastOptions)
-      // queue.forEach((toast: any) => {
-      //   toast.clear()
-      // })
-      // queue = []
     })
 
     on('toast_setDefaultOptions', (options: any) => {
@@ -123,24 +122,23 @@ export function Toast(props: ToastProps) {
   return (
     <View>
       {(state.mask || state.forbidClick) && (
-        <VanOverlay
+        <Overlay
           show={state.show}
           zIndex={state.zIndex}
           style={state.mask ? '' : 'background-color: transparent;'}
          />
       )}
-      <VanTransition
+      <Transition
         show={state.show}
         style={'z-index: ' + state.zIndex}
-        className='van-toast__container'
+        className={clsx(bem('container'))}
       >
         <View
           id='van-toast'
-          className={
-            'van-toast van-toast--' +
-            (state.type === 'text' || state.type === 'html' ? 'text' : 'icon') +
-            ` van-toast--${state.position} ${className}`
-          }
+          className={clsx(bem([
+            `${state.type}`,`${state.position}`
+          ]),className)}
+
           style={style}
           onTouchMove={noop}
           {...others}
@@ -150,28 +148,27 @@ export function Toast(props: ToastProps) {
           ) : state.type === 'html' ? (
             <RichText nodes={state.message} />
           ) : (
-            <View className='van-toast__box'>
+            <View className={clsx(bem('box'))}>
               {state.type === 'loading' ? (
-                <VanLoading
+                <Loading
                   color='white'
                   type={state.loadingType}
-                  className='van-toast__loading'
+                  className={clsx(bem('loading'))}
                  />
               ) : (
-                <VanIcon
-                  className='van-toast__icon'
+                <Icon className={clsx(bem('icon'))}
                   name={state.type}
                  />
               )}
               {state.message && (
-                <Text className='van-toast__text'>{state.message}</Text>
+                <Text className={clsx(bem('text'))} >{state.message}</Text>
               )}
             </View>
           )}
           {/*  with icon  */}
           {children}
         </View>
-      </VanTransition>
+      </Transition>
     </View>
   )
 }

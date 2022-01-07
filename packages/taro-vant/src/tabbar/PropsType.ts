@@ -17,3 +17,19 @@ export interface TabbarProps extends StandardProps {
 declare const Tabbar: ComponentClass<TabbarProps>
 
 export { Tabbar }
+
+export interface TabbarItemProps extends Omit<StandardProps, 'onClick'> {
+  badge?: string
+  name?: string | number
+  icon?: string
+  dot?: boolean
+  iconPrefix?: string
+  renderIconActive?: ReactNode
+  renderIcon?: ReactNode
+  children?: ReactNode
+  onClick?: (name: string | number) => void
+}
+
+declare const TabbarItem: ComponentClass<TabbarItemProps>
+
+export { TabbarItem }

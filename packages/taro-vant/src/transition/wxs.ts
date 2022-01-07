@@ -1,7 +1,7 @@
-/* eslint-disable */
-import * as utils from '../wxs/utils'
+import { computedStyle } from '../utils'
+
 function rootStyle(data: any) {
-  return utils.style([
+  return computedStyle([
     {
       '-webkit-transition-duration': data.currentDuration + 'ms',
       'transition-duration': data.currentDuration + 'ms',

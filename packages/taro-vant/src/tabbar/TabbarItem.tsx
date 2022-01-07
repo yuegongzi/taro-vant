@@ -1,13 +1,15 @@
 import './style/index.less';
 import { View, Block } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import Icon from '../icon'
-import Info from '../info'
 import type { TabbarItemProps } from './PropsType'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function TabbarItem(
+const [ bem ] = createNamespace('tabbar-item')
+
+function TabbarItem(
   props: TabbarItemProps & {
-    index: number
+    index?: number
     active?: number
     activeColor?: string
     inactiveColor?: string
@@ -19,10 +21,10 @@ export function TabbarItem(
     name,
     iconPrefix = 'van-icon',
     dot,
-    info,
+    badge,
     renderIconActive,
     renderIcon,
-    index,
+    index = 0,
     active,
     activeColor,
     inactiveColor,
@@ -47,14 +49,10 @@ export function TabbarItem(
 
   return onChange ? (
     <View
-      className={
-        utils.bem('tabbar-item', {
-          active: active === (name ?? index),
-        }) +
-        ' custom-class' +
-        ` ${className || ''}`
-      }
-      style={utils.style([
+      className={clsx(bem({
+        active: active === (name ?? index),
+      }),className)}
+      style={computedStyle([
         {
           color: active === (name ?? index) ? activeColor : inactiveColor,
         },
@@ -63,23 +61,23 @@ export function TabbarItem(
       {...others}
       onClick={_click}
     >
-      <View className='van-tabbar-item__icon'>
+      <View className={clsx(bem('icon'))}>
         {icon ? (
           <Icon
             size={38}
-            badge={info}
+            badge={badge}
             name={icon}
+            dot={dot}
             classPrefix={iconPrefix}
-            className='van-tabbar-item__icon__inner'
+            className={clsx(bem('icon__inner'))}
            />
         ) : (
           <Block>
             {active === (name ?? index) ? renderIconActive : renderIcon}
           </Block>
         )}
-        <Info dot={dot} className='van-tabbar-item__info' />
       </View>
-      <View className='van-tabbar-item__text'>{children}</View>
+      <View className={clsx(bem('text'))}>{children}</View>
     </View>
   ) : (
     <></>

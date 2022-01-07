@@ -1,4 +1,4 @@
-import { isObj } from '../common/validator'
+import { isObj } from '../utils'
 import type { ToastProps } from './PropsType'
 import { trigger } from './events'
 

@@ -1,12 +1,11 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
-
-import { Image, Tabbar, TabbarItem } from 'taro-vant'
+import { Image, Tabbar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
+const TabbarItem = Tabbar.Item
 export default class Index extends Component {
   state = {
     active: 0,
@@ -117,10 +116,10 @@ export default class Index extends Component {
               <TabbarItem icon='search' dot>
                 标签
               </TabbarItem>
-              <TabbarItem icon='friends-o' info='5'>
+              <TabbarItem icon='friends-o' badge='5'>
                 标签
               </TabbarItem>
-              <TabbarItem icon='setting-o' info='20'>
+              <TabbarItem icon='setting-o' badge='20'>
                 标签
               </TabbarItem>
             </Tabbar>
@@ -143,7 +142,7 @@ export default class Index extends Component {
               }}
             >
               <TabbarItem
-                info='3'
+                badge='3'
                 renderIcon={
                   <>
                     <Image

@@ -1,6 +1,6 @@
-import { style } from '../wxs/style'
+import { computedStyle } from '../utils'
 function rootStyle(data: any) {
-  return style({
+  return computedStyle({
     'background-color': data.plain ? '' : data.color,
     color: data.textColor || data.plain ? data.textColor || data.color : '',
   })

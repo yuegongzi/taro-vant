@@ -1,9 +1,12 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { TagProps } from './PropsType'
 import Icon from '../icon'
 import * as computed from './wxs'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('tag')
 
 export function Tag(props: TagProps) {
   const {
@@ -24,20 +27,16 @@ export function Tag(props: TagProps) {
 
   return (
     <View
-      className={
-        ' ' +
-        utils.bem('tag', [
-          type,
-          size,
-          {
-            mark,
-            plain,
-            round,
-          },
-        ]) +
-        ` ${className || ''}`
-      }
-      style={utils.style([
+      className={clsx(bem([
+        type,
+        size,
+        {
+          mark,
+          plain,
+          round,
+        },
+      ]), className)}
+      style={computedStyle([
         computed.rootStyle({
           plain,
           color,
@@ -49,9 +48,10 @@ export function Tag(props: TagProps) {
     >
       {children}
       {closeable && (
-        <Icon name='cross' className='van-tag__close' onClick={onClose} />
+        <Icon name='cross' className={clsx(bem('close'))} onClick={onClose} />
       )}
     </View>
   )
 }
+
 export default Tag

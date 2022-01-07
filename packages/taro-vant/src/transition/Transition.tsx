@@ -1,11 +1,14 @@
-import './style/index.less';
+import './style/index.less'
 import { View } from '@tarojs/components'
 import type { TransitionPropsCom } from './PropsType'
-import * as utils from '../wxs/utils'
-import * as computed from './wxs'
+import { rootStyle } from './wxs'
 import { useTransition } from '../hooks'
+import { computedStyle, createNamespace } from '../utils'
+import clsx from 'clsx'
 
-export function Transition(props: TransitionPropsCom) {
+const [ bem ] = createNamespace('transition')
+
+ function Transition(props: TransitionPropsCom) {
   const {
     onBeforeEnter,
     onBeforeLeave,
@@ -47,10 +50,9 @@ export function Transition(props: TransitionPropsCom) {
 
   return (
     <>
-      <View
-        className={'van-transition ' + classes + ` ${className || ''}`}
-        style={utils.style([
-          computed.rootStyle({
+      <View className={clsx(bem(),classes,className)}
+        style={computedStyle([
+          rootStyle({
             currentDuration,
             display,
           }),

@@ -1,13 +1,13 @@
-import './style/index.less';
+import './style/index.less'
 import Taro from '@tarojs/taro'
 import { cloneElement, isValidElement, useCallback, useEffect, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
 import { Block, View } from '@tarojs/components'
-import { Tabbar as InnerTabbar } from '../common/zIndex'
-import * as utils from '../wxs/utils'
-import { getRect } from '../common/utils'
-import type { TabbarProps } from './PropsType'
-import type { TabbarItemProps } from '../tabbar-item'
+import { computedStyle, createNamespace, getRect, Tabbar as InnerTabbar } from '../utils'
+import type { TabbarProps,TabbarItemProps } from './PropsType'
+import clsx from 'clsx'
+
+const [ bem ] = createNamespace('tabbar')
 
 function parseTabList(children: React.ReactNode): any[] {
   return toArray(children).map((node: React.ReactElement<TabbarItemProps>) => {
@@ -100,32 +100,15 @@ export function Tabbar(props: TabbarProps) {
     },
     [ fixed, placeholder ],
   )
-  // useEffect(
-  //   function () {
-  //     if (!Array.isArray(children) || !children.length) {
-  //       return
-  //     }
-  //     children.forEach((child) => child.updateFromParent())
-  //   },
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   [active, activeColor, inactiveColor],
-  // )
-
   return (
     <Block>
-      <View
-        className={
-          (border ? 'van-hairline--top-bottom' : '') +
-          ' ' +
-          utils.bem('tabbar', {
-            fixed,
-            safe: safeAreaInsetBottom,
-          }) +
-          ' custom-class' +
-          ` ${className || ''}`
-        }
-        style={utils.style([ zIndex ? 'z-index: ' + zIndex : '', style ])}
-        {...others}
+      <View className={clsx(bem(
+        { fixed, safe: safeAreaInsetBottom }), {
+        'van-hairline--top-bottom': border,
+      }, className)}
+
+            style={computedStyle([ zIndex ? 'z-index: ' + zIndex : '', style ])}
+            {...others}
       >
         {newChildren}
       </View>
