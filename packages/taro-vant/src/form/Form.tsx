@@ -1,7 +1,6 @@
 import './style/index.less'
-import React, { forwardRef, memo, useImperativeHandle } from 'react'
-import Form, { useForm } from 'rc-field-form'
-import type { FormProps, IFormInstanceAPI } from './PropsType'
+import RcForm , { useForm } from 'rc-field-form'
+import type { FormProps } from './PropsType'
 import FormContext from './formContext'
 import Cell from '../cell'
 import message from './message'
@@ -10,8 +9,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('form')
 
-function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX.Element {
-  const [ form ] = useForm()
+function Form(props: FormProps): JSX.Element {
   const {
     initialValues = {},
     className,
@@ -21,16 +19,16 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
     layout,
     inset = false,
     border = true,
+    form,
     ...options
   } = props
   const _onFinish = (values: any) => {
     onFinish?.(values)
   }
 
-  useImperativeHandle(ref, () => ({ form }))
   return (<FormContext.Provider value={{ labelWidth, layout }}>
       {/*@ts-ignore*/}
-      <Form
+      <RcForm
         {...options}
         initialValues={initialValues}
         component={false}
@@ -42,12 +40,11 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
           {children}
         </Cell.Group>
 
-      </Form>
+      </RcForm>
     </FormContext.Provider>
   )
 }
-const FormIndex = memo(forwardRef(Index));
 
-FormIndex.displayName = 'Form'
-
-export default FormIndex
+Form.displayName = 'Form'
+Form.useForm = useForm
+export default Form

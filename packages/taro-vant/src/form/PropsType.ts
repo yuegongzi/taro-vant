@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
-import type { FormInstance, NamePath, Rule, Store } from 'rc-field-form/es/interface'
+import type {  NamePath, Rule, Store } from 'rc-field-form/es/interface'
+import { FormInstance } from 'rc-field-form/es/interface'
 
 /**
  * @title FormProps
@@ -42,6 +43,10 @@ export interface FormProps extends StandardProps {
    * @default true
    */
   border?: boolean
+  /**
+   * 表单引用
+   */
+  form?: FormInstance
 }
 
 /**
@@ -104,15 +109,6 @@ export interface FormItemProps extends StandardProps {
    */
   valuePropName?: string
   /**
-   * @description 根据表单交互回掉函数（时间）参数的重新定义
-   * @default value
-   */
-  valueFormat?: (
-    value: any,
-    name: string,
-    IFormInstance: IFormInstanceAPI,
-  ) => any
-  /**
    * @description 正则校验值，或者自定义校验后call回掉函数返回错误信息
    */
   rules?: Rule[],
@@ -126,12 +122,3 @@ export interface FormItemProps extends StandardProps {
   customField?: boolean;
 
 }
-
-/**
- * @title IFormInstance
- * @description 通过ref获取到的form的实例
- */
-export type IFormInstanceAPI = {
-  form?: FormInstance
-}
-

@@ -103,7 +103,7 @@ function Stepper(props: StepperProps) {
       if (!asyncChange) {
         setCurrentValue(value)
       }
-      onChange?.({ detail: value })
+      onChange?.({ detail: { value } })
     },
     [ asyncChange, onChange ],
   )

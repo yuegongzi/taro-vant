@@ -2,7 +2,6 @@ import type { ComponentClass, ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface RadioProps extends StandardProps {
-  name?: string
   value?: any
   disabled?: boolean
   checkedColor?: string

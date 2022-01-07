@@ -4,7 +4,7 @@ import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { RateProps } from './PropsType'
-import { addUnit, computedStyle, createNamespace, getAllRect } from '../utils'
+import { addUnit, assembly, computedStyle, createNamespace, getAllRect } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('rate')
@@ -47,12 +47,11 @@ export function Rate(props: RateProps) {
     Object.defineProperty(event, 'detail', {
       value: +score + 1,
     })
-
     if (!disabled && !readonly) {
       if (noControlled) {
         setInnerValue(event.detail as number)
       }
-      onChange?.(event)
+      onChange?.(assembly(event,event.detail))
     }
   }
   // touchmove匹配到的节点找不到data-score，先注释掉

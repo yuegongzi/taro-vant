@@ -6,6 +6,8 @@ yarn.lock
 ../../.idea
 .rn_temp
 .DS_Store
+project.private.config.json
+.idea
 
 pullRequest.js
 package-lock.json

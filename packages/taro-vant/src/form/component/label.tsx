@@ -8,7 +8,7 @@ type LabelProps = {
   label?: string
   required?: boolean
   className?: string;
-  labelWidth?: string;
+  titleWidth?: string;
 }
 
 export default function Label(props: LabelProps) {
@@ -16,10 +16,10 @@ export default function Label(props: LabelProps) {
     label,
     required,
     className,
-    labelWidth = '5.2em',
+    titleWidth = '5.2em',
   } = props
   return (
-    <View className={clsx(bem('label'), className)} style={{ width: labelWidth }}>
+    <View className={clsx(bem('label'), className)} style={{ width: titleWidth }}>
       <View className={clsx(bem('required-box'))}>
         {required && (
           <Text className={clsx(bem('label-star'))}>

@@ -7,8 +7,8 @@ import { isAnyBlank } from '../utils'
 
 function FormItem(props: FormItemProps) {
   const {
-    name, rules, labelClass, label, layout, labelWidth, valuePropName,
-    required = false, hide = false, customField, children,
+    name, rules, labelClass, label, layout, labelWidth, valuePropName,right,
+    required = false, hide = false, customField, children,trigger,validateTrigger,
   } = props
   if (hide) {
     return null
@@ -35,26 +35,31 @@ function FormItem(props: FormItemProps) {
     return 'value'
   }
 
+
   return (<FormContext.Consumer>
       {
         (form) => {
-          const isFieldChildren = customField// TODO
+          const displayName = children.type?.displayName;
+          const isFieldChildren = displayName === 'Field' ||  customField
           const _labelWidth = labelWidth || form.labelWidth
           const _layout = layout || form.layout
-          const _valuePropName = getValuePropsName(children.displayName)
+          const _valuePropName = getValuePropsName(displayName)
+          const placeholder = `请填写${label}`;
           return (
             <Field name={name}
                    valuePropName={_valuePropName}
+                   trigger={trigger}
+                   validateTrigger={validateTrigger}
                    getValueFromEvent={value => {
                      // console.log('value',value)
                      return value.detail.value
                    }}
                    rules={r}>
               {(control, meta) => {
-                const message = meta.errors?.[0]
-                const childProps = { ...children.props, onInput: control['onChange'], ...control }
+                const errorMessage = meta.errors?.[0]
+                const childProps = { placeholder,...children.props, onInput: control['onChange'], ...control }
                 if (isFieldChildren) {
-                  const fieldProps = { ...childProps, label, required, errorMessage: message, titleWidth: _labelWidth }
+                  const fieldProps = { ...childProps, label, required, errorMessage,titleWidth: _labelWidth,renderButton: right }
                   return React.cloneElement(children, fieldProps)
                 }
                 const childNode = React.cloneElement(children, childProps)
@@ -62,9 +67,10 @@ function FormItem(props: FormItemProps) {
                   <FormItemLayout
                     layout={_layout}
                     labelClass={labelClass}
-                    message={message}
+                    errorMessage={errorMessage}
                     required={required}
-                    labelWidth={_labelWidth}
+                    titleWidth={_labelWidth}
+                    right={right}
                     label={label}>
                     {childNode}
                   </FormItemLayout>

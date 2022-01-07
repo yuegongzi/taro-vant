@@ -13,10 +13,10 @@ type FormItemLayoutProps = {
   required?: boolean;
   labelClass?: string;
   className?: string;
-  message?: string;
+  errorMessage?: string;
   children?: ReactNode
   right?: ReactNode,
-  labelWidth?: string;
+  titleWidth?: string;
 }
 
 export default (props: FormItemLayoutProps) => {
@@ -26,8 +26,8 @@ export default (props: FormItemLayoutProps) => {
     required = false,
     labelClass = '',
     className = '',
-    message,
-    labelWidth,
+    errorMessage,
+    titleWidth,
     right,
   } = props
   return (<View className={clsx(bem('wrapper'))}>
@@ -35,14 +35,16 @@ export default (props: FormItemLayoutProps) => {
         <Label
           required={required}
           className={labelClass}
-          labelWidth={labelWidth}
+          titleWidth={titleWidth}
           label={label} />
         <View className={clsx(bem('control'))}>
           <View className={clsx(bem('control-item'))}>
             {props.children}
-            {right}
+            <View className={clsx(bem('right'))}>
+              {right}
+            </View>
           </View>
-          <Message message={message} />
+          <Message errorMessage={errorMessage} />
         </View>
       </View>
     </View>

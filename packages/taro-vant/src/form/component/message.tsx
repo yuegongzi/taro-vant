@@ -5,15 +5,15 @@ import clsx from 'clsx'
 const [ bem ] = createNamespace('form-item')
 
 type MessageProps = {
-  message?: string
+  errorMessage?: string
 }
 
 export default function Message(props: MessageProps) {
-  const { message } = props
+  const { errorMessage } = props
 
-  if (!isAnyBlank(message)) {
+  if (!isAnyBlank(errorMessage)) {
     return <View className={clsx(bem('message'))}>
-      <Text>{message}</Text>
+      <Text>{errorMessage}</Text>
     </View>
   }
   return null

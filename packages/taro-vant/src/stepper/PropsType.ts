@@ -23,7 +23,7 @@ export interface StepperProps extends StandardProps {
   theme?: 'round'
   alwaysEmbed?: boolean
   onFocus?: CommonEventFunction<InputProps.inputForceEventDetail>
-  onChange?: (event: { detail: number | string }) => void
+  onChange?: (event: { detail: {value: number | string} }) => void
   onBlur?: CommonEventFunction<InputProps.inputForceEventDetail>
   onOverlimit?: () => void
   onPlus?: () => void

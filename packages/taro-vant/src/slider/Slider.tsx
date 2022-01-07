@@ -184,7 +184,7 @@ function Slider(props: SliderProps) {
         onDrag({ detail: { value: value } } as ITouchEvent)
       }
       if (end && onChange) {
-        onChange({ detail: value } as ITouchEvent)
+        onChange({ detail: { value } } as ITouchEvent)
       }
       if ((drag || end) && canIUseModel()) {
         setValue(value)
