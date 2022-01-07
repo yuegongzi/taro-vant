@@ -5,7 +5,7 @@ import CheckboxGroupContext from './context'
 import { assembly, createNamespace } from '../utils'
 import clsx from 'clsx'
 
-const [ bem ] = createNamespace('checkbox')
+const [ bem ] = createNamespace('checkbox-group')
 
  function CheckboxGroup(props: CheckboxGroupProps) {
   const {

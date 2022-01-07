@@ -82,7 +82,7 @@ export default class Index extends Component {
                   height='27vw'
                   renderLoading={
                     <>
-                      <Loading type='spinner' size='20' vertical />
+                      <Loading type='spinner' size='40' vertical />
                     </>
                   }
                 />

@@ -24,6 +24,7 @@ export interface CellProps extends StandardProps {
   renderRightIcon?: ReactNode
   renderExtra?: ReactNode
   children?: ReactNode | JSX.Element | JSX.Element[]
+  valueClass?: string;
 }
 
 export interface CellGroupProps extends StandardProps {

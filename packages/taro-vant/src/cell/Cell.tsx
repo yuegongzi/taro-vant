@@ -36,6 +36,7 @@ const [ bem ]=createNamespace('cell')
     children,
     style,
     className,
+    valueClass,
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
@@ -82,7 +83,7 @@ const [ bem ]=createNamespace('cell')
           </View>
         )}
       </View>
-      <View className={clsx(bem('value'))}>
+      <View className={clsx(bem('value'),valueClass)}>
         {value || value === 0 ? <Block>{value}</Block> : children}
       </View>
       {isLink ? (
