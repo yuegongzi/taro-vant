@@ -1,4 +1,4 @@
-import type React, { ComponentClass } from 'react'
+import type  { ComponentClass,ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 type CalendarSelectType = 'selected' | 'start' | 'middle' | 'end' | 'disabled'
@@ -66,8 +66,8 @@ export interface CalendarProps extends StandardProps {
   onUnselect?: (e: CalendarEventsSingle) => void
   onSelect?: (e: CalendarEvents) => void
   onClickSubtitle?: (a?: any) => void
-  renderTitle?: React.ReactNode
-  renderFooter?: React.ReactNode
+  renderTitle?: ReactNode
+  renderFooter?: ReactNode
 }
 
 declare const Calendar: ComponentClass<CalendarProps>

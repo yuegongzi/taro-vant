@@ -1,5 +1,5 @@
 import Calendar from './Calendar'
 
-export { Calendar }
 export default Calendar
+export { Calendar }
 export type { CalendarProps } from './PropsType'

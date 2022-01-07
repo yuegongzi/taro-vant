@@ -62,7 +62,6 @@ export default {
     navigationBarTextStyle: 'black',
     backgroundTextStyle: 'dark',
     backgroundColor: '#f8f8f8',
-    titleBarColor: 'black',
   },
   sitemapLocation: 'sitemap.json',
 }

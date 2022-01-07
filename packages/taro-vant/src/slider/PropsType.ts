@@ -1,4 +1,4 @@
-import type React, { ComponentClass } from 'react'
+import type  { ComponentClass,ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 type SliderEvent = {
@@ -22,9 +22,9 @@ export interface SliderProps extends StandardProps {
   onChange?: (e: ITouchEvent & SliderEvent) => void
   onDragStart?: () => void
   onDragEnd?: () => void
-  renderLeftButton?: (value: number) => React.ReactNode
-  renderRightButton?: (value: number) => React.ReactNode
-  renderButton?: (value: number) => React.ReactNode
+  renderLeftButton?: (value: number) => ReactNode
+  renderRightButton?: (value: number) => ReactNode
+  renderButton?: (value: number) => ReactNode
 }
 
 declare const Slider: ComponentClass<SliderProps>

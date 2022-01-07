@@ -1,4 +1,4 @@
-import type React, { ComponentClass } from 'react'
+import type  { ComponentClass,ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 /**
@@ -36,7 +36,7 @@ export interface DropdownMenuProps extends StandardProps {
   /**
    * @description 子元素,须为DropdownMenuItem
    */
-  children: React.ReactNode
+  children: ReactNode
 }
 
 /**
@@ -90,7 +90,7 @@ export interface DropdownItemProps extends StandardProps {
   /**
    * @description 传入的子元素
    */
-  children?: React.ReactNode | React.ReactNode[]
+  children?: ReactNode | ReactNode[]
 }
 
 /**
