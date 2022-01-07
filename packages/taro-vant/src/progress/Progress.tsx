@@ -2,9 +2,8 @@ import './style/index.less'
 import Taro from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { ProgressProps } from './PropsType'
-import { BLUE, createNamespace, getRect } from '../utils'
+import { BLUE, computedStyle, createNamespace, getRect } from '../utils'
 import * as computed from './wxs'
 import clsx from 'clsx'
 
@@ -45,7 +44,7 @@ function Progress(props: ProgressProps) {
   return (
     <View
       className={clsx(bem(),className)}
-      style={utils.style([
+      style={computedStyle([
         computed.rootStyle({
           strokeWidth,
           trackColor,

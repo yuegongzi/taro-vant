@@ -1,7 +1,7 @@
-import { addUnit,style } from '../utils'
+import { addUnit,computedStyle } from '../utils'
 
 function sizeStyle(data: any) {
-  return style({
+  return computedStyle({
     width: addUnit(data.previewSize),
     height: addUnit(data.previewSize),
   })

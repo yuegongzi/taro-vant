@@ -1,4 +1,4 @@
-import type { SelectorQuery } from '@tarojs/taro';
+import type { SelectorQuery } from '@tarojs/taro'
 import { createSelectorQuery } from '@tarojs/taro'
 
 export function delay(delayTime = 25): Promise<void> {

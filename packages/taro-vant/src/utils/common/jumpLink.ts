@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+
 export function jumpLink(
   url: string,
   linkType?: 'navigateTo' | 'reLaunch' | 'redirectTo',

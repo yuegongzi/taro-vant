@@ -5,7 +5,7 @@ import { View } from '@tarojs/components'
 import type { SwitchProps } from './PropsType'
 import Loading from '../loading/index'
 import * as computed from './wxs'
-import { assembly, COMPONENT_TYPE_KEY, computedStyle, createNamespace } from '../utils'
+import { assembly, computedStyle, createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('switch')
@@ -74,6 +74,5 @@ const [ bem ] = createNamespace('switch')
   )
 }
 
-export const SWITCH_KEY = Symbol('switch')
 
-export default Object.assign(Switch, { [COMPONENT_TYPE_KEY]: SWITCH_KEY })
+export default Switch

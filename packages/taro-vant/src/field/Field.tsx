@@ -5,7 +5,7 @@ import { Block, Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
-import { assembly, COMPONENT_TYPE_KEY, createNamespace, resizeTextarea } from '../utils'
+import { assembly,  createNamespace, resizeTextarea } from '../utils'
 import clsx from 'clsx'
 import { inputStyle } from './wxs'
 
@@ -373,6 +373,5 @@ function Field(props: FieldProps) {
   )
 }
 
-export const FIELD_KEY = Symbol('switch')
 
-export default Object.assign(Field, { [COMPONENT_TYPE_KEY]: FIELD_KEY })
+export default Field

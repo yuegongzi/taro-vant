@@ -2,9 +2,8 @@ import './style/index.less';
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components';
 import { View, Block } from '@tarojs/components'
-import * as utils from '../wxs/utils'
 import type { CellProps } from './PropsType'
-import { createNamespace, jumpLink } from '../utils'
+import { computedStyle, createNamespace, jumpLink } from '../utils'
 import Icon from '../icon'
 import { computedTitleStyle } from './wxs'
 import clsx from 'clsx'
@@ -58,7 +57,7 @@ const [ bem ]=createNamespace('cell')
       ]),className)}
       hoverClass={clsx(bem('',[ 'hover' ],true))}
       hoverStayTime={70}
-      style={utils.style([ style ])}
+      style={computedStyle([ style ])}
       onClick={_click}
       {...others}
     >

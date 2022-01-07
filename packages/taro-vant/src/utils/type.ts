@@ -23,7 +23,7 @@ export function isNumber(args: unknown): boolean {
 }
 
 export function isNumeric(val: string): boolean {
-  return /^\d+(\.\d+)?$/.test(val);
+  return /^\d+(\.\d+)?$/.test(val)
 }
 
 export function isObject(args: unknown): boolean {
@@ -81,13 +81,13 @@ export function isVideoUrl(url: any) {
   return VIDEO_REGEXP.test(url)
 }
 
-const None = [ undefined, null, 'undefined', '', 'null', ' ' ];
+const None = [ undefined, null, 'undefined', '', 'null', ' ' ]
 export const isAnyBlank = (...args: any) => {
   for (const i of args) {
     if (None.includes(i)) {
-      return true;
+      return true
     }
   }
-  return false;
-};
+  return false
+}
 

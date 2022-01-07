@@ -2,6 +2,7 @@
  * Simple memoize
  * wxs doesn't support fn.apply, so this memoize only support up to 2 args
  */
+
 /* eslint-disable */
 
 function isPrimitive(value: any) {
@@ -42,7 +43,7 @@ function serializer(args: any) {
 function memoize(fn: any) {
   var cache: any = {}
 
-  return function () {
+  return function() {
     var key = serializer(arguments)
     if (cache[key] === undefined) {
       cache[key] = call(fn, arguments)

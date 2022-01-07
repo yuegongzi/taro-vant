@@ -3,9 +3,7 @@ import FormContext from './formContext'
 import React from 'react'
 import { Field } from 'rc-field-form'
 import FormItemLayout from './component/layout'
-import { COMPONENT_TYPE_KEY, isAnyBlank } from '../utils'
-import { FIELD_KEY } from '../field/Field'
-import { SWITCH_KEY } from '../switch/Switch'
+import {  isAnyBlank } from '../utils'
 
 function FormItem(props: FormItemProps) {
   const {
@@ -26,12 +24,12 @@ function FormItem(props: FormItemProps) {
     console.error('formItem必须传递name参数')
     return null
   }
-  const getValuePropsName = (componentType: any) => {
+  const getValuePropsName = (displayName: string) => {
     if (!isAnyBlank(valuePropName)) {
       return valuePropName
     }
-    switch (componentType) {
-      case SWITCH_KEY:
+    switch (displayName){
+      case 'Switch':
         return 'checked'
     }
     return 'value'
@@ -40,12 +38,10 @@ function FormItem(props: FormItemProps) {
   return (<FormContext.Consumer>
       {
         (form) => {
-          // @ts-ignore
-          const componentType = (children as { type: unknown }).type?.[COMPONENT_TYPE_KEY]
-          const isFieldChildren = componentType === FIELD_KEY || customField
+          const isFieldChildren = customField// TODO
           const _labelWidth = labelWidth || form.labelWidth
           const _layout = layout || form.layout
-          const _valuePropName = getValuePropsName(componentType)
+          const _valuePropName = getValuePropsName(children.displayName)
           return (
             <Field name={name}
                    valuePropName={_valuePropName}

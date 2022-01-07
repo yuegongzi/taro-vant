@@ -2,16 +2,13 @@ import './style/index.less'
 import { Block, Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
-import { GRAY, RED } from '../common/color'
-import { toPromise } from '../common/utils'
-import { GoodsActionButton } from '../goods-action'
-import GoodsAction from '../goods-action'
+import { addUnit, computedStyle, createNamespace, GRAY, RED, toPromise } from '../utils'
+import GoodsAction, { GoodsActionButton } from '../goods-action'
 import Button from '../button'
 import Popup from '../popup'
 import type { DialogProps } from './PropsType'
 import { off, on, trigger } from './events'
 import dialog from './dialog-func'
-import { addUnit, computedStyle, createNamespace } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('dialog')
@@ -213,11 +210,11 @@ function Dialog(props: DialogProps) {
       )}
 
       {theme === 'round-button' ? (
-        <GoodsAction className={clsx(bem('footer',[ 'round-button' ]))}>
+        <GoodsAction className={clsx(bem('footer', [ 'round-button' ]))}>
           {showCancelButton && (
             <GoodsActionButton
               loading={cancelLoading}
-              className={clsx(bem('button'),bem('cancel'),'van-hairline--right')}
+              className={clsx(bem('button'), bem('cancel'), 'van-hairline--right')}
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
@@ -226,7 +223,7 @@ function Dialog(props: DialogProps) {
           )}
           {showConfirmButton && (
             <GoodsActionButton
-              className={clsx(bem('button'),bem('confirm'))}
+              className={clsx(bem('button'), bem('confirm'))}
               style={'color: ' + confirmButtonColor}
               loading={confirmLoading}
               openType={confirmButtonOpenType}
@@ -243,12 +240,12 @@ function Dialog(props: DialogProps) {
           )}
         </GoodsAction>
       ) : (
-        <View className={clsx(bem('footer'),'van-hairline--top')}>
+        <View className={clsx(bem('footer'), 'van-hairline--top')}>
           {showCancelButton && (
             <Button
               size='large'
               loading={cancelLoading}
-              className={clsx(bem('button'),bem('cancel'))}
+              className={clsx(bem('button'), bem('cancel'))}
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
@@ -258,8 +255,8 @@ function Dialog(props: DialogProps) {
           {showConfirmButton && (
             <Button
               size='large'
-              className={clsx(bem('button'),bem('confirm'),{
-                ['van-hairline--left']:showCancelButton
+              className={clsx(bem('button'), bem('confirm'), {
+                ['van-hairline--left']: showCancelButton,
               })}
               loading={confirmLoading}
               style={'color: ' + confirmButtonColor}
