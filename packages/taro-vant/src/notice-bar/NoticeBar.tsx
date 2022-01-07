@@ -234,5 +234,5 @@ export function NoticeBar(props: NoticeBarProps) {
     )
   )
 }
-
+NoticeBar.displayName = 'NoticeBar'
 export default NoticeBar

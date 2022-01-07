@@ -117,4 +117,5 @@ function TreeSelect(props: TreeSelectProps) {
   )
 }
 
+TreeSelect.displayName = 'TreeSelect'
 export default TreeSelect

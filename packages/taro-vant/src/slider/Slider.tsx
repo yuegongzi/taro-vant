@@ -22,7 +22,7 @@ function getDirection(x: number, y: number) {
 
 let currentIndex = 0
 
-export function Slider(props: SliderProps) {
+function Slider(props: SliderProps) {
   const {
     range,
     disabled,
@@ -387,4 +387,5 @@ export function Slider(props: SliderProps) {
   )
 }
 
+Slider.displayName = 'Slider'
 export default Slider

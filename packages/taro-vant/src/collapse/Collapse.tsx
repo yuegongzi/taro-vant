@@ -75,5 +75,5 @@ export function Collapse(props: CollapseProps) {
     </View>
   )
 }
-
+Collapse.displayName = 'Collapse'
 export default Collapse

@@ -41,5 +41,5 @@ function RadioGroup(props: RadioGroupProps) {
     </RadioGroupContext.Provider>
   )
 }
-
+RadioGroup.displayName = 'RadioGroup'
 export default RadioGroup

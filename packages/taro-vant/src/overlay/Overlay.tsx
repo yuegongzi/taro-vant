@@ -45,5 +45,5 @@ function Overlay(props: OverlayProps) {
     </Transition>
   )
 }
-
+Overlay.displayName = 'Overlay'
 export default Overlay

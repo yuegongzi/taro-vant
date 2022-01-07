@@ -182,4 +182,5 @@ Toast.fail = toast.fail
 Toast.clear = toast.clear
 Toast.setDefaultOptions = toast.setDefaultOptions
 Toast.resetDefaultOptions = toast.resetDefaultOptions
+Toast.displayName = 'Toast'
 export default Toast

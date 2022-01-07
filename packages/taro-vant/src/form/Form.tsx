@@ -46,5 +46,8 @@ function Index(props: FormProps, ref: React.ForwardedRef<IFormInstanceAPI>): JSX
     </FormContext.Provider>
   )
 }
+const FormIndex = memo(forwardRef(Index));
 
-export default memo(forwardRef(Index))
+FormIndex.displayName = 'Form'
+
+export default FormIndex

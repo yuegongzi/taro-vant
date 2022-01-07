@@ -354,4 +354,5 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 }
 
+DatetimePicker.displayName = 'DatetimePicker'
 export default DatetimePicker

@@ -117,5 +117,5 @@ function Steps(props: StepsProps) {
     </View>
   )
 }
-
+Steps.displayName = 'Steps'
 export default Steps

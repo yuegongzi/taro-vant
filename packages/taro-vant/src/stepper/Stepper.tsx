@@ -20,7 +20,7 @@ function equal(value1: any, value2: any) {
   return String(value1) === String(value2)
 }
 
-export function Stepper(props: StepperProps) {
+function Stepper(props: StepperProps) {
   const {
     theme,
     value,
@@ -289,5 +289,5 @@ export function Stepper(props: StepperProps) {
     </View>
   )
 }
-
+Stepper.displayName = 'Stepper'
 export default Stepper

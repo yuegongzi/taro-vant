@@ -160,5 +160,5 @@ export function Rate(props: RateProps) {
     </View>
   )
 }
-
+Rate.displayName = 'Rate'
 export default Rate

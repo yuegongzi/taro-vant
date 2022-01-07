@@ -93,5 +93,5 @@ function Index(props: ButtonProps) {
     </Button>
   )
 }
-
+Index.displayName = 'Button'
 export default Index

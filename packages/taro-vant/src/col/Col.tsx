@@ -34,4 +34,5 @@ export function Col(props: ColProps): JSX.Element {
   )
 }
 
+Col.displayName = 'Col'
 export default Col

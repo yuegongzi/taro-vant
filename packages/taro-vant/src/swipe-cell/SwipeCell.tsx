@@ -276,4 +276,5 @@ function Index(
 }
 
 const SwipeCell = forwardRef(Index)
+SwipeCell.displayName = 'SwipeCell'
 export default SwipeCell

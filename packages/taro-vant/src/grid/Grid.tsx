@@ -95,5 +95,5 @@ export function Grid(props: GridProps) {
     </View>
   )
 }
-
+Grid.displayName='Grid'
 export default Grid

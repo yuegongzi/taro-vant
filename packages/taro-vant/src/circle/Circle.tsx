@@ -294,4 +294,5 @@ function Circle(props: CircleProps) {
   )
 }
 
+Circle.displayName = 'Circle'
 export default Circle

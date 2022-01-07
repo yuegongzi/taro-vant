@@ -87,5 +87,5 @@ function SidebarItem(
     </View>
   )
 }
-
+SidebarItem.displayName = 'SidebarItem'
 export default SidebarItem

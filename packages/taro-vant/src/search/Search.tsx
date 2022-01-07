@@ -148,5 +148,5 @@ function Search(props: SearchProps) {
     </View>
   )
 }
-
+Search.displayName = 'Search'
 export default Search

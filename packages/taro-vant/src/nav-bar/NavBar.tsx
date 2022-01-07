@@ -120,5 +120,5 @@ function NavBar(props: NavBarProps) {
     </Block>
   )
 }
-
+NavBar.displayName = 'NavBar'
 export default NavBar

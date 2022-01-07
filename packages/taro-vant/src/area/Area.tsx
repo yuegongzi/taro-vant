@@ -298,4 +298,6 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
 
 const Area = memo(forwardRef(Index))
 
+Area.displayName = 'Area'
+
 export default Area

@@ -199,5 +199,5 @@ export function Checkbox(
     </View>
   )
 }
-
+Checkbox.displayName='Checkbox'
 export default Checkbox

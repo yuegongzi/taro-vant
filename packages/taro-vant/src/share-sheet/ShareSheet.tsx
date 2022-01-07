@@ -105,5 +105,5 @@ function ShareSheet(props: ShareSheetProps) {
     </Popup>
   )
 }
-
+ShareSheet.diplayName = 'ShareSheet'
 export default ShareSheet

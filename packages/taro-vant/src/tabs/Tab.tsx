@@ -44,5 +44,5 @@ function Tab(
     </View>
   )
 }
-
+Tab.displayName = 'Tab'
 export default Tab

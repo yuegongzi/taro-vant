@@ -20,4 +20,5 @@ export function ConfigProvider(props: ConfigProviderProps) {
   )
 }
 
+ConfigProvider.displayName = 'ConfigProvider'
 export default ConfigProvider

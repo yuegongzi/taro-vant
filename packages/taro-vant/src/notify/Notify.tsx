@@ -174,5 +174,5 @@ export function Notify(props: NotifyProps) {
   )
 }
 
-
+Notify.displayName = 'Notify'
 export default Notify

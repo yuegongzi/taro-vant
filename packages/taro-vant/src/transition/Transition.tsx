@@ -68,4 +68,5 @@ function Transition(props: TransitionPropsCom) {
   )
 }
 
+Transition.displayName = 'Transition'
 export default Transition

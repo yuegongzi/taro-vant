@@ -156,4 +156,6 @@ function CollapseItem(
   )
 }
 
+CollapseItem.displayName = 'CollapseItem'
+
 export default CollapseItem

@@ -85,4 +85,5 @@ export function Badge(props: BadgeProps) {
   return renderBadge()
 }
 
+Badge.displayName = 'Badge'
 export default Badge

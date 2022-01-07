@@ -138,4 +138,5 @@ function Card(props: CardProps) {
   )
 }
 
+Card.displayName='Card'
 export default Card

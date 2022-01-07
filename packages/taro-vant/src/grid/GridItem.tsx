@@ -137,5 +137,5 @@ export function GridItem(
     </View>
   )
 }
-
+GridItem.displayName= 'GridItem'
 export default GridItem

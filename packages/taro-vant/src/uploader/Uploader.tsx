@@ -375,4 +375,5 @@ function Uploader(props: UploaderProps) {
   )
 }
 
+Uploader.displayName = 'Uploader'
 export default Uploader

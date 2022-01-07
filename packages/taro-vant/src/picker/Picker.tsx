@@ -311,5 +311,5 @@ const Picker = forwardRef(function Index(
     </View>
   )
 })
-
+Picker.displayName = 'Picker'
 export default Picker

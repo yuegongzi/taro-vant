@@ -99,4 +99,5 @@ function Cell(props: CellProps) {
   )
 }
 
+Cell.displayName = 'Cell'
 export default Cell

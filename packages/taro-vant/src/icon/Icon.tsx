@@ -53,5 +53,5 @@ export function Icon(props: IconProps) {
   }
   return renderIcon()
 }
-
+Icon.displayName = 'Icon'
 export default Icon

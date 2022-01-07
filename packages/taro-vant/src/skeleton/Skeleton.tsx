@@ -85,5 +85,5 @@ function Skeleton(props: SkeletonProps) {
     <View className={clsx(bem('content'))}>{children}</View>
   )
 }
-
+Skeleton.displayName = 'Skeleton'
 export default Skeleton

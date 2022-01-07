@@ -516,5 +516,5 @@ export function Tabs(props: TabsProps) {
     </View>
   )
 }
-
+Tabs.displayName = 'Tabs'
 export default Tabs

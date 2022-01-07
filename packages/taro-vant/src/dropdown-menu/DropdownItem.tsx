@@ -231,4 +231,5 @@ function Index(
 }
 
 const DropdownItem = memo(forwardRef(Index))
+DropdownItem.displayName = 'DropdownItem'
 export default DropdownItem

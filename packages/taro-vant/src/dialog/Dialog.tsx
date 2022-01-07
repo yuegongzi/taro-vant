@@ -298,4 +298,5 @@ Dialog.resetDefaultOptions = function() {
   dialog.resetDefaultOptions()
 }
 
+Dialog.displayName = 'Dialog'
 export default Dialog

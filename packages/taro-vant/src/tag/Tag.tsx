@@ -53,5 +53,5 @@ export function Tag(props: TagProps) {
     </View>
   )
 }
-
+Tag.displayName = 'Tag'
 export default Tag

@@ -245,5 +245,5 @@ function Index(
 }
 
 const PickerColumn = memo(forwardRef(Index))
-
+PickerColumn.displayName = 'PickerColumn'
 export default PickerColumn

@@ -170,5 +170,5 @@ ActionSheet.defaultProps = {
   closeOnClickAction: true,
   safeAreaInsetBottom: true,
 }
-
+ActionSheet.displayName = 'ActionSheet'
 export default ActionSheet

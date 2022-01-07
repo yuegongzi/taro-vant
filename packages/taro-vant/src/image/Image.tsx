@@ -119,5 +119,5 @@ function Image(props: ImageProps) {
     </View>
   )
 }
-
+Image.displayName = 'Image'
 export default Image

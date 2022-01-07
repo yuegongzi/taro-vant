@@ -70,4 +70,5 @@ function Sidebar(props: SidebarProps) {
   )
 }
 
+Sidebar.displayName = 'Sidebar'
 export default Sidebar

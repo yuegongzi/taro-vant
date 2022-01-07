@@ -83,5 +83,5 @@ function TabbarItem(
     <></>
   )
 }
-
+TabbarItem.displayName = 'TabbarItem'
 export default TabbarItem

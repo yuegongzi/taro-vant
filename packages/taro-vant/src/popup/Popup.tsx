@@ -138,5 +138,5 @@ function Popup(this: any, props: PopupProps) {
     </>
   )
 }
-
+Popup.displayName = 'Popup'
 export default Popup

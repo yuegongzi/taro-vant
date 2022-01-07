@@ -74,5 +74,5 @@ function Switch(props: SwitchProps) {
   )
 }
 
-
+Switch.displayName = 'Switch'
 export default Switch

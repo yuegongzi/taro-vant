@@ -464,5 +464,5 @@ const List: React.FC<ListProps> = (props) => {
     </ScrollView>
   )
 }
-
+List.displayName = 'List'
 export default List

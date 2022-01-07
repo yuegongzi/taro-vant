@@ -79,5 +79,5 @@ function FormItem(props: FormItemProps) {
     </FormContext.Consumer>
   )
 }
-
+FormItem.displayName = 'FormItem'
 export default FormItem

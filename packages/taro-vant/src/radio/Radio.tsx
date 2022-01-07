@@ -165,5 +165,5 @@ export function Radio(props: RadioProps) {
     </View>
   )
 }
-
+Radio.displayName = 'Radio'
 export default Radio

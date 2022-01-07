@@ -201,5 +201,5 @@ function DropdownMenu(props: DropdownMenuProps) {
     </View>
   )
 }
-
+DropdownMenu.displayName = 'DropdownMenu'
 export default DropdownMenu

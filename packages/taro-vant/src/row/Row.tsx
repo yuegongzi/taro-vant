@@ -25,5 +25,5 @@ function Row(props: RowProps): JSX.Element {
     </View>
   )
 }
-
+Row.displayName ='Row'
 export default Row

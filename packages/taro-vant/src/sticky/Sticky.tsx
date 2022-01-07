@@ -159,4 +159,5 @@ function Sticky(props: StickyProps) {
   )
 }
 
+Sticky.displayName = 'Sticky'
 export default Sticky

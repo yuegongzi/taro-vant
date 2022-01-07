@@ -111,4 +111,5 @@ function SubmitBar(props: SubmitBarProps) {
   )
 }
 
+SubmitBar.displayName = 'SubmitBar'
 export default SubmitBar

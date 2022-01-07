@@ -39,4 +39,5 @@ function CheckboxGroup(props: CheckboxGroupProps) {
   )
 }
 
+CheckboxGroup.displayName = 'CheckboxGroup'
 export default CheckboxGroup

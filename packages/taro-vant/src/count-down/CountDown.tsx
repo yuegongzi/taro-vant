@@ -164,4 +164,5 @@ function Index(props: CountDownProps, ref: React.ForwardedRef<ICountDownRef>) {
 }
 
 const CountDown = forwardRef(Index)
+CountDown.displayName = 'CountDown'
 export default CountDown

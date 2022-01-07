@@ -79,5 +79,5 @@ function Progress(props: ProgressProps) {
     </View>
   )
 }
-
+Progress.displayName = 'Progress'
 export default Progress

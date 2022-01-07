@@ -119,4 +119,5 @@ export function Tabbar(props: TabbarProps) {
   )
 }
 
+Tabbar.displayName = 'Tabbar'
 export default Tabbar

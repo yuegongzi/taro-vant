@@ -39,5 +39,5 @@ function CellGroup(props: CellGroupProps) {
     </Block>
   )
 }
-
+CellGroup.displayName = 'CellGroup'
 export default CellGroup

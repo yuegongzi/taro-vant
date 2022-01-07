@@ -44,5 +44,5 @@ export function Divider(props: DividerProps) {
     </View>
   )
 }
-
+Divider.displayName = 'Divider'
 export default Divider

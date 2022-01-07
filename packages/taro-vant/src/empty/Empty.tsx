@@ -36,5 +36,5 @@ function Empty(props: EmptyProps) {
     </View>
   )
 }
-
+Empty.displayName = 'Empty'
 export default Empty
