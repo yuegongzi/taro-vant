@@ -27,7 +27,7 @@ function Progress(props: ProgressProps) {
     [ props.percentage ],
   )
   const {
-    strokeWidth = 4,
+    strokeWidth = 8,
     trackColor,
     percentage,
     inactive,

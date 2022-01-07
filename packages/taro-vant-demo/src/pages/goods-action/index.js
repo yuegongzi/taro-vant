@@ -48,8 +48,8 @@ export default class Index extends Component {
               safeAreaInsetBottom={false}
             >
               <GoodsActionIcon icon='chat-o' text='客服' dot />
-              <GoodsActionIcon icon='cart-o' text='购物车' info='5' />
-              <GoodsActionIcon icon='shop-o' text='店铺' />
+              <GoodsActionIcon icon='cart-o' text='购物车' badge='5' />
+              <GoodsActionIcon icon='shop-o' text='店铺' badge='12'/>
               <GoodsActionButton text='加入购物车' type='warning' />
               <GoodsActionButton text='立即购买' />
             </GoodsAction>
