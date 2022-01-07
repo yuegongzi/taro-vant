@@ -1,25 +1,19 @@
-import './style/index.less';
+import './style/index.less'
 import { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
-import { useState, useEffect, useCallback, useMemo } from 'react'
-import type {
-  ITouchEvent } from '@tarojs/components';
-import {
-  View,
-  Block,
-  Text,
-  Image,
-  Video
-} from '@tarojs/components'
-
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type { ITouchEvent } from '@tarojs/components'
+import { Block, Image, Text, Video, View } from '@tarojs/components'
 import type { UploaderProps } from './PropsType'
-import VanLoading from '../loading/index'
-import VanIcon from '../icon/index'
-import { isBoolean, isPromise } from '../common/validator'
-import { isArray } from '../utils/type'
+import Loading from '../loading'
+import Icon from '../icon'
+import { createNamespace, isArray, isBoolean, isPromise } from '../utils'
 import * as computed from './wxs'
-import { isImageFile, chooseFile, isVideoFile } from './utils'
+import { chooseFile, isImageFile, isVideoFile } from './utils'
+import clsx from 'clsx'
 
-export function Uploader(props: UploaderProps) {
+const [ bem ] = createNamespace('uploader')
+
+function Uploader(props: UploaderProps) {
   const [ state, setState ] = useState({
     lists: [] as any[],
     isInCount: true,
@@ -114,7 +108,11 @@ export function Uploader(props: UploaderProps) {
         res = new Promise((resolve: any, reject: any) => {
           const params = Object.assign(Object.assign({ file }, getDetail()), {
             callback: (ok: boolean) => {
-              ok ? resolve() : reject()
+              if (ok) {
+                resolve()
+              } else {
+                reject()
+              }
             },
           })
           event.detail = params
@@ -154,19 +152,17 @@ export function Uploader(props: UploaderProps) {
         sizeType,
         camera,
         maxCount: maxCount - state.lists.length,
-      }).
-        then((res: any) => {
-          Object.defineProperty(event, 'detail', {
-            value: {
-              file: multiple ? res : res[0],
-            },
-            writable: true,
-          })
-          _onBeforeRead(event)
-        }).
-        catch((error) => {
-          onError?.(error)
+      }).then((res: any) => {
+        Object.defineProperty(event, 'detail', {
+          value: {
+            file: multiple ? res : res[0],
+          },
+          writable: true,
         })
+        _onBeforeRead(event)
+      }).catch((error) => {
+        onError?.(error)
+      })
     },
     [
       _onBeforeRead,
@@ -204,9 +200,7 @@ export function Uploader(props: UploaderProps) {
       const { index } = event.currentTarget.dataset
       const item = state.lists[index]
       TaroPreviewImage({
-        urls: state.lists.
-          filter((item) => isImageFile(item)).
-          map((item) => item.url),
+        urls: state.lists.filter((item) => isImageFile(item)).map((item) => item.url),
         current: item.url,
         fail() {
           showToast({ title: '预览图片失败', icon: 'none' })
@@ -222,15 +216,9 @@ export function Uploader(props: UploaderProps) {
       // eslint-disable-next-line
       // @ts-ignore
       wx.previewMedia({
-        sources: state.lists.
-          filter((item) => isVideoFile(item)).
-          map((item) =>
-            Object.assign(Object.assign({}, item), { type: 'video' }),
-          ),
-        // current: index,
-        // success() {
-        //   Taro.showToast({ title: '预览视频成功', icon: 'none' })
-        // },
+        sources: state.lists.filter((item) => isVideoFile(item)).map((item) =>
+          Object.assign(Object.assign({}, item), { type: 'video' }),
+        ),
         fail() {
           showToast({ title: '预览视频失败', icon: 'none' })
         },
@@ -266,118 +254,115 @@ export function Uploader(props: UploaderProps) {
   }, [fileList])
 
   return (
-    <View className={`van-uploader ${className}`} style={style} {...others}>
-      <View className='van-uploader__wrapper'>
+    <View className={clsx(bem(),className)} style={style} {...others}>
+      <View  className={clsx(bem('wrapper'))}>
         {previewImage &&
-          state.lists.map((item: any, index) => {
-            return (
-              <View
-                key={item.index || index}
-                className='van-uploader__preview'
-                data-index={index}
-                onClick={_onClickPreview}
-              >
-                {item.isImage ? (
-                  <Image
-                    mode={imageFit}
-                    src={item.thumb || item.url}
-                    // eslint-disable-next-line
-                    // @ts-ignore
-                    alt={item.name || '图片' + index}
-                    className='van-uploader__preview-image'
-                    style={computed.sizeStyle({
-                      previewSize,
-                    })}
-                    data-index={index}
-                    onClick={onPreviewImage}
-                   />
-                ) : item.isVideo ? (
-                  <Video
-                    src={item.url}
-                    title={item.name || '视频' + index}
-                    poster={item.thumb}
-                    autoplay={item.autoplay}
-                    className='van-uploader__preview-image'
-                    style={computed.sizeStyle({
-                      previewSize,
-                    })}
-                    data-index={index}
-                    onClick={onPreviewVideo}
-                   />
-                ) : (
+        state.lists.map((item: any, index) => {
+          return (
+            <View
+              key={item.index || index}
+              className={clsx(bem('preview'))}
+              data-index={index}
+              onClick={_onClickPreview}
+            >
+              {item.isImage ? (
+                <Image
+                  mode={imageFit}
+                  src={item.thumb || item.url}
+                  // eslint-disable-next-line
+                  // @ts-ignore
+                  alt={item.name || '图片' + index}
+                  className={clsx(bem('preview-image'))}
+                  style={computed.sizeStyle({
+                    previewSize,
+                  })}
+                  data-index={index}
+                  onClick={onPreviewImage}
+                />
+              ) : item.isVideo ? (
+                <Video
+                  src={item.url}
+                  title={item.name || '视频' + index}
+                  poster={item.thumb}
+                  autoplay={item.autoplay}
+                  className={clsx(bem('preview-image'))}
+                  style={computed.sizeStyle({
+                    previewSize,
+                  })}
+                  data-index={index}
+                  onClick={onPreviewVideo}
+                />
+              ) : (
+                <View  className={clsx(bem('file'))}
+                  style={computed.sizeStyle({
+                    previewSize,
+                  })}
+                  data-index={index}
+                  onClick={onPreviewFile}
+                >
+                  <Icon
+                    name='description'
+                    className={clsx(bem('file-icon'))}
+                  />
                   <View
-                    className='van-uploader__file'
-                    style={computed.sizeStyle({
-                      previewSize,
-                    })}
-                    data-index={index}
-                    onClick={onPreviewFile}
-                  >
-                    <VanIcon
-                      name='description'
-                      className='van-uploader__file-icon'
-                     />
-                    <View className='van-uploader__file-name van-ellipsis'>
-                      {item.name || item.url}
-                    </View>
+                    className={clsx(bem('file-name'),'van-ellipsis')}>
+                    {item.name || item.url}
                   </View>
-                )}
-                {(item.status === 'uploading' || item.status === 'failed') && (
-                  <View className='van-uploader__mask'>
-                    {item.status === 'failed' ? (
-                      <VanIcon
-                        name='close'
-                        className='van-uploader__mask-icon'
-                       />
-                    ) : (
-                      <VanLoading className='van-uploader__loading' />
-                    )}
-                    {item.message && (
-                      <Text className='van-uploader__mask-message'>
-                        {item.message}
-                      </Text>
-                    )}
-                  </View>
-                )}
-                {deletable && item.deletable && (
-                  <View
-                    data-index={index}
-                    className='van-uploader__preview-delete'
-                    onClick={deleteItem}
-                  >
-                    <VanIcon
-                      name='cross'
-                      className='van-uploader__preview-delete-icon'
-                     />
-                  </View>
-                )}
-              </View>
-            )
-          })}
+                </View>
+              )}
+              {(item.status === 'uploading' || item.status === 'failed') && (
+                <View  className={clsx(bem('mask'))}>
+                  {item.status === 'failed' ? (
+                    <Icon
+                      name='close'
+                      className={clsx(bem('mask-icon'))}
+                    />
+                  ) : (
+                    <Loading  className={clsx(bem('loading'))} />
+                  )}
+                  {item.message && (
+                    <Text  className={clsx(bem('mask-message'))}>
+                      {item.message}
+                    </Text>
+                  )}
+                </View>
+              )}
+              {deletable && item.deletable && (
+                <View
+                  data-index={index}
+                  className={clsx(bem('preview-delete'))}
+                  onClick={deleteItem}
+                >
+                  <Icon
+                    name='cross'
+                    className={clsx(bem('preview-delete-icon'))}
+                  />
+                </View>
+              )}
+            </View>
+          )
+        })}
         {/*  上传样式  */}
         {state.isInCount && (
           <Block>
-            <View className='van-uploader__slot' onClick={startUpload}>
+            <View className={clsx(bem('slot'))}
+                  onClick={startUpload}>
               {children}
             </View>
             {/*  默认上传样式  */}
             {showUpload && (
-              <View
-                className={
-                  'van-uploader__upload ' +
-                  (disabled ? 'van-uploader__upload--disabled' : '')
-                }
+              <View className={clsx(bem('upload',{ disabled }))}
                 style={computed.sizeStyle({
                   previewSize,
                 })}
                 onClick={startUpload}
               >
-                <VanIcon
+                <Icon
                   name={uploadIcon}
-                  className='van-uploader__upload-icon'
-                 />
+                  className={clsx(bem('upload-icon'))}
+                />
                 {uploadText && (
-                  <Text className='van-uploader__upload-text'>
+                  <Text className={clsx(bem('upload-text'))}>
                     {uploadText}
                   </Text>
                 )}
@@ -389,4 +374,5 @@ export function Uploader(props: UploaderProps) {
     </View>
   )
 }
+
 export default Uploader

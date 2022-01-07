@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
-import { pickExclude } from '../common/utils'
-import { isImageUrl, isVideoUrl } from '../common/validator'
+import { isImageUrl, isVideoUrl, pickExclude } from '../utils'
+
 export function isImageFile(item: any) {
   if (item.isImage != null) {
     return item.isImage
@@ -13,6 +13,7 @@ export function isImageFile(item: any) {
   }
   return false
 }
+
 export function isVideoFile(item: any) {
   if (item.isVideo != null) {
     return item.isVideo
@@ -25,10 +26,11 @@ export function isVideoFile(item: any) {
   }
   return false
 }
+
 function formatImage(res: any) {
   if (res.tempFiles) {
     return res.tempFiles.map((item: any) =>
-      Object.assign(Object.assign({}, pickExclude(item, ['path'])), {
+      Object.assign(Object.assign({}, pickExclude(item, [ 'path' ])), {
         type: 'image',
         url: item.path,
         thumb: item.path,
@@ -42,23 +44,25 @@ function formatImage(res: any) {
     }))
   }
 }
+
 function formatVideo(res: any) {
   return [
     Object.assign(
       Object.assign(
         {},
-        pickExclude(res, ['tempFilePath', 'thumbTempFilePath', 'errMsg']),
+        pickExclude(res, [ 'tempFilePath', 'thumbTempFilePath', 'errMsg' ]),
       ),
       { type: 'video', url: res.tempFilePath, thumb: res.thumbTempFilePath },
     ),
   ]
 }
+
 function formatMedia(res: any) {
   return res.tempFiles.map((item: any) =>
     Object.assign(
       Object.assign(
         {},
-        pickExclude(item, ['fileType', 'thumbTempFilePath', 'tempFilePath']),
+        pickExclude(item, [ 'fileType', 'thumbTempFilePath', 'tempFilePath' ]),
       ),
       {
         type: res.type,
@@ -69,30 +73,32 @@ function formatMedia(res: any) {
     ),
   )
 }
+
 function formatFile(res: any) {
   return res.tempFiles.map((item: any) =>
-    Object.assign(Object.assign({}, pickExclude(item, ['path'])), {
+    Object.assign(Object.assign({}, pickExclude(item, [ 'path' ])), {
       url: item.path,
     }),
   )
 }
+
 export function chooseFile({
-  accept,
-  multiple,
-  capture,
-  compressed,
-  maxDuration,
-  sizeType,
-  camera,
-  maxCount,
-}: any) {
+                             accept,
+                             multiple,
+                             capture,
+                             compressed,
+                             maxDuration,
+                             sizeType,
+                             camera,
+                             maxCount,
+                           }: any) {
   return new Promise((resolve, reject) => {
     switch (accept) {
       case 'image':
         Taro.chooseImage({
           count: multiple ? Math.min(maxCount, 9) : 1,
-          sourceType: capture || ['album', 'camera'],
-          sizeType: sizeType || ['original', 'compressed'],
+          sourceType: capture || [ 'album', 'camera' ],
+          sizeType: sizeType || [ 'original', 'compressed' ],
           success: (res) => resolve(formatImage(res)),
           fail: reject,
         })
@@ -100,9 +106,9 @@ export function chooseFile({
       case 'media':
         Taro.chooseMedia({
           count: multiple ? Math.min(maxCount, 9) : 1,
-          sourceType: capture || ['album', 'camera'],
+          sourceType: capture || [ 'album', 'camera' ],
           maxDuration,
-          sizeType: sizeType || ['original', 'compressed'],
+          sizeType: sizeType || [ 'original', 'compressed' ],
           camera: camera || 'back',
           success: (res) => resolve(formatMedia(res)),
           fail: reject,
@@ -110,7 +116,7 @@ export function chooseFile({
         break
       case 'video':
         Taro.chooseVideo({
-          sourceType: capture || ['album', 'camera'],
+          sourceType: capture || [ 'album', 'camera' ],
           compressed,
           maxDuration: maxDuration || 60,
           camera: camera || 'back',

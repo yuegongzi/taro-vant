@@ -1,12 +1,14 @@
 import './style/index.less'
 import { ScrollView, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
-import * as utils from '../wxs/utils'
 import Sidebar from '../sidebar'
 import Icon from '../icon'
 import * as computed from './wxs'
 import type { TreeSelectProps } from './PropsType'
+import { createNamespace,addUnit } from '../utils'
+import clsx from 'clsx'
 
+const [ bem ] = createNamespace('tree-select')
 const SidebarItem = Sidebar.Item
 
 function TreeSelect(props: TreeSelectProps) {
@@ -20,6 +22,8 @@ function TreeSelect(props: TreeSelectProps) {
     onClickItem,
     onClickNav,
     renderContent,
+    contentActiveClass,
+    contentDisabledClass
   } = props
   const [ subItems, setSubItems ] = useState<any[]>([])
   const _onSelectItem = useCallback(
@@ -57,23 +61,19 @@ function TreeSelect(props: TreeSelectProps) {
   }, [ items, mainActiveIndex, setSubItems ])
 
   return (
-    <View
-      className='van-tree-select'
-      style={'height: ' + utils.addUnit(height)}
+    <View className={clsx(bem())}
+      style={'height: ' + addUnit(height)}
     >
-      <ScrollView scrollY className='van-tree-select__nav'>
+      <ScrollView scrollY className={clsx(bem('nav'))}>
         <Sidebar
           activeKey={mainActiveIndex}
           onChange={_onClickNav}
-          className='van-tree-select__nav__inner'
+          className={clsx(bem('nav__inner'))}
         >
           {items.map((item: any, index: number) => {
             return (
               <SidebarItem
                 key={index}
-                className='main-item-class'
-                // activeClass="main-active-class"
-                // disabledClass="main-disabled-class"
                 badge={item.badge}
                 dot={item.dot}
                 title={item.text}
@@ -83,25 +83,19 @@ function TreeSelect(props: TreeSelectProps) {
           })}
         </Sidebar>
       </ScrollView>
-      <ScrollView scrollY className='van-tree-select__content'>
+      <ScrollView scrollY className={clsx(bem('content'))}>
         {renderContent}
         {subItems.map((item: any) => {
           return (
             <View
               key={item.id}
-              className={
-                'van-ellipsis content-item-class ' +
-                utils.bem('tree-select__item', {
-                  active: computed.isActive(activeId, item.id),
-                  disabled: item.disabled,
-                }) +
-                ' ' +
-                (computed.isActive(activeId, item.id)
-                  ? 'content-active-class'
-                  : '') +
-                ' ' +
-                (item.disabled ? 'content-disabled-class' : '')
-              }
+              className={clsx(bem('item',{
+                active: computed.isActive(activeId, item.id),
+                disabled: item.disabled,
+              }),'van-ellipsis',{
+                [`${contentActiveClass}`]: computed.isActive(activeId, item.id),
+                [`${contentDisabledClass}`]: item.disabled,
+              })}
               data-item={item}
               onClick={(e) => {
                 _onSelectItem(e, item)
@@ -112,7 +106,7 @@ function TreeSelect(props: TreeSelectProps) {
                 <Icon
                   name={selectedIcon}
                   size='16px'
-                  className='van-tree-select__selected'
+                  className={clsx(bem('selected'))}
                 />
               )}
             </View>
