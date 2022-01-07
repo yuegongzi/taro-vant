@@ -2,26 +2,39 @@
 
 ### 背景知识
 
-使用 taro-vant 前，请确保你已经学习过[Taro框架React版](https://taro.zone/) 或者 [React](https://reactjs.org/)。
+使用 taro-vant 前，请确保你已经学习过[Taro框架React版](https://taro.zone/) 或者 [React](https://reactjs.org/) 
 
 ### 差异点
 - 组件属性均用驼峰代替
-- slot改为通过属性传递ReactNode 即 slot="footer" 改为 render为前缀F大写传ReactNode renderFooter={<View></View>}
-- 组件文档案例部分可能会存在一些小问题（时间紧大家见谅）如果有问题可以提issue给我们，你们可以先看实际demo。文档TS信息是和我们的组件同步的
+- slot改为通过属性传递ReactNode
+
 
 ### 支持程度
 - Taro需要使用3.0+的版本
 - 小程序参考Taro的最低支持程度
 
-### 示例工程
+### 开始开发
 
-- 拉取代码[VantUI](https://github.com/AntmJS/vantui)
+- 拉取代码
 
-- 执行 yarn && yarn bootstrap && npx lerna run build --scope=taro-vant
+```bash
+## 安装lerna 基础依赖
 
-> 进入Taro版工程:vantui-demo即 cd packages/vantui-demo && yarn watch:weapp
+$ yarn
+## 安装 项目依赖
 
-> 进入React版工程:react-demo即 cd packages/react-demo && yarn start
+$ yarn bootstrap
+
+## 进入每个项目启动即可
+## 也可以执行如下方式启动
+
+$ lerna run watch --scope=taro-vant
+
+## 添加依赖包
+$ lerna add xxx --scope=xxx
+
+```
+
 
 ## 开始使用
 
@@ -69,8 +82,6 @@ h5: {
 * 需要设置关闭上传代码时样式自动补全，开启可能报错
 * 需要设置关闭代码压缩上传，开启可能报错
 
-#### 编译问题
-该组件在编译阶段默认已经使用了babel/runtime进行语法转换以及polyfill。目前使用taro的默认babel配置在支付宝和钉钉等环境会报错，解决方案可以参考[vantui-demo](https://github.com/AntmJS/vantui/tree/main/packages/vantui-demo)的配置。
 
 ## 引入组件
 
@@ -117,11 +128,11 @@ npm i babel-plugin-import -D
 }
 ```
 
-接着你可以在代码中直接引入 VantUI 组件，插件会自动将代码转化为按需引入的形式。
+接着你可以在代码中直接引入 Taro Vant 组件，插件会自动将代码转化为按需引入的形式。
 
 ```js
 // 原始代码
-import { Button } from 'packages/taro-vant';
+import { Button } from 'taro-vant';
 
 // 编译后代码
 import Button from 'taro-vant/es/button';
@@ -199,7 +210,7 @@ new MiniCssExtractPlugin({
 
 ### 单位尺寸转化问题
 
-VantUI默认的尺寸规则 [作用参考](https://taro-docs.jd.com/taro/docs/size) [修改参考](https://taro-docs.jd.com/taro/docs/config)
+默认的尺寸规则 [作用参考](https://taro-docs.jd.com/taro/docs/size) [修改参考](https://taro-docs.jd.com/taro/docs/config)
 
 ```json
 {
@@ -215,7 +226,7 @@ VantUI默认的尺寸规则 [作用参考](https://taro-docs.jd.com/taro/docs/si
 如何在js中转换单位
 
 ```js
-import { pxTransform } from 'packages/taro-vant'
+import { pxTransform } from '@tarojs/taro'
 // 小程序转rpx H5转rem
 pxTransform(10)
 ```
