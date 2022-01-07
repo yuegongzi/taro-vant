@@ -33,6 +33,7 @@ export default {
     'pages/tree-select/index',
     'pages/area/index',
     'pages/submit-bar/index',
+    'pages/sku/index',
     'pages/radio/index',
     'pages/checkbox/index',
     'pages/goods-action/index',

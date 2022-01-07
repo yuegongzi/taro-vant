@@ -246,6 +246,10 @@ export default [
         title: 'SubmitBar 提交订单栏',
       },
       {
+        path: '/sku',
+        title: 'Sku 商品选择',
+      },
+      {
         path: '/goods-action',
         title: 'GoodsAction 商品导航',
       },

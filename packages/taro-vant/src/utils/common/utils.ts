@@ -93,3 +93,37 @@ export function getCurrentPage() {
   const pages = Taro.getCurrentPages()
   return pages[pages.length - 1]
 }
+
+export function noop(){}
+
+export function toDecimal2(x: string) {
+  let f = parseFloat(x);
+  if (isNaN(f)) {
+    return '';
+  }
+  f = Math.round(f * 100) / 100;
+  let s = f.toString();
+  let rs = s.indexOf('.');
+  if (rs < 0) {
+    rs = s.length;
+    s += '.';
+  }
+  while (s.length <= rs + 2) {
+    s += '0';
+  }
+  return s;
+}
+
+/**
+ * @desc 分转化为元 - 正则解决精度
+ * @param { Number } fen
+ * @return { String }
+ */
+export function fenToYuan(fen: number) {
+  const num = fen * 0.01;
+  let numStr = num + '';
+  const reg = numStr.indexOf('.') > -1 ? /(\d{1,3})(?=(?:\d{3})+\.)/g : /(\d{1,3})(?=(?:\d{3})+$)/g;
+  numStr = numStr.replace(reg, '$1');
+  numStr = toDecimal2(numStr);
+  return numStr;
+}
