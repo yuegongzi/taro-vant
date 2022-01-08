@@ -19,16 +19,12 @@ glob(READMES_PATH,
         content = removeOldTable(content)
       }
       const typeFile = `../taro-vant/src/${componentName}/PropsType.ts`;
-      if (
-        fs.existsSync(typeFile) &&
-        componentName !== 'index'
-      ) {
+      if (fs.existsSync(typeFile) && componentName !== 'index') {
         let tsInfo = fs.readFileSync(
           typeFile,
           'utf-8',
         )
         const res = parser(tsInfo)
-
         fs.writeFileSync(item, content + createMd(res, componentName))
         spinner.stop(`${componentName}文档 API 同步完成`)
       }

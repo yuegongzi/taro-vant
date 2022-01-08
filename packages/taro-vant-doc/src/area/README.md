@@ -135,12 +135,26 @@ db.collection('region')
     console.log(err);
   });
 ```
+
+## API 
 ### AreaProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| value | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| areaList | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;province_list:&nbsp;Record<<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;><br/>&nbsp;&nbsp;&nbsp;&nbsp;city_list:&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>&nbsp;&nbsp;&nbsp;&nbsp;county_list:&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>&nbsp;&nbsp;}<br/>_ | - | `false` |
-| columnsNum | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| columnsPlaceholder | - | _&nbsp;&nbsp;string[]<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values:&nbsp;number[]&nbsp;&brvbar;&nbsp;string[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;picker:&nbsp;IPickerInstance<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `true` |
+| value | 当前选中的省市区`code` | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| areaList | 省市区数据，格式见下方 | _&nbsp;&nbsp;AreaList<br/>_ | - | `false` |
+| columnsNum | 省市区显示列数，3-省市区，2-省市，1-省 | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | `3` | `false` |
+| columnsPlaceholder | 列占位提示文字 | _&nbsp;&nbsp;string[]<br/>_ | `[]` | `false` |
+| onChange | 选项改变时触发 | _&nbsp;&nbsp;(event:&nbsp;Event)&nbsp;=>&nbsp;void<br/>_ | - | `true` |
+
+### AreaList
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| province_list | 省份数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
+| city_list | 城市数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
+| county_list | 区域数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
+
+### Event
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| detail | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;values:&nbsp;number[]&nbsp;&brvbar;&nbsp;string[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;picker:&nbsp;IPickerInstance<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;}<br/>_ |
 

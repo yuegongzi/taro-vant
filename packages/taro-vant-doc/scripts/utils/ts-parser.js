@@ -3,9 +3,7 @@ const Prettier = require('prettier')
 module.exports = function main(tsStr) {
   tsStr = Prettier.format(tsStr, { semi: false, parser: 'typescript' })
   const { TOKENS } = getAllTokens(tsStr)
-  const res = parseTokens(TOKENS)
-
-  return res
+  return parseTokens(TOKENS)
 }
 
 function getAllTokens(str) {
@@ -21,7 +19,6 @@ function getAllTokens(str) {
       token += curItem
     }
   }
-
   TOKENS = TOKENS.slice(TOKENS.indexOf('export'), TOKENS.length)
   TOKENS = TOKENS.slice(0, TOKENS.indexOf('declare'))
 
@@ -176,7 +173,6 @@ function parseComments(comments = '') {
     // 防止注释属性名称和类型属性名称重名
     res[cons[0] + '__'] = cons[1]
   })
-
   return res
 }
 
