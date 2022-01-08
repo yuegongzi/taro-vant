@@ -251,20 +251,20 @@ import { Button } from "taro-vant";
 ### ButtonProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| icon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| classPrefix | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"default"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"primary"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"info"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"warning"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"danger"<br/>_ | - | `false` |
-| size | - | _&nbsp;&nbsp;"small"&nbsp;&brvbar;&nbsp;"normal"&nbsp;&brvbar;&nbsp;"large"&nbsp;&brvbar;&nbsp;"mini"<br/>_ | - | `false` |
-| block | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| round | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| square | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| loading | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| hairline | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| loadingText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| loadingSize | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| icon | 图标 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| classPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix](#/icon) 属性 | _&nbsp;&nbsp;string<br/>_ | `van-icon` | `false` |
+| type | 按钮类型, 可选值为 `primary` `info` `warning` `danger` | _&nbsp;&nbsp;ButtonType<br/>_ | `default` | `false` |
+| size | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _&nbsp;&nbsp;ButtonSize<br/>_ | `normal` | `false` |
+| block | 是否为块级元素 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| round | 是否为圆形按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| square | 是否为方形按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| loading | 是否显示为加载状态 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| hairline | 是否使用 0.5px 边框 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| disabled | 是否禁用按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| loadingText | 加载状态提示文字 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| loadingSize | 加载图标大小 | _&nbsp;&nbsp;string<br/>_ | `40px` | `false` |
+| loadingType | 加载状态图标类型 | _&nbsp;&nbsp;"spinner"&nbsp;&brvbar;&nbsp;"circular"<br/>_ | - | `false` |
+| color | 按钮颜色，支持传入`linear-gradient`渐变色 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | style | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| loadingType | - | _&nbsp;&nbsp;"spinner"&nbsp;&brvbar;&nbsp;"circular"<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 

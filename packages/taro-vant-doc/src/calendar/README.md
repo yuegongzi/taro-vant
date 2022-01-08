@@ -338,49 +338,49 @@ this.state = {
   --calendarHeight: 500px;
 }
 ```
+### CalendarProps
+| 参数 | 说明 | 类型 | 默认值 | 必填 |
+| --- | --- | --- | --- | --- |
+| title | 日历标题 | _&nbsp;&nbsp;string<br/>_ | `日期选择` | `false` |
+| color | 主题色，对底部按钮和选中日期生效 | _&nbsp;&nbsp;string<br/>_ | <font color='#ee0a24'>#ee0a24</font> | `false` |
+| show | 是否显示 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| formatter | 日期格式化函数 | _&nbsp;&nbsp;(day:&nbsp;Day)&nbsp;=>&nbsp;Day<br/>_ | - | `false` |
+| confirmText | 确认按钮的文字 | _&nbsp;&nbsp;string<br/>_ | `确定` | `false` |
+| rangePrompt | 范围选择超过最多可选天数时的提示文案 | _&nbsp;&nbsp;string<br/>_ | `选择天数<br/>不能超过 xx 天` | `false` |
+| showRangePrompt | 范围选择超过最多可选天数时，是否展示提示文案 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| defaultDate | 默认选中的日期，type为`multiple`<br/>或`range`时为数组 | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;string[]<br/>_ | - | `false` |
+| allowSameDay | 是否允许日期范围的起止时间为同一天 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
+| confirmDisabledText | 确认按钮处于禁用状态时的文字 | _&nbsp;&nbsp;string<br/>_ | `确定` | `false` |
+| type | 选择类型<br/> `single`表示选择单个日期，<br/> `multiple` 选择多个日期<br/> `range`表示选择日期区间 | _&nbsp;&nbsp;CalendarType<br/>_ | - | `false` |
+| minDate | 可选择的最小日期 | _&nbsp;&nbsp;number<br/>_ | `当前日期` | `false` |
+| maxDate | 可选择的最大日期 | _&nbsp;&nbsp;number<br/>_ | `当前日期<br/>的六个月后` | `false` |
+| position | 弹出位置，可选值为 `top` `right` `left` | _&nbsp;&nbsp;Position<br/>_ | `bottom` | `false` |
+| rowHeight | 日期行高 | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | `64` | `false` |
+| round | 是否显示圆角弹窗 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| poppable | 是否以弹层的形式展示日历 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| showMark | 是否显示月份背景水印 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| showTitle | 是否展示日历标题 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| showConfirm | 是否展示确认按钮 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| showSubtitle | 是否展示日历副标题（年月） | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| safeAreaInsetBottom | 是否开启底部安全区适配 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| maxRange | 日期区间最多可选天数，默认无限制 | _&nbsp;&nbsp;number<br/>_ | - | `false` |
+| firstDayOfWeek | 设置周起始日 `0~6` | _&nbsp;&nbsp;Week<br/>_ | `0` | `false` |
+| onOpen | 打开弹出层时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onClose | 关闭弹出层时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onOpened | 打开弹出层且动画结束后触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onClosed | 关闭弹出层且动画结束后触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onConfirm | 日期选择完成后触发，若`showConfirm`为true，则点击确认按钮后触发 | _&nbsp;&nbsp;(e:&nbsp;CalendarEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| overRange | 范围选择超过最多可选天数时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onUnselect | 当 Calendar的type<br/>为 `multiple`时,<br/>点击已选中的日期时触发 | _&nbsp;&nbsp;(e:&nbsp;CalendarEventsSingle)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onSelect | 点击任意日期时触发 | _&nbsp;&nbsp;(e:&nbsp;CalendarEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onClickSubtitle | 点击日历副标题时触发 | _&nbsp;&nbsp;(a?:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| renderTitle | 自定义标题 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+| renderFooter | 自定义底部 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+
 ### ICalendarInstance
 | 方法 | 说明 | 类型 |
 | --- | --- | --- |
 | reset | - | _&nbsp;&nbsp;(date?:&nbsp;Date&nbsp;&brvbar;&nbsp;Date[])&nbsp;=>&nbsp;void<br/>&nbsp;&nbsp;//<br/>_ |
 | scrollToDate | - | _&nbsp;&nbsp;(date:&nbsp;Date)&nbsp;=>&nbsp;void<br/>_ |
-
-### CalendarProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| formatter | - | _&nbsp;&nbsp;(day:&nbsp;Day)&nbsp;=>&nbsp;Day<br/>_ | - | `false` |
-| confirmText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| rangePrompt | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| showRangePrompt | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| defaultDate | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;string[]<br/>_ | - | `false` |
-| allowSameDay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| confirmDisabledText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;CalendarType<br/>_ | - | `false` |
-| minDate | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| maxDate | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| position | - | _&nbsp;&nbsp;"left"&nbsp;&brvbar;&nbsp;"right"&nbsp;&brvbar;&nbsp;"bottom"&nbsp;&brvbar;&nbsp;"top"<br/>_ | - | `false` |
-| rowHeight | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| round | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| poppable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| showMark | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| showTitle | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| showConfirm | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| showSubtitle | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickOverlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| maxRange | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| firstDayOfWeek | - | _&nbsp;&nbsp;0&nbsp;&brvbar;&nbsp;1&nbsp;&brvbar;&nbsp;2&nbsp;&brvbar;&nbsp;3&nbsp;&brvbar;&nbsp;4&nbsp;&brvbar;&nbsp;5&nbsp;&brvbar;&nbsp;6<br/>_ | - | `false` |
-| onOpen | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onOpened | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClosed | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onConfirm | - | _&nbsp;&nbsp;(e:&nbsp;CalendarEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| overRange | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onUnselect | - | _&nbsp;&nbsp;(e:&nbsp;CalendarEventsSingle)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onSelect | - | _&nbsp;&nbsp;(e:&nbsp;CalendarEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickSubtitle | - | _&nbsp;&nbsp;(a?:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderTitle | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderFooter | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
