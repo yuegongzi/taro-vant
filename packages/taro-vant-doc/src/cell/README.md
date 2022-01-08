@@ -158,7 +158,7 @@ import { CellGroup } from "taro-vant";
 
 ### 自定义渲染内容
 
-如以上用法不能满足你的需求，可以使用`renderTitle`和`renderRightIcon`来渲染内容
+如以上用法不能满足你的需求，可以使用`title`和`rightIcon`来渲染内容
 
 ```jsx
 <View>
@@ -166,7 +166,7 @@ import { CellGroup } from "taro-vant";
     value="内容"
     icon="shop-o"
     isLink
-    renderTitle={
+    title={
       <>
         <View>
           <View className="title">单元格</View>
@@ -178,7 +178,7 @@ import { CellGroup } from "taro-vant";
   <Cell
     title="单元格"
     border={false}
-    renderRightIcon={
+    rightIcon={
       <>
         <Icon name="search"></Icon>
       </>
@@ -214,21 +214,16 @@ import { CellGroup } from "taro-vant";
 |  inset `v1.7.2`  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
 |  border          | 是否显示外边框         | _boolean_ | `true`  |
 
-### CellGroup 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
 
 ### Cell Props
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  icon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
-|  title  | 左侧标题 | _string \| number_ | - |
+|  title  | 左侧标题 | _ReactNode_ | - |
 |  titleWidth  | 标题宽度，须包含单位 | _string_ | - |
-|  value  | 右侧内容 | _string \| number_ | - |
-|  label  | 标题下方的描述信息 | _string_ | - |
+|  value  | 右侧内容 | _ReactNode_ | - |
+|  label  | 标题下方的描述信息 | _ReactNode_ | - |
 |  size  | 单元格大小，可选值为 `large` | _string_ | - |
 |  border  | 是否显示下边框 | _boolean_ | `true` |
 |  center  | 是否使内容垂直居中 | _boolean_ | `false` |
@@ -239,6 +234,10 @@ import { CellGroup } from "taro-vant";
 |  required  | 是否显示表单必填星号 | _boolean_ | `false` |
 |  arrowDirection  | 箭头方向，可选值为 `left` `up` `down` | _string_ | - |
 |  titleStyle `v1.4.0`  | 标题样式 | _string_ | - |
+|  rightIcon   | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效 | _ReactNode_ | - |
+|  extra   | 自定义额外内容 | _ReactNode_ | - |
+|  children   | 子节点 如果设置了value则不生效 | _ReactNode_ | - |
+|  valueClass   | value样式 | _string_ | - |
 
 ### Cell Event
 
@@ -246,12 +245,4 @@ import { CellGroup } from "taro-vant";
 | ---------- | ---------------- | ---- |
 |  onClick  | 点击单元格时触发 | -    |
 
-### 自定义节点
-
-|  名称        | 说明                                                           |
-| ---------- | -------------------------------------------------------------- |
-|  renderTitle       | 自定义`title`显示内容，如果设置了`title`属性则不生效           |
-|  renderLabel       | 自定义`label`显示内容          |
-|  renderIcon        | 自定义`icon`显示内容，如果设置了`icon`属性则不生效             |
-|  renderRightIcon  | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效 |
 

@@ -99,9 +99,7 @@ export interface CalendarProps extends StandardProps {
 
   onClickSubtitle?: (a?: any) => void
 
-  renderTitle?: ReactNode
-
-  renderFooter?: ReactNode
+  footer?: ReactNode
 }
 
 export type ICalendarInstance = {

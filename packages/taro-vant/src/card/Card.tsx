@@ -1,7 +1,7 @@
 import './style/index.less'
 import { Image, Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
-import { createNamespace, jumpLink } from '../utils'
+import { createNamespace, ele, jumpLink } from '../utils'
 import Tag from '../tag'
 import type { CardProps } from './PropsType'
 import clsx from 'clsx'
@@ -22,17 +22,10 @@ function Card(props: CardProps) {
     originPrice,
     thumbMode = 'aspectFit',
     currency = '¥',
-    renderFooter,
-    renderBottom,
-    renderNum,
-    renderOriginPrice,
-    renderPriceTop,
-    renderThumb,
-    renderPrice,
-    renderDesc,
-    renderTag,
-    renderTitle,
-    renderTags,
+    footer,
+    bottom,
+    priceTop,
+    tags,
     style,
     className,
     ...others
@@ -68,23 +61,15 @@ function Card(props: CardProps) {
             }
           }}
         >
-          {thumb ? (
-            <Image
-              src={thumb}
-              mode={thumbMode}
-              lazyLoad={lazyLoad}
-              className={clsx(bem('img'))}
-            />
-          ) : (
-            renderThumb
-          )}
-          {tag ? (
-            <Tag mark type='danger' className={clsx(bem('tag'))}>
-              {tag}
-            </Tag>
-          ) : (
-            renderTag
-          )}
+          {/*@ts-ignore*/}
+          {ele(thumb, <Image src={thumb}
+                             mode={thumbMode}
+                             lazyLoad={lazyLoad}
+                             className={clsx(bem('img'))}
+          />)}
+          {ele(tag, <Tag mark type='danger' className={clsx(bem('tag'))}>
+            {tag}
+          </Tag>)}
         </View>
         <View
           className={clsx(bem('content', {
@@ -92,48 +77,30 @@ function Card(props: CardProps) {
           }))}
         >
           <View>
-            {title ? (
-              <View className={
-                clsx(bem('title'))
-              }>{title}</View>
-            ) : (
-              renderTitle
-            )}
-            {desc ? (
-              <View className={clsx(bem('desc'))}>{desc}</View>
-            ) : (
-              renderDesc
-            )}
-            {renderTags}
+            <View className={
+              clsx(bem('title'))
+            }>{title}</View>
+            <View className={clsx(bem('desc'))}>{desc}</View>
+            {tags}
           </View>
           <View className={clsx(bem('bottom'))}>
-            {renderPriceTop}
-            {price ? (
-              <View className={clsx(bem('price'))}>
-                <Text>{currency}</Text>
-                <Text className={clsx(bem('price-integer'))}>{integerStr}</Text>
-                <Text className={clsx(bem('price-decimal'))}>{decimalStr}</Text>
-              </View>
-            ) : (
-              renderPrice
-            )}
-            {originPrice ? (
-              <View className={clsx(bem('origin-price'))}>
-                {currency + ' ' + originPrice}
-              </View>
-            ) : (
-              renderOriginPrice
-            )}
-            {num ? (
-              <View className={clsx(bem('num'))}>{'x ' + num}</View>
-            ) : (
-              renderNum
-            )}
-            {renderBottom}
+            {priceTop}
+            <View className={clsx(bem('price'))}>
+              <Text>{currency}</Text>
+              <Text className={clsx(bem('price-integer'))}>{integerStr}</Text>
+              <Text className={clsx(bem('price-decimal'))}>{decimalStr}</Text>
+            </View>
+            <View className={clsx(bem('origin-price'))}>
+              {ele(originPrice, `${currency}  ${originPrice}`)}
+            </View>
+            <View className={clsx(bem('num'))}>
+              {ele(num, `x ${num}`)}
+            </View>
+            {bottom}
           </View>
         </View>
       </View>
-      <View className={clsx(bem('footer'))}>{renderFooter}</View>
+      <View className={clsx(bem('footer'))}>{footer}</View>
     </View>
   )
 }

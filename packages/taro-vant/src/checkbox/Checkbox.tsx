@@ -30,7 +30,7 @@ export function Checkbox(
     labelDisabled,
     shape = 'round',
     iconSize = '20px',
-    renderIcon,
+    icon,
     style,
     className,
     children,
@@ -161,7 +161,7 @@ export function Checkbox(
         </View>
       )}
       <View className={clsx(bem('icon-wrap'))} onClick={toggle}>
-        {renderIcon || (
+        {icon || (
           <Icon
             name='success'
             className={clsx(bem('icon', [

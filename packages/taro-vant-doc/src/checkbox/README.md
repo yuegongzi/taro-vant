@@ -119,7 +119,7 @@ function onChange(event) {
   <Checkbox
     value={ this.state.checked }
     onChange={ this.onChange }
-    renderIcon={ (
+    icon={ (
       <Image
         src={ this.state.checked ? this.state.activeIcon : this.state.inactiveIcon }
       />
@@ -304,6 +304,7 @@ toggle = (event) => {
 |  labelPosition  | 文本位置，可选值为 `left` | _string_ | `right` |
 |  checkedColor  | 选中状态颜色 | _string_ | `#1989fa` |
 |  iconSize  | icon 大小 | _string \| number_ | `20px` |
+|  icon  | 自定义图标 | _ReactNode_ | `-` |
 
 ### CheckboxGroup Props
 
@@ -328,11 +329,5 @@ toggle = (event) => {
 |  事件名       | 说明                     | 回调参数     |
 | ----------- | ------------------------ | ------------ |
 |  onChange  | 当绑定值变化时触发的事件 | 当前组件的值 |
-
-### Checkbox 自定义节点
-
-|  名称  | 说明       |
-| ---- | ---------- |
-|  renderIcon  | 自定义图标 |
 
 

@@ -167,7 +167,7 @@ export default class Index extends Component {
                   },
                 })
               }}
-              renderIcon={
+              icon={
                 <>
                   <Image
                     className='icon'

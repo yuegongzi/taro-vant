@@ -4,9 +4,9 @@ import type { StandardProps } from '@tarojs/components'
 export interface CellProps extends StandardProps {
   url?: string
   linkType?: 'navigateTo' | 'reLaunch' | 'redirectTo'
-  title?: string | number
-  value?: string | number
-  icon?: string
+  title?: ReactNode
+  value?: ReactNode
+  icon?: string |ReactNode
   size?: 'large'
   label?: string
   center?: boolean
@@ -18,11 +18,8 @@ export interface CellProps extends StandardProps {
   arrowDirection?: 'left' | 'up' | 'down'
   border?: boolean
   titleStyle?: string
-  renderTitle?: ReactNode
-  renderIcon?: ReactNode
-  renderLabel?: ReactNode
-  renderRightIcon?: ReactNode
-  renderExtra?: ReactNode
+  rightIcon?: ReactNode
+  extra?: ReactNode
   children?: ReactNode | JSX.Element | JSX.Element[]
   valueClass?: string;
 }

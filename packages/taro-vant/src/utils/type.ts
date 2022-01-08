@@ -22,6 +22,10 @@ export function isNumber(args: unknown): boolean {
   return toString.call(args) === '[object Number]'
 }
 
+export function isNumberOrString (args: unknown){
+  return isNumber(args) || isString(args)
+}
+
 export function isNumeric(val: string): boolean {
   return /^\d+(\.\d+)?$/.test(val)
 }

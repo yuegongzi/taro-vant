@@ -1,9 +1,9 @@
 import './style/index.less'
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
-import { Block, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import type { CellProps } from './PropsType'
-import { computedStyle, createNamespace, jumpLink } from '../utils'
+import { computedStyle, createNamespace, ele, jumpLink } from '../utils'
 import Icon from '../icon'
 import { computedTitleStyle } from './wxs'
 import clsx from 'clsx'
@@ -28,11 +28,8 @@ function Cell(props: CellProps) {
     value,
     arrowDirection,
     onClick,
-    renderIcon,
-    renderTitle,
-    renderLabel,
-    renderRightIcon,
-    renderExtra,
+    rightIcon,
+    extra,
     children,
     style,
     className,
@@ -46,6 +43,7 @@ function Cell(props: CellProps) {
     },
     [ linkType, onClick, url ],
   )
+
   return (
     <View
       className={clsx(bem([
@@ -62,13 +60,10 @@ function Cell(props: CellProps) {
       onClick={_click}
       {...others}
     >
-      {icon ? (
-        <Icon name={icon}
-              className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
-        />
-      ) : (
-        renderIcon
-      )}
+      {/*@ts-ignore*/}
+      {ele(icon, <Icon name={icon}
+                       className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
+      />)}
       <View
         style={computedTitleStyle({
           titleWidth,
@@ -76,15 +71,13 @@ function Cell(props: CellProps) {
         })}
         className={clsx(bem('title'))}
       >
-        {title || title === 0 ? <Block>{title}</Block> : renderTitle}
-        {(label || renderLabel) && (
-          <View className={clsx(bem('label'))}>
-            {renderLabel || (label && <Block>{label}</Block>)}
-          </View>
-        )}
+        {title}
+        <View className={clsx(bem('label'))}>
+          {label}
+        </View>
       </View>
       <View className={clsx(bem('value'), valueClass)}>
-        {value || value === 0 ? <Block>{value}</Block> : children}
+        {value ? value : children}
       </View>
       {isLink ? (
         <Icon
@@ -92,9 +85,9 @@ function Cell(props: CellProps) {
           className={clsx(bem('right-icon-wrap'), bem('right-icon'))}
         />
       ) : (
-        renderRightIcon
+        rightIcon
       )}
-      {renderExtra}
+      {extra}
     </View>
   )
 }

@@ -43,10 +43,8 @@ export default class Index extends Component {
                 value='内容'
                 size='large'
                 border={false}
-                renderLabel={
-                  <>
-                    <View>描述信息</View>
-                  </>
+                label={
+                  <View>描述信息</View>
                 }
               />
             </Cell.Group>
@@ -87,12 +85,12 @@ export default class Index extends Component {
               <Cell title='单元格' value='内容' />
             </Cell.Group>
           </DemoBlock>
-          <DemoBlock title='使用插槽'>
+          <DemoBlock title='自定义'>
             <Cell
               value='内容'
               icon='shop-o'
               isLink
-              renderTitle={
+              title={
                 <>
                   <View>
                     <View className='title'>单元格</View>
@@ -104,11 +102,7 @@ export default class Index extends Component {
             <Cell
               title='单元格'
               border={false}
-              renderRightIcon={
-                <>
-                  <Icon name='search' />
-                </>
-              }
+              rightIcon={ <Icon name='search' />}
             />
           </DemoBlock>
           <DemoBlock title='垂直居中'>

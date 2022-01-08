@@ -109,7 +109,7 @@ function onChange(event) {
 
 ### 事件监听
 
-`vanCollapse` 提供了 `change`, `open` 和 `close` 事件。`change` 事件在面板切换时触发，`open` 事件在面板展开时触发，`close` 事件在面板关闭时触发。
+`Collapse` 提供了 `change`, `open` 和 `close` 事件。`change` 事件在面板切换时触发，`open` 事件在面板展开时触发，`close` 事件在面板关闭时触发。
 
 ```jsx
 <View>
@@ -228,23 +228,14 @@ function onChange(event) {
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  name  | 唯一标识符，默认为索引值 | _string \| number_ | `index` |
-|  title  | 标题栏左侧内容 | _string \| number_ | - |
+|  title  | 标题栏左侧内容 | _ReactNode_ | - |
 |  icon  | 标题栏左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
-|  value  | 标题栏右侧内容 | _string \| number_ | - |
+|  value  | 标题栏右侧内容 | _ReactNode_ | - |
 |  label  | 标题栏描述信息 | _string_ | - |
 |  border  | 是否显示内边框 | _boolean_ | `true` |
 |  isLink  | 是否展示标题栏右侧箭头并开启点击反馈 | _boolean_ | `true` |
 |  clickable  | 是否开启点击反馈 | _boolean_ | `false` |
 |  disabled  | 是否禁用面板 | _boolean_ | `false` |
-
-### CollapseItem Slot
-
-|  名称        | 说明                          |
-| ---------- | ----------------------------- |
-|             | 面板内容                      |
-|  value       | 自定义显示内容                |
-|  icon        | 自定义`icon`                  |
-|  title       | 自定义`title`                 |
-|  rightIcon  | 自定义右侧按钮，默认是`arrow` |
-
+|  rightIcon  | 自定义右侧按钮，默认是`arrow` | _ReactNode_ | `-` |
+|  children  | 面板内容 | _ReactNode_ | `-` |
 

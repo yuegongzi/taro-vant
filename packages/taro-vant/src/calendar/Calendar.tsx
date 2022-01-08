@@ -87,8 +87,7 @@ function Index(
     overRange,
     onUnselect,
     onClickSubtitle,
-    renderTitle,
-    renderFooter,
+    footer,
     className,
     style,
     ...others
@@ -436,7 +435,6 @@ function Index(
               onClickSubtitle={() => {
                 onClickSubtitle?.()
               }}
-              renderTitle={renderTitle}
             />
             <ScrollView
               className={clsx(bem('body'), `van-calendar__body${compIndex}`)}
@@ -469,11 +467,6 @@ function Index(
             <View
               className={clsx(bem('footer', { safeAreaInsetBottom }))}
             >
-              {renderFooter}
-            </View>
-            <View
-              className={clsx(bem('footer', { safeAreaInsetBottom }))}
-            >
               {showConfirm && (
                 <Button
                   round
@@ -490,6 +483,7 @@ function Index(
                     : confirmText}
                 </Button>
               )}
+              {footer}
             </View>
           </View>
         </Popup>
@@ -506,7 +500,6 @@ function Index(
             showSubtitle={showSubtitle}
             firstDayOfWeek={firstDayOfWeek}
             onClickSubtitle={onClickSubtitle}
-            renderTitle={<Block>{renderTitle}</Block>}
           />
           <ScrollView
             className={clsx(bem('body'), `van-calendar__body${compIndex}`)}
@@ -539,11 +532,6 @@ function Index(
           <View
             className={clsx(bem('footer', { safeAreaInsetBottom }))}
           >
-            {renderFooter}
-          </View>
-          <View
-            className={clsx(bem('footer', { safeAreaInsetBottom }))}
-          >
             {showConfirm && (
               <Button
                 round
@@ -560,6 +548,7 @@ function Index(
                   : confirmText}
               </Button>
             )}
+            {footer}
           </View>
         </View>
       )}

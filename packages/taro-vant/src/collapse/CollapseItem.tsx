@@ -2,7 +2,7 @@ import './style/index.less'
 import { useReady } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
-import { Block, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import type { CollapseItemProps } from './PropsType'
 import Cell from '../cell'
 import { setContentAnimate } from './animate'
@@ -38,10 +38,7 @@ function CollapseItem(
     clickable = false,
     border = true,
     isLink = true,
-    renderTitle,
-    renderIcon,
-    renderRightIcon,
-    renderValue,
+    rightIcon,
     style,
     className,
     children,
@@ -138,12 +135,8 @@ function CollapseItem(
           expanded: state.expanded,
         }))}
         onClick={onClick}
-        renderTitle={<Block>{renderTitle}</Block>}
-        renderIcon={<Block>{renderIcon}</Block>}
-        renderRightIcon={<Block>{renderRightIcon}</Block>}
-      >
-        {renderValue}
-      </Cell>
+        rightIcon={rightIcon}
+      />
       <View
         className={clsx(bem('wrapper'), bem('animation-box'))}
         animation={state.animation}

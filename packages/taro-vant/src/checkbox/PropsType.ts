@@ -11,7 +11,7 @@ export interface CheckboxProps extends StandardProps {
   shape?: 'round' | 'square'
   iconSize?: string | number
   children?: ReactNode
-  renderIcon?: ReactNode
+  icon?: ReactNode
   onChange?: (event: ITouchEvent) => any
 }
 

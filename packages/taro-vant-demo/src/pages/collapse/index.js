@@ -54,6 +54,7 @@ export default class Index extends Component {
       active3,
       active4,
     } = this.state
+    console.log(active1)
     return (
       <DemoPage title='Collapse 折叠面板'>
         <>
@@ -158,7 +159,7 @@ export default class Index extends Component {
               }}
             >
               <CollapseItem
-                renderTitle={
+                title={
                   <>
                     <View>
                       {title1}

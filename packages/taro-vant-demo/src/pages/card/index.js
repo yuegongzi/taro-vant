@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Button, Card, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -39,7 +38,7 @@ export default class Index extends Component {
               desc='描述信息'
               title='2018秋冬新款男士休闲时尚军绿飞行夹克秋冬新款男'
               thumb={imageURL}
-              renderTags={
+              tags={
                 <>
                   <View>
                     <Tag plain type='danger' className='tag'>
@@ -51,7 +50,7 @@ export default class Index extends Component {
                   </View>
                 </>
               }
-              renderFooter={
+              footer={
                 <>
                   <View className='van-card__footer'>
                     <Button size='mini' round className='button'>

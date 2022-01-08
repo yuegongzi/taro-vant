@@ -3,29 +3,22 @@ import type { StandardProps } from '@tarojs/components'
 import type { ImageProps } from '@tarojs/components/types/Image.d'
 
 export interface CardProps extends StandardProps {
-  tag?: string
+  tag?: string | ReactNode
   num?: string
-  desc?: string
-  thumb?: string
-  title?: string
-  price: string
+  desc?: string | ReactNode
+  thumb?: string | ReactNode
+  title?: ReactNode
+  price: string | number,
   centered?: boolean
   lazyLoad?: boolean
   thumbLink?: string
   originPrice?: string
   thumbMode?: keyof ImageProps.mode
   currency?: string
-  renderFooter?: ReactNode
-  renderBottom?: ReactNode
-  renderNum?: ReactNode
-  renderOriginPrice?: ReactNode
-  renderPrice?: ReactNode
-  renderPriceTop?: ReactNode
-  renderTags?: ReactNode
-  renderDesc?: ReactNode
-  renderTitle?: ReactNode
-  renderTag?: ReactNode
-  renderThumb?: ReactNode
+  footer?: ReactNode
+  bottom?: ReactNode
+  priceTop?: ReactNode
+  tags?: ReactNode
 }
 
 declare const Card: ComponentClass<CardProps>

@@ -346,7 +346,7 @@ this.state = {
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  type  | 选择类型:<br>`single`表示选择单个日期，<br>`multiple`表示选择多个日期，<br>`range`表示选择日期区间 | _string_ | `single` |
-|  title  | 日历标题 | _string_ | `日期选择` |
+|  title  | 日历标题 | _ReactNode_ | `日期选择` |
 |  color  | 主题色，对底部按钮和选中日期生效 | _string_ | `#ee0a24` |
 |  minDate  | 可选择的最小日期 | _timestamp_ | 当前日期 |
 |  maxDate  | 可选择的最大日期 | _timestamp_ | 当前日期的六个月后 |
@@ -361,6 +361,7 @@ this.state = {
 |  confirmText  | 确认按钮的文字 | _string_ | `确定` |
 |  confirmDisabledText  | 确认按钮处于禁用状态时的文字 | _string_ | `确定` |
 |  firstDayOfWeek  | 设置周起始日 | _0~6_ | `0` |
+|  footer  | 自定义底部区域内容 | _ReactNode_ | `-` |
 
 ### Poppable Props
 

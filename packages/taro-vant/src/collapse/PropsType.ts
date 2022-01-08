@@ -17,8 +17,8 @@ export { Collapse }
 
 export interface CollapseItemProps extends StandardProps {
   name?: string | number
-  title?: string | number
-  value?: string | number
+  title?: ReactNode
+  value?: ReactNode
   icon?: string
   label?: string
   disabled?: boolean
@@ -26,10 +26,7 @@ export interface CollapseItemProps extends StandardProps {
   border?: boolean
   isLink?: boolean
   children?: ReactNode
-  renderTitle?: ReactNode
-  renderIcon?: ReactNode
-  renderRightIcon?: ReactNode
-  renderValue?: ReactNode
+  rightIcon?: ReactNode
 }
 
 declare const CollapseItem: ComponentClass<CollapseItemProps>

@@ -10,7 +10,6 @@ type ICalendarHeaderProps = {
   showTitle?: boolean
   showSubtitle?: boolean
   firstDayOfWeek?: number
-  renderTitle?: React.ReactNode
   onClickSubtitle?: (a: any) => void
 }
 
@@ -21,7 +20,6 @@ export default function Index(props: ICalendarHeaderProps) {
     subtitle,
     showSubtitle,
     firstDayOfWeek,
-    renderTitle,
     onClickSubtitle,
   } = props
 
@@ -50,9 +48,6 @@ export default function Index(props: ICalendarHeaderProps) {
     <View className={clsx(bem('header'))}>
       {showTitle && (
         <View>
-          {renderTitle && (
-            <View className={clsx(bem('header-title'))}>{renderTitle}</View>
-          )}
           <View className={clsx(bem('header-title'))}>{title}</View>
         </View>
       )}
