@@ -29,9 +29,7 @@ export interface DialogProps
   className?: string
   style?: string
   transition?: 'fade' | 'none'
-  /**
-   * @deprecated use beforeClose instead
-   */
+
   asyncClose?: boolean
   beforeClose?: (action: string) => Promise<void | boolean> | void | boolean
   messageAlign?: 'left' | 'right'
