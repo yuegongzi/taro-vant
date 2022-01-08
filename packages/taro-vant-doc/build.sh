@@ -3,13 +3,13 @@
 npx vant-cli build-site
 
 
-cd ./../vantui-demo
+cd ./../taro-vant-demo
 
 pwd
 npm run real:h5Doc
 
-cd  ./../vantui-doc
+cd  ./../taro-vant-doc
 
-mv  ./../vantui-demo/build/assets  ./site
+mv  ./../taro-vant-demo/build/assets  ./site
 
-mv  ./../vantui-demo/build/index.html  ./site/mobile.html
+mv  ./../taro-vant-demo/build/index.html  ./site/mobile.html

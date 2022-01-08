@@ -18,7 +18,6 @@ export default class Index extends Component {
         '/quickstart',
         '/custom-style',
         '/theme',
-        '/use-in-react',
       ]
       if (devGuidePaths.includes(path)) {
         url = '/pages/dashboard/index'
@@ -41,7 +40,7 @@ export default class Index extends Component {
     if (pathMatch && pathMatch[1]) {
       setTimeout(() => {
         window.location.href =
-          '/taro-vant/mobile.html#' + getUrl('/' + pathMatch[1])
+          '/mobile.html#' + getUrl('/' + pathMatch[1])
       }, 600)
     }
   }

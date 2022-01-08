@@ -1,6 +1,6 @@
 import type { StandardProps } from '@tarojs/components'
 
-export interface SkuAction  {
+export interface SkuAction {
   text?: string;
   color?: string;
   onClick?: () => void;
@@ -32,6 +32,7 @@ export type Goods = {
   price: number,
   stock: number,
 }
+
 export interface SkuProps extends StandardProps {
   /**
    * 可见
@@ -104,12 +105,13 @@ export interface SkuPropProps extends StandardProps {
   onSelect?: (val: any) => void;
 }
 
-export interface SkuHeaderProps extends SkuProps{
+export interface SkuHeaderProps extends SkuProps {
   selectedSku: any;
   selectedSkuComb: any;
   stockNum: number;
   selectedTip?: string
 }
+
 export type SkuBodyProps = StandardProps
 
 export interface SkuStepperProps {
@@ -133,7 +135,8 @@ export interface SkuActionProps {
   cart: SkuAction;
 
 }
-export interface SkuRowProps{
+
+export interface SkuRowProps {
   /**
    * 名称
    */

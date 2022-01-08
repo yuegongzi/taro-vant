@@ -1,7 +1,9 @@
 ## ts同步到文档说明
 
-### vantui-doc下执行同步命令
-将vantui/types中d.ts的类型描述转换为文档中的API props
+### taro-vant-doc下执行同步命令
+
+将taro-vant组件中的的类型描述转换为文档中的API props
+
 ```bash
 yarn docs-ts
 ```

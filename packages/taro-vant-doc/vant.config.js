@@ -6,7 +6,7 @@ module.exports = {
       preprocessor: 'less',
     },
     site: {
-      publicPath: '/taro-vant/',
+      publicPath: '/',
       searchConfig: {},
     },
   },
@@ -42,7 +42,7 @@ module.exports = {
     links: [
       {
         logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
-        url: 'https://github.com/antmjs/vantui',
+        url: 'https://github.com/youzan/vant-weapp',
       },
     ],
     nav: [
@@ -70,13 +70,8 @@ module.exports = {
             hideSimulator: false,
           },
           {
-            path: 'use-in-react',
-            title: '如何在React中使用',
-            hideSimulator: false,
-          },
-          {
             path: 'comments',
-            title: 'typescript同步到文档',
+            title: '文档生成',
             hideSimulator: false,
           },
         ],
@@ -244,6 +239,10 @@ module.exports = {
             title: 'Empty 空状态',
           },
           {
+            path: 'list',
+            title: 'List 长列表',
+          },
+          {
             path: 'notice-bar',
             title: 'NoticeBar 通知栏',
           },
@@ -267,10 +266,7 @@ module.exports = {
             path: 'tag',
             title: 'Tag 标签',
           },
-          {
-            path: 'power-scroll-view',
-            title: 'PowerScrollView 滚动列表',
-          },
+
         ],
       },
       {
@@ -318,6 +314,10 @@ module.exports = {
             title: 'Card 商品卡片',
           },
           {
+            path: 'sku',
+            title: 'Sku 商品导航',
+          },
+          {
             path: 'submit-bar',
             title: 'SubmitBar 提交订单栏',
           },
@@ -326,17 +326,7 @@ module.exports = {
             title: 'GoodsAction 商品导航',
           },
         ],
-      },
-      {
-        title: '有赞Vant-Weapp小程序文档',
-        items: [
-          {
-            path: 'index',
-            title: '参考',
-            hideSimulator: false,
-          },
-        ],
-      },
+      }
     ],
   },
 }
