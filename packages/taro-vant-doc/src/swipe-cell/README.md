@@ -116,26 +116,48 @@ import { SwipeCell } from "taro-vant";
 ```js
  
 ```
-### SwipeCellProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| leftWidth | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| rightWidth | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| asyncClose | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| name | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| catchMove | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| wrapperStyle | - | _&nbsp;&nbsp;React.CSSProperties<br/>_ | - | `false` |
-| onOpen | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent&nbsp;&&nbsp;SwipeCellOpen)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClick | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;e:&nbsp;ITouchEvent&nbsp;&&nbsp;SwipeCellClick<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;e:&nbsp;ITouchEvent&nbsp;&&nbsp;SwipeCellClose<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderLeft | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
-| renderRight | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
 
-### ISwiperCellInstance
-| 方法 | 说明 | 类型 |
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 标识符，可以在 close 事件的参数中获取到 | _string \| number_ | - |
+|  leftWidth  | 左侧滑动区域宽度 | _number_ | `0` |
+|  rightWidth  | 右侧滑动区域宽度 | _number_ | `0` |
+|  asyncClose  | 是否异步关闭 | _boolean_ | `false` |
+|  disabled `v1.3.4`  | 是否禁用滑动 | _boolean_ | `false` |
+
+### Slot
+
+|  名称   | 说明           |
+| ----- | -------------- |
+|        | 自定义显示内容 |
+|  left   | 左侧滑动内容   |
+|  right  | 右侧滑动内容   |
+
+### Events
+
+|  事件名  | 说明 | 参数 |
 | --- | --- | --- |
-| open | - | _&nbsp;&nbsp;(position:&nbsp;"left"&nbsp;&brvbar;&nbsp;"right")&nbsp;=>&nbsp;void<br/>_ |
-| close | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
+|  click  | 点击时触发 | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
+|  close  | 关闭时触发 | { position: 'left' \| 'right' , instance , name: string } |
+|  open  | 打开时触发 | { position: 'left' \| 'right' , name: string } |
 
+### close 参数
+
+|  参数      | 类型     | 说明                                               |
+| -------- | -------- | -------------------------------------------------- |
+|  position  | _string_ | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
+|  instance  | _object_ | SwipeCell 实例                                     |
+|  name      | 标识符   | _string_                                           |
+
+### 方法
+
+通过 selectComponent 可以获取到 SwipeCell 实例并调用实例方法
+
+|  方法名  | 参数                      | 返回值 | 介绍             |
+| ------ | ------------------------- | ------ | ---------------- |
+|  open    | position: `left \| right` | -      | 打开单元格侧边栏 |
+|  close   | -                         | -      | 收起单元格侧边栏 |

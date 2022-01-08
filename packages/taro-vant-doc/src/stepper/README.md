@@ -165,34 +165,56 @@ function onChange(value) {
 </View>
  
 ```
-### StepperProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| integer | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| inputWidth | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| buttonSize | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| asyncChange | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disableInput | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| decimalLength | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| min | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| max | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| step | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| showPlus | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| showMinus | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disablePlus | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disableMinus | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| longPress | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| theme | - | _&nbsp;&nbsp;"round"<br/>_ | - | `false` |
-| alwaysEmbed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| onFocus | - | _&nbsp;&nbsp;CommonEventFunction<InputProps.inputForceEventDetail><br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;string&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onBlur | - | _&nbsp;&nbsp;CommonEventFunction<InputProps.inputForceEventDetail><br/>_ | - | `false` |
-| onOverlimit | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onPlus | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onMinus | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderMinus | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderPlus | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 在表单内提交时的标识符 | _string_ | - |
+|  value  | 输入值 | _string \| number_ | 最小值 |
+|  min  | 最小值 | _string \| number_ | `1` |
+|  max  | 最大值 | _string \| number_ | - |
+|  step  | 步长 | _string \| number_ | `1` |
+|  integer  | 是否只允许输入整数 | _boolean_ | `false` |
+|  disabled  | 是否禁用 | _boolean_ | `false` |
+|  disableInput  | 是否禁用输入框 | _boolean_ | `false` |
+|  asyncChange  | 是否开启异步变更，开启后需要手动控制输入值 | _boolean_ | `false` |
+|  inputWidth  | 输入框宽度，默认单位为 `px` | _string \| number_ | `32px` |
+|  buttonSize  | 按钮大小，默认单位为 `px`，输入框高度会和按钮大小保持一致 | _string \| number_ | `28px` |
+|  showPlus  | 是否显示增加按钮 | _boolean_ | `true` |
+|  showMinus  | 是否显示减少按钮 | _boolean_ | `true` |
+|  decimalLength  | 固定显示的小数位数 | _number_ | - |
+|  theme  | 样式风格，可选值为 `round` | _string_ | - |
+|  disablePlus  | 是否禁用增加按钮 | _boolean_ | - |
+|  disableMinus  | 是否禁用减少按钮 | _boolean_ | - |
+|  longPress  | 是否开启长按手势 | _boolean_ | `true` |
+|  alwaysEmbed `v1.9.3`  | 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) |  _boolean_ | `false` |
+
+### Events
+
+|  事件名          | 说明                     | 回调参数                   |
+| -------------- | ------------------------ | -------------------------- |
+|  onChange     | 当绑定值变化时触发的事件 | event.detail: 当前输入的值 |
+|  onOverlimit  | 点击不可用的按钮时触发   | -                          |
+|  onPlus       | 点击增加按钮时触发       | -                          |
+|  onMinus      | 点击减少按钮时触发       | -                          |
+|  onFocus      | 输入框聚焦时触发         | -                          |
+|  onBlur       | 输入框失焦时触发         | -                          |
+
+### Slot
+
+|  名称   | 说明     |
+| ----- | -------- |
+|  plus   | 加号按钮 |
+|  minus  | 减号按钮 |
+
+### 外部样式类
+
+|  类名          | 说明           |
+| ------------ | -------------- |
+|  customClass  | 根节点样式类   |
+|  inputClass   | 输入框样式类   |
+|  plusClass    | 加号按钮样式类 |
+|  minusClass   | 减号按钮样式类 |

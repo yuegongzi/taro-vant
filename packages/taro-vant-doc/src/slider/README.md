@@ -156,24 +156,44 @@ function onDrag(event) {
 ```js
  
 ```
-### SliderProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| range | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| activeColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| inactiveColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| max | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| min | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| step | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| barHeight | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| vertical | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| onDrag | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent&nbsp;&&nbsp;SliderEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent&nbsp;&&nbsp;SliderEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onDragStart | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onDragEnd | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderLeftButton | - | _&nbsp;&nbsp;(value:&nbsp;number)&nbsp;=>&nbsp;ReactNode<br/>_ | - | `false` |
-| renderRightButton | - | _&nbsp;&nbsp;(value:&nbsp;number)&nbsp;=>&nbsp;ReactNode<br/>_ | - | `false` |
-| renderButton | - | _&nbsp;&nbsp;(value:&nbsp;number)&nbsp;=>&nbsp;ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  value  | 当前进度百分比，在双滑块模式下为数组格式 | _number \| number[]_ | `0` |
+|  disabled  | 是否禁用滑块 | _boolean_ | `false` |
+|  max  | 最大值 | _number_ | `100` |
+|  min  | 最小值 | _number_ | `0` |
+|  step  | 步长 | _number_ | `1` |
+|  barHeight  | 进度条高度，默认单位为 `px` | _string \| number_ | `2px` |
+|  activeColor  | 进度条激活态颜色 | _string_ | `#1989fa` |
+|  inactiveColor  | 进度条默认颜色 | _string_ | `#e5e5e5` |
+|  useSlotButton  | 是否使用按钮插槽 | _boolean_ | `false` |
+|  range `v1.8.4`  | 是否开启双滑块模式 | _boolean_ | `false` |
+|  vertical `v1.8.5`  | 是否垂直展示 | _boolean_ | `false` |
+
+### Events
+
+|  事件名           | 说明             | 参数                         |
+| --------------- | ---------------- | ---------------------------- |
+|  onDrag        | 拖动进度条时触发 | event.detail.value: 当前进度 |
+|  onChange      | 进度值改变后触发 | event.detail: 当前进度       |
+|  onDragStart  | 开始拖动时触发   | -                            |
+|  onDragEnd    | 结束拖动时触发   | -                            |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+
+### Slots
+
+|  名称  | 说明 | 参数 |
+| --- | --- | --- |
+|  button  | 自定义滑块按钮 | _{ value: number }_ |
+|  leftButton `v1.8.4`  | 自定义左侧滑块按钮（双滑块模式下） | _{ value: number }_ |
+|  rightButton `v1.8.4`  | 自定义右侧滑块按钮 （双滑块模式下） | _{ value: number }_ |

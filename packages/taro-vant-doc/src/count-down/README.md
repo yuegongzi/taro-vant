@@ -165,31 +165,42 @@ function finished() {
   Toast('倒计时结束');
 } 
 ```
-### ICountDownRef
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| start | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
-| pause | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
-| reset | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
 
-### ITimeData
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| days | - | _&nbsp;&nbsp;number<br/>_ |
-| hours | - | _&nbsp;&nbsp;number<br/>_ |
-| minutes | - | _&nbsp;&nbsp;number<br/>_ |
-| seconds | - | _&nbsp;&nbsp;number<br/>_ |
-| milliseconds | - | _&nbsp;&nbsp;number<br/>_ |
+## API
 
-### CountDownProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| millisecond | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| time | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| format | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| autoStart | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(timeData:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;ITimeData<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onFinish | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| ref | - | _&nbsp;&nbsp;React.MutableRefObject<<br/>&nbsp;&nbsp;&nbsp;&nbsp;ICountDownRef&nbsp;&brvbar;&nbsp;undefined<br/>&nbsp;&nbsp;><br/>_ | - | `false` |
+### Props
 
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  time  | 倒计时时长，单位毫秒 | _number_ | - |
+|  format  | 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒 | _string_ | `HH:mm:ss` |
+|  autoStart  | 是否自动开始倒计时 | _boolean_ | `true` |
+|  millisecond  | 是否开启毫秒级渲染 | _boolean_ | `false` |
+|  useSlot  | 是否使用自定义样式插槽 | _boolean_ | `false` |
+
+### Events
+
+|  事件名  | 说明                                         | 回调参数 |
+| ------ | -------------------------------------------- | -------- |
+|  finish  | 倒计时结束时触发                             | -        |
+|  change  | 时间变化时触发，仅在开启`use-slot`后才会触发 | timeData |
+
+### timeData 格式
+
+|  名称          | 说明     | 类型     |
+| ------------ | -------- | -------- |
+|  days          | 剩余天数 | _number_ |
+|  hours         | 剩余小时 | _number_ |
+|  minutes       | 剩余分钟 | _number_ |
+|  seconds       | 剩余秒数 | _number_ |
+|  milliseconds  | 剩余毫秒 | _number_ |
+
+### 方法
+
+通过 selectComponent 可以获取到 CountDown 实例并调用实例方法。
+
+|  方法名  | 参数 | 返回值 | 介绍 |
+| --- | --- | --- | --- |
+|  start  | - | - | 开始倒计时 |
+|  pause  | - | - | 暂停倒计时 |
+|  reset  | - | - | 重设倒计时，若`auto-start`为`true`，重设后会自动开始倒计时 |

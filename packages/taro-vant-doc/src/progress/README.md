@@ -78,16 +78,25 @@ import { Progress } from "taro-vant";
 </View>
  
 ```
-### ProgressProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| inactive | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| percentage | - | _&nbsp;&nbsp;number<br/>_ | - | `true` |
-| pivotText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| pivotColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| trackColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| showPivot | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| textColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| strokeWidth | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  inactive  | 是否置灰 | _boolean_ | `false` |
+|  percentage  | 进度百分比 | _number_ | `0` |
+|  strokeWidth  | 进度条粗细，默认单位为`px` | _string \| number_ | `4px` |
+|  showPivot  | 是否显示进度文字 | _boolean_ | `true` |
+|  color  | 进度条颜色 | _string_ | `#1989fa` |
+|  textColor  | 进度文字颜色 | _string_ | `#fff` |
+|  trackColor  | 轨道颜色 | _string_ | `#e5e5e5` |
+|  pivotText  | 文字显示 | _string_ | 百分比文字 |
+|  pivotColor  | 文字背景色 | _string_ | 与进度条颜色一致 |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

@@ -61,13 +61,27 @@ import { Loading } from "taro-vant";
 </View>
  
 ```
-### LoadingProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| vertical | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;"spinner"&nbsp;&brvbar;&nbsp;"circular"&nbsp;&brvbar;&nbsp;"ball"<br/>_ | - | `false` |
-| size | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| textSize | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  color  | 颜色 | _string_ | `#c9c9c9` |
+|  type  | 类型，可选值为 `spinner` | _string_ | `circular` |
+|  size  | 加载图标大小，默认单位为 `px` | _string \| number_ | `30px` |
+|  textSize `v1.0.0`  | 文字大小，默认单位为为 `px` | _string \| number_ | `14px` |
+|  vertical `v1.0.0`  | 是否垂直排列图标和文字内容 | _boolean_ | `false` |
+
+### Slots
+
+|  名称  | 说明     |
+| ---- | -------- |
+|       | 加载文案 |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

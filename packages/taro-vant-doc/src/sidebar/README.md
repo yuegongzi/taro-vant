@@ -112,10 +112,51 @@ function onChange(event) {
   });
 } 
 ```
-### SidebarProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| onChange | - | _&nbsp;&nbsp;(a:&nbsp;onChangeEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
-| activeKey | - | _&nbsp;&nbsp;number<br/>_ | - | `true` |
-| children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `true` |
 
+## API
+
+### Sidebar Props
+
+|  参数       | 说明         | 类型               | 默认值 |
+| --------- | ------------ | ------------------ | ------ |
+|  activekey  | 选中项的索引 | _string \| number_ | `0`    |
+
+### Sidebar Event
+
+|  事件名  | 说明           | 参数               |
+| ------ | -------------- | ------------------ |
+|  change  | 切换徽章时触发 | 当前选中徽章的索引 |
+
+### Sidebar 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+
+### SidebarItem Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  title  | 内容 | _string_ | `''` |
+|  dot  | 是否显示右上角小红点 | _boolean_ | `false` |
+|  info  | 图标右上角徽标的内容（已废弃，请使用 badge 属性） | _string \| number_ | `''` |
+|  badge `v1.5.0`  | 图标右上角徽标的内容 | _string \| number_ | `''` |
+|  disabled  | 是否禁用该项 | _boolean_ | `false` |
+
+### SidebarItem Slot
+
+|  名称   | 说明                                        |
+| ----- | ------------------------------------------- |
+|  title  | 自定义标题栏，如果设置了`title`属性则不生效 |
+
+### SidebarItem Event
+
+|  事件名  | 说明           | 参数                            |
+| ------ | -------------- | ------------------------------- |
+|  click   | 点击徽章时触发 | `event.detail` 为当前徽章的索引 |
+
+### SidebarItem 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

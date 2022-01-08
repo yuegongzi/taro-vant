@@ -99,14 +99,20 @@ import { Divider } from "taro-vant";
 </View>
  
 ```
-### DividerProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| dashed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| hairline | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| contentPosition | - | _&nbsp;&nbsp;"left"&nbsp;&brvbar;&nbsp;"center"&nbsp;&brvbar;&nbsp;"right"<br/>_ | - | `false` |
-| fontSize | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| borderColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| textColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数              | 说明                              | 类型      | 默认值 |
+| ---------------- | --------------------------------- | --------- | ------ |
+|  dashed            | 虚线                              | _boolean_ | false  |
+|  hairline          | 细线                              | _boolean_ | false  |
+|  contentPosition  | 文本位置，`left` `center` `right` | _string_  | -      |
+|  customStyle      | 自定义样式                        | _string_  | -      |
+
+### Slot
+
+|  名称  | 说明           |
+| ---- | -------------- |
+|  默认  | 自定义文本内容 |

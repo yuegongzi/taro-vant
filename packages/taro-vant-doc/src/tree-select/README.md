@@ -125,19 +125,14 @@ function onClickItem({
 </View>
  
 ```
-### TreeSelectProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| items | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;badge?:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;dot?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;children?:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;}[]<br/>&nbsp;&nbsp;}[]<br/>_ | - | `false` |
-| activeId | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number&nbsp;&brvbar;&nbsp;number[]&nbsp;&brvbar;&nbsp;string[]<br/>_ | - | `false` |
-| mainActiveIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| height | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| max | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| selectedIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| onClickItem | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;TouchEvent&nbsp;&&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickNav | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{&nbsp;index:&nbsp;number&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderContent | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| contentActiveClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| contentDisabledClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 
+### 外部样式类
+
+|  类名                    | 说明               |
+| ---------------------- | ------------------ |
+|  mainItemClass         | 左侧选项样式类     |
+|  contentItemClass      | 右侧选项样式类     |
+|  mainActiveClass       | 左侧选项选中样式类 |
+|  contentActiveClass    | 右侧选项选中样式类 |
+|  mainDisabledClass     | 左侧选项禁用样式类 |
+|  contentDisabledClass  | 右侧选项禁用样式类 |

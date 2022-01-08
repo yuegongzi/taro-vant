@@ -82,20 +82,29 @@ NotifyFunc.show({
 </View>
  
 ```
-### NotifyProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| selector | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| message | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| background | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| duration | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| safeAreaInsetTop | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| top | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| id | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| onClick | - | _&nbsp;&nbsp;(data:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onOpened | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### 方法
+
+|  方法名        | 说明     | 参数                 | 返回值      |
+| ------------ | -------- | -------------------- | ----------- |
+|  notify        | 展示提示 | `options \| message` | notify 实例 |
+|  notify.clear  | 关闭提示 | `options`            | `void`      |
+
+### Options
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  type `v1.0.0`  | 类型，可选值为 `primary` `success` `warning` | _string_ | `danger` |
+|  message `v1.0.0`  | 展示文案，支持通过`\n`换行 | _string_ | `''` |
+|  duration  | 展示时长(ms)，值为 0 时，notify 不会消失 | _number_ | `3000` |
+|  selector  | 自定义节点选择器 | _string_ | `van-notify` |
+|  color  | 字体颜色 | _string_ | `#fff` |
+|  top  | 顶部距离 | _number_ | `0` |
+|  background  | 背景颜色 | _string_ | - |
+|  context  | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | _object_ | 当前页面 |
+|  onclick  | 点击时的回调函数 | _Function_ | - |
+|  onopened  | 完全展示后的回调函数 | _Function_ | - |
+|  onclose  | 关闭时的回调函数 | _Function_ | - |
+|  safeareainsettop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `false` |

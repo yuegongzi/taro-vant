@@ -184,52 +184,44 @@ this.state = {
 }; 
 ```
 
-### ShareSheetOptionItem [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
+## API
 
-[object Object]
-| 参数 | 说明 | 类型 |
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  options  | 分享选项 | _Option[]_ | `[]` |
+|  title  | 顶部标题 | _string_ | - |
+|  cancelText  | 取消按钮文字 | _string_ | `'取消'` |
+|  description  | 标题下方的辅助描述文字 | _string_ | - |
+|  duration  | 动画时长，单位毫秒 | _number \| string_ | `300` |
+|  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
+|  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
+|  safeAreaInsetBottom  | 是否开启底部安全区适配 | _boolean_ | `true` |
+
+### Option 数据结构
+
+`options`属性为一个对象数组，数组中的每个对象配置一列，对象可以包含以下值：
+
+|  键名  | 说明 | 类型 |
 | --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ |
-| icon | - | _&nbsp;&nbsp;string<br/>_ |
-| description | - | _&nbsp;&nbsp;string<br/>_ |
-| openType | - | _&nbsp;&nbsp;string<br/>_ |
+|  name  | 分享渠道名称 | _string_ |
+|  description  | 分享选项描述 | _string_ |
+|  icon  | 图标，可选值为 `qq` `link` `weibo` `wechat` `poster` `qrcode` `weapp-qrcode` `wechat-moments`，支持传入图片 URL | _string_ |
+|  opentype  | 按钮 `open-type`，可用于实现分享功能，可选值为 `share` | _string_ |
 
-### ShareSheetOptionItem [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
+### Events
 
-=======
-### ShareSheetOptionItem
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ |
-| icon | - | _&nbsp;&nbsp;string<br/>_ |
-| description | - | _&nbsp;&nbsp;string<br/>_ |
-| openType | - | _&nbsp;&nbsp;string<br/>_ |
+|  事件名         | 说明               | 回调参数                        |
+| ------------- | ------------------ | ------------------------------- |
+|  select         | 点击分享选项时触发 | _option: Option, index: number_ |
+|  close          | 关闭时触发         | -                               |
+|  cancel         | 点击取消按钮时触发 | -                               |
+|  clickOverlay  | 点击遮罩层时触发   | -                               |
 
-### ShareSheetOption
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| showBorder | - | _&nbsp;&nbsp;boolean<br/>_ |
-| options | - | _&nbsp;&nbsp;ShareSheetOptionItem[]<br/>_ |
-| onSelect | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;option:&nbsp;ShareSheetOptionItem,<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
+### Slots
 
-### ShareSheetProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| overlayStyle | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| overlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickOverlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| duration | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| onClickOverlay | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onCancel | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onSelect | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;ShareSheetOptionItem<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderTitle | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderDescription | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| cancelText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| description | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| options | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;ShareSheetOptionItem[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;ShareSheetOptionItem[][]<br/>_ | - | `false` |
-
+|  名称         | 说明           |
+| ----------- | -------------- |
+|  title        | 自定义顶部标题 |
+|  description  | 自定义描述文字 |

@@ -88,23 +88,45 @@ import { SubmitBar } from "taro-vant";
 </View>
  
 ```
-### SubmitBarProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| tip | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| tipIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| price | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| label | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| loading | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| buttonText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| currency | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| buttonType | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"default"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"primary"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"info"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"warning"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"danger"<br/>_ | - | `false` |
-| decimalLength | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| suffixLabel | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderTop | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderTip | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onSubmit | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  price  | 价格（单位分） | _number_ | - |
+|  label  | 价格文案 | _string_ | `合计：` |
+|  suffixLabel  | 价格右侧文案 | _string_ | - |
+|  buttonText  | 按钮文字 | _string_ | - |
+|  buttonType  | 按钮类型 | _string_ | `danger` |
+|  tip  | 提示文案 | _string \| boolean_ | - |
+|  tipIcon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+|  disabled  | 是否禁用按钮 | _boolean_ | `false` |
+|  loading  | 是否显示加载中的按钮 | _boolean_ | `false` |
+|  currency  | 货币符号 | _string_ | `¥` |
+|  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
+|  decimalLength  | 价格小数点后位数 | _number_ | `2` |
+
+### Events
+
+|  事件名  | 说明             | 参数 |
+| ------ | ---------------- | ---- |
+|  submit  | 按钮点击事件回调 | -    |
+
+### Slot
+
+|  名称  | 说明                       |
+| ---- | -------------------------- |
+|       | 自定义订单栏左侧内容       |
+|  top   | 自定义订单栏上方内容       |
+|  tip   | 提示文案中的额外操作和说明 |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+|  priceClass   | 价格样式类   |
+|  buttonClass  | 按钮样式类   |
+|  barClass     | 订单栏样式类 |

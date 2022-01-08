@@ -65,10 +65,10 @@ export default class Index extends Component {
                   console.log(e)
               }}
             >
-              <Radio value='1' className='demo-radio'>
+              <Radio name='1' className='demo-radio'>
                 单选框 1
               </Radio>
-              <Radio value='2'>单选框 2</Radio>
+              <Radio name='2'>单选框 2</Radio>
             </RadioGroup>
           </DemoBlock>
           <DemoBlock title='水平排列' padding>
@@ -87,8 +87,8 @@ export default class Index extends Component {
               }}
               direction='horizontal'
             >
-              <Radio value='1'>单选框 1</Radio>
-              <Radio value='2'>单选框 2</Radio>
+              <Radio name='1'>单选框 1</Radio>
+              <Radio name='2'>单选框 2</Radio>
             </RadioGroup>
           </DemoBlock>
           <DemoBlock title='禁用状态' padding>
@@ -107,10 +107,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <Radio value='1' className='demo-radio'>
+              <Radio name='1' className='demo-radio'>
                 单选框 1
               </Radio>
-              <Radio value='2'>单选框 2</Radio>
+              <Radio name='2'>单选框 2</Radio>
             </RadioGroup>
           </DemoBlock>
           <DemoBlock title='自定义形状' padding>
@@ -128,10 +128,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <Radio value='1' shape='square' className='demo-radio'>
+              <Radio name='1' shape='square' className='demo-radio'>
                 单选框
               </Radio>
-              <Radio value='2' shape='square'>
+              <Radio name='2' shape='square'>
                 单选框
               </Radio>
             </RadioGroup>
@@ -151,10 +151,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <Radio value='1' className='demo-radio' checkedColor='#07c160'>
+              <Radio name='1' className='demo-radio' checkedColor='#07c160'>
                 单选框
               </Radio>
-              <Radio value='2' checkedColor='#07c160'>
+              <Radio name='2' checkedColor='#07c160'>
                 单选框
               </Radio>
             </RadioGroup>
@@ -174,10 +174,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <Radio value='1' iconSize='48' className='demo-radio'>
+              <Radio name='1' iconSize='48' className='demo-radio'>
                 单选框
               </Radio>
-              <Radio value='2' iconSize='48'>
+              <Radio name='2' iconSize='48'>
                 单选框
               </Radio>
             </RadioGroup>
@@ -198,7 +198,7 @@ export default class Index extends Component {
               }}
             >
               <Radio
-                value='1'
+                name='1'
                 renderIcon={
                   <>
                     <Image
@@ -212,7 +212,7 @@ export default class Index extends Component {
                 自定义图标
               </Radio>
               <Radio
-                value='2'
+                name='2'
                 renderIcon={
                   <>
                     <Image
@@ -242,10 +242,10 @@ export default class Index extends Component {
                 })
               }}
             >
-              <Radio labelDisabled value='1' className='demo-radio'>
+              <Radio labelDisabled name='1' className='demo-radio'>
                 单选框 1
               </Radio>
-              <Radio labelDisabled value='2'>
+              <Radio labelDisabled name='2'>
                 单选框 2
               </Radio>
             </RadioGroup>
@@ -282,7 +282,7 @@ export default class Index extends Component {
                   }}
                   renderRightIcon={
                     <>
-                      <Radio value='1' />
+                      <Radio name='1' />
                     </>
                   }
                 />
@@ -302,7 +302,7 @@ export default class Index extends Component {
                   }}
                   renderRightIcon={
                     <>
-                      <Radio value='2' />
+                      <Radio name='2' />
                     </>
                   }
                 />

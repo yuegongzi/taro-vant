@@ -96,19 +96,39 @@ Toast.show({
   },
 });
 ```
-### ToastProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| duration | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| mask | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| forbidClick | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"loading"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"success"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"fail"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"html"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"text"<br/>_ | - | `false` |
-| position | - | _&nbsp;&nbsp;"top"&nbsp;&brvbar;&nbsp;"middle"&nbsp;&brvbar;&nbsp;"bottom"<br/>_ | - | `false` |
-| message | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;ReactNode<br/>_ | - | `false` |
-| loadingType | - | _&nbsp;&nbsp;"circular"&nbsp;&brvbar;&nbsp;"spinner"&nbsp;&brvbar;&nbsp;undefined<br/>_ | - | `false` |
-| selector | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| id | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 
+## API
+
+### 方法
+
+|  方法名  | 参数 | 返回值 | 介绍 |
+| --- | --- | --- | --- |
+|  toast  | `options \| message` | toast 实例 | 展示提示 |
+|  toast.loading  | `options \| message` | toast 实例 | 展示加载提示 |
+|  toast.success  | `options \| message` | toast 实例 | 展示成功提示 |
+|  toast.fail  | `options \| message` | toast 实例 | 展示失败提示 |
+|  toast.clear  | `clearAll` | `void` | 关闭提示 |
+|  toast.setdefaultoptions  | `options` | `void` | 修改默认配置，对所有 Toast 生效 |
+|  toast.resetdefaultoptions  | - | `void` | 重置默认配置，对所有 Toast 生效 |
+
+### Options
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  type  | 提示类型，可选值为 `loading` `success` `fail` `html` | _string_ | `text` |
+|  position  | 位置，可选值为 `top` `middle` `bottom` | _string_ | `middle` |
+|  message  | 内容 | _string_ | `''` |
+|  mask  | 是否显示遮罩层 | _boolean_ | `false` |
+|  forbidclick  | 是否禁止背景点击 | _boolean_ | `false` |
+|  loadingtype  | 加载图标类型, 可选值为 `spinner` | _string_ | `circular` |
+|  zindex  | z-index 层级 | _number_ | `1000` |
+|  duration  | 展示时长(ms)，值为 0 时，toast 不会消失 | _number_ | `2000` |
+|  selector  | 自定义选择器 | _string_ | `van-toast` |
+|  context  | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | _object_ | 当前页面 |
+|  onclose  | 关闭时的回调函数 | _Function_ | - |
+
+### Slot
+
+|  名称  | 说明       |
+| ---- | ---------- |
+|       | 自定义内容 |

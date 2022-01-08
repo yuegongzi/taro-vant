@@ -58,3 +58,29 @@ import { Panel } from "taro-vant";
 </View>
  
 ```
+
+## API
+
+### Props
+
+|  参数    | 说明 | 类型     | 默认值 |
+| ------ | ---- | -------- | ------ |
+|  title   | 标题 | _string_ | -      |
+|  desc    | 描述 | _string_ | -      |
+|  status  | 状态 | _string_ | -      |
+
+### Slot
+
+|  名称    | 说明                                                           |
+| ------ | -------------------------------------------------------------- |
+|         | 自定义内容                                                     |
+|  header  | 自定义 header，如果设置了`title`、`desc`、`status`属性则不生效 |
+|  footer  | 自定义 footer                                                  |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+|  headerClass  | 头部样式类   |
+|  footerClass  | 底部样式类   |

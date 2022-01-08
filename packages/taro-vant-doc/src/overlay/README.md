@@ -108,12 +108,26 @@ function noop() {}
   backgroundColor: #fff;
 }
 ```
-### OverlayProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| lockScroll | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| duration | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enter:&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leave:&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  show  | 是否展示遮罩层 | _boolean_ | `false` |
+|  zIndex  | z-index 层级 | _string \| number_ | `1` |
+|  duration  | 动画时长，单位秒 | _string \| number_ | `0.3` |
+|  className  | 自定义类名 | _string_ | - |
+|  customStyle  | 自定义样式 | _string_ | - |
+|  lockScroll `v1.7.3`  | 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动 | _boolean_ | true |
+
+### Events
+
+|  事件名      | 说明       | 回调参数 |
+| ---------- | ---------- | -------- |
+|  onClick  | 点击时触发 | -        |
+
+### Slots
+
+|  名称  | 说明                               |
+| ---- | ---------------------------------- |
+|       | 默认插槽，用于在遮罩层上方嵌入内容 |

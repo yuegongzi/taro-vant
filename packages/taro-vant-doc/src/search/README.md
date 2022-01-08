@@ -133,38 +133,63 @@ function onClick() {
   Toast('搜索' + this.data.value);
 } 
 ```
-### SearchProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| value | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| defaultValue | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| label | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| focus | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| error | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| readonly | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| inputAlign | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| showAction | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| leftIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| rightIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| placeholder | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| placeholderStyle | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| actionText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| background | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| maxlength | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| shape | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| clearable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| clearTrigger | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| clearIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| renderLabel | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderLeftIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderRightIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderAction | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onSearch | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onFocus | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onBlur | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClear | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onCancel | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickInput | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 在表单内提交时的标识符 | _string_ | - |
+|  label  | 搜索框左侧文本 | _string_ | - |
+|  shape  | 形状，可选值为 `round` | _string_ | `square` |
+|  value  | 当前输入的值 | _string \| number_ | - |
+|  background  | 搜索框背景色 | _string_ | `#f2f2f2` |
+|  showAction  | 是否在搜索框右侧显示取消按钮 | _boolean_ | `false` |
+|  actionText `v1.0.0`  | 取消按钮文字 | _string_ | `取消` |
+|  focus  | 获取焦点 | _boolean_ | `false` |
+|  error  | 是否将输入内容标红 | _boolean_ | `false` |
+|  disabled  | 是否禁用输入框 | _boolean_ | `false` |
+|  readonly  | 是否只读 | _boolean_ | `false` |
+|  clearable  | 是否启用清除控件 | _boolean_ | `true` |
+|  clearTrigger `v1.8.4`  | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
+|  clearIcon `v1.8.4`  | 清除[图标名称](#/icon)或图片链接 | _string_ | `clear` |
+|  maxlength  | 最大输入长度，设置为 -1 的时候不限制最大长度 | _number_ | `-1` |
+|  useActionSlot  | 是否使用 action slot | _boolean_ | `false` |
+|  placeholder  | 输入框为空时占位符 | _string_ | - |
+|  placeholderStyle  | 指定占位符的样式 | _string_ | - |
+|  inputAlign  | 输入框内容对齐方式，可选值为 `center` `right` | _string_ | `left` |
+|  useLeftIconSlot  | 是否使用输入框左侧图标 slot | _boolean_ | `false` |
+|  useRightIconSlot  | 是否使用输入框右侧图标 slot | _boolean_ | `false` |
+|  leftIcon  | 输入框左侧图标名称或图片链接，可选值见 Icon 组件（如果设置了 use-left-icon-slot，则该属性无效） | _string_ | `search` |
+|  rightIcon  | 输入框右侧图标名称或图片链接，可选值见 Icon 组件（如果设置了 use-right-icon-slot，则该属性无效） | _string_ | - |
+
+### Events
+
+|  事件名            | 说明               | 参数                     |
+| ---------------- | ------------------ | ------------------------ |
+|  onSearch       | 确定搜索时触发     | event.detail: 当前输入值 |
+|  onChange       | 输入内容变化时触发 | event.detail: 当前输入值 |
+|  onCancel       | 取消搜索搜索时触发 | -                        |
+|  onFocus        | 输入框聚焦时触发   | -                        |
+|  onBlur         | 输入框失焦时触发   | -                        |
+|  onClear        | 点击清空控件时触发 | -                        |
+|  onClickInput  | 点击搜索区域时触发 | -                        |
+
+### Slot
+
+|  名称  | 说明 |
+| --- | --- |
+|  action  | 自定义搜索框右侧按钮，需要在`use-action-slot`为 true 时才会显示 |
+|  label  | 自定义搜索框左侧文本 |
+|  leftIcon  | 自定义输入框左侧图标，需要在`use-left-icon-slot`为 true 时才会显示 |
+|  rightIcon  | 自定义输入框右侧图标，需要在`use-right-icon-slot`为 true 时才会显示 |
+
+### 外部样式类
+
+|  类名          | 说明           |
+| ------------ | -------------- |
+|  customClass  | 根节点样式类   |
+|  fieldClass   | 搜索框样式类   |
+|  inputClass   | 输入框样式类   |
+|  cancelClass  | 取消按钮样式类 |

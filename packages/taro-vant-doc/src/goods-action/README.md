@@ -152,9 +152,87 @@ function onClickButton() {
 </View>
  
 ```
-### GoodsActionProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
 
+## API
+
+### GoodsAction Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
+
+### GoodsActionIcon Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  text  | 按钮文字 | _string_ | - |
+|  icon  | 图标类型，可选值见`icon`组件 | _string_ | - |
+|  info  | 图标右上角提示信息 | _string \| number_ | - |
+|  url  | 点击后跳转的链接地址 | _string_ | - |
+|  linkType  | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_ | `navigateTo` |
+|  id  | 标识符 | _string_ | - |
+|  disabled  | 是否禁用按钮 | _boolean_ | `false` |
+|  loading  | 是否显示为加载状态 | _boolean_ | `false` |
+|  openType  | 微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | _string_ | - |
+|  appParameter  | 打开 APP 时，向 APP 传递的参数 | _string_ | - |
+|  lang  | 指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文 | _string_ | `en` |
+|  sessionFrom  | 会话来源 | _string_ | - |
+|  sendMessageTitle  | 会话内消息卡片标题 | _string_ | 当前标题 |
+|  sendMessagePath  | 会话内消息卡片点击跳转小程序路径 | _string_ | 当前分享路径 |
+|  sendMessageImg  | sendMessageImg | _string_ | 截图 |
+|  showMessageCard  | 显示会话内消息卡片 | _string_ | `false` |
+|  classPrefix `v1.10.1`  | 类名前缀 | _string_ | `van-icon` |
+
+### GoodsActionButton Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  text  | 按钮文字 | _string_ | - |
+|  color  | 按钮颜色，支持传入 `linear-gradient` 渐变色 | _string_ | - |
+|  url  | 点击后跳转的链接地址 | _string_ | - |
+|  linkType  | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_ | `navigateTo` |
+|  id  | 标识符 | _string_ | - |
+|  type  | 按钮类型，可选值为 `primary` `warning` `danger` | _string_ | `danger` |
+|  plain  | 是否为朴素按钮 | _boolean_ | `false` |
+|  size  | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _string_ | `normal` |
+|  disabled  | 是否禁用按钮 | _boolean_ | `false` |
+|  loading  | 是否显示为加载状态 | _boolean_ | `false` |
+|  openType  | 微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | _string_ | - |
+|  appParameter  | 打开 APP 时，向 APP 传递的参数 | _string_ | - |
+|  lang  | 指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文 | _string_ | `en` |
+|  sessionFrom  | 会话来源 | _string_ | - |
+|  sendMessageTitle  | 会话内消息卡片标题 | _string_ | 当前标题 |
+|  sendMessagePath  | 会话内消息卡片点击跳转小程序路径 | _string_ | 当前分享路径 |
+|  sendMessageImg  | sendMessageImg | _string_ | 截图 |
+|  showMessageCard  | 显示会话内消息卡片 | _string_ | `false` |
+
+### Events
+
+|  事件名  | 说明             | 参数 |
+| ------ | ---------------- | ---- |
+|  click   | 按钮点击事件回调 | -    |
+
+### GoodsActionIcon Slot
+
+|  名称  | 说明       |
+| ---- | ---------- |
+|  icon  | 自定义图标 |
+
+### GoodsActionButton Slot
+
+|  名称  | 说明         |
+| ---- | ------------ |
+|       | 按钮显示内容 |
+
+### GoodsActionIcon 外部样式类
+
+|  类名        | 说明       |
+| ---------- | ---------- |
+|  iconClass  | 图标样式类 |
+|  textClass  | 文字样式类 |
+
+### GoodsActionButton 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

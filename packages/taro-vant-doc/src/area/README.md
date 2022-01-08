@@ -140,23 +140,24 @@ db.collection('region')
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
+|  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| value | 当前选中的省市区`code` | _string_ | - |
-| title | 顶部栏标题 | _string_ | - |
-| areaList | 省市区数据，格式见下方 | _object_ | - |
-| columnsNum | 省市区显示列数，3-省市区，2-省市，1-省 | _string \| number_ | `3` |
-| columnsPlaceholder | 列占位提示文字 | _string[]_ | `[]` |
-| loading | 是否显示加载状态 | _boolean_ | `false` |
-| itemHeight | 选项高度 | _number_ | `44` |
-| visibleItemCount | 可见的选项个数 | _number_ | `6` |
-| confirmButtonText | 确认按钮文字 | _string_ | `确认` |
-| cancelButtonText | 取消按钮文字 | _string_ | `取消` |
+|  value  | 当前选中的省市区`code` | _string_ | - |
+|  title  | 顶部栏标题 | _string_ | - |
+|  areaList  | 省市区数据，格式见下方 | _object_ | - |
+|  columnsNum  | 省市区显示列数，3-省市区，2-省市，1-省 | _string \| number_ | `3` |
+|  columnsPlaceholder  | 列占位提示文字 | _string[]_ | `[]` |
+|  loading  | 是否显示加载状态 | _boolean_ | `false` |
+|  itemHeight  | 选项高度 | _number_ | `44` |
+|  visibleItemCount  | 可见的选项个数 | _number_ | `6` |
+|  confirmButtonText  | 确认按钮文字 | _string_ | `确认` |
+|  cancelButtonText  | 取消按钮文字 | _string_ | `取消` |
 
 ### Events
 
-| 事件 | 说明 | 回调参数 |
+|  事件  | 说明 | 回调参数 |
 | --- | --- | --- |
-| onConfirm | 点击右上方完成按钮 | 一个数组参数，具体格式看下方数据格式章节 |
-| onCancel | 点击取消按钮时 | - |
-| onChange | 选项改变时触发 | Picker 实例，所有列选中值，当前列对应的索引 |
+|  onConfirm  | 点击右上方完成按钮 | 一个数组参数，具体格式看下方数据格式章节 |
+|  onCancel  | 点击取消按钮时 | - |
+|  onChange  | 选项改变时触发 | Picker 实例，所有列选中值，当前列对应的索引 |
+

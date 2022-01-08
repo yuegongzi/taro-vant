@@ -81,12 +81,20 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 </View>
  
 ```
-### EmptyProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| description | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| image | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"error"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"search"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"default"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"network"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderImage | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderDescription | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  image  | 图片类型，可选值为 `error` `network` `search`，支持传入图片 URL | _string_ | `default` |
+|  description  | 图片下方的描述文字 | _string_ | - |
+
+### Slots
+
+|  名称         | 说明           |
+| ----------- | -------------- |
+|              | 自定义底部内容 |
+|  image        | 自定义图标     |
+|  description  | 自定义描述文字 |

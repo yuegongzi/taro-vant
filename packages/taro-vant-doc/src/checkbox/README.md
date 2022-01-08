@@ -289,28 +289,50 @@ toggle = (event) => {
   flex: none !important;
 }
 ```
-### CheckboxProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| checkedColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| labelPosition | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| labelDisabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| shape | - | _&nbsp;&nbsp;"round"&nbsp;&brvbar;&nbsp;"square"<br/>_ | - | `false` |
-| iconSize | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 
-### CheckboxGroupProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| max | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;any[]<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| direction | - | _&nbsp;&nbsp;"horizontal"&nbsp;&brvbar;&nbsp;"vertical"<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode[]<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
+## API
+
+### Checkbox Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 标识 Checkbox 名称 | _string_ | - |
+|  shape  | 形状，可选值为 `round` `square` | _string_ | `round` |
+|  value  | 是否为选中状态 | _boolean_ | `false` |
+|  disabled  | 是否禁用单选框 | _boolean_ | `false` |
+|  labelDisabled  | 是否禁用单选框内容点击 | _boolean_ | `false` |
+|  labelPosition  | 文本位置，可选值为 `left` | _string_ | `right` |
+|  checkedColor  | 选中状态颜色 | _string_ | `#1989fa` |
+|  iconSize  | icon 大小 | _string \| number_ | `20px` |
+
+### CheckboxGroup Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 在表单内提交时的标识符 | _string_ | - |
+|  value  | 所有选中项的 name | _Array_ | - |
+|  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
+|  max  | 设置最大可选数 | _number_ | `0`（无限制） |
+|  direction `v1.7.0`  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+
+### Checkbox Event
+
+|  事件名       | 说明                     | 回调参数     |
+| ----------- | ------------------------ | ------------ |
+|  onChange  | 当绑定值变化时触发的事件 | 当前组件的值 |
+
+
+
+### CheckboxGroup Event
+
+|  事件名       | 说明                     | 回调参数     |
+| ----------- | ------------------------ | ------------ |
+|  onChange  | 当绑定值变化时触发的事件 | 当前组件的值 |
+
+### Checkbox 自定义节点
+
+|  名称  | 说明       |
+| ---- | ---------- |
+|  renderIcon  | 自定义图标 |
+
 

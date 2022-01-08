@@ -115,16 +115,29 @@ this.state = {
 </View>
  
 ```
-### StepsProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| icon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| steps | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;index?:&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;desc:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;activeIcon?:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;inactiveIcon?:&nbsp;string<br/>&nbsp;&nbsp;}[]<br/>_ | - | `false` |
-| active | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| direction | - | _&nbsp;&nbsp;"horizontal"&nbsp;&brvbar;&nbsp;"vertical"<br/>_ | - | `false` |
-| activeColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| inactiveColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| activeIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| inactiveIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| onClickStep | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;ITouchEvent&nbsp;&&nbsp;{&nbsp;detail:&nbsp;number&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Steps Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  active  | 当前步骤 | _number_ | 0 |
+|  direction  | 显示方向，可选值为 `horizontal` `vertical` | _string_ | `horizontal` |
+|  activeColor  | 激活状态颜色 | _string_ | `#07c160` |
+|  inactiveColor  | 未激活状态颜色 | _string_ | `#969799` |
+|  activeIcon  | 激活状态底部图标，可选值见 [Icon 组件](#/icon) | _string_ | `checked` |
+|  inactiveIcon  | 未激活状态底部图标，可选值见 [Icon 组件](#/icon) | _string_ | - |
+
+### Events
+
+|  事件名称         | 说明                 | 回调参数                    |
+| --------------- | -------------------- | --------------------------- |
+|  onClickStep  | 点击步骤时触发的事件 | event.detail:当前步骤的索引 |
+
+### 外部样式类
+
+|  类名          | 说明           |
+| ------------ | -------------- |
+|  customClass  | 根节点样式类   |
+|  descClass    | 描述信息样式类 |

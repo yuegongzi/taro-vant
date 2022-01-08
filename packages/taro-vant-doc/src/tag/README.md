@@ -235,17 +235,36 @@ function onClose(event) {
   });
 } 
 ```
-### TagProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| size | - | _&nbsp;&nbsp;"large"&nbsp;&brvbar;&nbsp;"medium"<br/>_ | - | `false` |
-| mark | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| plain | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| round | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| textColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"default"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"primary"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"success"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"danger"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"warning"<br/>_ | - | `false` |
-| closeable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;(e:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  type  | 类型，可选值为 `primary` `success` `danger` `warning` | _string_ | - |
+|  size  | 大小, 可选值为 `large` `medium` | _string_ | - |
+|  color  | 标签颜色 | _string_ | - |
+|  plain  | 是否为空心样式 | _boolean_ | `false` |
+|  round  | 是否为圆角样式 | _boolean_ | `false` |
+|  mark  | 是否为标记样式 | _boolean_ | `false` |
+|  textColor  | 文本颜色，优先级高于 `color` 属性 | _string_ | `white` |
+|  closeable  | 是否为可关闭标签 | _boolean_ | `false` |
+
+### Slot
+
+|  名称  | 说明                |
+| ---- | ------------------- |
+|       | 自定义 Tag 显示内容 |
+
+### Events
+
+|  事件名  | 说明           | 回调参数 |
+| ------ | -------------- | -------- |
+|  close   | 关闭标签时触发 | -        |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

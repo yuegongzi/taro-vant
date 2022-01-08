@@ -139,22 +139,43 @@ function onClose() {
 </View>
  
 ```
-### PopupProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| round | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| overlayStyle | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| transition | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| overlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| closeIconPosition | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| closeOnClickOverlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| position | - | _&nbsp;&nbsp;"top"&nbsp;&brvbar;&nbsp;"bottom"&nbsp;&brvbar;&nbsp;"right"&nbsp;&brvbar;&nbsp;"left"<br/>_ | - | `false` |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| safeAreaInsetTop | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onClickOverlay | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  show  | 是否显示弹出层 | _boolean_ | `false` |
+|  zIndex  | z-index 层级 | _number_ | `100` |
+|  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
+|  position  | 弹出位置，可选值为 `top` `bottom` `right` `left` | _string_ | `center` |
+|  duration  | 动画时长，单位为毫秒 | _number \| object_ | `300` |
+|  round  | 是否显示圆角 | _boolean_ | `false` |
+|  customStyle  | 自定义弹出层样式 | _string_ | `''` |
+|  overlayStyle  | 自定义遮罩层样式 | _string_ | `''` |
+|  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
+|  closeable  | 是否显示关闭图标 | _boolean_ | `false` |
+|  closeIcon  | 关闭图标名称或图片链接 | _string_ | `cross` |
+|  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
+|  safeAreaInsetTop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `false` |
+|  lockScroll `v1.7.3`  | 是否锁定背景滚动 | _boolean_ | `true` |
+
+### Events
+
+|  事件名              | 说明             | 参数 |
+| ------------------ | ---------------- | ---- |
+|  onClose          | 关闭弹出层时触发 | -    |
+|  onClickOverlay  | 点击遮罩层时触发 | -    |
+|  onBeforeEnter   | 进入前触发       | -    |
+|  onEnter          | 进入中触发       | -    |
+|  onAfterEnter    | 进入后触发       | -    |
+|  onBeforeLeave   | 离开前触发       | -    |
+|  onLeave          | 离开中触发       | -    |
+|  onAfterLeave    | 离开后触发       | -    |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

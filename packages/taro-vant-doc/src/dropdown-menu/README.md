@@ -209,43 +209,60 @@ function onSwitch2Change({
 </View>
  
 ```
-### DropdownMenuProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| activeColor | 选中选项后颜色 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| overlay | 是否展示蒙层 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| zIndex | 弹出层zIndex | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| duration | 弹出层执行时间 | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| direction | 弹出层执行方向 | _&nbsp;&nbsp;"down"&nbsp;&brvbar;&nbsp;"up"<br/>_ | - | `false` |
-| closeOnClickOverlay | 点击蒙层是否关闭弹出层 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickOutside | 是否在点击外部 menu 后关闭菜单 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | 子元素,须为DropdownMenuItem | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
 
-### DropdownItemProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| value | 对应菜单选项的值 | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| title | 未选择时候的按钮标题 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| disabled | 是否禁用 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| titleClass | 标题元素的class | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| options | 所有选项 | _&nbsp;&nbsp;DropdownMenuOption[]<br/>_ | - | `true` |
-| popupStyle | 弹出层的样式 | _&nbsp;&nbsp;React.CSSProperties<br/>_ | - | `false` |
-| onOpen | 展开下拉项触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onOpened | 展开下拉项完成时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | 关闭下拉项触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClosed | 展开下拉项完成触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onChange | 点击选项触发 | _&nbsp;&nbsp;(value?:&nbsp;number&nbsp;&brvbar;&nbsp;string)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| children | 传入的子元素 | _&nbsp;&nbsp;ReactNode&nbsp;&brvbar;&nbsp;ReactNode[]<br/>_ | - | `false` |
+## API
 
-### 菜单下拉选项DropdownMenuOption
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| text | 展示的label | _&nbsp;&nbsp;string<br/>_ |
-| value | 对应的数值 | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ |
-| icon | 前缀图标 | _&nbsp;&nbsp;string<br/>_ |
+### DropdownMenu Props
 
-### 组件实例通过ref获取到的方法如下
-| 方法 | 说明 | 类型 |
-| --- | --- | --- |
-| toggle | 控制展开/收起菜单栏，传入参数show是否展开，options.immediate是否不需要动画 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;show?:&nbsp;boolean,<br/>&nbsp;&nbsp;&nbsp;&nbsp;options?:&nbsp;{&nbsp;immediate:&nbsp;boolean&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  activeColor  | 菜单标题和选项的选中态颜色 | _string_ | `#ee0a24` |
+|  zIndex  | 菜单栏 z-index 层级 | _number_ | `10` |
+|  duration  | 动画时长，单位毫秒 | _number_ | `200` |
+|  direction  | 菜单展开方向，可选值为 up | _string_ | `down` |
+|  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
+|  closeOnClickOverlay  | 是否在点击遮罩层后关闭菜单 | _boolean_ | `true` |
+|  closeOnClickOutside  | 是否在点击外部 menu 后关闭菜单 | _boolean_ | `true` |
 
+### DropdownItem Props
+
+|  参数         | 说明                   | 类型               | 默认值         |
+| ----------- | ---------------------- | ------------------ | -------------- |
+|  value        | 当前选中项对应的 value | _number \| string_ | -              |
+|  title        | 菜单项标题             | _string_           | 当前选中项文字 |
+|  options      | 选项数组               | _Option[]_         | `[]`           |
+|  disabled     | 是否禁用菜单           | _boolean_          | `false`        |
+|  titleClass  | 标题额外类名           | _string_           | -              |
+|  popupStyle  | 自定义弹出层样式       | _string_           | -              |
+
+### DropdownItem Events
+
+|  事件名  | 说明                          | 回调参数 |
+| ------ | ----------------------------- | -------- |
+|  change  | 点击选项导致 value 变化时触发 | value    |
+|  open    | 打开菜单栏时触发              | -        |
+|  close   | 关闭菜单栏时触发              | -        |
+|  opened  | 打开菜单栏且动画结束后触发    | -        |
+|  closed  | 关闭菜单栏且动画结束后触发    | -        |
+
+### DropdownItem 方法
+
+通过 selectComponent(id) 可访问。
+
+|  方法名  | 说明 | 参数 | 返回值 |
+| --- | --- | --- | --- |
+|  toggle  | 切换菜单展示状态，传`true`为显示，`false`为隐藏，不传参为取反 | show?: boolean | - |
+
+### Option 数据结构
+
+|  键名   | 说明                             | 类型               |
+| ----- | -------------------------------- | ------------------ |
+|  text   | 文字                             | _string_           |
+|  value  | 标识符                           | _number \| string_ |
+|  icon   | 左侧[图标名称](#/icon)或图片链接 | _string_           |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

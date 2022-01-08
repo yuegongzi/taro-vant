@@ -57,22 +57,42 @@ function onClickRight() {
 </View>
  
 ```
-### NavBarProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| fixed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| placeholder | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| leftText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| rightText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| style | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| leftArrow | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| safeAreaInsetTop | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| renderTitle | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderLeft | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderRight | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onClickLeft | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickRight | - | _&nbsp;&nbsp;(e:&nbsp;ITouchEvent)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  title  | 标题 | _string_ | `''` |
+|  leftText  | 左侧文案 | _string_ | `''` |
+|  rightText  | 右侧文案 | _string_ | `''` |
+|  leftArrow  | 是否显示左侧箭头 | _boolean_ | `false` |
+|  fixed  | 是否固定在顶部 | _boolean_ | `false` |
+|  placeholder  | 固定在顶部时是否开启占位 | _boolean_ | `false` |
+|  border  | 是否显示下边框 | _boolean_ | `true` |
+|  zIndex  | 元素 z-index | _number_ | `1` |
+|  customStyle  | 根节点自定义样式 | _string_ | - |
+|  safeAreaInsetTop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `true` |
+
+### Slot
+
+|  名称   | 说明               |
+| ----- | ------------------ |
+|  title  | 自定义标题         |
+|  left   | 自定义左侧区域内容 |
+|  right  | 自定义右侧区域内容 |
+
+### Events
+
+|  事件名            | 说明               | 参数 |
+| ---------------- | ------------------ | ---- |
+|  onClickLeft   | 点击左侧按钮时触发 | -    |
+|  onClickRight  | 点击右侧按钮时触发 | -    |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+|  titleClass   | 标题样式类   |

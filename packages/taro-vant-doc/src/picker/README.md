@@ -167,44 +167,66 @@ this.state = {
 </View>
  
 ```
-### PickerProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| valueKey | 选项为对象的时候，文字对应的 key | _&nbsp;&nbsp;string<br/>_ | text | `false` |
-| toolbarPosition | 顶部栏位置，可选值为bottom | _&nbsp;&nbsp;string<br/>_ | top | `false` |
-| defaultIndex | 单列选择器的默认选中项索引,多列选择器请参考下方的 Columns 配置 | _&nbsp;&nbsp;number<br/>_ | 0 | `false` |
-| columns | 每一项数据，可为字符或者对象，对象默认展示值是valueKey设置的key | _&nbsp;&nbsp;any[]<br/>_ | [] | `false` |
-| title | 顶部栏标题 | _&nbsp;&nbsp;string<br/>_ | '' | `false` |
-| cancelButtonText | 取消按钮文字 | _&nbsp;&nbsp;string<br/>_ | 取消 | `false` |
-| confirmButtonText | 确认按钮文字 | _&nbsp;&nbsp;string<br/>_ | 确认 | `false` |
-| loading | 加载状态 | _&nbsp;&nbsp;boolean<br/>_ | false | `false` |
-| itemHeight | 选项高度,对应单位PX | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | 48 | `false` |
-| visibleItemCount | 可见的选项个数 | _&nbsp;&nbsp;number<br/>_ | 6 | `false` |
-| onChange | 变化触发方法 | _&nbsp;&nbsp;(e:&nbsp;PickerChangeEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onCancel | 取消触发方法 | _&nbsp;&nbsp;(e:&nbsp;PickerEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onConfirm | 确认触发方法 | _&nbsp;&nbsp;(e:&nbsp;PickerEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| showToolbar | 是否显示顶部栏 | _&nbsp;&nbsp;boolean<br/>_ | false | `false` |
 
-### 事件 onConfirm 和 onCancel继承了Taro的ITouchEvent类型
-| 参数 | 说明 | 类型 |
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  columns  | 对象数组，配置每一列显示的数据 | _Array_ | `[]` |
+|  showToolbar  | 是否显示顶部栏 | _boolean_ | `false` |
+|  toolbarPosition  | 顶部栏位置，可选值为`bottom` | _string_ | `top` |
+|  title  | 顶部栏标题 | _string_ | `''` |
+|  loading  | 是否显示加载状态 | _boolean_ | `false` |
+|  valueKey  | 选项对象中，文字对应的 key | _string_ | `text` |
+|  itemHeight  | 选项高度 | _number_ | `44` |
+|  confirmButtonText  | 确认按钮文字 | _string_ | `确认` |
+|  cancelButtonText  | 取消按钮文字 | _string_ | `取消` |
+|  visibleItemCount  | 可见的选项个数 | _number_ | `6` |
+|  defaultIndex  | 单列选择器的默认选中项索引，<br>多列选择器请参考下方的 Columns 配置 | _number_ | `0` |
+
+### Events
+
+Picker 组件的事件会根据 columns 是单列或多列返回不同的参数。
+
+|  事件名  | 说明 | 参数 |
 | --- | --- | --- |
-| detail | 返回选项对应的值和选项对应的下标 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;}<br/>_ |
+|  confirm  | 点击完成按钮时触发 | 单列：选中值，选中值对应的索引<br>多列：所有列选中值，所有列选中值对应的索引 |
+|  cancel  | 点击取消按钮时触发 | 单列：选中值，选中值对应的索引<br>多列：所有列选中值，所有列选中值对应的索引 |
+|  change  | 选项改变时触发 | 单列：Picker 实例，选中值，选中值对应的索引<br>多列：Picker 实例，所有列选中值，当前列对应的索引 |
 
-### 触发事件 onChange继承了Taro的ITouchEvent类型
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| detail | 返回选项对应的值、picker实例和多列返回当前第多少列、单列返回选项对应值 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;picker:&nbsp;IPickerInstance<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;}<br/>_ |
+### Columns 数据结构
 
-### 组件实例通过ref获取到的方法如下
-| 方法 | 说明 | 类型 |
-| --- | --- | --- |
-| setColumnValues | 设置每一列的值 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number,<br/>&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;string[]<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;Promise<any><br/>_ |
-| getColumnValues | 获取每一列的值 | _&nbsp;&nbsp;(index:&nbsp;number[])&nbsp;=>&nbsp;(number&nbsp;&brvbar;&nbsp;string)[]<br/>_ |
-| setColumnValue | 设置某一列的值 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;any<br/>_ |
-| getColumnValue | 获取某一列的值 | _&nbsp;&nbsp;(index:&nbsp;number)&nbsp;=>&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ |
-| columns | 每列的数据 | _&nbsp;&nbsp;any[]<br/>_ |
-| getIndexes | 获取每一列展示的下标 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;number[]<br/>_ |
-| setIndexes | 获取每一列展示的下标 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
-| getValues | 每一列展示的下标 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ |
-| confirm | 触发确认的方法 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
+当传入多列数据时，`columns`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`。
 
+|  key           | 说明                       |
+| ------------ | -------------------------- |
+|  values        | 列中对应的备选值           |
+|  defaultindex  | 初始选中项的索引，默认为 0 |
+
+### 外部样式类
+
+|  类名           | 说明         |
+| ------------- | ------------ |
+|  customClass   | 根节点样式类 |
+|  activeClass   | 选中项样式类 |
+|  toolbarClass  | 顶部栏样式类 |
+|  columnClass   | 列样式类     |
+
+### 方法
+
+通过 selectComponent 可以获取到 picker 实例并调用实例方法。
+
+|  方法名  | 参数 | 返回值 | 介绍 |
+| --- | --- | --- | --- |
+|  getvalues  | - | values | 获取所有列选中的值 |
+|  setvalues  | values | - | 设置所有列选中的值 |
+|  getindexes  | - | indexes | 获取所有列选中值对应的索引 |
+|  setindexes  | indexes | - | 设置所有列选中值对应的索引 |
+|  getcolumnvalue  | columnIndex | value | 获取对应列选中的值 |
+|  setcolumnvalue  | columnIndex, value | - | 设置对应列选中的值 |
+|  getcolumnindex  | columnIndex | optionIndex | 获取对应列选中项的索引 |
+|  setcolumnindex  | columnIndex, optionIndex | - | 设置对应列选中项的索引 |
+|  getcolumnvalues  | columnIndex | values | 获取对应列中所有选项 |
+|  setcolumnvalues  | columnIndex, values | - | 设置对应列中所有选项 |

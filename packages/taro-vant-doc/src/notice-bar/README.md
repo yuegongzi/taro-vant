@@ -111,24 +111,57 @@ import { NoticeBar } from "taro-vant";
 </View>
  
 ```
-### NoticeBarProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| text | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| mode | - | _&nbsp;&nbsp;"closeable"&nbsp;&brvbar;&nbsp;"link"<br/>_ | - | `false` |
-| url | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| openType | - | _&nbsp;&nbsp;any<br/>_ | - | `false` |
-| delay | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| speed | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| scrollable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| leftIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| backgroundColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| background | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| wrapable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderLeftIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderRightIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onClick | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  mode  | 通知栏模式，可选值为 `closeable` `link` | _string_ | `''` |
+|  text  | 通知文本内容 | _string_ | `''` |
+|  color  | 通知文本颜色 | _string_ | `#ed6a0c` |
+|  background  | 滚动条背景 | _string_ | `#fffbe8` |
+|  leftIcon  | 左侧[图标名称](#/icon)或图片链接 | _string_ | - |
+|  delay  | 动画延迟时间 (ms) | _number_ | `1` |
+|  speed  | 滚动速率 (px/s) | _number_ | `60` |
+|  scrollable  | 是否开启滚动播放，内容长度溢出时默认开启 | _boolean_ | - |
+|  wrapable  | 是否开启文本换行，只在禁用滚动时生效 | _boolean_ | `false` |
+|  openType  | 微信开放能力 | _string_ | `navigate` |
+
+### Events
+
+|  事件名  | 说明             | 参数           |
+| ------ | ---------------- | -------------- |
+|  click   | 点击通知栏时触发 | _event: Event_ |
+|  close   | 关闭通知栏时触发 | _event: Event_ |
+
+### Slot
+
+|  名称        | 说明                                     |
+| ---------- | ---------------------------------------- |
+|             | 通知文本内容，仅在 `text` 属性为空时有效 |
+|  leftIcon   | 自定义左侧图标                           |
+|  rightIcon  | 自定义右侧图标                           |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+
+### 样式变量
+
+组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/config-provider)。
+
+|  名称  | 默认值 | 描述 |
+| --- | --- | --- |
+| --notice-bar-height | _40px_ | - |
+| --notice-bar-padding | _0 var(--van-padding-md)_ | - |
+| --notice-bar-wrapable-padding | _var(--van-padding-xs) var(--van-padding-md)_ | - |
+| --notice-bar-text-color | _var(--van-orange-dark)_ | - |
+| --notice-bar-font-size | _var(--van-font-size-md)_ | - |
+| --notice-bar-line-height | _24px_ | - |
+| --notice-bar-background-color | _var(--van-orange-light)_ | - |
+| --notice-bar-icon-size | _16px_ | - |
+| --notice-bar-icon-min-width | _24px_ | - |

@@ -136,9 +136,11 @@ function onChange(event) {
   });
 } 
 ```
-### ConfigProviderProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| themeVars | - | _&nbsp;&nbsp;Normal.IAnyObject<br/>_ | - | `true` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
 
+## API
+
+### Props
+
+|  参数        | 说明           | 类型     | 默认值 |
+| ---------- | -------------- | -------- | ------ |
+|  themeVars  | 自定义主题变量 | _object_ | -      |

@@ -203,38 +203,55 @@ import { CellGroup } from "taro-vant";
 </View>
  
 ```
-### CellProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| url | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| linkType | - | _&nbsp;&nbsp;"navigateTo"&nbsp;&brvbar;&nbsp;"reLaunch"&nbsp;&brvbar;&nbsp;"redirectTo"<br/>_ | - | `false` |
-| title | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| icon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| size | - | _&nbsp;&nbsp;"large"<br/>_ | - | `false` |
-| label | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| center | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| isLink | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| required | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| clickable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| titleWidth | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| style | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| arrowDirection | - | _&nbsp;&nbsp;"left"&nbsp;&brvbar;&nbsp;"up"&nbsp;&brvbar;&nbsp;"down"<br/>_ | - | `false` |
-| border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| titleStyle | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| renderTitle | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderLabel | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderRightIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderExtra | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode&nbsp;&brvbar;&nbsp;JSX.Element&nbsp;&brvbar;&nbsp;JSX.Element[]<br/>_ | - | `false` |
-| valueClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 
-### CellGroupProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| inset | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+## API
+
+### CellGroup Props
+
+|  参数            | 说明                   | 类型      | 默认值  |
+| -------------- | ---------------------- | --------- | ------- |
+|  title           | 分组标题               | _string_  | `-`     |
+|  inset `v1.7.2`  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
+|  border          | 是否显示外边框         | _boolean_ | `true`  |
+
+### CellGroup 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+
+### Cell Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  icon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+|  title  | 左侧标题 | _string \| number_ | - |
+|  titleWidth  | 标题宽度，须包含单位 | _string_ | - |
+|  value  | 右侧内容 | _string \| number_ | - |
+|  label  | 标题下方的描述信息 | _string_ | - |
+|  size  | 单元格大小，可选值为 `large` | _string_ | - |
+|  border  | 是否显示下边框 | _boolean_ | `true` |
+|  center  | 是否使内容垂直居中 | _boolean_ | `false` |
+|  url  | 点击后跳转的链接地址 | _string_ | - |
+|  linkType  | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_ | `navigateTo` |
+|  clickable  | 是否开启点击反馈 | _boolean_ | `false` |
+|  isLink  | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
+|  required  | 是否显示表单必填星号 | _boolean_ | `false` |
+|  arrowDirection  | 箭头方向，可选值为 `left` `up` `down` | _string_ | - |
+|  titleStyle `v1.4.0`  | 标题样式 | _string_ | - |
+
+### Cell Event
+
+|  事件名      | 说明             | 参数 |
+| ---------- | ---------------- | ---- |
+|  onClick  | 点击单元格时触发 | -    |
+
+### 自定义节点
+
+|  名称        | 说明                                                           |
+| ---------- | -------------------------------------------------------------- |
+|  renderTitle       | 自定义`title`显示内容，如果设置了`title`属性则不生效           |
+|  renderLabel       | 自定义`label`显示内容          |
+|  renderIcon        | 自定义`icon`显示内容，如果设置了`icon`属性则不生效             |
+|  renderRightIcon  | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效 |
 

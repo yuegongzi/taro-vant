@@ -192,17 +192,62 @@ import { GridItem } from "taro-vant";
 </View>
  
 ```
-### GridProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| square | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| gutter | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| clickable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| columnNum | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| center | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| direction | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| iconSize | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
-| reverse | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Grid Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  columnNum  | 列数 | _number_ | `4` |
+|  iconSize `v1.3.2`  | 图标大小，默认单位为`px` | _string_ | `28px` |
+|  gutter  | 格子之间的间距，默认单位为`px` | _string \| number_ | `0` |
+|  border  | 是否显示边框 | _boolean_ | `true` |
+|  center  | 是否将格子内容居中显示 | _boolean_ | `true` |
+|  square  | 是否将格子固定为正方形 | _boolean_ | `false` |
+|  clickable  | 是否开启格子点击反馈 | _boolean_ | `false` |
+|  direction  | 格子内容排列的方向，可选值为 `horizontal` | _string_ | `vertical` |
+|  reverse `v1.7.0`  | 是否调换图标和文本的位置 | _boolean_ | `false` |
+|  useSlot  | 是否使用自定义内容的插槽 | _boolean_ | `false` |
+
+### Grid 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |
+
+### GridItem Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  text  | 文字 | _string_ | - |
+|  icon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+|  iconColor  | 图标颜色 | _string_ | - |
+|  iconPrefix `v1.7.0`  | 第三方图标前缀 | _string_ | `van-icon` |
+|  dot  | 是否显示图标右上角小红点 | _boolean_ | `false` |
+|  badge  | 图标右上角徽标的内容 | _string \| number_ | - |
+|  url  | 点击后跳转的链接地址 | _string_ | - |
+|  linkType  | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_ | `navigateTo` |
+
+### GridItem Events
+
+|  事件名      | 说明           | 回调参数 |
+| ---------- | -------------- | -------- |
+|  onClick  | 点击格子时触发 | -        |
+
+### GridItem Slots
+
+|  名称  | 说明                                                   |
+| ---- | ------------------------------------------------------ |
+|       | 自定义宫格的所有内容，需要设置`use-slot`属性           |
+|  icon  | 自定义图标，如果设置了`use-slot`或者`icon`属性则不生效 |
+|  text  | 自定义文字，如果设置了`use-slot`或者`text`属性则不生效 |
+
+### GridItem 外部样式类
+
+|  类名           | 说明         |
+| ------------- | ------------ |
+|  customClass   | 根节点样式类 |
+|  contentClass  | 内容样式类   |
+|  iconClass     | 图标样式类   |
+|  textClass     | 文本样式类   |

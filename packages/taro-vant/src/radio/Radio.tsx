@@ -19,7 +19,7 @@ export function Radio(props: RadioProps) {
   })
 
   const {
-    value,
+    name,
     disabled = false,
     checkedColor,
     labelPosition = 'right',
@@ -52,10 +52,10 @@ export function Radio(props: RadioProps) {
     setState((state) => {
       return {
         ...state,
-        value: value,
+        value: props.value,
       }
     })
-  }, [ value ])
+  }, [ props.value ])
 
   useEffect(() => {
     if (!isEmptyObject(parentData)) {
@@ -70,7 +70,7 @@ export function Radio(props: RadioProps) {
         }
       })
     }
-  }, [ value, parentData ])
+  }, [ props.value, parentData ])
 
   const emitChange = useCallback(
     (event: ITouchEvent) => {
@@ -88,25 +88,25 @@ export function Radio(props: RadioProps) {
     (event: ITouchEvent) => {
       if (!disabled && !state.parentDisabled) {
         Object.defineProperty(event, 'detail', {
-          value: value,
+          value: name,
           writable: true,
         })
         emitChange(event)
       }
     },
-    [ disabled, emitChange, value, state.parentDisabled ],
+    [ disabled, emitChange, name, state.parentDisabled ],
   )
   const onClickLabel = useCallback(
     (event: ITouchEvent) => {
       if (!(disabled || state.parentDisabled) && !labelDisabled) {
         Object.defineProperty(event, 'detail', {
-          value: value,
+          value: name,
           writable: true,
         })
         emitChange(event)
       }
     },
-    [ disabled, emitChange, labelDisabled, value, state.parentDisabled ],
+    [ disabled, emitChange, labelDisabled, name, state.parentDisabled ],
   )
 
   return (
@@ -135,7 +135,7 @@ export function Radio(props: RadioProps) {
               shape,
               {
                 disabled: disabled || state.parentDisabled,
-                checked: state.value === value,
+                checked: state.value === name,
               },
             ]))}
             style={computed.iconStyle({
@@ -144,7 +144,7 @@ export function Radio(props: RadioProps) {
               disabled,
               parentDisabled: state.parentDisabled,
               value: state.value,
-              name: value,
+              name,
             })}
           />
         )}

@@ -75,11 +75,24 @@ Layout 组件提供了`24列栅格`，通过在`Col`上添加`span`属性设置�
 </View>
  
 ```
-### ColProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| span | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `true` |
-| offset | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| gutter | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `true` |
 
+## API
+
+### Row Props
+
+|  参数    | 说明                          | 类型               | 默认值 |
+| ------ | ----------------------------- | ------------------ | ------ |
+|  gutter  | 列元素之间的间距（单位为 px） | _string \| number_ | -      |
+
+### Col Props
+
+|  参数    | 说明           | 类型               | 默认值 |
+| ------ | -------------- | ------------------ | ------ |
+|  span    | 列元素宽度     | _string \| number_ | -      |
+|  offset  | 列元素偏移距离 | _string \| number_ | -      |
+
+### 外部样式类
+
+|  类名          | 说明         |
+| ------------ | ------------ |
+|  customClass  | 根节点样式类 |

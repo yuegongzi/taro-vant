@@ -327,17 +327,47 @@ function onClick(event) {
   });
 } 
 ```
-### RadioProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| value | - | _&nbsp;&nbsp;any<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| checkedColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| labelPosition | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| labelDisabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| shape | - | _&nbsp;&nbsp;"round"&nbsp;&brvbar;&nbsp;"square"<br/>_ | - | `false` |
-| iconSize | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| renderIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 
+## API
+
+### RadioGroup Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  name  | 在表单内提交时的标识符 | _string_ | - |
+|  value  | 当前选中项的标识符 | _any_ | - |
+|  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
+|  direction `v1.6.7`  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+
+### Radio Props
+
+|  参数            | 说明                      | 类型               | 默认值    |
+| -------------- | ------------------------- | ------------------ | --------- |
+|  name            | 标识符                    | _string_           | -         |
+|  shape           | 形状，可选值为 `square`   | _string_           | `round`   |
+|  disabled        | 是否为禁用状态            | _boolean_          | `false`   |
+|  labelDisabled  | 是否禁用文本内容点击      | _boolean_          | `false`   |
+|  labelPosition  | 文本位置，可选值为 `left` | _string_           | `right`   |
+|  iconSize       | 图标大小，默认单位为`px`  | _string \| number_ | `20px`    |
+|  checkedColor   | 选中状态颜色              | _string_           | `#1989fa` |
+|  useIconSlot   | 是否使用 icon 插槽        | _boolean_          | `false`   |
+
+### Radio Event
+
+|  事件名       | 说明                     | 回调参数          |
+| ----------- | ------------------------ | ----------------- |
+|  onChange  | 当绑定值变化时触发的事件 | 当前选中项的 name |
+
+### Radio 外部样式类
+
+|  类名          | 说明           |
+| ------------ | -------------- |
+|  customClass  | 根节点样式类   |
+|  iconClass    | 图标样式类     |
+|  labelClass   | 描述信息样式类 |
+
+### RadioGroup Event
+
+|  事件名       | 说明                     | 回调参数          |
+| ----------- | ------------------------ | ----------------- |
+|  onChange  | 当绑定值变化时触发的事件 | 当前选中项的 name |

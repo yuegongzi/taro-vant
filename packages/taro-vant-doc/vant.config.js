@@ -117,7 +117,7 @@ module.exports = {
           },
           {
             path: 'transition',
-            title: 'transition 动画',
+            title: 'Transition 动画',
           },
         ],
       },

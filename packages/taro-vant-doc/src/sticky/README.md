@@ -120,14 +120,20 @@ function onScroll(event) {
   }).exec();
 } 
 ```
-### StickyProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| offsetTop | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| container | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;any<br/>_ | - | `false` |
-| scrollTop | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onScroll | - | _&nbsp;&nbsp;(data:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scrollTop?:&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isFixed?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  offsetTop  | 吸顶时与顶部的距离，单位`px` | _number_ | `0` |
+|  zIndex  | 吸顶时的 z-index | _number_ | `99` |
+|  container  | 一个函数，返回容器对应的 NodesRef 节点 | _function_ | - |
+|  scrollTop  | 当前滚动区域的滚动位置，非 `null` 时会禁用页面滚动事件的监听 | _number_ | - |
+
+### Events
+
+|  事件名  | 说明       | 回调参数                                       |
+| ------ | ---------- | ---------------------------------------------- |
+|  scroll  | 滚动时触发 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |

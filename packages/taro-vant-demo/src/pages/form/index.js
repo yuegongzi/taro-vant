@@ -66,10 +66,10 @@ export default () => {
 
           <FormItem label='单选框' name='singleSelect'>
             <RadioGroup direction='horizontal'>
-              <Radio value='1' checkedColor='#07c160'>
+              <Radio name='1' checkedColor='#07c160'>
                 单选框 1
               </Radio>
-              <Radio value='2' checkedColor='#07c160'>
+              <Radio name='2' checkedColor='#07c160'>
                 单选框 2
               </Radio>
             </RadioGroup>

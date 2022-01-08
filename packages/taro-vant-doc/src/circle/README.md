@@ -114,19 +114,20 @@ this.state = {
 </View>
  
 ```
-### CircleProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| text | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| lineCap | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| value | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| speed | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| size | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| fill | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| layerColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| color | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;Record<string,&nbsp;string><br/>_ | - | `false` |
-| type | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| strokeWidth | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| clockwise | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+## API
+
+### Props
+
+|  参数  | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+|  value  | 目标进度 | _number_ | `0` |
+|  type  | 指定 canvas 类型，可选值为 `2d` | _string_ | - |
+|  size  | 圆环直径，默认单位为 `px` | _number_ | `100` |
+|  color  | 进度条颜色，传入对象格式可以定义渐变色 | _string \| object_ | `#1989fa` |
+|  layerColor  | 轨道颜色 | _string_ | `#fff` |
+|  fill  | 填充颜色 | _string_ | - |
+|  speed  | 动画速度（单位为 value/s） | _number_ | `50` |
+|  text  | 文字 | _ReactNode_ | - |
+|  strokeWidth  | 进度条宽度 | _number_ | `4` |
+|  clockwise  | 是否顺时针增加 | _boolean_ | `true` |
