@@ -239,15 +239,15 @@ function onSwitch2Change({
 
 |  事件名  | 说明                          | 回调参数 |
 | ------ | ----------------------------- | -------- |
-|  change  | 点击选项导致 value 变化时触发 | value    |
-|  open    | 打开菜单栏时触发              | -        |
-|  close   | 关闭菜单栏时触发              | -        |
-|  opened  | 打开菜单栏且动画结束后触发    | -        |
-|  closed  | 关闭菜单栏且动画结束后触发    | -        |
+|  onChange  | 点击选项导致 value 变化时触发 | value    |
+|  onOpen    | 打开菜单栏时触发              | -        |
+|  onClose   | 关闭菜单栏时触发              | -        |
+|  onOpened | 打开菜单栏且动画结束后触发    | -        |
+|  onClosed  | 关闭菜单栏且动画结束后触发    | -        |
 
 ### DropdownItem 方法
 
-通过 selectComponent(id) 可访问。
+通过 `ref` 可访问。
 
 |  方法名  | 说明 | 参数 | 返回值 |
 | --- | --- | --- | --- |
@@ -261,8 +261,4 @@ function onSwitch2Change({
 |  value  | 标识符                           | _number \| string_ |
 |  icon   | 左侧[图标名称](#/icon)或图片链接 | _string_           |
 
-### 外部样式类
 
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |

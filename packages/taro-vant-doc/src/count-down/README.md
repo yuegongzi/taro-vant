@@ -114,7 +114,7 @@ function onChange(e) {
 
 ### 手动控制
 
-通过 `selectComponent` 选择器获取到组件实例后，可以调用`start`、`pause`、`reset`方法。
+通过 `ref` 选择器获取到组件实例后，可以调用`start`、`pause`、`reset`方法。
 
 ```jsx
 <View>
@@ -182,8 +182,8 @@ function finished() {
 
 |  事件名  | 说明                                         | 回调参数 |
 | ------ | -------------------------------------------- | -------- |
-|  finish  | 倒计时结束时触发                             | -        |
-|  change  | 时间变化时触发，仅在开启`use-slot`后才会触发 | timeData |
+|  onFinish  | 倒计时结束时触发                             | -        |
+|  onChange  | 时间变化时触发，仅在开启`use-slot`后才会触发 | timeData |
 
 ### timeData 格式
 
@@ -197,7 +197,7 @@ function finished() {
 
 ### 方法
 
-通过 selectComponent 可以获取到 CountDown 实例并调用实例方法。
+通过 ref 可以获取到 CountDown 实例并调用实例方法。
 
 |  方法名  | 参数 | 返回值 | 介绍 |
 | --- | --- | --- | --- |

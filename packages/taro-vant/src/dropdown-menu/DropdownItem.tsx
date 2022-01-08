@@ -197,7 +197,7 @@ function Index(
               clickable
               icon={item.icon}
               onClick={(e) => onOptionTap(e, item)}
-              renderTitle={
+              title={
                 <Block>
                   <View
                     className={clsx(bem('title'))}

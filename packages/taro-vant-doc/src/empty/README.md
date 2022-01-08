@@ -91,10 +91,3 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 |  image  | 图片类型，可选值为 `error` `network` `search`，支持传入图片 URL | _string_ | `default` |
 |  description  | 图片下方的描述文字 | _string_ | - |
 
-### Slots
-
-|  名称         | 说明           |
-| ----------- | -------------- |
-|              | 自定义底部内容 |
-|  image        | 自定义图标     |
-|  description  | 自定义描述文字 |

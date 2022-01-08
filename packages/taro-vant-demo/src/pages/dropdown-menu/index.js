@@ -75,7 +75,7 @@ export default class Index extends Component {
               >
                 <Cell
                   title={switchTitle1}
-                  renderRightIcon={
+                  rightIcon={
                     <>
                       <Switch
                         size='24px'
@@ -89,7 +89,7 @@ export default class Index extends Component {
                 />
                 <Cell
                   title={switchTitle2}
-                  renderRightIcon={
+                  rightIcon={
                     <>
                       <Switch
                         size='24px'

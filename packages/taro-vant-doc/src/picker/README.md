@@ -27,7 +27,7 @@ import { Picker } from "taro-vant";
 ```
 
 ```js
-import { toast } from 'vantui';
+import { toast } from 'taro-vant';
 this.state = {
   columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
 };
@@ -73,7 +73,7 @@ function onChange(event) {
 ```
 
 ```js
-import { toast } from 'vantui';
+import { toast } from 'taro-vant';
 this.state = {
   columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
 };

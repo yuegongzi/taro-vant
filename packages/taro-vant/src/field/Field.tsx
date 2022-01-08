@@ -5,7 +5,7 @@ import { Block, Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
-import { assembly, createNamespace, resizeTextarea } from '../utils'
+import { assembly, createNamespace, ele, resizeTextarea } from '../utils'
 import clsx from 'clsx'
 import { inputStyle } from './wxs'
 
@@ -42,7 +42,6 @@ function Field(props: FieldProps) {
     inputAlign,
     clearIcon = 'clear',
     rightIcon,
-    icon,
     iconClass,
     value,
     maxlength = -1,
@@ -71,12 +70,7 @@ function Field(props: FieldProps) {
     password,
     clearable,
     clearTrigger = 'focus',
-    renderLeftIcon,
-    renderTitle,
-    renderInput,
-    renderRightIcon,
-    renderIcon,
-    renderButton,
+    button,
     onChange,
     onFocus,
     onBlur,
@@ -172,14 +166,6 @@ function Field(props: FieldProps) {
     })
     onConfirm?.(event)
   }
-  // setValue(value) {
-  //   this.value = value
-  //   this.setShowClear()
-  //   if (value === '') {
-  //     this.setData({ innerValue: '' })
-  //   }
-  //   this.emitChange()
-  // },
 
   useEffect(
     function() {
@@ -219,26 +205,19 @@ function Field(props: FieldProps) {
       style={style}
       arrowDirection={arrowDirection}
       className='van-field'
-      renderIcon={<Block>{renderLeftIcon}</Block>}
-      renderTitle={
+      title={
         <Block>
-          {label ? (
-            <View className={clsx(bem('label', { disabled }))}>
-              {label}
-            </View>
-          ) : (
-            renderTitle
-          )}
+          <View className={clsx(bem('label', { disabled }))}>
+            {label}
+          </View>
         </Block>
       }
     >
       <View className={clsx(bem('body', [ type ]))}>
-        <View
+       <View
           className={clsx(bem('control', [ inputAlign, 'custom' ]))}
           onClick={onClickInput}
-        >
-          {renderInput}
-        </View>
+         />
         {type === 'textarea' ? (
           <Textarea
             className={clsx(bem('control', [
@@ -333,16 +312,13 @@ function Field(props: FieldProps) {
           />
         )}
         <View className={clsx(bem('icon-container'))} onClick={onClickIcon}>
-          {(rightIcon || icon) && (
-            <Icon
-              name={(rightIcon || icon)!}
-              className={clsx(bem('icon-root'), iconClass)}
-            />
-          )}
-          {renderRightIcon}
-          {renderIcon}
+
+          {ele(rightIcon,   <Icon
+            name={rightIcon}
+            className={clsx(bem('icon-root'), iconClass)}
+          />)}
         </View>
-        <View className={clsx(bem('button'))}>{renderButton}</View>
+        <View className={clsx(bem('button'))}>{button}</View>
       </View>
       {showWordLimit && maxlength && (
         <View className={clsx(bem('word-limit'))}>

@@ -17,7 +17,7 @@ import { Toast } from "taro-vant";
 ### 文字提示
 
 ```javascript
-import { Toast } from 'vantui';
+import { Toast } from 'taro-vant';
 
 Toast.show('我是提示文案，建议不超过十五字~');
 ```

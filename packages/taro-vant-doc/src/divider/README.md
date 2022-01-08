@@ -12,8 +12,6 @@
 import { Divider } from "taro-vant"; 
 ```
 
-> Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)。
-
 ## 代码演示
 
 ### 基础用法
@@ -110,9 +108,3 @@ import { Divider } from "taro-vant";
 |  hairline          | 细线                              | _boolean_ | false  |
 |  contentPosition  | 文本位置，`left` `center` `right` | _string_  | -      |
 |  customStyle      | 自定义样式                        | _string_  | -      |
-
-### Slot
-
-|  名称  | 说明           |
-| ---- | -------------- |
-|  默认  | 自定义文本内容 |

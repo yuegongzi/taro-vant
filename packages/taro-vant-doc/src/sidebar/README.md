@@ -100,7 +100,7 @@ this.state = {
 ```
 
 ```js
-import { notify } from 'vantui';
+import { notify } from 'taro-vant';
 this.state = {
   activeKey: 0
 };

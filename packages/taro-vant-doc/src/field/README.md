@@ -186,7 +186,7 @@ this.state = {
       label="短信验证码"
       placeholder="请输入短信验证码"
       border={ false }
-      renderButton={ (
+      button={ (
           <Button 
             size="small" 
             type="primary"
@@ -263,8 +263,8 @@ this.state = {
 |  errorMessageAlign  | 底部错误提示文案对齐方式，可选值为 `center` `right` | _string_ | `''` |
 |  inputAlign  | 输入框内容对齐方式，可选值为 `center` `right` | _string_ | `left` |
 |  autosize  | 是否自适应内容高度，只对 textarea 有效，<br>可传入对象,如 { maxHeight: 100, minHeight: 50 }，<br>单位为`px` | _boolean \| object_ | `false` |
-|  leftIcon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
-|  rightIcon  | 右侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+|  leftIcon  | 左侧图标 | _ReactNode\|string_ | - |
+|  rightIcon  | 右侧图标 | _ReactNode\|string_ | - |
 |  confirmType  | 设置键盘右下角按钮的文字，仅在 type='text' 时生效 | _string_ | `done` |
 |  confirmHold  | 点击键盘右下角按钮时是否保持键盘不收起，在 type='textarea' 时无效 | _boolean_ | `false` |
 |  holdKeyboard  | focus 时，点击页面的时候不收起键盘 | _boolean_ | `false` |
@@ -291,23 +291,5 @@ this.state = {
 |  onBlur  | 输入框失焦时触发 | event.detail.value: 当前输入值; <br>event.detail.cursor: 游标位置(如果 `type` 不为 `textarea`，值为 `0`) |
 |  onClear  | 点击清空控件时触发 | - |
 |  onClickInput  | 点击输入区域时触发 | - |
-|  onLinechange  | 输入框行数变化时调用，只对 textarea 有效 | event.detail = { height: 0, heightRpx: 0, lineCount: 0 } |
-|  onKeyboardheightchange  | 键盘高度发生变化的时候触发此事件 | event.detail = { height: height, duration: duration } |
-
-### Slot
-
-|  名称        | 说明                                                       |
-| ---------- | ---------------------------------------------------------- |
-|  label       | 自定义输入框标签，如果设置了`label`属性则不生效            |
-|  leftIcon   | 自定义输入框头部图标                                       |
-|  rightIcon  | 自定义输入框尾部图标                                       |
-|  button      | 自定义输入框尾部按钮                                       |
-|  input       | 自定义输入框，使用此插槽后，与输入框相关的属性和事件将失效 |
-
-### 外部样式类
-
-|  类名              | 说明           |
-| ---------------- | -------------- |
-|  labelClass       | 左侧文本样式类 |
-|  inputClass       | 输入框样式类   |
-|  rightIconClass  | 右侧图标样式类 |
+|  onLineChange  | 输入框行数变化时调用，只对 textarea 有效 | event.detail = { height: 0, heightRpx: 0, lineCount: 0 } |
+|  onKeyboardHeightChange  | 键盘高度发生变化的时候触发此事件 | event.detail = { height: height, duration: duration } |

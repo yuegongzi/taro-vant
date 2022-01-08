@@ -208,10 +208,10 @@ this.state = {
 
 |  事件名称  | 说明                     | 回调参数   |
 | -------- | ------------------------ | ---------- |
-|  input     | 当值变化时触发的事件     | 当前 value |
-|  change    | 当值变化时触发的事件     | 组件实例   |
-|  confirm   | 点击完成按钮时触发的事件 | 当前 value |
-|  cancel    | 点击取消按钮时触发的事件 | -          |
+|  onInput     | 当值变化时触发的事件     | 当前 value |
+|  onChange    | 当值变化时触发的事件     | 组件实例   |
+|  onConfirm   | 点击完成按钮时触发的事件 | 当前 value |
+|  onCancel    | 点击取消按钮时触发的事件 | -          |
 
 ### change 事件
 
@@ -225,11 +225,3 @@ this.state = {
 |  setcolumnvalues(index, values)  | 设置对应列中所有的备选值                   |
 |  getvalues()                     | 获取所有列中被选中的值，返回一个数组       |
 |  setvalues(values)               | `values`为一个数组，设置所有列中被选中的值 |
-
-### 外部样式类
-
-|  类名           | 说明         |
-| ------------- | ------------ |
-|  activeClass   | 选中项样式类 |
-|  toolbarClass  | 顶部栏样式类 |
-|  columnClass   | 列样式类     |

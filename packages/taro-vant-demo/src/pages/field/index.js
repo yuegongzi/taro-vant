@@ -47,6 +47,7 @@ export default class Index extends Component {
           <DemoBlock title='基础用法'>
             <CellGroup>
               <Field
+                label='用户名'
                 value={value}
                 placeholder='请输入用户名'
                 border={false}
@@ -137,7 +138,7 @@ export default class Index extends Component {
                 label='短信验证码'
                 placeholder='请输入短信验证码'
                 border={false}
-                renderButton={
+                button={
                   <>
                     <Button size='small' type='primary' className='button'>
                       发送验证码

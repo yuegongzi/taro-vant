@@ -26,7 +26,7 @@ import { Dialog } from "taro-vant";
 ```
 
 ```javascript
-import { Dialog } from 'vantui';
+import { Dialog } from 'taro-vant';
 
 Dialog.alert({
   title: '标题',
@@ -54,7 +54,7 @@ Dialog.alert({
 ```
 
 ```javascript
-import { Dialog } from 'vantui';
+import { Dialog } from 'taro-vant';
 
 Dialog.confirm({
   title: '标题',
@@ -80,7 +80,7 @@ Dialog.confirm({
 ```
 
 ```javascript
-import { Dialog } from 'vantui';
+import { Dialog } from 'taro-vant';
 
 Dialog.alert({
   title: '标题',
@@ -110,7 +110,7 @@ Dialog.alert({
 ```
 
 ```javascript
-import { Dialog } from 'vantui';
+import { Dialog } from 'taro-vant';
 
 const beforeClose = (action) => new Promise((resolve) => {
   setTimeout(() => {
@@ -172,13 +172,12 @@ function onClose() {
 
 |  方法名  | 参数 | 返回值 | 介绍 |
 | --- | --- | --- | --- |
-|  dialog  | `options` | `Promise` | 展示弹窗 |
-|  dialog.alert  | `options` | `Promise` | 展示消息提示弹窗 |
-|  dialog.confirm  | `options` | `Promise` | 展示消息确认弹窗 |
-|  dialog.setdefaultoptions  | `options` | `void` | 修改默认配置，对所有 Dialog 生效 |
-|  dialog.resetdefaultoptions  | - | `void` | 重置默认配置，对所有 Dialog 生效 |
-|  dialog.close  | - | `void` | 关闭弹窗 |
-|  dialog.stoploading  | - | `void` | 停止按钮的加载状态 |
+|  Dialog.alert  | `options` | `Promise` | 展示消息提示弹窗 |
+|  Dialog.confirm  | `options` | `Promise` | 展示消息确认弹窗 |
+|  Dialog.setdefaultoptions  | `options` | `void` | 修改默认配置，对所有 Dialog 生效 |
+|  Dialog.resetdefaultoptions  | - | `void` | 重置默认配置，对所有 Dialog 生效 |
+|  Dialog.close  | - | `void` | 关闭弹窗 |
+|  Dialog.stoploading  | - | `void` | 停止按钮的加载状态 |
 
 ### Options
 
@@ -189,39 +188,24 @@ function onClose() {
 |  title  | 标题 | _string_ | - |
 |  width  | 弹窗宽度，默认单位为`px` | _string \| number_ | `320px` |
 |  message  | 文本内容，支持通过`\n`换行 | _string_ | - |
-|  messagealign  | 内容对齐方式，可选值为`left` `right` | _string_ | `center` |
+|  messageAlign  | 内容对齐方式，可选值为`left` `right` | _string_ | `center` |
 |  theme  | 样式风格，可选值为`round-button` | _string_ | `default` |
-|  zindex  | z-index 层级 | _number_ | `100` |
+|  zIndex  | z-index 层级 | _number_ | `100` |
 |  classname  | 自定义类名，dialog 在自定义组件内时无效 | _string_ | '' |
-|  customstyle  | 自定义样式 | _string_ | '' |
+|  style  | 自定义样式 | _string_ | '' |
 |  selector  | 自定义选择器 | _string_ | `van-dialog` |
-|  showconfirmbutton  | 是否展示确认按钮 | _boolean_ | `true` |
-|  showcancelbutton  | 是否展示取消按钮 | _boolean_ | `false` |
-|  confirmbuttontext  | 确认按钮的文案 | _string_ | `确认` |
-|  cancelbuttontext  | 取消按钮的文案 | _string_ | `取消` |
+|  showConfirmButton  | 是否展示确认按钮 | _boolean_ | `true` |
+|  showCancelButton  | 是否展示取消按钮 | _boolean_ | `false` |
+|  confirmButtonText  | 确认按钮的文案 | _string_ | `确认` |
+|  cancelButtonText  | 取消按钮的文案 | _string_ | `取消` |
 |  overlay  | 是否展示遮罩层 | _boolean_ | `true` |
-|  overlaystyle  | 自定义遮罩层样式 | _object_ | - |
-|  closeonclickoverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
-|  asyncclose  | 已废弃，将在 2.0.0 移除，请使用 `beforeClose` 属性代替 | _boolean_ | `false` |
-|  beforeclose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
-|  context  | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | _object_ | 当前页面 |
+|  closeOnClickOverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
+|  asyncClose  | 已废弃，将在 2.0.0 移除，请使用 `beforeClose` 属性代替 | _boolean_ | `false` |
+|  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
+|  overlayStyle  | 自定义overlay样式 | _object_ | - |
 |  transition  | 动画名称，可选值为`fade` `none` | _string_ | `scale` |
-|  confirmbuttonopentype  | 确认按钮的微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | _string_ | - |
+|  confirmButtonOpenType  | 确认按钮的微信开放能力，具体支持可参考 [Taro文档](https://taro-docs.jd.com/taro/docs/components/forms/button) | _string_ | - |
 
-### OpenType Options
-
-使用`confirmButtonOpenType`后，支持以下选项：
-
-|  参数  | 说明 | 类型 | 默认值 | open-type |
-| --- | --- | --- | --- | --- |
-|  appparameter  | 打开 APP 时，向 APP 传递的参数 | _string_ | - | `launchApp` |
-|  lang  | 指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文 | _string_ | `en` | `getUserInfo` |
-|  sessionfrom  | 会话来源 | _string_ | - | `contact` |
-|  businessid  | 客服消息子商户 id | _number_ | - | `contact` |
-|  sendmessagetitle  | 会话内消息卡片标题 | _string_ | 当前标题 | `contact` |
-|  sendmessagepath  | 会话内消息卡片点击跳转小程序路径 | _string_ | 当前分享路径 | `contact` |
-|  sendmessageimg  | sendMessageImg | _string_ | 截图 | `contact` |
-|  showmessagecard  | 显示会话内消息卡片 | _string_ | `false` | `contact` |
 
 ### Props
 
@@ -237,7 +221,7 @@ function onClose() {
 |  messageAlign  | 内容对齐方式，可选值为`left` `right` | _string_ | `center` |
 |  zIndex  | z-index 层级 | _number_ | `100` |
 |  className  | 自定义类名，dialog 在自定义组件内时无效 | _string_ | '' |
-|  customStyle  | 自定义样式 | _string_ | '' |
+|  style  | 自定义样式 | _string_ | '' |
 |  showConfirmButton  | 是否展示确认按钮 | _boolean_ | `true` |
 |  showCancelButton  | 是否展示取消按钮 | _boolean_ | `false` |
 |  confirmButtonText  | 确认按钮的文案 | _string_ | `确认` |
@@ -247,12 +231,9 @@ function onClose() {
 |  overlay  | 是否展示遮罩层 | _boolean_ | `true` |
 |  overlayStyle `v1.0.0`  | 自定义遮罩层样式 | _object_ | - |
 |  closeOnClickOverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
-|  useSlot  | 是否使用自定义内容的插槽 | _boolean_ | `false` |
-|  useTitleSlot  | 是否使用自定义标题的插槽 | _boolean_ | `false` |
-|  asyncClose  | 已废弃，将在 2.0.0 移除，请使用 `beforeClose` 属性代替 | _boolean_ | `false` |
 |  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
 |  transition  | 动画名称，可选值为`fade` | _string_ | `scale` |
-|  confirmButtonOpenType  | 确认按钮的微信开放能力，具体支持可参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/component/button.html) | _string_ | - |
+|  confirmButtonOpenType  | 确认按钮的微信开放能力，具体支持可参考 [Taro文档](https://taro-docs.jd.com/taro/docs/components/forms/button) | _string_ | - |
 
 ### OpenType Props
 
@@ -276,14 +257,4 @@ function onClose() {
 |  onClose  | 弹窗关闭时触发 | event.detail: 触发关闭事件的来源，<br>枚举为`confirm`,`cancel`,`overlay` |
 |  onConfirm  | 点击确认按钮时触发 | - |
 |  onCancel  | 点击取消按钮时触发 | - |
-|  onGetuserinfo  | 点击确认按钮时，会返回获取到的用户信息，<br>从返回参数的 detail 中获取到的值同 wx.getUserInfo | - |
-|  onContact  | 客服消息回调 | - |
-|  onGetphonenumber  | 获取用户手机号回调 | - |
-|  onError  | 当使用开放能力时，发生错误的回调 | - |
-|  onOpensetting  | 在打开授权设置页后回调 | - |
 
-### Slot
-
-|  名称   | 说明                                                 |
-| ----- | ---------------------------------------------------- |
-|  title  | 自定义`title`显示内容，如果设置了`title`属性则不生效 |

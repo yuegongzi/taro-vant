@@ -26,7 +26,6 @@ export interface FieldProps extends StandardProps {
   showConfirmBar?: boolean
   disableDefaultPadding?: boolean
   size?: 'large'
-  icon?: string
   label?: string
   error?: boolean
   center?: boolean
@@ -50,12 +49,7 @@ export interface FieldProps extends StandardProps {
   border?: boolean
   titleWidth?: string
   clearIcon?: string
-  renderLeftIcon?: ReactNode
-  renderTitle?: ReactNode
-  renderInput?: ReactNode
-  renderRightIcon?: ReactNode
-  renderIcon?: ReactNode
-  renderButton?: ReactNode
+  button?: ReactNode
   onInput?: (e: ITouchEvent) => void
   onChange?: (e: ITouchEvent) => void
   onConfirm?: (e: ITouchEvent) => void

@@ -17,7 +17,7 @@ import { Notify } from "taro-vant";
 ### 基础用法
 
 ```js
-import { Notify } from 'vantui';
+import { Notify } from 'taro-vant';
 
 Notify.show('通知内容');
 ```
