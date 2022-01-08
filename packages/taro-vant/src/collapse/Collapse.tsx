@@ -8,7 +8,7 @@ import { createNamespace } from '../utils'
 
 const [ bem ] = createNamespace('collapse')
 
-export function Collapse(props: CollapseProps) {
+function Collapse(props: CollapseProps) {
   const {
     value,
     accordion = false,

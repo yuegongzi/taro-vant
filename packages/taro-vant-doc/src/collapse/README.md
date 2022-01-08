@@ -219,9 +219,9 @@ function onChange(event) {
 
 |  事件名  | 说明           | 参数                            |
 | ------ | -------------- | ------------------------------- |
-|  change  | 切换面板时触发 | activeNames: _string \| Array_  |
-|  open    | 展开面板时触发 | currentName: _string \| number_ |
-|  close   | 关闭面板时触发 | currentName: _string \| number_ |
+|  onChange  | 切换面板时触发 | activeNames: _string \| Array_  |
+|  onOpen    | 展开面板时触发 | currentName: _string \| number_ |
+|  onClose   | 关闭面板时触发 | currentName: _string \| number_ |
 
 ### CollapseItem Props
 
@@ -247,15 +247,4 @@ function onChange(event) {
 |  title       | 自定义`title`                 |
 |  rightIcon  | 自定义右侧按钮，默认是`arrow` |
 
-### Collapse 外部样式类
 
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
-
-### CollapseItem 外部样式类
-
-|  类名           | 说明         |
-| ------------- | ------------ |
-|  customClass   | 根节点样式类 |
-|  contentClass  | 内容样式类   |
