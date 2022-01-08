@@ -9,8 +9,8 @@ Layout 提供了`vanRow`和`vanCol`两个组件来进行行列布局。
 在 Taro 文件中引入组件
 
 ```js
-import { Row } from "packages/taro-vant";
-import { Col } from "packages/taro-vant"; 
+import { Row } from "taro-vant";
+import { Col } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -75,8 +75,7 @@ Layout 组件提供了`24列栅格`，通过在`Col`上添加`span`属性设置�
 </View>
  
 ```
-### ColProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/col.d.ts)   
-
+### ColProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | span | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `true` |

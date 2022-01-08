@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Icon } from "packages/taro-vant"; 
+import { Icon } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -106,15 +106,15 @@ import { Icon } from "packages/taro-vant";
 </View>
  
 ```
-### IconProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/icon.d.ts)   
-
+### IconProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | dot | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| info | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
+| badge | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
 | size | - | _&nbsp;&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>_ | - | `false` |
 | color | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | style | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | classPrefix | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | name | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| spin | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 

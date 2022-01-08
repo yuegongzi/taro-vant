@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { ConfigProvider } from "packages/taro-vant"; 
+import { ConfigProvider } from "taro-vant"; 
 ```
 
 ## 定制主题
@@ -136,8 +136,7 @@ function onChange(event) {
   });
 } 
 ```
-### ConfigProviderProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/config-provider.d.ts)   
-
+### ConfigProviderProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | themeVars | - | _&nbsp;&nbsp;Normal.IAnyObject<br/>_ | - | `true` |

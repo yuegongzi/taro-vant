@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Cell } from "packages/taro-vant";
-import { CellGroup } from "packages/taro-vant"; 
+import { Cell } from "taro-vant";
+import { CellGroup } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -203,8 +203,7 @@ import { CellGroup } from "packages/taro-vant";
 </View>
  
 ```
-### CellProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/cell.d.ts)   
-
+### CellProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | url | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
@@ -229,4 +228,13 @@ import { CellGroup } from "packages/taro-vant";
 | renderRightIcon | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 | renderExtra | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 | children | - | _&nbsp;&nbsp;ReactNode&nbsp;&brvbar;&nbsp;JSX.Element&nbsp;&brvbar;&nbsp;JSX.Element[]<br/>_ | - | `false` |
+| valueClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+
+### CellGroupProps
+| 参数 | 说明 | 类型 | 默认值 | 必填 |
+| --- | --- | --- | --- | --- |
+| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| inset | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 

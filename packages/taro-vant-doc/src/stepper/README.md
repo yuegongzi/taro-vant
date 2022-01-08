@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Stepper } from "packages/taro-vant"; 
+import { Stepper } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -165,8 +165,7 @@ function onChange(value) {
 </View>
  
 ```
-### StepperProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/stepper.d.ts)   
-
+### StepperProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | name | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
@@ -189,7 +188,7 @@ function onChange(value) {
 | theme | - | _&nbsp;&nbsp;"round"<br/>_ | - | `false` |
 | alwaysEmbed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 | onFocus | - | _&nbsp;&nbsp;CommonEventFunction<InputProps.inputForceEventDetail><br/>_ | - | `false` |
-| onChange | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onChange | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;string&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onBlur | - | _&nbsp;&nbsp;CommonEventFunction<InputProps.inputForceEventDetail><br/>_ | - | `false` |
 | onOverlimit | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onPlus | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |

@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { CountDown } from "packages/taro-vant"; 
+import { CountDown } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)。
@@ -165,16 +165,14 @@ function finished() {
   Toast('倒计时结束');
 } 
 ```
-### ICountDownRef [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/count-down.d.ts)   
-
+### ICountDownRef
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | start | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
 | pause | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
 | reset | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
 
-### ITimeData [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/count-down.d.ts)   
-
+### ITimeData
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | days | - | _&nbsp;&nbsp;number<br/>_ |
@@ -183,8 +181,7 @@ function finished() {
 | seconds | - | _&nbsp;&nbsp;number<br/>_ |
 | milliseconds | - | _&nbsp;&nbsp;number<br/>_ |
 
-### CountDownProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/count-down.d.ts)   
-
+### CountDownProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | millisecond | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

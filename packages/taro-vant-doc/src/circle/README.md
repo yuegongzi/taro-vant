@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Circle } from "packages/taro-vant"; 
+import { Circle } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -114,8 +114,7 @@ this.state = {
 </View>
  
 ```
-### CircleProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/circle.d.ts)   
-
+### CircleProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | text | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

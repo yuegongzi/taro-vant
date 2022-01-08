@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { ShareSheet } from "packages/taro-vant"; 
+import { ShareSheet } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -197,8 +197,7 @@ this.state = {
 ### ShareSheetOptionItem [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
 
 =======
-### ShareSheetOptionItem [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
-
+### ShareSheetOptionItem
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | name | - | _&nbsp;&nbsp;string<br/>_ |
@@ -206,16 +205,14 @@ this.state = {
 | description | - | _&nbsp;&nbsp;string<br/>_ |
 | openType | - | _&nbsp;&nbsp;string<br/>_ |
 
-### ShareSheetOption [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
-
+### ShareSheetOption
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | showBorder | - | _&nbsp;&nbsp;boolean<br/>_ |
 | options | - | _&nbsp;&nbsp;ShareSheetOptionItem[]<br/>_ |
 | onSelect | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;option:&nbsp;ShareSheetOptionItem,<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
 
-### ShareSheetProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/share-sheet.d.ts)   
-
+### ShareSheetProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

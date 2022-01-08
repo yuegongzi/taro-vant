@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Tab } from "packages/taro-vant";
-import { Tabs } from "packages/taro-vant"; 
+import { Tab } from "taro-vant";
+import { Tabs } from "taro-vant"; 
 ```
 
 ## 代码演示

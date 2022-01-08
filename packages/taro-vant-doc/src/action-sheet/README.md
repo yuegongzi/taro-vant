@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { ActionSheet } from "packages/taro-vant"; 
+import { ActionSheet } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -169,34 +169,32 @@ function onGetUserInfo(e) {
   console.log(e.detail);
 } 
 ```
-### ActionSheetItem [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/action-sheet.d.ts)   
-
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ |
-| subname | - | _&nbsp;&nbsp;string<br/>_ |
-| color | - | _&nbsp;&nbsp;string<br/>_ |
-| loading | - | _&nbsp;&nbsp;boolean<br/>_ |
-| disabled | - | _&nbsp;&nbsp;boolean<br/>_ |
-
-### ActionSheetProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/action-sheet.d.ts)   
-
+### ActionSheetProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| actions | - | _&nbsp;&nbsp;ActionSheetItem[]<br/>_ | - | `false` |
-| title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| cancelText | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| description | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| overlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickOverlay | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickAction | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| round | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onSelect | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;ITouchEvent&nbsp;&&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;ActionSheetItem<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onCancel | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickOverlay | - | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| actions | 操作列 | _&nbsp;&nbsp;ActionSheetItem[]<br/>_ | `[]` | `false` |
+| title | 标题 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| show | 是否显示动作面板 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| cancelText | 取消按钮文字 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| description | 选项上方的描述信息 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| overlay | 是否显示遮罩层 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| closeOnClickOverlay | 点击遮罩是否关闭菜单 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| closeOnClickAction | 是否在点击选项后关闭 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| round | 是否显示圆角 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
+| zIndex | z-index 层级 | _&nbsp;&nbsp;number<br/>_ | `100` | `false` |
+| children | 子节点 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+| onSelect | 选中选项时触发，禁用或加载状态下不会触发 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;ITouchEvent&nbsp;&&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;ActionSheetItem<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onCancel | 取消按钮点击时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onClose | 关闭时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onClickOverlay | 点击遮罩层时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+
+### ActionSheetItem
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| name | 标题 | _&nbsp;&nbsp;string<br/>_ |
+| subname | 二级标题 | _&nbsp;&nbsp;string<br/>_ |
+| color | 选项文字颜色 | _&nbsp;&nbsp;string<br/>_ |
+| loading | 是否为加载状态 | _&nbsp;&nbsp;boolean<br/>_ |
+| disabled | 是否为禁用状态 | _&nbsp;&nbsp;boolean<br/>_ |
 

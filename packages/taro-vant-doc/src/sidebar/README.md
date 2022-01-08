@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Sidebar } from "packages/taro-vant";
-import { SidebarItem } from "packages/taro-vant"; 
+import { Sidebar } from "taro-vant";
+import { SidebarItem } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -112,8 +112,7 @@ function onChange(event) {
   });
 } 
 ```
-### SidebarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/sidebar.d.ts)   
-
+### SidebarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | onChange | - | _&nbsp;&nbsp;(a:&nbsp;onChangeEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |

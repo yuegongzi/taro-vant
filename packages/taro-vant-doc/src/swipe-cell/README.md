@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { SwipeCell } from "packages/taro-vant"; 
+import { SwipeCell } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -116,8 +116,7 @@ import { SwipeCell } from "packages/taro-vant";
 ```js
  
 ```
-### SwipeCellProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/swipe-cell.d.ts)   
-
+### SwipeCellProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
@@ -134,8 +133,7 @@ import { SwipeCell } from "packages/taro-vant";
 | renderRight | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
 | children | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
 
-### ISwiperCellInstance [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/swipe-cell.d.ts)   
-
+### ISwiperCellInstance
 | 方法 | 说明 | 类型 |
 | --- | --- | --- |
 | open | - | _&nbsp;&nbsp;(position:&nbsp;"left"&nbsp;&brvbar;&nbsp;"right")&nbsp;=>&nbsp;void<br/>_ |

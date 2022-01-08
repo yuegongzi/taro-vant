@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Uploader } from "packages/taro-vant"; 
+import { Uploader } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -244,8 +244,7 @@ uploadFilePromise(fileName, chooseResult) {
   });
 }
 ```
-### UploaderProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/uploader.d.ts)   
-
+### UploaderProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
@@ -257,7 +256,7 @@ uploadFilePromise(fileName, chooseResult) {
 | previewSize | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
 | name | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |
 | accept | - | _&nbsp;&nbsp;attr:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"all"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"media"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"image"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"file"<br/>&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;"video"<br/>_ | - | `false` |
-| fileList | - | _&nbsp;&nbsp;Array<any><br/>_ | - | `false` |
+| fileList | - | _&nbsp;&nbsp;any[]<br/>_ | - | `false` |
 | maxSize | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
 | maxCount | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
 | deletable | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
@@ -266,8 +265,8 @@ uploadFilePromise(fileName, chooseResult) {
 | previewFullImage | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 | imageFit | - | _&nbsp;&nbsp;keyof&nbsp;ImageProps.mode&nbsp;&brvbar;&nbsp;undefined<br/>_ | - | `false` |
 | uploadIcon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| sizeType | - | _&nbsp;&nbsp;Array<string><br/>_ | - | `false` |
-| capture | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;Array<string><br/>_ | - | `false` |
+| sizeType | - | _&nbsp;&nbsp;string[]<br/>_ | - | `false` |
+| capture | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;string[]<br/>_ | - | `false` |
 | compressed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 | maxDuration | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |
 | camera | - | _&nbsp;&nbsp;"back"&nbsp;&brvbar;&nbsp;"front"<br/>_ | - | `false` |

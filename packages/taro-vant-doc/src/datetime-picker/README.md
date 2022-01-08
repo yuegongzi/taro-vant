@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { DatetimePicker } from "packages/taro-vant"; 
+import { DatetimePicker } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -179,8 +179,7 @@ this.state = {
 
 }; 
 ```
-### DatetimePickerProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/datetime-picker.d.ts)   
-
+### DatetimePickerProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | value | 选项的值 | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | null | `false` |
@@ -199,14 +198,12 @@ this.state = {
 | onConfirm | 点击完成按钮时触发的事件 | _&nbsp;&nbsp;(e:&nbsp;DatetimePickerEventsByValue)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onCancel | 点击取消按钮时触发的事件 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 
-### onInput、onConfirm的回掉参数 [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/datetime-picker.d.ts)   
-继承了@taro/components的ITouchEvent
+### onInput、onConfirm的回掉参数继承了@taro/components的ITouchEvent
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | detail | 选项的值 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;value?:&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;}<br/>_ |
 
-### onChange的回掉参数 [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/datetime-picker.d.ts)   
-
+### onChange的回掉参数
 | 方法 | 说明 | 类型 |
 | --- | --- | --- |
 | detail | 包含每项的值columns、当前时间innerValue、手动设置列数据setColumns、更新某列值updateColumnValue | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;datetimePicker:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;(string&nbsp;&brvbar;&nbsp;number)[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setColumns:&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;(string&nbsp;&brvbar;&nbsp;number)[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;=>&nbsp;(string&nbsp;&brvbar;&nbsp;number)[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;innerValue:&nbsp;Date<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updateColumnValue:&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;=>&nbsp;Promise<string><br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;}<br/>_ |

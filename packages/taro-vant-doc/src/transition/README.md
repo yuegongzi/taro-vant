@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Transition } from "packages/taro-vant"; 
+import { Transition } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -72,8 +72,7 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
   transform: rotate(-360deg) translate3d(-100%, -100%, 0);
 }
 ```
-### TransitionPropsCom [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/transition.d.ts)   
-
+### TransitionPropsCom
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |

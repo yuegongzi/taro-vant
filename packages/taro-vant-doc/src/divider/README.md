@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Divider } from "packages/taro-vant"; 
+import { Divider } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)。
@@ -99,8 +99,7 @@ import { Divider } from "packages/taro-vant";
 </View>
  
 ```
-### DividerProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/divider.d.ts)   
-
+### DividerProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | dashed | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

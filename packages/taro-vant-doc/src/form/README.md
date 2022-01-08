@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Form, FormItem } from "packages/taro-vant";
+import { Form, FormItem } from "taro-vant";
 ```
 
 ## 代码演示
@@ -260,50 +260,33 @@ class DatetimePickerBox extends Component {
   <DatetimePickerBox />
 </FormItem>
 ```
-### FormProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/form.d.ts)   
-
+### FormProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| form | 传入form实例（const formStore1 = useRef()） | _&nbsp;&nbsp;IFormInstanceAPI<br/>_ | - | `false` |
-| initialValues | 初始化表单仓库值 | _&nbsp;&nbsp;Record<string,&nbsp;any><br/>_ | - | `false` |
+| initialValues | 初始化表单仓库值 | _&nbsp;&nbsp;Store<br/>_ | - | `false` |
 | children | 第一级必须是FormItem组件 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
 | className | 类名 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| onFinish | 表单提交触发，配合button.formType = submit | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onFinishFailed | 表单提交失败触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| onFinish | 表单提交触发，配合button.formType = submit | _&nbsp;&nbsp;(values:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+| layout | 垂直 ｜ 水平 | _&nbsp;&nbsp;"vertical"&nbsp;&brvbar;&nbsp;"horizontal"<br/>_ | horizontal | `false` |
+| labelWidth | 标签宽度 | _&nbsp;&nbsp;string<br/>_ | 5.2em | `false` |
+| inset | - | _&nbsp;&nbsp;boolean<br/>_ | false | `false` |
+| border | - | _&nbsp;&nbsp;boolean<br/>_ | true | `false` |
+| form | - | _&nbsp;&nbsp;FormInstance<br/>_ | - | `false` |
 
-### FormItemProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/form.d.ts)   
-
+### FormItemProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| name | 对应表单字段名 | _&nbsp;&nbsp;string<br/>_ | - | `true` |
-| children | 第一级操作表单组件 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
-| label | 表单label | _&nbsp;&nbsp;ReactNode<br/>_ | - | `true` |
+| name | 对应表单字段名 | _&nbsp;&nbsp;NamePath<br/>_ | - | `true` |
+| children | 第一级操作表单组件 | _&nbsp;&nbsp;any<br/>_ | - | `true` |
+| label | 表单label | _&nbsp;&nbsp;string<br/>_ | - | `true` |
 | layout | 垂直 ｜ 水平 | _&nbsp;&nbsp;"vertical"&nbsp;&brvbar;&nbsp;"horizontal"<br/>_ | horizontal | `false` |
 | required | 是否必填 | _&nbsp;&nbsp;boolean<br/>_ | false | `false` |
-| validateTrigger | 验证表单触发方法名 | _&nbsp;&nbsp;string<br/>_ | onChange | `false` |
-| labelClassName | label的外层className | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| requiredClassName | required的外层className | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| controllClassName | 表单组件的外层className | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| labelClass | label的外层className | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | className | formItem最外层className | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| requiredIcon | 自定义必填标识 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| feedback | 验证后反馈的信息，可设置为校验成功、失败、都展示或隐藏 | _&nbsp;&nbsp;"success"&nbsp;&brvbar;&nbsp;"failed"&nbsp;&brvbar;&nbsp;"all"&nbsp;&brvbar;&nbsp;"hidden"<br/>_ | failed | `false` |
-| renderRight | 自定义渲染右边内容 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| trigger | 表单交互触发方法 | _&nbsp;&nbsp;string<br/>_ | onChange | `false` |
-| valueKey | 表单控制展示的具体值的字段名 | _&nbsp;&nbsp;string<br/>_ | value | `false` |
-| valueFormat | 根据表单交互回掉函数（时间）参数的重新定义 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;IFormInstance:&nbsp;IFormInstanceAPI<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;any<br/>_ | value | `false` |
-| rules | 正则校验值，或者自定义校验后call回掉函数返回错误信息 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;rule:<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;((<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;call:&nbsp;(errMess:&nbsp;string)&nbsp;=>&nbsp;void<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;=>&nbsp;void)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&brvbar;&nbsp;RegExp<br/>&nbsp;&nbsp;&nbsp;&nbsp;message?:&nbsp;string<br/>&nbsp;&nbsp;}<br/>_ | - | `false` |
-
-### IFormInstance [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/form.d.ts)   
-通过ref获取到的form的实例
-| 方法 | 说明 | 类型 |
-| --- | --- | --- |
-| registerValidateFields | 注册校验规则 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;control:&nbsp;Record<string,&nbsp;any>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;model:&nbsp;Record<string,&nbsp;any><br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
-| unRegisterValidate | 注册校验规则 | _&nbsp;&nbsp;(name:&nbsp;string)&nbsp;=>&nbsp;void<br/>_ |
-| resetFields | 重置表单 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
-| setFields | 设置多个表单值 | _&nbsp;&nbsp;(object:&nbsp;Record<string,&nbsp;any>)&nbsp;=>&nbsp;void<br/>_ |
-| setFieldsValue | 设置单个表单值 | _&nbsp;&nbsp;(name:&nbsp;string,&nbsp;modelValue:&nbsp;any)&nbsp;=>&nbsp;any<br/>_ |
-| getFieldsValue | 获取所有表单值 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ |
-| getFieldValue | 获取单个表单值 | _&nbsp;&nbsp;(name:&nbsp;string)&nbsp;=>&nbsp;any<br/>_ |
-| validateFields | 校验表单，并获取错误信息和所有表单值 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;callback:&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errorMess:&nbsp;Array<string>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values:&nbsp;Record<string,&nbsp;any><br/>&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
-| submit | 校验表单，并获取错误信息和所有表单值，触发form.onFinish和onFinishFailed | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;callback?:&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;errs:&nbsp;Array<string>&nbsp;&brvbar;&nbsp;null,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values:&nbsp;Record<string,&nbsp;string><br/>&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ |
+| right | 自定义渲染右边内容 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+| labelWidth | 标签宽度 | _&nbsp;&nbsp;string<br/>_ | 5.2em | `false` |
+| valuePropName | 表单控制展示的具体值的字段名 | _&nbsp;&nbsp;string<br/>_ | value | `false` |
+| rules | 正则校验值，或者自定义校验后call回掉函数返回错误信息 | _&nbsp;&nbsp;Rule[]<br/>_ | - | `false` |
+| hide | 隐藏该项 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
+| customField | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 

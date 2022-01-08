@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { IndexBar } from "packages/taro-vant";
-import { IndexAnchor } from "packages/taro-vant"; 
+import { IndexBar } from "taro-vant";
+import { IndexAnchor } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -68,8 +68,7 @@ this.state = {
   indexList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }; 
 ```
-### IndexBarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/index-bar.d.ts)   
-
+### IndexBarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | sticky | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

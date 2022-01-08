@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Steps } from "packages/taro-vant"; 
+import { Steps } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -115,8 +115,7 @@ this.state = {
 </View>
  
 ```
-### StepsProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/steps.d.ts)   
-
+### StepsProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | icon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

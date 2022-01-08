@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { NoticeBar } from "packages/taro-vant"; 
+import { NoticeBar } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -111,8 +111,7 @@ import { NoticeBar } from "packages/taro-vant";
 </View>
  
 ```
-### NoticeBarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/notice-bar.d.ts)   
-
+### NoticeBarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | text | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

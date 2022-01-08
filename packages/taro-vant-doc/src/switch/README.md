@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Switch } from "packages/taro-vant"; 
+import { Switch } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -123,8 +123,7 @@ function onChange({
   });
 } 
 ```
-### SwitchProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/switch.d.ts)   
-
+### SwitchProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | checked | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

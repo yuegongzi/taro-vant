@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Empty } from "packages/taro-vant"; 
+import { Empty } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -81,8 +81,7 @@ Empty 组件内置了多种占位图片类型，可以在不同业务场景下�
 </View>
  
 ```
-### EmptyProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/empty.d.ts)   
-
+### EmptyProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | description | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

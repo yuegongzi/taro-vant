@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Grid } from "packages/taro-vant";
-import { GridItem } from "packages/taro-vant"; 
+import { Grid } from "taro-vant";
+import { GridItem } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -192,8 +192,7 @@ import { GridItem } from "packages/taro-vant";
 </View>
  
 ```
-### GridProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/grid.d.ts)   
-
+### GridProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | square | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

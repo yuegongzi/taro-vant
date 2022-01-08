@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Calendar } from "packages/taro-vant"; 
+import { Calendar } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -338,15 +338,13 @@ this.state = {
   --calendarHeight: 500px;
 }
 ```
-### ICalendarInstance [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/calendar.d.ts)   
-
+### ICalendarInstance
 | 方法 | 说明 | 类型 |
 | --- | --- | --- |
 | reset | - | _&nbsp;&nbsp;(date?:&nbsp;Date&nbsp;&brvbar;&nbsp;Date[])&nbsp;=>&nbsp;void<br/>&nbsp;&nbsp;//<br/>_ |
 | scrollToDate | - | _&nbsp;&nbsp;(date:&nbsp;Date)&nbsp;=>&nbsp;void<br/>_ |
 
-### CalendarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/calendar.d.ts)   
-
+### CalendarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | title | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
@@ -383,6 +381,6 @@ this.state = {
 | onUnselect | - | _&nbsp;&nbsp;(e:&nbsp;CalendarEventsSingle)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onSelect | - | _&nbsp;&nbsp;(e:&nbsp;CalendarEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onClickSubtitle | - | _&nbsp;&nbsp;(a?:&nbsp;any)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| renderTitle | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
-| renderFooter | - | _&nbsp;&nbsp;React.ReactNode<br/>_ | - | `false` |
+| renderTitle | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+| renderFooter | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 

@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Toast } from "packages/taro-vant"; 
+import { Toast } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -96,8 +96,7 @@ Toast.show({
   },
 });
 ```
-### ToastProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/toast.d.ts)   
-
+### ToastProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | zIndex | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |

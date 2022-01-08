@@ -14,7 +14,7 @@ Tips: H5 中 ScrollView 组件是通过一个高度（或宽度）固定的容�
 
 ```js
 
-import { PowerScrollView } from 'packages/taro-vant';
+import { PowerScrollView } from 'taro-vant';
 
 const sleep = (t) =>
   new Promise((resolve) => {

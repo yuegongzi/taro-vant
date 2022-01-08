@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { TreeSelect } from "packages/taro-vant"; 
+import { TreeSelect } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -125,8 +125,7 @@ function onClickItem({
 </View>
  
 ```
-### TreeSelectProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/tree-select.d.ts)   
-
+### TreeSelectProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | items | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;badge?:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;dot?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;children?:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;number&nbsp;&brvbar;&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;}[]<br/>&nbsp;&nbsp;}[]<br/>_ | - | `false` |
@@ -139,4 +138,6 @@ function onClickItem({
 | onClickItem | - | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;TouchEvent&nbsp;&&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;string<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id:&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disabled?:&nbsp;boolean<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | onClickNav | - | _&nbsp;&nbsp;(event:&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;{&nbsp;index:&nbsp;number&nbsp;}<br/>&nbsp;&nbsp;})&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | renderContent | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
+| contentActiveClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
+| contentDisabledClass | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 

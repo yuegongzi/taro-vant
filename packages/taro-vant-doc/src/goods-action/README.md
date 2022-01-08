@@ -9,9 +9,9 @@
 在 Taro 文件中引入组件
 
 ```js
-import { GoodsAction } from "packages/taro-vant";
-import { GoodsActionIcon } from "packages/taro-vant";
-import { GoodsActionButton } from "packages/taro-vant"; 
+import { GoodsAction } from "taro-vant";
+import { GoodsActionIcon } from "taro-vant";
+import { GoodsActionButton } from "taro-vant"; 
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)。
@@ -152,8 +152,7 @@ function onClickButton() {
 </View>
  
 ```
-### GoodsActionProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/goods-action.d.ts)   
-
+### GoodsActionProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | safeAreaInsetBottom | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

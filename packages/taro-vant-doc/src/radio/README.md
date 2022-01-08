@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Radio } from "packages/taro-vant";
-import { RadioGroup } from "packages/taro-vant"; 
+import { Radio } from "taro-vant";
+import { RadioGroup } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -327,11 +327,9 @@ function onClick(event) {
   });
 } 
 ```
-### RadioProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/radio.d.ts)   
-
+### RadioProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| name | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
 | value | - | _&nbsp;&nbsp;any<br/>_ | - | `false` |
 | disabled | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 | checkedColor | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

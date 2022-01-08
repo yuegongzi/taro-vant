@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Button } from "packages/taro-vant"; 
+import { Button } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -246,8 +246,9 @@ import { Button } from "packages/taro-vant";
 </View>
  
 ```
-### ButtonProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/button.d.ts)   
 
+## API
+### ButtonProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | icon | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

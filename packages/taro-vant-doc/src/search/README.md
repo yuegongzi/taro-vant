@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Search } from "packages/taro-vant"; 
+import { Search } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -133,8 +133,7 @@ function onClick() {
   Toast('搜索' + this.data.value);
 } 
 ```
-### SearchProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/search.d.ts)   
-
+### SearchProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | value | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |

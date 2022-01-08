@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Field } from "packages/taro-vant"; 
+import { Field } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -228,8 +228,7 @@ this.state = {
 这是微信小程序的 input 组件本身的问题，如果需要兼容手写输入法的场景，可以在 `blur` 事件中取到输入的值。
 
 相关的讨论可以查看[微信开放社区](https://developers.weixin.qq.com/community/search?query=input%20%E6%89%8B%E5%86%99%E8%BE%93%E5%85%A5&page=1&block=1&random=1567079239098)。
-### FieldProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/field.d.ts)   
-
+### FieldProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | value | - | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | - | `false` |

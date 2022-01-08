@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Card } from "packages/taro-vant"; 
+import { Card } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -56,8 +56,7 @@ import { Card } from "packages/taro-vant";
 </View>
  
 ```
-### CardProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/card.d.ts)   
-
+### CardProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | tag | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

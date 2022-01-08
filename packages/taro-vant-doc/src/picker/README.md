@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Picker } from "packages/taro-vant"; 
+import { Picker } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -167,8 +167,7 @@ this.state = {
 </View>
  
 ```
-### PickerProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/picker.d.ts)   
-
+### PickerProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | valueKey | 选项为对象的时候，文字对应的 key | _&nbsp;&nbsp;string<br/>_ | text | `false` |
@@ -186,20 +185,17 @@ this.state = {
 | onConfirm | 确认触发方法 | _&nbsp;&nbsp;(e:&nbsp;PickerEvents)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
 | showToolbar | 是否显示顶部栏 | _&nbsp;&nbsp;boolean<br/>_ | false | `false` |
 
-### 事件 onConfirm 和 onCancel [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/picker.d.ts)   
-继承了Taro的ITouchEvent类型
+### 事件 onConfirm 和 onCancel继承了Taro的ITouchEvent类型
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | detail | 返回选项对应的值和选项对应的下标 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;}<br/>_ |
 
-### 触发事件 onChange [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/picker.d.ts)   
-继承了Taro的ITouchEvent类型
+### 触发事件 onChange继承了Taro的ITouchEvent类型
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | detail | 返回选项对应的值、picker实例和多列返回当前第多少列、单列返回选项对应值 | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;value:&nbsp;number&nbsp;&brvbar;&nbsp;number[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;picker:&nbsp;IPickerInstance<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;}<br/>_ |
 
-### 组件实例 [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/picker.d.ts)   
-通过ref获取到的方法如下
+### 组件实例通过ref获取到的方法如下
 | 方法 | 说明 | 类型 |
 | --- | --- | --- |
 | setColumnValues | 设置每一列的值 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number,<br/>&nbsp;&nbsp;&nbsp;&nbsp;options:&nbsp;string[]<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;Promise<any><br/>_ |

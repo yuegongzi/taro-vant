@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Dialog } from "packages/taro-vant"; 
+import { Dialog } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -165,8 +165,7 @@ function onClose() {
   });
 } 
 ```
-### DialogProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/dialog.d.ts)   
-
+### DialogProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | show | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |

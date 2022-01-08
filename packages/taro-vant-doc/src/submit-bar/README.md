@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { SubmitBar } from "packages/taro-vant"; 
+import { SubmitBar } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -88,8 +88,7 @@ import { SubmitBar } from "packages/taro-vant";
 </View>
  
 ```
-### SubmitBarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/submit-bar.d.ts)   
-
+### SubmitBarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | tip | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |

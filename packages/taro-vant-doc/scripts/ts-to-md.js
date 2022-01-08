@@ -6,7 +6,6 @@ const markdownToAst = require('markdown-to-ast')
 const astToMarkdown = require('ast-to-markdown')
 const ora = require('../node_modules/ora/index')
 
-const GITHUB_TYPESHS = `https://github.com/AntmJS/vantui/tree/main/packages/vantui/types`
 const READMES_PATH = `${path.resolve(process.cwd(), './src/**/README.md')}`
 const spinner = ora(`文档 API 同步开始`)
 
@@ -16,17 +15,16 @@ glob(READMES_PATH,
       const componentName = item.split('/').reverse()[1]
       let content = fs.readFileSync(item, 'utf-8')
       spinner.start(`${componentName}文档 API 同步中...`)
-
       if (content) {
         content = removeOldTable(content)
       }
-
+      const typeFile = `../taro-vant/src/${componentName}/PropsType.ts`;
       if (
-        fs.existsSync(`../vantui/types/${componentName}.d.ts`) &&
-        componentName !== 'index' && componentName!== 'power-scroll-view'
+        fs.existsSync(typeFile) &&
+        componentName !== 'index'
       ) {
         let tsInfo = fs.readFileSync(
-          `../vantui/types/${componentName}.d.ts`,
+          typeFile,
           'utf-8',
         )
         const res = parser(tsInfo)
@@ -49,9 +47,7 @@ function createMd(obj, compName) {
       `### ${item['title__'] && typeof item['title__'] === 'string'
         ? item['title__']
         : Dkey
-      }` +
-      ` [[详情]](${GITHUB_TYPESHS}/${compName}.d.ts)
-`
+      }`
     mdRes += `${item['description__'] || ''}
 `
     let header = `| 参数 | 说明 | 类型 | 默认值 | 必填 |

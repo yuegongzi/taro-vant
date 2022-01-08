@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Tabbar } from "packages/taro-vant";
-import { TabbarItem } from "packages/taro-vant"; 
+import { Tabbar } from "taro-vant";
+import { TabbarItem } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -276,8 +276,7 @@ function onClick(event) {
 ### 结合自定义 tabBar
 
 请参考 [微信官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/customTabbar.html) 与 [代码片段](https://developers.weixin.qq.com/s/vaXgTsmQ7hnm)。
-### TabbarProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/tabbar.d.ts)   
-
+### TabbarProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | active | - | _&nbsp;&nbsp;number<br/>_ | - | `false` |

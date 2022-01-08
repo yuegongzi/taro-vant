@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Collapse } from "packages/taro-vant";
-import { CollapseItem } from "packages/taro-vant"; 
+import { Collapse } from "taro-vant";
+import { CollapseItem } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -204,14 +204,13 @@ function onChange(event) {
   });
 } 
 ```
-### CollapseProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/collapse.d.ts)   
-
+### CollapseProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
-| value | - | _&nbsp;&nbsp;Array<string&nbsp;&brvbar;&nbsp;number><br/>_ | - | `false` |
+| value | - | _&nbsp;&nbsp;(string&nbsp;&brvbar;&nbsp;number)[]<br/>_ | - | `false` |
 | accordion | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
 | border | - | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;Array<ReactNode><br/>_ | - | `false` |
+| children | - | _&nbsp;&nbsp;ReactNode[]<br/>_ | - | `false` |
 | onChange | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 | onOpen | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |
 | onClose | - | _&nbsp;&nbsp;(event:&nbsp;ITouchEvent)&nbsp;=>&nbsp;any<br/>_ | - | `false` |

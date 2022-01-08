@@ -9,7 +9,7 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Tag } from "packages/taro-vant"; 
+import { Tag } from "taro-vant"; 
 ```
 
 ## 代码演示
@@ -235,8 +235,7 @@ function onClose(event) {
   });
 } 
 ```
-### TagProps [[详情]](https://github.com/AntmJS/vantui/tree/main/packages/vantui/types/tag.d.ts)   
-
+### TagProps
 | 参数 | 说明 | 类型 | 默认值 | 必填 |
 | --- | --- | --- | --- | --- |
 | size | - | _&nbsp;&nbsp;"large"&nbsp;&brvbar;&nbsp;"medium"<br/>_ | - | `false` |
