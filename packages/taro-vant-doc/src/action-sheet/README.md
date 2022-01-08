@@ -169,32 +169,41 @@ function onGetUserInfo(e) {
   console.log(e.detail);
 } 
 ```
-### ActionSheetProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| actions | 操作列 | _&nbsp;&nbsp;ActionSheetItem[]<br/>_ | `[]` | `false` |
-| title | 标题 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| show | 是否显示动作面板 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| cancelText | 取消按钮文字 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| description | 选项上方的描述信息 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| overlay | 是否显示遮罩层 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickOverlay | 点击遮罩是否关闭菜单 | _&nbsp;&nbsp;boolean<br/>_ | - | `false` |
-| closeOnClickAction | 是否在点击选项后关闭 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
-| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
-| round | 是否显示圆角 | _&nbsp;&nbsp;boolean<br/>_ | `true` | `false` |
-| zIndex | z-index 层级 | _&nbsp;&nbsp;number<br/>_ | `100` | `false` |
-| children | 子节点 | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
-| onSelect | 选中选项时触发，禁用或加载状态下不会触发 | _&nbsp;&nbsp;(<br/>&nbsp;&nbsp;&nbsp;&nbsp;event:&nbsp;ITouchEvent&nbsp;&&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;detail:&nbsp;ActionSheetItem<br/>&nbsp;&nbsp;&nbsp;&nbsp;}<br/>&nbsp;&nbsp;)&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onCancel | 取消按钮点击时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClose | 关闭时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
-| onClickOverlay | 点击遮罩层时触发 | _&nbsp;&nbsp;()&nbsp;=>&nbsp;void<br/>_ | - | `false` |
+## API
 
-### ActionSheetItem
-| 参数 | 说明 | 类型 |
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| show | 是否显示动作面板 | _boolean_ | - |
+| actions | 菜单选项 | _Array_ | `[]` |
+| title | 标题 | _string_ | - |
+| description `v1.0.0` | 选项上方的描述信息 | _string_ | - |
+| zIndex | z-index 层级 | _number_ | `100` |
+| cancelText | 取消按钮文字 | _string_ | - |
+| overlay | 是否显示遮罩层 | _boolean_ | - |
+| round `v1.0.0` | 是否显示圆角 | _boolean_ | `true` |
+| closeOnClickAction | 是否在点击选项后关闭 | _boolean_ | `true` |
+| closeOnClickOverlay | 点击遮罩是否关闭菜单 | _boolean_ | - |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
+
+### Events
+
+| 事件名 | 说明 | 参数 |
 | --- | --- | --- |
-| name | 标题 | _&nbsp;&nbsp;string<br/>_ |
-| subname | 二级标题 | _&nbsp;&nbsp;string<br/>_ |
-| color | 选项文字颜色 | _&nbsp;&nbsp;string<br/>_ |
-| loading | 是否为加载状态 | _&nbsp;&nbsp;boolean<br/>_ |
-| disabled | 是否为禁用状态 | _&nbsp;&nbsp;boolean<br/>_ |
+| onSelect | 选中选项时触发，禁用或加载状态下不会触发 | event.detail: 选项对应的对象 |
+| onClose | 关闭时触发 | - |
+| onCancel | 取消按钮点击时触发 | - |
+| onClickOverlay | 点击遮罩层时触发 | - |
 
+### actions
+
+`API`中的`actions`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`：
+
+| 键名 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| name | 标题 | _string_ | - |
+| subname | 二级标题 | _string_ | - |
+| color | 选项文字颜色 | _string_ | - |
+| loading | 是否为加载状态 | _boolean_ | - |
+| disabled | 是否为禁用状态 | _boolean_ | - |

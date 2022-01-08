@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "taro-vant 文档",
   "scripts": {
-    "dev": "node ./scripts/ts-to-md && npx vant-cli dev",
+    "dev": "npx vant-cli dev",
     "test:coverage": "open test/coverage/index.html",
     "build": "node ./scripts/ts-to-md && sh ./build.sh",
     "release": "npx gh-pages -d site",

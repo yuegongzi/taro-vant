@@ -248,23 +248,34 @@ import { Button } from "taro-vant";
 ```
 
 ## API
-### ButtonProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| icon | 图标 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| classPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix](#/icon) 属性 | _&nbsp;&nbsp;string<br/>_ | `van-icon` | `false` |
-| type | 按钮类型, 可选值为 `primary` `info` `warning` `danger` | _&nbsp;&nbsp;ButtonType<br/>_ | `default` | `false` |
-| size | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _&nbsp;&nbsp;ButtonSize<br/>_ | `normal` | `false` |
-| block | 是否为块级元素 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| round | 是否为圆形按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| square | 是否为方形按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| loading | 是否显示为加载状态 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| hairline | 是否使用 0.5px 边框 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| disabled | 是否禁用按钮 | _&nbsp;&nbsp;boolean<br/>_ | `false` | `false` |
-| loadingText | 加载状态提示文字 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| loadingSize | 加载图标大小 | _&nbsp;&nbsp;string<br/>_ | `40px` | `false` |
-| loadingType | 加载状态图标类型 | _&nbsp;&nbsp;"spinner"&nbsp;&brvbar;&nbsp;"circular"<br/>_ | - | `false` |
-| color | 按钮颜色，支持传入`linear-gradient`渐变色 | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| style | - | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| children | - | _&nbsp;&nbsp;ReactNode<br/>_ | - | `false` |
 
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 按钮类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
+| size | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _string_ | `normal` |
+| color `v1.0.0` | 按钮颜色，支持传入`linear-gradient`渐变色 | _string_ | - |
+| icon | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+| classPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon) | _string_ | `van-icon` |
+| plain | 是否为朴素按钮 | _boolean_ | `false` |
+| block | 是否为块级元素 | _boolean_ | `false` |
+| round | 是否为圆形按钮 | _boolean_ | `false` |
+| square | 是否为方形按钮 | _boolean_ | `false` |
+| disabled | 是否禁用按钮 | _boolean_ | `false` |
+| hairline | 是否使用 0.5px 边框 | _boolean_ | `false` |
+| loading | 是否显示为加载状态 | _boolean_ | `false` |
+| loadingText | 加载状态提示文字 | _string_ | - |
+| loadingType | 加载状态图标类型，可选值为 `spinner` | _string_ | `circular` |
+| loadingSize | 加载图标大小 | _string_ | `20px` |
+
+### Events
+
+| 事件名 | 说明 | 参数 |
+| --- | --- | --- |
+| bind:click | 点击按钮，且按钮状态不为加载或禁用时触发 | - |
+| bind:getuserinfo | 用户点击该按钮时，会返回获取到的用户信息，<br>从返回参数的 detail 中获取到的值同 wx.getUserInfo | - |
+| bind:contact | 客服消息回调 | - |
+| bind:getphonenumber | 获取用户手机号回调 | - |
+| bind:error | 当使用开放能力时，发生错误的回调 | - |
+| bind:opensetting | 在打开授权设置页后回调 | - |

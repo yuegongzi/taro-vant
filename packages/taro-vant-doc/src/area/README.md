@@ -136,25 +136,27 @@ db.collection('region')
   });
 ```
 
-## API 
-### AreaProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| value | 当前选中的省市区`code` | _&nbsp;&nbsp;string<br/>_ | - | `false` |
-| areaList | 省市区数据，格式见下方 | _&nbsp;&nbsp;AreaList<br/>_ | - | `false` |
-| columnsNum | 省市区显示列数，3-省市区，2-省市，1-省 | _&nbsp;&nbsp;string&nbsp;&brvbar;&nbsp;number<br/>_ | `3` | `false` |
-| columnsPlaceholder | 列占位提示文字 | _&nbsp;&nbsp;string[]<br/>_ | `[]` | `false` |
-| onChange | 选项改变时触发 | _&nbsp;&nbsp;(event:&nbsp;Event)&nbsp;=>&nbsp;void<br/>_ | - | `true` |
+## API
 
-### AreaList
-| 参数 | 说明 | 类型 |
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| value | 当前选中的省市区`code` | _string_ | - |
+| title | 顶部栏标题 | _string_ | - |
+| areaList | 省市区数据，格式见下方 | _object_ | - |
+| columnsNum | 省市区显示列数，3-省市区，2-省市，1-省 | _string \| number_ | `3` |
+| columnsPlaceholder | 列占位提示文字 | _string[]_ | `[]` |
+| loading | 是否显示加载状态 | _boolean_ | `false` |
+| itemHeight | 选项高度 | _number_ | `44` |
+| visibleItemCount | 可见的选项个数 | _number_ | `6` |
+| confirmButtonText | 确认按钮文字 | _string_ | `确认` |
+| cancelButtonText | 取消按钮文字 | _string_ | `取消` |
+
+### Events
+
+| 事件 | 说明 | 回调参数 |
 | --- | --- | --- |
-| province_list | 省份数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
-| city_list | 城市数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
-| county_list | 区域数据 | _&nbsp;&nbsp;Record<number&nbsp;&brvbar;&nbsp;string,&nbsp;string><br/>_ |
-
-### Event
-| 参数 | 说明 | 类型 |
-| --- | --- | --- |
-| detail | - | _&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;values:&nbsp;number[]&nbsp;&brvbar;&nbsp;string[]<br/>&nbsp;&nbsp;&nbsp;&nbsp;picker:&nbsp;IPickerInstance<br/>&nbsp;&nbsp;&nbsp;&nbsp;index:&nbsp;number<br/>&nbsp;&nbsp;}<br/>_ |
-
+| onConfirm | 点击右上方完成按钮 | 一个数组参数，具体格式看下方数据格式章节 |
+| onCancel | 点击取消按钮时 | - |
+| onChange | 选项改变时触发 | Picker 实例，所有列选中值，当前列对应的索引 |
