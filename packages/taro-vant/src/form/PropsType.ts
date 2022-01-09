@@ -11,9 +11,7 @@ export interface FormProps extends StandardProps {
 
   className?: string
 
-  onFinish?: (values: any) => void
-
-  layout?: 'vertical' | 'horizontal'
+  onFinish: (values: any) => Promise<boolean>
 
   labelWidth?: string;
 
@@ -22,6 +20,10 @@ export interface FormProps extends StandardProps {
   border?: boolean
 
   form?: FormInstance
+
+  submitter?: boolean,
+
+  buttonProps?: Record<any, any>
 }
 
 
@@ -33,16 +35,15 @@ export interface FormItemProps extends StandardProps {
 
   label: string
 
-  layout?: 'vertical' | 'horizontal'
+  labelClass?: string
 
   required?: boolean
 
-  labelClass?: string
-
   className?: string
 
-  right?: ReactNode
+  rightIcon?: ReactNode | string;
 
+  type?: 'tel' | 'bank' | 'idcard'
 
   labelWidth?: string;
 

@@ -1,7 +1,8 @@
 import Label from './label'
 import Message from './message'
 import { View } from '@tarojs/components'
-import { createNamespace } from '../../utils'
+import Icon from '../../icon'
+import { createNamespace, ele } from '../../utils'
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
 
@@ -11,11 +12,11 @@ type FormItemLayoutProps = {
   layout?: 'vertical' | 'horizontal',
   label?: string;
   required?: boolean;
-  labelClass?: string;
   className?: string;
+  labelClass?: string;
   errorMessage?: string;
   children?: ReactNode
-  right?: ReactNode,
+  rightIcon?: string | ReactNode,
   titleWidth?: string;
 }
 
@@ -24,24 +25,25 @@ export default (props: FormItemLayoutProps) => {
     layout = 'horizontal',
     label,
     required = false,
-    labelClass = '',
     className = '',
+    labelClass,
     errorMessage,
     titleWidth,
-    right,
+    rightIcon,
   } = props
   return (<View className={clsx(bem('wrapper'))}>
       <View className={clsx(bem([ layout ]), className)}>
         <Label
-          required={required}
           className={labelClass}
+          required={required}
           titleWidth={titleWidth}
           label={label} />
         <View className={clsx(bem('control'))}>
           <View className={clsx(bem('control-item'))}>
             {props.children}
             <View className={clsx(bem('right'))}>
-              {right}
+              {/* @ts-ignore*/}
+              {ele(rightIcon,<Icon name={rightIcon}/>)}
             </View>
           </View>
           <Message errorMessage={errorMessage} />

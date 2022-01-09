@@ -29,9 +29,10 @@ export default () => {
   const [ form ] = Form.useForm()
   return (
     <DemoPage title='Form 表单'>
-      <Dialog id='vanDialog' />
+      <DemoBlock title='基础用法'>
       <Form
         form={form}
+        inset
         initialValues={{
           name: '我是初始值',
           singleSelect: '1',
@@ -39,14 +40,21 @@ export default () => {
           slider: 50,
           stepper: 5,
         }}
-        onFinish={(e) => console.info(e)}
+        onFinish={(e) => {
+            return new Promise(resolve => {
+              console.log(e)
+              setTimeout(()=>{
+                  resolve()
+              },2000)
+            })
+        }}
       >
-        <DemoBlock title='基础用法'>
+
           <FormItem
             label='用户名'
             name='name'
             required={true}
-            right={<Icon name='user-o' />}
+            rightIcon='user-o'
           >
             <Field placeholder='请输入用户名（中文）' />
           </FormItem>
@@ -55,7 +63,7 @@ export default () => {
             label='密码'
             name='password'
             required={true}
-            right={<Icon name='eye-o' />}
+            rightIcon={<Icon name='eye-o' />}
           >
             <Input placeholder='请输入密码' type='password' />
           </FormItem>
@@ -100,9 +108,6 @@ export default () => {
           <FormItem label='步进器' name='stepper'>
             <Stepper />
           </FormItem>
-        </DemoBlock>
-
-        <DemoBlock title='异步处理和自定义校验'>
           <FormItem
             name='file'
             layout='vertical'
@@ -110,9 +115,6 @@ export default () => {
           >
             <Uploader name='file1' />
           </FormItem>
-        </DemoBlock>
-
-        <DemoBlock title='自定义组件'>
           <FormItem
             label='日期选择'
             customField
@@ -121,24 +123,8 @@ export default () => {
           >
             <DatetimePickerBox />
           </FormItem>
-
-          <View style={{ marginBottom: '100px' }} />
-
-          <View className='van-button-submit-box'>
-            <Button
-              type='primary'
-              className='van-button-submit'
-              onClick={() => {
-                form.submit()
-                console.log(form)
-              }}
-              formType='submit'
-            >
-              提交
-            </Button>
-          </View>
-        </DemoBlock>
       </Form>
+      </DemoBlock>
     </DemoPage>
   )
 }

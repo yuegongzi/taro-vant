@@ -3,9 +3,12 @@ import RcForm , { useForm } from 'rc-field-form'
 import type { FormProps } from './PropsType'
 import FormContext from './formContext'
 import Cell from '../cell'
+import Button from '../button'
 import message from './message'
 import { createNamespace } from '../utils'
 import clsx from 'clsx'
+import { View } from '@tarojs/components'
+import { useState } from 'react'
 
 const [ bem ] = createNamespace('form')
 
@@ -16,17 +19,21 @@ function Form(props: FormProps): JSX.Element {
     onFinish,
     children,
     labelWidth = '5.2em',
-    layout,
     inset = false,
     border = true,
     form,
+    submitter = true,
+    buttonProps,
     ...options
   } = props
-  const _onFinish = (values: any) => {
-    onFinish?.(values)
+  const [ loading,setLoading ] = useState<boolean>(false)
+  const _onFinish = async (values: any) => {
+    setLoading(true)
+    await onFinish(values)
+    setLoading(false)
   }
 
-  return (<FormContext.Provider value={{ labelWidth, layout }}>
+  return (<FormContext.Provider value={{ labelWidth }}>
       {/*@ts-ignore*/}
       <RcForm
         {...options}
@@ -39,8 +46,16 @@ function Form(props: FormProps): JSX.Element {
         <Cell.Group inset={inset} border={border}>
           {children}
         </Cell.Group>
-
       </RcForm>
+      {submitter && (
+        <View className={clsx(bem('submitter',{ inset }))}>
+          <Button type='primary'
+                  loading={loading}
+                  disabled={loading}
+                  onClick={()=>form?.submit()}
+                  round block {...buttonProps}>提 交</Button>
+        </View>
+      )}
     </FormContext.Provider>
   )
 }

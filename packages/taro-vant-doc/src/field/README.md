@@ -265,6 +265,7 @@ this.state = {
 |  autosize  | 是否自适应内容高度，只对 textarea 有效，<br>可传入对象,如 { maxHeight: 100, minHeight: 50 }，<br>单位为`px` | _boolean \| object_ | `false` |
 |  leftIcon  | 左侧图标 | _ReactNode\|string_ | - |
 |  rightIcon  | 右侧图标 | _ReactNode\|string_ | - |
+|  button  | 右侧按钮 | _ReactNode_ | - |
 |  confirmType  | 设置键盘右下角按钮的文字，仅在 type='text' 时生效 | _string_ | `done` |
 |  confirmHold  | 点击键盘右下角按钮时是否保持键盘不收起，在 type='textarea' 时无效 | _boolean_ | `false` |
 |  holdKeyboard  | focus 时，点击页面的时候不收起键盘 | _boolean_ | `false` |
