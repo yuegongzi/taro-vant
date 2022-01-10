@@ -10,7 +10,6 @@ export type PullRefreshStatus =
   | 'success'
 
 interface PullRefreshProps {
-  disabled?: boolean
   headHeight?: number | string
   successText?: string
   pullingText?: string
@@ -34,18 +33,10 @@ export interface ListProps
   empty?: boolean
   errorText?: string| React.ReactNode
   finishedText?: string | React.ReactNode
-  immediateCheck?: boolean
   emptyDescription?: string
   emptyImage?: 'error' | 'search' | 'default' | 'network' | string
   onLoad?: () => Promise<void>
   onRefresh?: () => Promise<void>
-  // Scroll
-  // onScrollToUpper?: (
-  //   event: T extends number ? number : eventType,
-  // ) => Promise<void>
-  // onScrollToLower?: (
-  //   event: T extends number ? number : eventType,
-  // ) => Promise<void>
 }
 
 declare const List: ComponentClass<ListProps>

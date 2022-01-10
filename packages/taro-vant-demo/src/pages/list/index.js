@@ -1,10 +1,9 @@
-import { Component, useState } from 'react'
-import { Text, View } from '@tarojs/components'
-import { Button, Cell, Image, Loading, List, Search, Tabs, Tag } from 'taro-vant'
+import { useState } from 'react'
+import { Cell, Image, List, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import './index.scss'
 
-const Tab = Tabs.Tab;
+const Tab = Tabs.Tab
 const sleep = (t) =>
   new Promise((resolve) => {
     setTimeout(() => {
@@ -54,7 +53,8 @@ export default ()=>{
           </List>
         </Tab>
         <Tab title='错误提示' key='error' >
-          <List onRefresh={()=>onErrorLoad(true)}
+          <List onRefresh={() => onErrorLoad(true)}
+                headHeight='80'
                 onLoad={onErrorLoad} finished={list1.length > 100}
                 header={({ status, distance }) => {
                   if (status === 'pulling') {
@@ -84,10 +84,13 @@ export default ()=>{
                   }
                 }}
           >
-            {list1.map((item,index)=>(
-              <Cell title='数据列表' key={index} value={item}/>
+            {list1.map((item, index) => (
+              <Cell title='数据列表' key={index} value={item} />
             ))}
           </List>
+        </Tab>
+        <Tab key='search' title='无数据' >
+          <List empty refresherEnabled={false}/>
         </Tab>
       </Tabs>
     </DemoPage>
