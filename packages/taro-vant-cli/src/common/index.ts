@@ -1,11 +1,9 @@
 import type { InlineConfig } from 'vite'
 import { join, sep } from 'path'
-// eslint-disable-next-line import/default
 import fse from 'fs-extra'
 import { get } from 'lodash-es'
 import { getVantConfig, SRC_DIR } from './constant.js'
 
-// eslint-disable-next-line import/no-named-as-default-member
 const { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } = fse
 
 export const EXT_REGEXP = /\.\w+$/
@@ -15,7 +13,7 @@ export const TEST_REGEXP = new RegExp('\\' + sep + 'test$')
 export const ASSET_REGEXP = /\.(png|jpe?g|gif|webp|ico|jfif|svg|woff2?|ttf)$/i
 export const STYLE_REGEXP = /\.(css|less|scss)$/
 export const SCRIPT_REGEXP = /\.(js|ts|jsx|tsx)$/
-export const ENTRY_EXTS = [ 'js', 'ts', 'tsx', 'jsx', 'vue' ]
+export const ENTRY_EXTS = [ 'js', 'ts', 'tsx', 'jsx' ]
 
 export function removeExt(path: string) {
   return path.replace('.js', '')

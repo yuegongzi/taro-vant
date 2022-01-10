@@ -110,6 +110,7 @@
     "up": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
+    "@antmjs/mini-fix": "1.17.2",
     "@babel/runtime-corejs3": "7.16.7",
     "@tarojs/components": "3.3.19",
     "@tarojs/react": "3.3.19",
@@ -123,6 +124,8 @@
     "taro-vant": "^0.0.1"
   },
   "devDependencies": {
+    "@antmjs/iconfont": "1.17.2",
+    "@antmjs/plugin-mini-fix": "1.17.2",
     "@babel/core": "7.16.7",
     "@tarojs/cli": "3.3.19",
     "@tarojs/mini-runner": "3.3.19",

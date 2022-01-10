@@ -1,10 +1,9 @@
-/* eslint-disable import/default */
 import { join, relative } from 'path'
 // import execa from 'execa'
 import fse from 'fs-extra'
 import { CSS_LANG } from '../common/css.js'
 import { consola, ora } from '../common/logger.js'
-import { installDependencies } from '../common/manager.js'
+// import { installDependencies } from '../common/manager.js'
 // import { compileSfc } from '../compiler/compile-sfc.js'
 import { compileStyle } from '../compiler/compile-style.js'
 import { compileScript } from '../compiler/compile-script.js'
@@ -17,7 +16,6 @@ import { genPackageStyle } from '../compiler/gen-package-style.js'
 import { isAsset, isDir, isScript, isStyle, setBuildTarget, setModuleEnv, setNodeEnv } from '../common/index.js'
 import { clean } from './clean.js'
 
-// eslint-disable-next-line import/no-named-as-default-member
 const { remove, copy, readdir } = fse
 
 async function compileFile(filePath: string) {
@@ -94,10 +92,10 @@ async function buildCJSOutputs() {
 }
 
 async function buildTypeDeclarations() {
-  // await Promise.all([preCompileDir(ES_DIR), preCompileDir(LIB_DIR)])
-  // const tsConfig = join(process.cwd(), 'tsconfig.declaration.json')
-  // if (existsSync(tsConfig)) {
-  //   await execa('tsc', ['-p', tsConfig])
+  // const tsConfig = join(process.cwd(), 'tsconfig.declaration.json');
+  //
+  // if (fse.existsSync(tsConfig)) {
+  //   await execa('tsc', [ '-p', tsConfig ]);
   // }
 }
 
@@ -107,19 +105,15 @@ async function buildStyleEntry() {
 }
 
 async function buildPackageScriptEntry(types?: 'lib' | 'es') {
+  console.log(`buildPackageScriptEntry ${types}`)
   const esEntryFile = join(ES_DIR, 'index.js')
   const libEntryFile = join(LIB_DIR, 'index.js')
+  genPackageEntry({
+    outputPath: esEntryFile,
+    pathResolver: (path: string) => `./${relative(SRC_DIR, path)}`,
+  })
 
-  if (!types || types === 'es') {
-    genPackageEntry({
-      outputPath: esEntryFile,
-      pathResolver: (path: string) => `./${relative(SRC_DIR, path)}`,
-    })
-  }
-
-  if (!types || types === 'lib') {
-    await copy(esEntryFile, libEntryFile)
-  }
+  await copy(esEntryFile, libEntryFile)
 }
 
 async function buildPackageStyleEntry() {
@@ -210,7 +204,7 @@ export async function build(params: { type?: 'es' | 'lib' }) {
 
   try {
     await clean()
-    await installDependencies()
+    // await installDependencies()
     await runBuildTasks(params.type)
   } catch (err) {
     consola.error('Build failed')

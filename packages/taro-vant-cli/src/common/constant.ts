@@ -39,7 +39,7 @@ export const STYLE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json')
 // Config files
 export const POSTCSS_CONFIG_FILE = join(CJS_DIR, 'postcss.config.cjs')
 
-export const SCRIPT_EXTS = [ '.js', '.jsx', '.vue', '.ts', '.tsx' ]
+export const SCRIPT_EXTS = [ '.js', '.jsx',  '.ts', '.tsx' ]
 export const STYLE_EXTS = [ '.css', '.less', '.scss' ]
 
 export function getPackageJson() {

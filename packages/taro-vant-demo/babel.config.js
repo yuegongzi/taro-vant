@@ -63,8 +63,10 @@ module.exports = {
       {
         libraryName: 'taro-vant',
         libraryDirectory: 'es',
-        style: (name) => `${name}/style/less`,
-        // style: true,
+        // style: (name) => {
+        //   return `${name}/style/index.js`
+        // },
+        style: true,
       },
       'taro-vant',
     ],
