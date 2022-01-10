@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Button, View } from '@tarojs/components'
 import { useCallback } from 'react'
 import Options from './options'

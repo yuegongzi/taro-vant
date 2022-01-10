@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { View } from '@tarojs/components'
 import { computedStyle, createNamespace, getRect, isDef, Sticky as InnerSticky } from '../utils'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
 import { Block, Button, View } from '@tarojs/components'

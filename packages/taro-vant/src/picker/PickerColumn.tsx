@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState } from 'react'
 import { CustomWrapper, View } from '@tarojs/components'
 import type { PickerColumnProps } from './PropsType'

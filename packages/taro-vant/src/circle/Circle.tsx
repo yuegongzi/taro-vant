@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { createCanvasContext, createSelectorQuery, useReady } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas, CoverView, View } from '@tarojs/components'

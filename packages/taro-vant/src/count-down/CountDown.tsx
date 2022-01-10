@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { Block, View } from '@tarojs/components'
 import type { CountDownProps, ICountDownRef } from './PropsType'

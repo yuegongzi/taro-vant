@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import Taro from '@tarojs/taro'
 import { cloneElement, isValidElement, useCallback, useEffect, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'

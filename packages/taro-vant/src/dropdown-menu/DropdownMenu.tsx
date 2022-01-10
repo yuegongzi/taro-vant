@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import { Children, cloneElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { DropdownMenuProps } from './PropsType'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Image, View } from '@tarojs/components'
 import type { EmptyProps } from './PropsType'
 import { createNamespace, ele } from '../utils'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Block, View } from '@tarojs/components'
 import type { CellGroupProps } from './PropsType'
 import { createNamespace } from '../utils'

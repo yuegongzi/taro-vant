@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import React, { isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'

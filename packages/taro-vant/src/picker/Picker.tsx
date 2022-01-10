@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
 import { View } from '@tarojs/components'
 import type { IPickerInstance, PickerChangeEvents, PickerProps } from './PropsType'

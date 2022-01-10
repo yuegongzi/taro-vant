@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import RcForm , { useForm } from 'rc-field-form'
 import type { FormProps } from './PropsType'
 import FormContext from './formContext'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import type { DividerProps } from './PropsType'
 import { computedStyle, createNamespace } from '../utils'

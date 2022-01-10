@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import type { PickerChangeEvents } from '../picker'
 import Picker from '../picker'

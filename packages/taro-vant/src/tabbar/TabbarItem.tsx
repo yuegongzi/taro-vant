@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { TabbarItemProps } from './PropsType'

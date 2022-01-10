@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Image, View } from '@tarojs/components'
 import type { IconProps } from './PropsType'
 import Badge from '../badge'

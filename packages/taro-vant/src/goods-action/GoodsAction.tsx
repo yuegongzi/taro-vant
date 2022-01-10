@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { cloneElement, isValidElement } from 'react'
 import { View } from '@tarojs/components'
 import toArray from 'rc-util/lib/Children/toArray'

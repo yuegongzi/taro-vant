@@ -319,7 +319,7 @@ module.exports = {
           },
           {
             path: 'sku',
-            title: 'Sku 商品导航',
+            title: 'Sku 商品规格',
           },
           {
             path: 'submit-bar',

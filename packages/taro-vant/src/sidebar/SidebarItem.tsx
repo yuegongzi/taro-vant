@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import type { SidebarItemProps } from './PropsType'

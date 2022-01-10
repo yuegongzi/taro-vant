@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
 import { displayColumns } from './wxs'
 import type { PickerEvents } from '../picker'

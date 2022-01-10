@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 import Icon from '../icon'

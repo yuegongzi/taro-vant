@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import type { ColProps } from './PropsType'
 import { rootStyle } from './wxs'

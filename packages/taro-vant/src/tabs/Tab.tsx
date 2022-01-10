@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import type { TabProps } from './PropsType'

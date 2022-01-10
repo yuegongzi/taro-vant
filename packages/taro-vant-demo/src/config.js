@@ -247,7 +247,7 @@ export default [
       },
       {
         path: '/sku',
-        title: 'Sku 商品选择',
+        title: 'Sku 商品规格',
       },
       {
         path: '/goods-action',

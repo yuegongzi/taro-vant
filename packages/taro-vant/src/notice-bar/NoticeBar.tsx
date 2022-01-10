@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { createAnimation, nextTick, useReady } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'

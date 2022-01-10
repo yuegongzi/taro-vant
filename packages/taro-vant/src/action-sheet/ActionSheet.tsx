@@ -1,4 +1,3 @@
-import './style/index.less'
 import type { ITouchEvent } from '@tarojs/components'
 import { Button, View } from '@tarojs/components'
 import type { FC } from 'react'

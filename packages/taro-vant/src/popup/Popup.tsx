@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { View } from '@tarojs/components'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PopupProps } from './PropsType'

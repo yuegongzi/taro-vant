@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { ScrollView, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import Sidebar from '../sidebar'

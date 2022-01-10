@@ -17,7 +17,7 @@ import {
 } from './utils/helper';
 import type { SkuAction, SkuProps, SpuProp, SpuSpec } from './PropsType';
 import { createNamespace, noop } from '../utils';
-import './style/index.less';
+;
 import SkuActions from './SkuActions';
 import classNames from 'clsx';
 

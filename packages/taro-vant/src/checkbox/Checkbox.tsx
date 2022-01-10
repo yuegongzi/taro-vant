@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useCallback, useContext, useEffect, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'

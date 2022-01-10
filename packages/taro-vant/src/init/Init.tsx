@@ -1,4 +1,4 @@
-import './style/index.less'
+
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // 给react-h5用来初始化的
 import React, { Component } from 'react'

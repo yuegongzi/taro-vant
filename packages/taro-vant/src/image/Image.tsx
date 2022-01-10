@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Image as TaroImage, View } from '@tarojs/components'
 import type { ImageProps } from './PropsType'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import Taro from '@tarojs/taro'
 import { useEffect, useRef, useState } from 'react'
 import { Block, Input, Textarea, View } from '@tarojs/components'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Block, View } from '@tarojs/components'
 import { useState } from 'react'
 import type { LoadingProps } from './PropsType'

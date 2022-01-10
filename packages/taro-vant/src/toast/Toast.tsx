@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { RichText, Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import type { ToastProps } from './PropsType'

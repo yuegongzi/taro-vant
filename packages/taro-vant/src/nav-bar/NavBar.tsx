@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { useCallback, useEffect, useState } from 'react'
 import { Block, View } from '@tarojs/components'
 import { computedStyle, createNamespace, ele, getRect, getSystemInfoSync, Navbar } from '../utils'

@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { Text, View } from '@tarojs/components'
 import React from 'react'
 import type { IndexAnchorProps } from './PropsType'

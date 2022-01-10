@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { createSelectorQuery, nextTick } from '@tarojs/taro'
 import { cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'

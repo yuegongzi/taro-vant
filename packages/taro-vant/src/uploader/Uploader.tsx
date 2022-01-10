@@ -1,4 +1,4 @@
-import './style/index.less'
+
 import { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
