@@ -21,7 +21,6 @@ function TreeSelect(props: TreeSelectProps) {
     max = Infinity,
     onClickItem,
     onClickNav,
-    renderContent,
     contentActiveClass,
     contentDisabledClass,
   } = props
@@ -84,7 +83,6 @@ function TreeSelect(props: TreeSelectProps) {
         </Sidebar>
       </ScrollView>
       <ScrollView scrollY className={clsx(bem('content'))}>
-        {renderContent}
         {subItems.map((item: any) => {
           return (
             <View
