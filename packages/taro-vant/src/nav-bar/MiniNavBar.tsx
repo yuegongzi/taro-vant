@@ -23,7 +23,6 @@ function MiniNavBar(props: MiniNavBarProps) {
     placeholder = true,
     border = true,
     zIndex = Navbar,
-    renderTitle,
     homeUrl,
     buttonColor = 'white',
     title,
@@ -131,7 +130,7 @@ function MiniNavBar(props: MiniNavBarProps) {
           <View className={clsx(bem('title'), 'van-ellipsis')}
                 style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
           >
-            {title ? <Block>{title}</Block> : renderTitle}
+            {title}
           </View>
           <View className={clsx(bem('right'))} />
         </View>

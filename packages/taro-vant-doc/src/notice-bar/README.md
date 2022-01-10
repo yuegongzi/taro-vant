@@ -133,35 +133,7 @@ import { NoticeBar } from "taro-vant";
 
 |  事件名  | 说明             | 参数           |
 | ------ | ---------------- | -------------- |
-|  click   | 点击通知栏时触发 | _event: Event_ |
-|  close   | 关闭通知栏时触发 | _event: Event_ |
+|  onClick   | 点击通知栏时触发 | _event: Event_ |
+|  onClose   | 关闭通知栏时触发 | _event: Event_ |
 
-### Slot
 
-|  名称        | 说明                                     |
-| ---------- | ---------------------------------------- |
-|             | 通知文本内容，仅在 `text` 属性为空时有效 |
-|  leftIcon   | 自定义左侧图标                           |
-|  rightIcon  | 自定义右侧图标                           |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
-
-### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/config-provider)。
-
-|  名称  | 默认值 | 描述 |
-| --- | --- | --- |
-| --notice-bar-height | _40px_ | - |
-| --notice-bar-padding | _0 var(--van-padding-md)_ | - |
-| --notice-bar-wrapable-padding | _var(--van-padding-xs) var(--van-padding-md)_ | - |
-| --notice-bar-text-color | _var(--van-orange-dark)_ | - |
-| --notice-bar-font-size | _var(--van-font-size-md)_ | - |
-| --notice-bar-line-height | _24px_ | - |
-| --notice-bar-background-color | _var(--van-orange-light)_ | - |
-| --notice-bar-icon-size | _16px_ | - |
-| --notice-bar-icon-min-width | _24px_ | - |

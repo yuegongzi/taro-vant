@@ -32,8 +32,8 @@ export interface SwipeCellProps extends StandardProps {
   onOpen?: (e: ITouchEvent & SwipeCellOpen) => void
   onClick?: (e: ITouchEvent & SwipeCellClick) => void
   onClose?: (e: ITouchEvent & SwipeCellClose) => void
-  renderLeft?: React.ReactNode
-  renderRight?: React.ReactNode
+  left?: React.ReactNode
+  right?: React.ReactNode
   children?: React.ReactNode
 }
 

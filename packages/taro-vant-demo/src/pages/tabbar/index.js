@@ -143,24 +143,6 @@ export default class Index extends Component {
             >
               <TabbarItem
                 badge='3'
-                renderIcon={
-                  <>
-                    <Image
-                      src={icon.normal}
-                      mode='aspectFit'
-                      style='width: 30px; height: 18px;'
-                    />
-                  </>
-                }
-                renderIconActive={
-                  <>
-                    <Image
-                      src={icon.active}
-                      mode='aspectFit'
-                      style='width: 30px; height: 18px;'
-                    />
-                  </>
-                }
               >
                 自定义
               </TabbarItem>

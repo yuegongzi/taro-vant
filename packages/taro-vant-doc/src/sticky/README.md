@@ -12,8 +12,6 @@ Sticky 组件与 CSS 中`position: sticky`属性实现的效果一致，当组�
 import { Sticky } from "taro-vant"; 
 ```
 
-> Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
-
 ## 代码演示
 
 ### 基础用法
@@ -136,4 +134,4 @@ function onScroll(event) {
 
 |  事件名  | 说明       | 回调参数                                       |
 | ------ | ---------- | ---------------------------------------------- |
-|  scroll  | 滚动时触发 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
+|  onScroll  | 滚动时触发 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |

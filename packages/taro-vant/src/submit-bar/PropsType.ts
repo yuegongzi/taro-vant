@@ -2,7 +2,7 @@ import type { ComponentClass, ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface SubmitBarProps extends StandardProps {
-  tip?: string
+  tip?: string | ReactNode
   tipIcon?: string
   price?: number
   label?: string
@@ -15,8 +15,7 @@ export interface SubmitBarProps extends StandardProps {
   suffixLabel?: string
   safeAreaInsetBottom?: boolean
   children?: ReactNode
-  renderTop?: ReactNode
-  renderTip?: ReactNode
+  top?: ReactNode
   onSubmit?: (event: ITouchEvent) => void
 }
 

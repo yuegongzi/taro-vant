@@ -82,13 +82,7 @@ export default class Index extends Component {
               className='slider'
               activeColor='#ee0a24'
               onDrag={this.onDrag}
-              renderButton={() => {
-                return (
-                  <>
-                    <View className='custom-button'>{currentValue}</View>
-                  </>
-                )
-              }}
+              button={() => <View className='custom-button'>{currentValue}</View>}
             />
           </DemoBlock>
         </>

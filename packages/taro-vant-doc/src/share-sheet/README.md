@@ -214,14 +214,7 @@ this.state = {
 
 |  事件名         | 说明               | 回调参数                        |
 | ------------- | ------------------ | ------------------------------- |
-|  select         | 点击分享选项时触发 | _option: Option, index: number_ |
-|  close          | 关闭时触发         | -                               |
-|  cancel         | 点击取消按钮时触发 | -                               |
-|  clickOverlay  | 点击遮罩层时触发   | -                               |
-
-### Slots
-
-|  名称         | 说明           |
-| ----------- | -------------- |
-|  title        | 自定义顶部标题 |
-|  description  | 自定义描述文字 |
+|  onSelect         | 点击分享选项时触发 | _option: Option, index: number_ |
+|  onClose          | 关闭时触发         | -                               |
+|  onCancel         | 点击取消按钮时触发 | -                               |
+|  onClickOverlay  | 点击遮罩层时触发   | -                               |

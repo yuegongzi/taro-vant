@@ -169,15 +169,6 @@ export default class Index extends Component {
               onChange={this.onChange}
               tabClass='special-tab'
               tabActiveClass='special-tab-active'
-              renderNavRight={
-                <>
-                  <Icon
-                    name='search'
-                    className='right-nav'
-                    onClick={this.onClickNavRight}
-                  />
-                </>
-              }
             >
               {tabs4.map((item, index) => {
                 return (

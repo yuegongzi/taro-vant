@@ -203,18 +203,3 @@ function onChange(value) {
 |  onFocus      | 输入框聚焦时触发         | -                          |
 |  onBlur       | 输入框失焦时触发         | -                          |
 
-### Slot
-
-|  名称   | 说明     |
-| ----- | -------- |
-|  plus   | 加号按钮 |
-|  minus  | 减号按钮 |
-
-### 外部样式类
-
-|  类名          | 说明           |
-| ------------ | -------------- |
-|  customClass  | 根节点样式类   |
-|  inputClass   | 输入框样式类   |
-|  plusClass    | 加号按钮样式类 |
-|  minusClass   | 减号按钮样式类 |

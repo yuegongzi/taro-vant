@@ -18,7 +18,7 @@ export interface ShareSheetProps extends StandardProps {
   show?: boolean
   overlayStyle?: string
   zIndex?: number
-  title?: string
+  title?: string | ReactNode
   overlay?: boolean
   safeAreaInsetBottom?: boolean
   closeOnClickOverlay?: boolean
@@ -27,10 +27,8 @@ export interface ShareSheetProps extends StandardProps {
   onCancel?: () => void
   onSelect?: (event: { detail: ShareSheetOptionItem }) => void
   onClose?: () => void
-  renderTitle?: ReactNode
-  renderDescription?: ReactNode
   cancelText?: string
-  description?: string
+  description?: string | ReactNode
   options?: ShareSheetOptionItem[] | ShareSheetOptionItem[][]
 }
 

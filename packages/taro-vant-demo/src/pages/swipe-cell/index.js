@@ -55,12 +55,12 @@ export default class Index extends Component {
             <SwipeCell
               rightWidth={65}
               leftWidth={0}
-              renderLeft={
+              left={
                 <>
                   <View className='van-swipe-cell__left_'>选择</View>
                 </>
               }
-              renderRight={
+              right={
                 <>
                   <View className='van-swipe-cell__right_'>删除</View>
                 </>
@@ -78,12 +78,12 @@ export default class Index extends Component {
               leftWidth={65}
               asyncClose
               onClose={this.onClose}
-              renderLeft={
+              left={
                 <>
                   <View className='van-swipe-cell__left_'>选择</View>
                 </>
               }
-              renderRight={
+              right={
                 <>
                   <View className='van-swipe-cell__right_'>删除</View>
                 </>
@@ -101,12 +101,12 @@ export default class Index extends Component {
               leftWidth={65}
               name='示例'
               onOpen={this.onOpen}
-              renderLeft={
+              left={
                 <>
                   <View className='van-swipe-cell__left_'>选择</View>
                 </>
               }
-              renderRight={
+              right={
                 <>
                   <View className='van-swipe-cell__right_'>删除</View>
                 </>

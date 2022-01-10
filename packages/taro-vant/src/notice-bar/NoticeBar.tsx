@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { Navigator, View } from '@tarojs/components'
 import type { NoticeBarProps } from './PropsType'
-import { computedStyle, createNamespace, getRect, requestAnimationFrame } from '../utils'
+import { computedStyle, createNamespace, ele, getRect, requestAnimationFrame } from '../utils'
 import Icon from '../icon'
 import { rootStyle } from './wxs'
 import clsx from 'clsx'
@@ -44,8 +44,6 @@ export function NoticeBar(props: NoticeBarProps) {
     backgroundColor = '#fffbe8',
     background,
     wrapable,
-    renderLeftIcon,
-    renderRightIcon,
     onClick,
     onClose,
     style,
@@ -118,7 +116,6 @@ export function NoticeBar(props: NoticeBarProps) {
       scroll()
     }, ref.current.duration)
   }, [])
-
   const init = useCallback(() => {
     requestAnimationFrame(() => {
       Promise.all([
@@ -199,14 +196,10 @@ export function NoticeBar(props: NoticeBarProps) {
             {...others}
             onClick={onClick}
       >
-        {leftIcon ? (
-          <Icon
-            name={leftIcon}
-            className={clsx(bem('left-icon'))}
-          />
-        ) : (
-          renderLeftIcon
-        )}
+        {ele(leftIcon, <Icon
+          name={leftIcon}
+          className={clsx(bem('left-icon'))}
+        />)}
         <View className={clsx(bem('wrap', [ `${state.unitag}` ]))}
         >
           <View className={clsx(bem('content', [ `${state.unitag}` ]), {
@@ -218,17 +211,17 @@ export function NoticeBar(props: NoticeBarProps) {
             {!text && children}
           </View>
         </View>
-        {mode === 'closeable' ? (
+
+        {mode === 'closeable' && (
           <Icon className={clsx(bem('right-icon'))}
-                name='cross'
+                name={'cross'}
                 onClick={onClickIcon}
           />
-        ) : mode === 'link' ? (
+        )}
+        { mode === 'link' && (
           <Navigator url={url} openType={openType}>
             <Icon className={clsx(bem('right-icon'))} name='arrow' />
           </Navigator>
-        ) : (
-          renderRightIcon
         )}
       </View>
     )

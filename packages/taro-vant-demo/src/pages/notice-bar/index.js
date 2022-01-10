@@ -55,6 +55,11 @@ export default class Index extends Component {
               leftIcon='info-o'
             />
           </DemoBlock>
+          <DemoBlock title='自定义图标'>
+            <NoticeBar
+              text={shortText}
+            />
+          </DemoBlock>
         </>
       </DemoPage>
     )

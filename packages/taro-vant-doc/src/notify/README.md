@@ -25,7 +25,7 @@ Notify.show('通知内容');
 ```jsx
 <View>
   {/*  在页面内添加对应的节点  */}
-  <Notify id="vanNotify" />
+  <Notify id="van-notify" />
 </View>
  
 ```
@@ -89,22 +89,23 @@ NotifyFunc.show({
 
 |  方法名        | 说明     | 参数                 | 返回值      |
 | ------------ | -------- | -------------------- | ----------- |
-|  notify        | 展示提示 | `options \| message` | notify 实例 |
-|  notify.clear  | 关闭提示 | `options`            | `void`      |
+|  Notify.show        | 展示提示 | `options \| message` | notify 实例 |
+|  Notify.clear  | 关闭提示 | `options`            | `void`      |
 
-### Options
+### Options & Props
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  type `v1.0.0`  | 类型，可选值为 `primary` `success` `warning` | _string_ | `danger` |
-|  message `v1.0.0`  | 展示文案，支持通过`\n`换行 | _string_ | `''` |
+|  type   | 类型，可选值为 `primary` `success` `warning` | _string_ | `danger` |
+|  message   | 展示文案，支持通过`\n`换行 | _string_ | `''` |
 |  duration  | 展示时长(ms)，值为 0 时，notify 不会消失 | _number_ | `3000` |
 |  selector  | 自定义节点选择器 | _string_ | `van-notify` |
 |  color  | 字体颜色 | _string_ | `#fff` |
 |  top  | 顶部距离 | _number_ | `0` |
+|  id  | 读取的ID | _string_ | `van-notify` |
 |  background  | 背景颜色 | _string_ | - |
 |  context  | 选择器的选择范围，可以传入自定义组件的 this 作为上下文 | _object_ | 当前页面 |
-|  onclick  | 点击时的回调函数 | _Function_ | - |
-|  onopened  | 完全展示后的回调函数 | _Function_ | - |
-|  onclose  | 关闭时的回调函数 | _Function_ | - |
-|  safeareainsettop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `false` |
+|  onClick  | 点击时的回调函数 | _Function_ | - |
+|  onOpened  | 完全展示后的回调函数 | _Function_ | - |
+|  onClose  | 关闭时的回调函数 | _Function_ | - |
+|  safeAreaInsetTop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `false` |

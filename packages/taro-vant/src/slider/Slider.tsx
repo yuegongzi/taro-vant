@@ -39,9 +39,9 @@ function Slider(props: SliderProps) {
     onDragStart,
     onDragEnd,
     className = '',
-    renderButton,
-    renderLeftButton,
-    renderRightButton,
+    button,
+    leftButton,
+    rightButton,
     style,
     ...others
   } = props
@@ -337,9 +337,9 @@ function Slider(props: SliderProps) {
             onTouchEnd={onTouchEnd}
             onTouchCancel={onTouchEnd}
           >
-            {renderButton ? (
-              renderLeftButton ? (
-                renderLeftButton(value_ as number)
+            {button ? (
+              leftButton ? (
+                leftButton(value_ as number)
               ) : (
                 ''
               )
@@ -356,9 +356,9 @@ function Slider(props: SliderProps) {
             onTouchEnd={onTouchEnd}
             onTouchCancel={onTouchEnd}
           >
-            {renderButton ? (
-              renderRightButton ? (
-                renderRightButton(value_ as number)
+            {button ? (
+              rightButton ? (
+                rightButton(value_ as number)
               ) : (
                 ''
               )
@@ -375,8 +375,8 @@ function Slider(props: SliderProps) {
             onTouchEnd={onTouchEnd}
             onTouchCancel={onTouchEnd}
           >
-            {renderButton ? (
-              renderButton?.(value_ as number)
+            {button ? (
+              button?.(value_ as number)
             ) : (
               <View className={clsx(bem('button'))} />
             )}

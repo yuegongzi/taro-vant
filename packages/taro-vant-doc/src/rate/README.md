@@ -174,7 +174,7 @@ function onChange(event) {
 |  icon  | 选中时的图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | `star` |
 |  voidIcon  | 未选中时的图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | `star-o` |
 |  allowHalf  | 是否允许半选 | _boolean_ | `false` |
-|  readonly  | 是否为只读状态  | _boolean_ | `false` |
+|  readonly  | 是否为只读状态| _boolean_ | `false` |
 |  disabled  | 是否禁用评分 | _boolean_ | `false` |
 |  disabledColor  | 禁用时的颜色 | _string_ | `#bdbdbd` |
 |  touchable  | 是否可以通过滑动手势选择评分 | _boolean_ | `true` |
@@ -183,11 +183,4 @@ function onChange(event) {
 
 |  事件名称  | 说明                     | 回调参数              |
 | -------- | ------------------------ | --------------------- |
-|  change    | 当前分值变化时触发的事件 | event.detail:当前分值 |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
-|  iconClass    | 图标样式类   |
+|  onChange    | 当前分值变化时触发的事件 | event.detail:当前分值 |

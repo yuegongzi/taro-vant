@@ -1,5 +1,5 @@
 import './style/index.less'
-import { Block, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { TabbarItemProps } from './PropsType'
 import { computedStyle, createNamespace } from '../utils'
@@ -22,8 +22,6 @@ function TabbarItem(
     iconPrefix = 'van-icon',
     dot,
     badge,
-    renderIconActive,
-    renderIcon,
     index = 0,
     active,
     activeColor,
@@ -62,20 +60,14 @@ function TabbarItem(
       onClick={_click}
     >
       <View className={clsx(bem('icon'))}>
-        {icon ? (
-          <Icon
-            size={38}
-            badge={badge}
-            name={icon}
-            dot={dot}
-            classPrefix={iconPrefix}
-            className={clsx(bem('icon__inner'))}
-          />
-        ) : (
-          <Block>
-            {active === (name ?? index) ? renderIconActive : renderIcon}
-          </Block>
-        )}
+        {icon && <Icon
+          size={38}
+          badge={badge}
+          name={icon}
+          dot={dot}
+          classPrefix={iconPrefix}
+          className={clsx(bem('icon__inner'))}
+        />}
       </View>
       <View className={clsx(bem('text'))}>{children}</View>
     </View>

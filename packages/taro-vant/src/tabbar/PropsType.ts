@@ -24,8 +24,6 @@ export interface TabbarItemProps extends Omit<StandardProps, 'onClick'> {
   icon?: string
   dot?: boolean
   iconPrefix?: string
-  renderIconActive?: ReactNode
-  renderIcon?: ReactNode
   children?: ReactNode
   onClick?: (name: string | number) => void
 }

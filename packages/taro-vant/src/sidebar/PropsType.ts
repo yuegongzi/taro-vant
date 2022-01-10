@@ -21,12 +21,10 @@ export { Sidebar }
 export interface SidebarItemProps extends StandardProps {
   dot?: boolean
   badge?: string
-  info?: string
-  title?: string
+  title?: string | React.ReactNode
   disabled?: boolean
   onClick?: (a: any) => void
   onChange?: (a: onChangeEvent) => void
-  renderTitle?: () => React.ReactNode,
   activeClass?: string;
   disabledClass?: string;
 }

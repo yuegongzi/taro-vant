@@ -1,6 +1,10 @@
 import type { ComponentClass, ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
+type params = {
+  disabled: boolean
+  checked: boolean
+}
 export interface RadioProps extends StandardProps {
   name?: string
   value?: any
@@ -11,7 +15,7 @@ export interface RadioProps extends StandardProps {
   shape?: 'round' | 'square'
   iconSize?: number | string
   children?: ReactNode
-  renderIcon?: ReactNode
+  iconRender?: ({ disabled,checked }: params) => ReactNode
   onChange?: (event: ITouchEvent) => any
 }
 

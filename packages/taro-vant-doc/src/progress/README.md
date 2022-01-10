@@ -94,9 +94,3 @@ import { Progress } from "taro-vant";
 |  trackColor  | 轨道颜色 | _string_ | `#e5e5e5` |
 |  pivotText  | 文字显示 | _string_ | 百分比文字 |
 |  pivotColor  | 文字背景色 | _string_ | 与进度条颜色一致 |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |

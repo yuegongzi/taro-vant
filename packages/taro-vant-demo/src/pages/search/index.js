@@ -105,9 +105,10 @@ export default class Index extends Component {
               placeholder='请输入搜索关键词'
               onSearch={this.onSearch}
               onChange={this.onChange}
-              renderAction={
+              showAction
+              actionText={
                 <>
-                  <View onClick={this.onClick}>搜索</View>
+                  <View style={{ color:'red' }} onClick={this.onClick}>搜索</View>
                 </>
               }
             />

@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ComponentClass } from 'react'
 import type { CommonEventFunction, StandardProps } from '@tarojs/components'
 import type { InputProps } from '@tarojs/components/types/Input'
 
@@ -28,8 +28,6 @@ export interface StepperProps extends StandardProps {
   onOverlimit?: () => void
   onPlus?: () => void
   onMinus?: () => void
-  renderMinus?: ReactNode
-  renderPlus?: ReactNode
 }
 
 // Partial

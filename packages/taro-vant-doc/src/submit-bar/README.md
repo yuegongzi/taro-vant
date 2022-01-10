@@ -100,33 +100,17 @@ import { SubmitBar } from "taro-vant";
 |  suffixLabel  | 价格右侧文案 | _string_ | - |
 |  buttonText  | 按钮文字 | _string_ | - |
 |  buttonType  | 按钮类型 | _string_ | `danger` |
-|  tip  | 提示文案 | _string \| boolean_ | - |
+|  tip  | 提示文案 | _string \| ReactNode_ | - |
 |  tipIcon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
 |  disabled  | 是否禁用按钮 | _boolean_ | `false` |
 |  loading  | 是否显示加载中的按钮 | _boolean_ | `false` |
 |  currency  | 货币符号 | _string_ | `¥` |
 |  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
 |  decimalLength  | 价格小数点后位数 | _number_ | `2` |
+|  top  | 自定义订单栏上方内容 | _ReactNode_ | `-` |
 
 ### Events
 
 |  事件名  | 说明             | 参数 |
 | ------ | ---------------- | ---- |
-|  submit  | 按钮点击事件回调 | -    |
-
-### Slot
-
-|  名称  | 说明                       |
-| ---- | -------------------------- |
-|       | 自定义订单栏左侧内容       |
-|  top   | 自定义订单栏上方内容       |
-|  tip   | 提示文案中的额外操作和说明 |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
-|  priceClass   | 价格样式类   |
-|  buttonClass  | 按钮样式类   |
-|  barClass     | 订单栏样式类 |
+|  onSubmit  | 按钮点击事件回调 | -    |

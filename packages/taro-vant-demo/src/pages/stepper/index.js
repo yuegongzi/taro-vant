@@ -31,10 +31,10 @@ export default class Index extends Component {
       <DemoPage title='Stepper 步进器'>
         <>
           <Cell center title='基础用法'>
-            <Stepper value={1} />
+            <Stepper value={1} showMinus />
           </Cell>
           <Cell center title='步长设置'>
-            <Stepper value={1} step='2' />
+            <Stepper  value={1} step='2' />
           </Cell>
           <Cell center title='限制输入范围'>
             <Stepper value={1} min='5' max='8' />

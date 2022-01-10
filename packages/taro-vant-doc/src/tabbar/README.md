@@ -10,7 +10,7 @@
 
 ```js
 import { Tabbar } from "taro-vant";
-import { TabbarItem } from "taro-vant"; 
+const TabbarItem = Tabar.Item
 ```
 
 ## 代码演示
@@ -303,14 +303,8 @@ function onClick(event) {
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  name  | 标签名称，作为匹配的标识符 | _string \| number_ | 当前标签的索引值 |
-|  icon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
+|  icon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string\|ReactNode_ | - |
 |  iconPrefix  | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon#props) | _string_ | `van-icon` |
 |  dot  | 是否显示小红点 | _boolean_ | - |
-|  info  | 图标右上角提示信息 | _string \| number_ | - |
+|  badge  | 图标右上角提示信息 | _string \| number_ | - |
 
-### TabbarItem Slot
-
-|  名称         | 说明           |
-| ----------- | -------------- |
-|  icon         | 未选中时的图标 |
-|  iconActive  | 选中时的图标   |

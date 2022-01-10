@@ -19,7 +19,6 @@ function SidebarItem(
     dot,
     badge,
     index,
-    renderTitle,
     setChildren,
     setAction,
     onClick,
@@ -60,7 +59,7 @@ function SidebarItem(
     if (title) {
       return (<View>{title}</View>)
     }
-    return renderTitle?.()
+    return null
   }
   return (
     <View className={clsx(bem({

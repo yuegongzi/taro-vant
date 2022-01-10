@@ -9,8 +9,8 @@
 在 Taro 文件中引入组件
 
 ```js
-import { Tab } from "taro-vant";
 import { Tabs } from "taro-vant"; 
+const Tab = Tabs.Tab
 ```
 
 ## 代码演示

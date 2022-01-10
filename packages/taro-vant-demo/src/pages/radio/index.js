@@ -199,29 +199,25 @@ export default class Index extends Component {
             >
               <Radio
                 name='1'
-                renderIcon={
-                  <>
-                    <Image
-                      src={radio4 === '1' ? icon.active : icon.normal}
-                      className='icon'
-                      mode='widthFix'
-                    />
-                  </>
-                }
+                iconRender={({ checked })=>(
+                  <Image
+                    src={checked ? icon.active : icon.normal}
+                    className='icon'
+                    mode='widthFix'
+                  />
+                )}
               >
                 自定义图标
               </Radio>
               <Radio
                 name='2'
-                renderIcon={
-                  <>
-                    <Image
-                      src={radio4 === '2' ? icon.active : icon.normal}
-                      className='icon'
-                      mode='widthFix'
-                    />
-                  </>
-                }
+                iconRender={({ checked })=>(
+                  <Image
+                    src={checked ? icon.normal : icon.active}
+                    className='icon'
+                    mode='widthFix'
+                  />
+                )}
               >
                 自定义图标
               </Radio>
@@ -280,7 +276,7 @@ export default class Index extends Component {
                       },
                     })
                   }}
-                  renderRightIcon={
+                  extra={
                     <>
                       <Radio name='1' />
                     </>
@@ -300,7 +296,7 @@ export default class Index extends Component {
                       },
                     })
                   }}
-                  renderRightIcon={
+                  extra={
                     <>
                       <Radio name='2' />
                     </>

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Icon from '../icon'
 import Button from '../button'
 import type { SubmitBarProps } from './PropsType'
-import { createNamespace } from '../utils'
+import { createNamespace, ele } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('submit-bar')
@@ -22,8 +22,7 @@ function SubmitBar(props: SubmitBarProps) {
     disabled,
     buttonText,
     safeAreaInsetBottom = true,
-    renderTop,
-    renderTip,
+    top,
     decimalLength,
     onSubmit,
     children,
@@ -32,20 +31,12 @@ function SubmitBar(props: SubmitBarProps) {
     ...others
   } = props
   const [ state, setState ] = useState({
-    hasTip: false,
     integerStr: '',
     decimalStr: '',
     hasPrice: false,
   })
-  const { hasTip, integerStr, decimalStr, hasPrice } = state
-  useEffect(
-    function() {
-      setState((pre) => {
-        return { ...pre, hasTip: typeof tip === 'string' }
-      })
-    },
-    [ tip ],
-  )
+  const {  integerStr, decimalStr, hasPrice } = state
+
   useEffect(
     function() {
       const priceStrArr =
@@ -68,7 +59,7 @@ function SubmitBar(props: SubmitBarProps) {
       style={style}
       {...others}
     >
-      {renderTop}
+      {top}
       <View className={clsx(bem('tip'))}>
         {tipIcon && (
           <Icon
@@ -77,8 +68,7 @@ function SubmitBar(props: SubmitBarProps) {
             className={clsx(bem('tip-icon'))}
           />
         )}
-        {hasTip && <View className={clsx(bem('tip-text'))}>{tip}</View>}
-        {renderTip}
+        {ele(tip,<View className={clsx(bem('tip-text'))}>{tip}</View>)}
       </View>
       <View className={clsx(bem('bar'))}>
         {children}

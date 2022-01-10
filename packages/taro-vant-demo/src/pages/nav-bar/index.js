@@ -36,7 +36,7 @@ export default class Index extends Component {
               title='标题'
               leftText='返回'
               leftArrow
-              renderRight={
+              rightText={
                 <>
                   <Icon name='search' className='icon' size='36' />
                 </>

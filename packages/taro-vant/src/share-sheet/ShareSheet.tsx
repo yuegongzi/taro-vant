@@ -23,8 +23,6 @@ function ShareSheet(props: ShareSheetProps) {
     cancelText = '取消',
     description,
     options = [],
-    renderDescription,
-    renderTitle,
     onClickOverlay,
     onSelect,
     onClose,
@@ -69,14 +67,8 @@ function ShareSheet(props: ShareSheetProps) {
       {...others}
     >
       <View className={clsx(bem('header'))}>
-        <View className={clsx(bem('title'))}>{renderTitle}</View>
-        {title && <View className={clsx(bem('title'))}>{title}</View>}
-        <View className={clsx(bem('description'))}>
-          {renderDescription}
-        </View>
-        {description && (
-          <View className={clsx(bem('description'))}>{description}</View>
-        )}
+        <View className={clsx(bem('title'))}>{title}</View>
+        <View className={clsx(bem('description'))}>{description}</View>
       </View>
       {isMulti(options) ? (
         <>

@@ -152,7 +152,7 @@ function onClose() {
 |  position  | 弹出位置，可选值为 `top` `bottom` `right` `left` | _string_ | `center` |
 |  duration  | 动画时长，单位为毫秒 | _number \| object_ | `300` |
 |  round  | 是否显示圆角 | _boolean_ | `false` |
-|  customStyle  | 自定义弹出层样式 | _string_ | `''` |
+|  style  | 自定义弹出层样式 | _string_ | `''` |
 |  overlayStyle  | 自定义遮罩层样式 | _string_ | `''` |
 |  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
 |  closeable  | 是否显示关闭图标 | _boolean_ | `false` |
@@ -173,9 +173,3 @@ function onClose() {
 |  onBeforeLeave   | 离开前触发       | -    |
 |  onLeave          | 离开中触发       | -    |
 |  onAfterLeave    | 离开后触发       | -    |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |

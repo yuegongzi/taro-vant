@@ -350,21 +350,13 @@ function onClick(event) {
 |  labelPosition  | 文本位置，可选值为 `left` | _string_           | `right`   |
 |  iconSize       | 图标大小，默认单位为`px`  | _string \| number_ | `20px`    |
 |  checkedColor   | 选中状态颜色              | _string_           | `#1989fa` |
-|  useIconSlot   | 是否使用 icon 插槽        | _boolean_          | `false`   |
+|  iconRender   | 是否使用自定义icon      | _({ disabled,checked }: params) => ReactNode_          | `-`   |
 
 ### Radio Event
 
 |  事件名       | 说明                     | 回调参数          |
 | ----------- | ------------------------ | ----------------- |
 |  onChange  | 当绑定值变化时触发的事件 | 当前选中项的 name |
-
-### Radio 外部样式类
-
-|  类名          | 说明           |
-| ------------ | -------------- |
-|  customClass  | 根节点样式类   |
-|  iconClass    | 图标样式类     |
-|  labelClass   | 描述信息样式类 |
 
 ### RadioGroup Event
 

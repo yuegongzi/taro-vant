@@ -31,10 +31,6 @@ function Search(props: SearchProps) {
     clearable = true,
     clearTrigger = 'focus',
     clearIcon = 'clear',
-    renderLabel,
-    renderLeftIcon,
-    renderRightIcon,
-    renderAction,
     onFocus,
     onBlur,
     onChange,
@@ -89,22 +85,17 @@ function Search(props: SearchProps) {
   return (
     <View
       className={clsx(bem({
-        withaction: showAction || !!renderAction,
+        withaction: showAction ,
       }), className)}
       style={computedStyle([ { background: background }, style ])}
       {...others}
     >
       <View className={clsx(bem('content', [ shape ]))}>
-        {label ? (
-          <View className={clsx(bem('label'))}>{label}</View>
-        ) : (
-          renderLabel
-        )}
-
+        <View className={clsx(bem('label'))}>{label}</View>
         <Field
           type='text'
-          leftIcon={!renderLeftIcon ? leftIcon : ''}
-          rightIcon={!renderRightIcon ? rightIcon : ''}
+          leftIcon={leftIcon}
+          rightIcon={rightIcon}
           focus={focus}
           error={error}
           border={false}
@@ -120,8 +111,6 @@ function Search(props: SearchProps) {
           inputAlign={inputAlign}
           placeholder={placeholder}
           placeholder-style={placeholderStyle}
-          renderLeftIcon={renderLeftIcon}
-          renderRightIcon={renderRightIcon}
           style='padding: 5px 10px 5px 0; background-color: transparent;'
           onBlur={onBlur}
           onFocus={onFocus}
@@ -132,17 +121,15 @@ function Search(props: SearchProps) {
         />
       </View>
 
-      {(showAction || renderAction) && (
+      {showAction && (
         <View
           className={clsx(bem('action'))}
           hoverClass={clsx(bem('action', [ 'hover' ], true))}
           hoverStayTime={70}
         >
-          {renderAction || (
-            <View onClick={_cancel}>
-              {actionText}
-            </View>
-          )}
+          <View onClick={_cancel}>
+            {actionText}
+          </View>
         </View>
       )}
     </View>

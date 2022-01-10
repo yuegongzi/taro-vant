@@ -64,9 +64,8 @@ export default class Index extends Component {
               buttonText='提交订单'
               onSubmit={this.onClickButton}
               className='van-submit-bar'
-              tip={true}
               safeAreaInsetBottom={false}
-              renderTip={
+              tip={
                 <>
                   <View>
                     您的收货地址不支持同城送

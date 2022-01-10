@@ -128,22 +128,17 @@ import { SwipeCell } from "taro-vant";
 |  rightWidth  | 右侧滑动区域宽度 | _number_ | `0` |
 |  asyncClose  | 是否异步关闭 | _boolean_ | `false` |
 |  disabled `v1.3.4`  | 是否禁用滑动 | _boolean_ | `false` |
+|  left   | 左侧滑动内容 | _ReactNode_ | `-` |
+|  right  | 右侧滑动内容 | _ReactNode_ | `-` |
 
-### Slot
-
-|  名称   | 说明           |
-| ----- | -------------- |
-|        | 自定义显示内容 |
-|  left   | 左侧滑动内容   |
-|  right  | 右侧滑动内容   |
 
 ### Events
 
 |  事件名  | 说明 | 参数 |
 | --- | --- | --- |
-|  click  | 点击时触发 | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
-|  close  | 关闭时触发 | { position: 'left' \| 'right' , instance , name: string } |
-|  open  | 打开时触发 | { position: 'left' \| 'right' , name: string } |
+|  onOpen  | 点击时触发 | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
+|  onClose  | 关闭时触发 | { position: 'left' \| 'right' , instance , name: string } |
+|  onClick  | 打开时触发 | { position: 'left' \| 'right' , name: string } |
 
 ### close 参数
 
@@ -155,7 +150,7 @@ import { SwipeCell } from "taro-vant";
 
 ### 方法
 
-通过 selectComponent 可以获取到 SwipeCell 实例并调用实例方法
+通过 ref 可以获取到 SwipeCell 实例并调用实例方法
 
 |  方法名  | 参数                      | 返回值 | 介绍             |
 | ------ | ------------------------- | ------ | ---------------- |

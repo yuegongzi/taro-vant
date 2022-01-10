@@ -47,8 +47,6 @@ function Stepper(props: StepperProps) {
     onOverlimit,
     onPlus,
     onMinus,
-    renderMinus,
-    renderPlus,
     ...others
   } = props
   const [ currentValue, setCurrentValue ] = useState<any>()
@@ -248,9 +246,7 @@ function Stepper(props: StepperProps) {
           onClick={_onTap}
           onTouchStart={_onTouchStart}
           onTouchEnd={_onTouchEnd}
-        >
-          {renderMinus}
-        </View>
+        />
       )}
       <Input
         type={integer ? 'number' : 'digit'}
@@ -282,9 +278,7 @@ function Stepper(props: StepperProps) {
           onClick={_onTap}
           onTouchStart={_onTouchStart}
           onTouchEnd={_onTouchEnd}
-        >
-          {renderPlus}
-        </View>
+        />
       )}
     </View>
   )

@@ -94,8 +94,6 @@ export function Tabs(props: TabsProps) {
     titleInactiveColor,
     swipeThreshold = 5,
     animated,
-    renderNavLeft,
-    renderNavRight,
     onScroll,
     onClick,
     onChange,
@@ -418,7 +416,6 @@ export function Tabs(props: TabsProps) {
           })
           }
         >
-          {renderNavLeft}
           <ScrollView
             scrollX={scrollable}
             scrollWithAnimation={scrollWithAnimation}
@@ -492,7 +489,6 @@ export function Tabs(props: TabsProps) {
               })}
             </View>
           </ScrollView>
-          {renderNavRight}
         </View>
       </Sticky>
       <View

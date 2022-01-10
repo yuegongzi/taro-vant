@@ -44,8 +44,8 @@ function Index(
     onClose,
     asyncClose,
     children,
-    renderRight,
-    renderLeft,
+    right,
+    left,
     ...others
   } = props
 
@@ -253,7 +253,7 @@ function Index(
                 onClick={onClick_}
                 style={{ width: leftWidth + 'px' }}
           >
-            {renderLeft}
+            {left}
           </View>
         ) : (
           ''
@@ -265,7 +265,7 @@ function Index(
                 onClick={onClick_}
                 style={{ width: rightWidth + 'px' }}
           >
-            {renderRight}
+            {right}
           </View>
         ) : (
           ''

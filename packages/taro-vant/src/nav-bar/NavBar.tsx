@@ -1,7 +1,7 @@
 import './style/index.less'
 import { useCallback, useEffect, useState } from 'react'
 import { Block, View } from '@tarojs/components'
-import { computedStyle, createNamespace, getRect, getSystemInfoSync, Navbar } from '../utils'
+import { computedStyle, createNamespace, ele, getRect, getSystemInfoSync, Navbar } from '../utils'
 import type { NavBarProps } from './PropsType'
 import Icon from '../icon'
 import { barStyle } from './wxs'
@@ -22,9 +22,6 @@ function NavBar(props: NavBarProps) {
     leftText,
     title,
     rightText,
-    renderTitle,
-    renderLeft,
-    renderRight,
     onClickLeft,
     onClickRight,
     style,
@@ -76,44 +73,30 @@ function NavBar(props: NavBarProps) {
       >
         <View className={clsx(bem('content'))}>
           <View className={clsx(bem('left'))} onClick={onClickLeft}>
-            {leftArrow || leftText ? (
-              <Block>
-                {leftArrow && (
-                  <Icon
-                    size={64}
-                    name='arrow-left'
-                    className={clsx(bem('arrow'))}
-                  />
-                )}
-                {leftText && (
-                  <View
-                    className={clsx(bem('text'))}
-                    hoverClass={clsx(bem('text', [ 'hover' ], true))}
-                    hoverStayTime={70}
-                  >
-                    {leftText}
-                  </View>
-                )}
-              </Block>
-            ) : (
-              renderLeft
-            )}
+            {ele(leftArrow, <Icon
+              size={64}
+              name='arrow-left'
+              className={clsx(bem('arrow'))}
+            />)}
+            {ele(leftText,<View
+              className={clsx(bem('text'))}
+              hoverClass={clsx(bem('text', [ 'hover' ], true))}
+              hoverStayTime={70}
+            >
+              {leftText}
+            </View>)}
           </View>
           <View className={clsx(bem('title'), 'van-ellipsis')}>
-            {title ? <Block>{title}</Block> : renderTitle}
+            {title }
           </View>
           <View className={clsx(bem('right'))} onClick={onClickRight}>
-            {rightText ? (
-              <View
-                className={clsx(bem('text'))}
-                hoverClass={clsx(bem('text', [ 'hover' ], true))}
-                hoverStayTime={70}
-              >
-                {rightText}
-              </View>
-            ) : (
-              renderRight
-            )}
+            {ele(rightText, <View
+              className={clsx(bem('text'))}
+              hoverClass={clsx(bem('text', [ 'hover' ], true))}
+              hoverStayTime={70}
+            >
+              {rightText}
+            </View>)}
           </View>
         </View>
       </View>

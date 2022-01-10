@@ -5,7 +5,7 @@ import { useCallback, useContext, useEffect, useState } from 'react'
 import type { RadioProps } from './PropsType'
 import Icon from '../icon'
 import RadioGroupContext from './context'
-import { addUnit, createNamespace, isEmptyObject } from '../utils'
+import { addUnit, createNamespace, isDef, isEmptyObject } from '../utils'
 import * as computed from './wxs'
 import clsx from 'clsx'
 
@@ -26,7 +26,7 @@ export function Radio(props: RadioProps) {
     labelDisabled = false,
     shape = 'round',
     iconSize = '20px',
-    renderIcon,
+    iconRender,
     style,
     className,
     children,
@@ -128,26 +128,30 @@ export function Radio(props: RadioProps) {
             style={'font-size: ' + addUnit(iconSize)}
             onClick={onClick}
       >
-        {renderIcon || (
-          <Icon
-            name='success'
-            className={clsx(bem('icon', [
-              shape,
-              {
-                disabled: disabled || state.parentDisabled,
-                checked: state.value === name,
-              },
-            ]))}
-            style={computed.iconStyle({
-              iconSize,
-              checkedColor,
-              disabled,
-              parentDisabled: state.parentDisabled,
-              value: state.value,
-              name,
-            })}
-          />
-        )}
+        {/*@ts-ignore*/}
+        {isDef(iconRender) ? iconRender({ disabled: disabled || state.parentDisabled,checked: state.value === name, }) :
+          (
+            <Icon
+              name='success'
+              className={clsx(bem('icon', [
+                shape,
+                {
+                  disabled: disabled || state.parentDisabled,
+                  checked: state.value === name,
+                },
+              ]))}
+              style={computed.iconStyle({
+                iconSize,
+                checkedColor,
+                disabled,
+                parentDisabled: state.parentDisabled,
+                value: state.value,
+                name,
+              })}
+            />
+          )
+        }
+
       </View>
       {labelPosition === 'right' && (
         <View

@@ -174,7 +174,9 @@ function onDrag(event) {
 |  useSlotButton  | 是否使用按钮插槽 | _boolean_ | `false` |
 |  range `v1.8.4`  | 是否开启双滑块模式 | _boolean_ | `false` |
 |  vertical `v1.8.5`  | 是否垂直展示 | _boolean_ | `false` |
-
+|  button   | 自定义滑块按钮 | _ReactNode_ | `-` |
+|  leftButton | 自定义左侧滑块按钮（双滑块模式下） | _ReactNode_ | `-` |
+|  rightButton | 自定义右侧滑块按钮 （双滑块模式下） | _ReactNode_ | `-` |
 ### Events
 
 |  事件名           | 说明             | 参数                         |
@@ -183,17 +185,3 @@ function onDrag(event) {
 |  onChange      | 进度值改变后触发 | event.detail: 当前进度       |
 |  onDragStart  | 开始拖动时触发   | -                            |
 |  onDragEnd    | 结束拖动时触发   | -                            |
-
-### 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
-
-### Slots
-
-|  名称  | 说明 | 参数 |
-| --- | --- | --- |
-|  button  | 自定义滑块按钮 | _{ value: number }_ |
-|  leftButton `v1.8.4`  | 自定义左侧滑块按钮（双滑块模式下） | _{ value: number }_ |
-|  rightButton `v1.8.4`  | 自定义右侧滑块按钮 （双滑块模式下） | _{ value: number }_ |
