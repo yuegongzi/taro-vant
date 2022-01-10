@@ -10,7 +10,7 @@ import Divider from '../divider'
 import { useTouch } from '../hooks'
 import { preventDefault, scrollOffset } from './utils'
 import type { ListProps, PullRefreshStatus } from './PropsType'
-import { createNamespace } from '../utils'
+import { createNamespace, ele } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('list')
@@ -33,7 +33,7 @@ const List: React.FC<ListProps> = (props) => {
     disabled,
     pullDistance = props.refresherThreshold || props.pullDistance,
     onRefresh,
-    renderHead,
+    header,
     successText = '刷新成功',
     children,
     loadingText = '加载中...',
@@ -44,75 +44,22 @@ const List: React.FC<ListProps> = (props) => {
     scrollTop,
     offset,
     finishedText = <Divider contentPosition='center' dashed>我是有底线的</Divider>,
-    renderFinished,
-    renderLoading,
-    finished: _finished,
-    renderError,
+    finished,
     errorText = '请求失败，点击重新加载',
-    total,
-    current,
-    pageSize = 20,
     emptyDescription,
     emptyImage,
     upperThreshold,
     lowerThreshold = props.lowerThreshold || props.offset || 250,
     refresherEnabled = props.refresherEnabled ?? props.disabled ?? true,
-    onScrollToLower = props.onScrollToLower || props.onLoad,
-    onScrollToUpper = props.onScrollToUpper || props.onRefresh,
     scrollY = props.scrollY ?? true,
     className,
+    empty = false,
     ...rest
   } = props
-  // ==LIST=======================================
-  // 是否到底了
-  // const reachDownRef = useRef(false)
-  // 是否显示 loading
-  // ts推断
   const loadingRef = useRef(false)
   // 是否显示 报错
   const errorRef = useRef(false)
-  // 分页
-  const paginationRef = useRef({
-    page: 0,
-    pageSize,
-  })
   const scrollRef = useRef<TaroElement>()
-  const [ finished, setFinished ] = useState<boolean>(_finished || false)
-  const currentCount = current ?? Array.from(children as any).length
-  const listCount = useRef(0)
-  useEffect(() => {
-    const { pageSize } = paginationRef.current
-    if (currentCount <= pageSize) {
-      paginationRef.current.page = 1
-      setFinished(false)
-    }
-    // 传入finished
-    if (_finished !== undefined) {
-      setFinished(_finished)
-      return
-    }
-    // 都没有传
-    if (total === undefined) {
-      const addCount = currentCount - listCount.current
-      if (
-        currentCount === 0 ||
-        (listCount.current !== 0 &&
-          addCount > -1 &&
-          addCount < paginationRef.current.pageSize)
-      ) {
-        setFinished(true)
-      }
-      listCount.current = currentCount
-      return
-    }
-    // 传入total
-    if (currentCount >= total) {
-      setFinished(true)
-    } else {
-      setFinished(false)
-    }
-  }, [ total, currentCount, _finished ])
-
   const [ isError, setError ] = useState(false)
   // 是否滚动最上面了
   const reachTopRef = useRef(true)
@@ -191,11 +138,10 @@ const List: React.FC<ListProps> = (props) => {
   }, [ loadingText, loosingText, pullingText, status, successText ])
 
   const renderStatus = useCallback((): React.ReactNode => {
-    const node = renderHead?.({ status, distance })
+    const node = header?.({ status, distance })
     if (node) {
       return node
     }
-
     if (TEXT_STATUS.includes(status)) {
       return <View className={clsx(bem('text'))}>{getStatusText()}</View>
     }
@@ -203,7 +149,7 @@ const List: React.FC<ListProps> = (props) => {
       return <Loading className={clsx(bem('loading'))}>{getStatusText()}</Loading>
     }
     return ''
-  }, [ distance, getStatusText, status, renderHead ])
+  }, [ distance, getStatusText, status, header ])
 
   const showSuccessTip = useCallback(async () => {
     // state.status = 'success'
@@ -234,8 +180,6 @@ const List: React.FC<ListProps> = (props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const checkPosition = useCallback(
     async (event: ITouchEvent) => {
-      // const { scrollTop } = await scrollOffset(scrollRef.current!)
-      // reachTopRef.current = scrollTop === 0
       if (reachTopRef.current) {
         setDuration(0)
         touch.start(event)
@@ -274,11 +218,7 @@ const List: React.FC<ListProps> = (props) => {
       errorRef.current = false
       setStatus(+headHeight, true)
       setError(false)
-      paginationRef.current.page = 1
-      const event = total === undefined ? 0 : paginationRef.current
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      await onScrollToUpper?.(event)
+      await onRefresh?.()
       setDuration(+animationDuration)
       if (successText) {
         await showSuccessTip()
@@ -292,11 +232,10 @@ const List: React.FC<ListProps> = (props) => {
   }, [
     animationDuration,
     headHeight,
-    onScrollToUpper,
+    onRefresh,
     setStatus,
     showSuccessTip,
     successText,
-    total,
   ])
   const onTouchEnd = useCallback(() => {
     // console.log('end', reachTopRef.current, touch.deltaY.current, isTouchable())
@@ -337,27 +276,26 @@ const List: React.FC<ListProps> = (props) => {
     if (isBanLoad()) return
     try {
       loadingRef.current = true
-      paginationRef.current.page += 1
-      const event = total === undefined ? currentCount : paginationRef.current
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      await onScrollToLower?.(event)
+      await onLoad?.()
       loadingRef.current = false
     } catch (e) {
-      paginationRef.current.page -= 1
       loadingRef.current = false
       errorRef.current = true
       setError(true)
       // 这里要主动触发刷新
       // throw e
     }
-  }, [ currentCount, isBanLoad, onScrollToLower, total ])
+  }, [  isBanLoad, onLoad ])
+
+  useEffect(()=>{
+    doLoadMore()
+  },[])
 
   const placeholder = useRef<TaroElement>()
 
   const renderFinishedText = useCallback((): React.ReactNode => {
     if (finished) {
-      const text = renderFinished ? renderFinished : finishedText
+      const text =  finishedText
       if (text) {
         if (isValidElement(text)) {
           return text
@@ -366,24 +304,20 @@ const List: React.FC<ListProps> = (props) => {
       }
     }
     return null
-  }, [ finished, renderFinished, finishedText ])
+  }, [ finished, finishedText ])
 
   const renderLoadingText = useCallback((): React.ReactNode => {
     if (!finished && scrollY) {
       return (
         <View className={clsx(bem('loading'))}>
-          {renderLoading ? (
-            renderLoading
-          ) : (
-            <Loading className={clsx(bem('loading-icon'))}>
-              {loadingText}
-            </Loading>
-          )}
+          {ele(loadingText,<Loading className={clsx(bem('loading-icon'))}>
+            {loadingText}`
+          </Loading>)}
         </View>
       )
     }
     return null
-  }, [ finished, loadingText, scrollY, renderLoading ])
+  }, [ finished, loadingText, scrollY ])
 
   const clickErrorText = useCallback(() => {
     setError(false)
@@ -394,21 +328,20 @@ const List: React.FC<ListProps> = (props) => {
 
   const renderErrorText = useCallback((): React.ReactNode => {
     if (isError) {
-      const text = renderError ? renderError : errorText
-      if (text) {
+      if (errorText) {
         return (
           <View className={clsx(bem('error-text'))} onClick={clickErrorText}>
-            {text}
+            {errorText}
           </View>
         )
       }
     }
     return null
-  }, [ clickErrorText, isError, errorText, renderError ])
+  }, [ clickErrorText, isError, errorText ])
   // 如果不定高 一直下拉
 
   const ListScrollContent = useCallback(() => {
-    if (finished && currentCount === 0) {
+    if (empty ) {
       return <Empty description={emptyDescription} image={emptyImage} />
     }
     if (isError) {
@@ -422,7 +355,6 @@ const List: React.FC<ListProps> = (props) => {
     return renderLoadingText()
   }, [
     finished,
-    currentCount,
     isError,
     renderLoadingText,
     emptyDescription,
@@ -442,7 +374,6 @@ const List: React.FC<ListProps> = (props) => {
       className={`${bem()} ${className || ''}`}
       {...rest}
     >
-      {/* <View className={bem()}> */}
       <View
         className={clsx(bem('track'))}
         style={trackStyle}
@@ -460,7 +391,6 @@ const List: React.FC<ListProps> = (props) => {
         <View ref={placeholder} className={clsx(bem('placeholder'))} />
         {ListScrollContent()}
       </View>
-      {/* </View> */}
     </ScrollView>
   )
 }

@@ -14,8 +14,8 @@ export interface ImageProps extends StandardProps {
   fit?: ImageFit
   showError?: boolean
   showLoading?: boolean
-  renderLoading?: ReactNode
-  renderError?: ReactNode
+  loadingIcon?: ReactNode | string
+  errorIcon?: ReactNode | string
 }
 
 declare const Image: ComponentClass<ImageProps>

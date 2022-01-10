@@ -129,8 +129,8 @@ import { Image } from "taro-vant";
 |  lazyLoad  | 是否懒加载 | _boolean_ | `false` |
 |  showError  | 是否展示图片加载失败提示 | _boolean_ | `true` |
 |  showLoading  | 是否展示图片加载中提示 | _boolean_ | `true` |
-|  useErrorSlot  | 是否使用 error 插槽 | _boolean_ | `false` |
-|  useLoadingSlot  | 是否使用 loading 插槽 | _boolean_ | `false` |
+|  errorIcon  | 失败时提示的图标 | _string\|ReactNode_ | `photo-fail` |
+|  loadingIcon  | 加载时提示的图标 |  _string\|ReactNode_ | `photo` |
 |  showMenuByLongpress  | 是否开启长按图片显示识别小程序码菜单 | _boolean_ | `false` |
 
 ### 图片填充模式 
@@ -148,22 +148,6 @@ import { Image } from "taro-vant";
 
 |  事件名  | 说明               | 回调参数     |
 | ------ | ------------------ | ------------ |
-|  click   | 点击图片时触发     | event: Event |
-|  load    | 图片加载完毕时触发 | event: Event |
-|  error   | 图片加载失败时触发 | event: Event |
-
-### Slots
-
-|  名称     | 说明                       |
-| ------- | -------------------------- |
-|  loading  | 自定义加载中的提示内容     |
-|  error    | 自定义加载失败时的提示内容 |
-
-### 外部样式类
-
-|  类名           | 说明           |
-| ------------- | -------------- |
-|  customClass   | 根节点样式类   |
-|  imageClass    | 图片样式类     |
-|  loadingClass  | loading 样式类 |
-|  errorClass    | error 样式类   |
+|  onClick   | 点击图片时触发     | event: Event |
+|  onLoad    | 图片加载完毕时触发 | event: Event |
+|  onError   | 图片加载失败时触发 | event: Event |

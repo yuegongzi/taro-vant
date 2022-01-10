@@ -6,7 +6,7 @@ import Button from '../button'
 import Icon from '../icon'
 import type { GoodsActionIconProps } from './PropsType'
 import clsx from 'clsx'
-import { createNamespace, jumpLink } from '../utils'
+import { createNamespace, ele, jumpLink } from '../utils'
 import { Badge } from '../badge'
 
 const [ bem ] = createNamespace('goods-action-icon')
@@ -21,7 +21,6 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
     icon,
     style,
     onClick,
-    renderIcon,
     className,
     ...others
   } = props
@@ -44,15 +43,10 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
       {...others}
     >
       <Badge dot={dot} content={badge}>
-      {icon ? (
-        <Icon
-          name={icon}
-          className={clsx(bem('icon'))}
-        />
-      ) : (
-        renderIcon
-      )}
-
+      {ele(icon, <Icon
+        name={icon}
+        className={clsx(bem('icon'))}
+      />)}
       <Text>{text}</Text>
       </Badge>
     </Button>

@@ -15,48 +15,37 @@ interface PullRefreshProps {
   successText?: string
   pullingText?: string
   loosingText?: string
-  loadingText?: string
+  loadingText?: string | React.ReactNode
   pullDistance?: number | string
   successDuration?: number | string
   animationDuration?: number | string
-  renderHead?: (params: {
+  header?: (params: {
     status: PullRefreshStatus
     distance: number
   }) => React.ReactNode | void
 }
 
-type eventType = {
-  page: number
-  pageSize: number
-}
-
-export interface ListProps<T = number>
+export interface ListProps
   extends StandardProps,
     PullRefreshProps,
     Omit<ScrollViewProps, 'onScrollToUpper' | 'onScrollToLower'> {
   offset?: number
-  total?: T
-  current?: number
-  pageSize?: number
   finished?: boolean
-  errorText?: string
-  loadingText?: string
-  finishedText?: string
+  empty?: boolean
+  errorText?: string| React.ReactNode
+  finishedText?: string | React.ReactNode
   immediateCheck?: boolean
-  renderFinished?: React.ReactNode
-  renderLoading?: React.ReactNode
-  renderError?: React.ReactNode
   emptyDescription?: string
   emptyImage?: 'error' | 'search' | 'default' | 'network' | string
-  onLoad?: (event: T extends number ? number : eventType) => Promise<void>
-  onRefresh?: (event: T extends number ? number : eventType) => Promise<void>
+  onLoad?: () => Promise<void>
+  onRefresh?: () => Promise<void>
   // Scroll
-  onScrollToUpper?: (
-    event: T extends number ? number : eventType,
-  ) => Promise<void>
-  onScrollToLower?: (
-    event: T extends number ? number : eventType,
-  ) => Promise<void>
+  // onScrollToUpper?: (
+  //   event: T extends number ? number : eventType,
+  // ) => Promise<void>
+  // onScrollToLower?: (
+  //   event: T extends number ? number : eventType,
+  // ) => Promise<void>
 }
 
 declare const List: ComponentClass<ListProps>

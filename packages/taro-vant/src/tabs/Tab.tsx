@@ -9,8 +9,8 @@ const [ bem ] = createNamespace('tab')
 
 function Tab(
   props: TabProps & {
-    active: boolean
-    lazyRender: boolean
+    active?: boolean
+    lazyRender?: boolean
     animated?: boolean
   },
 ) {
@@ -19,7 +19,7 @@ function Tab(
     children,
     style,
     className,
-    active,
+    active = false,
     lazyRender,
     animated,
     ...others

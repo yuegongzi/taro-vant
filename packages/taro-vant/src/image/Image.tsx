@@ -5,7 +5,7 @@ import type { ImageProps } from './PropsType'
 import Icon from '../icon/index'
 import type { FitType } from './wxs'
 import { mode, rootStyle } from './wxs'
-import { computedStyle, createNamespace } from '../utils'
+import { computedStyle, createNamespace, ele } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('image')
@@ -32,8 +32,8 @@ function Image(props: ImageProps) {
     showLoading = true,
     className,
     style,
-    renderError,
-    renderLoading,
+    errorIcon = 'photo-fail',
+    loadingIcon = 'photo',
     ...others
   } = props
 
@@ -101,19 +101,16 @@ function Image(props: ImageProps) {
       )}
       {loading && showLoading && (
         <View className={clsx(bem('loading'))}>
-          {renderLoading || (
-            <Icon name='photo' className={clsx(bem('loading-icon'))} />
-          )}
+          {/*@ts-ignore*/}
+          {ele(loadingIcon,<Icon name={loadingIcon} className={clsx(bem('loading-icon'))} />)}
         </View>
       )}
       {error && showError && (
         <View className={clsx(bem('error'))}>
-          {renderError || (
-            <Icon
-              name='photo-fail'
-              className={clsx(bem('error-icon'))}
-            />
-          )}
+          {/*@ts-ignore*/}
+          {ele(errorIcon, <Icon name={errorIcon}
+            className={clsx(bem('error-icon'))}
+          />)}
         </View>
       )}
     </View>

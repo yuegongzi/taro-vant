@@ -32,7 +32,6 @@ export interface GoodsActionIconProps
   dot?: boolean
   badge?: string
   icon?: string
-  renderIcon?: ReactNode
   children?: ReactNode
 }
 

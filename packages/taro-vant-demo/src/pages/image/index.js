@@ -80,7 +80,7 @@ export default class Index extends Component {
                 <Image
                   width='100%'
                   height='27vw'
-                  renderLoading={
+                  loadingIcon={
                     <>
                       <Loading type='spinner' size='40' vertical />
                     </>
@@ -101,7 +101,7 @@ export default class Index extends Component {
                   width='100%'
                   height='27vw'
                   src='x'
-                  renderError={
+                  errorIcon={
                     <>
                       <Text>加载失败</Text>
                     </>

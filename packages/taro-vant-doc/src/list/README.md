@@ -1,8 +1,7 @@
-# PowerScrollView 下拉刷新
+# List 长列表
 
 ### 介绍
-
-**PowerScrollView 继承于 ScrollView 补充了ScrollView在Taro中没有实现的功能, 以及新增的一些能力，因此描述ScrollView同样也适用于PowerScrollView**
+采用ScrollView编写实现长列表下拉刷新、上拉加载功能
 
 可滚动视图区域。使用竖向滚动时，需要给ScrollView一个固定高度，通过 css 设置 height。组件属性的长度单位默认为 px
 Tips: H5 中 ScrollView 组件是通过一个高度（或宽度）固定的容器内部滚动来实现的，因此务必正确的设置容器的高度。例如: 如果 ScrollView 的高度将 body 撑开，就会同时存在两个滚动条（body 下的滚动条，以及 ScrollView 的滚动条）

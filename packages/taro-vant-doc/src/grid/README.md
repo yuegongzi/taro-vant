@@ -10,7 +10,7 @@
 
 ```js
 import { Grid } from "taro-vant";
-import { GridItem } from "taro-vant"; 
+const GridItem = Grid.Item;
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -210,11 +210,6 @@ import { GridItem } from "taro-vant";
 |  reverse `v1.7.0`  | 是否调换图标和文本的位置 | _boolean_ | `false` |
 |  useSlot  | 是否使用自定义内容的插槽 | _boolean_ | `false` |
 
-### Grid 外部样式类
-
-|  类名          | 说明         |
-| ------------ | ------------ |
-|  customClass  | 根节点样式类 |
 
 ### GridItem Props
 
@@ -234,20 +229,3 @@ import { GridItem } from "taro-vant";
 |  事件名      | 说明           | 回调参数 |
 | ---------- | -------------- | -------- |
 |  onClick  | 点击格子时触发 | -        |
-
-### GridItem Slots
-
-|  名称  | 说明                                                   |
-| ---- | ------------------------------------------------------ |
-|       | 自定义宫格的所有内容，需要设置`use-slot`属性           |
-|  icon  | 自定义图标，如果设置了`use-slot`或者`icon`属性则不生效 |
-|  text  | 自定义文字，如果设置了`use-slot`或者`text`属性则不生效 |
-
-### GridItem 外部样式类
-
-|  类名           | 说明         |
-| ------------- | ------------ |
-|  customClass   | 根节点样式类 |
-|  contentClass  | 内容样式类   |
-|  iconClass     | 图标样式类   |
-|  textClass     | 文本样式类   |

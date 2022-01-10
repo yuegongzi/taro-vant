@@ -10,7 +10,9 @@
 
 ```js
 import { IndexBar } from "taro-vant";
-import { IndexAnchor } from "taro-vant"; 
+
+const IndexAnchor = IndexBar.Anchor
+
 ```
 
 > Vant Weapp 1.0 版本开始支持此组件，升级方式参见[快速上手](#/quickstart)
@@ -85,20 +87,15 @@ this.state = {
 
 |  参数      | 说明                     | 类型               | 默认值  | 版本 |
 | -------- | ------------------------ | ------------------ | ------- | ---- |
-|  useSlot  | 是否使用自定义内容的插槽 | _boolean_          | `false` | -    |
+|  children  | 自定义内容 | _ReactNode_          | `-` | -    |
 |  index     | 索引字符                 | _string \| number_ | -       | -    |
 
 ### IndexBar Events
 
 |  事件名  | 说明           | 回调参数        |
 | ------ | -------------- | --------------- |
-|  select  | 选中字符时触发 | index: 索引字符 |
+|  onSelect  | 选中字符时触发 | index: 索引字符 |
 
-### IndexAnchor Slots
-
-|  名称  | 说明                             |
-| ---- | -------------------------------- |
-|       | 锚点位置显示内容，默认为索引字符 |
 
 ## 常见问题
 
