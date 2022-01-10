@@ -2,31 +2,6 @@
 # yarn lockfile v1
 
 
-"@antmjs/iconfont@1.17.2":
-  version "1.17.2"
-  resolved "https://npm.ejiexi.com/@antmjs%2ficonfont/-/iconfont-1.17.2.tgz#c25d0edf8530c3de2fc03986126b632e98535453"
-  integrity sha512-YKJYv4yTW3KFSJRkeB2hz5hEizF3BUUDYMfUR+NnxWzohHR9kKtn8pkPrj6BEuUtAkpXqLTjeyw2HAtlVU2Iyw==
-
-"@antmjs/mini-fix@1.17.2":
-  version "1.17.2"
-  resolved "https://npm.ejiexi.com/@antmjs%2fmini-fix/-/mini-fix-1.17.2.tgz#cfa98cabd35c32883e348619368dec169147603d"
-  integrity sha512-dqngngcf5+qCT5RyUE4jBya+MRHkZ1LvEcmg1hdI/v8jjv0UdmcWu3tr2qP31TjzIKsTvqgYs+YP6kRI8Plj2w==
-  dependencies:
-    "@antmjs/utils" "1.17.2"
-    "@babel/runtime-corejs3" "^7.14.7"
-
-"@antmjs/plugin-mini-fix@1.17.2":
-  version "1.17.2"
-  resolved "https://npm.ejiexi.com/@antmjs%2fplugin-mini-fix/-/plugin-mini-fix-1.17.2.tgz#d82c9fd10f2b879ba330dd58cb1cfb82247ed2eb"
-  integrity sha512-l9Y/QSEhIihB6cOvLkZlo/hspiHYWbRjZtogADQ5s08DJRpZXC+AfbhgIbbOrK5BNr2+y8hc5uCCyu/tKQSQbw==
-
-"@antmjs/utils@1.17.2":
-  version "1.17.2"
-  resolved "https://npm.ejiexi.com/@antmjs%2futils/-/utils-1.17.2.tgz#78d417e590a270dd14765e4c25a2e9be2d7d3dad"
-  integrity sha512-bo+4QLTgOmu0Cx5WokwNox+IVOW6FsXuuLYdFlUD8RO1pcj8VQsxJL7tnELEHf3UqvAIOwGhXbNedm6GTGDxXA==
-  dependencies:
-    "@babel/runtime-corejs3" "^7.14.7"
-
 "@babel/code-frame@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://npm.ejiexi.com/@babel%2fcode-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
@@ -1004,7 +979,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime-corejs3@7.16.7", "@babel/runtime-corejs3@^7.14.7":
+"@babel/runtime-corejs3@7.16.7":
   version "7.16.7"
   resolved "https://npm.ejiexi.com/@babel%2fruntime-corejs3/-/runtime-corejs3-7.16.7.tgz#a762745fe8b4d61a26444a9151e6586d36044dde"
   integrity sha512-MiYR1yk8+TW/CpOD0CyX7ve9ffWTKqLk/L6pk8TPl0R8pNi+1pFY8fH9yET55KlvukQ4PAWfXsGr2YHVjcI4Pw==
