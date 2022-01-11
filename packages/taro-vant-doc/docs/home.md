@@ -11,7 +11,7 @@
 </div>
 
 <p align="center">
-  🌈 <a href="https://youzan.github.io/vant-weapp">文档网站</a>
+  🌈 <a href="https://doc-vant.ejiexi.com/">文档网站</a>
 </p>
 
 ---
