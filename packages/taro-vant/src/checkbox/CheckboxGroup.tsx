@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { CheckboxGroupProps } from './PropsType'
 import CheckboxGroupContext from './context'
@@ -27,9 +26,12 @@ function CheckboxGroup(props: CheckboxGroupProps) {
       value={{ value, max, disabled, direction, onChange: _onChange }}
     >
       <View
-        className={clsx(bem({
-          horizontal: direction === 'horizontal',
-        }), className)}
+        className={clsx(
+          bem({
+            horizontal: direction === 'horizontal',
+          }),
+          className,
+        )}
         style={style}
         {...others}
       >

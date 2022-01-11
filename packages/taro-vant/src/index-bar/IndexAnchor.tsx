@@ -1,4 +1,3 @@
-
 import { Text, View } from '@tarojs/components'
 import React from 'react'
 import type { IndexAnchorProps } from './PropsType'
@@ -31,9 +30,12 @@ function IndexAnchor(
       {...others}
     >
       <View
-        className={clsx(bem({
-          active, bottom: active,
-        }))}
+        className={clsx(
+          bem({
+            active,
+            bottom: active,
+          }),
+        )}
         style={anchorStyle}
       >
         {children ? (

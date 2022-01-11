@@ -1,4 +1,3 @@
-
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Image as TaroImage, View } from '@tarojs/components'
 import type { ImageProps } from './PropsType'
@@ -41,23 +40,23 @@ function Image(props: ImageProps) {
   const [ error, setError ] = useState(false)
 
   useEffect(
-    function() {
+    function () {
       if (loading === undefined) setLoading(true)
       setError(false)
     },
     [ loading ],
   )
 
-  const onLoad = useCallback(function() {
+  const onLoad = useCallback(function () {
     setLoading(false)
   }, [])
 
-  const onError = useCallback(function() {
+  const onError = useCallback(function () {
     setError(true)
   }, [])
   //样式挂在给img外层的webCompoent
   const styleH5 = useMemo(
-    function() {
+    function () {
       let style = {}
       if (process.env.TARO_ENV === 'h5') {
         if (fit === 'heightFix' || fit === 'widthFix') {
@@ -102,15 +101,19 @@ function Image(props: ImageProps) {
       {loading && showLoading && (
         <View className={clsx(bem('loading'))}>
           {/*@ts-ignore*/}
-          {ele(loadingIcon,<Icon name={loadingIcon} className={clsx(bem('loading-icon'))} />)}
+          {ele(
+            loadingIcon,
+            <Icon name={loadingIcon} className={clsx(bem('loading-icon'))} />,
+          )}
         </View>
       )}
       {error && showError && (
         <View className={clsx(bem('error'))}>
           {/*@ts-ignore*/}
-          {ele(errorIcon, <Icon name={errorIcon}
-            className={clsx(bem('error-icon'))}
-          />)}
+          {ele(
+            errorIcon,
+            <Icon name={errorIcon} className={clsx(bem('error-icon'))} />,
+          )}
         </View>
       )}
     </View>

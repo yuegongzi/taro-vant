@@ -1,10 +1,15 @@
-
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { RateProps } from './PropsType'
-import { addUnit, assembly, computedStyle, createNamespace, getAllRect } from '../utils'
+import {
+  addUnit,
+  assembly,
+  computedStyle,
+  createNamespace,
+  getAllRect,
+} from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('rate')
@@ -42,7 +47,7 @@ export function Rate(props: RateProps) {
     indexRef.current = comIndex
   }, [])
 
-  const onSelect = function(event: ITouchEvent) {
+  const onSelect = function (event: ITouchEvent) {
     const { score } = event.currentTarget.dataset
     Object.defineProperty(event, 'detail', {
       value: +score + 1,
@@ -51,39 +56,40 @@ export function Rate(props: RateProps) {
       if (noControlled) {
         setInnerValue(event.detail as number)
       }
-      onChange?.(assembly(event,event.detail))
+      onChange?.(assembly(event, event.detail))
     }
   }
   // touchmove匹配到的节点找不到data-score，先注释掉
-  const onTouchMove = function(event: ITouchEvent) {
+  const onTouchMove = function (event: ITouchEvent) {
     if (!touchable) return
 
     const { clientX } = event?.touches?.[0] ?? {}
     if (clientX) {
-      getAllRect(
-        null,
-        `.van-rate--${indexRef.current} .van-rate__icon`,
-      ).then((list: any) => {
-        const targetIndex = list.sort((a: any, b: any) => a.right - b.right).findIndex(
-          (item: any) => clientX >= item.left && clientX <= item.right,
-        )
-        if (targetIndex !== -1) {
-          onSelect(
-            Object.assign(Object.assign({}, event), {
-              currentTarget: {
-                dataset: {
-                  score: allowHalf ? targetIndex / 2 - 0.5 : targetIndex,
+      getAllRect(null, `.van-rate--${indexRef.current} .van-rate__icon`).then(
+        (list: any) => {
+          const targetIndex = list.
+            sort((a: any, b: any) => a.right - b.right).
+            findIndex(
+              (item: any) => clientX >= item.left && clientX <= item.right,
+            )
+          if (targetIndex !== -1) {
+            onSelect(
+              Object.assign(Object.assign({}, event), {
+                currentTarget: {
+                  dataset: {
+                    score: allowHalf ? targetIndex / 2 - 0.5 : targetIndex,
+                  },
                 },
-              },
-            }),
-          )
-        }
-      })
+              }),
+            )
+          }
+        },
+      )
     }
   }
 
   useEffect(
-    function() {
+    function () {
       setCountArray(Array.from({ length: count }))
     },
     [ count ],
@@ -92,10 +98,11 @@ export function Rate(props: RateProps) {
   const rateValue = noControlled ? innerValue : (value as number)
 
   return (
-    <View className={clsx(bem([ `${indexRef.current}` ]), className)}
-          style={style}
-          onTouchMove={onTouchMove}
-          {...others}
+    <View
+      className={clsx(bem([ `${indexRef.current}` ]), className)}
+      style={style}
+      onTouchMove={onTouchMove}
+      {...others}
     >
       {countArray.map((_item: any, index) => {
         return (
@@ -108,12 +115,14 @@ export function Rate(props: RateProps) {
           >
             <Icon
               name={index + 1 <= rateValue ? icon : voidIcon}
-              className={clsx(bem('icon', [
-                {
-                  disabled,
-                  full: index + 1 <= rateValue,
-                },
-              ]))}
+              className={clsx(
+                bem('icon', [
+                  {
+                    disabled,
+                    full: index + 1 <= rateValue,
+                  },
+                ]),
+              )}
               style={computedStyle({
                 fontSize: addUnit(size),
               })}
@@ -123,21 +132,23 @@ export function Rate(props: RateProps) {
                 disabled
                   ? disabledColor
                   : index + 1 <= rateValue
-                    ? color
-                    : voidColor
+                  ? color
+                  : voidColor
               }
               onClick={onSelect}
             />
             {allowHalf && (
               <Icon
                 name={index + 0.5 <= rateValue ? icon : voidIcon}
-                className={clsx(bem('icon', [
-                  'half',
-                  {
-                    disabled,
-                    full: index + 0.5 <= rateValue,
-                  },
-                ]))}
+                className={clsx(
+                  bem('icon', [
+                    'half',
+                    {
+                      disabled,
+                      full: index + 0.5 <= rateValue,
+                    },
+                  ]),
+                )}
                 style={computedStyle({
                   fontSize: addUnit(size),
                 })}
@@ -147,8 +158,8 @@ export function Rate(props: RateProps) {
                   disabled
                     ? disabledColor
                     : index + 0.5 <= rateValue
-                      ? color
-                      : voidColor
+                    ? color
+                    : voidColor
                 }
                 onClick={onSelect}
               />

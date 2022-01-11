@@ -1,5 +1,8 @@
-
-import { createCanvasContext, createSelectorQuery, useReady } from '@tarojs/taro'
+import {
+  createCanvasContext,
+  createSelectorQuery,
+  useReady,
+} from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas, CoverView, View } from '@tarojs/components'
 import { Current } from '@tarojs/runtime'
@@ -99,38 +102,42 @@ function Circle(props: CircleProps) {
       let ctx = null
       try {
         ctx = createCanvasContext(state.unitag)
-      } catch (error) {
-      }
+      } catch (error) {}
 
       return Promise.resolve(ctx)
     }
     const dpr = getSystemInfoSync().pixelRatio
     return new Promise((resolve: any) => {
-      createSelectorQuery().select(`.${state.unitag}`).node().exec((res: any) => {
-        const canvas = res[0].node
-        if (canvas) {
-          const ctx = canvas.getContext(type)
-          if (!ref.current.inited) {
-            ref.current.inited = true
-            canvas.width = size * dpr
-            canvas.height = size * dpr
-            ctx.scale(dpr, dpr)
+      createSelectorQuery().
+        select(`.${state.unitag}`).
+        node().
+        exec((res: any) => {
+          const canvas = res[0].node
+          if (canvas) {
+            const ctx = canvas.getContext(type)
+            if (!ref.current.inited) {
+              ref.current.inited = true
+              canvas.width = size * dpr
+              canvas.height = size * dpr
+              ctx.scale(dpr, dpr)
+            }
+            resolve(adaptor(ctx))
           }
-          resolve(adaptor(ctx))
-        }
-      })
+        })
     })
   }, [ size, type, state.unitag ])
 
-  const setHoverColor = function() {
+  const setHoverColor = function () {
     if (isObj(color)) {
       const _color = color as Record<string, string>
       return getContext().then((context: any) => {
         if (context) {
           const LinearColor = context.createLinearGradient(size, 0, 0, 0)
-          Object.keys(color).sort((a, b) => parseFloat(a) - parseFloat(b)).map((key: any) =>
-            LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
-          )
+          Object.keys(color).
+            sort((a, b) => parseFloat(a) - parseFloat(b)).
+            map((key: any) =>
+              LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
+            )
           setState((state) => {
             return {
               ...state,
@@ -204,7 +211,7 @@ function Circle(props: CircleProps) {
     },
     [ getContext, renderHoverCircle, renderLayerCircle, size ],
   )
-  const clearMockInterval = function() {
+  const clearMockInterval = function () {
     if (ref.current.interval) {
       clearTimeout(ref.current.interval)
       ref.current.interval = null

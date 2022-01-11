@@ -1,4 +1,3 @@
-
 import { Block, View } from '@tarojs/components'
 import { useState } from 'react'
 import type { LoadingProps } from './PropsType'
@@ -54,8 +53,7 @@ export function Loading(props: LoadingProps): JSX.Element {
             <View />
             <View />
           </View>
-        )
-        }
+        )}
       </View>
       <View
         className={clsx(bem('text'))}

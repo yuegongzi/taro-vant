@@ -1,6 +1,12 @@
-
 import { Block, View } from '@tarojs/components'
-import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState } from 'react'
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import Taro from '@tarojs/taro'
 import type { DropdownItemProps, IDropdownItemInstance } from './PropsType'
 import Icon from '../icon'
@@ -33,8 +39,7 @@ function Index(
     onOpened,
     onClose,
     onClosed,
-    onChange = () => {
-    },
+    onChange = () => {},
     options = [],
     className = '',
     style,
@@ -60,7 +65,8 @@ function Index(
     })
   }, [ parentInstance ])
 
-  const toggle = useCallback(function(show?: any, options = {}) {
+  const toggle = useCallback(
+    function (show?: any, options = {}) {
       if (typeof show !== 'boolean') {
         show = !showPopup
       }
@@ -111,7 +117,7 @@ function Index(
   )
 
   useEffect(
-    function() {
+    function () {
       setChildrenInstance(index, {
         title,
         titleClass,
@@ -143,14 +149,14 @@ function Index(
   )
 
   const onClosed_ = useCallback(
-    function() {
+    function () {
       if (onClosed) onClosed()
       setShowWrapper(false)
     },
     [ onClosed ],
   )
 
-  const onOptionTap = function(_event: any, option: any) {
+  const onOptionTap = function (_event: any, option: any) {
     const shouldEmitChange = value_ !== option.value
     setShowPopup(false)
     setValue(option.value)
@@ -191,9 +197,11 @@ function Index(
             <Cell
               key={`${index}VanCell`}
               data-option={item}
-              className={clsx(bem('option', {
-                active: item.value === value_,
-              }))}
+              className={clsx(
+                bem('option', {
+                  active: item.value === value_,
+                }),
+              )}
               clickable
               icon={item.icon}
               onClick={(e) => onOptionTap(e, item)}

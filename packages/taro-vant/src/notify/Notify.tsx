@@ -1,4 +1,3 @@
-
 import Taro from '@tarojs/taro'
 import { useCallback, useEffect, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
@@ -48,10 +47,8 @@ export function Notify(props: NotifyProps) {
     top: 0,
     id: defaultId,
     onClick: (_: any) => _,
-    onOpened: () => {
-    },
-    onClose: () => {
-    },
+    onOpened: () => {},
+    onClose: () => {},
   })
 
   const { style, className, ...others } = props
@@ -74,7 +71,6 @@ export function Notify(props: NotifyProps) {
       }
     })
   }, [])
-
 
   const hide = useCallback((notifyOptions: any) => {
     clearTimeout(timer)
@@ -159,11 +155,12 @@ export function Notify(props: NotifyProps) {
       onClick={onTap}
       {...others}
     >
-      <View className={clsx(bem([ `${state.type}` ]))}
-            style={notifyStyle({
-              background: state.background,
-              color: state.color,
-            })}
+      <View
+        className={clsx(bem([ `${state.type}` ]))}
+        style={notifyStyle({
+          background: state.background,
+          color: state.color,
+        })}
       >
         {state.safeAreaInsetTop && (
           <View style={'height: ' + state.statusBarHeight + 'px'} />

@@ -1,9 +1,20 @@
-
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import type { PickerChangeEvents } from '../picker'
 import Picker from '../picker'
-import type { DatetimePickerEventsByInstance, DatetimePickerProps } from './PropsType'
-import { currentYear, defaultFormatter, getMonthEndDay, getTrueValue, isValidDate, padZero, range, times } from './wxs'
+import type {
+  DatetimePickerEventsByInstance,
+  DatetimePickerProps,
+} from './PropsType'
+import {
+  currentYear,
+  defaultFormatter,
+  getMonthEndDay,
+  getTrueValue,
+  isValidDate,
+  padZero,
+  range,
+  times,
+} from './wxs'
 import { computedStyle, createNamespace } from '../utils'
 import clsx from 'clsx'
 
@@ -42,7 +53,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   const minMinute_ = minMinute
   const maxMinute_ = maxMinute
 
-  const getPicker = useCallback(function() {
+  const getPicker = useCallback(function () {
     if (PickRef.current) {
       const { setColumnValues } = PickRef.current
       PickRef.current.setColumnValues = (...args: any) =>
@@ -52,7 +63,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   }, [])
 
   const getBoundary = useCallback(
-    function(type, innerValue) {
+    function (type, innerValue) {
       const value = new Date(innerValue)
       const yearDate = `${type}Date` === 'maxDate' ? maxDate : minDate
       const boundary = new Date(yearDate)
@@ -92,7 +103,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const getRanges = useCallback(
-    function(nowValue?: any): any {
+    function (nowValue?: any): any {
       const res = [
         {
           type: 'hour',
@@ -145,7 +156,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const getOriginColumns = useCallback(
-    function(nowValue?: any) {
+    function (nowValue?: any) {
       return getRanges(nowValue).map(({ type, range }: any) => {
         let values = times(range[1] - range[0] + 1, (index: number) => {
           const value = range[0] + index
@@ -162,7 +173,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const updateColumns = useCallback(
-    function(nowValue?: any) {
+    function (nowValue?: any) {
       const results = getOriginColumns(nowValue).map((column: any) => ({
         values: column.values.map((value: any) =>
           formatter(column.type, value),
@@ -174,7 +185,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const updateColumnValue = useCallback(
-    function(value: string) {
+    function (value: string) {
       let values: any[] = []
       const picker = getPicker()
       if (type === 'time') {
@@ -211,7 +222,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   const correctValue = useCallback(
-    function(value: any) {
+    function (value: any) {
       // validate value
       const isDateType = type !== 'time'
       if (isDateType && !isValidDate(value)) {
@@ -235,7 +246,7 @@ function DatetimePicker(props: DatetimePickerProps) {
   )
 
   useLayoutEffect(
-    function() {
+    function () {
       const val = correctValue(value)
       const isEqual = val === innerValue
       if (!isEqual) {
@@ -257,7 +268,7 @@ function DatetimePicker(props: DatetimePickerProps) {
     [ type, minDate, maxDate, minHour, maxHour, minMinute, maxMinute ],
   )
 
-  const onChange_ = function(e: PickerChangeEvents) {
+  const onChange_ = function (e: PickerChangeEvents) {
     const valueArr: any = e.detail.value
     let value: any
     const picker = getPicker()
@@ -277,7 +288,8 @@ function DatetimePicker(props: DatetimePickerProps) {
 
     if (type === 'time') {
       const indexes = picker.getIndexes()
-      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1].values[indexes[1]]}`
+      value = `${+originColumns[0].values[indexes[0]]}:${+originColumns[1].
+        values[indexes[1]]}`
     } else {
       const indexes = picker.getIndexes()
       const values = indexes.map(
@@ -340,7 +352,7 @@ function DatetimePicker(props: DatetimePickerProps) {
       confirmButtonText={confirmButtonText}
       cancelButtonText={cancelButtonText}
       onChange={onChange_}
-      onConfirm={function(event) {
+      onConfirm={function (event) {
         if (onConfirm)
           onConfirm({
             detail: {

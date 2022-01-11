@@ -1,4 +1,3 @@
-
 import { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
@@ -152,17 +151,19 @@ function Uploader(props: UploaderProps) {
         sizeType,
         camera,
         maxCount: maxCount - state.lists.length,
-      }).then((res: any) => {
-        Object.defineProperty(event, 'detail', {
-          value: {
-            file: multiple ? res : res[0],
-          },
-          writable: true,
+      }).
+        then((res: any) => {
+          Object.defineProperty(event, 'detail', {
+            value: {
+              file: multiple ? res : res[0],
+            },
+            writable: true,
+          })
+          _onBeforeRead(event)
+        }).
+        catch((error) => {
+          onError?.(error)
         })
-        _onBeforeRead(event)
-      }).catch((error) => {
-        onError?.(error)
-      })
     },
     [
       _onBeforeRead,
@@ -200,7 +201,9 @@ function Uploader(props: UploaderProps) {
       const { index } = event.currentTarget.dataset
       const item = state.lists[index]
       TaroPreviewImage({
-        urls: state.lists.filter((item) => isImageFile(item)).map((item) => item.url),
+        urls: state.lists.
+          filter((item) => isImageFile(item)).
+          map((item) => item.url),
         current: item.url,
         fail() {
           showToast({ title: '预览图片失败', icon: 'none' })
@@ -216,9 +219,11 @@ function Uploader(props: UploaderProps) {
       // eslint-disable-next-line
       // @ts-ignore
       wx.previewMedia({
-        sources: state.lists.filter((item) => isVideoFile(item)).map((item) =>
-          Object.assign(Object.assign({}, item), { type: 'video' }),
-        ),
+        sources: state.lists.
+          filter((item) => isVideoFile(item)).
+          map((item) =>
+            Object.assign(Object.assign({}, item), { type: 'video' }),
+          ),
         fail() {
           showToast({ title: '预览视频失败', icon: 'none' })
         },
@@ -257,114 +262,106 @@ function Uploader(props: UploaderProps) {
     <View className={clsx(bem(), className)} style={style} {...others}>
       <View className={clsx(bem('wrapper'))}>
         {previewImage &&
-        state.lists.map((item: any, index) => {
-          return (
-            <View
-              key={item.index || index}
-              className={clsx(bem('preview'))}
-              data-index={index}
-              onClick={_onClickPreview}
-            >
-              {item.isImage ? (
-                <Image
-                  mode={imageFit}
-                  src={item.thumb || item.url}
-                  // eslint-disable-next-line
-                  // @ts-ignore
-                  alt={item.name || '图片' + index}
-                  className={clsx(bem('preview-image'))}
-                  style={computed.sizeStyle({
-                    previewSize,
-                  })}
-                  data-index={index}
-                  onClick={onPreviewImage}
-                />
-              ) : item.isVideo ? (
-                <Video
-                  src={item.url}
-                  title={item.name || '视频' + index}
-                  poster={item.thumb}
-                  autoplay={item.autoplay}
-                  className={clsx(bem('preview-image'))}
-                  style={computed.sizeStyle({
-                    previewSize,
-                  })}
-                  data-index={index}
-                  onClick={onPreviewVideo}
-                />
-              ) : (
-                <View className={clsx(bem('file'))}
-                      style={computed.sizeStyle({
-                        previewSize,
-                      })}
-                      data-index={index}
-                      onClick={onPreviewFile}
-                >
-                  <Icon
-                    name='description'
-                    className={clsx(bem('file-icon'))}
+          state.lists.map((item: any, index) => {
+            return (
+              <View
+                key={item.index || index}
+                className={clsx(bem('preview'))}
+                data-index={index}
+                onClick={_onClickPreview}
+              >
+                {item.isImage ? (
+                  <Image
+                    mode={imageFit}
+                    src={item.thumb || item.url}
+                    // eslint-disable-next-line
+                    // @ts-ignore
+                    alt={item.name || '图片' + index}
+                    className={clsx(bem('preview-image'))}
+                    style={computed.sizeStyle({
+                      previewSize,
+                    })}
+                    data-index={index}
+                    onClick={onPreviewImage}
                   />
+                ) : item.isVideo ? (
+                  <Video
+                    src={item.url}
+                    title={item.name || '视频' + index}
+                    poster={item.thumb}
+                    autoplay={item.autoplay}
+                    className={clsx(bem('preview-image'))}
+                    style={computed.sizeStyle({
+                      previewSize,
+                    })}
+                    data-index={index}
+                    onClick={onPreviewVideo}
+                  />
+                ) : (
                   <View
-                    className={clsx(bem('file-name'), 'van-ellipsis')}>
-                    {item.name || item.url}
-                  </View>
-                </View>
-              )}
-              {(item.status === 'uploading' || item.status === 'failed') && (
-                <View className={clsx(bem('mask'))}>
-                  {item.status === 'failed' ? (
+                    className={clsx(bem('file'))}
+                    style={computed.sizeStyle({
+                      previewSize,
+                    })}
+                    data-index={index}
+                    onClick={onPreviewFile}
+                  >
                     <Icon
-                      name='close'
-                      className={clsx(bem('mask-icon'))}
+                      name='description'
+                      className={clsx(bem('file-icon'))}
                     />
-                  ) : (
-                    <Loading className={clsx(bem('loading'))} />
-                  )}
-                  {item.message && (
-                    <Text className={clsx(bem('mask-message'))}>
-                      {item.message}
-                    </Text>
-                  )}
-                </View>
-              )}
-              {deletable && item.deletable && (
-                <View
-                  data-index={index}
-                  className={clsx(bem('preview-delete'))}
-                  onClick={deleteItem}
-                >
-                  <Icon
-                    name='cross'
-                    className={clsx(bem('preview-delete-icon'))}
-                  />
-                </View>
-              )}
-            </View>
-          )
-        })}
+                    <View className={clsx(bem('file-name'), 'van-ellipsis')}>
+                      {item.name || item.url}
+                    </View>
+                  </View>
+                )}
+                {(item.status === 'uploading' || item.status === 'failed') && (
+                  <View className={clsx(bem('mask'))}>
+                    {item.status === 'failed' ? (
+                      <Icon name='close' className={clsx(bem('mask-icon'))} />
+                    ) : (
+                      <Loading className={clsx(bem('loading'))} />
+                    )}
+                    {item.message && (
+                      <Text className={clsx(bem('mask-message'))}>
+                        {item.message}
+                      </Text>
+                    )}
+                  </View>
+                )}
+                {deletable && item.deletable && (
+                  <View
+                    data-index={index}
+                    className={clsx(bem('preview-delete'))}
+                    onClick={deleteItem}
+                  >
+                    <Icon
+                      name='cross'
+                      className={clsx(bem('preview-delete-icon'))}
+                    />
+                  </View>
+                )}
+              </View>
+            )
+          })}
         {/*  上传样式  */}
         {state.isInCount && (
           <Block>
-            <View className={clsx(bem('slot'))}
-                  onClick={startUpload}>
+            <View className={clsx(bem('slot'))} onClick={startUpload}>
               {children}
             </View>
             {/*  默认上传样式  */}
             {showUpload && (
-              <View className={clsx(bem('upload', { disabled }))}
-                    style={computed.sizeStyle({
-                      previewSize,
-                    })}
-                    onClick={startUpload}
+              <View
+                className={clsx(bem('upload', { disabled }))}
+                style={computed.sizeStyle({
+                  previewSize,
+                })}
+                onClick={startUpload}
               >
-                <Icon
-                  name={uploadIcon}
-                  className={clsx(bem('upload-icon'))}
-                />
+                <Icon name={uploadIcon} className={clsx(bem('upload-icon'))} />
                 {uploadText && (
-                  <Text className={clsx(bem('upload-text'))}>
-                    {uploadText}
-                  </Text>
+                  <Text className={clsx(bem('upload-text'))}>{uploadText}</Text>
                 )}
               </View>
             )}

@@ -1,4 +1,3 @@
-
 import { useEffect, useMemo, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -47,14 +46,14 @@ function Search(props: SearchProps) {
   const [ innerValue, setInnerValue ] = useState(
     noControlled ? defaultValue : value,
   )
-  const _change = function(event: ITouchEvent) {
+  const _change = function (event: ITouchEvent) {
     if (noControlled) {
       setInnerValue(event.detail)
     }
     onChange?.(event)
   }
 
-  const _cancel = function(e: ITouchEvent) {
+  const _cancel = function (e: ITouchEvent) {
     /**
      * 修复修改输入框值时，输入框失焦和赋值同时触发，赋值失效
      * https://github.com/youzan/@vant/weapp/issues/1768
@@ -72,7 +71,7 @@ function Search(props: SearchProps) {
   }
 
   useEffect(
-    function() {
+    function () {
       if (!noControlled) {
         setInnerValue(value)
       }
@@ -84,9 +83,12 @@ function Search(props: SearchProps) {
 
   return (
     <View
-      className={clsx(bem({
-        withaction: showAction ,
-      }), className)}
+      className={clsx(
+        bem({
+          withaction: showAction,
+        }),
+        className,
+      )}
       style={computedStyle([ { background: background }, style ])}
       {...others}
     >
@@ -127,9 +129,7 @@ function Search(props: SearchProps) {
           hoverClass={clsx(bem('action', [ 'hover' ], true))}
           hoverStayTime={70}
         >
-          <View onClick={_cancel}>
-            {actionText}
-          </View>
+          <View onClick={_cancel}>{actionText}</View>
         </View>
       )}
     </View>

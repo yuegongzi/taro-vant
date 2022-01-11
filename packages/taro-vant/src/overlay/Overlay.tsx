@@ -1,6 +1,9 @@
-
 import { useCallback } from 'react'
-import { computedStyle, createNamespace, Overlay as InnerOverlay } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  Overlay as InnerOverlay,
+} from '../utils'
 import type { OverlayProps } from './PropsType'
 import Transition from '../transition'
 import clsx from 'clsx'

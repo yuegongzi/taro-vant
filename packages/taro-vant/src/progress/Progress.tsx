@@ -1,4 +1,3 @@
-
 import Taro from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
@@ -12,7 +11,7 @@ const [ bem ] = createNamespace('progress')
 function Progress(props: ProgressProps) {
   const [ right, setRight ] = useState(0)
   useEffect(
-    function() {
+    function () {
       Taro.nextTick(() => {
         Promise.all([
           getRect(null, '.van-progress'),

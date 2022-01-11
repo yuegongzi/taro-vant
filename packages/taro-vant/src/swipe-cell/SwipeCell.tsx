@@ -1,7 +1,12 @@
-
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react'
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import type { ISwiperCellInstance, SwipeCellProps } from './PropsType'
 import { computedStyle, createNamespace, range } from '../utils'
 import clsx from 'clsx'
@@ -50,7 +55,7 @@ function Index(
   } = props
 
   const swipeMove = useCallback(
-    function(offset2 = 0, dragging?: boolean) {
+    function (offset2 = 0, dragging?: boolean) {
       const offset_ = range(offset2, -rightWidth, leftWidth)
       setOffset(offset_)
       const transform = `translate3d(${offset_}px, 0, 0)`
@@ -70,14 +75,14 @@ function Index(
   )
 
   const close = useCallback(
-    function() {
+    function () {
       swipeMove(0)
     },
     [ swipeMove ],
   )
 
   useEffect(
-    function() {
+    function () {
       const k = new Date()
       if (!instanceKey) {
         setInstanceKey({
@@ -87,7 +92,7 @@ function Index(
         ARRAY.push(k)
       }
 
-      return function() {
+      return function () {
         ARRAY = ARRAY.filter((item) => item.key !== instanceKey.key)
       }
     },
@@ -95,7 +100,7 @@ function Index(
   )
 
   const resetTouchStatus = useCallback(
-    function() {
+    function () {
       setTouchState({
         ...touchState,
         direction: '',
@@ -109,7 +114,7 @@ function Index(
   )
 
   const touchStart = useCallback(
-    function(event) {
+    function (event) {
       resetTouchStatus()
       const touch = event.touches[0]
       setTouchState({
@@ -122,7 +127,7 @@ function Index(
   )
 
   const touchMove = useCallback(
-    function(event) {
+    function (event) {
       resetTouchStatus()
       const touch = event.touches[0]
       const newTouchState = {
@@ -142,7 +147,7 @@ function Index(
   )
 
   const open = useCallback(
-    function(position) {
+    function (position) {
       const offset = position === 'left' ? leftWidth : -rightWidth
       swipeMove(offset)
       if (onOpen) {
@@ -159,7 +164,7 @@ function Index(
   )
 
   const swipeLeaveTransition = useCallback(
-    function() {
+    function () {
       if (rightWidth > 0 && -offset > rightWidth * THRESHOLD) {
         open('right')
       } else if (leftWidth > 0 && offset > leftWidth * THRESHOLD) {
@@ -172,7 +177,7 @@ function Index(
   )
 
   const onClick_ = useCallback(
-    function(event) {
+    function (event) {
       event.stopPropagation()
       event.preventDefault()
       const { key: position = 'outside' } = event.currentTarget.dataset
@@ -199,7 +204,7 @@ function Index(
   )
 
   const startDrag = useCallback(
-    function(event) {
+    function (event) {
       if (disabled) return
       setStartOffset(offset)
       touchStart(event)
@@ -208,7 +213,7 @@ function Index(
   )
 
   const onDrag = useCallback(
-    function(event) {
+    function (event) {
       if (disabled) return
       const touchState = touchMove(event)
       ARRAY.filter((item) => item.key !== instanceKey.key).forEach((item) =>
@@ -220,14 +225,14 @@ function Index(
   )
 
   const endDrag = useCallback(
-    function() {
+    function () {
       if (disabled) return
       swipeLeaveTransition()
     },
     [ disabled, swipeLeaveTransition ],
   )
 
-  useImperativeHandle(ref, function() {
+  useImperativeHandle(ref, function () {
     return {
       close,
       open,
@@ -248,10 +253,11 @@ function Index(
     >
       <View style={wrapperStyle as any}>
         {leftWidth ? (
-          <View className={clsx(bem('left'))}
-                data-key='left'
-                onClick={onClick_}
-                style={{ width: leftWidth + 'px' }}
+          <View
+            className={clsx(bem('left'))}
+            data-key='left'
+            onClick={onClick_}
+            style={{ width: leftWidth + 'px' }}
           >
             {left}
           </View>
@@ -260,10 +266,11 @@ function Index(
         )}
         {children}
         {rightWidth ? (
-          <View className={clsx(bem('right'))}
-                data-key='right'
-                onClick={onClick_}
-                style={{ width: rightWidth + 'px' }}
+          <View
+            className={clsx(bem('right'))}
+            data-key='right'
+            onClick={onClick_}
+            style={{ width: rightWidth + 'px' }}
           >
             {right}
           </View>

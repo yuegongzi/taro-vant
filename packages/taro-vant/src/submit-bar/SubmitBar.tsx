@@ -1,4 +1,3 @@
-
 import { Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 import Icon from '../icon'
@@ -35,10 +34,10 @@ function SubmitBar(props: SubmitBarProps) {
     decimalStr: '',
     hasPrice: false,
   })
-  const {  integerStr, decimalStr, hasPrice } = state
+  const { integerStr, decimalStr, hasPrice } = state
 
   useEffect(
-    function() {
+    function () {
       const priceStrArr =
         typeof price === 'number' &&
         (price / 100).toFixed(decimalLength).split('.')
@@ -54,21 +53,13 @@ function SubmitBar(props: SubmitBarProps) {
     [ decimalLength, price ],
   )
   return (
-    <View
-      className={clsx(bem(), className)}
-      style={style}
-      {...others}
-    >
+    <View className={clsx(bem(), className)} style={style} {...others}>
       {top}
       <View className={clsx(bem('tip'))}>
         {tipIcon && (
-          <Icon
-            size='12px'
-            name={tipIcon}
-            className={clsx(bem('tip-icon'))}
-          />
+          <Icon size='12px' name={tipIcon} className={clsx(bem('tip-icon'))} />
         )}
-        {ele(tip,<View className={clsx(bem('tip-text'))}>{tip}</View>)}
+        {ele(tip, <View className={clsx(bem('tip-text'))}>{tip}</View>)}
       </View>
       <View className={clsx(bem('bar'))}>
         {children}
@@ -77,9 +68,7 @@ function SubmitBar(props: SubmitBarProps) {
             <Text>{label || '合计：'}</Text>
             <Text className={clsx(bem('price'))}>
               <Text className={clsx(bem('currency'))}>{currency}</Text>
-              <Text className={clsx(bem('price-integer'))}>
-                {integerStr}
-              </Text>
+              <Text className={clsx(bem('price-integer'))}>{integerStr}</Text>
               <Text>{decimalStr}</Text>
             </Text>
             <Text className={clsx(bem('suffix-label'))}>{suffixLabel}</Text>

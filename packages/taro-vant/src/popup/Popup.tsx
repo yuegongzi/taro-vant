@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PopupProps } from './PropsType'
@@ -104,32 +103,37 @@ function Popup(this: any, props: PopupProps) {
         />
       )}
       {inited && (
-        <View className={clsx(bem([
-          position,
-          {
-            round,
-            safe: safeAreaInsetBottom,
-            safeTop: safeAreaInsetTop,
-          },
-        ]), classes, className)}
-              style={computedStyle([
-                popupStyle({
-                  zIndex,
-                  currentDuration,
-                  display,
-                }),
-                style,
-              ])}
-              onTransitionEnd={onTransitionEnd}
-              {...others}
+        <View
+          className={clsx(
+            bem([
+              position,
+              {
+                round,
+                safe: safeAreaInsetBottom,
+                safeTop: safeAreaInsetTop,
+              },
+            ]),
+            classes,
+            className,
+          )}
+          style={computedStyle([
+            popupStyle({
+              zIndex,
+              currentDuration,
+              display,
+            }),
+            style,
+          ])}
+          onTransitionEnd={onTransitionEnd}
+          {...others}
         >
           {children}
           {closeable && (
             <Icon
               name={closeIcon}
-              className={clsx(bem('close-icon', [
-                `${getClassName(closeIconPosition)}`,
-              ]))}
+              className={clsx(
+                bem('close-icon', [ `${getClassName(closeIconPosition)}` ]),
+              )}
               onClick={_onClickCloseIcon}
             />
           )}

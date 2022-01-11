@@ -1,4 +1,3 @@
-
 import type { ButtonProps } from './PropsType'
 import Taro from '@tarojs/taro'
 import { Block, Button, View } from '@tarojs/components'
@@ -36,21 +35,24 @@ function Index(props: ButtonProps) {
 
   return (
     <Button
-      className={clsx(bem([
-        type,
-        size,
-        {
-          block,
-          round,
-          plain,
-          square,
-          loading,
-          disabled,
-          hairline,
-          unclickable: disabled || loading,
-        },
-      ]), { ['van-hairline--surround']: hairline }, className)
-      }
+      className={clsx(
+        bem([
+          type,
+          size,
+          {
+            block,
+            round,
+            plain,
+            square,
+            loading,
+            disabled,
+            hairline,
+            unclickable: disabled || loading,
+          },
+        ]),
+        { ['van-hairline--surround']: hairline },
+        className,
+      )}
       hoverClass={clsx(bem('', [ 'active' ], true))}
       style={computedStyle([
         rootStyle({

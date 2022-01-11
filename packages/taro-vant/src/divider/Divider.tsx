@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { DividerProps } from './PropsType'
 import { computedStyle, createNamespace } from '../utils'
@@ -23,13 +22,16 @@ export function Divider(props: DividerProps) {
 
   return (
     <View
-      className={clsx(bem([
-        {
-          dashed,
-          hairline,
-        },
-        contentPosition,
-      ]), className)}
+      className={clsx(
+        bem([
+          {
+            dashed,
+            hairline,
+          },
+          contentPosition,
+        ]),
+        className,
+      )}
       style={computedStyle([
         rootStyle({
           borderColor,

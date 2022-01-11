@@ -1,4 +1,3 @@
-
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import { useCallback, useContext, useEffect, useState } from 'react'
@@ -116,51 +115,62 @@ export function Radio(props: RadioProps) {
       {...others}
     >
       {labelPosition === 'left' && (
-        <View className={clsx(bem('label', [
-          labelPosition, { disabled: disabled || state.parentDisabled },
-        ]))}
-              onClick={onClickLabel}
+        <View
+          className={clsx(
+            bem('label', [
+              labelPosition,
+              { disabled: disabled || state.parentDisabled },
+            ]),
+          )}
+          onClick={onClickLabel}
         >
           {children}
         </View>
       )}
-      <View className={clsx(bem('icon-wrap'))}
-            style={'font-size: ' + addUnit(iconSize)}
-            onClick={onClick}
+      <View
+        className={clsx(bem('icon-wrap'))}
+        style={'font-size: ' + addUnit(iconSize)}
+        onClick={onClick}
       >
         {/*@ts-ignore*/}
-        {isDef(iconRender) ? iconRender({ disabled: disabled || state.parentDisabled,checked: state.value === name, }) :
-          (
-            <Icon
-              name='success'
-              className={clsx(bem('icon', [
+        {isDef(iconRender) ? (
+          iconRender({
+            disabled: disabled || state.parentDisabled,
+            checked: state.value === name,
+          })
+        ) : (
+          <Icon
+            name='success'
+            className={clsx(
+              bem('icon', [
                 shape,
                 {
                   disabled: disabled || state.parentDisabled,
                   checked: state.value === name,
                 },
-              ]))}
-              style={computed.iconStyle({
-                iconSize,
-                checkedColor,
-                disabled,
-                parentDisabled: state.parentDisabled,
-                value: state.value,
-                name,
-              })}
-            />
-          )
-        }
-
+              ]),
+            )}
+            style={computed.iconStyle({
+              iconSize,
+              checkedColor,
+              disabled,
+              parentDisabled: state.parentDisabled,
+              value: state.value,
+              name,
+            })}
+          />
+        )}
       </View>
       {labelPosition === 'right' && (
         <View
-          className={clsx(bem('label', [
-            labelPosition,
-            {
-              disabled: disabled || state.parentDisabled,
-            },
-          ]))}
+          className={clsx(
+            bem('label', [
+              labelPosition,
+              {
+                disabled: disabled || state.parentDisabled,
+              },
+            ]),
+          )}
           onClick={onClickLabel}
         >
           {children}

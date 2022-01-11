@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { ConfigProviderProps } from './PropsType'
 import { mapThemeVarsToCSSVars } from './wxs'

@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { RowProps } from './PropsType'
 import { rootStyle } from './wxs'
@@ -25,5 +24,5 @@ function Row(props: RowProps): JSX.Element {
     </View>
   )
 }
-Row.displayName ='Row'
+Row.displayName = 'Row'
 export default Row

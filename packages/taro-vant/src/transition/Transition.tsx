@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { TransitionPropsCom } from './PropsType'
 import { rootStyle } from './wxs'
@@ -50,17 +49,18 @@ function Transition(props: TransitionPropsCom) {
 
   return (
     <>
-      <View className={clsx(bem(), classes, className)}
-            style={computedStyle([
-              rootStyle({
-                currentDuration,
-                display,
-              }),
-              style,
-            ])}
-            onTransitionEnd={onTransitionEnd}
-            {...others}
-            catchMove
+      <View
+        className={clsx(bem(), classes, className)}
+        style={computedStyle([
+          rootStyle({
+            currentDuration,
+            display,
+          }),
+          style,
+        ])}
+        onTransitionEnd={onTransitionEnd}
+        {...others}
+        catchMove
       >
         {children}
       </View>

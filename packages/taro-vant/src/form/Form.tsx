@@ -1,5 +1,4 @@
-
-import RcForm , { useForm } from 'rc-field-form'
+import RcForm, { useForm } from 'rc-field-form'
 import type { FormProps } from './PropsType'
 import FormContext from './formContext'
 import Cell from '../cell'
@@ -26,14 +25,15 @@ function Form(props: FormProps): JSX.Element {
     buttonProps,
     ...options
   } = props
-  const [ loading,setLoading ] = useState<boolean>(false)
+  const [ loading, setLoading ] = useState<boolean>(false)
   const _onFinish = async (values: any) => {
     setLoading(true)
     await onFinish(values)
     setLoading(false)
   }
 
-  return (<FormContext.Provider value={{ labelWidth }}>
+  return (
+    <FormContext.Provider value={{ labelWidth }}>
       {/*@ts-ignore*/}
       <RcForm
         {...options}
@@ -42,18 +42,25 @@ function Form(props: FormProps): JSX.Element {
         form={form}
         validateMessages={message}
         onFinish={_onFinish}
-        className={clsx(bem(), className)}>
+        className={clsx(bem(), className)}
+      >
         <Cell.Group inset={inset} border={border}>
           {children}
         </Cell.Group>
       </RcForm>
       {submitter && (
-        <View className={clsx(bem('submitter',{ inset }))}>
-          <Button type='primary'
-                  loading={loading}
-                  disabled={loading}
-                  onClick={()=>form?.submit()}
-                  round block {...buttonProps}>提 交</Button>
+        <View className={clsx(bem('submitter', { inset }))}>
+          <Button
+            type='primary'
+            loading={loading}
+            disabled={loading}
+            onClick={() => form?.submit()}
+            round
+            block
+            {...buttonProps}
+          >
+            提 交
+          </Button>
         </View>
       )}
     </FormContext.Provider>

@@ -1,9 +1,14 @@
-
 import React, { useCallback, useEffect, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import type { SliderProps } from './PropsType'
-import { addUnit, canIUseModel, computedStyle, createNamespace, getRect } from '../utils'
+import {
+  addUnit,
+  canIUseModel,
+  computedStyle,
+  createNamespace,
+  getRect,
+} from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('slider')
@@ -61,7 +66,7 @@ function Slider(props: SliderProps) {
   }, [])
 
   const resetTouchStatus = useCallback(
-    function() {
+    function () {
       setTouchState({
         ...touchState,
         direction: '',
@@ -75,7 +80,7 @@ function Slider(props: SliderProps) {
   )
 
   const touchStart = useCallback(
-    function(event) {
+    function (event) {
       resetTouchStatus()
       const touch = event.touches[0]
       setTouchState({
@@ -88,7 +93,7 @@ function Slider(props: SliderProps) {
   )
 
   const touchMove = useCallback(
-    function(event) {
+    function (event) {
       resetTouchStatus()
       const touch = event.touches[0]
       const newTouchState = {
@@ -108,18 +113,18 @@ function Slider(props: SliderProps) {
   )
 
   const isRange = useCallback<any>(
-    function(value: any) {
+    function (value: any) {
       return range && Array.isArray(value)
     },
     [ range ],
   )
 
-  const getScope = useCallback(function(max, min) {
+  const getScope = useCallback(function (max, min) {
     return Number(max) - Number(min)
   }, [])
 
   const calcMainAxis = useCallback(
-    function(value_) {
+    function (value_) {
       const scope = getScope(max, min)
       if (isRange(value_)) {
         return `${((value_[1] - value_[0]) * 100) / scope}%`
@@ -141,13 +146,13 @@ function Slider(props: SliderProps) {
   )
 
   const format = useCallback(
-    function(value) {
+    function (value) {
       return Math.round(Math.max(min, Math.min(value, max)) / step) * step
     },
     [ max, min, step ],
   )
 
-  const handleOverlap = useCallback<any>(function(value: any) {
+  const handleOverlap = useCallback<any>(function (value: any) {
     if (value[0] > value[1]) {
       return value.slice(0).reverse()
     }
@@ -155,7 +160,7 @@ function Slider(props: SliderProps) {
   }, [])
 
   const updateValue = useCallback(
-    function(value: any, end?: any, drag?: boolean) {
+    function (value: any, end?: any, drag?: boolean) {
       if (isRange(value)) {
         value = handleOverlap(value).map((val: any) => format(val))
       } else {
@@ -205,7 +210,7 @@ function Slider(props: SliderProps) {
   )
 
   useEffect(
-    function() {
+    function () {
       setValue(value)
       updateValue(value)
     },
@@ -213,7 +218,7 @@ function Slider(props: SliderProps) {
   )
 
   const onTouchStart = useCallback(
-    function(event: any, index?: number): any {
+    function (event: any, index?: number): any {
       if (disabled) return
       if (typeof index === 'number') {
         setButtonIndex(index || 0)
@@ -232,14 +237,14 @@ function Slider(props: SliderProps) {
   )
 
   const getRange = useCallback(
-    function() {
+    function () {
       return max - min
     },
     [ max, min ],
   )
 
   const onTouchMove = useCallback(
-    function(event) {
+    function (event) {
       event.preventDefault()
       if (disabled) return
       if (dragStatus === 'start') {
@@ -276,7 +281,7 @@ function Slider(props: SliderProps) {
   )
 
   const onTouchEnd = useCallback(
-    function() {
+    function () {
       if (disabled) return
       if (dragStatus === 'draging') {
         updateValue(newValue, true)
@@ -287,12 +292,12 @@ function Slider(props: SliderProps) {
   )
 
   const onClick = useCallback(
-    function(event: any) {
+    function (event: any) {
       if (disabled) return
       getRect(null, `.van-slider--${currentIndex_}`).then((rect: any) => {
         const value =
           (((event.target.x || event.clientX) - rect.left) / rect.width) *
-          getRange() +
+            getRange() +
           min
 
         if (isRange(value_)) {
@@ -311,16 +316,20 @@ function Slider(props: SliderProps) {
     [ disabled, getRange, isRange, min, updateValue, value_, currentIndex_ ],
   )
   return (
-    <View className={clsx(bem([
-      {
-        disabled,
-        vertical,
-      },
-      `${currentIndex_}`,
-    ]), className)}
-          style={computedStyle([ wrapperStyle, style ])}
-          onClick={onClick}
-          {...others}
+    <View
+      className={clsx(
+        bem([
+          {
+            disabled,
+            vertical,
+          },
+          `${currentIndex_}`,
+        ]),
+        className,
+      )}
+      style={computedStyle([ wrapperStyle, style ])}
+      onClick={onClick}
+      {...others}
     >
       <View
         className={clsx(bem('bar'))}

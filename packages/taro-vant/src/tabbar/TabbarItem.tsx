@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import Icon from '../icon'
 import type { TabbarItemProps } from './PropsType'
@@ -34,7 +33,7 @@ function TabbarItem(
     ...others
   } = props
 
-  const _click = function() {
+  const _click = function () {
     if (onChange) {
       const _active = name ?? index
       if (_active !== active) {
@@ -47,9 +46,12 @@ function TabbarItem(
 
   return onChange ? (
     <View
-      className={clsx(bem({
-        active: active === (name ?? index),
-      }), className)}
+      className={clsx(
+        bem({
+          active: active === (name ?? index),
+        }),
+        className,
+      )}
       style={computedStyle([
         {
           color: active === (name ?? index) ? activeColor : inactiveColor,
@@ -60,14 +62,16 @@ function TabbarItem(
       onClick={_click}
     >
       <View className={clsx(bem('icon'))}>
-        {icon && <Icon
-          size={38}
-          badge={badge}
-          name={icon}
-          dot={dot}
-          classPrefix={iconPrefix}
-          className={clsx(bem('icon__inner'))}
-        />}
+        {icon && (
+          <Icon
+            size={38}
+            badge={badge}
+            name={icon}
+            dot={dot}
+            classPrefix={iconPrefix}
+            className={clsx(bem('icon__inner'))}
+          />
+        )}
       </View>
       <View className={clsx(bem('text'))}>{children}</View>
     </View>

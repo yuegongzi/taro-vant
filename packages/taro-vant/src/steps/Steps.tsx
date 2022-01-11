@@ -1,4 +1,3 @@
-
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import { useCallback } from 'react'
@@ -45,9 +44,7 @@ function Steps(props: StepsProps) {
     [ onClickStep ],
   )
   return (
-    <View className={clsx(bem([ direction ]), className)}
-          {...others}
-    >
+    <View className={clsx(bem([ direction ]), className)} {...others}>
       <View className={clsx(bem('wrapper'))}>
         {steps.map((item, index) => {
           return (
@@ -55,15 +52,19 @@ function Steps(props: StepsProps) {
               key={index}
               onClick={_onClick}
               data-index={index}
-              className={clsx(stepBem([ direction, `${getStatus(index, active)}` ]), 'van-hairline')}
+              className={clsx(
+                stepBem([ direction, `${getStatus(index, active)}` ]),
+                'van-hairline',
+              )}
               style={
                 getStatus(index, active) === 'inactive'
                   ? 'color: ' + inactiveColor
                   : ''
               }
             >
-              <View className={clsx(stepBem('title'))}
-                    style={index === active ? 'color: ' + activeColor : ''}
+              <View
+                className={clsx(stepBem('title'))}
+                style={index === active ? 'color: ' + activeColor : ''}
               >
                 <View>{item.text}</View>
                 <View>{item.desc}</View>
@@ -82,13 +83,14 @@ function Steps(props: StepsProps) {
                         className={clsx(stepBem('icon'))}
                       />
                     ) : (
-                      <View className={clsx(stepBem('circle'))}
-                            style={
-                              'background-color: ' +
-                              (active !== undefined && index < active
-                                ? activeColor
-                                : inactiveColor)
-                            }
+                      <View
+                        className={clsx(stepBem('circle'))}
+                        style={
+                          'background-color: ' +
+                          (active !== undefined && index < active
+                            ? activeColor
+                            : inactiveColor)
+                        }
                       />
                     )}
                   </>
@@ -101,13 +103,14 @@ function Steps(props: StepsProps) {
                 )}
               </View>
               {index !== steps.length - 1 && (
-                <View className={clsx(stepBem('line'))}
-                      style={
-                        'background-color: ' +
-                        (active !== undefined && index < active
-                          ? activeColor
-                          : inactiveColor)
-                      }
+                <View
+                  className={clsx(stepBem('line'))}
+                  style={
+                    'background-color: ' +
+                    (active !== undefined && index < active
+                      ? activeColor
+                      : inactiveColor)
+                  }
                 />
               )}
             </View>

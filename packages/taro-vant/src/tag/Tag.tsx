@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { TagProps } from './PropsType'
 import Icon from '../icon'
@@ -27,15 +26,18 @@ export function Tag(props: TagProps) {
 
   return (
     <View
-      className={clsx(bem([
-        type,
-        size,
-        {
-          mark,
-          plain,
-          round,
-        },
-      ]), className)}
+      className={clsx(
+        bem([
+          type,
+          size,
+          {
+            mark,
+            plain,
+            round,
+          },
+        ]),
+        className,
+      )}
       style={computedStyle([
         computed.rootStyle({
           plain,

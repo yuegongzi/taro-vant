@@ -1,6 +1,14 @@
-
 import { View } from '@tarojs/components'
-import { Children, cloneElement, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import {
+  Children,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import type { DropdownMenuProps } from './PropsType'
 import { displayTitle } from './wxs'
 import { computedStyle, createNamespace, getRect } from '../utils'
@@ -30,18 +38,18 @@ function DropdownMenu(props: DropdownMenuProps) {
   const TimerKey = useRef<Date>()
   const [ currentIndex, setCurrentIndex ] = useState<number>()
 
-  const close = useCallback(function() {
+  const close = useCallback(function () {
     childrenInstance.current.forEach((child) => {
       child.toggle(false, { immediate: true })
     })
   }, [])
 
-  useLayoutEffect(function() {
+  useLayoutEffect(function () {
     setCurrentIndex(currentIndexInit++)
   }, [])
 
   useLayoutEffect(
-    function() {
+    function () {
       TimerKey.current = new Date()
       ARRAY.push({
         closeOnClickOutside,
@@ -52,7 +60,7 @@ function DropdownMenu(props: DropdownMenuProps) {
     [ closeOnClickOutside, close ],
   )
 
-  const updateItemListData = function() {
+  const updateItemListData = function () {
     setTimeout(() => {
       if (childrenInstance.current) {
         setItemListData(childrenInstance.current.map((child) => child))
@@ -61,20 +69,19 @@ function DropdownMenu(props: DropdownMenuProps) {
   }
 
   useLayoutEffect(
-    function() {
+    function () {
       updateItemListData()
     },
     [ others.children ],
   )
 
-  useEffect(function() {
-    return function() {
+  useEffect(function () {
+    return function () {
       ARRAY = (ARRAY || []).filter((item) => item && item.TimerKey !== TimerKey)
     }
   }, [])
 
-
-  const toggleItem = useCallback(function(active: number) {
+  const toggleItem = useCallback(function (active: number) {
     childrenInstance.current.forEach((item: any, index: number) => {
       const { showPopup } = item
       if (index === Number(active)) {
@@ -86,7 +93,7 @@ function DropdownMenu(props: DropdownMenuProps) {
   }, [])
 
   const onTitleTap = useCallback(
-    function(event: any) {
+    function (event: any) {
       const { index } = event.currentTarget.dataset
       const child = childrenInstance.current[index]
       if (!child.disabled) {
@@ -107,13 +114,13 @@ function DropdownMenu(props: DropdownMenuProps) {
     [ toggleItem ],
   )
 
-  const setChildrenInstance = useCallback(function(
-      index: number,
-      instance: any,
-    ) {
-      childrenInstance.current[index] = instance
-    },
-    [])
+  const setChildrenInstance = useCallback(function (
+    index: number,
+    instance: any,
+  ) {
+    childrenInstance.current[index] = instance
+  },
+  [])
 
   const getChildWrapperStyle = useCallback(() => {
     return getRect(null, `.van-dropdown-menu--${currentIndex}`).then(
@@ -129,7 +136,7 @@ function DropdownMenu(props: DropdownMenuProps) {
   }, [ zIndex, currentIndex ])
 
   const ResetChildren = useMemo(
-    function() {
+    function () {
       const res: JSX.Element[] = []
       Children.map(others.children, (children, index) => {
         res.push(
@@ -168,9 +175,7 @@ function DropdownMenu(props: DropdownMenuProps) {
 
   return (
     <View
-      className={clsx(bem([
-        `${currentIndex}`, 'top-bottom',
-      ]), className)}
+      className={clsx(bem([ `${currentIndex}`, 'top-bottom' ]), className)}
       style={computedStyle([ style, { position: 'relative' } ])}
     >
       {(itemListData || []).map((item: any, index: number) => {
@@ -178,16 +183,21 @@ function DropdownMenu(props: DropdownMenuProps) {
           <View
             key={item.index}
             data-index={index}
-            className={clsx(bem('item', {
-              disabled: item.disabled,
-            }))}
+            className={clsx(
+              bem('item', {
+                disabled: item.disabled,
+              }),
+            )}
             onClick={onTitleTap}
           >
             <View
-              className={clsx(bem('title', {
-                active: item.showPopup,
-                down: item.showPopup === (direction === 'down'),
-              }), item.titleClass)}
+              className={clsx(
+                bem('title', {
+                  active: item.showPopup,
+                  down: item.showPopup === (direction === 'down'),
+                }),
+                item.titleClass,
+              )}
               style={item.showPopup ? 'color:' + activeColor : ''}
             >
               <View className={clsx('van-ellipsis', item.titleClass)}>

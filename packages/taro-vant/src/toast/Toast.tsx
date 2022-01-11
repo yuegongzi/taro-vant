@@ -1,4 +1,3 @@
-
 import { RichText, Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import type { ToastProps } from './PropsType'
@@ -62,8 +61,7 @@ export function Toast(props: ToastProps) {
     })
   }, [ props ])
 
-  const noop = function() {
-  }
+  const noop = function () {}
   const clear = useCallback((toastOptions: any) => {
     setState((state) => {
       return {
@@ -137,10 +135,10 @@ export function Toast(props: ToastProps) {
       >
         <View
           id='van-toast'
-          className={clsx(bem([
-            `${state.type}`, `${state.position}`,
-          ]), className)}
-
+          className={clsx(
+            bem([ `${state.type}`, `${state.position}` ]),
+            className,
+          )}
           style={style}
           onTouchMove={noop}
           {...others}
@@ -158,9 +156,7 @@ export function Toast(props: ToastProps) {
                   className={clsx(bem('loading'))}
                 />
               ) : (
-                <Icon className={clsx(bem('icon'))}
-                      name={state.type}
-                />
+                <Icon className={clsx(bem('icon'))} name={state.type} />
               )}
               {state.message && (
                 <Text className={clsx(bem('text'))}>{state.message}</Text>

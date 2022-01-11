@@ -1,9 +1,22 @@
-
 import { createSelectorQuery, nextTick } from '@tarojs/taro'
-import { cloneElement, isValidElement, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  cloneElement,
+  isValidElement,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
 import { ScrollView, View } from '@tarojs/components'
-import { createNamespace, getAllRect, getRect, isDef, requestAnimationFrame, Tabs as InnerTabs } from '../utils'
+import {
+  createNamespace,
+  getAllRect,
+  getRect,
+  isDef,
+  requestAnimationFrame,
+  Tabs as InnerTabs,
+} from '../utils'
 import Sticky from '../sticky'
 import type { TabProps, TabsProps } from './PropsType'
 import * as computed from './wxs'
@@ -26,18 +39,20 @@ function getDirection(x: number, y: number) {
 }
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children).map((node: React.ReactElement<TabProps>) => {
-    if (isValidElement(node)) {
-      const key = node.key !== undefined ? String(node.key) : undefined
-      return {
-        key,
-        ...node.props,
-        node,
+  return toArray(children).
+    map((node: React.ReactElement<TabProps>) => {
+      if (isValidElement(node)) {
+        const key = node.key !== undefined ? String(node.key) : undefined
+        return {
+          key,
+          ...node.props,
+          node,
+        }
       }
-    }
 
-    return null
-  }).filter((tab) => tab)
+      return null
+    }).
+    filter((tab) => tab)
 }
 
 let comIndex = 0
@@ -127,7 +142,7 @@ export function Tabs(props: TabsProps) {
     }) as any[]
   }, [ animated, currentIndex, lazyRender, tabs ])
 
-  const trigger = function(
+  const trigger = function (
     eventName: 'onClick' | 'onChange' | 'onDisabled',
     child?: any,
   ) {
@@ -149,14 +164,14 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const getCurrentName = function() {
+  const getCurrentName = function () {
     const activeTab: any = newChildren[currentIndex]
     if (activeTab) {
       return activeTab.props.name || activeTab.props.index
     }
   }
 
-  const resize = function(index?: number) {
+  const resize = function (index?: number) {
     if (type !== 'line') {
       return
     }
@@ -170,7 +185,9 @@ export function Tabs(props: TabsProps) {
         if (rect == null) {
           return
         }
-        let lineOffsetLeft = rects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
+        let lineOffsetLeft = rects.
+          slice(0, index).
+          reduce((prev: number, curr: any) => prev + curr.width, 0)
         lineOffsetLeft += (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8)
         setState((pre: any) => {
           return { ...pre, lineOffsetLeft }
@@ -187,7 +204,7 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const scrollIntoView = function(index?: number) {
+  const scrollIntoView = function (index?: number) {
     if (!scrollable) {
       return
     }
@@ -198,7 +215,9 @@ export function Tabs(props: TabsProps) {
     ]).then(([ tabRects, navRect ]: any) => {
       if (tabRects && navRect) {
         const tabRect = tabRects[index!]
-        const offsetLeft = tabRects.slice(0, index).reduce((prev: number, curr: any) => prev + curr.width, 0)
+        const offsetLeft = tabRects.
+          slice(0, index).
+          reduce((prev: number, curr: any) => prev + curr.width, 0)
         setState((pre: any) => {
           return {
             ...pre,
@@ -219,7 +238,7 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const setCurrentIndex = function(cIndex: number) {
+  const setCurrentIndex = function (cIndex: number) {
     if (!isDef(cIndex) || cIndex >= newChildren.length || cIndex < 0) {
       return
     }
@@ -242,7 +261,7 @@ export function Tabs(props: TabsProps) {
     })
   }
 
-  const setCurrentIndexByName = function(name: any) {
+  const setCurrentIndexByName = function (name: any) {
     const matched = newChildren.filter(
       (child: any) => (child.props.name || child.props.index) === name,
     )
@@ -251,8 +270,7 @@ export function Tabs(props: TabsProps) {
     }
   }
 
-
-  const onTap = function(event: any) {
+  const onTap = function (event: any) {
     let { index } = event.currentTarget.dataset
     index = parseInt(index)
     const child = newChildren[index]
@@ -266,20 +284,20 @@ export function Tabs(props: TabsProps) {
     }
   }
 
-  const resetTouchStatus = function() {
+  const resetTouchStatus = function () {
     ref.current.direction = ''
     ref.current.deltaX = 0
     ref.current.deltaY = 0
     ref.current.offsetX = 0
     ref.current.offsetY = 0
   }
-  const touchStart = function(event: any) {
+  const touchStart = function (event: any) {
     resetTouchStatus()
     const touch = event.touches[0]
     ref.current.startX = touch.clientX
     ref.current.startY = touch.clientY
   }
-  const touchMove = function(event: any) {
+  const touchMove = function (event: any) {
     const touch = event.touches[0]
     ref.current.deltaX = touch.clientX - ref.current.startX
     ref.current.deltaY = touch.clientY - ref.current.startY
@@ -289,7 +307,7 @@ export function Tabs(props: TabsProps) {
       ref.current.direction ||
       getDirection(ref.current.offsetX, ref.current.offsetY)
   }
-  const getAvaiableTab = function(direction: number) {
+  const getAvaiableTab = function (direction: number) {
     const step = direction > 0 ? -1 : 1
     for (
       let i = step;
@@ -309,17 +327,17 @@ export function Tabs(props: TabsProps) {
     return -1
   }
 
-  const onTouchStart = function(event: any) {
+  const onTouchStart = function (event: any) {
     if (!swipeable) return
     touchStart(event)
   }
 
-  const onTouchMove = function(event: any) {
+  const onTouchMove = function (event: any) {
     if (!swipeable || !ref.current.swiping) return
     touchMove(event)
   }
 
-  const onTouchEnd = function() {
+  const onTouchEnd = function () {
     if (!swipeable || !ref.current.swiping) return
     const { direction, deltaX, offsetX } = ref.current
     const minSwipeDistance = 50
@@ -333,7 +351,7 @@ export function Tabs(props: TabsProps) {
     ref.current.swiping = false
   }
 
-  useEffect(function() {
+  useEffect(function () {
     ref.current.swiping = true
     setState((pre: any) => {
       return {
@@ -355,7 +373,7 @@ export function Tabs(props: TabsProps) {
   }, [])
 
   useEffect(
-    function() {
+    function () {
       resize()
       scrollIntoView()
     },
@@ -363,7 +381,7 @@ export function Tabs(props: TabsProps) {
     [ lineWidth ],
   )
   useEffect(
-    function() {
+    function () {
       if (active !== getCurrentName()) {
         setCurrentIndexByName(active)
       }
@@ -373,7 +391,7 @@ export function Tabs(props: TabsProps) {
   )
 
   useEffect(
-    function() {
+    function () {
       setState((pre: any) => {
         return {
           ...pre,
@@ -387,7 +405,7 @@ export function Tabs(props: TabsProps) {
 
   // 解决异步加载的时候默认的下划线不出现的问题
   useEffect(
-    function() {
+    function () {
       nextTick(() => {
         resize()
       })
@@ -397,9 +415,10 @@ export function Tabs(props: TabsProps) {
   )
 
   return (
-    <View className={clsx(bem([ type, `${indexRef.current}` ]), className)}
-          style={style}
-          {...others}
+    <View
+      className={clsx(bem([ type, `${indexRef.current}` ]), className)}
+      style={style}
+      {...others}
     >
       <Sticky
         disabled={!sticky}
@@ -409,12 +428,14 @@ export function Tabs(props: TabsProps) {
         onScroll={onScroll}
       >
         <View
-          className={clsx(bem('wrap', {
-            scrollable,
-          }), {
-            'van-hairline--top-bottom': type === 'line' && border,
-          })
-          }
+          className={clsx(
+            bem('wrap', {
+              scrollable,
+            }),
+            {
+              'van-hairline--top-bottom': type === 'line' && border,
+            },
+          )}
         >
           <ScrollView
             scrollX={scrollable}
@@ -424,13 +445,14 @@ export function Tabs(props: TabsProps) {
             style={color ? 'border-color: ' + color : ''}
           >
             <View
-              className={clsx(bem('nav', [
-                type,
-                {
-                  complete: !ellipsis,
-                },
-              ]))
-              }
+              className={clsx(
+                bem('nav', [
+                  type,
+                  {
+                    complete: !ellipsis,
+                  },
+                ]),
+              )}
               style={computed.navStyle(color, type)}
             >
               {type === 'line' && (
@@ -451,14 +473,19 @@ export function Tabs(props: TabsProps) {
                   <View
                     key={index}
                     data-index={index}
-                    className={
-                      clsx(tabBem({
-                          active: index === currentIndex,
-                          disabled: item.disabled,
-                          complete: !ellipsis,
-                        }),
-                        computed.tabClass(index === currentIndex, ellipsis, tabClass, tabActiveClass))
-                    }
+                    className={clsx(
+                      tabBem({
+                        active: index === currentIndex,
+                        disabled: item.disabled,
+                        complete: !ellipsis,
+                      }),
+                      computed.tabClass(
+                        index === currentIndex,
+                        ellipsis,
+                        tabClass,
+                        tabActiveClass,
+                      ),
+                    )}
                     style={computed.tabStyle({
                       active: index === currentIndex,
                       ellipsis,
@@ -472,8 +499,9 @@ export function Tabs(props: TabsProps) {
                     })}
                     onClick={onTap}
                   >
-                    <View className={clsx({ 'van-ellipsis': ellipsis })}
-                          style={item.titleStyle}
+                    <View
+                      className={clsx({ 'van-ellipsis': ellipsis })}
+                      style={item.titleStyle}
                     >
                       {item.title}
                       {(item.badge !== null || item.dot) && (

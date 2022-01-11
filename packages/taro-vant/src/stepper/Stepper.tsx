@@ -1,4 +1,3 @@
-
 import type { ITouchEvent } from '@tarojs/components'
 import { Input, View } from '@tarojs/components'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -230,18 +229,18 @@ function Stepper(props: StepperProps) {
     // eslint-disable-next-line
   }, [_format, value])
   return (
-    <View className={clsx(bem([ theme ]), className)}
-          {...others}
-    >
+    <View className={clsx(bem([ theme ]), className)} {...others}>
       {showMinus && (
         <View
           data-type='minus'
           style={computed.buttonStyle({
             buttonSize,
           })}
-          className={clsx(bem('minus', {
-            disabled: disabled || disableMinus || currentValue <= min,
-          }))}
+          className={clsx(
+            bem('minus', {
+              disabled: disabled || disableMinus || currentValue <= min,
+            }),
+          )}
           hoverClass={clsx(bem('minus', [ 'hover' ], true))}
           onClick={_onTap}
           onTouchStart={_onTouchStart}
@@ -250,9 +249,11 @@ function Stepper(props: StepperProps) {
       )}
       <Input
         type={integer ? 'number' : 'digit'}
-        className={clsx(bem('input', {
-          disabled: disabled || disableInput,
-        }))}
+        className={clsx(
+          bem('input', {
+            disabled: disabled || disableInput,
+          }),
+        )}
         style={computed.inputStyle({
           buttonSize,
           inputWidth,
@@ -270,9 +271,11 @@ function Stepper(props: StepperProps) {
           style={computed.buttonStyle({
             buttonSize,
           })}
-          className={clsx(bem('plus', {
-            disabled: disabled || disablePlus || currentValue >= max,
-          }))}
+          className={clsx(
+            bem('plus', {
+              disabled: disabled || disablePlus || currentValue >= max,
+            }),
+          )}
           hoverClass={clsx(bem('plus', [ 'hover' ], true))}
           // hoverStayTime="70"
           onClick={_onTap}

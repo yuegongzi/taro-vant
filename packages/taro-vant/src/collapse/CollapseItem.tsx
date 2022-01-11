@@ -1,4 +1,3 @@
-
 import { useReady } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
@@ -116,9 +115,13 @@ function CollapseItem(
 
   return (
     <View
-      className={clsx(bem(), {
-        ['van-hairline--top']: state.index !== 0,
-      }, className)}
+      className={clsx(
+        bem(),
+        {
+          ['van-hairline--top']: state.index !== 0,
+        },
+        className,
+      )}
       style={style}
       {...others}
     >
@@ -130,10 +133,12 @@ function CollapseItem(
         isLink={isLink}
         clickable={clickable}
         border={border && state.expanded}
-        className={clsx(bem('title', {
-          disabled,
-          expanded: state.expanded,
-        }))}
+        className={clsx(
+          bem('title', {
+            disabled,
+            expanded: state.expanded,
+          }),
+        )}
         onClick={onClick}
         rightIcon={rightIcon}
       />

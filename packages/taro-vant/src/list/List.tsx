@@ -1,5 +1,11 @@
-
-import React, { isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  isValidElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
@@ -14,7 +20,6 @@ import { createNamespace, ele } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('list')
-
 
 const sleep = (t: number) =>
   new Promise<void>((resolve) => {
@@ -42,7 +47,11 @@ const List: React.FC<ListProps> = (props) => {
     onScroll: onScrollEvent,
     scrollTop,
     offset,
-    finishedText = <Divider contentPosition='center' dashed>我是有底线的</Divider>,
+    finishedText = (
+      <Divider contentPosition='center' dashed>
+        我是有底线的
+      </Divider>
+    ),
     finished,
     errorText = '请求失败，点击重新加载',
     emptyDescription = '暂无数据',
@@ -145,7 +154,9 @@ const List: React.FC<ListProps> = (props) => {
       return <View className={clsx(bem('text'))}>{getStatusText()}</View>
     }
     if (status === 'loading') {
-      return <Loading className={clsx(bem('loading'))}>{getStatusText()}</Loading>
+      return (
+        <Loading className={clsx(bem('loading'))}>{getStatusText()}</Loading>
+      )
     }
     return ''
   }, [ distance, getStatusText, status, header ])
@@ -284,17 +295,17 @@ const List: React.FC<ListProps> = (props) => {
       // 这里要主动触发刷新
       // throw e
     }
-  }, [  isBanLoad, onLoad ])
+  }, [ isBanLoad, onLoad ])
 
-  useEffect(()=>{
+  useEffect(() => {
     doLoadMore()
-  },[])
+  }, [])
 
   const placeholder = useRef<TaroElement>()
 
   const renderFinishedText = useCallback((): React.ReactNode => {
     if (finished) {
-      const text =  finishedText
+      const text = finishedText
       if (text) {
         if (isValidElement(text)) {
           return text
@@ -309,9 +320,12 @@ const List: React.FC<ListProps> = (props) => {
     if (!finished && scrollY) {
       return (
         <View className={clsx(bem('loading'))}>
-          {ele(loadingText,<Loading className={clsx(bem('loading-icon'))}>
-            {loadingText}`
-          </Loading>)}
+          {ele(
+            loadingText,
+            <Loading className={clsx(bem('loading-icon'))}>
+              {loadingText}`
+            </Loading>,
+          )}
         </View>
       )
     }
@@ -340,7 +354,7 @@ const List: React.FC<ListProps> = (props) => {
   // 如果不定高 一直下拉
 
   const ListScrollContent = useCallback(() => {
-    if (empty ) {
+    if (empty) {
       return <Empty description={emptyDescription} image={emptyImage} />
     }
     if (isError) {

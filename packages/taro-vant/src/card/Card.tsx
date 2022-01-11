@@ -1,4 +1,3 @@
-
 import { Image, Text, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 import { createNamespace, ele, jumpLink } from '../utils'
@@ -36,7 +35,7 @@ function Card(props: CardProps) {
   })
   const { integerStr, decimalStr } = state
   useEffect(
-    function() {
+    function () {
       const priceArr = price.toString().split('.')
       setState((pre: any) => {
         return {
@@ -50,9 +49,7 @@ function Card(props: CardProps) {
   )
   return (
     <View className={clsx(bem(), className)} style={style} {...others}>
-      <View
-        className={clsx(bem('header', { center: centered }))}
-      >
+      <View className={clsx(bem('header', { center: centered }))}>
         <View
           className={clsx(bem('thumb'))}
           onClick={() => {
@@ -62,24 +59,31 @@ function Card(props: CardProps) {
           }}
         >
           {/*@ts-ignore*/}
-          {ele(thumb, <Image src={thumb}
-                             mode={thumbMode}
-                             lazyLoad={lazyLoad}
-                             className={clsx(bem('img'))}
-          />)}
-          {ele(tag, <Tag mark type='danger' className={clsx(bem('tag'))}>
-            {tag}
-          </Tag>)}
+          {ele(
+            thumb,
+            <Image
+              src={thumb}
+              mode={thumbMode}
+              lazyLoad={lazyLoad}
+              className={clsx(bem('img'))}
+            />,
+          )}
+          {ele(
+            tag,
+            <Tag mark type='danger' className={clsx(bem('tag'))}>
+              {tag}
+            </Tag>,
+          )}
         </View>
         <View
-          className={clsx(bem('content', {
-            center: centered,
-          }))}
+          className={clsx(
+            bem('content', {
+              center: centered,
+            }),
+          )}
         >
           <View>
-            <View className={
-              clsx(bem('title'))
-            }>{title}</View>
+            <View className={clsx(bem('title'))}>{title}</View>
             <View className={clsx(bem('desc'))}>{desc}</View>
             {tags}
           </View>
@@ -93,9 +97,7 @@ function Card(props: CardProps) {
             <View className={clsx(bem('origin-price'))}>
               {ele(originPrice, `${currency}  ${originPrice}`)}
             </View>
-            <View className={clsx(bem('num'))}>
-              {ele(num, `x ${num}`)}
-            </View>
+            <View className={clsx(bem('num'))}>{ele(num, `x ${num}`)}</View>
             {bottom}
           </View>
         </View>
@@ -105,5 +107,5 @@ function Card(props: CardProps) {
   )
 }
 
-Card.displayName='Card'
+Card.displayName = 'Card'
 export default Card

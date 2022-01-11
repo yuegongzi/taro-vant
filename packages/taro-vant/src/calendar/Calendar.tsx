@@ -1,4 +1,3 @@
-
 import type { ITouchEvent } from '@tarojs/components'
 import { Block, ScrollView, View } from '@tarojs/components'
 import {
@@ -13,7 +12,12 @@ import {
 } from 'react'
 import Taro from '@tarojs/taro'
 import Toast from '../toast'
-import { computedStyle, createNamespace, requestAnimationFrame, uuid } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  requestAnimationFrame,
+  uuid,
+} from '../utils'
 import Popup from '../popup'
 import Button from '../button'
 import type { CalendarProps, ICalendarInstance } from './PropsType'
@@ -99,12 +103,12 @@ function Index(
   const contentObserver = useRef<any>()
   const [ compIndex, setCompIndex ] = useState(0)
   const id = useMemo(() => uuid(), [])
-  useEffect(function() {
+  useEffect(function () {
     setCompIndex(init++)
   }, [])
 
   const limitDateRange = useCallback(
-    function(date, minDateD = null, maxDateD = null) {
+    function (date, minDateD = null, maxDateD = null) {
       minDateD = minDateD || minDate
       maxDateD = maxDateD || maxDate
       if (compareDay(date, minDateD) === -1) {
@@ -119,7 +123,7 @@ function Index(
   )
 
   const getInitialDate = useCallback(
-    function(defaultDate = null) {
+    function (defaultDate = null) {
       const now = getToday().getTime()
       if (type === 'range') {
         if (!Array.isArray(defaultDate)) {
@@ -152,7 +156,7 @@ function Index(
   )
 
   const scrollIntoViewFn = useCallback(
-    function() {
+    function () {
       requestAnimationFrame(() => {
         const targetDate = type === 'single' ? currentDate : currentDate[0]
         const displayed = show || !poppable
@@ -173,19 +177,19 @@ function Index(
   )
 
   const reset = useCallback(
-    function() {
+    function () {
       setCurrentDate(getInitialDate())
       scrollIntoViewFn()
     },
     [ getInitialDate, scrollIntoViewFn ],
   )
 
-  const initRectH5 = useCallback(function() {
+  const initRectH5 = useCallback(function () {
     if (contentObserver.current != null) {
       contentObserver.current.disconnect()
     }
     const contentObserver_ = new IntersectionObserver(
-      function(res: any) {
+      function (res: any) {
         for (let i = 0; i < res.length; i++) {
           if (res[i].intersectionRatio > 0.6) {
             const item = Number(
@@ -211,7 +215,7 @@ function Index(
   }, [])
 
   const initRect = useCallback(
-    function() {
+    function () {
       if (process.env.TARO_ENV === 'h5') {
         return initRectH5()
       }
@@ -243,7 +247,7 @@ function Index(
   )
 
   const emit = useCallback(
-    function(date) {
+    function (date) {
       const getTime = (date: any) =>
         date instanceof Date ? date.getTime() : date
       setCurrentDate(Array.isArray(date) ? date.map(getTime) : getTime(date))
@@ -258,7 +262,7 @@ function Index(
   )
 
   const checkRange = useCallback(
-    function(date) {
+    function (date) {
       if (maxRange && calcDateNum(date) > maxRange) {
         if (showRangePrompt) {
           Toast.show({
@@ -275,7 +279,7 @@ function Index(
   )
 
   const onConfirm_ = useCallback(
-    function(_, date?: any) {
+    function (_, date?: any) {
       if (type === 'range' && !checkRange(currentDate)) {
         return
       }
@@ -292,9 +296,11 @@ function Index(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function select(date: any, complete?: boolean) {
     if (Array.isArray(date)) {
-      date = date.filter((d: any) => !!d).map((item: any) => {
-        return typeof item === 'number' ? new Date(item) : item
-      })
+      date = date.
+        filter((d: any) => !!d).
+        map((item: any) => {
+          return typeof item === 'number' ? new Date(item) : item
+        })
     }
     if (complete && type === 'range') {
       const valid = checkRange(date)
@@ -315,7 +321,7 @@ function Index(
   }
 
   const unselect = useCallback(
-    function(dateArray) {
+    function (dateArray) {
       const date = dateArray[0]
       if (date && unselect) {
         const e = {
@@ -330,7 +336,7 @@ function Index(
   )
 
   const onClickDay = useCallback(
-    function(event: any) {
+    function (event: any) {
       const { date } = event
       const currentDate_: any = JSON.parse(JSON.stringify(currentDate))
       if (type === 'range') {
@@ -371,7 +377,7 @@ function Index(
   )
 
   useLayoutEffect(
-    function() {
+    function () {
       if (defaultDate)
         setCurrentDate(getInitialDate(defaultDate || new Date().getTime()))
     },
@@ -379,7 +385,7 @@ function Index(
   )
 
   useEffect(
-    function() {
+    function () {
       if (show || !poppable) {
         setTimeout(() => {
           initRect()
@@ -393,14 +399,14 @@ function Index(
   )
 
   useEffect(
-    function() {
+    function () {
       reset()
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [ type ],
   )
 
-  useImperativeHandle(ref, function() {
+  useImperativeHandle(ref, function () {
     return {
       reset,
     }
@@ -464,9 +470,7 @@ function Index(
                 )
               })}
             </ScrollView>
-            <View
-              className={clsx(bem('footer', { safeAreaInsetBottom }))}
-            >
+            <View className={clsx(bem('footer', { safeAreaInsetBottom }))}>
               {showConfirm && (
                 <Button
                   round
@@ -529,9 +533,7 @@ function Index(
               )
             })}
           </ScrollView>
-          <View
-            className={clsx(bem('footer', { safeAreaInsetBottom }))}
-          >
+          <View className={clsx(bem('footer', { safeAreaInsetBottom }))}>
             {showConfirm && (
               <Button
                 round

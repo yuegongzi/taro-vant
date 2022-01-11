@@ -1,4 +1,3 @@
-
 import { Block, View } from '@tarojs/components'
 import type { CellGroupProps } from './PropsType'
 import { createNamespace } from '../utils'
@@ -20,17 +19,23 @@ function CellGroup(props: CellGroupProps) {
     <Block>
       {title && (
         <View
-          className={clsx(bem('title', {
-            inset,
-          }))}
+          className={clsx(
+            bem('title', {
+              inset,
+            }),
+          )}
         >
           {title}
         </View>
       )}
       <View
-        className={clsx(bem({ inset }), {
-          ['van-hairline--top-bottom']: border,
-        }, className)}
+        className={clsx(
+          bem({ inset }),
+          {
+            ['van-hairline--top-bottom']: border,
+          },
+          className,
+        )}
         style={style}
         {...others}
       >

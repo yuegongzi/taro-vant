@@ -1,10 +1,15 @@
-
 import { createAnimation, nextTick, useReady } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { Navigator, View } from '@tarojs/components'
 import type { NoticeBarProps } from './PropsType'
-import { computedStyle, createNamespace, ele, getRect, requestAnimationFrame } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  ele,
+  getRect,
+  requestAnimationFrame,
+} from '../utils'
 import Icon from '../icon'
 import { rootStyle } from './wxs'
 import clsx from 'clsx'
@@ -90,7 +95,6 @@ export function NoticeBar(props: NoticeBarProps) {
     })
   }, [])
 
-
   const scroll = useCallback(() => {
     if (ref.current?.timer) {
       clearTimeout(ref.current.timer)
@@ -99,7 +103,10 @@ export function NoticeBar(props: NoticeBarProps) {
     setState((state) => {
       return {
         ...state,
-        animationData: ref.current.resetAnimation.translateX(ref.current.wrapWidth).step().export(),
+        animationData: ref.current.resetAnimation.
+          translateX(ref.current.wrapWidth).
+          step().
+          export(),
       }
     })
     setTimeout(() => {
@@ -107,7 +114,10 @@ export function NoticeBar(props: NoticeBarProps) {
         setState((state) => {
           return {
             ...state,
-            animationData: ref.current.animation.translateX(-ref.current.contentWidth).step().export(),
+            animationData: ref.current.animation.
+              translateX(-ref.current.contentWidth).
+              step().
+              export(),
           }
         })
       })
@@ -184,28 +194,29 @@ export function NoticeBar(props: NoticeBarProps) {
 
   return (
     state.show && (
-      <View className={clsx(bem({ withicon: mode, wrapable }), className)}
-            style={computedStyle([
-              rootStyle({
-                color,
-                backgroundColor,
-                background,
-              }),
-              style,
-            ])}
-            {...others}
-            onClick={onClick}
+      <View
+        className={clsx(bem({ withicon: mode, wrapable }), className)}
+        style={computedStyle([
+          rootStyle({
+            color,
+            backgroundColor,
+            background,
+          }),
+          style,
+        ])}
+        {...others}
+        onClick={onClick}
       >
-        {ele(leftIcon, <Icon
-          name={leftIcon}
-          className={clsx(bem('left-icon'))}
-        />)}
-        <View className={clsx(bem('wrap', [ `${state.unitag}` ]))}
-        >
-          <View className={clsx(bem('content', [ `${state.unitag}` ]), {
-            'van-ellipsis': scrollable === false && !wrapable,
-          })}
-                animation={state.animationData}
+        {ele(
+          leftIcon,
+          <Icon name={leftIcon} className={clsx(bem('left-icon'))} />,
+        )}
+        <View className={clsx(bem('wrap', [ `${state.unitag}` ]))}>
+          <View
+            className={clsx(bem('content', [ `${state.unitag}` ]), {
+              'van-ellipsis': scrollable === false && !wrapable,
+            })}
+            animation={state.animationData}
           >
             {text}
             {!text && children}
@@ -213,12 +224,13 @@ export function NoticeBar(props: NoticeBarProps) {
         </View>
 
         {mode === 'closeable' && (
-          <Icon className={clsx(bem('right-icon'))}
-                name={'cross'}
-                onClick={onClickIcon}
+          <Icon
+            className={clsx(bem('right-icon'))}
+            name={'cross'}
+            onClick={onClickIcon}
           />
         )}
-        { mode === 'link' && (
+        {mode === 'link' && (
           <Navigator url={url} openType={openType}>
             <Icon className={clsx(bem('right-icon'))} name='arrow' />
           </Navigator>

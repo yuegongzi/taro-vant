@@ -1,7 +1,13 @@
-
 import { useCallback, useEffect, useState } from 'react'
 import { Block, View } from '@tarojs/components'
-import { computedStyle, createNamespace, ele, getRect, getSystemInfoSync, Navbar } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  ele,
+  getRect,
+  getSystemInfoSync,
+  Navbar,
+} from '../utils'
 import type { NavBarProps } from './PropsType'
 import Icon from '../icon'
 import { barStyle } from './wxs'
@@ -29,7 +35,7 @@ function NavBar(props: NavBarProps) {
     ...others
   } = props
   const setNextHeight = useCallback(
-    function() {
+    function () {
       if (!fixed || !placeholder) {
         return
       }
@@ -42,61 +48,71 @@ function NavBar(props: NavBarProps) {
     [ fixed, placeholder ],
   )
 
-  useEffect(function() {
+  useEffect(function () {
     const { statusBarHeight } = getSystemInfoSync()
     setHeight(46 + statusBarHeight)
     setStatusBarHeight(statusBarHeight)
   }, [])
 
   useEffect(
-    function() {
+    function () {
       setNextHeight()
     },
     [ setNextHeight ],
   )
   return (
     <Block>
-      {fixed && placeholder && (
-        <View style={'height: ' + height + 'px;'} />
-      )}
-      <View className={clsx(bem({ fixed }), { 'van-hairline--bottom': border }, className)}
-            style={computedStyle([
-              barStyle({
-                zIndex,
-                statusBarHeight,
-                safeAreaInsetTop,
-              }) +
-              '; ' +
-              style,
-            ])}
-            {...others}
+      {fixed && placeholder && <View style={'height: ' + height + 'px;'} />}
+      <View
+        className={clsx(
+          bem({ fixed }),
+          { 'van-hairline--bottom': border },
+          className,
+        )}
+        style={computedStyle([
+          barStyle({
+            zIndex,
+            statusBarHeight,
+            safeAreaInsetTop,
+          }) +
+            '; ' +
+            style,
+        ])}
+        {...others}
       >
         <View className={clsx(bem('content'))}>
           <View className={clsx(bem('left'))} onClick={onClickLeft}>
-            {ele(leftArrow, <Icon
-              size={64}
-              name='arrow-left'
-              className={clsx(bem('arrow'))}
-            />)}
-            {ele(leftText,<View
-              className={clsx(bem('text'))}
-              hoverClass={clsx(bem('text', [ 'hover' ], true))}
-              hoverStayTime={70}
-            >
-              {leftText}
-            </View>)}
+            {ele(
+              leftArrow,
+              <Icon
+                size={64}
+                name='arrow-left'
+                className={clsx(bem('arrow'))}
+              />,
+            )}
+            {ele(
+              leftText,
+              <View
+                className={clsx(bem('text'))}
+                hoverClass={clsx(bem('text', [ 'hover' ], true))}
+                hoverStayTime={70}
+              >
+                {leftText}
+              </View>,
+            )}
           </View>
-          <View className={clsx(bem('title'), 'van-ellipsis')}>
-            {title }
-          </View>
+          <View className={clsx(bem('title'), 'van-ellipsis')}>{title}</View>
           <View className={clsx(bem('right'))} onClick={onClickRight}>
-            {ele(rightText, <View
-              className={clsx(bem('text'))}
-              hoverClass={clsx(bem('text', [ 'hover' ], true))}
-              hoverStayTime={70}
-            >
-              {rightText}
-            </View>)}
+            {ele(
+              rightText,
+              <View
+                className={clsx(bem('text'))}
+                hoverClass={clsx(bem('text', [ 'hover' ], true))}
+                hoverStayTime={70}
+              >
+                {rightText}
+              </View>,
+            )}
           </View>
         </View>
       </View>

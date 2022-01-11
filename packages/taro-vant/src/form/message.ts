@@ -45,5 +45,3 @@ export default {
     mismatch: '无法匹配表达式 ${pattern}',
   },
 }
-
-

@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import type { TabProps } from './PropsType'
@@ -25,7 +24,7 @@ function Tab(
     ...others
   } = props
   useEffect(
-    function() {
+    function () {
       setInited((pre) => pre || active)
     },
     [ active ],
@@ -33,10 +32,13 @@ function Tab(
 
   return (
     <View
-      className={clsx(bem('pane', {
-        active,
-        inactive: !active,
-      }), className)}
+      className={clsx(
+        bem('pane', {
+          active,
+          inactive: !active,
+        }),
+        className,
+      )}
       style={computedStyle([ active || animated ? '' : 'display: none;', style ])}
       {...others}
     >

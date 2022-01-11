@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -40,10 +39,13 @@ function Switch(props: SwitchProps) {
 
   return (
     <View
-      className={clsx(bem({
-        on: checked === activeValue,
-        disabled,
-      }), className)}
+      className={clsx(
+        bem({
+          on: checked === activeValue,
+          disabled,
+        }),
+        className,
+      )}
       style={computedStyle([
         computed.rootStyle({
           size,

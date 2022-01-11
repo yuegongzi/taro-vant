@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { Text } from '@tarojs/components'
@@ -26,7 +25,7 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
   } = props
 
   const _click: (event: ITouchEvent) => void = useCallback(
-    function(event) {
+    function (event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
@@ -43,11 +42,8 @@ function GoodsActionIcon(props: GoodsActionIconProps) {
       {...others}
     >
       <Badge dot={dot} content={badge}>
-      {ele(icon, <Icon
-        name={icon}
-        className={clsx(bem('icon'))}
-      />)}
-      <Text>{text}</Text>
+        {ele(icon, <Icon name={icon} className={clsx(bem('icon'))} />)}
+        <Text>{text}</Text>
       </Badge>
     </Button>
   )

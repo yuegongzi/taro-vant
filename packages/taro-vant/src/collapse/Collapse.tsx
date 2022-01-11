@@ -1,4 +1,3 @@
-
 import { Children, cloneElement, useCallback, useMemo } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -65,9 +64,13 @@ function Collapse(props: CollapseProps) {
 
   return (
     <View
-      className={clsx(bem(), {
-        ['van-hairline--top-bottom']: border,
-      }, className)}
+      className={clsx(
+        bem(),
+        {
+          ['van-hairline--top-bottom']: border,
+        },
+        className,
+      )}
       style={style}
       {...others}
     >

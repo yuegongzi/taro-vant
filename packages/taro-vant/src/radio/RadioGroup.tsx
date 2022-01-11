@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { RadioGroupProps } from './PropsType'
 import RadioGroupContext from './context'
@@ -32,9 +31,10 @@ function RadioGroup(props: RadioGroupProps) {
         onChange: _onChange,
       }}
     >
-      <View className={clsx(bem([ direction ]), className)}
-            style={style}
-            {...others}
+      <View
+        className={clsx(bem([ direction ]), className)}
+        style={style}
+        {...others}
       >
         {children}
       </View>

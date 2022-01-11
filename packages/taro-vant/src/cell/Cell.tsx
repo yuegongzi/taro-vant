@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -37,7 +36,7 @@ function Cell(props: CellProps) {
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
-    function(event) {
+    function (event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
@@ -46,14 +45,18 @@ function Cell(props: CellProps) {
 
   return (
     <View
-      className={clsx(bem([
-        size, {
-          center,
-          required,
-          borderless: !border,
-          clickable: isLink || clickable,
-        },
-      ]), className)}
+      className={clsx(
+        bem([
+          size,
+          {
+            center,
+            required,
+            borderless: !border,
+            clickable: isLink || clickable,
+          },
+        ]),
+        className,
+      )}
       hoverClass={clsx(bem('', [ 'hover' ], true))}
       hoverStayTime={70}
       style={computedStyle([ style ])}
@@ -61,9 +64,13 @@ function Cell(props: CellProps) {
       {...others}
     >
       {/*@ts-ignore*/}
-      {ele(icon, <Icon name={icon}
-                       className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
-      />)}
+      {ele(
+        icon,
+        <Icon
+          name={icon}
+          className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
+        />,
+      )}
       <View
         style={computedTitleStyle({
           titleWidth,
@@ -72,9 +79,7 @@ function Cell(props: CellProps) {
         className={clsx(bem('title'))}
       >
         {title}
-        <View className={clsx(bem('label'))}>
-          {label}
-        </View>
+        <View className={clsx(bem('label'))}>{label}</View>
       </View>
       <View className={clsx(bem('value'), valueClass)}>
         {value ? value : children}

@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import { cloneElement, useCallback, useEffect, useMemo, useRef } from 'react'
 import type { SidebarProps } from './PropsType'
@@ -12,7 +11,7 @@ function Sidebar(props: SidebarProps) {
 
   const childrenInstance = useRef<any[]>([])
 
-  const setAction = useCallback(function(activeKey) {
+  const setAction = useCallback(function (activeKey) {
     const childrenInstance_ = childrenInstance.current
     if (!childrenInstance_ || !childrenInstance_.length) {
       return Promise.resolve()
@@ -28,18 +27,18 @@ function Sidebar(props: SidebarProps) {
   }, [])
 
   useEffect(
-    function() {
+    function () {
       setAction(activeKey)
     },
     [ setAction, activeKey ],
   )
 
-  const setChildren = useCallback(function(index: number, instance: any) {
+  const setChildren = useCallback(function (index: number, instance: any) {
     childrenInstance.current[index] = instance
   }, [])
 
   const ResetChildren = useMemo(
-    function() {
+    function () {
       const res: JSX.Element[] = []
       if (children && Array.isArray(children)) {
         children.forEach((child, index) => {

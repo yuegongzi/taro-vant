@@ -1,4 +1,3 @@
-
 import { Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import type { GridItemProps } from './PropsType'
@@ -36,7 +35,7 @@ export function GridItem(
   const [ parentState, setParentState ] = useState<any>({})
 
   const updateStyle = useCallback(
-    function() {
+    function () {
       const {
         columnNum,
         border,
@@ -66,7 +65,7 @@ export function GridItem(
   )
 
   useEffect(
-    function() {
+    function () {
       setChildrenInstance(index, {
         updateStyle,
       })
@@ -75,19 +74,20 @@ export function GridItem(
     [ index, setChildrenInstance ],
   )
 
-  useEffect(function() {
+  useEffect(function () {
     updateStyle()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <View
       className={clsx(bem({ square: parentState?.square }), className)}
-      style={computedStyle([ wrapperStyle({
-        square: parentState?.square,
-        gutter: parentState?.gutter,
-        columnNum: parentState?.columnNum,
-        index: parentState?.index,
-      }),
+      style={computedStyle([
+        wrapperStyle({
+          square: parentState?.square,
+          gutter: parentState?.gutter,
+          columnNum: parentState?.columnNum,
+          index: parentState?.index,
+        }),
         style,
       ])}
       onClick={(e) => {
@@ -97,20 +97,24 @@ export function GridItem(
         others?.onClick?.(e)
       }}
     >
-      <View className={clsx(bem('content', [
-        parentState?.direction, {
-          center: parentState?.center,
-          square: parentState?.square,
-          reverse: parentState?.reverse,
-          clickable: parentState?.clickable,
-          surround: parentState?.border && parentState?.gutter,
-        },
-      ]), { ['van-hairline--surround']: parentState?.border })}
-
-            style={contentStyle({
+      <View
+        className={clsx(
+          bem('content', [
+            parentState?.direction,
+            {
+              center: parentState?.center,
               square: parentState?.square,
-              gutter: parentState?.gutter,
-            })}
+              reverse: parentState?.reverse,
+              clickable: parentState?.clickable,
+              surround: parentState?.border && parentState?.gutter,
+            },
+          ]),
+          { ['van-hairline--surround']: parentState?.border },
+        )}
+        style={contentStyle({
+          square: parentState?.square,
+          gutter: parentState?.gutter,
+        })}
       >
         {others.children || (
           <>
@@ -137,5 +141,5 @@ export function GridItem(
     </View>
   )
 }
-GridItem.displayName= 'GridItem'
+GridItem.displayName = 'GridItem'
 export default GridItem

@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import type { SidebarItemProps } from './PropsType'
@@ -34,19 +33,19 @@ function SidebarItem(
 
   const [ selected, setselected ] = useState<any>()
 
-  const setActive = useCallback(function(selected) {
+  const setActive = useCallback(function (selected) {
     return setselected(selected)
   }, [])
 
   useEffect(
-    function() {
+    function () {
       setChildren?.(index, { setActive, selected })
     },
     [ setActive, index, setChildren, selected ],
   )
 
   const onClick_ = useCallback(
-    function() {
+    function () {
       if (disabled) return
       setAction(index).then(() => {
         onChange?.({ detail: index } as any)
@@ -57,31 +56,37 @@ function SidebarItem(
   )
   const _renderTitle = () => {
     if (title) {
-      return (<View>{title}</View>)
+      return <View>{title}</View>
     }
     return null
   }
   return (
-    <View className={clsx(bem({
-      selected,
-      disabled,
-    }), {
-      [`${activeClass}`]: selected,
-      [`${disabledClass}`]: disabled,
-    }, className)}
-          hoverClass={clsx(bem('', [ 'hover' ], true))}
-          hoverStayTime={70}
-          onClick={onClick_}
-          style={computedStyle([ style ])}
-          {...others}
+    <View
+      className={clsx(
+        bem({
+          selected,
+          disabled,
+        }),
+        {
+          [`${activeClass}`]: selected,
+          [`${disabledClass}`]: disabled,
+        },
+        className,
+      )}
+      hoverClass={clsx(bem('', [ 'hover' ], true))}
+      hoverStayTime={70}
+      onClick={onClick_}
+      style={computedStyle([ style ])}
+      {...others}
     >
       <View className={clsx(bem('text'))}>
-        {(badge != null || dot) ? (
+        {badge != null || dot ? (
           <Badge dot={dot} content={badge}>
             {_renderTitle()}
           </Badge>
-        ) : _renderTitle()}
-
+        ) : (
+          _renderTitle()
+        )}
       </View>
     </View>
   )

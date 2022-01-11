@@ -1,4 +1,3 @@
-
 import { useCallback } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import Button from '../button'
@@ -8,7 +7,9 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('goods-action-button')
 
-function GoodsActionButton(props: GoodsActionIconProps & { isFirst?: boolean, isLast?: boolean }) {
+function GoodsActionButton(
+  props: GoodsActionIconProps & { isFirst?: boolean; isLast?: boolean },
+) {
   const {
     text,
     url,
@@ -24,7 +25,7 @@ function GoodsActionButton(props: GoodsActionIconProps & { isFirst?: boolean, is
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
-    function(event) {
+    function (event) {
       onClick?.(event)
       if (url && linkType) jumpLink(url, linkType)
     },
@@ -34,14 +35,18 @@ function GoodsActionButton(props: GoodsActionIconProps & { isFirst?: boolean, is
     <Button
       type={type}
       plain={plain}
-      className={clsx(bem([
-        type,
-        {
-          first: isFirst,
-          last: isLast,
-          plain: plain,
-        },
-      ]), bem('inner'), className)}
+      className={clsx(
+        bem([
+          type,
+          {
+            first: isFirst,
+            last: isLast,
+            plain: plain,
+          },
+        ]),
+        bem('inner'),
+        className,
+      )}
       style={style}
       onClick={_click}
       {...others}

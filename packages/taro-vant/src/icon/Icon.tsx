@@ -1,4 +1,3 @@
-
 import { Image, View } from '@tarojs/components'
 import type { IconProps } from './PropsType'
 import Badge from '../badge'
@@ -25,10 +24,14 @@ export function Icon(props: IconProps) {
   const renderIcon = () => {
     return (
       <View
-        className={clsx(rootClass({
-          classPrefix,
-          name,
-        }), className, { [`${bem([ 'spin' ])}`]: spin })}
+        className={clsx(
+          rootClass({
+            classPrefix,
+            name,
+          }),
+          className,
+          { [`${bem([ 'spin' ])}`]: spin },
+        )}
         style={computedStyle([
           rootStyle({
             color,
@@ -44,7 +47,7 @@ export function Icon(props: IconProps) {
       </View>
     )
   }
-  if ((!isAnyBlank(badge) || dot)) {
+  if (!isAnyBlank(badge) || dot) {
     return (
       <Badge dot={dot} content={badge} className={clsx(bem('badge'))}>
         {renderIcon()}

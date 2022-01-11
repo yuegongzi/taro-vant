@@ -1,7 +1,12 @@
-
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { View } from '@tarojs/components'
-import { computedStyle, createNamespace, getRect, isDef, Sticky as InnerSticky } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  getRect,
+  isDef,
+  Sticky as InnerSticky,
+} from '../utils'
 import type { StickyProps } from './PropsType'
 import { usePageScroll } from '../hooks'
 import * as computed from './wxs'
@@ -29,7 +34,7 @@ function Sticky(props: StickyProps) {
   }> = useRef({})
 
   const getContainerRect = useCallback(
-    function() {
+    function () {
       const nodesRef = container?.()
       return new Promise((resolve) =>
         nodesRef?.boundingClientRect().exec((rect: any = []) => {
@@ -41,7 +46,7 @@ function Sticky(props: StickyProps) {
   )
 
   const setDataAfterDiff = useCallback(
-    function(data: any) {
+    function (data: any) {
       const diff = Object.keys(data).reduce((prev: any, key) => {
         if (data[key] !== state[key as 'height' | 'fixed' | 'transform']) {
           prev[key] = data[key]
@@ -64,7 +69,7 @@ function Sticky(props: StickyProps) {
   )
 
   const onMyScroll = useCallback(
-    function(scrollTop?: number) {
+    function (scrollTop?: number) {
       if (disabled) {
         setDataAfterDiff({
           fixed: false,
@@ -77,69 +82,70 @@ function Sticky(props: StickyProps) {
         Promise.all([
           getRect(null, `.van-sticky--${indexRef.current}`),
           getContainerRect(),
-        ]).then(([ root, container ]: any) => {
-          if (root && container) {
-            if (offsetTop + root.height > container.height + container.top) {
-              setDataAfterDiff({
-                fixed: false,
-                transform: container.height - root.height,
-              })
-            } else if (offsetTop >= root.top) {
-              setDataAfterDiff({
-                fixed: true,
-                height: root.height,
-                transform: 0,
-              })
-            } else {
-              setDataAfterDiff({ fixed: false, transform: 0 })
+        ]).
+          then(([ root, container ]: any) => {
+            if (root && container) {
+              if (offsetTop + root.height > container.height + container.top) {
+                setDataAfterDiff({
+                  fixed: false,
+                  transform: container.height - root.height,
+                })
+              } else if (offsetTop >= root.top) {
+                setDataAfterDiff({
+                  fixed: true,
+                  height: root.height,
+                  transform: 0,
+                })
+              } else {
+                setDataAfterDiff({ fixed: false, transform: 0 })
+              }
             }
-          }
-        }).catch((e) => {
-          console.log(e)
-        })
+          }).
+          catch((e) => {
+            console.log(e)
+          })
         return
       } else {
-        getRect(null, `.van-sticky--${indexRef.current}`).then(
-          (root: any) => {
-            if (!isDef(root)) {
-              return
-            }
-            if (offsetTop >= root.top) {
-              setDataAfterDiff({ fixed: true, height: root.height })
-              // this.transform = 0
-            } else {
-              setDataAfterDiff({ fixed: false })
-            }
-          },
-        )
+        getRect(null, `.van-sticky--${indexRef.current}`).then((root: any) => {
+          if (!isDef(root)) {
+            return
+          }
+          if (offsetTop >= root.top) {
+            setDataAfterDiff({ fixed: true, height: root.height })
+            // this.transform = 0
+          } else {
+            setDataAfterDiff({ fixed: false })
+          }
+        })
       }
     },
     [ container, disabled, getContainerRect, offsetTop, setDataAfterDiff ],
   )
 
   useEffect(
-    function() {
+    function () {
       onMyScroll(scrollTop)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [ scrollTop, container, disabled, offsetTop ],
   )
 
-  usePageScroll(function(e: any) {
+  usePageScroll(function (e: any) {
     onMyScroll(e.scrollTop)
   })
 
   return (
-    <View className={clsx(bem([ `${indexRef.current}` ]), className)}
-          style={computedStyle([
-            computed.containerStyle({
-              fixed: state.fixed,
-              height: state.height,
-              zIndex,
-            }),
-            style,
-          ])}
-          {...others}
+    <View
+      className={clsx(bem([ `${indexRef.current}` ]), className)}
+      style={computedStyle([
+        computed.containerStyle({
+          fixed: state.fixed,
+          height: state.height,
+          zIndex,
+        }),
+        style,
+      ])}
+      {...others}
     >
       <View
         className={clsx(bem('wrap', { fixed: state.fixed }))}

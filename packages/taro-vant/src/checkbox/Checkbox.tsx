@@ -1,4 +1,3 @@
-
 import { useCallback, useContext, useEffect, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
@@ -144,17 +143,23 @@ export function Checkbox(
 
   return (
     <View
-      className={clsx(bem({
-        horizontal: state.direction === 'horizontal',
-      }), className)}
+      className={clsx(
+        bem({
+          horizontal: state.direction === 'horizontal',
+        }),
+        className,
+      )}
       style={style}
       {...others}
     >
       {labelPosition === 'left' && (
         <View
-          className={clsx(bem('label', [
-            labelPosition, { disabled: disabled || state.parentDisabled },
-          ]))}
+          className={clsx(
+            bem('label', [
+              labelPosition,
+              { disabled: disabled || state.parentDisabled },
+            ]),
+          )}
           onClick={onClickLabel}
         >
           {children}
@@ -164,13 +169,15 @@ export function Checkbox(
         {icon || (
           <Icon
             name='success'
-            className={clsx(bem('icon', [
-              shape,
-              {
-                disabled: disabled || state.parentDisabled,
-                checked: state.value,
-              },
-            ]))}
+            className={clsx(
+              bem('icon', [
+                shape,
+                {
+                  disabled: disabled || state.parentDisabled,
+                  checked: state.value,
+                },
+              ]),
+            )}
             style={
               iconStyle({
                 checkedColor,
@@ -199,5 +206,5 @@ export function Checkbox(
     </View>
   )
 }
-Checkbox.displayName='Checkbox'
+Checkbox.displayName = 'Checkbox'
 export default Checkbox

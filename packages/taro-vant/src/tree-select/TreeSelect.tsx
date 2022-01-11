@@ -1,4 +1,3 @@
-
 import { ScrollView, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import Sidebar from '../sidebar'
@@ -60,9 +59,7 @@ function TreeSelect(props: TreeSelectProps) {
   }, [ items, mainActiveIndex, setSubItems ])
 
   return (
-    <View className={clsx(bem())}
-          style={'height: ' + addUnit(height)}
-    >
+    <View className={clsx(bem())} style={'height: ' + addUnit(height)}>
       <ScrollView scrollY className={clsx(bem('nav'))}>
         <Sidebar
           activeKey={mainActiveIndex}
@@ -87,13 +84,20 @@ function TreeSelect(props: TreeSelectProps) {
           return (
             <View
               key={item.id}
-              className={clsx(bem('item', {
-                active: computed.isActive(activeId, item.id),
-                disabled: item.disabled,
-              }), 'van-ellipsis', {
-                [`${contentActiveClass}`]: computed.isActive(activeId, item.id),
-                [`${contentDisabledClass}`]: item.disabled,
-              })}
+              className={clsx(
+                bem('item', {
+                  active: computed.isActive(activeId, item.id),
+                  disabled: item.disabled,
+                }),
+                'van-ellipsis',
+                {
+                  [`${contentActiveClass}`]: computed.isActive(
+                    activeId,
+                    item.id,
+                  ),
+                  [`${contentDisabledClass}`]: item.disabled,
+                },
+              )}
               data-item={item}
               onClick={(e) => {
                 _onSelectItem(e, item)

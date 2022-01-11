@@ -1,5 +1,12 @@
-
-import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react'
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react'
 import { displayColumns } from './wxs'
 import type { PickerEvents } from '../picker'
 import Picker from '../picker'
@@ -82,8 +89,8 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
           type === 'province'
             ? ''
             : type === 'city'
-              ? EMPTY_CODE.slice(2, 4)
-              : EMPTY_CODE.slice(4, 6)
+            ? EMPTY_CODE.slice(2, 4)
+            : EMPTY_CODE.slice(4, 6)
         result.unshift({
           code: `${code === undefined ? '' : code}${codeFill}`,
           name: typeToColumnsPlaceholderRef.current?.[type],
@@ -184,11 +191,13 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
       )
       indexes.push(_getIndex('county', code))
     }
-    return Promise.all(stack).then(() => picker.setIndexes(indexes)).catch(() => {
-    })
+    return Promise.all(stack).
+      then(() => picker.setIndexes(indexes)).
+      catch(() => {})
   }, [ _getDefaultCode, _getIndex, _getList, _getPicker, columnsNum ])
 
-  const _onChange = useCallback((event) => {
+  const _onChange = useCallback(
+    (event) => {
       let _a
       const { index, value, picker } = event.detail
       codeRef.current = value[index].code

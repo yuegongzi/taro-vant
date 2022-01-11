@@ -1,5 +1,11 @@
-
-import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState } from 'react'
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { CustomWrapper, View } from '@tarojs/components'
 import type { PickerColumnProps } from './PropsType'
 import { computedStyle, createNamespace, isObj, range } from '../utils'
@@ -36,12 +42,12 @@ function Index(
   const [ startOffset, setStartOffset ] = useState(0)
   const [ canInit, setCanInit ] = useState(true)
 
-  const isDisabled = useCallback(function(option) {
+  const isDisabled = useCallback(function (option) {
     return isObj(option) && option.disabled
   }, [])
 
   const adjustIndex = useCallback(
-    function(index: number): any {
+    function (index: number): any {
       const initialOptions_ = (
         options.length ? options : initialOptions
       ) as any[]
@@ -62,7 +68,7 @@ function Index(
   )
 
   const setIndex = useCallback(
-    function(index: number, userAction?: boolean) {
+    function (index: number, userAction?: boolean) {
       index = adjustIndex(index) || 0
       const offset = -index * Number(itemHeight)
       if (index !== currentIndex) {
@@ -76,14 +82,14 @@ function Index(
     [ adjustIndex, curColIndex, currentIndex, itemHeight, onChange ],
   )
 
-  useEffect(function() {
+  useEffect(function () {
     setCurrentIndex(defaultIndex)
     setIndex(defaultIndex || 0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(
-    function() {
+    function () {
       if (canInit) {
         setOptions(initialOptions || [])
       }
@@ -92,7 +98,7 @@ function Index(
   )
 
   const onTouchMove = useCallback(
-    function(event) {
+    function (event) {
       event.preventDefault()
       event.stopPropagation()
       const deltaY = event.touches[0].clientY - startY
@@ -108,7 +114,7 @@ function Index(
   )
 
   const onTouchStart = useCallback(
-    function(event) {
+    function (event) {
       setStartY(event.touches[0].clientY)
       setStartOffset(offset)
       setDuration(0)
@@ -117,7 +123,7 @@ function Index(
   )
 
   const onTouchEnd = useCallback(
-    function() {
+    function () {
       if (offset !== startOffset) {
         setDuration(DEFAULT_DURATION)
         const index = range(
@@ -134,7 +140,7 @@ function Index(
   )
 
   const onClickItem = useCallback(
-    function(event) {
+    function (event) {
       const { index } = event.currentTarget.dataset
       setTimeout(() => {
         setIndex(Number(index), true)
@@ -144,21 +150,21 @@ function Index(
   )
 
   const getCurrentIndex = useCallback(
-    function() {
+    function () {
       return currentIndex
     },
     [ currentIndex ],
   )
 
   const getValue = useCallback(
-    function() {
+    function () {
       return options[currentIndex as number]
     },
     [ options, currentIndex ],
   )
 
   const getOptionText = useCallback(
-    function(option) {
+    function (option) {
       return isObj(option) && valueKey && valueKey in option
         ? option[valueKey]
         : option
@@ -167,7 +173,7 @@ function Index(
   )
 
   const setValue = useCallback(
-    function(value) {
+    function (value) {
       for (let i = 0; i < options.length; i++) {
         if (getOptionText(options[i]) === value) {
           return setIndex(i)
@@ -226,12 +232,17 @@ function Index(
                 key={`picker-column__item${index}`}
                 data-index={index}
                 style={{ height: itemHeight + 'px' }}
-                className={clsx(bem('item', {
-                  disabled: option && option.disabled,
-                  selected: index === currentIndex,
-                }), className, 'van-ellipsis', {
-                  [`${activeClass}`]: index === currentIndex,
-                })}
+                className={clsx(
+                  bem('item', {
+                    disabled: option && option.disabled,
+                    selected: index === currentIndex,
+                  }),
+                  className,
+                  'van-ellipsis',
+                  {
+                    [`${activeClass}`]: index === currentIndex,
+                  },
+                )}
                 onClick={onClickItem}
               >
                 {optionText(option, valueKey)}

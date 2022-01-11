@@ -1,4 +1,3 @@
-
 import type { BadgeProps } from './PropsType'
 import { addUnit, createNamespace, isDef, isNumeric } from '../utils'
 import clsx from 'clsx'

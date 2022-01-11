@@ -1,8 +1,14 @@
-
 import { Block, Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
-import { addUnit, computedStyle, createNamespace, GRAY, RED, toPromise } from '../utils'
+import {
+  addUnit,
+  computedStyle,
+  createNamespace,
+  GRAY,
+  RED,
+  toPromise,
+} from '../utils'
 import GoodsAction, { GoodsActionButton } from '../goods-action'
 import Button from '../button'
 import Popup from '../popup'
@@ -99,16 +105,18 @@ function Dialog(props: DialogProps) {
       }
 
       if (beforeClose) {
-        toPromise(beforeClose(action)).then((value: boolean) => {
-          if (value) {
-            _close(action)
+        toPromise(beforeClose(action)).
+          then((value: boolean) => {
+            if (value) {
+              _close(action)
+              _stopLoading()
+            } else {
+              _stopLoading()
+            }
+          }).
+          catch(() => {
             _stopLoading()
-          } else {
-            _stopLoading()
-          }
-        }).catch(() => {
-          _stopLoading()
-        })
+          })
       }
     },
     [ _close, _stopLoading, asyncClose, beforeClose, onCancel, onConfirm ],
@@ -189,9 +197,11 @@ function Dialog(props: DialogProps) {
     >
       {(title || renderTitle) && (
         <View
-          className={clsx(bem('header', {
-            isolated: !(message || renderTitle),
-          }))}
+          className={clsx(
+            bem('header', {
+              isolated: !(message || renderTitle),
+            }),
+          )}
         >
           {/* {renderTitle || } */}
           {renderTitle ? renderTitle : title && <Block>{title}</Block>}
@@ -200,21 +210,25 @@ function Dialog(props: DialogProps) {
       {children
         ? children
         : message && (
-        <View
-          className={clsx(bem('message', [
-            theme, messageAlign, { hasTitle: title },
-          ]))}
-        >
-          <Text className={clsx(bem('message-text'))}>{message}</Text>
-        </View>
-      )}
+            <View
+              className={clsx(
+                bem('message', [ theme, messageAlign, { hasTitle: title } ]),
+              )}
+            >
+              <Text className={clsx(bem('message-text'))}>{message}</Text>
+            </View>
+          )}
 
       {theme === 'round-button' ? (
         <GoodsAction className={clsx(bem('footer', [ 'round-button' ]))}>
           {showCancelButton && (
             <GoodsActionButton
               loading={cancelLoading}
-              className={clsx(bem('button'), bem('cancel'), 'van-hairline--right')}
+              className={clsx(
+                bem('button'),
+                bem('cancel'),
+                'van-hairline--right',
+              )}
               style={'color: ' + cancelButtonColor}
               onClick={_onCancel}
             >
@@ -279,22 +293,22 @@ function Dialog(props: DialogProps) {
   )
 }
 
-Dialog.alert = function(options: DialogProps) {
+Dialog.alert = function (options: DialogProps) {
   return dialog.alert(options)
 }
-Dialog.confirm = function(options: DialogProps) {
+Dialog.confirm = function (options: DialogProps) {
   return dialog.confirm(options)
 }
-Dialog.close = function() {
+Dialog.close = function () {
   dialog.close()
 }
-Dialog.stopLoading = function() {
+Dialog.stopLoading = function () {
   dialog.stopLoading()
 }
-Dialog.setDefaultOptions = function(options: DialogProps) {
+Dialog.setDefaultOptions = function (options: DialogProps) {
   dialog.setDefaultOptions(options)
 }
-Dialog.resetDefaultOptions = function() {
+Dialog.resetDefaultOptions = function () {
   dialog.resetDefaultOptions()
 }
 

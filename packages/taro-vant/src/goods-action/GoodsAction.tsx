@@ -1,4 +1,3 @@
-
 import { cloneElement, isValidElement } from 'react'
 import { View } from '@tarojs/components'
 import toArray from 'rc-util/lib/Children/toArray'
@@ -9,18 +8,20 @@ import clsx from 'clsx'
 const [ bem ] = createNamespace('goods-action')
 
 function parseTabList(children: React.ReactNode): any[] {
-  return toArray(children).map((node: React.ReactElement<GoodsActionButtonProps>) => {
-    if (isValidElement(node)) {
-      const key = node.key !== undefined ? String(node.key) : undefined
-      return {
-        key,
-        ...node.props,
-        node,
+  return toArray(children).
+    map((node: React.ReactElement<GoodsActionButtonProps>) => {
+      if (isValidElement(node)) {
+        const key = node.key !== undefined ? String(node.key) : undefined
+        return {
+          key,
+          ...node.props,
+          node,
+        }
       }
-    }
 
-    return null
-  }).filter((tab) => tab)
+      return null
+    }).
+    filter((tab) => tab)
 }
 
 function GoodsAction(props: GoodsActionProps) {

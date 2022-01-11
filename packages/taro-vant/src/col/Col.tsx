@@ -1,4 +1,3 @@
-
 import { View } from '@tarojs/components'
 import type { ColProps } from './PropsType'
 import { rootStyle } from './wxs'
@@ -20,7 +19,11 @@ export function Col(props: ColProps): JSX.Element {
 
   return (
     <View
-      className={clsx(bem([ span ]), offset ? `van-col--offset-${offset}` : '', className)}
+      className={clsx(
+        bem([ span ]),
+        offset ? `van-col--offset-${offset}` : '',
+        className,
+      )}
       style={computedStyle([
         rootStyle({
           gutter,

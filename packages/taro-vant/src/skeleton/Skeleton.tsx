@@ -1,4 +1,3 @@
-
 import Taro from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
@@ -31,7 +30,7 @@ function Skeleton(props: SkeletonProps) {
   } = props
 
   useEffect(
-    function() {
+    function () {
       setState((pre: any) => {
         return { ...pre, rowArray: Array.from({ length: row }) }
       })
@@ -40,7 +39,7 @@ function Skeleton(props: SkeletonProps) {
   )
 
   useEffect(
-    function() {
+    function () {
       setState((pre: any) => {
         return { ...pre, isArray: (rowWidth as any) instanceof Array }
       })
@@ -50,10 +49,12 @@ function Skeleton(props: SkeletonProps) {
 
   return loading ? (
     <View
-      className={clsx(bem('skeleton',
-        {
+      className={clsx(
+        bem('skeleton', {
           animate,
-        }), className)}
+        }),
+        className,
+      )}
       style={style}
       {...others}
     >
@@ -65,10 +66,7 @@ function Skeleton(props: SkeletonProps) {
       )}
       <View className={clsx(bem('content'))}>
         {title && (
-          <View
-            className={clsx(bem('title'))}
-            style={'width:' + titleWidth}
-          />
+          <View className={clsx(bem('title'))} style={'width:' + titleWidth} />
         )}
         {rowArray.map((_item, index) => {
           return (

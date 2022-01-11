@@ -1,7 +1,16 @@
-
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react'
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { View } from '@tarojs/components'
-import type { IPickerInstance, PickerChangeEvents, PickerProps } from './PropsType'
+import type {
+  IPickerInstance,
+  PickerChangeEvents,
+  PickerProps,
+} from './PropsType'
 import PickerColumn from './PickerColumn'
 import Loading from '../loading'
 import * as computed from './wxs'
@@ -36,7 +45,7 @@ const Picker = forwardRef(function Index(
   const children = useRef<any[]>([])
   const handleIndex = useRef<number>(-1)
 
-  const setColumnValue = function(index: any, value: any) {
+  const setColumnValue = function (index: any, value: any) {
     const column = children.current[index] || {}
     if (column == null) {
       return Promise.reject(new Error('setColumnValue: 对应列不存在'))
@@ -44,8 +53,7 @@ const Picker = forwardRef(function Index(
     return column.setValue(value)
   }
 
-
-  const setColumnValues = useCallback(function(index, options) {
+  const setColumnValues = useCallback(function (index, options) {
     if (index <= handleIndex.current) return
     const column = children.current[index]
     if (column == null) {
@@ -67,17 +75,17 @@ const Picker = forwardRef(function Index(
     })
   }, [])
 
-  const getColumnValue = useCallback(function(index: number) {
+  const getColumnValue = useCallback(function (index: number) {
     const column = children.current[index]
     return column && column.getValue()
   }, [])
 
-  const getColumnIndex = useCallback(function(columnIndex: number) {
+  const getColumnIndex = useCallback(function (columnIndex: number) {
     return (children.current[columnIndex] || {}).getCurrentIndex()
   }, [])
 
   const setColumns = useCallback(
-    function() {
+    function () {
       const simple = columns && columns.length && !columns[0].values
       const columns_ = simple ? [ { values: columns } ] : columns
       const stack = (columns_ || []).map((column, index) =>
@@ -88,27 +96,25 @@ const Picker = forwardRef(function Index(
     [ columns ],
   )
   useEffect(
-    function() {
+    function () {
       if (Array.isArray(children) && children.length) {
-        setColumns().catch(() => {
-        })
+        setColumns().catch(() => {})
       }
     },
     [ columns, children ],
   )
 
-  const getValues = useCallback(function() {
+  const getValues = useCallback(function () {
     return children.current.map((child) => child.getValue())
   }, [])
 
-  const getIndexes = useCallback(function() {
+  const getIndexes = useCallback(function () {
     return children.current.map((child) => child.getCurrentIndex())
   }, [])
 
-  const onTouchMove = useCallback(function() {
-  }, [])
+  const onTouchMove = useCallback(function () {}, [])
 
-  const setColumnIndex = useCallback(function(index, optionIndex) {
+  const setColumnIndex = useCallback(function (index, optionIndex) {
     const column = children.current[index]
     if (column == null) {
       return Promise.reject(new Error('setColumnIndex: 对应列不存在'))
@@ -116,14 +122,14 @@ const Picker = forwardRef(function Index(
     return column.setIndex(optionIndex)
   }, [])
 
-  const setValues = function(values: any) {
+  const setValues = function (values: any) {
     const stack = values.map((value: any, index: number) =>
       setColumnValue(index, value),
     )
     return Promise.all(stack)
   }
 
-  const emit = function(event: any) {
+  const emit = function (event: any) {
     const type = event?.currentTarget?.dataset.type
     const simple = columns && columns.length && !columns[0].values
     if (typeof event === 'number' || !type) {
@@ -208,16 +214,17 @@ const Picker = forwardRef(function Index(
     } as any
   })
 
-  const onTouchMove_ = useCallback(function(event) {
+  const onTouchMove_ = useCallback(function (event) {
     event.preventDefault()
     event.stopPropagation()
   }, [])
 
   return (
-    <View className={clsx(bem(), className)}
-          style={computedStyle([ style ])}
-          {...others}
-          onTouchMove={onTouchMove_}
+    <View
+      className={clsx(bem(), className)}
+      style={computedStyle([ style ])}
+      {...others}
+      onTouchMove={onTouchMove_}
     >
       {toolbarPosition === 'top' && showToolbar && (
         <View className={clsx(bem('toolbar'))}>
@@ -233,11 +240,12 @@ const Picker = forwardRef(function Index(
           {title && (
             <View className={clsx(bem('title'), 'van-ellipsis')}>{title}</View>
           )}
-          <View className={clsx(bem('confirm'))}
-                hoverClass={clsx(bem('confirm', [ 'hover' ], true))}
-                hoverStayTime={70}
-                data-type='confirm'
-                onClick={emit}
+          <View
+            className={clsx(bem('confirm'))}
+            hoverClass={clsx(bem('confirm', [ 'hover' ], true))}
+            hoverStayTime={70}
+            data-type='confirm'
+            onClick={emit}
           >
             {confirmButtonText || '确定'}
           </View>
@@ -248,39 +256,43 @@ const Picker = forwardRef(function Index(
           <Loading color='#1989fa' />
         </View>
       )}
-      <View className={clsx(bem('columns'))}
-            style={computed.columnsStyle({
-              itemHeight,
-              visibleItemCount,
-            })}
-            onTouchMove={onTouchMove}
+      <View
+        className={clsx(bem('columns'))}
+        style={computed.columnsStyle({
+          itemHeight,
+          visibleItemCount,
+        })}
+        onTouchMove={onTouchMove}
       >
         {computed.columns(columns).map((item: any, index: number) => {
           return (
-            <PickerColumn className={clsx(bem('column'))}
-                          key={`van-picker__column_${index}column-class`}
-                          data-index={index}
-                          index={index}
-                          valueKey={valueKey}
-                          initialOptions={item.values}
-                          defaultIndex={item.defaultIndex || defaultIndex}
-                          itemHeight={itemHeight}
-                          visibleItemCount={visibleItemCount}
-                          onChange={onChange_}
-                          ref={(el) => (children.current[index] = el)}
+            <PickerColumn
+              className={clsx(bem('column'))}
+              key={`van-picker__column_${index}column-class`}
+              data-index={index}
+              index={index}
+              valueKey={valueKey}
+              initialOptions={item.values}
+              defaultIndex={item.defaultIndex || defaultIndex}
+              itemHeight={itemHeight}
+              visibleItemCount={visibleItemCount}
+              onChange={onChange_}
+              ref={(el) => (children.current[index] = el)}
             />
           )
         })}
-        <View className={clsx(bem('mask'))}
-              style={computed.maskStyle({
-                itemHeight,
-                visibleItemCount,
-              })}
+        <View
+          className={clsx(bem('mask'))}
+          style={computed.maskStyle({
+            itemHeight,
+            visibleItemCount,
+          })}
         />
-        <View className={clsx(bem('frame'), 'van-hairline--top-bottom')}
-              style={computed.frameStyle({
-                itemHeight,
-              })}
+        <View
+          className={clsx(bem('frame'), 'van-hairline--top-bottom')}
+          style={computed.frameStyle({
+            itemHeight,
+          })}
         />
       </View>
       {toolbarPosition === 'bottom' && showToolbar && (
