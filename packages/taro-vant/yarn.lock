@@ -1243,10 +1243,10 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@taro-vant/cli@2.0.2":
-  version "2.0.2"
-  resolved "https://npm.ejiexi.com/@taro-vant%2fcli/-/cli-2.0.2.tgz#19cc3adf7f6744a714cff6c41549dab91235e4e1"
-  integrity sha512-vrcXv1rFQcyhLR8McLZjj7xzs7umgIYi4H624D0/tlJp7/dUQqDj5DQTPeZu9DZILhYIjDlbi9enCbz0Az3kvQ==
+"@taro-vant/cli@2.0.5":
+  version "2.0.5"
+  resolved "https://npm.ejiexi.com/@taro-vant%2fcli/-/cli-2.0.5.tgz#e36870b9dfd4384a7e7115e6541f9ca81ad6d652"
+  integrity sha512-/U7Yyh+w+bCjoZz8CX7XC4kkvRWaeKrNuMnwALmmWvWNUG9Y3x1MBpE8MRMO5snJsmpqPUO6BDZ8HMR/Pn6Y+g==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/preset-env" "^7.16.0"

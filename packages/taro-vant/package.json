@@ -45,7 +45,7 @@
   "scripts": {
     "start": "npx taro-vant-cli watch",
     "dev": "npx taro-vant-cli watch",
-    "build": "npx taro-vant-cli build",
+    "build": "npx taro-vant-cli build ",
     "up": "yarn upgrade-interactive --latest"
   },
   "peerDependencies": {
@@ -64,7 +64,7 @@
     "rc-util": "5.14.0"
   },
   "devDependencies": {
-    "@taro-vant/cli": "^2.0.0",
+    "@taro-vant/cli": "2.0.5",
     "@tarojs/components": "3.3.9",
     "@tarojs/taro": "3.3.9",
     "@types/lodash": "^4.14.178",

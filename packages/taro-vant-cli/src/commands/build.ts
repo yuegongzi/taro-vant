@@ -13,7 +13,15 @@ import { genStyleDepsMap } from '../compiler/gen-style-deps-map.js'
 import { genComponentStyle } from '../compiler/gen-component-style.js'
 import { ES_DIR, LIB_DIR, SRC_DIR } from '../common/constant.js'
 import { genPackageStyle } from '../compiler/gen-package-style.js'
-import { isAsset, isDir, isScript, isStyle, setBuildTarget, setModuleEnv, setNodeEnv } from '../common/index.js'
+import {
+  isAsset,
+  isDir,
+  isScript,
+  isStyle,
+  setBuildTarget,
+  setModuleEnv,
+  setNodeEnv,
+} from '../common/index.js'
 import { clean } from './clean.js'
 
 const { remove, copy, readdir } = fse
@@ -205,9 +213,9 @@ export async function build(params: { type?: 'es' | 'lib' }) {
   try {
     await clean()
     // await installDependencies()
-    await runBuildTasks(params.type)
+    await runBuildTasks('es')
   } catch (err) {
-    consola.error('Build failed')
+    consola.error('Build failed' + params.type)
     process.exit(1)
   }
 }
