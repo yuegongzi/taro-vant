@@ -137,6 +137,7 @@
     "babel-plugin-transform-taroapi": "3.3.19",
     "cross-env": "7.0.3",
     "prettier": "2.5.1",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "@antmjs/babel-preset": "^1.17.4"
   }
 }
