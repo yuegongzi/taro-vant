@@ -7,7 +7,7 @@ npx vant-cli build-site
 cd ./../taro-vant-demo
 yarn
 pwd
-npm run real:h5Doc
+yarn real:h5Doc
 
 cd  ./../taro-vant-doc
 
