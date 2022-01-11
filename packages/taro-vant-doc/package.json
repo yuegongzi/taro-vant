@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "npx vant-cli dev",
     "test:coverage": "open test/coverage/index.html",
-    "build": "node ./scripts/ts-to-md && sh ./build.sh",
-    "release": "npx gh-pages -d site",
-    "docs-ts": "node ./scripts/ts-to-md"
+    "build": "sh ./build.sh",
+    "release": "npx gh-pages -d site"
   },
   "authors": {
     "name": "杨安府",

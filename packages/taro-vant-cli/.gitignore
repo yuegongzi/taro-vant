@@ -2,6 +2,7 @@
 *.swp
 yarn.lock
 .cache
+lib
 .temp
 ../../.idea
 .rn_temp

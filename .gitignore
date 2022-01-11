@@ -14,6 +14,7 @@ package-lock.json
 
 node_modules
 packages/**/coverage
+packages/**/yarn.lock
 packages/**/dist
 packages/taro-vant/lib
 packages/taro-vant/es
@@ -36,4 +37,3 @@ packages/taro-vant-demo/dist
 packages/react-demo/build
 packages/react-demo/dist
 packages/react-demo/src/pages
-!/yarn.lock

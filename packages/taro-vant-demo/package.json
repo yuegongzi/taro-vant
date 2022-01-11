@@ -89,7 +89,6 @@
   },
   "author": "",
   "scripts": {
-    "iconfont": "npx antm-icon --input-path https://at.alicdn.com/t/xxxx.css --output-path src/iconfont.less",
     "watch:dd": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type dd --watch",
     "watch:weapp": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type weapp --watch",
     "watch:alipay": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type alipay --watch",
@@ -124,7 +123,6 @@
     "taro-vant": "^0.0.1"
   },
   "devDependencies": {
-    "@antmjs/iconfont": "1.17.2",
     "@antmjs/plugin-mini-fix": "1.17.2",
     "@babel/core": "7.16.7",
     "@tarojs/cli": "3.3.19",

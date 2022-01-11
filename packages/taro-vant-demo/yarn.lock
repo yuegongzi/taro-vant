@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@antmjs/iconfont@1.17.2":
-  version "1.17.2"
-  resolved "https://npm.ejiexi.com/@antmjs%2ficonfont/-/iconfont-1.17.2.tgz#c25d0edf8530c3de2fc03986126b632e98535453"
-  integrity sha512-YKJYv4yTW3KFSJRkeB2hz5hEizF3BUUDYMfUR+NnxWzohHR9kKtn8pkPrj6BEuUtAkpXqLTjeyw2HAtlVU2Iyw==
-
 "@antmjs/mini-fix@1.17.2":
   version "1.17.2"
   resolved "https://npm.ejiexi.com/@antmjs%2fmini-fix/-/mini-fix-1.17.2.tgz#cfa98cabd35c32883e348619368dec169147603d"
