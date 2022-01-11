@@ -17,12 +17,9 @@ export interface NotifyProps extends StandardProps {
   onOpened?: () => void
   onClose?: () => void
 }
-
 interface notifyProps {
   show: (options: NotifyProps | string) => any
   clear: (options?: NotifyProps) => any
 }
-
 declare const Notify: ComponentClass<NotifyProps> & notifyProps
-
 export { Notify, notify }

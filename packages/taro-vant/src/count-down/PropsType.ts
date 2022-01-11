@@ -6,7 +6,6 @@ export interface ICountDownRef {
   pause: () => void
   reset: () => void
 }
-
 export interface ITimeData {
   days: number
   hours: number
@@ -14,7 +13,6 @@ export interface ITimeData {
   seconds: number
   milliseconds: number
 }
-
 export interface CountDownProps extends StandardProps {
   millisecond?: boolean
   time?: number
@@ -25,7 +23,5 @@ export interface CountDownProps extends StandardProps {
   onFinish?: () => void
   ref?: React.MutableRefObject<ICountDownRef | undefined>
 }
-
 declare const CountDown: ForwardRefRenderFunction<ICountDownRef, CountDownProps>
-
 export { CountDown }

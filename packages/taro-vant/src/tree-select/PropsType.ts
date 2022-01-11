@@ -29,9 +29,8 @@ export interface TreeSelectProps extends StandardProps {
     },
   ) => void
   onClickNav?: (event: { detail: { index: number } }) => void
-  contentActiveClass?: string;
-  contentDisabledClass?: string;
+  contentActiveClass?: string
+  contentDisabledClass?: string
 }
-
 declare const TreeSelect: ComponentClass<TreeSelectProps>
 export { TreeSelect }

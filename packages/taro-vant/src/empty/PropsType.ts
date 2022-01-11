@@ -6,7 +6,5 @@ export interface EmptyProps extends StandardProps {
   image?: 'error' | 'search' | 'default' | 'network' | string
   children?: ReactNode
 }
-
 declare const Empty: ComponentClass<EmptyProps>
-
 export { Empty }

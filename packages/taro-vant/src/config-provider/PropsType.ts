@@ -5,7 +5,5 @@ export interface ConfigProviderProps extends StandardProps {
   themeVars: Normal.IAnyObject
   children: ReactNode
 }
-
 declare const ConfigProvider: ComponentClass<ConfigProviderProps>
-
 export { ConfigProvider }

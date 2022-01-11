@@ -4,7 +4,6 @@ import type { StandardProps } from '@tarojs/components'
 type eventDetail = {
   detail: { index: number; name?: string; title?: string }
 }
-
 export interface TabsProps extends Omit<StandardProps, 'onClick'> {
   sticky?: boolean
   border?: boolean
@@ -30,14 +29,11 @@ export interface TabsProps extends Omit<StandardProps, 'onClick'> {
   onClick?: (event: eventDetail) => void
   onChange?: (event: eventDetail) => void
   onDisabled?: (event: eventDetail) => void
-  tabClass?: string;
-  tabActiveClass?: string;
+  tabClass?: string
+  tabActiveClass?: string
 }
-
 declare const Tabs: ComponentClass<TabsProps>
-
 export { Tabs }
-
 export interface TabProps extends StandardProps {
   dot?: boolean
   badge?: string | number
@@ -47,7 +43,5 @@ export interface TabProps extends StandardProps {
   name?: string | number
   children: ReactNode
 }
-
 declare const Tab: ComponentClass<TabProps>
-
 export { Tab }

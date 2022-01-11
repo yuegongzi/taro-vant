@@ -7,7 +7,5 @@ export interface ColProps extends StandardProps {
   gutter?: number | string
   children: React.ReactNode
 }
-
 declare const Col: ComponentClass<ColProps>
-
 export { Col }

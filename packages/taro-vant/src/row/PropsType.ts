@@ -5,7 +5,5 @@ export interface RowProps extends StandardProps {
   gutter?: number | string
   children: ReactNode
 }
-
 declare const Row: ComponentClass<RowProps>
-
 export { Row }

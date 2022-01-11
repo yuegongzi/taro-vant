@@ -8,7 +8,6 @@ export type PullRefreshStatus =
   | 'loosing'
   | 'pulling'
   | 'success'
-
 interface PullRefreshProps {
   headHeight?: number | string
   successText?: string
@@ -31,14 +30,12 @@ export interface ListProps
   offset?: number
   finished?: boolean
   empty?: boolean
-  errorText?: string| React.ReactNode
+  errorText?: string | React.ReactNode
   finishedText?: string | React.ReactNode
   emptyDescription?: string
   emptyImage?: 'error' | 'search' | 'default' | 'network' | string
   onLoad?: () => Promise<void>
   onRefresh?: () => Promise<void>
 }
-
 declare const List: ComponentClass<ListProps>
-
 export { List }

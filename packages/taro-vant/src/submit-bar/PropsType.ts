@@ -18,7 +18,5 @@ export interface SubmitBarProps extends StandardProps {
   top?: ReactNode
   onSubmit?: (event: ITouchEvent) => void
 }
-
 declare const SubmitBar: ComponentClass<SubmitBarProps>
-
 export { SubmitBar }

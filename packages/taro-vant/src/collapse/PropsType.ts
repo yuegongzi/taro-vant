@@ -10,11 +10,8 @@ export interface CollapseProps extends StandardProps {
   onOpen?: (event: ITouchEvent) => any
   onClose?: (event: ITouchEvent) => any
 }
-
 declare const Collapse: ComponentClass<CollapseProps>
-
 export { Collapse }
-
 export interface CollapseItemProps extends StandardProps {
   name?: string | number
   title?: ReactNode
@@ -28,7 +25,5 @@ export interface CollapseItemProps extends StandardProps {
   children?: ReactNode
   rightIcon?: ReactNode
 }
-
 declare const CollapseItem: ComponentClass<CollapseItemProps>
-
 export { CollapseItem }

@@ -66,7 +66,5 @@ export interface FieldProps extends StandardProps {
   onKeyboardHeightChange?: CommonEventFunction<TextareaProps.onKeyboardHeightChangeEventDetail>
   children?: ReactNode
 }
-
 declare const Field: ComponentClass<FieldProps>
-
 export { Field }

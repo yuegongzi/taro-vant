@@ -12,7 +12,5 @@ export interface ProgressProps extends StandardProps {
   textColor?: string
   strokeWidth?: number | string
 }
-
 declare const Progress: ComponentClass<ProgressProps>
-
 export { Progress }

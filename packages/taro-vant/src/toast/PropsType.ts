@@ -16,7 +16,6 @@ export interface ToastProps extends StandardProps {
   children?: ReactNode
   onClose?: () => any
 }
-
 interface toastProps {
   show: (options: ToastProps | string) => any
   loading: (options: ToastProps | string) => any
@@ -26,7 +25,5 @@ interface toastProps {
   setDefaultOptions: (options: ToastProps) => void
   resetDefaultOptions: (options: any) => void
 }
-
 declare const Toast: ComponentClass<ToastProps> & toastProps
-
 export { Toast, toast }

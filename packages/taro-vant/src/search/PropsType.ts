@@ -30,7 +30,5 @@ export interface SearchProps extends StandardProps {
   onCancel?: () => void
   onClickInput?: () => void
 }
-
 declare const Search: ComponentClass<SearchProps>
-
 export { Search }

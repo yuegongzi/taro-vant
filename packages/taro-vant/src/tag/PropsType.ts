@@ -13,7 +13,5 @@ export interface TagProps extends StandardProps {
   children?: ReactNode
   onClose?: (e: any) => void
 }
-
 declare const Tag: ComponentClass<TagProps>
-
 export { Tag }

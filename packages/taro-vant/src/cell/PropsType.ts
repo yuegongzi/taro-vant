@@ -6,7 +6,7 @@ export interface CellProps extends StandardProps {
   linkType?: 'navigateTo' | 'reLaunch' | 'redirectTo'
   title?: ReactNode
   value?: ReactNode
-  icon?: string |ReactNode
+  icon?: string | ReactNode
   size?: 'large'
   label?: string
   center?: boolean
@@ -21,21 +21,15 @@ export interface CellProps extends StandardProps {
   rightIcon?: ReactNode
   extra?: ReactNode
   children?: ReactNode | JSX.Element | JSX.Element[]
-  valueClass?: string;
+  valueClass?: string
 }
-
 export interface CellGroupProps extends StandardProps {
   title?: string
   border?: boolean
   inset?: boolean
   children?: ReactNode
 }
-
 declare const CellGroup: ComponentClass<CellGroupProps>
-
 export { CellGroup }
-
-
 declare const Cell: ComponentClass<CellProps>
-
 export { Cell }

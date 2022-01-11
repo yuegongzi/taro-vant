@@ -12,7 +12,5 @@ export interface SwitchProps extends StandardProps {
   inactiveValue?: any
   onChange?: (event: ITouchEvent) => any
 }
-
 declare const Switch: ComponentClass<SwitchProps>
-
 export { Switch }

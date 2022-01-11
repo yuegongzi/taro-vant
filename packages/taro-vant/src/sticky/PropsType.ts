@@ -12,7 +12,5 @@ export interface StickyProps extends StandardProps {
     detail: { scrollTop?: number; isFixed?: boolean }
   }) => any
 }
-
 declare const Sticky: ComponentClass<StickyProps>
-
 export { Sticky }

@@ -13,7 +13,5 @@ export interface SkeletonProps extends StandardProps {
   rowWidth?: string | string[]
   children?: ReactNode
 }
-
 declare const Skeleton: ComponentClass<SkeletonProps>
-
 export { Skeleton }

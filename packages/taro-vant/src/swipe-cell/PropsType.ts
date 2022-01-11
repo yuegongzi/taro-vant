@@ -6,21 +6,18 @@ type SwipeCellClick = {
     position: 'left' | 'right' | 'cell' | 'outside'
   }
 }
-
 type SwipeCellOpen = {
   detail: {
     position: 'left' | 'right'
     name: string
   }
 }
-
 type SwipeCellClose = {
   detail: {
     position: 'left' | 'right'
     name: string
   }
 }
-
 export interface SwipeCellProps extends StandardProps {
   disabled?: boolean
   leftWidth?: number
@@ -36,12 +33,9 @@ export interface SwipeCellProps extends StandardProps {
   right?: React.ReactNode
   children?: React.ReactNode
 }
-
 export type ISwiperCellInstance = {
   open: (position: 'left' | 'right') => void
   close: () => void
 }
-
 declare const SwipeCell: ComponentClass<SwipeCellProps>
-
 export { SwipeCell }

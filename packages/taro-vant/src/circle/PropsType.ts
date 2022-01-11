@@ -15,7 +15,5 @@ export interface CircleProps extends StandardProps {
   clockwise?: boolean
   children?: ReactNode
 }
-
 declare const Circle: ComponentClass<CircleProps>
-
 export { Circle }

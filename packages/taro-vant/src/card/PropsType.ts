@@ -8,7 +8,7 @@ export interface CardProps extends StandardProps {
   desc?: string | ReactNode
   thumb?: string | ReactNode
   title?: ReactNode
-  price: string | number,
+  price: string | number
   centered?: boolean
   lazyLoad?: boolean
   thumbLink?: string
@@ -20,7 +20,5 @@ export interface CardProps extends StandardProps {
   priceTop?: ReactNode
   tags?: ReactNode
 }
-
 declare const Card: ComponentClass<CardProps>
-
 export { Card }

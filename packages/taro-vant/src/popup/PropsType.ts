@@ -23,7 +23,5 @@ export interface PopupProps
   onClickOverlay?: () => void
   onClose?: () => void
 }
-
 declare const Popup: ComponentClass<PopupProps>
-
 export { Popup }

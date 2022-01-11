@@ -10,7 +10,5 @@ export interface DividerProps extends StandardProps {
   textColor?: string
   children?: ReactNode
 }
-
 declare const Divider: ComponentClass<DividerProps>
-
 export { Divider }

@@ -13,11 +13,8 @@ export interface TabbarProps extends StandardProps {
   children?: ReactNode
   onChange?: (event: { detail: string | number }) => void
 }
-
 declare const Tabbar: ComponentClass<TabbarProps>
-
 export { Tabbar }
-
 export interface TabbarItemProps extends Omit<StandardProps, 'onClick'> {
   badge?: string
   name?: string | number
@@ -27,7 +24,5 @@ export interface TabbarItemProps extends Omit<StandardProps, 'onClick'> {
   children?: ReactNode
   onClick?: (name: string | number) => void
 }
-
 declare const TabbarItem: ComponentClass<TabbarItemProps>
-
 export { TabbarItem }

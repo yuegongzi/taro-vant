@@ -15,14 +15,11 @@ export interface RadioProps extends StandardProps {
   shape?: 'round' | 'square'
   iconSize?: number | string
   children?: ReactNode
-  iconRender?: ({ disabled,checked }: params) => ReactNode
+  iconRender?: ({ disabled, checked }: params) => ReactNode
   onChange?: (event: ITouchEvent) => any
 }
-
 declare const Radio: ComponentClass<RadioProps>
-
 export { Radio }
-
 export interface RadioGroupProps extends StandardProps {
   value?: any
   direction?: 'vertical' | 'horizontal'
@@ -30,7 +27,5 @@ export interface RadioGroupProps extends StandardProps {
   children?: ReactNode
   onChange?: (event: ITouchEvent) => any
 }
-
 declare const RadioGroup: ComponentClass<RadioGroupProps>
-
 export { RadioGroup }

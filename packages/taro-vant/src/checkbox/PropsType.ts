@@ -14,7 +14,6 @@ export interface CheckboxProps extends StandardProps {
   icon?: ReactNode
   onChange?: (event: ITouchEvent) => any
 }
-
 export interface CheckboxGroupProps extends StandardProps {
   max?: number
   value?: any[]
@@ -23,4 +22,3 @@ export interface CheckboxGroupProps extends StandardProps {
   children?: ReactNode[]
   onChange?: (event: ITouchEvent) => any
 }
-

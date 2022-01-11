@@ -18,7 +18,5 @@ export interface NoticeBarProps extends StandardProps {
   onClick?: (event: ITouchEvent) => any
   onClose?: (event: ITouchEvent) => any
 }
-
 declare const NoticeBar: ComponentClass<NoticeBarProps>
-
 export { NoticeBar }

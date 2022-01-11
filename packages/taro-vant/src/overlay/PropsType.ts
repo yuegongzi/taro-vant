@@ -11,7 +11,5 @@ export interface OverlayProps extends StandardProps {
     | { enter: string | number; leave: string | number }
   children?: ReactNode
 }
-
 declare const Overlay: ComponentClass<OverlayProps>
-
 export { Overlay }

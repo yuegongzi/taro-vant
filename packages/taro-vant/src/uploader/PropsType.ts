@@ -34,7 +34,5 @@ export interface UploaderProps extends StandardProps {
   onOversize?: (event: ITouchEvent) => any
   onClickPreview?: (data: any) => any
 }
-
 declare const Uploader: ComponentClass<UploaderProps>
-
 export { Uploader }
