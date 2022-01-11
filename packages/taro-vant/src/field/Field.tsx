@@ -1,4 +1,3 @@
-
 import Taro from '@tarojs/taro'
 import { useEffect, useRef, useState } from 'react'
 import { Block, Input, Textarea, View } from '@tarojs/components'
@@ -101,7 +100,7 @@ function Field(props: FieldProps) {
     }
   }
 
-  const emitChange = function(event?: any) {
+  const emitChange = function (event?: any) {
     event = event || { detail: { value: '' } }
     setState((pre: any) => {
       return { ...pre, innerValue: event.detail }
@@ -111,7 +110,7 @@ function Field(props: FieldProps) {
     onChange?.(ev)
   }
 
-  const setShowClear = function(value: any) {
+  const setShowClear = function (value: any) {
     let showClear = false
     if (clearable && !readonly) {
       const hasValue = !!value
@@ -125,12 +124,12 @@ function Field(props: FieldProps) {
     })
   }
 
-  const _input = function(event: any) {
+  const _input = function (event: any) {
     const value = event.detail.value || ''
     setShowClear(value)
     emitChange(event)
   }
-  const _focus = function(event: any) {
+  const _focus = function (event: any) {
     ref.current.focused = true
     setTimeout(() => {
       setShowClear(innerValue)
@@ -140,7 +139,7 @@ function Field(props: FieldProps) {
     })
     onFocus?.(event)
   }
-  const _blur = function(event: any) {
+  const _blur = function (event: any) {
     ref.current.focused = false
     setShowClear(innerValue)
     Object.defineProperty(event, 'detail', {
@@ -148,7 +147,7 @@ function Field(props: FieldProps) {
     })
     onBlur?.(event)
   }
-  const _clear = function() {
+  const _clear = function () {
     setState((pre: any) => {
       return { ...pre, innerValue: '' }
     })
@@ -158,7 +157,7 @@ function Field(props: FieldProps) {
       onClear?.()
     })
   }
-  const _confirm = function(event: any) {
+  const _confirm = function (event: any) {
     const { value = '' } = event.detail || {}
     setShowClear(value)
     Object.defineProperty(event, 'detail', {
@@ -168,7 +167,7 @@ function Field(props: FieldProps) {
   }
 
   useEffect(
-    function() {
+    function () {
       setShowClear(innerValue)
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -176,7 +175,7 @@ function Field(props: FieldProps) {
   )
 
   useEffect(
-    function() {
+    function () {
       setState((pre: any) => {
         return { ...pre, innerValue: value }
       })
@@ -207,29 +206,33 @@ function Field(props: FieldProps) {
       className='van-field'
       title={
         <Block>
-          <View className={clsx(bem('label', { disabled }))}>
-            {label}
-          </View>
+          <View className={clsx(bem('label', { disabled }))}>{label}</View>
         </Block>
       }
     >
       <View className={clsx(bem('body', [ type ]))}>
-       <View
+        <View
           className={clsx(bem('control', [ inputAlign, 'custom' ]))}
           onClick={onClickInput}
-         />
+        >
+          {props.children}
+        </View>
         {type === 'textarea' ? (
           <Textarea
-            className={clsx(bem('control', [
-              inputAlign,
-              type,
+            className={clsx(
+              bem('control', [
+                inputAlign,
+                type,
+                {
+                  disabled,
+                  error,
+                },
+              ]),
               {
-                disabled,
-                error,
+                ['autosize']: autosize,
               },
-            ]), {
-              ['autosize']: autosize,
-            }, state.unitag)}
+              state.unitag,
+            )}
             fixed={fixed}
             focus={focus}
             cursor={cursor}
@@ -239,10 +242,12 @@ function Field(props: FieldProps) {
             maxlength={maxlength}
             placeholder={placeholder}
             placeholderStyle={placeholderStyle}
-            placeholderClass={clsx(bem('placeholder', {
-              error,
-              disabled,
-            }))}
+            placeholderClass={clsx(
+              bem('placeholder', {
+                error,
+                disabled,
+              }),
+            )}
             // eslint-disable-next-line
             // @ts-ignore
             nativeProps={autosize ? { rows: 1 } : {}}
@@ -265,14 +270,15 @@ function Field(props: FieldProps) {
           />
         ) : (
           <Input
-            className={clsx(bem('control', [
-              inputAlign,
-              {
-                disabled,
-                error,
-              },
-            ]))
-            }
+            className={clsx(
+              bem('control', [
+                inputAlign,
+                {
+                  disabled,
+                  error,
+                },
+              ]),
+            )}
             // eslint-disable-next-line
             // @ts-ignore
             type={type}
@@ -284,9 +290,11 @@ function Field(props: FieldProps) {
             maxlength={maxlength}
             placeholder={placeholder}
             placeholderStyle={placeholderStyle}
-            placeholderClass={clsx(bem('placeholder', {
-              error,
-            }))}
+            placeholderClass={clsx(
+              bem('placeholder', {
+                error,
+              }),
+            )}
             confirmType={confirmType}
             confirmHold={confirmHold}
             holdKeyboard={holdKeyboard}
@@ -312,20 +320,24 @@ function Field(props: FieldProps) {
           />
         )}
         <View className={clsx(bem('icon-container'))} onClick={onClickIcon}>
-
-          {ele(rightIcon,   <Icon
-            name={rightIcon}
-            className={clsx(bem('icon-root'), iconClass)}
-          />)}
+          {ele(
+            rightIcon,
+            <Icon
+              name={rightIcon}
+              className={clsx(bem('icon-root'), iconClass)}
+            />,
+          )}
         </View>
         <View className={clsx(bem('button'))}>{button}</View>
       </View>
       {showWordLimit && maxlength && (
         <View className={clsx(bem('word-limit'))}>
           <View
-            className={clsx(bem('word-num', {
-              full: innerValue.length >= maxlength,
-            }))}
+            className={clsx(
+              bem('word-num', {
+                full: innerValue.length >= maxlength,
+              }),
+            )}
           >
             {innerValue.length >= maxlength ? maxlength : innerValue.length}
           </View>
@@ -334,13 +346,15 @@ function Field(props: FieldProps) {
       )}
       {errorMessage && (
         <View
-          className={clsx(bem('error-message', [
-            errorMessageAlign,
-            {
-              disabled,
-              error,
-            },
-          ]))}
+          className={clsx(
+            bem('error-message', [
+              errorMessageAlign,
+              {
+                disabled,
+                error,
+              },
+            ]),
+          )}
         >
           {errorMessage}
         </View>
@@ -349,5 +363,5 @@ function Field(props: FieldProps) {
   )
 }
 
-Field.displayName= 'Field'
+Field.displayName = 'Field'
 export default Field

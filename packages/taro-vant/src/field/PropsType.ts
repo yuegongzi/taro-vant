@@ -1,5 +1,9 @@
 import type { ComponentClass, ReactNode } from 'react'
-import type { CommonEventFunction, ITouchEvent, StandardProps } from '@tarojs/components'
+import type {
+  CommonEventFunction,
+  ITouchEvent,
+  StandardProps,
+} from '@tarojs/components'
 import type { TextareaProps } from '@tarojs/components/types/Textarea'
 
 export interface FieldProps extends StandardProps {
@@ -60,6 +64,7 @@ export interface FieldProps extends StandardProps {
   onClickInput?: () => void
   onLineChange?: CommonEventFunction<TextareaProps.onLineChangeEventDetail>
   onKeyboardHeightChange?: CommonEventFunction<TextareaProps.onKeyboardHeightChangeEventDetail>
+  children: ReactNode
 }
 
 declare const Field: ComponentClass<FieldProps>
