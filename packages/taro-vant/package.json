@@ -1,6 +1,6 @@
 {
   "name": "taro-vant",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "main": "lib/index.js",
   "module": "es/index.esm.js",
   "style": "lib/index.css",
@@ -17,6 +17,10 @@
     "Taro",
     "React"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.ejiexi.com/"
+  },
   "repository": {
     "type": "https",
     "url": "https://gitlab.ejiexi.com/common/taro-vant.git"
@@ -41,7 +45,7 @@
   "scripts": {
     "start": "npx taro-vant-cli watch",
     "dev": "npx taro-vant-cli watch",
-    "build": "npx taro-vant-clibuild",
+    "build": "npx taro-vant-cli build",
     "up": "yarn upgrade-interactive --latest"
   },
   "peerDependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "taro-vant-doc",
   "private": true,
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "taro-vant 文档",
   "scripts": {
     "dev": "npx vant-cli dev",

@@ -70,8 +70,8 @@ module.exports = {
             hideSimulator: false,
           },
           {
-            path: 'comments',
-            title: '文档生成',
+            path: 'changelog',
+            title: '更新日志',
             hideSimulator: false,
           },
         ],

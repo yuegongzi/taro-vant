@@ -1,10 +1,11 @@
 #!/bin/bash
 
+yarn
 npx vant-cli build-site
 
 
 cd ./../taro-vant-demo
-
+yarn
 pwd
 npm run real:h5Doc
 

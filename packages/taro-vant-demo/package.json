@@ -1,6 +1,6 @@
 {
   "name": "taro-vant-demo",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "private": true,
   "description": "Taro应用模版",
   "license": "MIT",
@@ -94,6 +94,7 @@
     "watch:alipay": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type alipay --watch",
     "watch:tt": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type tt --watch",
     "watch:h5": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type h5 --watch",
+    "dev": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type h5 --watch",
     "dev:dd": "cross-env NODE_ENV=production API_ENV=dev npx taro build --type dd",
     "dev:weapp": "cross-env NODE_ENV=production API_ENV=dev npx taro build --type weapp",
     "dev:alipay": "cross-env NODE_ENV=production API_ENV=dev npx taro build --type alipay",
