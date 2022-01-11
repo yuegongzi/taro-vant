@@ -79,7 +79,7 @@
     &--custom {
       display: flex;
       align-items: center;
-
+      height: 100%;
       .theme(min-height, '@cell-line-height');
     }
   }
@@ -88,8 +88,8 @@
     height: auto;
 
     textarea {
-      resize: none;
       overflow: hidden;
+      resize: none;
     }
   }
 
@@ -102,7 +102,7 @@
     .theme(color, '@field-placeholder-text-color');
 
     &--error {
-      .theme(color, '@field-error-message-color');
+      .theme(color, '@field-error-message-color') !important;
     }
   }
 

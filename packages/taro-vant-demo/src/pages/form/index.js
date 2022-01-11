@@ -30,26 +30,25 @@ export default () => {
   return (
     <DemoPage title='Form 表单'>
       <DemoBlock title='基础用法'>
-      <Form
-        form={form}
-        inset
-        initialValues={{
-          name: '我是初始值',
-          singleSelect: '1',
-          rate: 3,
-          slider: 50,
-          stepper: 5,
-        }}
-        onFinish={(e) => {
-            return new Promise(resolve => {
+        <Form
+          form={form}
+          inset
+          initialValues={{
+            name: '我是初始值',
+            singleSelect: '1',
+            rate: 3,
+            slider: 50,
+            stepper: 5,
+          }}
+          onFinish={(e) => {
+            return new Promise((resolve) => {
               console.log(e)
-              setTimeout(()=>{
-                  resolve()
-              },2000)
+              setTimeout(() => {
+                resolve()
+              }, 2000)
             })
-        }}
-      >
-
+          }}
+        >
           <FormItem
             label='用户名'
             name='name'
@@ -61,6 +60,7 @@ export default () => {
 
           <FormItem
             label='密码'
+            tooltip='至少为8位字母和数字组合'
             name='password'
             required={true}
             rightIcon={<Icon name='eye-o' />}
@@ -95,10 +95,7 @@ export default () => {
           </FormItem>
 
           <FormItem label='滑块选择' name='slider'>
-            <Slider
-              activeColor='#07c160'
-              style={{ width: '200px', marginTop: '10px' }}
-            />
+            <Slider activeColor='#07c160' style={{ width: '100%' }} />
           </FormItem>
 
           <FormItem label='评分' name='rate'>
@@ -123,7 +120,7 @@ export default () => {
           >
             <DatetimePickerBox />
           </FormItem>
-      </Form>
+        </Form>
       </DemoBlock>
     </DemoPage>
   )
@@ -134,15 +131,15 @@ function DatetimePickerBox(props) {
   const [ show, setShow ] = useState(false)
   return (
     <>
-      <Field readonly onClickInput={() => setShow(true)}
-             onClickIcon={() => setShow(true)}
-             isLink {...options} placeholder='请选择日期'
+      <Field
+        readonly
+        onClickInput={() => setShow(true)}
+        onClickIcon={() => setShow(true)}
+        isLink
+        {...options}
+        placeholder='请选择日期'
       />
-      <Popup
-        position='bottom'
-        show={show}
-        onClose={() => setShow(false)}
-      >
+      <Popup position='bottom' show={show} onClose={() => setShow(false)}>
         <DatetimePicker
           onConfirm={(e) => {
             setShow(false)

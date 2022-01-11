@@ -236,7 +236,7 @@ this.state = {
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  name  | 在表单内提交时的标识符 | _string_ | - |
-|  label  | 输入框左侧文本 | _string_ | - |
+|  label  | 输入框左侧文本 | _string\|ReactNode_ | - |
 |  size  | 单元格大小，可选值为 `large` | _string_ | - |
 |  value  | 当前输入的值 | _string \| number_ | - |
 |  type  | 可设置为任意原生类型, 如 `number` `idcard` `textarea` `digit` | _string_ | `text` |

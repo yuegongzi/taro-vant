@@ -116,6 +116,7 @@ const [form,{set,get,getAll,submit,clearAll}]  = useForm({value: {}, sync: false
 | form | useForm实例 | _FormInstance_ | `-` | `true` |
 | submitter | 是否展示提交按钮 | _boolean_ | `true` | `false` |
 | buttonProps | 提交按钮属性 | _boolean_ | `-` | `false` |
+| showValidateMessage | 显示底部校验信息 | _boolean_ | `false` | `false` |
 > 其他属性见[Form](https://github.com/react-component/field-form)
 
 ### FormItemProps
@@ -127,13 +128,17 @@ const [form,{set,get,getAll,submit,clearAll}]  = useForm({value: {}, sync: false
 | required | 是否必填 | _boolean_ | `false` | `false` |
 | labelClass | label的外层className | _string_ | - | `false` |
 | className | formItem最外层className | _string_ | - | `false` |
+| tooltip | 提示语 | _string_ | - | `false` |
 | rightIcon | 右边图标 | _ReactNode\|string_ | - | `false` |
+| leftIcon | 左边图标 | _ReactNode\|string_ | - | `false` |
+| button | 右边按钮 | _ReactNode_ | - | `false` |
 | labelWidth | 标签宽度 | _string_ | 5.2em | `false` |
 | valuePropName | 表单控制展示的具体值的字段名 | _string_ | value | `false` |
 | rules | 正则校验值[参见](https://github.com/yiminghe/async-validator/) | _Rule[]_ | - | `false` |
 | hide | 隐藏该项 | _boolean_ | `false` | `false` |
 | customField | 自定义Field | _boolean_ |`false` | `false` |
 | type | 校验类型`idcard` `tel` `bank` | _string_ |`-` | `false` |
+| showValidateMessage | 显示底部校验信息 | _boolean_ | `false` | `false` |
 
 > 其他属性见[Form](https://github.com/react-component/field-form)
 

@@ -4,77 +4,19 @@
 .van-form {
   height: auto;
 
-  &__submitter{
-    margin: 32px ;
+  &__submitter {
+    margin: 32px;
 
-    &--inset{
-      margin: 32px 64px 32px
+    &--inset {
+      margin: 32px 64px 32px;
     }
   }
 }
 
 .van-form-item {
-  line-height: @form-line-height;
-  height: auto;
-  display: flex;
-  overflow: hidden;
-  margin: 0 @form-space-horizontal;
-  padding: @form-space-vertical 0;
-  background-color: @form-background-color;
-  border-bottom: @form-border-bottom;
-
   &__label {
-    width: @form-label-width;
-    font-size: @form-label-font-size;
-    flex: none;
-    box-sizing: border-box;
-    color: @form-label-color;
-    text-align: left;
-    word-wrap: break-word;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  &__label-star {
-    color: @form-message-color;
-  }
-
-  &__required-box {
-    min-width: 14px;
-  }
-
-  &__wrapper {
-    background-color: @form-background-color;
-    box-sizing: border-box;
-  }
-
-  &__message {
-    font-size: @form-message-font-size;
-    margin-top: @form-message-margin-top;
-    color: @form-message-color;
-  }
-
-  &__control {
-    margin-left: @form-controll-margin-left;
-    font-size: @form-controll-font-size;
-    flex: 1;
-  }
-
-  &__right{
-    padding-right: 16px;
-    color: @field-icon-container-color;
-  }
-
-  &__control-item {
-    display: flex;
-    font-size: @form-label-font-size;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    > input {
-      width: 100%;
+    .van-icon {
+      margin-left: 4px;
     }
   }
 }

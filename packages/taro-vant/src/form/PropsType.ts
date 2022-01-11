@@ -18,6 +18,7 @@ export interface FormProps extends StandardProps {
   form?: FormInstance
   submitter?: boolean
   buttonProps?: Record<any, any>
+  showValidateMessage?: boolean
 }
 export interface FormItemProps extends StandardProps {
   name: NamePath
@@ -26,11 +27,16 @@ export interface FormItemProps extends StandardProps {
   labelClass?: string
   required?: boolean
   className?: string
-  rightIcon?: ReactNode | string
   type?: 'tel' | 'bank' | 'idcard'
   labelWidth?: string
   valuePropName?: string
   rules?: Rule[]
   hide?: boolean
+  tooltip?: string
+  leftIcon?: string
+  rightIcon?: string
+  button?: ReactNode
   customField?: boolean
+  noStyle?: boolean
+  showValidateMessage?: boolean
 }

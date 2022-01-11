@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { useEffect, useRef, useState } from 'react'
-import { Block, Input, Textarea, View } from '@tarojs/components'
+import { Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
@@ -189,7 +189,6 @@ function Field(props: FieldProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ innerValue ])
-
   return (
     <Cell
       size={size}
@@ -205,9 +204,9 @@ function Field(props: FieldProps) {
       arrowDirection={arrowDirection}
       className='van-field'
       title={
-        <Block>
-          <View className={clsx(bem('label', { disabled }))}>{label}</View>
-        </Block>
+        <View className={clsx(bem('label', { disabled }), props.labelClass)}>
+          {label}
+        </View>
       }
     >
       <View className={clsx(bem('body', [ type ]))}>

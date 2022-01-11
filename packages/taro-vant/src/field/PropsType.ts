@@ -30,7 +30,7 @@ export interface FieldProps extends StandardProps {
   showConfirmBar?: boolean
   disableDefaultPadding?: boolean
   size?: 'large'
-  label?: string
+  label?: string | ReactNode
   error?: boolean
   center?: boolean
   isLink?: boolean
@@ -39,6 +39,7 @@ export interface FieldProps extends StandardProps {
   autosize?: boolean | Normal.IAnyObject
   required?: boolean
   iconClass?: string
+  labelClass?: string
   clickable?: boolean
   inputAlign?: string
   style?: string

@@ -23,6 +23,7 @@ function Form(props: FormProps): JSX.Element {
     form,
     submitter = true,
     buttonProps,
+    showValidateMessage,
     ...options
   } = props
   const [ loading, setLoading ] = useState<boolean>(false)
@@ -33,7 +34,7 @@ function Form(props: FormProps): JSX.Element {
   }
 
   return (
-    <FormContext.Provider value={{ labelWidth }}>
+    <FormContext.Provider value={{ labelWidth, showValidateMessage }}>
       {/*@ts-ignore*/}
       <RcForm
         {...options}
