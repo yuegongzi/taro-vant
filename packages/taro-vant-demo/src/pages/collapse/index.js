@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Collapse, Icon, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -163,10 +162,7 @@ export default class Index extends Component {
                   <>
                     <View>
                       {title1}
-                      <Icon
-                        name='question-o'
-                        className='van-icon-question'
-                      />
+                      <Icon name='question-o' className='van-icon-question' />
                     </View>
                   </>
                 }

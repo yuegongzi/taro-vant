@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Cell, Stepper, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import './index.scss'
 
 export default class Index extends Component {
@@ -34,7 +32,7 @@ export default class Index extends Component {
             <Stepper value={1} showMinus />
           </Cell>
           <Cell center title='步长设置'>
-            <Stepper  value={1} step='2' />
+            <Stepper value={1} step='2' />
           </Cell>
           <Cell center title='限制输入范围'>
             <Stepper value={1} min='5' max='8' />
@@ -52,11 +50,7 @@ export default class Index extends Component {
             <Stepper value={1} step='0.2' decimalLength={1} />
           </Cell>
           <Cell center title='异步变更'>
-            <Stepper
-              value={value}
-              asyncChange
-              onChange={this.onChange}
-            />
+            <Stepper value={value} asyncChange onChange={this.onChange} />
           </Cell>
           <Cell center title='自定义大小'>
             <Stepper value={1} inputWidth='40px' buttonSize='32px' />

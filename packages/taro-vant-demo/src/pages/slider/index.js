@@ -3,7 +3,6 @@ import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { Slider } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -35,11 +34,7 @@ export default class Index extends Component {
       <DemoPage title='Slider 滑块'>
         <>
           <DemoBlock title='基础用法'>
-            <Slider
-              value='50'
-              className='slider'
-              onChange={this.onChange}
-            />
+            <Slider value='50' className='slider' onChange={this.onChange} />
           </DemoBlock>
           <DemoBlock title='双滑块'>
             <Slider
@@ -82,7 +77,9 @@ export default class Index extends Component {
               className='slider'
               activeColor='#ee0a24'
               onDrag={this.onDrag}
-              button={() => <View className='custom-button'>{currentValue}</View>}
+              button={() => (
+                <View className='custom-button'>{currentValue}</View>
+              )}
             />
           </DemoBlock>
         </>

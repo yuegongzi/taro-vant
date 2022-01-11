@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Button, Cell, ConfigProvider, Field, Rate, Slider } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 
 const CellGroup = Cell.Group

@@ -1,6 +1,5 @@
 import { Image, View } from '@tarojs/components'
 import { Component } from 'react'
-
 import list from '../../config'
 /* eslint-disable react/prop-types */
 import DemoHomeNav from '../demo-home-nav/index'
@@ -23,9 +22,7 @@ export default class Index extends Component {
           />
           <View className='demo-home__text'>taro-vant</View>
         </View>
-        <View className='demo-home__desc'>
-          轻量、可靠的小程序UI组件库
-        </View>
+        <View className='demo-home__desc'>轻量、可靠的小程序UI组件库</View>
         {list.map((group, index) => {
           return (
             <View key={index}>

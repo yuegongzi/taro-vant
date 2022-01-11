@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Progress } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -28,11 +26,7 @@ export default class Index extends Component {
             />
           </DemoBlock>
           <DemoBlock title='置灰'>
-            <Progress
-              className='progress-position'
-              inactive
-              percentage='50'
-            />
+            <Progress className='progress-position' inactive percentage='50' />
           </DemoBlock>
           <DemoBlock title='样式定制'>
             <Progress

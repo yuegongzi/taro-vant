@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Button, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 
 export default class Index extends Component {

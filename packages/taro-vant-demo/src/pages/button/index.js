@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -16,7 +15,7 @@ export default class Index extends Component {
   render() {
     return (
       <DemoPage title='Button 按钮'>
-        <>
+        <View>
           <DemoBlock title='按钮类型' padding>
             <View className='row'>
               <Button className='demo-margin-right'>默认按钮</Button>
@@ -57,11 +56,7 @@ export default class Index extends Component {
             </Button>
           </DemoBlock>
           <DemoBlock title='加载状态' padding>
-            <Button
-              loading
-              type='primary'
-              className='demo-margin-right'
-            />
+            <Button loading type='primary' className='demo-margin-right' />
             <Button
               loading
               type='primary'
@@ -133,7 +128,7 @@ export default class Index extends Component {
               渐变色按钮
             </Button>
           </DemoBlock>
-        </>
+        </View>
       </DemoPage>
     )
   }

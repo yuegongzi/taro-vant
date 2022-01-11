@@ -21,7 +21,6 @@ export function Loading(props: LoadingProps): JSX.Element {
   } = props
 
   const [ array12 ] = useState(Array.from({ length: 12 }))
-
   return (
     <View
       className={clsx(bem({ vertical }), className)}
@@ -49,9 +48,9 @@ export function Loading(props: LoadingProps): JSX.Element {
         )}
         {type === 'ball' && (
           <View className={clsx(bem('ball'))}>
-            <View />
-            <View />
-            <View />
+            <View className={clsx(bem('ball-item'))} />
+            <View className={clsx(bem('ball-item'))} />
+            <View className={clsx(bem('ball-item'))} />
           </View>
         )}
       </View>

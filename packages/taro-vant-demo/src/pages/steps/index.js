@@ -1,10 +1,7 @@
 import { Component } from 'react'
-
 import { Button, Steps, Toast } from 'taro-vant'
-
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 
 const steps1 = [

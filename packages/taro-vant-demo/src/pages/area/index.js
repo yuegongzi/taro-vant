@@ -1,7 +1,5 @@
 import { Component } from 'react'
-
 import { Area, Toast } from 'taro-vant'
-
 import { areaList } from '@vant/area-data'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'

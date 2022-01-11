@@ -1,10 +1,8 @@
 import { ScrollView, View } from '@tarojs/components'
 import { Component } from 'react'
 import { createSelectorQuery } from '@tarojs/taro'
-
 import { Button, Sticky } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -30,13 +28,16 @@ export default class Index extends Component {
   }
 
   onScroll = (event) => {
-    createSelectorQuery().select('#scroller').boundingClientRect((res) => {
-      console.log('#scroller:', res.top)
-      this.setState({
-        scrollTop: event.detail.scrollTop,
-        offsetTop: res.top,
-      })
-    }).exec()
+    createSelectorQuery().
+      select('#scroller').
+      boundingClientRect((res) => {
+        console.log('#scroller:', res.top)
+        this.setState({
+          scrollTop: event.detail.scrollTop,
+          offsetTop: res.top,
+        })
+      }).
+      exec()
   }
 
   render() {

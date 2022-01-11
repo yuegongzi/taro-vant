@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { NoticeBar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -25,27 +23,15 @@ export default class Index extends Component {
             <NoticeBar text={text} leftIcon='volume-o' />
           </DemoBlock>
           <DemoBlock title='滚动模式'>
-            <NoticeBar
-              className='margin-top'
-              scrollable
-              text={shortText}
-            />
-            <NoticeBar
-              className='margin-top'
-              scrollable={false}
-              text={text}
-            />
+            <NoticeBar className='margin-top' scrollable text={shortText} />
+            <NoticeBar className='margin-top' scrollable={false} text={text} />
           </DemoBlock>
           <DemoBlock title='多行展示'>
             <NoticeBar wrapable scrollable={false} text={text} />
           </DemoBlock>
           <DemoBlock title='通知栏模式'>
             <NoticeBar mode='closeable' text={shortText} />
-            <NoticeBar
-              className='margin-top'
-              mode='link'
-              text={shortText}
-            />
+            <NoticeBar className='margin-top' mode='link' text={shortText} />
           </DemoBlock>
           <DemoBlock title='自定义样式'>
             <NoticeBar
@@ -56,9 +42,7 @@ export default class Index extends Component {
             />
           </DemoBlock>
           <DemoBlock title='自定义图标'>
-            <NoticeBar
-              text={shortText}
-            />
+            <NoticeBar text={shortText} />
           </DemoBlock>
         </>
       </DemoPage>

@@ -9,10 +9,10 @@
   &__spinner {
     position: relative;
     box-sizing: border-box;
-    .theme(width, '@loading-spinner-size');
     // compatible for 0.x, users may set width or height in root element
     max-width: 100%;
     max-height: 100%;
+    .theme(width, '@loading-spinner-size');
     .theme(height, '@loading-spinner-size');
     .theme(animation, 'van-rotate @loading-spinner-animation-duration linear infinite');
 
@@ -79,7 +79,7 @@
     transform-origin: 0 0; /* see note above */
     backface-visibility: hidden;
 
-    view {
+    &-item {
       position: absolute;
       box-sizing: content-box;
       width: 24px;
@@ -87,19 +87,19 @@
       border-radius: 50%;
     }
 
-    view:nth-child(1) {
+    &-item:nth-child(1) {
       background: #448aff;
       animation: van-ball--right 1s linear infinite;
       animation-delay: -0.5s;
     }
 
-    view:nth-child(2) {
+    &-item:nth-child(2) {
       background: #ef5350;
       animation: van-ball--right 1s linear infinite;
       animation-delay: 0s;
     }
 
-    view:nth-child(3) {
+    &-item:nth-child(3) {
       background: #448aff;
       animation: van-ball 1s linear infinite;
       animation-delay: -0.5s;

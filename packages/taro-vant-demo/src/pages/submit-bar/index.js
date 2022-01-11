@@ -1,20 +1,17 @@
 import { Text, View } from '@tarojs/components'
 import { Component } from 'react'
-import { SubmitBar, Tag, Toast,Checkbox } from 'taro-vant'
+import { Checkbox, SubmitBar, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
 export default class Index extends Component {
   state = {
-    checked: true
+    checked: true,
   }
   constructor() {
     super()
-
   }
-
 
   onClickButton = () => {
     Toast.show('点击按钮')
@@ -76,11 +73,16 @@ export default class Index extends Component {
                 </>
               }
             >
-             <Checkbox onChange={()=>{
-               this.setState({
-                 checked: !this.state.checked
-               })
-             }} value={this.state.checked} >全选</Checkbox>
+              <Checkbox
+                onChange={() => {
+                  this.setState({
+                    checked: !this.state.checked,
+                  })
+                }}
+                value={this.state.checked}
+              >
+                全选
+              </Checkbox>
             </SubmitBar>
           </DemoBlock>
           <Toast id='van-toast' />

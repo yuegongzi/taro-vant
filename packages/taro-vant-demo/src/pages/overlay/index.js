@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Button, Overlay } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -32,8 +31,7 @@ export default class Index extends Component {
     this.setState({ showEmbedded: false })
   }
 
-  noop = () => {
-  }
+  noop = () => {}
 
   render() {
     const { show, showEmbedded } = this.state

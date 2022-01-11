@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Cell, Dialog, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -103,11 +101,7 @@ export default class Index extends Component {
             <Cell title='确认弹窗' onClick={this.onClickConfirm} isLink />
           </DemoBlock>
           <DemoBlock card title='圆角按钮样式' padding>
-            <Cell
-              title='提示弹窗'
-              onClick={this.onClickThemeAlert}
-              isLink
-            />
+            <Cell title='提示弹窗' onClick={this.onClickThemeAlert} isLink />
             <Cell
               title='提示弹窗（无标题）'
               onClick={this.onClickThemeAlert2}

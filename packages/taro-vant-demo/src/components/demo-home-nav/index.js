@@ -2,7 +2,6 @@
 import { View } from '@tarojs/components'
 import { Component } from 'react'
 import Taro from '@tarojs/taro'
-
 import { Icon } from 'taro-vant'
 import './index.less'
 

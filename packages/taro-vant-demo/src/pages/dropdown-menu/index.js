@@ -2,7 +2,6 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Button, Cell, DropdownMenu, Switch } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -123,16 +122,8 @@ export default class Index extends Component {
           </DemoBlock>
           <DemoBlock className='white' title='禁用菜单'>
             <DropdownMenu>
-              <DropdownItem
-                value={value1}
-                disabled
-                options={option1}
-              />
-              <DropdownItem
-                value={value2}
-                disabled
-                options={option2}
-              />
+              <DropdownItem value={value1} disabled options={option1} />
+              <DropdownItem value={value2} disabled options={option2} />
             </DropdownMenu>
           </DemoBlock>
         </>

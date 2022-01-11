@@ -3,7 +3,6 @@ import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { Search } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 
 export default class Index extends Component {
@@ -108,7 +107,9 @@ export default class Index extends Component {
               showAction
               actionText={
                 <>
-                  <View style={{ color:'red' }} onClick={this.onClick}>搜索</View>
+                  <View style={{ color: 'red' }} onClick={this.onClick}>
+                    搜索
+                  </View>
                 </>
               }
             />

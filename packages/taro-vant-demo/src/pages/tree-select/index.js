@@ -1,11 +1,8 @@
 import { Component } from 'react'
-
 import { Image, TreeSelect } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import config from './config.js'
-
 import './index.scss'
 
 const items = [

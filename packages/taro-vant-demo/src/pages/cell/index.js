@@ -2,10 +2,8 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Cell, Icon, Tag } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-
 
 export default class Index extends Component {
   state = {}
@@ -43,9 +41,7 @@ export default class Index extends Component {
                 value='内容'
                 size='large'
                 border={false}
-                label={
-                  <View>描述信息</View>
-                }
+                label={<View>描述信息</View>}
               />
             </Cell.Group>
           </DemoBlock>
@@ -102,7 +98,7 @@ export default class Index extends Component {
             <Cell
               title='单元格'
               border={false}
-              rightIcon={ <Icon name='search' />}
+              rightIcon={<Icon name='search' />}
             />
           </DemoBlock>
           <DemoBlock title='垂直居中'>

@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Calendar, Cell } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import computed from './index.wxs.js'
 import './index.scss'

@@ -1,14 +1,12 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Col, Icon, Tabs } from 'taro-vant'
-
 import icons from '@vant/icons'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-const Tab = Tabs.Tab;
+const Tab = Tabs.Tab
 
 export default class Index extends Component {
   state = {
@@ -44,21 +42,13 @@ export default class Index extends Component {
             </DemoBlock>
             <DemoBlock title='提示信息'>
               <Col className='col' span='6'>
-                <Icon name={demoIcon} size='32px'  dot />
+                <Icon name={demoIcon} size='32px' dot />
               </Col>
               <Col className='col' span='6'>
-                <Icon
-                  name={demoIcon}
-                  size='32px'
-                  badge='9'
-                />
+                <Icon name={demoIcon} size='32px' badge='9' />
               </Col>
               <Col className='col' span='6'>
-                <Icon
-                  name={demoIcon}
-                  size='32px'
-                  badge='99+'
-                />
+                <Icon name={demoIcon} size='32px' badge='99+' />
               </Col>
             </DemoBlock>
             <DemoBlock title='图标颜色'>
@@ -97,7 +87,7 @@ export default class Index extends Component {
             </DemoBlock>
           </Tab>
           <Tab title='基础图标' className='demo-tab-pane'>
-            {icons.basic.map((item,index) => {
+            {icons.basic.map((item, index) => {
               return (
                 <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />
@@ -107,7 +97,7 @@ export default class Index extends Component {
             })}
           </Tab>
           <Tab title='线框风格' className='demo-tab-pane'>
-            {icons.outline.map((item,index) => {
+            {icons.outline.map((item, index) => {
               return (
                 <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />
@@ -117,7 +107,7 @@ export default class Index extends Component {
             })}
           </Tab>
           <Tab title='实底风格' className='demo-tab-pane'>
-            {icons.filled.map((item,index) => {
+            {icons.filled.map((item, index) => {
               return (
                 <Col key={index} className='col' span='6'>
                   <Icon name={item} size='32px' className='icon' />

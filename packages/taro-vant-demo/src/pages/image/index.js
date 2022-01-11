@@ -1,9 +1,7 @@
 import { Text, View } from '@tarojs/components'
 import { Component } from 'react'
-
 import { Col, Image, Loading, Row } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -40,12 +38,7 @@ export default class Index extends Component {
               {fits.map((fit) => {
                 return (
                   <Col key={fit.fit} span='8'>
-                    <Image
-                      fit={fit}
-                      width='100%'
-                      height='27vw'
-                      src={src}
-                    />
+                    <Image fit={fit} width='100%' height='27vw' src={src} />
                     <View className='text'>{fit}</View>
                   </Col>
                 )

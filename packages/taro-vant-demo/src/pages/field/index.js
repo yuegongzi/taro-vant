@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
-
 import { Button, Cell, Field } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'

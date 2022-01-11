@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { View } from '@tarojs/components'
 import { Component } from 'react'
-
 import './index.less'
 // eslint-disable
 export default class Index extends Component {

@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Rate, Toast } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -65,25 +63,13 @@ export default class Index extends Component {
             />
           </DemoBlock>
           <DemoBlock title='自定义数量'>
-            <Rate
-              className='rate-position'
-              defaultValue={value5}
-              count={6}
-            />
+            <Rate className='rate-position' defaultValue={value5} count={6} />
           </DemoBlock>
           <DemoBlock title='禁用状态'>
-            <Rate
-              className='rate-position'
-              defaultValue={value6}
-              disabled
-            />
+            <Rate className='rate-position' defaultValue={value6} disabled />
           </DemoBlock>
           <DemoBlock title='只读状态'>
-            <Rate
-              className='rate-position'
-              defaultValue={value6}
-              readonly
-            />
+            <Rate className='rate-position' defaultValue={value6} readonly />
           </DemoBlock>
           <DemoBlock title='监听 change 事件'>
             <Rate

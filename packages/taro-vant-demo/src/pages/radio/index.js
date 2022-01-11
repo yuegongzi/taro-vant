@@ -1,8 +1,6 @@
 import { Component } from 'react'
-
 import { Cell, Image, Radio } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
-
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
@@ -62,7 +60,7 @@ export default class Index extends Component {
             <RadioGroup
               value='2'
               onChange={(e) => {
-                  console.log(e)
+                console.log(e)
               }}
             >
               <Radio name='1' className='demo-radio'>
@@ -199,7 +197,7 @@ export default class Index extends Component {
             >
               <Radio
                 name='1'
-                iconRender={({ checked })=>(
+                iconRender={({ checked }) => (
                   <Image
                     src={checked ? icon.active : icon.normal}
                     className='icon'
@@ -211,7 +209,7 @@ export default class Index extends Component {
               </Radio>
               <Radio
                 name='2'
-                iconRender={({ checked })=>(
+                iconRender={({ checked }) => (
                   <Image
                     src={checked ? icon.normal : icon.active}
                     className='icon'

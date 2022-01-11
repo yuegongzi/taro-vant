@@ -50,7 +50,7 @@ function Skeleton(props: SkeletonProps) {
   return loading ? (
     <View
       className={clsx(
-        bem('skeleton', {
+        bem({
           animate,
         }),
         className,
