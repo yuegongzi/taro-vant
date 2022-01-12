@@ -12,6 +12,16 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+
+### 2.0.4
+
+`2022-01-12`
+
+
+**Bug Fixes**
+- GoodsAction 修复在H5环境时按钮显示不全的BUG
+- useForm 修复空数据检测异常的BUG
+
 ### 2.0.3
 
 `2022-01-12`

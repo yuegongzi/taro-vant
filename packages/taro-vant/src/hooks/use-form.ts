@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useForm as useFieldForm } from 'rc-field-form'
-import { isEmptyObject } from '../utils'
+import isEmpty from 'lodash/isEmpty'
 
 export type FormOption = {
   /**
    * 初始化值
    */
-  value?: any;
+  value?: any
   /**
    * 同步变化
    */
-  sync?: boolean;
-};
+  sync?: boolean
+}
 
 export function useForm(option: FormOption = {}) {
   const { value, sync } = option
@@ -36,7 +36,7 @@ export function useForm(option: FormOption = {}) {
     return form?.getFieldsValue()
   }, [])
   useEffect(() => {
-    if (!isEmptyObject(value)) {
+    if (!isEmpty(value)) {
       if (sync) {
         //同步监听
         set(value)
