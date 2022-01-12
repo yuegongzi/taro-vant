@@ -6,7 +6,6 @@ export interface UploaderProps extends StandardProps {
   disabled?: boolean
   multiple?: boolean
   uploadText?: string
-  useBeforeRead?: boolean
   afterRead?: any
   beforeRead?: any
   previewSize?: string | number

@@ -208,7 +208,6 @@ const GridItem = Grid.Item;
 |  clickable  | 是否开启格子点击反馈 | _boolean_ | `false` |
 |  direction  | 格子内容排列的方向，可选值为 `horizontal` | _string_ | `vertical` |
 |  reverse `v1.7.0`  | 是否调换图标和文本的位置 | _boolean_ | `false` |
-|  useSlot  | 是否使用自定义内容的插槽 | _boolean_ | `false` |
 
 
 ### GridItem Props

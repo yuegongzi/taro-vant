@@ -176,14 +176,13 @@ function finished() {
 |  format  | 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒 | _string_ | `HH:mm:ss` |
 |  autoStart  | 是否自动开始倒计时 | _boolean_ | `true` |
 |  millisecond  | 是否开启毫秒级渲染 | _boolean_ | `false` |
-|  useSlot  | 是否使用自定义样式插槽 | _boolean_ | `false` |
 
 ### Events
 
 |  事件名  | 说明                                         | 回调参数 |
 | ------ | -------------------------------------------- | -------- |
 |  onFinish  | 倒计时结束时触发                             | -        |
-|  onChange  | 时间变化时触发，仅在开启`use-slot`后才会触发 | timeData |
+|  onChange  | 时间变化时触发| timeData |
 
 ### timeData 格式
 

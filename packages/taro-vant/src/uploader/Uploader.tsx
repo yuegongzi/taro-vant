@@ -5,7 +5,13 @@ import { Block, Image, Text, Video, View } from '@tarojs/components'
 import type { UploaderProps } from './PropsType'
 import Loading from '../loading'
 import Icon from '../icon'
-import { createNamespace, isArray, isBoolean, isPromise } from '../utils'
+import {
+  createNamespace,
+  isArray,
+  isBoolean,
+  isFunction,
+  isPromise,
+} from '../utils'
 import * as computed from './wxs'
 import { chooseFile, isImageFile, isVideoFile } from './utils'
 import clsx from 'clsx'
@@ -22,7 +28,6 @@ function Uploader(props: UploaderProps) {
     disabled,
     multiple,
     uploadText,
-    useBeforeRead,
     previewSize = 160,
     name = '',
     accept = 'image',
@@ -103,7 +108,7 @@ function Uploader(props: UploaderProps) {
     (event: ITouchEvent) => {
       const { file } = event.detail
       let res: any = true
-      if (useBeforeRead) {
+      if (isFunction(onBeforeRead)) {
         res = new Promise((resolve: any, reject: any) => {
           const params = Object.assign(Object.assign({ file }, getDetail()), {
             callback: (ok: boolean) => {
@@ -137,7 +142,7 @@ function Uploader(props: UploaderProps) {
         _onAfterRead(event)
       }
     },
-    [ _onAfterRead, getDetail, onBeforeRead, useBeforeRead ],
+    [ _onAfterRead, getDetail, onBeforeRead ],
   )
   const startUpload = useCallback(
     (event: ITouchEvent) => {

@@ -158,8 +158,8 @@ function onClick() {
 |  placeholder  | 输入框为空时占位符 | _string_ | - |
 |  placeholderStyle  | 指定占位符的样式 | _string_ | - |
 |  inputAlign  | 输入框内容对齐方式，可选值为 `center` `right` | _string_ | `left` |
-|  leftIcon  | 输入框左侧图标名称或图片链接，可选值见 Icon 组件（如果设置了 use-left-icon-slot，则该属性无效） | _string_ | `search` |
-|  rightIcon  | 输入框右侧图标名称或图片链接，可选值见 Icon 组件（如果设置了 use-right-icon-slot，则该属性无效） | _string_ | - |
+|  leftIcon  | 输入框左侧图标名称或图片链接，可选值见 Icon 组件| _string_ | `search` |
+|  rightIcon  | 输入框右侧图标名称或图片链接，可选值见 Icon 组件| _string_ | - |
 
 ### Events
 

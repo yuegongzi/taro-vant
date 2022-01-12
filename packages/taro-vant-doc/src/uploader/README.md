@@ -180,14 +180,13 @@ this.state = {
 
 ### 上传前校验
 
-将`useBeforeRead`属性设置为`true`，然后绑定 `beforeRead` 事件可以在上传前进行校验，调用 `callback` 方法传入 `true` 表示校验通过，传入 `false` 表示校验失败。
+绑定 `beforeRead` 事件可以在上传前进行校验，调用 `callback` 方法传入 `true` 表示校验通过，传入 `false` 表示校验失败。
 
 ```jsx
 <View>
   <Uploader
     fileList={ this.state.fileList }
     accept="media"
-    useBeforeRead={ true }
     onBeforeRead={ this.beforeRead }
     onAfterRead={ this.afterRead }
   />
@@ -299,7 +298,7 @@ uploadFilePromise(fileName, chooseResult) {
 
 |  事件名  | 说明 | 回调参数 |
 | --- | --- | --- |
-|  onBeforeRead  | 文件读取前，在回调函数中返回 `false` 可终止文件读取，绑定事件的同时需要将`use-before-read`属性设置为`true` | `event.detail.file`: 当前读取的文件，`event.detail.callback`: 回调函数，调用`callback(false)`终止文件读取 |
+|  onBeforeRead  | 文件读取前，在回调函数中返回 `false` 可终止文件读取| `event.detail.file`: 当前读取的文件，`event.detail.callback`: 回调函数，调用`callback(false)`终止文件读取 |
 |  onAfterRead  | 文件读取完成后 | `event.detail.file`: 当前读取的文件 |
 |  onOversize  | 文件超出大小限制 | - |
 |  onClickPreview  | 点击预览图片 | `event.detail.index`: 点击图片的序号值 |
