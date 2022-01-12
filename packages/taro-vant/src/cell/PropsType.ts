@@ -22,6 +22,7 @@ export interface CellProps extends StandardProps {
   extra?: ReactNode
   children?: ReactNode | JSX.Element | JSX.Element[]
   valueClass?: string
+  titleClass?: string
 }
 export interface CellGroupProps extends StandardProps {
   title?: string

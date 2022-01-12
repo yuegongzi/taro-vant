@@ -196,7 +196,7 @@ export default [
       {
         path: '/tree-select',
         title: 'TreeSelect 分类选择',
-      }
+      },
     ],
   },
   {
@@ -238,8 +238,16 @@ export default [
         title: 'Area 省市区选择',
       },
       {
+        path: '/address',
+        title: 'Address 地址',
+      },
+      {
         path: '/card',
         title: 'Card 商品卡片',
+      },
+      {
+        path: '/contact',
+        title: 'Contact 联系人',
       },
       {
         path: '/submit-bar',

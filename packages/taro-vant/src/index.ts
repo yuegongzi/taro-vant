@@ -1,4 +1,5 @@
-export * as hooks from './hooks';
+export * as hooks from './hooks'
+export * as utils from './utils'
 export { default as ActionSheet } from './action-sheet'
 export { default as Area } from './area'
 export { default as Badge } from './badge'

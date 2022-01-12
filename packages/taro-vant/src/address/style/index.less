@@ -1,0 +1,66 @@
+@import '../../style/var.less';
+
+@hd: 2px;
+.van-address-item {
+  padding: @padding-sm;
+  background-color: @white;
+  border-radius: @border-radius-lg;
+
+  .van-cell {
+    padding: 0;
+  }
+  .van-cell::after {
+    border: 0;
+  }
+
+  &__value {
+    color: #323233;
+    text-align: left;
+
+    &--edit {
+      padding-right: 44 * @hd;
+    }
+  }
+
+  &__edit {
+    position: absolute;
+    top: 50%;
+    right: 16 * @hd;
+    color: @gray-6;
+    font-size: 20 * @hd;
+    transform: translate(0, -50%);
+    cursor: pointer;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8 * @hd;
+    font-size: 16 * @hd;
+    line-height: 22 * @hd;
+  }
+
+  &__tag {
+    flex: none;
+    margin-left: 8 * @hd;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 1.4em;
+  }
+
+  &__address {
+    color: #323233;
+    font-size: 13 * @hd;
+    line-height: 18 * @hd;
+  }
+}
+
+.van-address-list {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 12 * @hd 12 * @hd 80 * @hd;
+
+  .van-address-item:not(:last-child) {
+    margin-bottom: @padding-sm;
+  }
+}

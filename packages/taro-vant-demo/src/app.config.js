@@ -56,6 +56,8 @@ export default {
     'pages/config-provider/index',
     'pages/form/index',
     'pages/list/index',
+    'pages/contact/index',
+    'pages/address/index',
   ],
   window: {
     navigationBarBackgroundColor: '#f8f8f8',

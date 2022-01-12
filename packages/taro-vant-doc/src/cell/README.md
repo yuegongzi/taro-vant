@@ -238,7 +238,7 @@ import { CellGroup } from "taro-vant";
 |  extra   | 自定义额外内容 | _ReactNode_ | - |
 |  children   | 子节点 如果设置了value则不生效 | _ReactNode_ | - |
 |  valueClass   | value样式 | _string_ | - |
-
+|  titleClass   | title样式 | _string_ | - |
 ### Cell Event
 
 |  事件名      | 说明             | 参数 |

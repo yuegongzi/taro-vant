@@ -33,6 +33,7 @@ function Cell(props: CellProps) {
     style,
     className,
     valueClass,
+    titleClass,
     ...others
   } = props
   const _click: (event: ITouchEvent) => void = useCallback(
@@ -76,7 +77,7 @@ function Cell(props: CellProps) {
           titleWidth,
           titleStyle,
         })}
-        className={clsx(bem('title'))}
+        className={clsx(bem('title'), titleClass)}
       >
         {title}
         <View className={clsx(bem('label'))}>{label}</View>

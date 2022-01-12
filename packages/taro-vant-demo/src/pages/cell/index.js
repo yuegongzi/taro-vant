@@ -25,6 +25,7 @@ export default class Index extends Component {
                 label='描述信息'
                 border={false}
               />
+              <Cell value='无标题' />
             </Cell.Group>
           </DemoBlock>
           <DemoBlock title='卡片风格'>

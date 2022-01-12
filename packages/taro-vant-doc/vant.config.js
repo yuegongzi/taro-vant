@@ -13,29 +13,7 @@ module.exports = {
   site: {
     simulator: {
       url:
-        // process && process.env && process.env.SITE_ENV === 'real'
-        //   ? ''
-        //   : 'http://0.0.0.0:10086/',
-        // 'http://localhost:10086/',
         process.env.NODE_ENV === 'development' ? 'http://localhost:10086/' : '',
-      // routeMapper: (path) => {
-      //   let pathApply = `/page${path}/index`
-      //   const devGuidePaths = [
-      //     '/home',
-      //     '/quickstart',
-      //     '/custom-style',
-      //     '/theme',
-      //   ]
-      //   if (devGuidePaths.includes(path)) {
-      //     pathApply = `/pages/dashboard/index`
-      //   }
-      //   console.info(
-      //     pathApply,
-      //     'pathApplypathApplypathApplypathApplypathApplypathApplypathApply',
-      //   )
-      //   return pathApply
-      // },
-      // syncPathFromSimulator: true,
     },
     title: 'taro-vant',
     logo: 'https://img.yzcdn.cn/vant/logo.png',
@@ -314,8 +292,16 @@ module.exports = {
             title: 'Area 省市区选择',
           },
           {
+            path: 'address',
+            title: 'Address 地址',
+          },
+          {
             path: 'card',
             title: 'Card 商品卡片',
+          },
+          {
+            path: 'contact',
+            title: 'Contact 联系人',
           },
           {
             path: 'sku',
