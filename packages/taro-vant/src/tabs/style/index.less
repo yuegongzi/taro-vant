@@ -1,5 +1,5 @@
 /* stylelint-disable no-descending-specificity */
-@import '../../style/var.less';
+@import './var.less';
 
 .van-tabs {
   position: relative;
@@ -146,26 +146,25 @@
     &__badge {
       position: relative !important;
       top: -8px !important;
-       //display: inline-block;
+      //display: inline-block;
       padding-top: 3px;
       transform: translateX(0) !important;
     }
 
     .van-badge--dot {
       border-radius: 100%;
-      .theme(width, '@badge-dot-size');
-      .theme(height, '@badge-dot-size');
+      .theme(width, '@tab-badge-dot-size');
+      .theme(height, '@tab-badge-dot-size');
     }
   }
 }
 
-
 .van-tab__pane {
+  flex-shrink: 0;
   box-sizing: border-box;
+  width: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  flex-shrink: 0;
-  width: 100%;
 
   &--active {
     height: auto;

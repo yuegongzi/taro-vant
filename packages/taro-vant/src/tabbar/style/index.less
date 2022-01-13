@@ -1,4 +1,4 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-tabbar {
   display: flex;
@@ -22,10 +22,10 @@
 
 .van-tabbar-item {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
   height: 100%;
   .theme(color, '@tabbar-item-text-color');
   .theme(font-size, '@tabbar-item-font-size');

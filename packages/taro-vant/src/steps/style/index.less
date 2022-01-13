@@ -1,4 +1,4 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-steps {
   overflow: hidden;
@@ -10,9 +10,9 @@
     .van-steps__wrapper {
       position: relative;
       display: flex;
-      overflow: hidden;
       margin: 0 0 20px;
       padding-bottom: 22px;
+      overflow: hidden;
     }
   }
 
@@ -118,7 +118,7 @@
     }
 
     &:last-child::after {
-      border-bottom-width: none;
+      border-bottom-width: 0;
     }
 
     &:first-child {

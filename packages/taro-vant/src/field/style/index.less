@@ -20,7 +20,7 @@
       box-sizing: border-box;
       padding: 6px 0;
       line-height: 1.2em;
-      .theme(min-height, '@cell-line-height');
+      .theme(min-height, '@field-line-height');
 
       textarea {
         resize: none;
@@ -46,8 +46,8 @@
     resize: none;
 
     .theme(color, '@field-input-text-color');
-    .theme(height, '@cell-line-height');
-    .theme(min-height, '@cell-line-height');
+    .theme(height, '@field-line-height');
+    .theme(min-height, '@field-line-height');
 
     &:empty {
       display: none;
@@ -80,7 +80,7 @@
       display: flex;
       align-items: center;
       height: 100%;
-      .theme(min-height, '@cell-line-height');
+      .theme(min-height, '@field-line-height');
     }
   }
 
@@ -109,7 +109,7 @@
   &__icon-root {
     display: flex;
     align-items: center;
-    .theme(min-height, '@cell-line-height');
+    .theme(min-height, '@field-line-height');
   }
 
   &__clear-root,

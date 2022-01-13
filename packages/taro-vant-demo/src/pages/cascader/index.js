@@ -130,7 +130,7 @@ const options = [
 
 export default () => {
   const [ state, set ] = useSetState({
-    v1: true,
+    v1: false,
     t1: '',
     v2: false,
     t2: '',
@@ -149,9 +149,6 @@ export default () => {
       children: [],
     },
   ])
-  useEffect(() => {
-    Toast.loading({ message: '加载中...', duration: 0 })
-  }, [])
   const onChange = ({ value }) => {
     if (value === dynamicOpts[0].value) {
       Toast.loading({ message: '加载中...', duration: 0 })
