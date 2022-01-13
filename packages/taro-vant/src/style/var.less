@@ -1,3 +1,5 @@
+//基本像素
+@hd: 2px;
 // Color Palette
 @black: #000;
 @white: #fff;
@@ -29,6 +31,23 @@
 @background-color-light: #fafafa;
 @text-link-color: #576b95;
 
+//Cascader
+
+@cascader-header-height: 96px;
+@cascader-header-padding: 0 @padding-md;
+@cascader-title-font-size: @font-size-lg;
+@cascader-title-line-height: 40px;
+@cascader-close-icon-size: 44px;
+@cascader-close-icon-color: @gray-5;
+@cascader-close-icon-active-color: @gray-6;
+@cascader-selected-icon-size: 36px;
+@cascader-tabs-height: 96px;
+@cascader-active-color: @green;
+@cascader-options-height: 768px;
+@cascader-option-disabled-color: @gray-5;
+@cascader-tab-color: @text-color;
+@cascader-unselected-tab-color: @gray-6;
+
 // Padding
 @padding-base: 8px;
 @padding-xs: @padding-base * 2;
@@ -48,10 +67,10 @@
 @line-height-md: 40px;
 @line-height-lg: 44px;
 @base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
-'Microsoft Yahei', sans-serif;
+  Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+  'Microsoft Yahei', sans-serif;
 @price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial,
-sans-serif;
+  sans-serif;
 
 // Animation
 @animation-duration-base: 0.3s;
@@ -365,7 +384,6 @@ sans-serif;
 // Overlay
 @overlay-background-color: rgba(0, 0, 0, 0.7);
 
-
 // Panel
 @panel-background-color: @white;
 @panel-header-value-color: @red;
@@ -430,7 +448,7 @@ sans-serif;
 @switch-node-z-index: 1;
 @switch-node-background-color: @white;
 @switch-node-box-shadow: 0 6px 2px 0 rgba(0, 0, 0, 0.05),
-0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 6px 0 rgba(0, 0, 0, 0.05);
+  0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 6px 0 rgba(0, 0, 0, 0.05);
 @switch-background-color: @white;
 @switch-on-background-color: @blue;
 @switch-transition-duration: 0.3s;
@@ -701,6 +719,6 @@ sans-serif;
 @skeleton-animation-duration: 1.2s;
 
 .theme(@property, @imp) {
-    @{property}: e(replace(@imp, '@([^() ]+)', '@{$1}', 'ig'));
-    @{property}: e(replace(@imp, '@([^() ]+)', 'var(--$1, @{$1})', 'ig'));
+  @{property}: e(replace(@imp, '@([^() ]+)', '@{$1}', 'ig'));
+  @{property}: e(replace(@imp, '@([^() ]+)', 'var(--$1, @{$1})', 'ig'));
 }

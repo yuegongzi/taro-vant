@@ -323,7 +323,7 @@ function onChange(event) {
 |  dot          | 是否显示小红点             | _boolean_          | -            |
 |  badge         | 图标右上角提示信息         | _string \| number_ | -            |
 |  titleStyle  | 自定义标题样式             | _string_           | -            |
-
+|  titleClass  | 自定义标题样式类            | _string_           | -            |
 
 ### Tabs Event
 

@@ -500,7 +500,10 @@ export function Tabs(props: TabsProps) {
                     onClick={onTap}
                   >
                     <View
-                      className={clsx({ 'van-ellipsis': ellipsis })}
+                      className={clsx(
+                        { 'van-ellipsis': ellipsis },
+                        item.titleClass,
+                      )}
                       style={item.titleStyle}
                     >
                       {item.title}
