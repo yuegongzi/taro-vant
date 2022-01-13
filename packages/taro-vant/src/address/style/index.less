@@ -1,9 +1,9 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-address-item {
-  padding: @padding-sm;
-  background-color: @white;
-  border-radius: @border-radius-lg;
+  .theme(padding,'@address-item-padding');
+  .theme(background-color,'@address-item-background-color');
+  .theme(border-radius,'@address-item-border-radius');
 
   .van-cell {
     padding: 0;
@@ -13,52 +13,51 @@
   }
 
   &__value {
-    color: #323233;
     text-align: left;
+    .theme(color,'@address-item-value-color');
 
     &--edit {
-      padding-right: 44 * @hd;
+      .theme(padding-right,'@address-item-value-padding-right');
     }
   }
 
   &__edit {
     position: absolute;
     top: 50%;
-    right: 16 * @hd;
-    color: @gray-6;
-    font-size: 20 * @hd;
     transform: translate(0, -50%);
     cursor: pointer;
+    .theme(right,'@address-item-edit-right');
+    .theme(color,'@address-item-edit-color');
+    .theme(font-size,'@address-item-edit-font-size');
   }
 
   &__name {
     display: flex;
     align-items: center;
-    margin-bottom: 8 * @hd;
-    font-size: 16 * @hd;
-    line-height: 22 * @hd;
+    .theme(margin-bottom,'@padding-xs');
+    .theme(line-height,'@line-height-lg');
+    .theme(font-size,'@font-size-lg');
   }
 
   &__tag {
     flex: none;
-    margin-left: 8 * @hd;
     padding-top: 0;
     padding-bottom: 0;
     line-height: 1.4em;
+    .theme(margin-left,'@padding-xs');
   }
 
   &__address {
-    color: #323233;
-    font-size: 13 * @hd;
-    line-height: 18 * @hd;
+    .theme(line-height,'@line-height-sm');
+    .theme(color,'@address-item-value-color');
+    .theme(font-size,'@address-item-address-font-size');
   }
 }
 
 .van-address-list {
   box-sizing: border-box;
   height: 100%;
-  padding: 12 * @hd 12 * @hd 80 * @hd;
-
+  .theme(padding,'@padding-sm @padding-sm @address-list-padding');
   .van-address-item:not(:last-child) {
     margin-bottom: @padding-sm;
   }

@@ -118,7 +118,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
                     }),
                     actionClassName,
                   )}
-                  hoverClass={clsx(bem('item', [ 'hover' ]))}
+                  hoverClass={clsx(bem('item', [ 'hover' ], true))}
                   data-index={index}
                   onClick={disabled || loading ? () => {} : _onSelect}
                   {...rest}

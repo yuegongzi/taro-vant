@@ -327,4 +327,6 @@ Cascader.defaultProps = {
   closeIcon: 'cross',
 }
 
+Cascader.displayName = 'Cascader'
+
 export default Cascader

@@ -1,12 +1,11 @@
-@import '../../style/var.less';
-@import '../../style/hairline.less';
+@import './var.less';
 
 .van-cell {
   position: relative;
   display: flex;
+  flex: 1; // 10.15新加
   box-sizing: border-box;
   width: 100%;
-  flex: 1; // 10.15新加
   .theme(padding, '@cell-vertical-padding @cell-horizontal-padding');
   .theme(font-size, '@cell-font-size');
   .theme(line-height, '@cell-line-height');
@@ -19,10 +18,6 @@
 
   &--borderless::after {
     display: none;
-  }
-
-  &-group {
-    .theme(background-color, '@cell-background-color');
   }
 
   &__label {
@@ -120,11 +115,12 @@
 }
 
 .van-cell-group {
+  .theme(background-color, '@cell-background-color');
+
   &--inset {
+    overflow: hidden;
     .theme(margin, '@cell-group-inset-padding');
     .theme(border-radius, '@cell-group-inset-border-radius');
-
-    overflow: hidden;
   }
 
   &__title {

@@ -1,4 +1,4 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-loading {
   display: inline-flex;
@@ -88,21 +88,21 @@
     }
 
     &-item:nth-child(1) {
-      background: #448aff;
       animation: van-ball--right 1s linear infinite;
       animation-delay: -0.5s;
+      .theme(background,'@loading-ball-first-color');
     }
 
     &-item:nth-child(2) {
-      background: #ef5350;
       animation: van-ball--right 1s linear infinite;
       animation-delay: 0s;
+      .theme(background,'@loading-ball-second-color');
     }
 
     &-item:nth-child(3) {
-      background: #448aff;
       animation: van-ball 1s linear infinite;
       animation-delay: -0.5s;
+      .theme(background,'@loading-ball-first-color');
     }
   }
 }

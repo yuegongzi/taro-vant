@@ -1,9 +1,9 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-list {
+  height: 100vh;
   // overflow: hidden;
   user-select: none;
-  height: 100vh;
 
   &__track {
     position: relative;
@@ -12,11 +12,11 @@
   }
 
   &__head {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     overflow: hidden;
     // text-align: center;
@@ -39,8 +39,8 @@
   &__finished-text,
   &__error-text {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     // text-align: center;
     .theme(color, '@list-text-color');
     .theme(font-size, '@list-text-font-size');

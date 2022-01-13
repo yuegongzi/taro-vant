@@ -1,14 +1,13 @@
-// empty
-@import '../../style/var.less';
+@import './var.less';
 
 .van-form {
   height: auto;
 
   &__submitter {
-    margin: 32px;
+    .theme(margin,'@form-submitter-margin');
 
     &--inset {
-      margin: 32px 64px 32px;
+      .theme(margin,'@form-submitter-margin @form-submitter-margin-lg @form-submitter-margin');
     }
   }
 }

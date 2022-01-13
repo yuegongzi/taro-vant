@@ -59,6 +59,7 @@ export default {
     'pages/contact/index',
     'pages/address/index',
     'pages/cascader/index',
+    'pages/swiper/index',
   ],
   window: {
     navigationBarBackgroundColor: '#f8f8f8',

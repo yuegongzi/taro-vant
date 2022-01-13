@@ -1,4 +1,4 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-action-sheet {
   .theme(max-height, '@action-sheet-max-height') !important;
@@ -7,9 +7,9 @@
   &__item,
   &__cancel {
     height: auto;
-    border: none;
-    padding: 28px @padding-md;
+    padding: @padding-md @padding-md;
     text-align: center;
+    border: none;
     .theme(font-size, '@action-sheet-item-font-size');
     .theme(line-height, '@action-sheet-item-line-height');
     .theme(background-color, '@action-sheet-item-background');

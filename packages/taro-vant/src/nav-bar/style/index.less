@@ -1,5 +1,4 @@
-@import '../../style/var.less';
-@import '../../style/hairline.less';
+@import './var.less';
 
 .van-nav-bar {
   position: relative;
@@ -14,7 +13,6 @@
     display: flex;
     align-content: center;
     .theme(height, '@nav-bar-height');
-
   }
 
   &__text {
@@ -106,8 +104,8 @@
 
   &__title {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100%;
     margin: 0 auto;
     .theme(color, '@nav-bar-title-text-color');
@@ -125,13 +123,13 @@
   }
 
   &__left-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    border-radius: 50%;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+    font-weight: bold;
+    border-radius: 50%;
 
     .van-icon-arrow-left {
       padding-right: 4px;
@@ -146,30 +144,30 @@
     }
 
     &--white {
-      background-color: rgba(255, 255, 255, 0.6);
       color: @black;
+      background-color: rgba(255, 255, 255, 0.6);
 
       &::after {
         .hairline(rgba(151, 151, 151, 0.2));
 
-        border-radius: 50%;
-
         /* prettier-ignore */
         border-width: 1PX;
+
+        border-radius: 50%;
       }
     }
 
     &--black {
-      background-color: rgba(0, 0, 0, 0.15);
       color: @white;
+      background-color: rgba(0, 0, 0, 0.15);
 
       &::after {
         .hairline(rgba(255, 255, 255, 0.25));
 
-        border-radius: 50%;
-
         /* prettier-ignore */
         border-width: 1PX;
+
+        border-radius: 50%;
       }
     }
   }

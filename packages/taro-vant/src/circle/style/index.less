@@ -1,20 +1,20 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-circle {
   position: relative;
   display: inline-block;
-  text-align: center;
   font-size: @circle-font-color;
+  text-align: center;
 
   &__text {
     position: absolute;
     top: 50%;
     left: 0;
     width: 100%;
+
+    background-color: inherit;
     transform: translateY(-50%);
 
     .theme(color, '@circle-text-color');
-
-    background-color: inherit;
   }
 }
