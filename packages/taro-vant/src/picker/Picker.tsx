@@ -253,7 +253,7 @@ const Picker = forwardRef(function Index(
       )}
       {loading && (
         <View className={clsx(bem('loading'))}>
-          <Loading color='#1989fa' />
+          <Loading />
         </View>
       )}
       <View

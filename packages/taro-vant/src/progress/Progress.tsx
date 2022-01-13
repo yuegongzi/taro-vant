@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { useEffect, useState } from 'react'
 import { View } from '@tarojs/components'
 import type { ProgressProps } from './PropsType'
-import { BLUE, computedStyle, createNamespace, getRect } from '../utils'
+import { computedStyle, createNamespace, getRect } from '../utils'
 import * as computed from './wxs'
 import clsx from 'clsx'
 
@@ -30,7 +30,7 @@ function Progress(props: ProgressProps) {
     trackColor,
     percentage,
     inactive,
-    color = BLUE,
+    color,
     textColor = '#ffffff',
     pivotColor,
     pivotText,

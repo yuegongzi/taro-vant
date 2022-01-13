@@ -16,7 +16,6 @@ import {
   createNamespace,
   getAllRect,
   getRect,
-  GREEN,
   isDef,
 } from '../utils'
 import { usePageScroll } from '../hooks'
@@ -57,7 +56,7 @@ function IndexBar(props: IndexBarProps) {
   const {
     sticky = true,
     zIndex = 1,
-    highlightColor = GREEN,
+    highlightColor,
     stickyOffsetTop = 0,
     indexList = genIndexList(),
     onSelect,
@@ -91,7 +90,6 @@ function IndexBar(props: IndexBarProps) {
         anchorIndex += 1
       }
       const data = changeData[index]
-      // console.log()
       const defaultProps = {
         key: index,
       }
@@ -101,14 +99,13 @@ function IndexBar(props: IndexBarProps) {
             ...data,
           }
         : defaultProps
-      // console.log(props, anchor.node?.props?.index)
       return cloneElement(anchor.node, props)
     })
   }, [ changeData, children ])
 
   // 应该在 子组件中调用
   const _setAnchorsRect = useCallback(() => {
-    return getAllRect(null, '.van-index-anchor-wrapper').then((rects: any) => {
+    return getAllRect(null, '.van-index-anchor__wrapper').then((rects: any) => {
       realAnchor.current = rects.map(
         (
           e: {
@@ -159,7 +156,6 @@ function IndexBar(props: IndexBarProps) {
   }, [])
   const _getActiveAnchorIndex = useCallback(() => {
     const child = realAnchor.current
-    // console.log(child, scrollTopRef.current)
     for (let i = child.length - 1; i >= 0; i--) {
       const rect = child[i]
       if (!rect) continue
@@ -179,14 +175,11 @@ function IndexBar(props: IndexBarProps) {
   }, [ _setAnchorsRect, _setListRect, _setSiderbarRect ])
 
   const _onScroll = useCallback(() => {
-    // console.log('执行', _children?.length)
     if (!_children?.length) {
       return
     }
     const child = realAnchor.current
-    // const { sticky, stickyOffsetTop, zIndex, highlightColor } = data
     const active = _getActiveAnchorIndex()
-    // console.log('active:', active)
     setActiveAnchorIndex(active)
 
     const updateStyle: any[] = []
@@ -219,12 +212,6 @@ function IndexBar(props: IndexBarProps) {
             anchorStyle,
             wrapperStyle,
           }
-          // setChangeData({
-          //   index: item.childIndex,
-          //   active: true,
-          //   anchorStyle,
-          //   wrapperStyle,
-          // })
         } else if (index === active - 1) {
           // const _children = _getChildren(children)
           const currentAnchor = item
@@ -255,7 +242,6 @@ function IndexBar(props: IndexBarProps) {
         }
       })
       setChangeData(updateStyle)
-      // console.log(realAnchor.current[active])
     }
   }, [
     _children.length,
@@ -265,10 +251,6 @@ function IndexBar(props: IndexBarProps) {
     stickyOffsetTop,
     zIndex,
   ])
-
-  // const _onScroll = useCallback(throttle(_onScrollOrigin, 100), [
-  //   _onScrollOrigin,
-  // ])
   const scroller = useCallback(
     (event) => {
       scrollTopRef.current =
@@ -367,7 +349,11 @@ function IndexBar(props: IndexBarProps) {
             return (
               <View
                 key={index}
-                className={clsx(bem('index'))}
+                className={clsx(
+                  bem('index', {
+                    active: activeAnchorIndex === index,
+                  }),
+                )}
                 style={
                   'z-index: ' +
                   (zIndex + 1) +
