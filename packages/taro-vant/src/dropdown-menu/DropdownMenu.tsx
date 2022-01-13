@@ -11,7 +11,7 @@ import {
 } from 'react'
 import type { DropdownMenuProps } from './PropsType'
 import { displayTitle } from './wxs'
-import { computedStyle, createNamespace, getRect } from '../utils'
+import { computedStyle, createNamespace, getRect, ZIndex } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('dropdown-menu')
@@ -23,7 +23,7 @@ function DropdownMenu(props: DropdownMenuProps) {
   const {
     activeColor,
     overlay = true,
-    zIndex = 10,
+    zIndex = ZIndex.DropdownMenu,
     duration = 200,
     direction = 'down',
     closeOnClickOverlay = true,

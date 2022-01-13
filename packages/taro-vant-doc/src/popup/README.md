@@ -16,7 +16,7 @@ import { Popup } from "taro-vant";
 
 ### 基础用法
 
-通过`show`属性控制弹出层是否展示。
+通过`visible`属性控制弹出层是否展示。
 
 ```jsx
 <View>
@@ -26,7 +26,7 @@ import { Popup } from "taro-vant";
     onClick={ this.showPopup }
   />
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     onClose={ this.onClose }
   >
     内容
@@ -60,7 +60,7 @@ function onClose() {
 ```jsx
 <View>
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     position="top"
     style="height: 20%;"
     onClose={ this.onClose }
@@ -76,7 +76,7 @@ function onClose() {
 ```jsx
 <View>
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     closeable={ true }
     position="bottom"
     style="height: 20%"
@@ -84,7 +84,7 @@ function onClose() {
   />
    {/*  自定义图标  */}
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     closeable={ true }
     closeIcon="close"
     position="bottom"
@@ -93,7 +93,7 @@ function onClose() {
   /> 
   {/*  图标位置  */}
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     closeable={ true }
     closeIconPosition="topLeft"
     position="bottom"
@@ -111,7 +111,7 @@ function onClose() {
 ```jsx
 <View>
   <Popup
-    show={ this.state.show }
+    visible={ this.state.show }
     round={ true }
     position="bottom"
     style="height: 20%"
@@ -135,7 +135,7 @@ function onClose() {
 <View>
   {/*  pageMeta 只能是页面内的第一个节点  */}
   <pageMeta pageStyle={ this.state.show ? 'overflow: hidden;' : '' } />
-  <Popup show={ this.state.show } />
+  <Popup visible={ this.state.show } />
 </View>
  
 ```
@@ -146,8 +146,8 @@ function onClose() {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  show  | 是否显示弹出层 | _boolean_ | `false` |
-|  zIndex  | z-index 层级 | _number_ | `100` |
+|  visible  | 是否显示弹出层 | _boolean_ | `false` |
+|  zIndex  | z-index 层级 | _number_ | `1010` |
 |  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
 |  position  | 弹出位置，可选值为 `top` `bottom` `right` `left` | _string_ | `center` |
 |  duration  | 动画时长，单位为毫秒 | _number \| object_ | `300` |

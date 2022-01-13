@@ -112,7 +112,7 @@ export default class Index extends Component {
           <DemoBlock title='基础用法'>
             <Cell title='展示弹出层' isLink onClick={this.showBasic} />
             <Popup
-              show={show.basic}
+              visible={show.basic}
               style='padding: 30px 50px'
               onClose={this.hideBasic}
             >
@@ -125,25 +125,25 @@ export default class Index extends Component {
             <Cell title='左侧弹出' isLink onClick={this.showLeft} />
             <Cell title='右侧弹出' isLink onClick={this.showRight} />
             <Popup
-              show={show.top}
+              visible={show.top}
               position='top'
               style='height: 20%'
               onClose={this.hideTop}
             />
             <Popup
-              show={show.bottom}
+              visible={show.bottom}
               position='bottom'
               style='height: 20%'
               onClose={this.hideBottom}
             />
             <Popup
-              show={show.left}
+              visible={show.left}
               position='left'
               style='width: 20%; height: 100%'
               onClose={this.hideLeft}
             />
             <Popup
-              show={show.right}
+              visible={show.right}
               position='right'
               style='width: 20%; height: 100%'
               onClose={this.hideRight}
@@ -162,14 +162,14 @@ export default class Index extends Component {
               onClick={this.showCustomIconPosition}
             />
             <Popup
-              show={show.closeIcon}
+              visible={show.closeIcon}
               closeable
               position='bottom'
               style='height: 20%'
               onClose={this.hideCloseIcon}
             />
             <Popup
-              show={show.customCloseIcon}
+              visible={show.customCloseIcon}
               closeable
               closeIcon='close'
               position='bottom'
@@ -177,7 +177,7 @@ export default class Index extends Component {
               onClose={this.hideCustomCloseIcon}
             />
             <Popup
-              show={show.customIconPosition}
+              visible={show.customIconPosition}
               closeable
               closeIconPosition='top-left'
               position='bottom'
@@ -188,7 +188,7 @@ export default class Index extends Component {
           <DemoBlock title='圆角弹窗'>
             <Cell title='圆角弹窗' isLink onClick={this.showRound} />
             <Popup
-              show={show.round}
+              visible={show.round}
               round
               position='bottom'
               style='height: 20%'

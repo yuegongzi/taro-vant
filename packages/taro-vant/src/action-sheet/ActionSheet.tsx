@@ -2,7 +2,7 @@ import type { ITouchEvent } from '@tarojs/components'
 import { Button, View } from '@tarojs/components'
 import type { FC } from 'react'
 import { useCallback } from 'react'
-import { createNamespace } from '../utils'
+import { createNamespace, ZIndex } from '../utils'
 import type { ActionSheetItem, ActionSheetProps } from './PropsType'
 import Loading from '../loading'
 import Popup from '../popup'
@@ -19,7 +19,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
     closeOnClickOverlay,
     closeOnClickAction,
     safeAreaInsetBottom,
-    show,
+    visible,
     title,
     description,
     actions,
@@ -66,7 +66,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
 
   return (
     <Popup
-      show={show}
+      visible={visible}
       position='bottom'
       round={round}
       zIndex={zIndex}
@@ -112,30 +112,26 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
                   key={index}
                   openType={disabled || loading ? '' : openType}
                   style={color ? 'color: ' + color : ''}
-                  className={clsx(bem('item', {
-                    disabled: disabled || loading,
-                  }), actionClassName)
-                  }
+                  className={clsx(
+                    bem('item', {
+                      disabled: disabled || loading,
+                    }),
+                    actionClassName,
+                  )}
                   hoverClass={clsx(bem('item', [ 'hover' ]))}
                   data-index={index}
-                  onClick={disabled || loading ? () => {
-                  } : _onSelect}
+                  onClick={disabled || loading ? () => {} : _onSelect}
                   {...rest}
                 >
                   {!loading ? (
                     <>
                       {name}
                       {subname && (
-                        <View className={clsx(bem('subname'))}>
-                          {subname}
-                        </View>
+                        <View className={clsx(bem('subname'))}>{subname}</View>
                       )}
                     </>
                   ) : (
-                    <Loading
-                      className={clsx(bem('loading'))}
-                      size='22px'
-                    />
+                    <Loading className={clsx(bem('loading'))} size='22px' />
                   )}
                 </Button>
               )
@@ -163,7 +159,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
 
 ActionSheet.defaultProps = {
   round: true,
-  zIndex: 100,
+  zIndex: ZIndex.ActionSheet,
   overlay: true,
   closeOnClickOverlay: true,
   closeOnClickAction: true,

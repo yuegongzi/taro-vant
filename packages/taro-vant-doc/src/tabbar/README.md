@@ -287,7 +287,7 @@ function onClick(event) {
 |  fixed  | 是否固定在底部 | _boolean_ | `true` |
 |  placeholder  | 固定在底部时，是否在标签位置生成一个等高的占位元素 | _boolean_ | `false` |
 |  border  | 是否展示外边框 | _boolean_ | `true` |
-|  zIndex  | 元素 z-index | _number_ | `1` |
+|  zIndex  | 元素 z-index | _number_ | `805` |
 |  activeColor  | 选中标签的颜色 | _string_ | `#1989fa` |
 |  inactiveColor  | 未选中标签的颜色 | _string_ | `#7d7e80` |
 |  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |

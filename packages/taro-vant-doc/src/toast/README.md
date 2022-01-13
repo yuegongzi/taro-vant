@@ -121,7 +121,7 @@ Toast.show({
 |  mask  | 是否显示遮罩层 | _boolean_ | `false` |
 |  forbidClick  | 是否禁止背景点击 | _boolean_ | `false` |
 |  loadingType  | 加载图标类型, 可选值为 `spinner` | _string_ | `circular` |
-|  zIndex  | z-index 层级 | _number_ | `1000` |
+|  zIndex  | z-index 层级 | _number_ | `1090` |
 |  duration  | 展示时长(ms)，值为 0 时，toast 不会消失 | _number_ | `2000` |
 |  selector  | 自定义选择器 | _string_ | `van-toast` |
 |  id  | 选择器id | _string_ | `van-toast` |

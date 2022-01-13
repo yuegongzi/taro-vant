@@ -1,13 +1,14 @@
 import type { DialogProps } from './PropsType'
 import { off, on, trigger } from './events'
+import { ZIndex } from '../utils'
 
 const _defaultOptions = {
-  show: false,
+  visible: false,
   title: '',
   width: null,
   theme: 'default',
   message: '',
-  zIndex: 100,
+  zIndex: ZIndex.Dialog,
   overlay: true,
   className: '',
   asyncClose: false,
@@ -41,15 +42,15 @@ export default {
     const innerOptions =
       options?.theme === 'round-button'
         ? {
-          confirmButtonColor: '#FFFFFF',
-          cancelButtonColor: '#FFFFFF',
-        }
+            confirmButtonColor: '#FFFFFF',
+            cancelButtonColor: '#FFFFFF',
+          }
         : {}
     trigger('alert', {
       ...this.defaultOptions,
       ...options,
       ...innerOptions,
-      show: true,
+      visible: true,
     })
     return p
   },

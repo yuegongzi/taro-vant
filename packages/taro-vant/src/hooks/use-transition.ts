@@ -10,22 +10,22 @@ const getClassNames = (name: string) => ({
 })
 
 export function useTransition({
-                                show = false,
-                                duration = 300,
-                                name = 'fade',
-                                onBeforeEnter,
-                                onBeforeLeave,
-                                onAfterEnter,
-                                onAfterLeave,
-                                onEnter,
-                                onLeave,
-                                enterClass,
-                                enterActiveClass,
-                                enterToClass,
-                                leaveClass,
-                                leaveActiveClass,
-                                leaveToClass,
-                              }: TransitionProps) {
+  visible = false,
+  duration = 300,
+  name = 'fade',
+  onBeforeEnter,
+  onBeforeLeave,
+  onAfterEnter,
+  onAfterLeave,
+  onEnter,
+  onLeave,
+  enterClass,
+  enterActiveClass,
+  enterToClass,
+  leaveClass,
+  leaveActiveClass,
+  leaveToClass,
+}: TransitionProps) {
   const transitionEnded = useRef(false)
   const status = useRef('')
   const [ display, setDisplay ] = useState(false)
@@ -61,11 +61,11 @@ export function useTransition({
       onAfterLeave?.()
     }
 
-    if (!show && display) {
+    if (!visible && display) {
       // this.setData({ display: false })
       setDisplay(false)
     }
-  }, [ display, onAfterEnter, onAfterLeave, show ])
+  }, [ display, onAfterEnter, onAfterLeave, visible ])
   const _enter = useCallback(() => {
     // debugger
     // const { duration, name } = this.data
@@ -119,12 +119,12 @@ export function useTransition({
     })
   }, [ classNames, display, duration, onBeforeLeave, onLeave, onTransitionEnd ])
   useEffect(() => {
-    if (show) {
+    if (visible) {
       _enter()
     } else {
       _leave()
     }
-  }, [ _enter, _leave, show ])
+  }, [ _enter, _leave, visible ])
 
   return {
     display,

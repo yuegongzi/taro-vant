@@ -105,9 +105,9 @@ export default class Index extends Component {
           <Cell title='Slide Left' onClick={this.onClickSlideLeft} isLink />
           <Cell title='Slide Right' onClick={this.onClickSlideRight} isLink />
           <Cell title='Custom' onClick={this.onClickCustom} isLink />
-          <Transition show={show} name={name} className='block' />
+          <Transition visible={show} name={name} className='block' />
           <Transition
-            show={showCustom}
+            visible={showCustom}
             name=''
             duration={{
               enter: 300,

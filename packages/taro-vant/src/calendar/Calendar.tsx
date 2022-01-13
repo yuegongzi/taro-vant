@@ -59,7 +59,7 @@ function Index(
   const {
     title = '日期选择',
     color,
-    show,
+    visible,
     formatter,
     confirmText = '确定',
     rangePrompt,
@@ -159,7 +159,7 @@ function Index(
     function () {
       requestAnimationFrame(() => {
         const targetDate = type === 'single' ? currentDate : currentDate[0]
-        const displayed = show || !poppable
+        const displayed = visible || !poppable
         if (!targetDate || !displayed) {
           return
         }
@@ -173,7 +173,7 @@ function Index(
         })
       })
     },
-    [ currentDate, maxDate, minDate, poppable, show, type ],
+    [ currentDate, maxDate, minDate, poppable, visible, type ],
   )
 
   const reset = useCallback(
@@ -386,7 +386,7 @@ function Index(
 
   useEffect(
     function () {
-      if (show || !poppable) {
+      if (visible || !poppable) {
         setTimeout(() => {
           initRect()
           setTimeout(() => {
@@ -395,7 +395,7 @@ function Index(
         }, 66)
       }
     },
-    [ initRect, poppable, scrollIntoViewFn, show ],
+    [ initRect, poppable, scrollIntoViewFn, visible ],
   )
 
   useEffect(
@@ -417,7 +417,7 @@ function Index(
       {poppable ? (
         <Popup
           className={clsx(bem('popup', [ position ]))}
-          show={show}
+          visible={visible}
           round={round}
           position={position}
           closeable={showTitle || showSubtitle}

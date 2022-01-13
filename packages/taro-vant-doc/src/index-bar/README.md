@@ -78,7 +78,7 @@ this.state = {
 |  参数  | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 |  indexList  | 索引字符列表 | _string[] \| number[]_ | `A-Z` | - |
-|  zIndex  | z-index 层级 | _number_ | `1` | - |
+|  zIndex  | z-index 层级 | _number_ | `800` | - |
 |  sticky  | 是否开启锚点自动吸顶 | _boolean_ | `true` | - |
 |  stickyOffsetTop  | 锚点自动吸顶时与顶部的距离 | _number_ | `0` | - |
 |  highlightColor  | 索引字符高亮颜色 | _string_ | `#07c160` | - |

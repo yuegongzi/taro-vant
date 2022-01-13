@@ -26,7 +26,7 @@ type Week = 0 | 1 | 2 | 3 | 4 | 5 | 6
 export interface CalendarProps extends StandardProps {
   title?: string
   color?: string
-  show?: boolean
+  visible?: boolean
   formatter?: (day: Day) => Day
   confirmText?: string
   rangePrompt?: string

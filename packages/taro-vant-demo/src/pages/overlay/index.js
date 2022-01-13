@@ -42,13 +42,13 @@ export default class Index extends Component {
             <Button type='primary' onClick={this.onClickShow}>
               显示遮罩层
             </Button>
-            <Overlay show={show} onClick={this.onClickHide} />
+            <Overlay visible={show} onClick={this.onClickHide} />
           </DemoBlock>
           <DemoBlock title='嵌入内容' padding>
             <Button type='primary' onClick={this.onClickShowEmbedded}>
               嵌入内容
             </Button>
-            <Overlay show={showEmbedded} onClick={this.onClickHideEmbedded}>
+            <Overlay visible={showEmbedded} onClick={this.onClickHideEmbedded}>
               <View className='wrapper'>
                 <View className='block' onClick={this.noop} />
               </View>

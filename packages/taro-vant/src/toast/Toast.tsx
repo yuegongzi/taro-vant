@@ -7,7 +7,7 @@ import Icon from '../icon'
 import Loading from '../loading'
 import { off, on, trigger } from './events'
 import toast from './toast-func'
-import { createNamespace, isObj } from '../utils'
+import { createNamespace, isObj, ZIndex } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('toast')
@@ -15,7 +15,7 @@ const [ bem ] = createNamespace('toast')
 const defaultId = 'van-toast'
 const defaultOptions = {
   show: true,
-  zIndex: 1000,
+  zIndex: ZIndex.Toast,
   duration: 2000,
   mask: false,
   forbidClick: false,
@@ -37,7 +37,7 @@ function parseOptions(message: any) {
 export function Toast(props: ToastProps) {
   const [ state, setState ] = useState({
     show: false,
-    zIndex: 1000,
+    zIndex: ZIndex.Toast,
     duration: 2000,
     mask: false,
     forbidClick: false,
@@ -123,13 +123,13 @@ export function Toast(props: ToastProps) {
     <View>
       {(state.mask || state.forbidClick) && (
         <Overlay
-          show={state.show}
+          visible={state.show}
           zIndex={state.zIndex}
           style={state.mask ? '' : 'background-color: transparent;'}
         />
       )}
       <Transition
-        show={state.show}
+        visible={state.show}
         style={'z-index: ' + state.zIndex}
         className={clsx(bem('container'))}
       >

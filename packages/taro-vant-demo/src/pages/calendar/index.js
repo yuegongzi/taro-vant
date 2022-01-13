@@ -384,7 +384,7 @@ export default class Index extends Component {
             />
           </DemoBlock>
           <Calendar
-            show={showCalendar}
+            visible={showCalendar}
             type={type}
             color={color}
             round={round}

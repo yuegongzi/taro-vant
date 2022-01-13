@@ -17,7 +17,7 @@ function Transition(props: TransitionPropsCom) {
     onLeave,
     duration,
     name,
-    show,
+    visible,
     children,
     style,
     className,
@@ -30,7 +30,7 @@ function Transition(props: TransitionPropsCom) {
     ...others
   } = props
   const { currentDuration, classes, display, onTransitionEnd } = useTransition({
-    show,
+    visible,
     duration: duration,
     name: name,
     enterClass,

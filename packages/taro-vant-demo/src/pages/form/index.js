@@ -139,7 +139,7 @@ function DatetimePickerBox(props) {
         {...options}
         placeholder='请选择日期'
       />
-      <Popup position='bottom' show={show} onClose={() => setShow(false)}>
+      <Popup position='bottom' visible={show} onClose={() => setShow(false)}>
         <DatetimePicker
           onConfirm={(e) => {
             setShow(false)

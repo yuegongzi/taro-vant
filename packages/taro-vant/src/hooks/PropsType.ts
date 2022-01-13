@@ -1,5 +1,5 @@
 export interface TransitionProps {
-  show?: boolean
+  visible?: boolean
   duration?:
     | string
     | number

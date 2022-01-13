@@ -121,7 +121,7 @@ export default class Index extends Component {
               }}
             />
             <ShareSheet
-              show={show.basic}
+              visible={show.basic}
               title='立即分享给好友'
               options={options}
               onClose={this.onClose}
@@ -145,7 +145,7 @@ export default class Index extends Component {
               }}
             />
             <ShareSheet
-              show={show.multiLine}
+              visible={show.multiLine}
               title='立即分享给好友'
               options={multiLineOptions}
               onClose={this.onClose}
@@ -169,7 +169,7 @@ export default class Index extends Component {
               }}
             />
             <ShareSheet
-              show={show.customIcon}
+              visible={show.customIcon}
               options={customIconOptions}
               onClose={this.onClose}
               onSelect={this.onSelect}
@@ -192,7 +192,7 @@ export default class Index extends Component {
               }}
             />
             <ShareSheet
-              show={show.withDesc}
+              visible={show.withDesc}
               title='立即分享给好友'
               options={optionsWithDesc}
               description='描述信息'

@@ -13,7 +13,7 @@ export interface ShareSheetOption {
   onSelect?: (option: ShareSheetOptionItem, index: number) => void
 }
 export interface ShareSheetProps extends StandardProps {
-  show?: boolean
+  visible?: boolean
   overlayStyle?: string
   zIndex?: number
   title?: string | ReactNode

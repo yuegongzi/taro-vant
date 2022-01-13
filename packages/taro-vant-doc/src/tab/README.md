@@ -266,7 +266,7 @@ function onChange(event) {
 
 ```jsx
 <View>
-  <Popup show={ this.state.show }>
+  <Popup visible={ this.state.show }>
     { this.state.show.map((item, index) => (
         <Tabs>
           <Tab title="标签 1">
@@ -311,7 +311,7 @@ function onChange(event) {
 |  swipeThreshold  | 滚动阈值，标签数量超过阈值且总宽度超过标签栏宽度时开始横向滚动 | _number_ | `5` |
 |  titleActiveColor  | 标题选中态颜色 | _string_ | - |
 |  titleInactiveColor  | 标题默认态颜色 | _string_ | - |
-|  zIndex  | z-index 层级 | _number_ | `1` |
+|  zIndex  | z-index 层级 | _number_ | `600` |
 
 ### Tab Props
 

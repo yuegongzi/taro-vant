@@ -8,6 +8,7 @@ import {
   GRAY,
   RED,
   toPromise,
+  ZIndex,
 } from '../utils'
 import GoodsAction, { GoodsActionButton } from '../goods-action'
 import Button from '../button'
@@ -23,11 +24,11 @@ function Dialog(props: DialogProps) {
   const [ options, setOptions ] = useState<DialogProps>({})
 
   const {
-    show: _show,
+    visible,
     overlay = true,
     transition = 'scale',
     theme = 'default',
-    zIndex = 2000,
+    zIndex = ZIndex.Dialog,
     width,
     overlayStyle,
     closeOnClickOverlay,
@@ -61,7 +62,7 @@ function Dialog(props: DialogProps) {
 
   const [ confirmLoading, setConfirmLoading ] = useState(false)
   const [ cancelLoading, setCancelLoading ] = useState(false)
-  const [ show, setShow ] = useState(_show)
+  const [ show, setShow ] = useState(visible)
 
   const _close = useCallback(
     (action: 'confirm' | 'cancel' | 'overlay' | 'close') => {
@@ -134,10 +135,10 @@ function Dialog(props: DialogProps) {
     setOptions({
       ...props,
     })
-    if (!props.show) {
+    if (!props.visible) {
       _stopLoading()
     }
-    setShow(props.show)
+    setShow(props.visible)
     // eslint-disable-next-line
   }, [props])
 
@@ -151,7 +152,7 @@ function Dialog(props: DialogProps) {
         setOptions({
           ...params,
         })
-        setShow(!!params.show)
+        setShow(!!params.visible)
       }
     }
     const stopLoadingFn = () => {
@@ -185,7 +186,7 @@ function Dialog(props: DialogProps) {
 
   return (
     <Popup
-      show={show}
+      visible={show}
       zIndex={zIndex}
       overlay={overlay}
       transition={transition}

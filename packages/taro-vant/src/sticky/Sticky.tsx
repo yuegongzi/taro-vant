@@ -5,7 +5,7 @@ import {
   createNamespace,
   getRect,
   isDef,
-  Sticky as InnerSticky,
+  ZIndex,
 } from '../utils'
 import type { StickyProps } from './PropsType'
 import { usePageScroll } from '../hooks'
@@ -18,7 +18,7 @@ function Sticky(props: StickyProps) {
   const indexRef = useRef(+new Date())
   const [ state, setState ] = useState({ height: 0, fixed: false, transform: 0 })
   const {
-    zIndex = InnerSticky,
+    zIndex = ZIndex.Sticky,
     offsetTop = 0,
     scrollTop,
     disabled,

@@ -2,7 +2,13 @@ import Taro from '@tarojs/taro'
 import { useCallback, useEffect, useState } from 'react'
 import { Block, View } from '@tarojs/components'
 import Icon from '../icon'
-import { computedStyle, createNamespace, getMenuButtonBoundingClientRect, getSystemInfoSync, Navbar } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  getMenuButtonBoundingClientRect,
+  getSystemInfoSync,
+  ZIndex,
+} from '../utils'
 import type { MiniNavBarProps } from './PropsType'
 import { barStyle } from './wxs'
 import clsx from 'clsx'
@@ -22,7 +28,7 @@ function MiniNavBar(props: MiniNavBarProps) {
     fixed = true,
     placeholder = true,
     border = true,
-    zIndex = Navbar,
+    zIndex = ZIndex.Navbar,
     homeUrl,
     buttonColor = 'white',
     title,
@@ -50,7 +56,7 @@ function MiniNavBar(props: MiniNavBarProps) {
   const [ homeButton, setHomeButton ] = useState(false)
 
   useEffect(
-    function() {
+    function () {
       const pages = Taro.getCurrentPages()
       if (pages.length >= 1) {
         const ins: any = pages[pages.length - 1]
@@ -66,7 +72,7 @@ function MiniNavBar(props: MiniNavBarProps) {
     [ homeUrl ],
   )
 
-  useEffect(function() {
+  useEffect(function () {
     const sysInfo = getSystemInfoSync()
     const menuInfo = getMenuButtonBoundingClientRect()
     if (sysInfo && menuInfo) {
@@ -86,49 +92,54 @@ function MiniNavBar(props: MiniNavBarProps) {
       {fixed && placeholder && (
         <View style={{ height: `${height + fromTop}px` }} />
       )}
-      <View className={clsx(bem({ fixed }), { 'van-hairline--bottom': border }, className)}
-            style={computedStyle([
-              barStyle({
-                zIndex,
-                fromTop,
-                height,
-                fromLeft,
-              }) +
-              '; ' +
-              style,
-            ])}
-            {...others}
+      <View
+        className={clsx(
+          bem({ fixed }),
+          { 'van-hairline--bottom': border },
+          className,
+        )}
+        style={computedStyle([
+          barStyle({
+            zIndex,
+            fromTop,
+            height,
+            fromLeft,
+          }) +
+            '; ' +
+            style,
+        ])}
+        {...others}
       >
         <View className={clsx(bem('content'))}>
-          <View
-            className={clsx(bem('left'))}
-            style={{ left: `${fromLeft}px` }}
-          >
+          <View className={clsx(bem('left'))} style={{ left: `${fromLeft}px` }}>
             {backButton && (
-              <View className={clsx(bem('left-menu', [ buttonColor ]))}
-                    onClick={handleGoBack}
-                    style={{
-                      width: `${menuHeight}px`,
-                      height: `${menuHeight}px`,
-                    }}
+              <View
+                className={clsx(bem('left-menu', [ buttonColor ]))}
+                onClick={handleGoBack}
+                style={{
+                  width: `${menuHeight}px`,
+                  height: `${menuHeight}px`,
+                }}
               >
                 <Icon name='arrow-left' size={40} />
               </View>
             )}
             {homeButton && (
-              <View className={clsx(bem('left-menu', [ buttonColor ]))}
-                    onClick={handleGoHome}
-                    style={{
-                      width: `${menuHeight}px`,
-                      height: `${menuHeight}px`,
-                    }}
+              <View
+                className={clsx(bem('left-menu', [ buttonColor ]))}
+                onClick={handleGoHome}
+                style={{
+                  width: `${menuHeight}px`,
+                  height: `${menuHeight}px`,
+                }}
               >
                 <Icon name='wap-home' size={40} />
               </View>
             )}
           </View>
-          <View className={clsx(bem('title'), 'van-ellipsis')}
-                style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
+          <View
+            className={clsx(bem('title'), 'van-ellipsis')}
+            style={{ width: `${screenWidth - menuWidth * 2 - fromLeft * 4}px` }}
           >
             {title}
           </View>

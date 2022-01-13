@@ -2,7 +2,7 @@ import type { StandardProps } from '@tarojs/components'
 import type { ComponentClass, ReactNode } from 'react'
 
 export interface OverlayProps extends StandardProps {
-  show?: boolean
+  visible?: boolean
   lockScroll?: boolean
   zIndex?: string | number
   duration?:

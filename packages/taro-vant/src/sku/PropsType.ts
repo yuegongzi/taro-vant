@@ -4,7 +4,7 @@ export interface SkuAction {
   text?: string
   color?: string
   onClick?: () => void
-  show?: boolean
+  visible?: boolean
 }
 export type Spec = {
   name: string

@@ -86,7 +86,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show1}
+              visible={show1}
               actions={action1}
               onClose={this.toggleActionSheet1}
             />
@@ -96,7 +96,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show2}
+              visible={show2}
               actions={action2}
               onClose={this.toggleActionSheet2}
             />
@@ -106,7 +106,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show3}
+              visible={show3}
               actions={action1}
               cancelText='取消'
               onClose={this.toggleActionSheet3}
@@ -117,7 +117,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show4}
+              visible={show4}
               actions={action1}
               description='这是一段描述信息'
               onClose={this.toggleActionSheet4}
@@ -128,7 +128,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show5}
+              visible={show5}
               title='标题'
               onClose={this.toggleActionSheet5}
             >
@@ -140,7 +140,7 @@ export default class Index extends Component {
               弹出菜单
             </Button>
             <ActionSheet
-              show={show6}
+              visible={show6}
               title='标题'
               onClose={this.toggleActionSheet6}
               actions={action6}

@@ -21,7 +21,7 @@ import { ActionSheet } from "taro-vant";
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     actions={  this.state.actions }
     onClose={ this.onClose }
     onSelect={ this.onSelect }
@@ -62,7 +62,7 @@ function onSelect(event) {
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     actions={  this.actions }
     cancelText="取消"
   />
@@ -92,7 +92,7 @@ this.state = {
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     actions={  this.actions }
     cancelText="取消"
   />
@@ -107,7 +107,7 @@ this.state = {
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     actions={  this.actions }
     description="这是一段描述信息"
   />
@@ -122,7 +122,7 @@ this.state = {
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     title="标题"
   >
     <View>
@@ -140,7 +140,7 @@ this.state = {
 ```jsx
 <View>
   <ActionSheet
-    show={  this.state.show }
+    visible={  this.state.show }
     actions={  this.state.actions }
     onClose={ this.onClose }
     onGetuserinfo={ this.onGetUserInfo }
@@ -176,11 +176,11 @@ function onGetUserInfo(e) {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  show  | 是否显示动作面板 | _boolean_ | - |
+|  visible  | 是否显示动作面板 | _boolean_ | - |
 |  actions  | 菜单选项 | _Array_ | `[]` |
 |  title  | 标题 | _string_ | - |
 |  description `v1.0.0`  | 选项上方的描述信息 | _string_ | - |
-|  zIndex  | z-index 层级 | _number_ | `100` |
+|  zIndex  | z-index 层级 | _number_ | `1010` |
 |  cancelText  | 取消按钮文字 | _string_ | - |
 |  overlay  | 是否显示遮罩层 | _boolean_ | - |
 |  round `v1.0.0`  | 是否显示圆角 | _boolean_ | `true` |

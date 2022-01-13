@@ -8,12 +8,7 @@ import {
 } from 'react'
 import toArray from 'rc-util/lib/Children/toArray'
 import { Block, View } from '@tarojs/components'
-import {
-  computedStyle,
-  createNamespace,
-  getRect,
-  Tabbar as InnerTabbar,
-} from '../utils'
+import { computedStyle, createNamespace, getRect, ZIndex } from '../utils'
 import type { TabbarItemProps, TabbarProps } from './PropsType'
 import clsx from 'clsx'
 
@@ -50,7 +45,7 @@ export function Tabbar(props: TabbarProps) {
     border = true,
     fixed = true,
     safeAreaInsetBottom = true,
-    zIndex = InnerTabbar,
+    zIndex = ZIndex.Tabbar,
     placeholder,
     onChange,
     style,

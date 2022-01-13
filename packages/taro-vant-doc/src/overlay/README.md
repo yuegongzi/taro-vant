@@ -25,7 +25,7 @@ import { Overlay } from "taro-vant";
     显示遮罩层
   </Button>
   <Overlay
-    show={ this.state.show }
+    visible={ this.state.show }
     onClick={ this.onClickHide }
   />
 </View>
@@ -63,7 +63,7 @@ function onClickHide() {
     嵌入内容
   </Button>
   <Overlay
-    show={ this.state.show }
+    visible={ this.state.show }
     onClick={ this.onClickHide }
   >
     <View class="wrapper">
@@ -113,8 +113,8 @@ function noop() {}
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  show  | 是否展示遮罩层 | _boolean_ | `false` |
-|  zIndex  | z-index 层级 | _string \| number_ | `1` |
+|  visible  | 是否展示遮罩层 | _boolean_ | `false` |
+|  zIndex  | z-index 层级 | _string \| number_ | `1000` |
 |  duration  | 动画时长，单位秒 | _string \| number_ | `0.3` |
 |  className  | 自定义类名 | _string_ | - |
 |  customStyle  | 自定义样式 | _string_ | - |

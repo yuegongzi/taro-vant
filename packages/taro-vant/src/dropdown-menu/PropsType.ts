@@ -31,7 +31,7 @@ export type DropdownMenuOption = {
   icon?: string
 }
 export type IDropdownItemInstance = {
-  toggle: (show?: boolean, options?: { immediate: boolean }) => void
+  toggle: (visible?: boolean, options?: { immediate: boolean }) => void
 }
 declare const DropdownItem: ComponentClass<DropdownItemProps>
 declare const DropdownMenu: ComponentClass<DropdownMenuProps>

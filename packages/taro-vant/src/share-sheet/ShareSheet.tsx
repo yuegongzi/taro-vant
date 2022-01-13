@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import Options from './options'
 import Popup from '../popup'
 import type { ShareSheetOptionItem, ShareSheetProps } from './PropsType'
-import { createNamespace } from '../utils'
+import { createNamespace, ZIndex } from '../utils'
 import clsx from 'clsx'
 import { isMulti } from './wxs'
 
@@ -11,12 +11,12 @@ const [ bem ] = createNamespace('share-sheet')
 
 function ShareSheet(props: ShareSheetProps) {
   const {
-    show,
+    visible,
     duration = 300,
     closeOnClickOverlay = true,
     safeAreaInsetBottom = true,
     overlay = true,
-    zIndex = 100,
+    zIndex = ZIndex.ShareSheet,
     overlayStyle,
     title,
     cancelText = '取消',
@@ -53,7 +53,7 @@ function ShareSheet(props: ShareSheetProps) {
     <Popup
       round
       className={clsx(bem())}
-      show={show}
+      visible={visible}
       position='bottom'
       overlay={overlay}
       duration={duration}

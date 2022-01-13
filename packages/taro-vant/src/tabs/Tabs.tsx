@@ -15,7 +15,7 @@ import {
   getRect,
   isDef,
   requestAnimationFrame,
-  Tabs as InnerTabs,
+  ZIndex,
 } from '../utils'
 import Sticky from '../sticky'
 import type { TabProps, TabsProps } from './PropsType'
@@ -97,7 +97,7 @@ export function Tabs(props: TabsProps) {
     lazyRender = true,
     type = 'line',
     sticky,
-    zIndex = InnerTabs,
+    zIndex = ZIndex.Tabs,
     offsetTop = 0,
     border,
     color,

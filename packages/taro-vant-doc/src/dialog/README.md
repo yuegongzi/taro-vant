@@ -138,7 +138,7 @@ Dialog.confirm({
 <View>
   <Dialog
     title="标题"
-    show={ this.state.show }
+    visible={ this.state.show }
     showCancelButton={ true }
     confirmButtonOpenType="getUserInfo"
     onClose={ this.onClose }
@@ -185,12 +185,13 @@ function onClose() {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+|  visible  | 是否显示弹窗 | _boolean_ | - |
 |  title  | 标题 | _string_ | - |
 |  width  | 弹窗宽度，默认单位为`px` | _string \| number_ | `320px` |
 |  message  | 文本内容，支持通过`\n`换行 | _string_ | - |
 |  messageAlign  | 内容对齐方式，可选值为`left` `right` | _string_ | `center` |
 |  theme  | 样式风格，可选值为`round-button` | _string_ | `default` |
-|  zIndex  | z-index 层级 | _number_ | `100` |
+|  zIndex  | z-index 层级 | _number_ | `1010` |
 |  classname  | 自定义类名，dialog 在自定义组件内时无效 | _string_ | '' |
 |  style  | 自定义样式 | _string_ | '' |
 |  selector  | 自定义选择器 | _string_ | `van-dialog` |
@@ -213,13 +214,13 @@ function onClose() {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  show  | 是否显示弹窗 | _boolean_ | - |
+|  visible  | 是否显示弹窗 | _boolean_ | - |
 |  title  | 标题 | _string_ | - |
 |  width  | 弹窗宽度，默认单位为`px` | _string \| number_ | `320px` |
 |  message  | 文本内容，支持通过`\n`换行 | _string_ | - |
 |  theme  | 样式风格，可选值为`round-button` | _string_ | `default` |
 |  messageAlign  | 内容对齐方式，可选值为`left` `right` | _string_ | `center` |
-|  zIndex  | z-index 层级 | _number_ | `100` |
+|  zIndex  | z-index 层级 | _number_ | `1010` |
 |  className  | 自定义类名，dialog 在自定义组件内时无效 | _string_ | '' |
 |  style  | 自定义样式 | _string_ | '' |
 |  showConfirmButton  | 是否展示确认按钮 | _boolean_ | `true` |

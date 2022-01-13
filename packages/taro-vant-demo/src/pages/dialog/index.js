@@ -116,7 +116,7 @@ export default class Index extends Component {
           </DemoBlock>
           <Dialog
             title='标题'
-            show={show}
+            visible={show}
             showCancelButton
             onClose={this.onClose}
             confirmButtonOpenType='getUserInfo'

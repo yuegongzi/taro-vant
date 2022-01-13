@@ -17,6 +17,7 @@ import {
   getAllRect,
   getRect,
   isDef,
+  ZIndex,
 } from '../utils'
 import { usePageScroll } from '../hooks'
 import type { IndexBarProps } from './PropsType'
@@ -55,7 +56,7 @@ function parseIndexAnchor(children: React.ReactNode): any[] {
 function IndexBar(props: IndexBarProps) {
   const {
     sticky = true,
-    zIndex = 1,
+    zIndex = ZIndex.Indexbar,
     highlightColor,
     stickyOffsetTop = 0,
     indexList = genIndexList(),

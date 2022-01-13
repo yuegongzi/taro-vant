@@ -21,7 +21,7 @@ import { Transition } from "taro-vant";
 ```jsx
 <View>
   <Transition
-    show={ this.state.show }
+    visible={ this.state.show }
     className="block"
   >
     内容
@@ -48,7 +48,7 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 ```jsx
 <View>
   <Transition
-    show={ this.state.show }
+    visible={ this.state.show }
     name=""
     duration={ { enter: 300, leave: 1000 } }
     enterClass="vanEnterClass"
@@ -80,7 +80,7 @@ transition 组件内置了多种动画，可以通过`name`字段指定动画类
 |  参数          | 说明                 | 类型               | 默认值 |
 | ------------ | -------------------- | ------------------ | ------ |
 |  name          | 动画类型             | _string_           | `fade` |
-|  show          | 是否展示组件         | _boolean_          | `true` |
+|  visible          | 是否展示组件         | _boolean_          | `true` |
 |  duration      | 动画时长，单位为毫秒 | _number \| object_ | `300`  |
 |  customStyle  | 自定义样式           | _string_           | -      |
 

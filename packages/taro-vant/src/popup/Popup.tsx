@@ -5,20 +5,20 @@ import Icon from '../icon'
 import { popupStyle } from './wxs'
 import { useTransition } from '../hooks'
 import Overlay from '../overlay'
-import { computedStyle, createNamespace, Popup as InnerPopup } from '../utils'
+import { computedStyle, createNamespace, ZIndex } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('popup')
 
 function Popup(this: any, props: PopupProps) {
   const {
-    show,
+    visible,
     duration = 300,
     round,
     closeable,
     overlayStyle,
     transition,
-    zIndex = InnerPopup,
+    zIndex = ZIndex.Popup,
     overlay = true,
     closeIcon = 'cross',
     closeIconPosition = 'top-right',
@@ -66,7 +66,7 @@ function Popup(this: any, props: PopupProps) {
   }, [ duration, position, transition ])
   const { inited, currentDuration, classes, display, onTransitionEnd } =
     useTransition({
-      show,
+      visible,
       duration: _duration,
       name: _name,
       onBeforeEnter,
@@ -76,13 +76,6 @@ function Popup(this: any, props: PopupProps) {
       onEnter,
       onLeave,
     })
-
-  // observeShow(value, old) {
-  //   if (value === old) {
-  //     return
-  //   }
-  //   value ? this.enter() : this.leave()
-  // },
 
   const getClassName = useCallback((name) => {
     return name.replace(/([A-Z])/g, (_: string, $1: string) => {
@@ -94,7 +87,7 @@ function Popup(this: any, props: PopupProps) {
     <>
       {overlay && (
         <Overlay
-          show={show}
+          visible={visible}
           zIndex={zIndex}
           style={overlayStyle}
           duration={duration}

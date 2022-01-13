@@ -25,7 +25,7 @@ import { ShareSheet } from "taro-vant";
     onClick={ this.onClick }
   />
   <ShareSheet
-    show={ this.state.showShare }
+    visible={ this.state.showShare }
     title="立即分享给好友"
     options={ this.state.options }
     onSelect={ this.onSelect }
@@ -82,7 +82,7 @@ function onSelect(event) {
 ```jsx
 <View>
   <ShareSheet
-    show={ this.state.showShare }
+    visible={ this.state.showShare }
     title="立即分享给好友"
     options={ this.state.options }
   />
@@ -122,7 +122,7 @@ this.state = {
 ```jsx
 <View>
   <ShareSheet
-    show={ this.state.showShare }
+    visible={ this.state.showShare }
     options={ this.state.options }
   />
 </View>
@@ -152,7 +152,7 @@ this.state = {
 ```jsx
 <View>
   <ShareSheet
-    show={ this.state.showShare }
+    visible={ this.state.showShare }
     options={ this.state.options }
     title="立即分享给好友"
     description="描述信息"
@@ -190,6 +190,7 @@ this.state = {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+|  visible  | 是否显示弹窗 | _boolean_ | - |
 |  options  | 分享选项 | _Option[]_ | `[]` |
 |  title  | 顶部标题 | _string_ | - |
 |  cancelText  | 取消按钮文字 | _string_ | `'取消'` |
@@ -198,6 +199,7 @@ this.state = {
 |  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
 |  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
 |  safeAreaInsetBottom  | 是否开启底部安全区适配 | _boolean_ | `true` |
+|  zIndex  | z-index 层级 | _number_ | `1010` |
 
 ### Option 数据结构
 

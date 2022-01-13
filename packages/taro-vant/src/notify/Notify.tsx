@@ -5,7 +5,12 @@ import { Text, View } from '@tarojs/components'
 import type { NotifyProps } from './PropsType'
 import Transition from '../transition'
 import { off, on, trigger } from './events'
-import { computedStyle, createNamespace, getSystemInfoSync } from '../utils'
+import {
+  computedStyle,
+  createNamespace,
+  getSystemInfoSync,
+  ZIndex,
+} from '../utils'
 import clsx from 'clsx'
 import { notifyStyle, rootStyle } from './wxs'
 
@@ -18,7 +23,7 @@ const defaultOptions = {
   type: 'danger',
   color: '#fff',
   duration: 3000,
-  zIndex: 110,
+  zIndex: ZIndex.Notify,
   safeAreaInsetTop: false,
   top: 0,
   id: defaultId,
@@ -42,7 +47,7 @@ export function Notify(props: NotifyProps) {
     type: 'danger',
     color: '#fff',
     duration: 3000,
-    zIndex: 110,
+    zIndex: ZIndex.Notify,
     safeAreaInsetTop: false,
     top: 0,
     id: defaultId,
@@ -143,7 +148,7 @@ export function Notify(props: NotifyProps) {
   return (
     <Transition
       name='slide-down'
-      show={state.show}
+      visible={state.show}
       className={clsx(bem('container'), className)}
       style={computedStyle([
         rootStyle({

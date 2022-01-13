@@ -126,7 +126,7 @@ function onScroll(event) {
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  offsetTop  | 吸顶时与顶部的距离，单位`px` | _number_ | `0` |
-|  zIndex  | 吸顶时的 z-index | _number_ | `99` |
+|  zIndex  | 吸顶时的 z-index | _number_ | `800` |
 |  container  | 一个函数，返回容器对应的 NodesRef 节点 | _function_ | - |
 |  scrollTop  | 当前滚动区域的滚动位置，非 `null` 时会禁用页面滚动事件的监听 | _number_ | - |
 

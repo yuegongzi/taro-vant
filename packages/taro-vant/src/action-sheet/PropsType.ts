@@ -9,7 +9,7 @@ import type { PopupProps } from '../popup'
 export interface ActionSheetProps extends StandardProps, PopupProps {
   actions?: ActionSheetItem[]
   title?: string
-  show?: boolean
+  visible?: boolean
   cancelText?: string
   description?: string
   overlay?: boolean

@@ -1,9 +1,5 @@
 import { useCallback } from 'react'
-import {
-  computedStyle,
-  createNamespace,
-  Overlay as InnerOverlay,
-} from '../utils'
+import { computedStyle, createNamespace, ZIndex } from '../utils'
 import type { OverlayProps } from './PropsType'
 import Transition from '../transition'
 import clsx from 'clsx'
@@ -12,8 +8,8 @@ const [ bem ] = createNamespace('overlay')
 
 function Overlay(props: OverlayProps) {
   const {
-    show,
-    zIndex = InnerOverlay,
+    visible,
+    zIndex = ZIndex.Overlay,
     style,
     className,
     lockScroll = true,
@@ -27,7 +23,7 @@ function Overlay(props: OverlayProps) {
   }, [])
   return lockScroll ? (
     <Transition
-      show={show}
+      visible={visible}
       className={clsx(bem(), className)}
       style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}
@@ -38,7 +34,7 @@ function Overlay(props: OverlayProps) {
     </Transition>
   ) : (
     <Transition
-      show={show}
+      visible={visible}
       className={clsx(bem(), className)}
       style={computedStyle([ { 'z-index': zIndex }, style ])}
       duration={duration}

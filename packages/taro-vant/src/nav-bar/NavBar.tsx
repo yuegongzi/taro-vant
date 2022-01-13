@@ -6,7 +6,7 @@ import {
   ele,
   getRect,
   getSystemInfoSync,
-  Navbar,
+  ZIndex,
 } from '../utils'
 import type { NavBarProps } from './PropsType'
 import Icon from '../icon'
@@ -22,7 +22,7 @@ function NavBar(props: NavBarProps) {
     fixed,
     placeholder,
     border = true,
-    zIndex = Navbar,
+    zIndex = ZIndex.Navbar,
     safeAreaInsetTop = true,
     leftArrow,
     leftText,

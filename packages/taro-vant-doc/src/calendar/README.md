@@ -26,7 +26,7 @@ import { Calendar } from "taro-vant";
     onClick={ this.onDisplay }
   />
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     onClose={ this.onClose }
     onConfirm={ this.onConfirm }
   />
@@ -77,7 +77,7 @@ function onConfirm(event) {
     onClick={ this.onDisplay }
   />
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     type="multiple"
     onClose={ this.onClose }
     onConfirm={ this.onConfirm }
@@ -124,7 +124,7 @@ function onConfirm(event) {
     onClick={ this.onDisplay }
   />
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     type="range"
     onClose={ this.onClose }
     onConfirm={ this.onConfirm }
@@ -174,7 +174,7 @@ function onConfirm(event) {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     showConfirm={  false  }
   />
 </View>
@@ -188,7 +188,7 @@ function onConfirm(event) {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     color="#07c160"
   />
 </View>
@@ -202,7 +202,7 @@ function onConfirm(event) {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     minDate={  this.state.minDate  }
     maxDate={  this.state.maxDate  }
   />
@@ -225,7 +225,7 @@ this.state = {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     type="range"
     confirmText="完成"
     confirmDisabledText="请选择结束时间"
@@ -241,7 +241,7 @@ this.state = {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     type="range"
     formatter={  this.state.formatter  }
   />
@@ -284,7 +284,7 @@ this.state = {
 ```jsx
 <View>
   <Calendar
-    show={  this.state.show  }
+    visible={  this.state.show  }
     round="false"
     position="right"
   />
@@ -369,7 +369,7 @@ this.state = {
 
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  show  | 是否显示日历弹窗 | _boolean_ | `false` |
+|  visible  | 是否显示日历弹窗 | _boolean_ | `false` |
 |  position  | 弹出位置，可选值为 `top` `right` `left` | _string_ | `bottom` |
 |  round  | 是否显示圆角弹窗 | _boolean_ | `true` |
 |  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |

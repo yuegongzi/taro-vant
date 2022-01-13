@@ -66,17 +66,17 @@ function Index(
   }, [ parentInstance ])
 
   const toggle = useCallback(
-    function (show?: any, options = {}) {
-      if (typeof show !== 'boolean') {
-        show = !showPopup
+    function (visible?: any, options = {}) {
+      if (typeof visible !== 'boolean') {
+        visible = !showPopup
       }
-      if (show === showPopup) {
+      if (visible === showPopup) {
         return
       }
 
       setTransition(!options.immediate)
-      setShowPopup(show)
-      if (show) {
+      setShowPopup(visible)
+      if (visible) {
         if (!parentInstance) {
           void 0
         } else {
@@ -179,7 +179,7 @@ function Index(
       style={computedStyle([ wrapperStyle, style ])}
     >
       <Popup
-        show={showPopup}
+        visible={showPopup}
         style={computedStyle([ { position: 'absolute' }, popupStyle ])}
         overlayStyle='position: absolute;'
         overlay={!!parentInstance.overlay}

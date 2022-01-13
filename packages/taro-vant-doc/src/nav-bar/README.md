@@ -71,7 +71,7 @@ function onClickRight() {
 |  fixed  | 是否固定在顶部 | _boolean_ | `false` |
 |  placeholder  | 固定在顶部时是否开启占位 | _boolean_ | `false` |
 |  border  | 是否显示下边框 | _boolean_ | `true` |
-|  zIndex  | 元素 z-index | _number_ | `1` |
+|  zIndex  | 元素 z-index | _number_ | `805` |
 |  style  | 根节点自定义样式 | _string_ | - |
 |  safeAreaInsetTop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `true` |
 

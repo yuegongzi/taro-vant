@@ -7,7 +7,7 @@ export interface DialogProps
   extends StandardProps,
     Omit<PopupProps, 'onClose'>,
     Omit<ButtonProps, 'children'> {
-  show?: boolean
+  visible?: boolean
   title?: string
   width?: string | number
   zIndex?: number

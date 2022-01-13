@@ -217,7 +217,7 @@ function onSwitch2Change({
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  activeColor  | 菜单标题和选项的选中态颜色 | _string_ | `#ee0a24` |
-|  zIndex  | 菜单栏 z-index 层级 | _number_ | `10` |
+|  zIndex  | 菜单栏 z-index 层级 | _number_ | `900` |
 |  duration  | 动画时长，单位毫秒 | _number_ | `200` |
 |  direction  | 菜单展开方向，可选值为 up | _string_ | `down` |
 |  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
