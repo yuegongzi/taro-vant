@@ -31,7 +31,6 @@ export default class Index extends Component {
     createSelectorQuery().
       select('#scroller').
       boundingClientRect((res) => {
-        console.log('#scroller:', res.top)
         this.setState({
           scrollTop: event.detail.scrollTop,
           offsetTop: res.top,

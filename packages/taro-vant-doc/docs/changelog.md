@@ -13,6 +13,25 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 ## 更新内容
 
 
+### 2.0.5
+
+`2022-01-14`
+
+
+**Bug Fixes**
+- IndexBar 滚动时显示的异常
+- GoodsAction 在H5下的异常表现
+- 增加主题色功能,适用于大部分组件 可以通过全局设置`primary-color`来更改
+
+**Features**
+- Cascader 新增级联选择器
+
+**Performance**
+- 去除所有弹出类组件的show属性,修改为visible属性,保证体验的一致性
+- 重新规划所有弹窗类组件的z-index顺序,保证在交互时能重叠展示
+- 所有的组件样式变量抽取到组件目录下
+
+
 ### 2.0.4
 
 `2022-01-12`

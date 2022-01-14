@@ -5,7 +5,7 @@ export * from './scroll'
 export * from './type'
 export * from './bem'
 export * from './assembly'
-
+export * from './pick'
 export * from './wxs/add-unit'
 
 //变量

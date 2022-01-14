@@ -16,7 +16,7 @@ export interface PopupProps
   closeIcon?: string
   closeIconPosition?: string
   closeOnClickOverlay?: boolean
-  position?: 'top' | 'bottom' | 'right' | 'left'
+  position?: 'top' | 'bottom' | 'right' | 'left' | 'center'
   safeAreaInsetBottom?: boolean
   safeAreaInsetTop?: boolean
   children?: ReactNode

@@ -1,16 +1,16 @@
-@import '../../style/var.less';
+@import './var.less';
 
 .van-contact-card {
-  padding: @padding-md;
+  .theme(padding, '@padding-md');
 
   &--add {
     .van-contact-card__value {
-      line-height: 40 * @hd;
+      .theme(line-height, '@contact-card-add-icon-size');
     }
 
     .van-cell__left-icon {
-      color: @blue;
-      font-size: 40 * @hd;
+      .theme(color, '@contact-card-add-icon-color');
+      .theme(font-size, '@contact-card-add-icon-size');
     }
   }
 
@@ -19,7 +19,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    height: 2 * @hd;
+    height: 4px;
     background: repeating-linear-gradient(
       -45deg,
       #ff6c6c 0,
@@ -31,7 +31,7 @@
       transparent 0,
       transparent 50%
     );
-    background-size: 80 * @hd;
+    background-size: 160px;
     content: '';
   }
 }
@@ -41,6 +41,6 @@
   height: 100%;
 
   &__item {
-    padding: 16 * @hd;
+    .theme(padding, '@contact-list-item-padding');
   }
 }
