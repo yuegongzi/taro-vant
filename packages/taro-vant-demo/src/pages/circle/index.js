@@ -30,76 +30,69 @@ export default class Index extends Component {
     const { value, gradientColor } = this.state
     return (
       <DemoPage title='Circle 进度条'>
-        <>
-          <DemoBlock title='demo'>
-            <Circle
-              value={value}
-              size={100}
-              strokeWidth={8}
-              text='颜色定制'
-              color='#00ffff'
-            />
-          </DemoBlock>
-          <DemoBlock title='基础用法'>
-            <Circle type='2d' value={value} text={value + '%'} />
-          </DemoBlock>
-          <DemoBlock title='样式定制'>
-            <Circle value={value} strokeWidth={6} text='宽度定制' />
-            <Circle
-              value={value}
-              layerColor='#eee'
-              color='#ee0a24'
-              text='颜色定制'
-            />
-            <Circle
-              type='2d'
-              value={value}
-              color={gradientColor}
-              text='渐变色'
-            />
-            <Circle
-              value={value}
-              color='#07c160'
-              clockwise={false}
-              text='逆时针'
-            />
-            <Circle value={value} size='120' text='大小定制' />
-          </DemoBlock>
-          <Button
-            type='primary'
-            size='small'
-            onClick={(e) => {
-              this.run({
-                detail: e.detail,
-                currentTarget: {
-                  dataset: { step: '10' },
-                },
-                target: {
-                  dataset: { step: '10' },
-                },
-              })
-            }}
-          >
-            增加
-          </Button>
-          <Button
-            type='danger'
-            size='small'
-            onClick={(e) => {
-              this.run({
-                detail: e.detail,
-                currentTarget: {
-                  dataset: { step: '-10' },
-                },
-                target: {
-                  dataset: { step: '-10' },
-                },
-              })
-            }}
-          >
-            减少
-          </Button>
-        </>
+        <DemoBlock title='demo'>
+          <Circle
+            value={value}
+            size={100}
+            strokeWidth={8}
+            text='颜色定制'
+            color='#00ffff'
+          />
+        </DemoBlock>
+        <DemoBlock title='基础用法'>
+          <Circle type='2d' value={value} text={value + '%'} />
+        </DemoBlock>
+        <DemoBlock title='样式定制'>
+          <Circle value={value} strokeWidth={6} text='宽度定制' />
+          <Circle
+            value={value}
+            layerColor='#eee'
+            color='#ee0a24'
+            text='颜色定制'
+          />
+          <Circle type='2d' value={value} color={gradientColor} text='渐变色' />
+          <Circle
+            value={value}
+            color='#07c160'
+            clockwise={false}
+            text='逆时针'
+          />
+          <Circle value={value} size='120' text='大小定制' />
+        </DemoBlock>
+        {/*  <Button*/}
+        {/*    type='primary'*/}
+        {/*    size='small'*/}
+        {/*    onClick={(e) => {*/}
+        {/*      this.run({*/}
+        {/*        detail: e.detail,*/}
+        {/*        currentTarget: {*/}
+        {/*          dataset: { step: '10' },*/}
+        {/*        },*/}
+        {/*        target: {*/}
+        {/*          dataset: { step: '10' },*/}
+        {/*        },*/}
+        {/*      })*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    增加*/}
+        {/*  </Button>*/}
+        {/*  <Button*/}
+        {/*    type='danger'*/}
+        {/*    size='small'*/}
+        {/*    onClick={(e) => {*/}
+        {/*      this.run({*/}
+        {/*        detail: e.detail,*/}
+        {/*        currentTarget: {*/}
+        {/*          dataset: { step: '-10' },*/}
+        {/*        },*/}
+        {/*        target: {*/}
+        {/*          dataset: { step: '-10' },*/}
+        {/*        },*/}
+        {/*      })*/}
+        {/*    }}*/}
+        {/*  >*/}
+        {/*    减少*/}
+        {/*  </Button>*/}
       </DemoPage>
     )
   }

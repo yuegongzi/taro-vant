@@ -5,7 +5,7 @@ import { View } from '@tarojs/components'
 import type { CollapseItemProps } from './PropsType'
 import Cell from '../cell'
 import { setContentAnimate } from './animate'
-import { createNamespace } from '../utils'
+import { createNamespace, ENV } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('collapse-item')
@@ -45,7 +45,7 @@ function CollapseItem(
   } = props
 
   useReady(() => {
-    if (process.env.TARO_ENV !== 'h5') {
+    if (!ENV.h5) {
       setState((state) => {
         return {
           ...state,
@@ -112,7 +112,6 @@ function CollapseItem(
     },
     [ parent, disabled, name, state.expanded ],
   )
-
   return (
     <View
       className={clsx(
@@ -143,7 +142,10 @@ function CollapseItem(
         rightIcon={rightIcon}
       />
       <View
-        className={clsx(bem('wrapper'), bem('animation-box'))}
+        className={clsx(
+          bem('wrapper'),
+          bem('animation-box', { expand: state.expanded && ENV.h5 }),
+        )}
         animation={state.animation}
       >
         <View className={clsx(bem('content'))} ref={refDom}>

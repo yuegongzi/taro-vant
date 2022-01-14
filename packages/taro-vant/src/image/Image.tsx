@@ -4,7 +4,7 @@ import type { ImageProps } from './PropsType'
 import Icon from '../icon/index'
 import type { FitType } from './wxs'
 import { mode, rootStyle } from './wxs'
-import { computedStyle, createNamespace, ele } from '../utils'
+import { computedStyle, createNamespace, ele, ENV } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('image')
@@ -58,7 +58,7 @@ function Image(props: ImageProps) {
   const styleH5 = useMemo(
     function () {
       let style = {}
-      if (process.env.TARO_ENV === 'h5') {
+      if (ENV.h5) {
         if (fit === 'heightFix' || fit === 'widthFix') {
           style = {
             display: 'flex',

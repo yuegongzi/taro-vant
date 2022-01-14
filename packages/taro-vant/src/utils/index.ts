@@ -10,6 +10,7 @@ export * from './wxs/add-unit'
 
 //变量
 export * from './common/color'
+export * from './env'
 export * from './common/zIndex'
 
 export * from './common/jumpLink'

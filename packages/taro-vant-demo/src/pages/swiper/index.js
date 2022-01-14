@@ -20,10 +20,10 @@ export default () => {
             <View className='content'>1</View>
           </SwiperItem>
           <SwiperItem>
-            <View className='content'>2</View>
+            <View className='content cyan'>2</View>
           </SwiperItem>
           <SwiperItem>
-            <View className='content'>3</View>
+            <View className='content blue'>3</View>
           </SwiperItem>
         </Swiper>
       </DemoBlock>
@@ -69,6 +69,62 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
+
+      <DemoBlock title='前后边距'>
+        <Swiper
+          indicatorColor='#999'
+          indicatorActiveColor='#fff'
+          circular
+          indicatorDots
+          inset
+          autoplay
+          previousMargin='50px'
+          nextMargin='50px'
+        >
+          <SwiperItem>
+            <View className='content'>1</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content blue'>2</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content cyan'>3</View>
+          </SwiperItem>
+        </Swiper>
+      </DemoBlock>
+
+      <DemoBlock title='多个显示'>
+        <Swiper
+          indicatorColor='#999'
+          indicatorActiveColor='#fff'
+          circular
+          indicatorDots
+          inset
+          autoplay
+          displayMultipleItems={2}
+        >
+          <SwiperItem>
+            <View className='content'>1</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content blue'>2</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content cyan'>3</View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content' style='background-color:yellow'>
+              4
+            </View>
+          </SwiperItem>
+          <SwiperItem>
+            <View className='content' style='background-color:red'>
+              5
+            </View>
+          </SwiperItem>
+        </Swiper>
+      </DemoBlock>
+
       <View className='padding' />
     </DemoPage>
   )

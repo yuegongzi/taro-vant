@@ -5,9 +5,8 @@ import {
 } from '@tarojs/taro'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Canvas, CoverView, View } from '@tarojs/components'
-import { Current } from '@tarojs/runtime'
 import type { CircleProps } from './PropsType'
-import { createNamespace, getSystemInfoSync, isObj } from '../utils'
+import { createNamespace, getSystemInfoSync, isObj, ENV } from '../utils'
 import { adaptor } from './canvas'
 import clsx from 'clsx'
 
@@ -57,7 +56,6 @@ function Circle(props: CircleProps) {
     setState((state) => {
       return {
         ...state,
-        // unitag: process.env.TARO_ENV === 'h5' ? `van-circle_uni_${CIRCLE_INDEX++}` : 'van-circle',
         unitag: `van-circle_uni_${CIRCLE_INDEX++}`,
       }
     })
@@ -73,36 +71,26 @@ function Circle(props: CircleProps) {
   })
 
   useEffect(() => {
-    /* eslint-disable-next-line */
-    // @ts-ignore
-    if (process.env.LIBRARY_ENV === 'react') {
-      setTimeout(() => {
-        if (process.env.TARO_ENV === 'h5') {
-          setState((state) => {
-            return {
-              ...state,
-              ready: true,
-            }
-          })
-        }
-      }, 100)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setTimeout(() => {
+      if (ENV.h5) {
+        setState((state) => {
+          return {
+            ...state,
+            ready: true,
+          }
+        })
+      }
+    }, 100)
   }, [])
-
   const getContext = useCallback(() => {
-    /* eslint-disable-next-line */
-    // @ts-ignore
-    if (process.env.LIBRARY_ENV === 'react') {
-      /* eslint-disable-next-line */
-      // @ts-ignore
-      Current.page = { path: `page-${state.unitag}` }
-    }
-    if (type === '' || process.env.TARO_ENV === 'h5') {
+    if (type === '' || ENV.h5) {
       let ctx = null
+
       try {
         ctx = createCanvasContext(state.unitag)
-      } catch (error) {}
+      } catch (error) {
+        // console.error(error)
+      }
 
       return Promise.resolve(ctx)
     }
@@ -132,7 +120,7 @@ function Circle(props: CircleProps) {
       const _color = color as Record<string, string>
       return getContext().then((context: any) => {
         if (context) {
-          const LinearColor = context.createLinearGradient(size, 0, 0, 0)
+          const LinearColor = context.createLinearGradient(size, 0, 0, 0) //TODO h5版本taro官方BUG 等待修复
           Object.keys(color).
             sort((a, b) => parseFloat(a) - parseFloat(b)).
             map((key: any) =>

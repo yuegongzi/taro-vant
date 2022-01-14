@@ -32,7 +32,7 @@ function Transition(props: TransitionPropsCom) {
   const { currentDuration, classes, display, onTransitionEnd } = useTransition({
     visible,
     duration: duration,
-    name: name,
+    name,
     enterClass,
     enterActiveClass,
     enterToClass,

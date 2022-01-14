@@ -249,6 +249,10 @@ module.exports = {
             title: 'Sticky 粘性布局',
           },
           {
+            path: 'swiper',
+            title: 'Swiper 轮播',
+          },
+          {
             path: 'tag',
             title: 'Tag 标签',
           },

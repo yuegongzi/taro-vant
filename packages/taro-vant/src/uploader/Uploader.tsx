@@ -1,4 +1,4 @@
-import { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
+import Taro, { previewImage as TaroPreviewImage, showToast } from '@tarojs/taro'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { Block, Image, Text, Video, View } from '@tarojs/components'
@@ -7,6 +7,7 @@ import Loading from '../loading'
 import Icon from '../icon'
 import {
   createNamespace,
+  ENV,
   isArray,
   isBoolean,
   isFunction,
@@ -220,7 +221,7 @@ function Uploader(props: UploaderProps) {
   const onPreviewVideo = useCallback(() => {
     if (!previewFullImage) return
     // const { index } = event.currentTarget.dataset
-    if (process.env.TARO_ENV === 'weapp') {
+    if (ENV.weapp) {
       // eslint-disable-next-line
       // @ts-ignore
       wx.previewMedia({

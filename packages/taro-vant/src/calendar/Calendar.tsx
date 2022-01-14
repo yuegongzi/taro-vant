@@ -15,6 +15,7 @@ import Toast from '../toast'
 import {
   computedStyle,
   createNamespace,
+  ENV,
   requestAnimationFrame,
   uuid,
 } from '../utils'
@@ -216,7 +217,7 @@ function Index(
 
   const initRect = useCallback(
     function () {
-      if (process.env.TARO_ENV === 'h5') {
+      if (ENV.h5) {
         return initRectH5()
       }
       if (contentObserver.current != null) {
@@ -225,7 +226,7 @@ function Index(
       const pages: any = Taro.getCurrentPages()
       let curePage = pages[pages.length - 1]
 
-      if (process.env.TARO_ENV === 'alipay') {
+      if (ENV.alipay) {
         curePage = Taro
       }
 

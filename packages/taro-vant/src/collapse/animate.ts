@@ -1,5 +1,5 @@
 import { createAnimation } from '@tarojs/taro'
-import { getRect } from '../utils'
+import { ENV, getRect } from '../utils'
 
 function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
   const animation = createAnimation({
@@ -10,15 +10,19 @@ function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
     if (height === 0) {
       animation.height('auto').top(1).step()
     } else {
-      animation.height(height).top(1).step({
-        duration: mounted ? 300 : 1,
-      }).height('auto').step()
+      animation.
+        height(height).
+        top(1).
+        step({
+          duration: mounted ? 300 : 1,
+        }).
+        height('auto').
+        step()
     }
-    const animationclass = animation.export()
     setState?.((state: any) => {
       return {
         ...state,
-        animation: animationclass,
+        animation: animation.export(),
       }
     })
   } else {
@@ -29,10 +33,7 @@ function useAnimation(expanded: any, mounted: any, height: any, setState: any) {
     setState?.((state: any) => {
       return {
         ...state,
-        animation:
-          process.env.TARO_ENV === 'h5'
-            ? `${animationclass}--1`
-            : animationclass,
+        animation: ENV.h5 ? `${animationclass}--1` : animationclass,
       }
     })
   }
@@ -45,11 +46,11 @@ export function setContentAnimate(
   setState: any,
   ref?: any,
 ) {
-  getRect(context, '.van-collapse-item__content').then((rect: any) => {
-    return process.env.TARO_ENV === 'h5'
-      ? ref.current.clientHeight
-      : rect?.height
-  }).then((height) => {
-    useAnimation(expanded, mounted, height, setState)
-  })
+  getRect(context, '.van-collapse-item__content').
+    then((rect: any) => {
+      return ENV.h5 ? ref.current.clientHeight : rect?.height
+    }).
+    then((height) => {
+      useAnimation(expanded, mounted, height, setState)
+    })
 }

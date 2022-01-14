@@ -7,6 +7,7 @@ import {
   computedStyle,
   createNamespace,
   ele,
+  ENV,
   getRect,
   requestAnimationFrame,
 } from '../utils'
@@ -67,7 +68,7 @@ export function NoticeBar(props: NoticeBarProps) {
   }, [])
 
   useReady(() => {
-    if (process.env.TARO_ENV !== 'h5') {
+    if (ENV.h5) {
       ref.current.resetAnimation = createAnimation({
         duration: 0,
         timingFunction: 'linear',

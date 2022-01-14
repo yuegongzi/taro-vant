@@ -1,3 +1,5 @@
+import { ENV } from '../utils'
+
 export type ScrollElement = Element | Window
 import type { ITouchEvent } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
@@ -17,7 +19,7 @@ export function scrollOffset(nodesRef: TaroElement) {
     scrollTop: number // 节点的竖直滚动位置
   }>((resolve) => {
     // 没有固定高度-- 就去拿page的高度
-    if (process.env.TARO_ENV === 'h5') {
+    if (ENV.h5) {
       const _nodesRef: any =
         nodesRef || document.documentElement || document.body
       return resolve({
@@ -25,9 +27,11 @@ export function scrollOffset(nodesRef: TaroElement) {
         scrollTop: _nodesRef.scrollTop,
       })
     }
-    return selectorQuery(nodesRef).scrollOffset().exec((res) => {
-      resolve(res[0])
-    })
+    return selectorQuery(nodesRef).
+      scrollOffset().
+      exec((res) => {
+        resolve(res[0])
+      })
   })
 }
 
@@ -47,14 +51,16 @@ export function boundingClientRect(nodesRef: TaroElement) {
     /** 节点的宽度 */
     width: number
   }>((resolve) => {
-    if (process.env.TARO_ENV === 'h5') {
+    if (ENV.h5) {
       const _nodesRef: any =
         nodesRef || document.documentElement || document.body
       return resolve(_nodesRef.getBoundingClientRect())
     }
-    return selectorQuery(nodesRef).boundingClientRect().exec((res) => {
-      resolve(res[0])
-    })
+    return selectorQuery(nodesRef).
+      boundingClientRect().
+      exec((res) => {
+        resolve(res[0])
+      })
   })
 }
 

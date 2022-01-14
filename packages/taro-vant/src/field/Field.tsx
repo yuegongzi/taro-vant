@@ -4,7 +4,7 @@ import { Input, Textarea, View } from '@tarojs/components'
 import type { FieldProps } from './PropsType'
 import Cell from '../cell'
 import Icon from '../icon'
-import { assembly, createNamespace, ele, resizeTextarea } from '../utils'
+import { assembly, createNamespace, ele, ENV, resizeTextarea } from '../utils'
 import clsx from 'clsx'
 import { inputStyle } from './wxs'
 
@@ -184,7 +184,7 @@ function Field(props: FieldProps) {
   )
 
   useEffect(() => {
-    if (process.env.TARO_ENV === 'h5') {
+    if (ENV.h5) {
       adjustTextareaSize()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

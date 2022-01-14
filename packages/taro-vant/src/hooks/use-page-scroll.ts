@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { usePageScroll as useTaroPageScroll } from '@tarojs/taro'
+import { ENV } from '../utils'
 
 export function usePageScroll(scroller: any) {
   useEffect((): any => {
     // 兼容react-ui 弄出来的代码
-    if (process.env.TARO_ENV !== 'h5') return
+    if (!ENV.h5) return
     const el = document as any
 
     function listener(event: Event): void {
@@ -23,7 +24,7 @@ export function usePageScroll(scroller: any) {
     }
   })
   useTaroPageScroll((e) => {
-    if (process.env.TARO_ENV === 'h5') return
+    if (ENV.h5) return
     scroller(e)
   })
 }
