@@ -23,14 +23,19 @@ const Address: FC<AddressProps> = (props) => {
     onClick = noop,
     color,
   } = props
-
+  console.log(color)
   const renderAddress = () => {
     return (
       <>
         <View className={classNames(bem('name'))}>
           {data.recipient} {data.phone}
           {data.defaults && (
-            <Tag className={classNames(bem('tag'))} color={color} round>
+            <Tag
+              className={classNames(bem('tag'))}
+              type='primary'
+              color={color}
+              round
+            >
               默认
             </Tag>
           )}
@@ -92,7 +97,6 @@ Address.defaultProps = {
   checked: false,
   edit: true,
   clickable: false,
-  color: '#1890ff',
 }
 
 export default Address
