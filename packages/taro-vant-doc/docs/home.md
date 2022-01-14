@@ -59,6 +59,8 @@ npm i vant-weapp -S --production
 
 ## 使用组件
 
+### 引入
+
 以按钮组件为例，只需要在jsx文件中引入即可
 
 ```jsx
@@ -67,13 +69,13 @@ import { Button } from 'taro-vant'
 
 ```
 
-接着就可以在 wxml 中直接使用组件
+接着就可以在 `jsx` 中直接使用组件
 
-```html
-<van-button type="primary">按钮</van-button>
+```jsx
+<Button type="primary">按钮</Button>
 ```
 
-## 在开发者工具中预览
+### 在开发者工具中预览
 
 ```bash
 # 安装项目依赖
@@ -89,4 +91,6 @@ PS：关于 `Area` Area 省市区选择组件，地区数据初始化可以直�
 
 ## 基础库版本
 
+### 小程序和Taro版本
 Taro Vant 最低支持到小程序基础库 2.6.5 版本。
+Taro Vant 锁定的Taro版本是 3.3.15 版本
