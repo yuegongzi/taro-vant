@@ -37,7 +37,7 @@ export default class Index extends Component {
             <Row gutter='20'>
               {fits.map((fit) => {
                 return (
-                  <Col key={fit.fit} span='8'>
+                  <Col key={fit} span='8'>
                     <Image fit={fit} width='100%' height='27vw' src={src} />
                     <View className='text'>{fit}</View>
                   </Col>
@@ -49,7 +49,7 @@ export default class Index extends Component {
             <Row gutter='20'>
               {fits.map((fit) => {
                 return (
-                  <Col key={fit.fit} span='8'>
+                  <Col key={fit} span='8'>
                     <Image
                       round
                       fit={fit}

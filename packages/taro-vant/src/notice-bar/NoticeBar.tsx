@@ -133,6 +133,7 @@ export function NoticeBar(props: NoticeBarProps) {
         getRect(null, `.van-notice-bar__content--${state.unitag}`),
         getRect(null, `.van-notice-bar__wrap--${state.unitag}`),
       ]).then((rects) => {
+        console.log(rects)
         const contentRect: any = rects[0]
         const wrapRect: any = rects[1]
 
@@ -192,7 +193,6 @@ export function NoticeBar(props: NoticeBarProps) {
       }
     }
   }, [ text, speed, state.ready ])
-
   return (
     state.show && (
       <View

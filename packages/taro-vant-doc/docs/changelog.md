@@ -12,6 +12,16 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.0.7
+
+`2022-01-14`
+
+
+**Bug Fixes**
+- Taro 锁定taro版本在`3.3.15` 之后的`3.3.x`版本在h5 API createAnimation 和 canvas上有bug
+- NoticeBar 无法滚动的问题
+- Calendar 循环索引引用错误
+
 ### 2.0.6
 
 `2022-01-14`
@@ -19,11 +29,13 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 **Bug Fixes**
 - Collapse 在h5环境的异常表现
-- circle 在H5下的异常表现
+- Circle 在H5下的异常表现
 
 **Features**
 - Swiper 新增轮播
 
+**Document**
+- Swiper 新增文档说明
 
 ### 2.0.5
 

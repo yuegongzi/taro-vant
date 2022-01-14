@@ -142,10 +142,7 @@ function CollapseItem(
         rightIcon={rightIcon}
       />
       <View
-        className={clsx(
-          bem('wrapper'),
-          bem('animation-box', { expand: state.expanded && ENV.h5 }),
-        )}
+        className={clsx(bem('wrapper'), bem('animation-box'))}
         animation={state.animation}
       >
         <View className={clsx(bem('content'))} ref={refDom}>

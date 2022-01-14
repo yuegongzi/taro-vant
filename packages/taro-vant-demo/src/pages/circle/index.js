@@ -30,15 +30,6 @@ export default class Index extends Component {
     const { value, gradientColor } = this.state
     return (
       <DemoPage title='Circle 进度条'>
-        <DemoBlock title='demo'>
-          <Circle
-            value={value}
-            size={100}
-            strokeWidth={8}
-            text='颜色定制'
-            color='#00ffff'
-          />
-        </DemoBlock>
         <DemoBlock title='基础用法'>
           <Circle type='2d' value={value} text={value + '%'} />
         </DemoBlock>
@@ -59,40 +50,40 @@ export default class Index extends Component {
           />
           <Circle value={value} size='120' text='大小定制' />
         </DemoBlock>
-        {/*  <Button*/}
-        {/*    type='primary'*/}
-        {/*    size='small'*/}
-        {/*    onClick={(e) => {*/}
-        {/*      this.run({*/}
-        {/*        detail: e.detail,*/}
-        {/*        currentTarget: {*/}
-        {/*          dataset: { step: '10' },*/}
-        {/*        },*/}
-        {/*        target: {*/}
-        {/*          dataset: { step: '10' },*/}
-        {/*        },*/}
-        {/*      })*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    增加*/}
-        {/*  </Button>*/}
-        {/*  <Button*/}
-        {/*    type='danger'*/}
-        {/*    size='small'*/}
-        {/*    onClick={(e) => {*/}
-        {/*      this.run({*/}
-        {/*        detail: e.detail,*/}
-        {/*        currentTarget: {*/}
-        {/*          dataset: { step: '-10' },*/}
-        {/*        },*/}
-        {/*        target: {*/}
-        {/*          dataset: { step: '-10' },*/}
-        {/*        },*/}
-        {/*      })*/}
-        {/*    }}*/}
-        {/*  >*/}
-        {/*    减少*/}
-        {/*  </Button>*/}
+        <Button
+          type='primary'
+          size='small'
+          onClick={(e) => {
+            this.run({
+              detail: e.detail,
+              currentTarget: {
+                dataset: { step: '10' },
+              },
+              target: {
+                dataset: { step: '10' },
+              },
+            })
+          }}
+        >
+          增加
+        </Button>
+        <Button
+          type='danger'
+          size='small'
+          onClick={(e) => {
+            this.run({
+              detail: e.detail,
+              currentTarget: {
+                dataset: { step: '-10' },
+              },
+              target: {
+                dataset: { step: '-10' },
+              },
+            })
+          }}
+        >
+          减少
+        </Button>
       </DemoPage>
     )
   }

@@ -1,5 +1,11 @@
 import { View } from '@tarojs/components'
-import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from 'react'
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react'
 import { createNamespace } from '../../../utils'
 import clsx from 'clsx'
 import { compareDay, getMonthEndDay, getNextDay, getPrevDay } from '../../utils'
@@ -49,7 +55,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   const [ days, setDays_ ] = useState<any[]>([])
 
   const onClick_ = useCallback(
-    function(event: any) {
+    function (event: any) {
       const { index } = event.currentTarget.dataset
       const item = days[index]
       if (item.type !== 'disabled') {
@@ -60,7 +66,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   const getMultipleDayType = useCallback(
-    function(day) {
+    function (day) {
       if (!Array.isArray(currentDate)) {
         return ''
       }
@@ -85,7 +91,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   const getRangeDayType = useCallback(
-    function(day) {
+    function (day) {
       if (!Array.isArray(currentDate)) {
         return ''
       }
@@ -116,7 +122,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   const getDayType = useCallback(
-    function(day) {
+    function (day) {
       if (compareDay(day, minDate) < 0 || compareDay(day, maxDate) > 0) {
         return 'disabled'
       }
@@ -136,7 +142,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   const getBottomInfo = useCallback(
-    function(type_): any {
+    function (type_): any {
       if (type === 'range') {
         if (type_ === 'start') {
           return '开始'
@@ -153,7 +159,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   const setDays = useCallback(
-    function() {
+    function () {
       const days = []
       const startDate = new Date(date || 0)
       const year = startDate.getFullYear()
@@ -182,13 +188,13 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
   )
 
   useEffect(
-    function() {
+    function () {
       setDays()
     },
     [ setDays ],
   )
 
-  useImperativeHandle(ref, function() {
+  useImperativeHandle(ref, function () {
     return {
       setVisible,
       visible,
@@ -199,11 +205,7 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
     <View
       id={id}
       className={clsx(bem('month'), className)}
-      style={getMonthStyle(
-        visible,
-        date,
-        rowHeight ? Number(rowHeight) : 0,
-      )}
+      style={getMonthStyle(visible, date, rowHeight ? Number(rowHeight) : 0)}
     >
       {showMonthTitle && (
         <View className={clsx(bem('month-title'))}>
@@ -213,14 +215,12 @@ function Index(props: ICalendarMonthProps, ref: React.ForwardedRef<any>) {
       {visible && (
         <View className={clsx(bem('days'))}>
           {showMark && (
-            <View className={clsx(bem('month-mark'))}>
-              {getMark(date)}
-            </View>
+            <View className={clsx(bem('month-mark'))}>{getMark(date)}</View>
           )}
           {days.map((item: any, index: number) => {
             return (
               <View
-                key={item.index}
+                key={index}
                 style={getDayStyle(
                   item.type,
                   index,

@@ -1,8 +1,8 @@
 import { Text } from '@tarojs/components'
 import { Component, Fragment } from 'react'
-import { Cell, IndexBar,  Tabs } from 'taro-vant'
+import { Cell, IndexBar, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page'
-const Tab = Tabs.Tab;
+const Tab = Tabs.Tab
 const IndexAnchor = IndexBar.Anchor
 const indexList = []
 const charCodeOfA = 'A'.charCodeAt(0)
@@ -42,9 +42,9 @@ export default class Index extends Component {
           <Tab title='基础用法'>
             {activeTab === 0 && (
               <IndexBar scrollTop={scrollTop}>
-                {indexList.map((item) => {
+                {indexList.map((item, index) => {
                   return (
-                    <Fragment key={item.item}>
+                    <Fragment key={index}>
                       <IndexAnchor index={item} />
                       <Cell title='文本' />
                       <Cell title='文本' />
@@ -58,9 +58,9 @@ export default class Index extends Component {
           <Tab title='自定义索引列表'>
             {activeTab === 1 && (
               <IndexBar indexList={customIndexList} scrollTop={scrollTop}>
-                {customIndexList.map((item) => {
+                {customIndexList.map((item, index) => {
                   return (
-                    <Fragment key={item.index}>
+                    <Fragment key={index}>
                       <IndexAnchor index={item}>
                         <Text>{'标题' + item}</Text>
                       </IndexAnchor>

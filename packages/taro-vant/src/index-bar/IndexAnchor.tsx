@@ -8,9 +8,9 @@ const [ bem ] = createNamespace('index-anchor')
 
 function IndexAnchor(
   props: IndexAnchorProps & {
-    anchorStyle: React.CSSProperties
-    wrapperStyle: React.CSSProperties
-    active: boolean
+    anchorStyle?: React.CSSProperties
+    wrapperStyle?: React.CSSProperties
+    active?: boolean
   },
 ) {
   const {

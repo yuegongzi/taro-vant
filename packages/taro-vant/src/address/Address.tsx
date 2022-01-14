@@ -23,7 +23,6 @@ const Address: FC<AddressProps> = (props) => {
     onClick = noop,
     color,
   } = props
-  console.log(color)
   const renderAddress = () => {
     return (
       <>

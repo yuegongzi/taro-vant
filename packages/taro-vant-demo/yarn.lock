@@ -1511,31 +1511,31 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@tarojs/api@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.20.tgz#66b2ceae3ac114c9715ab8c77d6aa213bb719732"
-  integrity sha512-zNzFcwTp1/tEgMjlKEtXM2baEo5O7tjDW27fxgnMXneiZ/+yVP1dWGRA0qXGxXZTWtIKNOW2irzdHgtTGDzQ/A==
+"@tarojs/api@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.15.tgz#121ec3ca2cae7d57ef3b901dd3d8778005a20c45"
+  integrity sha512-WZDgzsW01N6ijURIRJRM4GzJuJnGB9N8N1DWU1P/SdF7NzBlpTy29tL7c3W4MIGu40weMKdgDYD5So28aaz3NQ==
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "@tarojs/runtime" "3.3.20"
+    "@tarojs/runtime" "3.3.15"
 
-"@tarojs/cli@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fcli/-/cli-3.3.20.tgz#b9c7acae8be9a43aba6a52c61bc85457545d6061"
-  integrity sha512-Sx/O81Qpo5Bi/QH4ABNz91H1gK8RBcGYSrGEj7zjE6c7N5tNrYSanYmJvBGD2/K2H2yr1HXeqBzeKBgoQHxfzg==
+"@tarojs/cli@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fcli/-/cli-3.3.15.tgz#f2f8b438f44b58784af20830c432c1d22e0f045f"
+  integrity sha512-2AneujbkVBmNZHscATBaRmDjw1fug6Cu2ELSS1CYKlFDhb28svs8vyTkIIrf2aMNsy8wU17251cGubJowTso9g==
   dependencies:
     "@hapi/joi" "17.1.1"
-    "@tarojs/helper" "3.3.20"
-    "@tarojs/plugin-platform-alipay" "3.3.20"
-    "@tarojs/plugin-platform-jd" "3.3.20"
-    "@tarojs/plugin-platform-qq" "3.3.20"
-    "@tarojs/plugin-platform-swan" "3.3.20"
-    "@tarojs/plugin-platform-tt" "3.3.20"
-    "@tarojs/plugin-platform-weapp" "3.3.20"
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
-    "@tarojs/taro" "3.3.20"
-    "@tarojs/taroize" "3.3.20"
+    "@tarojs/helper" "3.3.15"
+    "@tarojs/plugin-platform-alipay" "3.3.15"
+    "@tarojs/plugin-platform-jd" "3.3.15"
+    "@tarojs/plugin-platform-qq" "3.3.15"
+    "@tarojs/plugin-platform-swan" "3.3.15"
+    "@tarojs/plugin-platform-tt" "3.3.15"
+    "@tarojs/plugin-platform-weapp" "3.3.15"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
+    "@tarojs/taro" "3.3.15"
+    "@tarojs/taroize" "3.3.15"
     "@tarojs/transformer-wx" "^2.0.4"
     "@types/request" "^2.48.1"
     "@typescript-eslint/parser" "^4.15.1"
@@ -1560,11 +1560,11 @@
     ejs "^2.6.1"
     envinfo "^6.0.1"
     eslint "^6.1.0"
-    eslint-config-taro "3.3.20"
+    eslint-config-taro "3.3.15"
     eslint-plugin-import "^2.8.0"
     eslint-plugin-react "^7.4.0"
     eslint-plugin-react-hooks "^4.2.0"
-    eslint-plugin-taro "3.3.20"
+    eslint-plugin-taro "3.3.15"
     eslint-plugin-vue "^6.2.2"
     fbjs "^1.0.0"
     fs-extra "^5.0.0"
@@ -1586,7 +1586,7 @@
     postcss-modules-resolve-imports "^1.3.0"
     postcss-modules-scope "^1.1.0"
     postcss-modules-values "^1.3.0"
-    postcss-pxtransform "3.3.20"
+    postcss-pxtransform "3.3.15"
     postcss-reporter "^6.0.1"
     postcss-taro-unit-transform "1.2.15"
     postcss-url "^7.3.2"
@@ -1606,13 +1606,13 @@
     xml2js "^0.4.19"
     xxhashjs "^0.2.2"
 
-"@tarojs/components@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fcomponents/-/components-3.3.20.tgz#83a4301f9b87f6ae83cdf4c69ce0de2acb21148d"
-  integrity sha512-1Ec9h/63G0PhtHH1DipwEBpB2o7Jp1Vp+ulE2LkWz1sc3XXofNVCB8f8OU0ebSrMD7D2xhZaVTM15+5ni6v22Q==
+"@tarojs/components@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fcomponents/-/components-3.3.15.tgz#8b354fdd7bb97b12839fa2f19c47024914127619"
+  integrity sha512-bSwuC8nUNtqCZfXm3ANSnlH4jd6jKBIk8lIbH1lhl34b7ySBvnVJKBLqgwI47FRuVMzt7ijjvLorxgFomUP8xA==
   dependencies:
     "@stencil/core" "2.9.0"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/taro" "3.3.15"
     better-scroll "^1.14.1"
     classnames "^2.2.5"
     intersection-observer "^0.7.0"
@@ -1621,10 +1621,10 @@
     swiper "6.8.0"
     weui "^1.1.2"
 
-"@tarojs/helper@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fhelper/-/helper-3.3.20.tgz#2621e0c7e34e76d81ba91898d8cc515d927a0d60"
-  integrity sha512-2qCzn/JTHnaLwgMQAB39ERmv4nqFtt31Z2vw65aZ9Ra38KAKdksIbP6Mcawg3paXHC46PzIgoftFfEtgsDC4mQ==
+"@tarojs/helper@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fhelper/-/helper-3.3.15.tgz#1d6cccb42836962407725420f5966883adfe42da"
+  integrity sha512-hvhcllC5BGf4UFb7gJnesidd+JcMSZxf2vVX9M6VypLSzAT08aracz6dAVpf293+Bzsis7OQfJdZl9m8RWDNDQ==
   dependencies:
     "@babel/core" "^7.11.1"
     "@babel/plugin-proposal-class-properties" "7.10.4"
@@ -1635,7 +1635,7 @@
     "@babel/preset-typescript" "7.12.17"
     "@babel/register" "7.14.5"
     "@babel/runtime" "^7.9.2"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/taro" "3.3.15"
     chalk "3.0.0"
     chokidar "3.3.1"
     cross-spawn "7.0.3"
@@ -1646,24 +1646,24 @@
     resolve "1.15.1"
     yauzl "2.10.0"
 
-"@tarojs/mini-runner@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fmini-runner/-/mini-runner-3.3.20.tgz#3b695e7b08cbda659cf6774f6a3544fd735b6121"
-  integrity sha512-RG8TK2I3BVMXMo6T77xV9tCQEYNh5pWaH5sfHYNQuJXsqEta6WryqO5CzaY2PF6Rq07Ptveo21bKgfIOdwksxw==
+"@tarojs/mini-runner@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fmini-runner/-/mini-runner-3.3.15.tgz#6423983744c693532d6b175c03d7a5c60f0d382a"
+  integrity sha512-TNvXvByJgozhj337nBnVrMUzQ3qS6F/+ca7Q6HP3Muy/7IOkkFdjO9BokRIad8l0+Iyi0uyrXof+DNMbo4YicQ==
   dependencies:
     "@babel/core" "^7.11.1"
-    "@tarojs/helper" "3.3.20"
-    "@tarojs/plugin-platform-alipay" "3.3.20"
-    "@tarojs/plugin-platform-jd" "3.3.20"
-    "@tarojs/plugin-platform-qq" "3.3.20"
-    "@tarojs/plugin-platform-swan" "3.3.20"
-    "@tarojs/plugin-platform-tt" "3.3.20"
-    "@tarojs/plugin-platform-weapp" "3.3.20"
-    "@tarojs/runner-utils" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/shared" "3.3.20"
-    "@tarojs/taro" "3.3.20"
-    "@tarojs/taro-loader" "3.3.20"
+    "@tarojs/helper" "3.3.15"
+    "@tarojs/plugin-platform-alipay" "3.3.15"
+    "@tarojs/plugin-platform-jd" "3.3.15"
+    "@tarojs/plugin-platform-qq" "3.3.15"
+    "@tarojs/plugin-platform-swan" "3.3.15"
+    "@tarojs/plugin-platform-tt" "3.3.15"
+    "@tarojs/plugin-platform-weapp" "3.3.15"
+    "@tarojs/runner-utils" "3.3.15"
+    "@tarojs/runtime" "3.3.15"
+    "@tarojs/shared" "3.3.15"
+    "@tarojs/taro" "3.3.15"
+    "@tarojs/taro-loader" "3.3.15"
     babel-loader "8.2.1"
     copy-webpack-plugin "5.1.2"
     css "2.2.4"
@@ -1684,10 +1684,10 @@
     mkdirp "^1.0.4"
     ora "^3.4.0"
     postcss "8.3.5"
-    postcss-html-transform "3.3.20"
+    postcss-html-transform "3.3.15"
     postcss-import "12.0.1"
     postcss-loader "4.3.0"
-    postcss-pxtransform "3.3.20"
+    postcss-pxtransform "3.3.15"
     postcss-url "8.0.0"
     regenerator-runtime "0.11"
     request "^2.88.0"
@@ -1712,155 +1712,153 @@
   resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-alipay-dd/-/plugin-platform-alipay-dd-0.1.2.tgz#05bfc51001d36227408949fb565c702e261264dd"
   integrity sha512-QOW4Z54VU/EXr2rQlKI3Xb5kDPcrsPFyXQV49iPSTEPDqgxOjfBCnuhmjjjhNeWj1yCEHqA0COABbmBR0sofxw==
 
-"@tarojs/plugin-platform-alipay@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-alipay/-/plugin-platform-alipay-3.3.20.tgz#ab2950b6ebc77a8cbfe5340cd14481da2efd6582"
-  integrity sha512-y0DuCnh7vNFRYB9IpBN3alCVabrma6uFYIqz2GKRrMMRo8v9YG28/a/+5ahUSXVuVbvQPsjqzhx5dL9S5x45ug==
+"@tarojs/plugin-platform-alipay@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-alipay/-/plugin-platform-alipay-3.3.15.tgz#033722d30c04c5ece00b5a5c73fc0a641b493689"
+  integrity sha512-/wyk/95epn6qObeAdWOjNgGamS95aG38TZgPXQNk835Ki3GylPZ0yGwdS30YkN8+NMCCnmkMh9esMSpzilWIEA==
   dependencies:
-    "@tarojs/components" "3.3.20"
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/components" "3.3.15"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/plugin-platform-jd@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-jd/-/plugin-platform-jd-3.3.20.tgz#5f91e9caf13777986ce6fb67d6efb4a7249d8753"
-  integrity sha512-w6izXvPN4R53F5YiVlTSuynL1b25t4r6SdH0ELE5CinES/1A8wLxLgOpLZ6pGarRJFIBqwh5vV5drZysyUhJog==
+"@tarojs/plugin-platform-jd@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-jd/-/plugin-platform-jd-3.3.15.tgz#b1554ad18554252eff5d37f9789efa6252e3476e"
+  integrity sha512-jcdFfiJabaRcxZC3lncQ4tdg+6Yywlb0MumWga59fa3pOHyg08uimzr5VGBXv1+GIbf0VlbfDoF5akWkNOpMyg==
   dependencies:
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/plugin-platform-qq@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-qq/-/plugin-platform-qq-3.3.20.tgz#bcdfb5aba8c65602e7ad016f84ba58af17da9667"
-  integrity sha512-avPAdVWr0c2FqycE7GknkUzToR0EzjpjsLsJv+8vGeIp2T4Qe8ZIHhLFfadea1mcIS1LEgENQlP8tCA4WeixUw==
+"@tarojs/plugin-platform-qq@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-qq/-/plugin-platform-qq-3.3.15.tgz#fb21653a8298c6638cf2ba1b79cf9170a05562a9"
+  integrity sha512-c1xm5eucbD4kZNdTuBbi/YRM8r3LZM81E462j+Il5kUCV+yttdwjdjwPIYmMWsJrg4kD59113KaQ9vw58+KLzA==
   dependencies:
-    "@tarojs/plugin-platform-weapp" "3.3.20"
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/plugin-platform-weapp" "3.3.15"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/plugin-platform-swan@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-swan/-/plugin-platform-swan-3.3.20.tgz#b71de744b553341db994662d992fc6090b45e042"
-  integrity sha512-dFNUtrhdW4ePYZw35N4agrZ3y59DkFHKgJmb4MAunpY7PgD3DMscuoH+AYbhMCya/HW7tfSLZ7tmTanUyqRPpA==
+"@tarojs/plugin-platform-swan@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-swan/-/plugin-platform-swan-3.3.15.tgz#27cb6e7250b5540a9d4971403711fb9c668c7606"
+  integrity sha512-MCgYiKX/ALUT8thRGhF/HDEAsoV5YwO8hj7jIvo48o6wuTk5JP//mOKfoLI5Yy9hQZFeY4bV0WkUt9EZuDc/EQ==
   dependencies:
-    "@tarojs/components" "3.3.20"
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/components" "3.3.15"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/plugin-platform-tt@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-tt/-/plugin-platform-tt-3.3.20.tgz#305ca9d1e02c00da7eaae473b3886703160d38a1"
-  integrity sha512-l3+AaCKdId1hRupZEgEEabXPRcG/lXMQ+R/qWSzkimtb6lNTkeNx4hAueYyZVW84OLhZYomKSWqtZ9MA0ekBxQ==
+"@tarojs/plugin-platform-tt@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-tt/-/plugin-platform-tt-3.3.15.tgz#852008c6f771463d5c08909417829d276ade909a"
+  integrity sha512-T0l3H58unGVP1AiTOpF585yshO5k7vMSJ5VZ1u3k8xuItd1jhPAB2pnPmvpn6ZjMJAdfh7EK/Y2zYA/G55Ww0A==
   dependencies:
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/plugin-platform-weapp@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-weapp/-/plugin-platform-weapp-3.3.20.tgz#f6b36328675c796183fee61e8574624163bb7828"
-  integrity sha512-yTuDV2eOa/dvgxK6CGzeaqZ5K9Xb0M4WXChbtoF9cLdGfN7hWTbDk9SSYl3VVJmJK/PZ5rjXJuw0NL4CBZ5BWA==
+"@tarojs/plugin-platform-weapp@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fplugin-platform-weapp/-/plugin-platform-weapp-3.3.15.tgz#b779e17f87f62a20d3fb542af0335d4e0920a905"
+  integrity sha512-EphHJpo3W8VvwVt1OXGE0/UzEzNC+9+SYXhgSYDxjm7aCXytQJMj7bozNbhK/ihsLUFwoWeqwJ/DSApGFZ6COA==
   dependencies:
-    "@tarojs/components" "3.3.20"
-    "@tarojs/service" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/components" "3.3.15"
+    "@tarojs/service" "3.3.15"
+    "@tarojs/shared" "3.3.15"
 
-"@tarojs/react@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2freact/-/react-3.3.20.tgz#17d8757670b31eeca65229138632999351c472e1"
-  integrity sha512-qSBsUeDDj8tUPIcbAb2TCkNkZq5Xnzrfs6wfDzGSThb4HdQP1J+U/EESmNOIhILl/wH5o/KwqKWsqEMgQ8A02Q==
+"@tarojs/react@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2freact/-/react-3.3.15.tgz#a3a0821018a54d39f9128dbe1dce2cb1e8100d2d"
+  integrity sha512-hGKLpNBIOntSPP52L0QdM3mOB+cJ0EuF59dqMieJrc7quQlcIBsRGMzAi/d/W8wr0AtYWr+UXo+g0dapPWw1Ag==
   dependencies:
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/runtime" "3.3.15"
+    "@tarojs/shared" "3.3.15"
     react-reconciler "0.26.1"
     scheduler "^0.20.1"
 
-"@tarojs/router@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.20.tgz#fbe33dadda5d8c511675a79cd59ffd6ecf448c1f"
-  integrity sha512-vkO3JCNY99noxSODMEez+bW9Kx6wLVC1FPviNd08MELipwrw8k2DyPzxgzJiE+2YiS0r7V2Sh8l5A+ocAnrcdQ==
+"@tarojs/router@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.15.tgz#0c8d9f345cfcd48b5396b7c65a510f07ced23272"
+  integrity sha512-HMYu1ZAZjuUG5kaGg6DK/HeqtuaZKbuB1Z/Pvhq1Myo031HlZxx0Gtxr+F3UL8Iq7V/YdGqFevqVQ+rwyFKknA==
   dependencies:
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/runtime" "3.3.15"
     history "^5.1.0"
     query-string "^6.13.8"
     universal-router "^8.3.0"
     url-parse "^1.4.7"
 
-"@tarojs/runner-utils@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2frunner-utils/-/runner-utils-3.3.20.tgz#ce819ff9ef4a274ab25b8aaeab726dad965cbba0"
-  integrity sha512-dMEHvwTFzktEkgyEyzBATnpMV1nq/XBMWEpUSzeBi8eNnia49YkmIXUDoLgbOF/zaEVrQRMFI2bMDz4ECwOJLA==
+"@tarojs/runner-utils@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2frunner-utils/-/runner-utils-3.3.15.tgz#a69c699fbfd3fa0c2654b56130d1811be0158c82"
+  integrity sha512-0Zfb+2SN5aawoTMiP0/CRIIQMNaW4Q9smZS4l7M3RrrzpfuP0CJxILvTZeXQ3ooNxIL7NrA+Axq5XM8AxAO2Sg==
   dependencies:
-    "@tarojs/helper" "3.3.20"
+    "@tarojs/helper" "3.3.15"
     scss-bundle "^3.0.2"
 
-"@tarojs/runtime@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.20.tgz#0855a9a2667b0cda3107ce0ea23f98f9fd4341bc"
-  integrity sha512-aVZ0BdwkWK0IxlN9jyrkcfI+JJWOwTOXEpNteFwoiYN7Lz3sTnDatqdO6Us6NxZDXdzLey6LWt4xlf4Rz8glug==
+"@tarojs/runtime@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.15.tgz#f971fe8721142ad6830cee3d1c947f52927296f0"
+  integrity sha512-qeZAWoxqUvxzr0HhuhhiRVy4iqPEKnYv1Qm6uddvBDSNUelbomKiYT6N56cFml8J5R0ltO5M1bU/GfzDYIBl0g==
   dependencies:
-    "@tarojs/shared" "3.3.20"
+    "@tarojs/shared" "3.3.15"
     inversify "5.1.1"
     lodash-es "4.17.15"
     reflect-metadata "^0.1.13"
 
-"@tarojs/service@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fservice/-/service-3.3.20.tgz#0504069fe2d5d59ade05db9ab37766bbf2e9d0a2"
-  integrity sha512-cei1jo1+fuxWBL5XanCA3UmD9iHNXmZKZnD8zUdvb6GBo7ytZUONrKZKafg3V2EawnMpcxaolRKJKVBRr3SmXA==
+"@tarojs/service@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fservice/-/service-3.3.15.tgz#7a9cb9d40de28f3017487208f6f57aa6056524ac"
+  integrity sha512-Go7TNn0vp7biKKiXTdyOUvkCrt0UUc0NJbIWhl1NQYGUNvkFQ8/Exrg7F0/YLDgsEh/R9ZX0xDsy/R2sPWzoqg==
   dependencies:
     "@hapi/joi" "17.1.1"
-    "@tarojs/helper" "3.3.20"
-    "@tarojs/shared" "3.3.20"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/helper" "3.3.15"
+    "@tarojs/shared" "3.3.15"
+    "@tarojs/taro" "3.3.15"
     fs-extra "8.1.0"
     lodash "4.17.21"
     resolve "1.15.1"
     tapable "1.1.3"
 
-"@tarojs/shared@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.20.tgz#7bcb99c9aeb9ef5fd3aab15bd6eed552ad171fec"
-  integrity sha512-uIfbE7F7Hr9CKesC8VL7lxIalQHF+GVhI+GjkaWvfZUaZAGXGQahT1f0B3CjtxZIbkPu7E/raARx+tSVrM29Pg==
+"@tarojs/shared@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.15.tgz#b482f561b8727038f2f7401d024d17dc3342cb9d"
+  integrity sha512-uDsB9kiBb2hSenve9h5V6vYux0m98oRhsVeBFCs1dV8mhz6YaHv8OW2u0rrgQ0e7y8E/uhK+n+Z1N7QxFvflwQ==
 
-"@tarojs/taro-h5@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.20.tgz#8b993cf77767b518c5a30cc0c4ce9101e3d11692"
-  integrity sha512-UqM7Dxr+PUYaiUOKulpxwj6nZsZTeM4t7/l6c3N0fDP8S+7wtKSfPVTtJtbdo7kRllKL5gwtaD/Ux1yXTVuRGg==
+"@tarojs/taro-h5@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.15.tgz#588166090f54e5e5622c017cbc7e85ac7c847b9d"
+  integrity sha512-zWN7O2bFsf9vrWtOi4cjYWVjq5FOWkvviriFjrt2uwUhUxeew/dcrr3BvuwAbIunR4iKCGY+/AlK7ExV7mIFDw==
   dependencies:
-    "@tarojs/api" "3.3.20"
-    "@tarojs/router" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/api" "3.3.15"
+    "@tarojs/router" "3.3.15"
+    "@tarojs/runtime" "3.3.15"
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
     mobile-detect "^1.4.2"
     raf "^3.4.1"
     whatwg-fetch "^3.4.0"
 
-"@tarojs/taro-loader@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-loader/-/taro-loader-3.3.20.tgz#cf2c18baaeb6a1d85fb9743e51c5360e046467ef"
-  integrity sha512-k5eXxDmbLS92bcRo7pwxUapB7nZkfdMilYxmiWnrIcEylhEF5gx/H3UtfASS9eZJQofP+h5ROeL68/vxoB561w==
+"@tarojs/taro-loader@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-loader/-/taro-loader-3.3.15.tgz#c2aa69210fcbfb53fd6662c50738dd45131183bc"
+  integrity sha512-0yoo7fVZ30tvsJXeTswSoTPayH8w63tClF7sEWUa7XhI7Ld/Sz9FHnMoZCecTHwMCRqaoFZk26CngqNnIbxTfg==
   dependencies:
-    "@tarojs/helper" "3.3.20"
+    "@tarojs/helper" "3.3.15"
     acorn "^8.0.4"
     acorn-walk "^8.0.0"
     loader-utils "^1.2.3"
 
-"@tarojs/taro@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.20.tgz#ba71400186940fcb179c2ad8662f5e5c729f11ce"
-  integrity sha512-UqbEl5vajLfercrRMLz3oW4I9FTqqw204OSzrTurXWqQ0FEE3iITOBcdBwz4MnvDlVh2n2r1L0RmwyJL2KIdBw==
+"@tarojs/taro@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.15.tgz#ed26e819e03edd246bb79a7fd262fdedeedcf3e3"
+  integrity sha512-G5sPC+pqrr2uOWDShf9c3s6xuP55TJrHMDTQqmvT27r/XWSGMHLW+d05uBt8URFPSEy8ITdHBkqVPNyl/H2s0w==
   dependencies:
-    "@tarojs/api" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro-h5" "3.3.20"
+    "@tarojs/api" "3.3.15"
+    "@tarojs/runtime" "3.3.15"
+    "@tarojs/taro-h5" "3.3.15"
 
-"@tarojs/taroize@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaroize/-/taroize-3.3.20.tgz#0e4405e1d66be39bc9daf4dd9436c8fdb37324ce"
-  integrity sha512-6v0H3HROOYiSFIkE0E31S82YC1pKTNp2BUjAGu+m9GP9v6/X84iRiX+59Ckn3mCDLUoWQLJ4YpxRdwMIqY/LjA==
+"@tarojs/taroize@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaroize/-/taroize-3.3.15.tgz#552802680be507cb77ebff863d6af08344b0bf0e"
+  integrity sha512-rMhwTb92HIz38VM2sH0ouNWPyszpfFYa5uDKDIEEg+0/K6kyRZEiBbf/qrNACx5otrSKJ6W1xXz4FTMZuTtyhA==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     babel-core "^6.26.3"
@@ -1905,18 +1903,18 @@
     prettier "^1.14.2"
     typescript "^3.2.2"
 
-"@tarojs/webpack-runner@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fwebpack-runner/-/webpack-runner-3.3.20.tgz#1ad638a351ad6a0acd198166fc4c7e86326f4198"
-  integrity sha512-WUaZDe7bAIPKumAZAsaOaMQs7B/N62j2H4JgvYyz6LwNcFcmIWgRIZRizF2jObWXZs3yTIqGHWoAUQIR6YiJ6g==
+"@tarojs/webpack-runner@3.3.15":
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/@tarojs%2fwebpack-runner/-/webpack-runner-3.3.15.tgz#413ad50b9af1c2e99719f4165d84075984d40274"
+  integrity sha512-a9IjegEr5OvoLhjB8dqlsnQocNp31soag0AhfBgQNJBJQ0d/OBk29jTMme69PsEo7y9EwgV2moHgDNvmlK1PrA==
   dependencies:
     "@babel/core" "^7.11.1"
     "@pmmmwh/react-refresh-webpack-plugin" "0.4.3"
-    "@tarojs/helper" "3.3.20"
-    "@tarojs/runner-utils" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/shared" "3.3.20"
-    "@tarojs/taro-loader" "3.3.20"
+    "@tarojs/helper" "3.3.15"
+    "@tarojs/runner-utils" "3.3.15"
+    "@tarojs/runtime" "3.3.15"
+    "@tarojs/shared" "3.3.15"
+    "@tarojs/taro-loader" "3.3.15"
     autoprefixer "9.7.4"
     babel-loader "8.2.1"
     copy-webpack-plugin "5.1.1"
@@ -1935,8 +1933,8 @@
     ora "4.0.3"
     postcss "8.3.5"
     postcss-loader "4.3.0"
-    postcss-plugin-constparse "3.3.20"
-    postcss-pxtransform "3.3.20"
+    postcss-plugin-constparse "3.3.15"
+    postcss-pxtransform "3.3.15"
     react-refresh "0.9.0"
     resolve "1.15.1"
     resolve-url-loader "3.1.3"
@@ -3131,10 +3129,10 @@ babel-plugin-transform-taroapi@1.3.15:
   resolved "https://npm.ejiexi.com/babel-plugin-transform-taroapi/-/babel-plugin-transform-taroapi-1.3.15.tgz#413de3cc47389387bbd36be292d8945d36caf52e"
   integrity sha512-H+l2A1Y5NW41xlCWlBBSj4RCosNI/vCyPfdfJs/PwbrfsTBogq62Vy7HEg3bSCCDOSpvuDLbUvuopm6FK53gbg==
 
-babel-plugin-transform-taroapi@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/babel-plugin-transform-taroapi/-/babel-plugin-transform-taroapi-3.3.20.tgz#a907b21cd3e371f4e939171b887ec0ee7b0d8d3a"
-  integrity sha512-milriCMV5UF4Nuo8zpJO7Pf9ZERkFP1mkqn0/2uCIqIr7qGiDlygeDviUOrSq1KPZ3SUEclFWbyNB9MWtqN5lg==
+babel-plugin-transform-taroapi@3.3.18:
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/babel-plugin-transform-taroapi/-/babel-plugin-transform-taroapi-3.3.18.tgz#7f4090d91ffb564892659ada50ea5a28284193f1"
+  integrity sha512-/urY0z5WwVuW+q3PF4QPYatbU7OgWlMkUV+nNNeKCR+77+i9+Ctj5XGg7GKECL8XwjlWmb7LS06K7tY/3Nm3wQ==
 
 babel-register@^6.26.0, babel-register@^6.9.0:
   version "6.26.0"
@@ -5389,10 +5387,10 @@ escodegen@^1.11.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-taro@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/eslint-config-taro/-/eslint-config-taro-3.3.20.tgz#de660adabd92f078da74daa59ccab442a6f87b79"
-  integrity sha512-wlkVZ0KajiWFGUkREkIrGvJJAvORN82Fn8YUFZb6anitaWFsVJ77fWMeZ23XNdRgZ7pCtDUDokHHktxzFG7OoQ==
+eslint-config-taro@3.3.15:
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/eslint-config-taro/-/eslint-config-taro-3.3.15.tgz#1594fbabb0a2d7146a2874947c99cc661dc1708a"
+  integrity sha512-ylxivwkjbY1uYuEjI51hCA4IoB4j/MsbX0c0HfrMqI6Tf4tlXh0OaLZeNb8R+09cf8xxjdNGaOPIBg9/YtfMcQ==
   dependencies:
     "@typescript-eslint/parser" "^4.15.1"
     babel-eslint "^10.0.0"
@@ -5467,10 +5465,10 @@ eslint-plugin-react@^7.4.0:
     semver "^6.3.0"
     string.prototype.matchall "^4.0.6"
 
-eslint-plugin-taro@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/eslint-plugin-taro/-/eslint-plugin-taro-3.3.20.tgz#6163b72b18409d0299b41c163cb3eccce6b38e78"
-  integrity sha512-Pse/peAk2s+6DTrD9VnkE4IcHQZ4JWgIKI3tcYbt7pPbAtNWSQJd0+IKAwqvxmNoGepsr5o5JeYOIXVsdZzMPg==
+eslint-plugin-taro@3.3.15:
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/eslint-plugin-taro/-/eslint-plugin-taro-3.3.15.tgz#577746c5108742e30a1cc709e80148bcd6e762a2"
+  integrity sha512-jqUE5zbA1X9QrIkn0Lqk8odh2BVp2/Lw3K+0tV8zokkQEDc6a/iSjVxtwUkWjWexT6hUbZyRzbB3LH2hakf4aA==
   dependencies:
     has "^1.0.1"
 
@@ -9921,10 +9919,10 @@ posix-character-classes@^0.1.0:
   resolved "https://npm.ejiexi.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
-postcss-html-transform@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/postcss-html-transform/-/postcss-html-transform-3.3.20.tgz#d4bc3dc5684bcd2c465dde9d189cd2ae536a6b85"
-  integrity sha512-Ym+cbJLn0JrYsP/cKcrfOMmITK3rFhRy7AU1+s942yTAxPEIvQJVYadg/y9bc3VUH934dsIUZQI/z8EsHBbn6w==
+postcss-html-transform@3.3.15:
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/postcss-html-transform/-/postcss-html-transform-3.3.15.tgz#c21208595c45bab285b1f7732463f011641863a1"
+  integrity sha512-vbMV7QWH4V2bCYltD5MQPi3uj9aRS5DYrt5MaX8qRB08UaAmzTMNJUljioZW3anl2ArcLuYwjt6PRTE/49kk5A==
   dependencies:
     postcss "^6.0.22"
 
@@ -10041,10 +10039,10 @@ postcss-modules-values@^3.0.0:
     icss-utils "^4.0.0"
     postcss "^7.0.6"
 
-postcss-plugin-constparse@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/postcss-plugin-constparse/-/postcss-plugin-constparse-3.3.20.tgz#81d06e7f51a6072e550777b73290a6a253145c00"
-  integrity sha512-CPc30K8iwJzww2dggvJrdTU745lt9cCAYOfBEwWYPc7WSnIC2eJdCByXC8+yGSH1fBujOmwDVNOJhtP1/zkcAQ==
+postcss-plugin-constparse@3.3.15:
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/postcss-plugin-constparse/-/postcss-plugin-constparse-3.3.15.tgz#05f4d6c2e27f62a55547069e547fb21691ec8a6a"
+  integrity sha512-C+PZtIZIZ13FZJax3Mw6IibW49vBh0q551e6mJeSVkr7/aO32KLydU3HloEmcrobEkITSjApJaJr+AbVbv5qog==
   dependencies:
     postcss "^6.0.22"
 
@@ -10056,10 +10054,10 @@ postcss-pxtorem@^4.0.1:
     object-assign "^4.1.0"
     postcss "^5.2.10"
 
-postcss-pxtransform@3.3.20:
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/postcss-pxtransform/-/postcss-pxtransform-3.3.20.tgz#9e8862480c28e0ce56e7bfea96ed64bf92b5576d"
-  integrity sha512-kukxYB9d5M8DH4CGss1diLGPJXEd9nDhi+Rzy9h/tdvcFejKvmvXM0VNlbJ9fxdOyQVE+K3dWWTNV6VIdKy4sw==
+postcss-pxtransform@3.3.15:
+  version "3.3.15"
+  resolved "https://npm.ejiexi.com/postcss-pxtransform/-/postcss-pxtransform-3.3.15.tgz#537038c3f494466f8e3309efe5e529a9278365fb"
+  integrity sha512-BaCDY2YckpZLI2vYeUOyCoS7CwNgcF4x4W9yvJBG0UPv387E4Vk8BeQaBijJVB2ttZ7sn6SoKaoKXahenbJhpQ==
   dependencies:
     postcss "^6.0.16"
     postcss-pxtorem "^4.0.1"
