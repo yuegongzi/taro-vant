@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export type eventDetail = {
@@ -32,8 +32,7 @@ export interface TabsProps extends Omit<StandardProps, 'onClick'> {
   tabClass?: string
   tabActiveClass?: string
 }
-declare const Tabs: ComponentClass<TabsProps>
-export { Tabs }
+
 export interface TabProps extends StandardProps {
   dot?: boolean
   badge?: string | number
@@ -44,5 +43,3 @@ export interface TabProps extends StandardProps {
   name?: string | number
   children: ReactNode
 }
-declare const Tab: ComponentClass<TabProps>
-export { Tab }

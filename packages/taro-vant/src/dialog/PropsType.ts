@@ -1,7 +1,7 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type {
-  StandardProps,
   ButtonProps as TaroButtonProps,
+  StandardProps,
 } from '@tarojs/components'
 import type { ButtonProps } from '../button'
 import type { PopupProps } from '../popup'
@@ -52,6 +52,5 @@ interface dialog {
   stopLoading: () => void
 }
 // & DialogCom
-declare const Dialog: ComponentClass<DialogProps> & dialog
-export { Dialog }
+
 export type { dialog }

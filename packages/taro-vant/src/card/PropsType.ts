@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 import type { ImageProps } from '@tarojs/components/types/Image.d'
 
@@ -20,5 +20,3 @@ export interface CardProps extends StandardProps {
   priceTop?: ReactNode
   tags?: ReactNode
 }
-declare const Card: ComponentClass<CardProps>
-export { Card }

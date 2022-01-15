@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 type SwipeCellClick = {
@@ -37,5 +36,3 @@ export type ISwiperCellInstance = {
   open: (position: 'left' | 'right') => void
   close: () => void
 }
-declare const SwipeCell: ComponentClass<SwipeCellProps>
-export { SwipeCell }

@@ -1,4 +1,4 @@
-import type { ComponentClass, TouchEvent } from 'react'
+import type { TouchEvent } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface TreeSelectProps extends StandardProps {
@@ -32,5 +32,3 @@ export interface TreeSelectProps extends StandardProps {
   contentActiveClass?: string
   contentDisabledClass?: string
 }
-declare const TreeSelect: ComponentClass<TreeSelectProps>
-export { TreeSelect }

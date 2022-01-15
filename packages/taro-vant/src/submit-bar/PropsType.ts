@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface SubmitBarProps extends StandardProps {
@@ -18,5 +18,3 @@ export interface SubmitBarProps extends StandardProps {
   top?: ReactNode
   onSubmit?: (event: ITouchEvent) => void
 }
-declare const SubmitBar: ComponentClass<SubmitBarProps>
-export { SubmitBar }

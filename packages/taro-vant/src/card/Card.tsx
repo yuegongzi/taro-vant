@@ -58,10 +58,10 @@ function Card(props: CardProps) {
             }
           }}
         >
-          {/*@ts-ignore*/}
           {ele(
             thumb,
             <Image
+              // @ts-ignore
               src={thumb}
               mode={thumbMode}
               lazyLoad={lazyLoad}

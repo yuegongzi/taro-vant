@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface RateProps extends StandardProps {
@@ -18,5 +17,3 @@ export interface RateProps extends StandardProps {
   touchable?: boolean
   onChange?: (e: ITouchEvent) => any
 }
-declare const Rate: ComponentClass<RateProps>
-export { Rate }

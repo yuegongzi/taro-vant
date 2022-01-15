@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface GridProps extends StandardProps {
@@ -13,8 +12,7 @@ export interface GridProps extends StandardProps {
   reverse?: boolean
   children?: React.ReactNode
 }
-declare const Grid: ComponentClass<GridProps>
-export { Grid }
+
 export interface GridItemProps extends StandardProps {
   icon?: string
   iconColor?: string
@@ -26,5 +24,3 @@ export interface GridItemProps extends StandardProps {
   linkType?: 'navigateTo' | 'reLaunch' | 'redirectTo'
   children?: React.ReactNode
 }
-declare const GridItem: ComponentClass<GridItemProps>
-export { GridItem }

@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface ProgressProps extends StandardProps {
@@ -12,5 +11,3 @@ export interface ProgressProps extends StandardProps {
   textColor?: string
   strokeWidth?: number | string
 }
-declare const Progress: ComponentClass<ProgressProps>
-export { Progress }

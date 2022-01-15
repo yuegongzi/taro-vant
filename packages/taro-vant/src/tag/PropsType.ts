@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface TagProps extends StandardProps {
@@ -13,5 +13,3 @@ export interface TagProps extends StandardProps {
   children?: ReactNode
   onClose?: (e: any) => void
 }
-declare const Tag: ComponentClass<TagProps>
-export { Tag }

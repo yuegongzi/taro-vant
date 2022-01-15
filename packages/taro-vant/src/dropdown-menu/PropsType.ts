@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface DropdownMenuProps extends StandardProps {
@@ -33,6 +33,3 @@ export type DropdownMenuOption = {
 export type IDropdownItemInstance = {
   toggle: (visible?: boolean, options?: { immediate: boolean }) => void
 }
-declare const DropdownItem: ComponentClass<DropdownItemProps>
-declare const DropdownMenu: ComponentClass<DropdownMenuProps>
-export { DropdownMenu, DropdownItem }

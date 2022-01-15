@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 interface onChangeEvent {
@@ -11,8 +10,7 @@ export interface SidebarProps extends StandardProps {
   activeKey: number
   children: React.ReactNode
 }
-declare const Sidebar: ComponentClass<SidebarProps>
-export { Sidebar }
+
 export interface SidebarItemProps extends StandardProps {
   dot?: boolean
   badge?: string
@@ -23,5 +21,3 @@ export interface SidebarItemProps extends StandardProps {
   activeClass?: string
   disabledClass?: string
 }
-declare const SidebarItem: ComponentClass<SidebarItemProps>
-export { SidebarItem }

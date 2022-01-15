@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { isObj } from '../utils'
-import type { TransitionProps } from './PropsType'
+import type { TransitionProps } from '../transition/PropsType'
 
 const getClassNames = (name: string) => ({
   enter: `van-${name}-enter van-${name}-enter-active enter-class enter-active-class`,

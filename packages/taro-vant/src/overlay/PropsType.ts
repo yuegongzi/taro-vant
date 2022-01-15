@@ -1,5 +1,5 @@
 import type { StandardProps } from '@tarojs/components'
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 export interface OverlayProps extends StandardProps {
   visible?: boolean
@@ -11,5 +11,3 @@ export interface OverlayProps extends StandardProps {
     | { enter: string | number; leave: string | number }
   children?: ReactNode
 }
-declare const Overlay: ComponentClass<OverlayProps>
-export { Overlay }

@@ -1,4 +1,4 @@
-import type { ComponentClass, CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface BadgeProps extends StandardProps {
@@ -12,5 +12,3 @@ export interface BadgeProps extends StandardProps {
   children?: ReactNode
   className?: string
 }
-declare const Badge: ComponentClass<BadgeProps>
-export { Badge }

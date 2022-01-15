@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface CellProps extends StandardProps {
@@ -30,7 +30,3 @@ export interface CellGroupProps extends StandardProps {
   inset?: boolean
   children?: ReactNode
 }
-declare const CellGroup: ComponentClass<CellGroupProps>
-export { CellGroup }
-declare const Cell: ComponentClass<CellProps>
-export { Cell }

@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type {
   ButtonProps,
   ITouchEvent,
@@ -24,6 +24,7 @@ export interface ActionSheetProps extends StandardProps, PopupProps {
   onClose?: () => void
   onClickOverlay?: () => void
 }
+
 export interface ActionSheetItem extends Omit<ButtonProps, 'children'> {
   name?: string
   subname?: string
@@ -31,5 +32,3 @@ export interface ActionSheetItem extends Omit<ButtonProps, 'children'> {
   loading?: boolean
   disabled?: boolean
 }
-declare const ActionSheet: ComponentClass<ActionSheetProps>
-export { ActionSheet }

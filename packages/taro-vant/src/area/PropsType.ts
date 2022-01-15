@@ -10,6 +10,7 @@ export interface AreaProps
   columnsPlaceholder?: string[]
   onChange: (event: Event) => void
 }
+
 export type AreaList = {
   province_list: Record<number | string, string>
   city_list: Record<number | string, string>
@@ -22,5 +23,3 @@ export type Event = {
     index: number
   }
 }
-declare const Area: ComponentClass<AreaProps>
-export { Area }

@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface IconProps extends StandardProps {
@@ -11,5 +10,3 @@ export interface IconProps extends StandardProps {
   name?: string
   spin?: boolean
 }
-declare const Icon: ComponentClass<IconProps>
-export { Icon }

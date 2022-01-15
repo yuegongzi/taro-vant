@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface StickyProps extends StandardProps {
@@ -12,5 +12,3 @@ export interface StickyProps extends StandardProps {
     detail: { scrollTop?: number; isFixed?: boolean }
   }) => any
 }
-declare const Sticky: ComponentClass<StickyProps>
-export { Sticky }

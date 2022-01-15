@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { CommonEventFunction, StandardProps } from '@tarojs/components'
 import type { InputProps } from '@tarojs/components/types/Input'
 
@@ -30,5 +29,3 @@ export interface StepperProps extends StandardProps {
   onMinus?: () => void
 }
 // Partial
-declare const Stepper: ComponentClass<StepperProps>
-export { Stepper }

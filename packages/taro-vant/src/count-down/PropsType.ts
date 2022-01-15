@@ -1,4 +1,4 @@
-import type { ForwardRefRenderFunction, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface ICountDownRef {
@@ -23,5 +23,3 @@ export interface CountDownProps extends StandardProps {
   onFinish?: () => void
   ref?: React.MutableRefObject<ICountDownRef | undefined>
 }
-declare const CountDown: ForwardRefRenderFunction<ICountDownRef, CountDownProps>
-export { CountDown }

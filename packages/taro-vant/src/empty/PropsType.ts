@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface EmptyProps extends StandardProps {
@@ -6,5 +6,3 @@ export interface EmptyProps extends StandardProps {
   image?: 'error' | 'search' | 'default' | 'network' | string
   children?: ReactNode
 }
-declare const Empty: ComponentClass<EmptyProps>
-export { Empty }

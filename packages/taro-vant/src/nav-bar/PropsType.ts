@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface NavBarProps extends StandardProps {
@@ -15,7 +15,6 @@ export interface NavBarProps extends StandardProps {
   onClickLeft?: (e: ITouchEvent) => void
   onClickRight?: (e: ITouchEvent) => void
 }
-declare const NavBar: ComponentClass<NavBarProps>
 export interface MiniNavBarProps extends StandardProps {
   homeUrl: string
   buttonColor?: 'white' | 'black'
@@ -26,5 +25,3 @@ export interface MiniNavBarProps extends StandardProps {
   border?: boolean
   zIndex?: number
 }
-declare const MiniNavBar: ComponentClass<MiniNavBarProps>
-export { NavBar, MiniNavBar }

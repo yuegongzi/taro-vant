@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface NoticeBarProps extends StandardProps {
@@ -18,5 +18,3 @@ export interface NoticeBarProps extends StandardProps {
   onClick?: (event: ITouchEvent) => any
   onClose?: (event: ITouchEvent) => any
 }
-declare const NoticeBar: ComponentClass<NoticeBarProps>
-export { NoticeBar }

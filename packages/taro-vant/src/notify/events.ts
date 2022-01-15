@@ -1,4 +1,5 @@
 // import { Events } from '@tarojs/taro'
+//TODO 3.3.18以后已经修复 等待修复h5问题后回滚
 import Events = TaroGeneral.Events
 
 type EventNames = 'notify_clear' | 'notify_show'

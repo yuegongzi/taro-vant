@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface SearchProps extends StandardProps {
@@ -30,5 +30,3 @@ export interface SearchProps extends StandardProps {
   onCancel?: () => void
   onClickInput?: () => void
 }
-declare const Search: ComponentClass<SearchProps>
-export { Search }

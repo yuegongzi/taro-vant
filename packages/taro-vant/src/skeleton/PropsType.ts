@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface SkeletonProps extends StandardProps {
@@ -13,5 +13,3 @@ export interface SkeletonProps extends StandardProps {
   rowWidth?: string | string[]
   children?: ReactNode
 }
-declare const Skeleton: ComponentClass<SkeletonProps>
-export { Skeleton }

@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 type CalendarSelectType = 'selected' | 'start' | 'middle' | 'end' | 'disabled'
@@ -64,5 +64,3 @@ export type ICalendarInstance = {
   reset: (date?: Date | Date[]) => void
   // scrollToDate: (date: Date) => void
 }
-declare const Calendar: ComponentClass<CalendarProps>
-export { Calendar }

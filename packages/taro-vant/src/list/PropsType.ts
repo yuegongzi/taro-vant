@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 import type { ScrollViewProps } from '@tarojs/components/types/ScrollView'
 
@@ -37,5 +36,3 @@ export interface ListProps
   onLoad?: () => Promise<void>
   onRefresh?: () => Promise<void>
 }
-declare const List: ComponentClass<ListProps>
-export { List }

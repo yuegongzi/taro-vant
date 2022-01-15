@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface IndexBarProps extends StandardProps {
@@ -10,11 +10,8 @@ export interface IndexBarProps extends StandardProps {
   onSelect?: (event: { detail: string | number }) => void
   children?: ReactNode
 }
-declare const IndexBar: ComponentClass<IndexBarProps>
-export { IndexBar }
+
 export interface IndexAnchorProps extends StandardProps {
   index: string | number
   children?: ReactNode
 }
-declare const IndexAnchor: ComponentClass<IndexAnchorProps>
-export { IndexAnchor }

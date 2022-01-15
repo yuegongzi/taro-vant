@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 import type { PickerProps } from '../picker'
 
@@ -43,5 +42,3 @@ export type DatetimePickerEventsByInstance = {
 type DefinedExculdeNoMatch<TObject, T> = {
   [K in keyof TObject]: K extends T ? unknown : TObject[K]
 }
-declare const DatetimePicker: ComponentClass<DatetimePickerProps>
-export { DatetimePicker }

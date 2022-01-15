@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface ColProps extends StandardProps {
@@ -7,5 +6,3 @@ export interface ColProps extends StandardProps {
   gutter?: number | string
   children: React.ReactNode
 }
-declare const Col: ComponentClass<ColProps>
-export { Col }

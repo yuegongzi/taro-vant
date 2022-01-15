@@ -1,5 +1,5 @@
 import { View } from '@tarojs/components'
-import type { TransitionPropsCom } from './PropsType'
+import type { TransitionProps } from './PropsType'
 import { rootStyle } from './wxs'
 import { useTransition } from '../hooks'
 import { computedStyle, createNamespace } from '../utils'
@@ -7,7 +7,7 @@ import clsx from 'clsx'
 
 const [ bem ] = createNamespace('transition')
 
-function Transition(props: TransitionPropsCom) {
+function Transition(props: TransitionProps) {
   const {
     onBeforeEnter,
     onBeforeLeave,

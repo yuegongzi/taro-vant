@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface SwitchProps extends StandardProps {
@@ -12,5 +11,3 @@ export interface SwitchProps extends StandardProps {
   inactiveValue?: any
   onChange?: (event: ITouchEvent) => any
 }
-declare const Switch: ComponentClass<SwitchProps>
-export { Switch }

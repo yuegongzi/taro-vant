@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { ITouchEvent, StandardProps } from '@tarojs/components'
 
 export interface PickerProps extends StandardProps {
@@ -41,8 +40,7 @@ export type IPickerInstance = {
   getValues: () => number | string
   confirm: () => void
 }
-declare const Picker: ComponentClass<PickerProps>
-export { Picker }
+
 export interface PickerColumnProps extends StandardProps {
   valueKey?: string
   className?: string
@@ -54,5 +52,3 @@ export interface PickerColumnProps extends StandardProps {
   activeClass?: string
   refBase?: any
 }
-declare const PickerColumn: ComponentClass<PickerColumnProps>
-export { PickerColumn }

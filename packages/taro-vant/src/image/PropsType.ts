@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 type ImageFit = 'contain' | 'cover' | 'fill' | 'widthFix' | 'heightFix' | 'none'
@@ -16,5 +16,3 @@ export interface ImageProps extends StandardProps {
   loadingIcon?: ReactNode | string
   errorIcon?: ReactNode | string
 }
-declare const Image: ComponentClass<ImageProps>
-export { Image }

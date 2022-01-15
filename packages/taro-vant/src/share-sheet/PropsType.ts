@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface ShareSheetOptionItem {
@@ -29,5 +29,3 @@ export interface ShareSheetProps extends StandardProps {
   description?: string | ReactNode
   options?: ShareSheetOptionItem[] | ShareSheetOptionItem[][]
 }
-declare const ShareSheet: ComponentClass<ShareSheetProps>
-export { ShareSheet }

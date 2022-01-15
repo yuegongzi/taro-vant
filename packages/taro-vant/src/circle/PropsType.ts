@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface CircleProps extends StandardProps {
@@ -15,5 +15,3 @@ export interface CircleProps extends StandardProps {
   clockwise?: boolean
   children?: ReactNode
 }
-declare const Circle: ComponentClass<CircleProps>
-export { Circle }

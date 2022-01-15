@@ -1,4 +1,3 @@
-import type { ComponentClass } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface LoadingProps extends StandardProps {
@@ -9,5 +8,3 @@ export interface LoadingProps extends StandardProps {
   textSize?: string | number
   children?: React.ReactNode
 }
-declare const Loading: ComponentClass<LoadingProps>
-export { Loading }

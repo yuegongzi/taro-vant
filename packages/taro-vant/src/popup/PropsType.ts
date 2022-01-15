@@ -1,6 +1,6 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
-import type { TransitionProps } from '../hooks/PropsType'
+import type { TransitionProps } from '../transition'
 import type { OverlayProps } from '../overlay'
 
 export interface PopupProps
@@ -23,5 +23,3 @@ export interface PopupProps
   onClickOverlay?: () => void
   onClose?: () => void
 }
-declare const Popup: ComponentClass<PopupProps>
-export { Popup }

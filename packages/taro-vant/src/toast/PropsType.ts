@@ -1,6 +1,5 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { StandardProps } from '@tarojs/components'
-import toast from './toast-func'
 
 export interface ToastProps extends StandardProps {
   zIndex?: number
@@ -16,14 +15,3 @@ export interface ToastProps extends StandardProps {
   children?: ReactNode
   onClose?: () => any
 }
-interface toastProps {
-  show: (options: ToastProps | string) => any
-  loading: (options: ToastProps | string) => any
-  success: (options: ToastProps | string) => any
-  fail: (options: ToastProps | string) => any
-  clear: (options?: ToastProps) => void
-  setDefaultOptions: (options: ToastProps) => void
-  resetDefaultOptions: (options: any) => void
-}
-declare const Toast: ComponentClass<ToastProps> & toastProps
-export { Toast, toast }

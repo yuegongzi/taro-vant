@@ -1,4 +1,4 @@
-import type { ComponentClass, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { ButtonProps as TaroButtonProps } from '@tarojs/components'
 
 export interface ButtonProps extends Omit<TaroButtonProps, 'size' | 'type'> {
@@ -21,5 +21,3 @@ export interface ButtonProps extends Omit<TaroButtonProps, 'size' | 'type'> {
 }
 export type ButtonType = 'default' | 'primary' | 'info' | 'warning' | 'danger'
 export type ButtonSize = 'small' | 'normal' | 'large' | 'mini'
-declare const Button: ComponentClass<ButtonProps>
-export { Button }
