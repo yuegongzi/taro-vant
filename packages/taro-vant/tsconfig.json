@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "types": [
       "node"
     ],
@@ -16,7 +16,9 @@
     "baseUrl": "./",
     "outDir": "es",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "declarationDir": ".",
+    "emitDeclarationOnly": true
   },
   "include": [
     "es/**/*",

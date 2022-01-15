@@ -1,3 +1,2 @@
-#!/usr/bin/env node
-/* eslint-disable import/no-unresolved */
+#!/usr/bin/env node --max-old-space-size=10240
 import './lib/cli.js'

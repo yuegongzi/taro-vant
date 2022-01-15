@@ -22,13 +22,13 @@
   resolved "https://npm.ejiexi.com/@stencil%2fcore/-/core-2.9.0.tgz#cbac84b996475b8fc983931539ed1261174e2df3"
   integrity sha512-kY3xYolZoJO1MKslL0NQccHy72R3TIl1prHgfmIrEoGcnMgc6uiskdWaGMuI5/sCGz9T+QuTVz76B1H2ySyBZg==
 
-"@tarojs/api@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.15.tgz#121ec3ca2cae7d57ef3b901dd3d8778005a20c45"
-  integrity sha512-WZDgzsW01N6ijURIRJRM4GzJuJnGB9N8N1DWU1P/SdF7NzBlpTy29tL7c3W4MIGu40weMKdgDYD5So28aaz3NQ==
+"@tarojs/api@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.18.tgz#78f7db4481448f702d56df446998d2c9eb9deb25"
+  integrity sha512-QSRcuXrycZkR12j5t4QYP26pzbbX2KJkNkmRv8mAYGyLn/RsHZp9eQveircu8WcNMs/p8DyVrf/VV37bcEBYTA==
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "@tarojs/runtime" "3.3.15"
+    "@tarojs/runtime" "3.3.18"
 
 "@tarojs/api@3.3.20":
   version "3.3.20"
@@ -53,12 +53,12 @@
     swiper "6.8.0"
     weui "^1.1.2"
 
-"@tarojs/router@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.15.tgz#0c8d9f345cfcd48b5396b7c65a510f07ced23272"
-  integrity sha512-HMYu1ZAZjuUG5kaGg6DK/HeqtuaZKbuB1Z/Pvhq1Myo031HlZxx0Gtxr+F3UL8Iq7V/YdGqFevqVQ+rwyFKknA==
+"@tarojs/router@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.18.tgz#210607fdb438fcdf26a470fb56aa7d7608cf23bb"
+  integrity sha512-eVBawv754vLlcmKV9L1VZ3m0gyNi0WSD6n4fnSKc7lE22Z8WVY9HxFynzQqF+7rsYSaBIBqxXaS0qWVqzb4nRA==
   dependencies:
-    "@tarojs/runtime" "3.3.15"
+    "@tarojs/runtime" "3.3.18"
     history "^5.1.0"
     query-string "^6.13.8"
     universal-router "^8.3.0"
@@ -76,12 +76,12 @@
     universal-router "^8.3.0"
     url-parse "^1.4.7"
 
-"@tarojs/runtime@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.15.tgz#f971fe8721142ad6830cee3d1c947f52927296f0"
-  integrity sha512-qeZAWoxqUvxzr0HhuhhiRVy4iqPEKnYv1Qm6uddvBDSNUelbomKiYT6N56cFml8J5R0ltO5M1bU/GfzDYIBl0g==
+"@tarojs/runtime@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.18.tgz#24f175ddc071e40a04b792d50518337e42c83136"
+  integrity sha512-J5HQSsCBOJL3MOr4oSsp9tgLrlwIl7BsSPf9l/KM6ClA74m85eNKC4MgGL2EFmH8W8yMC1y+YEPO+lZ8jIAYnQ==
   dependencies:
-    "@tarojs/shared" "3.3.15"
+    "@tarojs/shared" "3.3.18"
     inversify "5.1.1"
     lodash-es "4.17.15"
     reflect-metadata "^0.1.13"
@@ -96,24 +96,25 @@
     lodash-es "4.17.15"
     reflect-metadata "^0.1.13"
 
-"@tarojs/shared@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.15.tgz#b482f561b8727038f2f7401d024d17dc3342cb9d"
-  integrity sha512-uDsB9kiBb2hSenve9h5V6vYux0m98oRhsVeBFCs1dV8mhz6YaHv8OW2u0rrgQ0e7y8E/uhK+n+Z1N7QxFvflwQ==
+"@tarojs/shared@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.18.tgz#8dc6c034bd03292074a4383d7865f7f1e8da319f"
+  integrity sha512-OxDQWpE9+6Lh6bk2WcZZWrIaS79F9QC9Qv5+cRTI3u5zDA88+XhvtGaJGqx4adcPiByLMAsrjftqyEMvg2dnnw==
 
 "@tarojs/shared@3.3.20":
   version "3.3.20"
   resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.20.tgz#7bcb99c9aeb9ef5fd3aab15bd6eed552ad171fec"
   integrity sha512-uIfbE7F7Hr9CKesC8VL7lxIalQHF+GVhI+GjkaWvfZUaZAGXGQahT1f0B3CjtxZIbkPu7E/raARx+tSVrM29Pg==
 
-"@tarojs/taro-h5@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.15.tgz#588166090f54e5e5622c017cbc7e85ac7c847b9d"
-  integrity sha512-zWN7O2bFsf9vrWtOi4cjYWVjq5FOWkvviriFjrt2uwUhUxeew/dcrr3BvuwAbIunR4iKCGY+/AlK7ExV7mIFDw==
+"@tarojs/taro-h5@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.18.tgz#4f0904140851d932d2d780680194d8804b87b2a7"
+  integrity sha512-QPgIhY/3m3cJchUFi2HhMrl/my7DfurIWahzm6VKeb+aMkl3ieAuS1YGS7OcTx/lMdLXHI8xu8o6ikxYw0Ohow==
   dependencies:
-    "@tarojs/api" "3.3.15"
-    "@tarojs/router" "3.3.15"
-    "@tarojs/runtime" "3.3.15"
+    "@tarojs/api" "3.3.18"
+    "@tarojs/router" "3.3.18"
+    "@tarojs/runtime" "3.3.18"
+    "@tarojs/taro" "3.3.18"
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
     mobile-detect "^1.4.2"
@@ -135,14 +136,14 @@
     raf "^3.4.1"
     whatwg-fetch "^3.4.0"
 
-"@tarojs/taro@3.3.15":
-  version "3.3.15"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.15.tgz#ed26e819e03edd246bb79a7fd262fdedeedcf3e3"
-  integrity sha512-G5sPC+pqrr2uOWDShf9c3s6xuP55TJrHMDTQqmvT27r/XWSGMHLW+d05uBt8URFPSEy8ITdHBkqVPNyl/H2s0w==
+"@tarojs/taro@3.3.18":
+  version "3.3.18"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.18.tgz#bfcd8c48ef72b080a1003ff881656300e91ddba6"
+  integrity sha512-zzzoeReuK6dqU4BRRcWaMJqDBaFPD96xCj+NMqBhdTbEgQfIjIUo6D6LNMvjBqus9xAR6ZzzJiObX+43BIXy7g==
   dependencies:
-    "@tarojs/api" "3.3.15"
-    "@tarojs/runtime" "3.3.15"
-    "@tarojs/taro-h5" "3.3.15"
+    "@tarojs/api" "3.3.18"
+    "@tarojs/runtime" "3.3.18"
+    "@tarojs/taro-h5" "3.3.18"
 
 "@tarojs/taro@3.3.20":
   version "3.3.20"

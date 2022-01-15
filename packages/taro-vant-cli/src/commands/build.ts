@@ -76,16 +76,9 @@ async function compileDir(dir: string) {
   )
 }
 
-async function copySourceCode(type?: 'lib' | 'es') {
-  let copys: any = []
-  if (type === 'es') {
-    copys = [ copy(SRC_DIR, ES_DIR) ]
-  } else if (type === 'lib') {
-    copys = [ copy(SRC_DIR, LIB_DIR) ]
-  } else {
-    copys = [ copy(SRC_DIR, ES_DIR), copy(SRC_DIR, LIB_DIR) ]
-  }
-  return Promise.all(copys)
+async function copySourceCode() {
+  await copy(SRC_DIR, ES_DIR)
+  await copy(SRC_DIR, LIB_DIR)
 }
 
 async function buildESMOutputs() {
@@ -113,8 +106,7 @@ async function buildStyleEntry() {
   genComponentStyle()
 }
 
-async function buildPackageScriptEntry(types?: 'lib' | 'es') {
-  console.log(`buildPackageScriptEntry ${types}`)
+async function buildPackageScriptEntry() {
   const esEntryFile = join(ES_DIR, 'index.js')
   const libEntryFile = join(LIB_DIR, 'index.js')
   genPackageEntry({
@@ -175,28 +167,19 @@ const tasks = [
   },
 ]
 
-const LIB_INDEX = 6
-const ES_INDEX = 5
-const DIST_INDEX = 7
-
-async function runBuildTasks(type?: 'es' | 'lib') {
-  const _tasks = tasks
-  if (type) _tasks.splice(DIST_INDEX, 1)
-  if (type === 'es') {
-    _tasks.splice(LIB_INDEX, 1)
-  }
-  if (type === 'lib') {
-    _tasks.splice(ES_INDEX, 1)
-  }
-  for (let i = 0; i < _tasks.length; i++) {
+async function runBuildTasks() {
+  for (let i = 0; i < tasks.length; i++) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { task, text } = _tasks[i]
-    const spinner = ora(text).start()
 
+    const { task, text } = tasks[i]
+    // if(i> 5){
+    //   break;
+    // }
+    const spinner = ora(text).start()
     try {
       /* eslint-disable no-await-in-loop */
-      await task(type)
+      await task()
       spinner.succeed(text)
     } catch (err) {
       spinner.fail(text)
@@ -208,15 +191,18 @@ async function runBuildTasks(type?: 'es' | 'lib') {
   consola.success('Compile successfully')
 }
 
-export async function build(params: { type?: 'es' | 'lib' }) {
-  setNodeEnv('production')
-
+export async function build(product = true) {
+  setBuildTarget('package')
+  if (product) {
+    setNodeEnv('production')
+  } else {
+    setNodeEnv('development')
+  }
   try {
     await clean()
     // await installDependencies()
-    await runBuildTasks('es')
+    await runBuildTasks()
   } catch (err) {
-    consola.error('Build failed' + params.type)
     process.exit(1)
   }
 }

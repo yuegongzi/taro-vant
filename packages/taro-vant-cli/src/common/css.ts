@@ -4,9 +4,9 @@ import { get } from 'lodash-es'
 import { getVantConfig } from '../common/index.js'
 import { SRC_DIR, STYLE_DIR } from './constant.js'
 
-type CSS_LANG = 'css' | 'less' | 'scss'
+type CSS_LANG_TYPE = 'css' | 'less' | 'scss'
 
-function getCssLang(): CSS_LANG {
+function getCssLang(): CSS_LANG_TYPE {
   const vantConfig = getVantConfig()
   const preprocessor = get(vantConfig, 'build.css.preprocessor', 'less')
 
@@ -27,7 +27,6 @@ export function getCssBaseFile() {
   if (baseFile) {
     path = isAbsolute(baseFile) ? baseFile : join(SRC_DIR, baseFile)
   }
-
   if (existsSync(path)) {
     return path
   }

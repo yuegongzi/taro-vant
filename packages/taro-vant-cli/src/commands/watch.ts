@@ -2,7 +2,7 @@ import { mkdirSync } from 'fs'
 import { remove } from 'fs-extra'
 import chokidar from 'chokidar'
 import { ES_DIR, LIB_DIR, SRC_DIR } from '../common/constant.js'
-import { isScript, isStyle, setBuildTarget, setModuleEnv, setNodeEnv } from '../common/index.js'
+import { isScript, isStyle } from '../common/index.js'
 import { consola, ora } from '../common/logger.js'
 import { compileStyle } from '../compiler/compile-style.js'
 import { compileScript } from '../compiler/compile-script.js'
@@ -22,15 +22,19 @@ async function compileFile(params: {
   }
 }
 
-async function changeOrAddAction(path: any, type: 'lib' | 'es') {
+async function changeOrAddAction(path: any) {
   const spinner = ora('updating...').start()
   const pathArr = path.split('/').reverse()
   const fileName = pathArr[0]
-  const DIR = path.replace(SRC_DIR, type === 'lib' ? LIB_DIR : ES_DIR)
   try {
     await compileFile({
       fileName,
-      DIR,
+      DIR: path.replace(SRC_DIR, LIB_DIR),
+      path,
+    })
+    await compileFile({
+      fileName,
+      DIR: path.replace(SRC_DIR, ES_DIR),
       path,
     })
     spinner.stop()
@@ -42,78 +46,70 @@ async function changeOrAddAction(path: any, type: 'lib' | 'es') {
   }
 }
 
-function watchFile(type: 'lib' | 'es') {
+function watchFile() {
   let readyOk = false
   const watcher = chokidar.watch(`${SRC_DIR}/`, {
     persistent: true,
   })
 
-  watcher.on('ready', function() {
+  watcher.on('ready', function () {
     readyOk = true
   })
 
-  watcher.on('add', function(path: string) {
+  watcher.on('add', function (path: string) {
     if (readyOk) {
-      changeOrAddAction(path, type)
+      changeOrAddAction(path)
     }
   })
 
-  watcher.on('change', function(path: string) {
+  watcher.on('change', function (path: string) {
     if (readyOk) {
-      changeOrAddAction(path, type)
+      changeOrAddAction(path)
     }
   })
 
-  watcher.on('addDir', function(path: string) {
+  watcher.on('addDir', function (path: string) {
     if (readyOk) {
       const spinner = ora('updating...').start()
-      const addTarget = path.replace(SRC_DIR, type === 'lib' ? LIB_DIR : ES_DIR)
-      mkdirSync(addTarget)
+      // const addTarget = path.replace(SRC_DIR, type === 'lib' ? LIB_DIR : ES_DIR)
+      mkdirSync(path.replace(SRC_DIR, ES_DIR))
+      mkdirSync(path.replace(SRC_DIR, LIB_DIR))
       spinner.stop()
       consola.success('Update successfully')
     }
   })
 
-  watcher.on('unlinkDir', function(path: string) {
+  watcher.on('unlinkDir', function (path: string) {
     if (readyOk) {
       const spinner = ora('updating...').start()
-      const deleteTarget = path.replace(
-        SRC_DIR,
-        type === 'lib' ? LIB_DIR : ES_DIR,
-      )
-      remove(deleteTarget)
+      remove(path.replace(SRC_DIR, ES_DIR))
+      remove(path.replace(SRC_DIR, LIB_DIR))
       spinner.stop()
       consola.success('Update successfully')
     }
   })
 
-  watcher.on('unlink', function(path: string) {
+  watcher.on('unlink', function (path: string) {
     if (readyOk) {
       const spinner = ora('updating...').start()
-      const deleteTarget = path.replace(
-        SRC_DIR,
-        type === 'lib' ? LIB_DIR : ES_DIR,
-      )
-      remove(deleteTarget)
+      remove(path.replace(SRC_DIR, ES_DIR))
+      remove(path.replace(SRC_DIR, LIB_DIR))
       spinner.stop()
       consola.success('Update successfully')
     }
   })
 }
 
-export async function watch(params: { type?: 'es' | 'lib' }) {
-  const type = params.type || 'es'
-  setNodeEnv('development')
-  setBuildTarget('package')
-  if (type === 'es') {
-    setModuleEnv('esmodule')
-  } else if (type === 'lib') {
-    setModuleEnv('commonjs')
-  }
-  await build({ type })
+export async function watch() {
+  // if (type === 'es') {
+  //   setModuleEnv('esmodule')
+  // } else if (type === 'lib') {
+  //   setModuleEnv('commonjs')
+  // }
+  await build(false)
 
   consola.log(`
   watching files update
 `)
-  watchFile(type)
+  watchFile()
 }
