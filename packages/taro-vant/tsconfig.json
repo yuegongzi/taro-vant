@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "sourceMap": true,
+    "pretty": true,
+    "baseUrl": "./",
+    "outDir": "es",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+//    "paths": {
+//      "taro-vant": ["src/index.tsx"],
+//      "taro-vant/es/*": ["src/es/*"]
+//    }
+  },
+  "include": ["es/**/*", "lib/**/*"],
+  "exclude": ["node_modules", "**/test/**/*", "**/__test__/**/*", "**/demo/**/*"]
+}

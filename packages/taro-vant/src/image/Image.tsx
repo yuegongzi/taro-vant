@@ -100,18 +100,18 @@ function Image(props: ImageProps) {
       )}
       {loading && showLoading && (
         <View className={clsx(bem('loading'))}>
-          {/*@ts-ignore*/}
           {ele(
             loadingIcon,
+            //@ts-ignore
             <Icon name={loadingIcon} className={clsx(bem('loading-icon'))} />,
           )}
         </View>
       )}
       {error && showError && (
         <View className={clsx(bem('error'))}>
-          {/*@ts-ignore*/}
           {ele(
             errorIcon,
+            //@ts-ignore
             <Icon name={errorIcon} className={clsx(bem('error-icon'))} />,
           )}
         </View>
@@ -119,5 +119,6 @@ function Image(props: ImageProps) {
     </View>
   )
 }
+
 Image.displayName = 'Image'
 export default Image

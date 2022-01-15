@@ -36,7 +36,7 @@ export interface FieldProps extends StandardProps {
   isLink?: boolean
   leftIcon?: string
   rightIcon?: string
-  autosize?: boolean | Normal.IAnyObject
+  autosize?: boolean | TaroGeneral.IAnyObject
   required?: boolean
   iconClass?: string
   labelClass?: string

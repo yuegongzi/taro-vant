@@ -110,7 +110,7 @@ const ActionSheet: FC<ActionSheetProps> = (props: ActionSheetProps) => {
               return (
                 <Button
                   key={index}
-                  openType={disabled || loading ? '' : openType}
+                  openType={disabled || loading ? undefined : openType}
                   style={color ? 'color: ' + color : ''}
                   className={clsx(
                     bem('item', {

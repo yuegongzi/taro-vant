@@ -1,4 +1,5 @@
-import { Events } from '@tarojs/taro'
+// import { Events } from '@tarojs/taro'
+import Events = TaroGeneral.Events
 
 type EventNames = 'notify_clear' | 'notify_show'
 

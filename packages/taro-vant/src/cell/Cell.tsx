@@ -64,10 +64,10 @@ function Cell(props: CellProps) {
       onClick={_click}
       {...others}
     >
-      {/*@ts-ignore*/}
       {ele(
         icon,
         <Icon
+          // @ts-ignore
           name={icon}
           className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
         />,

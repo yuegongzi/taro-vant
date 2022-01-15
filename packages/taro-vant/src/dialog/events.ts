@@ -1,4 +1,6 @@
-import { Events } from '@tarojs/taro'
+// import { Events } from '@tarojs/taro'
+
+import Events = TaroGeneral.Events
 
 type EventNames = 'alert' | 'close' | 'stopLoading' | 'confirm' | 'cancel'
 

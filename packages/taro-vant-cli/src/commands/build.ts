@@ -23,6 +23,7 @@ import {
   setNodeEnv,
 } from '../common/index.js'
 import { clean } from './clean.js'
+import execa from 'execa'
 
 const { remove, copy, readdir } = fse
 
@@ -100,11 +101,11 @@ async function buildCJSOutputs() {
 }
 
 async function buildTypeDeclarations() {
-  // const tsConfig = join(process.cwd(), 'tsconfig.declaration.json');
-  //
-  // if (fse.existsSync(tsConfig)) {
-  //   await execa('tsc', [ '-p', tsConfig ]);
-  // }
+  const tsConfig = join(process.cwd(), 'tsconfig.json')
+
+  if (fse.existsSync(tsConfig)) {
+    await execa('tsc', [ '-p', tsConfig ])
+  }
 }
 
 async function buildStyleEntry() {
