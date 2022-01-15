@@ -12,6 +12,15 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.0.9
+
+`2022-01-15`
+
+
+**Bug Fixes**
+- 修复`PropsType`定义不规范的问题
+- 修复未发布typescript定义问题
+
 ### 2.0.8
 
 `2022-01-15`
