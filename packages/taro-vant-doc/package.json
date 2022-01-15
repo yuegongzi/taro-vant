@@ -10,7 +10,6 @@
     "release": "npx gh-pages -d site"
   },
   "authors": {
-    "name": "杨安府",
     "email": "yanganfu2012@gmail.com"
   },
   "license": "MIT",

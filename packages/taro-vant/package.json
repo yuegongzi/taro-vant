@@ -7,7 +7,6 @@
   "types": "./es/index.d.ts",
   "typings": "./es/index.d.ts",
   "authors": {
-    "name": "杨安府",
     "email": "yanganfu2012@gmail.com"
   },
   "description": "一套适用于Taro3的 Vant UI库",
