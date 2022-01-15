@@ -8,7 +8,7 @@ CSS 变量 的兼容性要求可以在 [这里](https://caniuse.com/#feat=css-va
 
 ### 样式变量
 
-定制使用的 CSS 变量 与 Less 变量 同名，下面是一些基本的样式变量，所有可用的颜色变量请参考 [配置文件](https://gitlab.ejiexi.com/common/taro-vant/-/blob/main/packages/taro-vant/src/style/var.less) 你可以覆盖其变量达到定制主题的目的。
+定制使用的 CSS 变量 与 Less 变量 同名，下面是一些基本的样式变量，所有可用的颜色变量请参考 [配置文件](https://github.com/yuegongzi/taro-vant/blob/main/packages/taro-vant/src/style/var.less) 你可以覆盖其变量达到定制主题的目的。
 
 ```less
 // Component Colors
@@ -37,8 +37,7 @@ module.exports = {
       {
         libraryName: 'taro-vant',
         libraryDirectory: 'es',
-        // 指定样式路径
-        style: (name) => `${name}/style/less`,
+        style: true,
       },
       'taro-vant',
     ],
@@ -60,38 +59,84 @@ import 'taro-vant/lib/button/style/less';
 
 #### 通过覆盖less主题方式修改
 
-使用 Less 提供的 [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) 即可对变量进行修改，下面是参考的 webpack 配置。
+使用 Less 提供的 [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) 即可对变量进行修改，下面是参考的 Taro 配置。
+假设项目目录结构为 
+- `config`
+- `src` 
 
 ```js
-// webpack.config.js
+// config/index.js
+
 module.exports = {
-  rules: [
-    {
-      test: /\.less$/,
-      use: [
-        // ...其他 loader 配置
-        {
-          loader: 'less-loader',
-          options: {
-            // 若 less-loader 版本小于 6.0，请移除 lessOptions 这一级，直接配置选项。
-            lessOptions: {
-              modifyVars: {
-                // 直接覆盖变量
-                'text-color': '#111',
-                'border-color': '#eee',
-                // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
-                hack: `true; @import "your-less-file-path.less";`,
-              },
-            },
-          },
-        },
-      ],
-    },
-  ],
+  //其他配置略
+  mini:{
+    lessLoaderOption:{
+      lessOptions: {
+        modifyVars: { 
+          'primary-color':'#FF5733'
+        }
+      }
+    }
+  },
+  h5:{
+    lessLoaderOption:{
+      lessOptions: {
+        modifyVars: {
+          'primary-color':'#FF5733'
+        }
+      }
+    }
+  }
 };
 ```
+### 更加优雅的方式
+上面的方式虽然解决了变量的修改,但是大量的字符串写入,不够优雅. 如果项目当中使用到主题色等变量,变更时需要多处调整
 
-#### 通过css变量形式修改
+#### 添加 less-vars-to-js 依赖
+```shell
+$ yarn add less-vars-to-js -D
+```
+#### config 下创建 theme.js
+
+```js
+const fs = require('fs');
+const path = require('path');
+const lessToJs = require('less-vars-to-js');
+
+const themePath = path.join(__dirname, '../src/styles/index.less');// 项目中的主题变量定义文件
+const theme = lessToJs(fs.readFileSync(themePath, 'utf8'));
+export default theme
+
+
+```
+
+#### 加入Taro配置中
+
+```js
+import theme from './theme'
+
+module.exports = {
+  //其他配置略
+  mini:{
+    lessLoaderOption:{
+      lessOptions: {
+        modifyVars: theme
+      }
+    }
+  },
+  h5:{
+    lessLoaderOption:{
+      lessOptions: {
+        modifyVars: theme
+      }
+    }
+  }
+};
+
+```
+
+
+### 通过css变量形式修改
 ##### 定制单个组件的主题样式
 
 > 在 less 中为组件设置 CSS 变量
