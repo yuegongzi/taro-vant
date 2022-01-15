@@ -1,10 +1,11 @@
 {
   "name": "taro-vant",
-  "version": "2.0.10",
-  "main": "lib/index.js",
-  "module": "es/index.esm.js",
+  "version": "2.0.11",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
   "style": "lib/index.css",
-  "typings": "types/index.d.ts",
+  "types": "./es/index.d.ts",
+  "typings": "./es/index.d.ts",
   "authors": {
     "name": "杨安府",
     "email": "yanganfu2012@gmail.com"
