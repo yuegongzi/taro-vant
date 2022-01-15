@@ -286,5 +286,6 @@ function Stepper(props: StepperProps) {
     </View>
   )
 }
+
 Stepper.displayName = 'Stepper'
 export default Stepper
