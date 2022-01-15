@@ -7,7 +7,7 @@ import { consola, ora } from '../common/logger.js'
 // import { compileSfc } from '../compiler/compile-sfc.js'
 import { compileStyle } from '../compiler/compile-style.js'
 import { compileScript } from '../compiler/compile-script.js'
-import { compilePackage } from '../compiler/compile-package.js'
+// import { compilePackage } from '../compiler/compile-package.js'
 import { genPackageEntry } from '../compiler/gen-package-entry.js'
 import { genStyleDepsMap } from '../compiler/gen-style-deps-map.js'
 import { genComponentStyle } from '../compiler/gen-component-style.js'
@@ -127,9 +127,10 @@ async function buildPackageStyleEntry() {
 }
 
 async function buildBundledOutputs() {
-  setModuleEnv('esmodule')
-  await compilePackage(false)
-  await compilePackage(true)
+  //关闭esm打包 没必要 需要时打开即可
+  // setModuleEnv('esmodule')
+  // await compilePackage(false)
+  // await compilePackage(true)
 }
 
 const tasks = [
