@@ -118,7 +118,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
       tabs = tabs.slice(0, tabIndex + 1)
     }
 
-    if (option[childrenKey]) {
+    if (option[childrenKey] && option[childrenKey].length > 0) {
       const nextTab = {
         options: option[childrenKey],
         selectedOption: null,
@@ -145,7 +145,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     updateInternalValue(option[valueKey])
     props.onChange?.(eventParams)
 
-    if (!option[childrenKey]) {
+    if (!option[childrenKey] || option[childrenKey].length === 0) {
       props.onFinish?.(eventParams)
     }
   }

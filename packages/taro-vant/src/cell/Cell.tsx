@@ -87,6 +87,7 @@ function Cell(props: CellProps) {
       </View>
       {isLink ? (
         <Icon
+          onClick={_click}
           name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
           className={clsx(bem('right-icon-wrap'), bem('right-icon'))}
         />
