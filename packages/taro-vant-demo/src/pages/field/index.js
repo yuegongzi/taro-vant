@@ -147,6 +147,19 @@ export default class Index extends Component {
               />
             </CellGroup>
           </DemoBlock>
+          <DemoBlock title='多行输入'>
+            <CellGroup>
+              <Field
+                type='textarea'
+                autosize
+                showWordLimit
+                maxlength={40}
+                label='个人介绍'
+                placeholder='请输入个人介绍'
+                border={false}
+              />
+            </CellGroup>
+          </DemoBlock>
         </>
       </DemoPage>
     )

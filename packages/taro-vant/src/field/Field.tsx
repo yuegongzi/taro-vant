@@ -103,7 +103,7 @@ function Field(props: FieldProps) {
   const emitChange = function (event?: any) {
     event = event || { detail: { value: '' } }
     setState((pre: any) => {
-      return { ...pre, innerValue: event.detail }
+      return { ...pre, innerValue: event.detail.value }
     })
     const ev = assembly(event, event.detail.value)
     onInput?.(ev)
@@ -334,11 +334,15 @@ function Field(props: FieldProps) {
           <View
             className={clsx(
               bem('word-num', {
-                full: innerValue.length >= maxlength,
+                full: (innerValue && innerValue.length) >= maxlength,
               }),
             )}
           >
-            {innerValue.length >= maxlength ? maxlength : innerValue.length}
+            {innerValue
+              ? innerValue.length >= maxlength
+                ? maxlength
+                : innerValue.length
+              : 0}
           </View>
           {'/' + maxlength}
         </View>
