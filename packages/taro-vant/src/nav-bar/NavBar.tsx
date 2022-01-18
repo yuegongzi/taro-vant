@@ -3,7 +3,6 @@ import { Block, View } from '@tarojs/components'
 import {
   computedStyle,
   createNamespace,
-  ele,
   getRect,
   getSystemInfoSync,
   ZIndex,
@@ -82,37 +81,30 @@ function NavBar(props: NavBarProps) {
       >
         <View className={clsx(bem('content'))}>
           <View className={clsx(bem('left'))} onClick={onClickLeft}>
-            {ele(
-              leftArrow,
+            {leftArrow && (
               <Icon
                 size={64}
                 name='arrow-left'
                 className={clsx(bem('arrow'))}
-              />,
+              />
             )}
-            {ele(
-              leftText,
-              <View
-                className={clsx(bem('text'))}
-                hoverClass={clsx(bem('text', [ 'hover' ], true))}
-                hoverStayTime={70}
-              >
-                {leftText}
-              </View>,
-            )}
+            <View
+              className={clsx(bem('text'))}
+              hoverClass={clsx(bem('text', [ 'hover' ], true))}
+              hoverStayTime={70}
+            >
+              {leftText}
+            </View>
           </View>
           <View className={clsx(bem('title'), 'van-ellipsis')}>{title}</View>
           <View className={clsx(bem('right'))} onClick={onClickRight}>
-            {ele(
-              rightText,
-              <View
-                className={clsx(bem('text'))}
-                hoverClass={clsx(bem('text', [ 'hover' ], true))}
-                hoverStayTime={70}
-              >
-                {rightText}
-              </View>,
-            )}
+            <View
+              className={clsx(bem('text'))}
+              hoverClass={clsx(bem('text', [ 'hover' ], true))}
+              hoverStayTime={70}
+            >
+              {rightText}
+            </View>
           </View>
         </View>
       </View>

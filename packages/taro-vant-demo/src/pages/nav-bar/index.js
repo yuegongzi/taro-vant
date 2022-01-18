@@ -4,6 +4,7 @@ import { Icon, NavBar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
+import { View } from '@tarojs/components'
 
 export default class Index extends Component {
   constructor() {
@@ -27,6 +28,7 @@ export default class Index extends Component {
               title='标题'
               rightText='按钮'
               leftArrow
+              leftText={<View>商户号</View>}
               onClickLeft={this.onClickLeft}
               onClickRight={this.onClickRight}
             />

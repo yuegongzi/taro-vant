@@ -41,7 +41,6 @@ function Field(props: FieldProps) {
     inputAlign,
     clearIcon = 'clear',
     rightIcon,
-    iconClass,
     value,
     maxlength = -1,
     showWordLimit,
@@ -321,10 +320,7 @@ function Field(props: FieldProps) {
         <View className={clsx(bem('icon-container'))} onClick={onClickIcon}>
           {ele(
             rightIcon,
-            <Icon
-              name={rightIcon}
-              className={clsx(bem('icon-root'), iconClass)}
-            />,
+            <Icon name={rightIcon} className={clsx(bem('icon-root'))} />,
           )}
         </View>
         <View className={clsx(bem('button'))}>{button}</View>

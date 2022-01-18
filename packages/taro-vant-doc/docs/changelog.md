@@ -12,6 +12,20 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.0.14
+
+`2022-01-18`
+
+
+**Performance**
+- `Cell`重构自定义Icon的逻辑
+- `Card`重构自定义Tag的逻辑
+- `Field`重构自定义Icon的逻辑
+- `NavBar`重构自定义左右两边内容的逻辑
+
+**Document**
+- `Field` 组件文档完善
+
 ### 2.0.13
 
 `2022-01-18`

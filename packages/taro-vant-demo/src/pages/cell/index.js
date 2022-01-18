@@ -99,7 +99,7 @@ export default class Index extends Component {
             <Cell
               title='单元格'
               border={false}
-              rightIcon={<Icon name='search' />}
+              rightIcon={<Icon color='black' name='search' />}
             />
           </DemoBlock>
           <DemoBlock title='垂直居中'>

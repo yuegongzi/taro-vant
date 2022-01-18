@@ -68,12 +68,14 @@ function Card(props: CardProps) {
               className={clsx(bem('img'))}
             />,
           )}
-          {ele(
-            tag,
-            <Tag mark type='danger' className={clsx(bem('tag'))}>
-              {tag}
-            </Tag>,
-          )}
+          <View className={clsx(bem('tag'))}>
+            {ele(
+              tag,
+              <Tag mark type='danger'>
+                {tag}
+              </Tag>,
+            )}
+          </View>
         </View>
         <View
           className={clsx(

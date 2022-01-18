@@ -64,14 +64,16 @@ function Cell(props: CellProps) {
       onClick={_click}
       {...others}
     >
-      {ele(
-        icon,
-        <Icon
-          // @ts-ignore
-          name={icon}
-          className={clsx(bem('left-icon-wrap'), bem('left-icon'))}
-        />,
-      )}
+      <View className={clsx(bem('left-icon-wrap'), bem('left-icon'))}>
+        {ele(
+          icon,
+          <Icon
+            // @ts-ignore
+            name={icon}
+          />,
+        )}
+      </View>
+
       <View
         style={computedTitleStyle({
           titleWidth,
@@ -85,15 +87,17 @@ function Cell(props: CellProps) {
       <View className={clsx(bem('value'), valueClass)}>
         {value ? value : children}
       </View>
-      {isLink ? (
-        <Icon
-          onClick={_click}
-          name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
-          className={clsx(bem('right-icon-wrap'), bem('right-icon'))}
-        />
-      ) : (
-        rightIcon
-      )}
+      <View className={clsx(bem('right-icon-wrap'), bem('right-icon'))}>
+        {isLink ? (
+          <Icon
+            onClick={_click}
+            name={arrowDirection ? 'arrow' + '-' + arrowDirection : 'arrow'}
+          />
+        ) : (
+          rightIcon
+        )}
+      </View>
+
       {extra}
     </View>
   )

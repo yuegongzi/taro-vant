@@ -38,7 +38,6 @@ export interface FieldProps extends StandardProps {
   rightIcon?: string
   autosize?: boolean | Record<string, any>
   required?: boolean
-  iconClass?: string
   labelClass?: string
   clickable?: boolean
   inputAlign?: string
