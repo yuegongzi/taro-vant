@@ -90,7 +90,7 @@
   "author": "",
   "scripts": {
     "watch:dd": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type dd --watch",
-    "watch:weapp": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type weapp --watch",
+    "watch:weapp": "cross-env NODE_ENV=production API_ENV=dev WATCHING=true npx taro build --type weapp --watch",
     "watch:alipay": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type alipay --watch",
     "watch:tt": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type tt --watch",
     "watch:h5": "cross-env NODE_ENV=development API_ENV=dev WATCHING=true npx taro build --type h5 --watch",
@@ -121,7 +121,7 @@
     "core-js": "3.20.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "taro-vant": "2.0.15"
+    "taro-vant": "2.0.16"
   },
   "devDependencies": {
     "@antmjs/babel-preset": "^1.17.4",

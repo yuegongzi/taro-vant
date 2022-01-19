@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useForm as useFieldForm } from 'rc-field-form'
-import isEmpty from 'lodash/isEmpty'
+import { isEmpty } from '../utils'
 
 export type FormOption = {
   /**

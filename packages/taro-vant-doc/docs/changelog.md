@@ -12,6 +12,15 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.0.16
+
+`2022-01-19`
+
+
+**Bug Fixes**
+- `Address` `List`属性无法自定义checked的bug 
+- `List` `NODE_ENV` = production时lodash/debounce报错的BUG
+
 ### 2.0.15
 
 `2022-01-19`

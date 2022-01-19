@@ -22,7 +22,7 @@ export function isNumber(args: unknown): boolean {
   return toString.call(args) === '[object Number]'
 }
 
-export function isNumberOrString (args: unknown){
+export function isNumberOrString(args: unknown) {
   return isNumber(args) || isString(args)
 }
 
@@ -47,6 +47,12 @@ export function isEmptyObject(args: any): boolean {
 
   return true
 }
+export function isEmpty(args: any): boolean {
+  if (isDef(args) && isObject(args)) {
+    return JSON.stringify(args) === '{}'
+  }
+  return true
+}
 
 export function isFunction(args: unknown): boolean {
   return toString.call(args) === '[object Function]'
@@ -55,7 +61,6 @@ export function isFunction(args: unknown): boolean {
 export function isSymbol(args: unknown): boolean {
   return toString.call(args) === '[object Symbol]'
 }
-
 
 export function isPlainObject(val: any) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
@@ -94,4 +99,3 @@ export const isAnyBlank = (...args: any) => {
   }
   return false
 }
-

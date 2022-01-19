@@ -23,11 +23,11 @@ const AddressList: FC<AddressListProps> = (props) => {
       <Radio.Group onChange={onSelect} value={value}>
         {list.map((item, index) => (
           <Address
+            checked
             {...options}
             onClick={onSelect}
             data={item}
             key={index}
-            checked
           />
         ))}
       </Radio.Group>

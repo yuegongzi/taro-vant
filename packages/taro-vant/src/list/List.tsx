@@ -9,7 +9,6 @@ import React, {
 import type { ITouchEvent } from '@tarojs/components'
 import { CustomWrapper, ScrollView, View } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
-import debounce from 'lodash/debounce'
 import Loading from '../loading'
 import Empty from '../empty'
 import Divider from '../divider'
@@ -169,11 +168,11 @@ const List: React.FC<ListProps> = (props) => {
 
   // 提前把reachTopRef.current的值 求出来
   const debounceScrollOffset = useMemo(() => {
-    const getScrollTop = async () => {
-      const { scrollTop } = await scrollOffset(scrollRef.current!)
+    return async () => {
+      const { scrollTop } = (await scrollOffset(scrollRef.current!)) || {}
       reachTopRef.current = scrollTop === 0
     }
-    return debounce(getScrollTop, 400)
+    // return debounce(getScrollTop, 400)
   }, [])
   // 如果这是了 scrollTop 要触发ScrollOffset计算
   useEffect(() => {
