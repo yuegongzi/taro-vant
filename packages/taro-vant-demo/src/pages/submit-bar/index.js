@@ -9,6 +9,7 @@ export default class Index extends Component {
   state = {
     checked: true,
   }
+
   constructor() {
     super()
   }

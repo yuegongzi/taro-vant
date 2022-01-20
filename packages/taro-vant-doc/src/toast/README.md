@@ -21,12 +21,9 @@ import { Toast } from 'taro-vant';
 
 Toast.show('我是提示文案，建议不超过十五字~');
 ```
-
+### 挂载提示组件
 ```jsx
-<View>
-  <Toast id="vanToast" />
-</View>
- 
+  <Toast id="van-toast" />
 ```
 
 ### 加载提示
@@ -126,4 +123,24 @@ Toast.show({
 |  selector  | 自定义选择器 | _string_ | `van-toast` |
 |  id  | 选择器id | _string_ | `van-toast` |
 |  onClose  | 关闭时的回调函数 | _Function_ | - |
+
+## 常见问题
+
+### 提示后页面跳转后无法关闭
+因为Toast采用的是Taro的Events实现,当页面跳转后trigger触发失效,所以务必在当前页面进行清空事件,
+推荐采用组件包裹的方式进行处理
+
+```jsx
+  useEffect(()=>{
+    return ()=>{//保证被组件包裹的页面在卸载前清空Toast
+      Toast.clear()
+    }  
+  },[])
+  return(
+    <View>
+      <Toast id='van-toast'/>
+      {props.children}
+    </View>
+  )
+```
 

@@ -200,14 +200,14 @@ const GridItem = Grid.Item;
 |  参数  | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 |  columnNum  | 列数 | _number_ | `4` |
-|  iconSize `v1.3.2`  | 图标大小，默认单位为`px` | _string_ | `28px` |
+|  iconSize | 图标大小，默认单位为`px` | _string_ | `28px` |
 |  gutter  | 格子之间的间距，默认单位为`px` | _string \| number_ | `0` |
 |  border  | 是否显示边框 | _boolean_ | `true` |
 |  center  | 是否将格子内容居中显示 | _boolean_ | `true` |
 |  square  | 是否将格子固定为正方形 | _boolean_ | `false` |
 |  clickable  | 是否开启格子点击反馈 | _boolean_ | `false` |
 |  direction  | 格子内容排列的方向，可选值为 `horizontal` | _string_ | `vertical` |
-|  reverse `v1.7.0`  | 是否调换图标和文本的位置 | _boolean_ | `false` |
+|  reverse  | 是否调换图标和文本的位置 | _boolean_ | `false` |
 
 
 ### GridItem Props
@@ -217,7 +217,7 @@ const GridItem = Grid.Item;
 |  text  | 文字 | _string_ | - |
 |  icon  | 图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
 |  iconColor  | 图标颜色 | _string_ | - |
-|  iconPrefix `v1.7.0`  | 第三方图标前缀 | _string_ | `van-icon` |
+|  iconPrefix | 第三方图标前缀 | _string_ | `van-icon` |
 |  dot  | 是否显示图标右上角小红点 | _boolean_ | `false` |
 |  badge  | 图标右上角徽标的内容 | _string \| number_ | - |
 |  url  | 点击后跳转的链接地址 | _string_ | - |

@@ -5,7 +5,7 @@ import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-const GridItem = Grid.Item;
+const GridItem = Grid.Item
 
 export default class Index extends Component {
   state = {
@@ -55,11 +55,7 @@ export default class Index extends Component {
             <CountDown time={time} format='DD 天 HH 时 mm 分 ss 秒' />
           </DemoBlock>
           <DemoBlock title='毫秒级渲染'>
-            <CountDown
-              millisecond
-              time={time}
-              format='HH:mm:ss:SSS'
-            />
+            <CountDown millisecond time={time} format='HH:mm:ss:SSS' />
           </DemoBlock>
           <DemoBlock title='自定义样式'>
             <CountDown time={time} onChange={this.onChange}>
@@ -81,21 +77,13 @@ export default class Index extends Component {
               onFinish={this.finished}
             />
             <Grid clickable columnNum='3'>
-              <GridItem
-                text='开始'
-                icon='play-circle-o'
-                onClick={this.start}
-              />
+              <GridItem text='开始' icon='play-circle-o' onClick={this.start} />
               <GridItem
                 text='暂停'
                 icon='pause-circle-o'
                 onClick={this.pause}
               />
-              <GridItem
-                text='重置'
-                icon='replay'
-                onClick={this.reset}
-              />
+              <GridItem text='重置' icon='replay' onClick={this.reset} />
             </Grid>
           </DemoBlock>
           <Toast id='van-toast' />

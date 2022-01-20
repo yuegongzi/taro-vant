@@ -137,7 +137,7 @@ function onClickItem({
 |  mainActiveIndex  | 左侧选中项的索引 | _number_ | `0` |
 |  activeId  | 右侧选中项的 id，支持传入数组 | _string \| number \| Array_ | `0` |
 |  max  | 右侧项最大选中个数 | _number_ | _Infinity_ |
-|  selectedIcon `v1.5.0`  | 自定义右侧栏选中状态的图标 | _string_ | `success` |
+|  selectedIcon | 自定义右侧栏选中状态的图标 | _string_ | `success` |
 
 ### Events
 

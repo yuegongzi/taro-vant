@@ -1,7 +1,6 @@
 import { Component } from 'react'
-import { showToast } from '@tarojs/taro'
 import { goods, properties, sku } from './constant'
-import { Sku, Cell } from 'taro-vant'
+import { Cell, Sku } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'

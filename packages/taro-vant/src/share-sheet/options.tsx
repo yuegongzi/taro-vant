@@ -17,17 +17,14 @@ export default function Index(props: ShareSheetOption) {
           className={clsx(bem('option'))}
           onClick={() => onSelect?.(item, index)}
         >
-          <Button className={clsx(bem('button'))}
-                  open-type={item.openType || ''}
+          <Button
+            className={clsx(bem('button'))}
+            // @ts-ignore
+            openType={item.openType || ''}
           >
-            <Image
-              src={getIconURL(item.icon)}
-              className={clsx(bem('icon'))}
-            />
+            <Image src={getIconURL(item.icon)} className={clsx(bem('icon'))} />
           </Button>
-          {item.name && (
-            <View className={clsx(bem('name'))}>{item.name}</View>
-          )}
+          {item.name && <View className={clsx(bem('name'))}>{item.name}</View>}
           {item.description && (
             <View className={clsx(bem('option-description'))}>
               {item.description}

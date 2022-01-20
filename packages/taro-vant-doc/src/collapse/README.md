@@ -172,7 +172,7 @@ function onClose(event) {
   >
     <CollapseItem 
       name="1" 
-      renderTitle={(
+      title={(
         <View>
           有赞微商城
           <Icon name="questionO" />

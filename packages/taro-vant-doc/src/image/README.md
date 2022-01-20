@@ -83,8 +83,7 @@ import { Image } from "taro-vant";
 
 ```jsx
 <View>
-  <Image
-    renderLoading={ (
+  <Image loadingIcon={ (
           <Loading
             type="spinner"
             size="20"
@@ -98,12 +97,12 @@ import { Image } from "taro-vant";
 
 ### 加载失败提示
 
-`Image`组件提供了默认的加载失败提示，支持通过`renderError`来自定义内容。
+`Image`组件提供了默认的加载失败提示，支持通过`errorIcon`来自定义内容。
 
 ```jsx
 <View>
   <Image
-    renderError={ (
+    errorIcon={ (
           <Text>
             加载失败
           </Text>

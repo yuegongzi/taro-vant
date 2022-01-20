@@ -132,7 +132,7 @@ function onChange(event) {
 | --- | --- | --- | --- |
 |  title  | 内容 | _string\|ReactNode_ | `''` |
 |  dot  | 是否显示右上角小红点 | _boolean_ | `false` |
-|  badge `v1.5.0`  | 图标右上角徽标的内容 | _string \| number_ | `''` |
+|  badge | 图标右上角徽标的内容 | _string \| number_ | `''` |
 |  disabled  | 是否禁用该项 | _boolean_ | `false` |
 
 

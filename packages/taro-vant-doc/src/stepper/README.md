@@ -190,7 +190,7 @@ function onChange(value) {
 |  disablePlus  | 是否禁用增加按钮 | _boolean_ | - |
 |  disableMinus  | 是否禁用减少按钮 | _boolean_ | - |
 |  longPress  | 是否开启长按手势 | _boolean_ | `true` |
-|  alwaysEmbed `v1.9.3`  | 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) |  _boolean_ | `false` |
+|  alwaysEmbed | 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) |  _boolean_ | `false` |
 
 ### Events
 

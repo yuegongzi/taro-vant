@@ -47,7 +47,7 @@ function onClickRight() {
     title="标题"
     leftText="返回"
     leftArrow={ true }
-    renderRight={
+    rightText={
       <Block>
         <Icon name="search" className="icon" size="36"></Icon>
       </Block>

@@ -314,7 +314,7 @@ toggle = (event) => {
 |  value  | 所有选中项的 name | _Array_ | - |
 |  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
 |  max  | 设置最大可选数 | _number_ | `0`（无限制） |
-|  direction `v1.7.0`  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+|  direction  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
 
 ### Checkbox Event
 

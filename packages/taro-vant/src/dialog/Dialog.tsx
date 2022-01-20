@@ -1,4 +1,4 @@
-import { Block, Text, View } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import { useCallback, useEffect, useState } from 'react'
 import Taro from '@tarojs/taro'
 import {
@@ -48,12 +48,10 @@ function Dialog(props: DialogProps) {
     showMessageCard,
     appParameter,
     confirmButtonText = '确认',
-    renderTitle,
     onClose,
     onConfirm,
     onCancel,
     beforeClose,
-    asyncClose,
     children,
     style,
     className,
@@ -95,7 +93,7 @@ function Dialog(props: DialogProps) {
       } else {
         trigger('cancel')
       }
-      if (!asyncClose && !beforeClose) {
+      if (!beforeClose) {
         _close(action)
         return
       }
@@ -120,7 +118,7 @@ function Dialog(props: DialogProps) {
           })
       }
     },
-    [ _close, _stopLoading, asyncClose, beforeClose, onCancel, onConfirm ],
+    [ _close, _stopLoading, beforeClose, onCancel, onConfirm ],
   )
 
   const _onConfirm = useCallback(() => {
@@ -196,16 +194,15 @@ function Dialog(props: DialogProps) {
       closeOnClickOverlay={closeOnClickOverlay}
       onClose={_onClickOverlay}
     >
-      {(title || renderTitle) && (
+      {title && (
         <View
           className={clsx(
             bem('header', {
-              isolated: !(message || renderTitle),
+              isolated: !message,
             }),
           )}
         >
-          {/* {renderTitle || } */}
-          {renderTitle ? renderTitle : title && <Block>{title}</Block>}
+          {title}
         </View>
       )}
       {children

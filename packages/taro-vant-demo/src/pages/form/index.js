@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import {
-  Button,
   Checkbox,
   DatetimePicker,
-  Dialog,
   Field,
   Form,
   Icon,
@@ -16,7 +14,7 @@ import {
   Switch,
   Uploader,
 } from 'taro-vant'
-import { Input, View } from '@tarojs/components'
+import { Input } from '@tarojs/components'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'

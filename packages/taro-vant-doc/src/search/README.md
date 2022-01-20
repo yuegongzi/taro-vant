@@ -101,7 +101,7 @@ import { Search } from "taro-vant";
     placeholder="请输入搜索关键词"
     onChange={ this.onChange }
     onSearch={ this.onSearch }
-    renderAction={ (
+    actionText={ (
           <View
             onTap={ this.onClick }
           >
@@ -146,14 +146,14 @@ function onClick() {
 |  value  | 当前输入的值 | _string \| number_ | - |
 |  background  | 搜索框背景色 | _string_ | `#f2f2f2` |
 |  showAction  | 是否在搜索框右侧显示取消按钮 | _boolean_ | `false` |
-|  actionText `v1.0.0`  | 取消按钮文字 | _string\|ReactNode_ | `取消` |
+|  actionText | 取消按钮文字 | _string\|ReactNode_ | `取消` |
 |  focus  | 获取焦点 | _boolean_ | `false` |
 |  error  | 是否将输入内容标红 | _boolean_ | `false` |
 |  disabled  | 是否禁用输入框 | _boolean_ | `false` |
 |  readonly  | 是否只读 | _boolean_ | `false` |
 |  clearable  | 是否启用清除控件 | _boolean_ | `true` |
-|  clearTrigger `v1.8.4`  | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
-|  clearIcon `v1.8.4`  | 清除[图标名称](#/icon)或图片链接 | _string_ | `clear` |
+|  clearTrigger | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
+|  clearIcon | 清除[图标名称](#/icon)或图片链接 | _string_ | `clear` |
 |  maxlength  | 最大输入长度，设置为 -1 的时候不限制最大长度 | _number_ | `-1` |
 |  placeholder  | 输入框为空时占位符 | _string_ | - |
 |  placeholderStyle  | 指定占位符的样式 | _string_ | - |

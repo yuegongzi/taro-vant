@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
-import { Image, Tabbar } from 'taro-vant'
+import { Tabbar } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
@@ -141,11 +141,7 @@ export default class Index extends Component {
                 })
               }}
             >
-              <TabbarItem
-                badge='3'
-              >
-                自定义
-              </TabbarItem>
+              <TabbarItem badge='3'>自定义</TabbarItem>
               <TabbarItem icon='search'>标签</TabbarItem>
               <TabbarItem icon='setting-o'>标签</TabbarItem>
             </Tabbar>

@@ -21,12 +21,12 @@ import { SwipeCell } from "taro-vant";
   <SwipeCell
     rightWidth={ 65 }
     leftWidth={ 65 }
-    renderLeft={(
+    left={(
       <View>
         选择
       </View>
     )}
-    renderRight={(
+    right={(
       <View>
         删除
       </View>
@@ -55,12 +55,12 @@ import { SwipeCell } from "taro-vant";
     leftWidth={ 65 }
     asyncClose={ true }
     onClose={ this.onClose }
-    renderLeft={(
+    left={(
       <View>
         选择
       </View>
     )}
-    renderRight={(
+    right={(
       <View>
         删除
       </View>
@@ -91,12 +91,12 @@ import { SwipeCell } from "taro-vant";
     leftWidth={ 65 }
     name="示例"
     onOpen={ this.onOpen }
-    renderLeft={(
+    left={(
       <View class="vanSwipeCell__left">
         选择
       </View>
     )}
-    renderRight={(
+    right={(
       <View class="vanSwipeCell__right">
         删除
       </View>
@@ -113,9 +113,6 @@ import { SwipeCell } from "taro-vant";
  
 ```
 
-```js
- 
-```
 
 ## API
 
@@ -127,7 +124,7 @@ import { SwipeCell } from "taro-vant";
 |  leftWidth  | 左侧滑动区域宽度 | _number_ | `0` |
 |  rightWidth  | 右侧滑动区域宽度 | _number_ | `0` |
 |  asyncClose  | 是否异步关闭 | _boolean_ | `false` |
-|  disabled `v1.3.4`  | 是否禁用滑动 | _boolean_ | `false` |
+|  disabled | 是否禁用滑动 | _boolean_ | `false` |
 |  left   | 左侧滑动内容 | _ReactNode_ | `-` |
 |  right  | 右侧滑动内容 | _ReactNode_ | `-` |
 

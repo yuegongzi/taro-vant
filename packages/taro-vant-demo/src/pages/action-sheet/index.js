@@ -1,154 +1,95 @@
-import { Component } from 'react'
+import { useState } from 'react'
 import { View } from '@tarojs/components'
 import { ActionSheet, Button } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
 
-export default class Index extends Component {
-  state = {
-    show1: false,
-    show2: false,
-    show3: false,
-    show4: false,
-    show5: false,
-    show6: false,
-    action1: [
-      { name: '选项' },
-      { name: '选项' },
-      { name: '选项', subname: '描述信息' },
-    ],
-    action2: [
-      { name: '着色选项', color: '#ee0a24' },
-      { loading: true },
-      { name: '禁用选项', disabled: true },
-    ],
-    action6: [
-      { name: '获取用户信息', color: '#07c160', openType: 'getUserInfo' },
-    ],
-  }
+const action1 = [
+  { name: '选项' },
+  { name: '选项' },
+  { name: '选项', subname: '描述信息' },
+]
+const action2 = [
+  { name: '着色选项', color: '#ee0a24' },
+  { loading: true },
+  { name: '禁用选项', disabled: true },
+]
+const action6 = [
+  {
+    name: '获取手机号',
+    color: '#07c160',
+    openType: 'getPhoneNumber',
+    onGetPhoneNumber: (e) => console.log(e),
+  },
+]
 
-  constructor() {
-    super()
-  }
-
-  toggle = (type) => {
-    this.setState({
-      [type]: !this.state[type],
-    })
-  }
-
-  toggleActionSheet1 = () => {
-    this.toggle('show1')
-  }
-
-  toggleActionSheet2 = () => {
-    this.toggle('show2')
-  }
-
-  toggleActionSheet3 = () => {
-    this.toggle('show3')
-  }
-
-  toggleActionSheet4 = () => {
-    this.toggle('show4')
-  }
-
-  toggleActionSheet5 = () => {
-    this.toggle('show5')
-  }
-
-  toggleActionSheet6 = () => {
-    this.toggle('show6')
-  }
-
-  onGetUserInfo = (e) => {
-    console.log(e.detail)
-  }
-
-  render() {
-    const {
-      show1,
-      action1,
-      show2,
-      action2,
-      show3,
-      show4,
-      show5,
-      show6,
-      action6,
-    } = this.state
-    return (
-      <DemoPage title='ActionSheet 动作面板'>
-        <>
-          <DemoBlock title='基础用法' padding>
-            <Button type='primary' onClick={this.toggleActionSheet1}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show1}
-              actions={action1}
-              onClose={this.toggleActionSheet1}
-            />
-          </DemoBlock>
-          <DemoBlock title='选项状态' padding>
-            <Button type='primary' onClick={this.toggleActionSheet2}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show2}
-              actions={action2}
-              onClose={this.toggleActionSheet2}
-            />
-          </DemoBlock>
-          <DemoBlock title='展示取消按钮' padding>
-            <Button type='primary' onClick={this.toggleActionSheet3}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show3}
-              actions={action1}
-              cancelText='取消'
-              onClose={this.toggleActionSheet3}
-            />
-          </DemoBlock>
-          <DemoBlock title='展示描述信息' padding>
-            <Button type='primary' onClick={this.toggleActionSheet4}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show4}
-              actions={action1}
-              description='这是一段描述信息'
-              onClose={this.toggleActionSheet4}
-            />
-          </DemoBlock>
-          <DemoBlock title='展示标题栏' padding>
-            <Button type='primary' onClick={this.toggleActionSheet5}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show5}
-              title='标题'
-              onClose={this.toggleActionSheet5}
-            >
-              <View className='content'>内容</View>
-            </ActionSheet>
-          </DemoBlock>
-          <DemoBlock title='微信开放能力' padding>
-            <Button type='primary' onClick={this.toggleActionSheet6}>
-              弹出菜单
-            </Button>
-            <ActionSheet
-              visible={show6}
-              title='标题'
-              onClose={this.toggleActionSheet6}
-              actions={action6}
-              onGetuserinfo={this.onGetUserInfo}
-            />
-          </DemoBlock>
-        </>
-      </DemoPage>
-    )
-  }
+export default () => {
+  const [ state, setState ] = useState(0)
+  const onClose = () => setState(0)
+  return (
+    <DemoPage title='ActionSheet 动作面板'>
+      <DemoBlock title='基础用法' padding>
+        <Button type='primary' onClick={() => setState(1)}>
+          弹出菜单
+        </Button>
+        <ActionSheet
+          visible={state === 1}
+          actions={action1}
+          onClose={onClose}
+        />
+      </DemoBlock>
+      <DemoBlock title='选项状态' padding>
+        <Button type='primary' onClick={() => setState(2)}>
+          弹出菜单
+        </Button>
+        <ActionSheet
+          visible={state === 2}
+          actions={action2}
+          onClose={onClose}
+        />
+      </DemoBlock>
+      <DemoBlock title='展示取消按钮' padding>
+        <Button type='primary' onClick={() => setState(3)}>
+          弹出菜单
+        </Button>
+        <ActionSheet
+          visible={state === 3}
+          actions={action1}
+          cancelText='取消'
+          onClose={onClose}
+        />
+      </DemoBlock>
+      <DemoBlock title='展示描述信息' padding>
+        <Button type='primary' onClick={() => setState(4)}>
+          弹出菜单
+        </Button>
+        <ActionSheet
+          visible={state === 4}
+          actions={action1}
+          description='这是一段描述信息'
+          onClose={onClose}
+        />
+      </DemoBlock>
+      <DemoBlock title='展示标题栏' padding>
+        <Button type='primary' onClick={() => setState(5)}>
+          弹出菜单
+        </Button>
+        <ActionSheet visible={state === 5} title='标题' onClose={onClose}>
+          <View className='content'>内容</View>
+        </ActionSheet>
+      </DemoBlock>
+      <DemoBlock title='微信开放能力' padding>
+        <Button type='primary' onClick={() => setState(6)}>
+          弹出菜单
+        </Button>
+        <ActionSheet
+          visible={state === 6}
+          title='标题'
+          onClose={onClose}
+          actions={action6}
+        />
+      </DemoBlock>
+    </DemoPage>
+  )
 }

@@ -159,7 +159,7 @@ function onClose() {
 |  closeIcon  | 关闭图标名称或图片链接 | _string_ | `cross` |
 |  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
 |  safeAreaInsetTop  | 是否留出顶部安全距离（状态栏高度） | _boolean_ | `false` |
-|  lockScroll `v1.7.3`  | 是否锁定背景滚动 | _boolean_ | `true` |
+|  lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 
 ### Events
 

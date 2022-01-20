@@ -75,7 +75,7 @@ this.state = {
     >
       <Cell 
         title={ this.state.switchTitle1 }
-        renderRightIcon={(
+        rightIcon={(
           <Switch
             size="24px"
             style="height: 26px"
@@ -88,7 +88,7 @@ this.state = {
       </Cell>
       <Cell 
         title={ this.state.switchTitle2 }
-        renderRightIcon={(
+        rightIcon={(
           <Switch
             size="24px"
             style="height: 26px"

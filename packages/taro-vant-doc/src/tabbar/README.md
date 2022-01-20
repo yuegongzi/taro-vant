@@ -148,7 +148,7 @@ function onChange(event) {
   >
   <TabbarItem
     info="3"
-    renderIcon={
+    icon={
       <Block>
         <Image
           src={this.state.icon.normal}
@@ -157,7 +157,7 @@ function onChange(event) {
         ></Image>
       </Block>
     }
-    renderIconactive={
+    active={
       <Block>
         <Image
           src={this.state.icon.active}

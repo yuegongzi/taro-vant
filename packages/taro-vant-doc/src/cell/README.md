@@ -211,7 +211,7 @@ import { CellGroup } from "taro-vant";
 |  参数            | 说明                   | 类型      | 默认值  |
 | -------------- | ---------------------- | --------- | ------- |
 |  title           | 分组标题               | _string_  | `-`     |
-|  inset `v1.7.2`  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
+|  inset  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
 |  border          | 是否显示外边框         | _boolean_ | `true`  |
 
 
@@ -233,7 +233,7 @@ import { CellGroup } from "taro-vant";
 |  isLink  | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
 |  required  | 是否显示表单必填星号 | _boolean_ | `false` |
 |  arrowDirection  | 箭头方向，可选值为 `left` `up` `down` | _string_ | - |
-|  titleStyle `v1.4.0`  | 标题样式 | _string_ | - |
+|  titleStyle   | 标题样式 | _string_ | - |
 |  rightIcon   | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效 | _ReactNode_ | - |
 |  extra   | 自定义额外内容 | _ReactNode_ | - |
 |  children   | 子节点 如果设置了value则不生效 | _ReactNode_ | - |

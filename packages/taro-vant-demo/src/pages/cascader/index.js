@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Toast, Button, Popup, Field, Cascader } from 'taro-vant'
+import React, { useState } from 'react'
+import { Button, Cascader, Field, Popup, Toast } from 'taro-vant'
 import { useSetState } from 'taro-vant/es/hooks'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'

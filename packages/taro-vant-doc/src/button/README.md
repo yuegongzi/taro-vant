@@ -256,7 +256,7 @@ import { Button } from "taro-vant";
 |  id  | 标识符 | _string_ | - |
 |  type  | 按钮类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
 |  size  | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _string_ | `normal` |
-|  color `v1.0.0`  | 按钮颜色，支持传入`linear-gradient`渐变色 | _string_ | - |
+|  color  | 按钮颜色，支持传入`linear-gradient`渐变色 | _string_ | - |
 |  icon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
 |  classPrefix  | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon) | _string_ | `van-icon` |
 |  plain  | 是否为朴素按钮 | _boolean_ | `false` |

@@ -1,4 +1,4 @@
-import { Contact, Radio, Address } from 'taro-vant'
+import { Address } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import { useState } from 'react'

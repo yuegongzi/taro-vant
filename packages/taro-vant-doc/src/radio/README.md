@@ -184,24 +184,26 @@ function onChange(event) {
     <Radio
       value={ this.state.radio }
       name="1"
-      renderIcon={ (
-          <Image
-            src={ this.state.radio === '1' ? this.state.icon.active : this.state.icon.normal }
-          />
-
-        ) }
+      iconRender={({ checked }) => (
+        <Image
+          src={checked ? icon.active : icon.normal}
+          className='icon'
+          mode='widthFix'
+        />
+      )}
     >
       自定义图标
     </Radio>
     <Radio
       value={ this.state.radio }
       name="2"
-      renderIcon={ (
-          <Image
-            src={ this.state.radio === '2' ? this.state.icon.active : this.state.icon.normal }
-          />
-
-        ) }
+      iconRender={({ checked }) => (
+        <Image
+          src={checked ? icon.active : icon.normal}
+          className='icon'
+          mode='widthFix'
+        />
+      )}
     >
       自定义图标
     </Radio>
@@ -275,11 +277,6 @@ function onChange(event) {
             },
           })
         }}
-        renderRightIcon={
-          <>
-            <Radio value={radio5} name="1"></Radio>
-          </>
-        }
       ></Cell>
       <Cell
         title="单选框 2"
@@ -295,11 +292,13 @@ function onChange(event) {
             },
           })
         }}
-        renderRightIcon={
-          <>
-            <Radio value={radio5} name="2"></Radio>
-          </>
-        }
+        iconRender={({ checked }) => (
+          <Image
+            src={checked ? icon.active : icon.normal}
+            className='icon'
+            mode='widthFix'
+          />
+        )}
       ></Cell>
     </CellGroup>
   </RadioGroup>
@@ -337,7 +336,7 @@ function onClick(event) {
 |  name  | 在表单内提交时的标识符 | _string_ | - |
 |  value  | 当前选中项的标识符 | _any_ | - |
 |  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
-|  direction `v1.6.7`  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+|  direction | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
 
 ### Radio Props
 

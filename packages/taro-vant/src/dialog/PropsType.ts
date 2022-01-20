@@ -11,7 +11,7 @@ export interface DialogProps
     Omit<PopupProps, 'onClose'>,
     Omit<ButtonProps, 'children'> {
   visible?: boolean
-  title?: string
+  title?: string | ReactNode
   width?: string | number
   zIndex?: number
   theme?: 'round-button'
@@ -31,7 +31,6 @@ export interface DialogProps
   className?: string
   style?: string
   transition?: 'fade' | 'none'
-  asyncClose?: boolean
   beforeClose?: (action: string) => Promise<void | boolean> | void | boolean
   messageAlign?: 'left' | 'right'
   confirmButtonText?: string
@@ -40,10 +39,9 @@ export interface DialogProps
   showCancelButton?: boolean
   closeOnClickOverlay?: boolean
   confirmButtonOpenType?: TaroButtonProps.openType
-  renderTitle?: ReactNode
 }
 
-interface dialog {
+export interface dialog {
   alert: (options: DialogProps) => Promise<void>
   confirm: (options: DialogProps) => Promise<void>
   setDefaultOptions: (options: DialogProps) => void
@@ -52,5 +50,3 @@ interface dialog {
   stopLoading: () => void
 }
 // & DialogCom
-
-export type { dialog }

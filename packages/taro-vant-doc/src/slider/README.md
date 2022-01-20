@@ -105,7 +105,7 @@ import { Slider } from "taro-vant";
   <Slider
     value={ this.state.currentValue }
     onDrag={ this.onDrag }
-    renderButton={ (
+    button={ (
       <View
         class="customButton"
       >
@@ -171,8 +171,8 @@ function onDrag(event) {
 |  barHeight  | 进度条高度，默认单位为 `px` | _string \| number_ | `2px` |
 |  activeColor  | 进度条激活态颜色 | _string_ | `#1989fa` |
 |  inactiveColor  | 进度条默认颜色 | _string_ | `#e5e5e5` |
-|  range `v1.8.4`  | 是否开启双滑块模式 | _boolean_ | `false` |
-|  vertical `v1.8.5`  | 是否垂直展示 | _boolean_ | `false` |
+|  range | 是否开启双滑块模式 | _boolean_ | `false` |
+|  vertical | 是否垂直展示 | _boolean_ | `false` |
 |  button   | 自定义滑块按钮 | _ReactNode_ | `-` |
 |  leftButton | 自定义左侧滑块按钮（双滑块模式下） | _ReactNode_ | `-` |
 |  rightButton | 自定义右侧滑块按钮 （双滑块模式下） | _ReactNode_ | `-` |

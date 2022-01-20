@@ -3,7 +3,8 @@ import { Grid, Image } from 'taro-vant'
 import DemoPage from '../../components/demo-page/index'
 import DemoBlock from '../../components/demo-block/index'
 import './index.scss'
-const GridItem = Grid.Item;
+
+const GridItem = Grid.Item
 
 export default class Index extends Component {
   state = {
@@ -25,18 +26,14 @@ export default class Index extends Component {
           <DemoBlock title='基本用法'>
             <Grid iconSize='48'>
               {array4.map((item) => {
-                return (
-                  <GridItem icon='photo-o' text='文字' key={item} />
-                )
+                return <GridItem icon='photo-o' text='文字' key={item} />
               })}
             </Grid>
           </DemoBlock>
           <DemoBlock title='自定义列数'>
             <Grid columnNum='3' iconSize='48'>
               {array6.map((item) => {
-                return (
-                  <GridItem icon='photo-o' text='文字' key={item} />
-                )
+                return <GridItem icon='photo-o' text='文字' key={item} />
               })}
             </Grid>
           </DemoBlock>
@@ -60,28 +57,22 @@ export default class Index extends Component {
           </DemoBlock>
           <DemoBlock title='正方形格子'>
             <Grid square iconSize='48'>
-              {array8.map((item,index) => {
-                return (
-                  <GridItem icon='photo-o' text='文字' key={index} />
-                )
+              {array8.map((item, index) => {
+                return <GridItem icon='photo-o' text='文字' key={index} />
               })}
             </Grid>
           </DemoBlock>
           <DemoBlock title='格子间距'>
             <Grid gutter={10} iconSize='48'>
               {array8.map((item) => {
-                return (
-                  <GridItem icon='photo-o' text='文字' key={item} />
-                )
+                return <GridItem icon='photo-o' text='文字' key={item} />
               })}
             </Grid>
           </DemoBlock>
           <DemoBlock title='内容横排'>
             <Grid direction='horizontal' columnNum='3' iconSize='48'>
               {array3.map((item) => {
-                return (
-                  <GridItem icon='photo-o' text='文字' key={item} />
-                )
+                return <GridItem icon='photo-o' text='文字' key={item} />
               })}
             </Grid>
           </DemoBlock>

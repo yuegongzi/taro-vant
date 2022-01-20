@@ -20,7 +20,7 @@ import { Dialog } from "taro-vant";
 
 ```jsx
 <View>
-  <Dialog id="vanDialog" />
+  <Dialog id="van-dialog" />
 </View>
  
 ```
@@ -201,7 +201,6 @@ function onClose() {
 |  cancelButtonText  | 取消按钮的文案 | _string_ | `取消` |
 |  overlay  | 是否展示遮罩层 | _boolean_ | `true` |
 |  closeOnClickOverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
-|  asyncClose  | 已废弃，将在 2.0.0 移除，请使用 `beforeClose` 属性代替 | _boolean_ | `false` |
 |  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
 |  overlayStyle  | 自定义overlay样式 | _object_ | - |
 |  transition  | 动画名称，可选值为`fade` `none` | _string_ | `scale` |
@@ -230,7 +229,7 @@ function onClose() {
 |  confirmButtonColor  | 确认按钮的字体颜色 | _string_ | `#ee0a24` |
 |  cancelButtonColor  | 取消按钮的字体颜色 | _string_ | `#333` |
 |  overlay  | 是否展示遮罩层 | _boolean_ | `true` |
-|  overlayStyle `v1.0.0`  | 自定义遮罩层样式 | _object_ | - |
+|  overlayStyle | 自定义遮罩层样式 | _object_ | - |
 |  closeOnClickOverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
 |  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
 |  transition  | 动画名称，可选值为`fade` | _string_ | `scale` |

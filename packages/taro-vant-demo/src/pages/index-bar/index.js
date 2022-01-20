@@ -2,6 +2,7 @@ import { Text } from '@tarojs/components'
 import { Component, Fragment } from 'react'
 import { Cell, IndexBar, Tabs } from 'taro-vant'
 import DemoPage from '../../components/demo-page'
+
 const Tab = Tabs.Tab
 const IndexAnchor = IndexBar.Anchor
 const indexList = []

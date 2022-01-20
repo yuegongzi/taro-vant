@@ -278,8 +278,8 @@ this.state = {
 |  autoFocus  | 自动聚焦，拉起键盘 | _boolean_ | `false` |
 |  disableDefaultPadding  | 是否去掉 iOS 下的默认内边距，只对 textarea 有效 | _boolean_ | `true` |
 |  cursor  | 指定 focus 时的光标位置 | _number_ | `-1` |
-|  clearTrigger `v1.8.4`  | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
-|  alwaysEmbed `v1.9.2`  | 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) |  _boolean_ | `false` |
+|  clearTrigger  | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
+|  alwaysEmbed   | 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) |  _boolean_ | `false` |
 
 ### Events
 

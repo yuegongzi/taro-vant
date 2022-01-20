@@ -138,36 +138,26 @@ this.state = {
 需要传入一个`actions`的数组，数组的每一项是一个对象，对象属性见文档下方表格。
 
 ```jsx
-<View>
-  <ActionSheet
-    visible={  this.state.show }
-    actions={  this.state.actions }
-    onClose={ this.onClose }
-    onGetuserinfo={ this.onGetUserInfo }
-  />
-</View>
+
+const  actions =  [{
+  name: '获取手机号',
+  color: '#07c160',
+  openType: 'getPhoneNumber',
+  onGetPhoneNumber: (e)=>console.log(e)
+}]
+
+const [ visible,setVisible ] = useState(false)
+
+  return (
+    <View>
+      <ActionSheet
+        visible={ visible }
+        actions={ actions }
+        onClose={ ()=>setVisible(false) }
+      />
+    </View>
+  )
  
-```
-
-```js
-this.state = {
-  show: false,
-  actions: [{
-    name: '获取用户信息',
-    color: '#07c160',
-    openType: 'getUserInfo'
-  }]
-};
-
-function onClose() {
-  this.setState({
-    show: false
-  });
-}
-
-function onGetUserInfo(e) {
-  console.log(e.detail);
-} 
 ```
 
 ## API
@@ -179,11 +169,11 @@ function onGetUserInfo(e) {
 |  visible  | 是否显示动作面板 | _boolean_ | - |
 |  actions  | 菜单选项 | _Array_ | `[]` |
 |  title  | 标题 | _string_ | - |
-|  description `v1.0.0`  | 选项上方的描述信息 | _string_ | - |
+|  description | 选项上方的描述信息 | _string_ | - |
 |  zIndex  | z-index 层级 | _number_ | `1010` |
 |  cancelText  | 取消按钮文字 | _string_ | - |
 |  overlay  | 是否显示遮罩层 | _boolean_ | - |
-|  round `v1.0.0`  | 是否显示圆角 | _boolean_ | `true` |
+|  round  | 是否显示圆角 | _boolean_ | `true` |
 |  closeOnClickAction  | 是否在点击选项后关闭 | _boolean_ | `true` |
 |  closeOnClickOverlay  | 点击遮罩是否关闭菜单 | _boolean_ | - |
 |  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
@@ -208,3 +198,5 @@ function onGetUserInfo(e) {
 |  color  | 选项文字颜色 | _string_ | - |
 |  loading  | 是否为加载状态 | _boolean_ | - |
 |  disabled  | 是否为禁用状态 | _boolean_ | - |
+
+> 其他参数参见 [Button](https://docs.taro.zone/docs/components/forms/button)

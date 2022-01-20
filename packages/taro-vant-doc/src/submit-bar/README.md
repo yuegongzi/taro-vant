@@ -71,8 +71,7 @@ import { SubmitBar } from "taro-vant";
     price={ 3050 }
     buttonText="提交订单"
     onSubmit={ this.onClickButton }
-    tip={ true }
-    renderTip={(
+    tip={(
       <View >
         您的收货地址不支持同城送,
         <Text>

@@ -408,5 +408,5 @@ this.state = {
 |  onOpened  | 打开弹出层且动画结束后触发 | - |
 |  onClosed  | 关闭弹出层且动画结束后触发 | - |
 |  overRange  | 范围选择超过最多可选天数时触发 | - |
-|  onClickSubtitle `v1.8.1`  | 点击日历副标题时触发 | _WechatMiniprogram.TouchEvent_ |
+|  onClickSubtitle | 点击日历副标题时触发 | _TouchEvent_ |
 
