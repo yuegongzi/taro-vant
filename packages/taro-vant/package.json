@@ -1,6 +1,6 @@
 {
   "name": "taro-vant",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "style": "lib/index.css",
