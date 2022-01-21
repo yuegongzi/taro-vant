@@ -5,6 +5,7 @@ import {
   addUnit,
   computedStyle,
   createNamespace,
+  ele,
   GRAY,
   RED,
   toPromise,
@@ -40,13 +41,6 @@ function Dialog(props: DialogProps) {
     confirmButtonColor = RED,
     cancelButtonText = '取消',
     showConfirmButton = true,
-    confirmButtonOpenType,
-    sessionFrom,
-    sendMessageTitle,
-    sendMessagePath,
-    sendMessageImg,
-    showMessageCard,
-    appParameter,
     confirmButtonText = '确认',
     onClose,
     onConfirm,
@@ -55,7 +49,8 @@ function Dialog(props: DialogProps) {
     children,
     style,
     className,
-    ...others
+    confirmButtonProps = {},
+    cancelButtonProps = {},
   } = options
 
   const [ confirmLoading, setConfirmLoading ] = useState(false)
@@ -181,7 +176,7 @@ function Dialog(props: DialogProps) {
       off('stopLoading')
     }
   }, [])
-
+  console.log(confirmButtonColor)
   return (
     <Popup
       visible={show}
@@ -207,27 +202,29 @@ function Dialog(props: DialogProps) {
       )}
       {children
         ? children
-        : message && (
+        : ele(
+            message,
             <View
               className={clsx(
                 bem('message', [ theme, messageAlign, { hasTitle: title } ]),
               )}
             >
               <Text className={clsx(bem('message-text'))}>{message}</Text>
-            </View>
+            </View>,
           )}
 
       {theme === 'round-button' ? (
         <GoodsAction className={clsx(bem('footer', [ 'round-button' ]))}>
           {showCancelButton && (
             <GoodsActionButton
-              loading={cancelLoading}
               className={clsx(
                 bem('button'),
                 bem('cancel'),
                 'van-hairline--right',
               )}
-              style={'color: ' + cancelButtonColor}
+              style={'background: ' + cancelButtonColor}
+              {...cancelButtonProps}
+              loading={cancelLoading}
               onClick={_onCancel}
             >
               {cancelButtonText}
@@ -236,16 +233,10 @@ function Dialog(props: DialogProps) {
           {showConfirmButton && (
             <GoodsActionButton
               className={clsx(bem('button'), bem('confirm'))}
-              style={'color: ' + confirmButtonColor}
+              style={'background: ' + confirmButtonColor}
+              {...confirmButtonProps}
               loading={confirmLoading}
-              openType={confirmButtonOpenType}
-              sessionFrom={sessionFrom}
-              sendMessageTitle={sendMessageTitle}
-              sendMessagePath={sendMessagePath}
-              sendMessageImg={sendMessageImg}
-              appParameter={appParameter}
               onClick={_onConfirm}
-              {...others}
             >
               {confirmButtonText}
             </GoodsActionButton>
@@ -259,6 +250,7 @@ function Dialog(props: DialogProps) {
               loading={cancelLoading}
               className={clsx(bem('button'), bem('cancel'))}
               style={'color: ' + cancelButtonColor}
+              {...cancelButtonProps}
               onClick={_onCancel}
             >
               {cancelButtonText}
@@ -272,15 +264,8 @@ function Dialog(props: DialogProps) {
               })}
               loading={confirmLoading}
               style={'color: ' + confirmButtonColor}
-              openType={confirmButtonOpenType}
-              sessionFrom={sessionFrom}
-              sendMessageTitle={sendMessageTitle}
-              sendMessagePath={sendMessagePath}
-              sendMessageImg={sendMessageImg}
-              showMessageCard={showMessageCard}
-              appParameter={appParameter}
+              {...confirmButtonProps}
               onClick={_onConfirm}
-              {...others}
             >
               {confirmButtonText}
             </Button>

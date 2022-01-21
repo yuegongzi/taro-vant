@@ -27,6 +27,11 @@ export default class Index extends Component {
     Dialog.alert({
       title: '标题',
       theme: 'round-button',
+      confirmButtonColor: '#07c160',
+      confirmButtonProps: {
+        openType: 'getPhoneNumber',
+        onGetPhoneNumber: (r) => console.log(r),
+      },
       message,
     })
   }
@@ -41,6 +46,7 @@ export default class Index extends Component {
   onClickAlert = () => {
     Dialog.alert({
       title: '标题',
+      confirmButtonColor: '#07c160',
       message,
     })
   }

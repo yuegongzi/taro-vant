@@ -1,8 +1,5 @@
 import type { ReactNode } from 'react'
-import type {
-  ButtonProps as TaroButtonProps,
-  StandardProps,
-} from '@tarojs/components'
+import type { StandardProps } from '@tarojs/components'
 import type { ButtonProps } from '../button'
 import type { PopupProps } from '../popup'
 
@@ -27,7 +24,6 @@ export interface DialogProps
   message?: string
   overlay?: boolean
   selector?: string
-  ariaLabel?: string
   className?: string
   style?: string
   transition?: 'fade' | 'none'
@@ -38,7 +34,8 @@ export interface DialogProps
   showConfirmButton?: boolean
   showCancelButton?: boolean
   closeOnClickOverlay?: boolean
-  confirmButtonOpenType?: TaroButtonProps.openType
+  cancelButtonProps?: Record<any, any>
+  confirmButtonProps?: Record<any, any>
 }
 
 export interface dialog {

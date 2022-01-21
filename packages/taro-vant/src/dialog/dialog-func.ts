@@ -39,17 +39,10 @@ export default {
       on('cancel', cancelFn)
     })
 
-    const innerOptions =
-      options?.theme === 'round-button'
-        ? {
-            confirmButtonColor: '#FFFFFF',
-            cancelButtonColor: '#FFFFFF',
-          }
-        : {}
     trigger('alert', {
       ...this.defaultOptions,
       ...options,
-      ...innerOptions,
+      // ...innerOptions,
       visible: true,
     })
     return p

@@ -45,9 +45,6 @@ import { Slider } from "taro-vant";
  
 ```
 
-```js
- 
-```
 
 ### 指定选择范围
 

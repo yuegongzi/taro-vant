@@ -204,8 +204,8 @@ function onClose() {
 |  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
 |  overlayStyle  | 自定义overlay样式 | _object_ | - |
 |  transition  | 动画名称，可选值为`fade` `none` | _string_ | `scale` |
-|  confirmButtonOpenType  | 确认按钮的微信开放能力，具体支持可参考 [Taro文档](https://taro-docs.jd.com/taro/docs/components/forms/button) | _string_ | - |
-
+|  cancelButtonProps `v2.1.0` | 取消按钮属性[Button](#/button) | _object_ | `-` |
+|  confirmButtonProps `v2.1.0` | 确认按钮属性[Button](#/button) | _object_ | `-` |
 
 ### Props
 
@@ -226,29 +226,16 @@ function onClose() {
 |  showCancelButton  | 是否展示取消按钮 | _boolean_ | `false` |
 |  confirmButtonText  | 确认按钮的文案 | _string_ | `确认` |
 |  cancelButtonText  | 取消按钮的文案 | _string_ | `取消` |
-|  confirmButtonColor  | 确认按钮的字体颜色 | _string_ | `#ee0a24` |
-|  cancelButtonColor  | 取消按钮的字体颜色 | _string_ | `#333` |
+|  confirmButtonColor  | 确认按钮的字体颜色 `theme`为`round-button`时为背景色  | _string_ | `#ee0a24` |
+|  cancelButtonColor  | 取消按钮的字体颜色 `theme`为`round-button`时为背景色 | _string_ | `#333` |
 |  overlay  | 是否展示遮罩层 | _boolean_ | `true` |
 |  overlayStyle | 自定义遮罩层样式 | _object_ | - |
 |  closeOnClickOverlay  | 点击遮罩层时是否关闭弹窗 | _boolean_ | `false` |
 |  beforeClose  | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise\<boolean\>_ | - |
 |  transition  | 动画名称，可选值为`fade` | _string_ | `scale` |
-|  confirmButtonOpenType  | 确认按钮的微信开放能力，具体支持可参考 [Taro文档](https://taro-docs.jd.com/taro/docs/components/forms/button) | _string_ | - |
+|  cancelButtonProps `v2.1.0` | 取消按钮属性[Button](#/button) | _object_ | `-` |
+|  confirmButtonProps `v2.1.0` | 确认按钮属性[Button](#/button) | _object_ | `-` |
 
-### OpenType Props
-
-使用`confirm-button-open-type`后，支持以下 Props：
-
-|  参数  | 说明 | 类型 | 默认值 | open-type |
-| --- | --- | --- | --- | --- |
-|  appParameter  | 打开 APP 时，向 APP 传递的参数 | _string_ | - | `launchApp` |
-|  lang  | 指定返回用户信息的语言，zh_CN 简体中文，<br>zh_TW 繁体中文，en 英文 | _string_ | `en` | `getUserInfo` |
-|  sessionFrom  | 会话来源 | _string_ | - | `contact` |
-|  businessId  | 客服消息子商户 id | _number_ | - | `contact` |
-|  sendMessageTitle  | 会话内消息卡片标题 | _string_ | 当前标题 | `contact` |
-|  sendMessagePath  | 会话内消息卡片点击跳转小程序路径 | _string_ | 当前分享路径 | `contact` |
-|  sendMessageImg  | sendMessageImg | _string_ | 截图 | `contact` |
-|  showMessageCard  | 显示会话内消息卡片 | _string_ | `false` | `contact` |
 
 ### Events
 

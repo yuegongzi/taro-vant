@@ -12,7 +12,7 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
-### 2.0.17
+### 2.1.10
 
 `2022-01-20`
 
@@ -22,6 +22,17 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 **Document**
 - 重构所有文档,修复一些文档描述错误
+
+### 2.1.0
+
+`2022-01-21`
+
+
+**Performance**
+- `Dialog` 重构Dialog的结构增加`cancelButtonProps` 和 `confirmButtonProps`更加方便定义属性
+
+**Bug Fixes**
+- `Dialog` `confirmButtonColor` 和 `cancelButtonColor`在theme为round-button时不生效的bug
 
 ### 2.0.16
 
