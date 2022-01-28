@@ -1,8 +1,10 @@
-import type { InlineConfig } from 'vite'
 import { join, sep } from 'path'
 import fse from 'fs-extra'
 import { get } from 'lodash'
-import { getVantConfig, SRC_DIR } from './constant'
+import merge from 'webpack-merge'
+import { getVantConfig, SRC_DIR, ROOT_WEBPACK_CONFIG_FILE } from './constant'
+import type { WebpackConfig } from './types'
+import type { InlineConfig } from 'vite'
 
 const { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } = fse
 export const EXT_REGEXP = /\.\w+$/
@@ -147,6 +149,22 @@ export function mergeCustomViteConfig(config: InlineConfig) {
     return configureVite(config)
   }
   return config
+}
+
+export function getWebpackConfig(defaultConfig: WebpackConfig) {
+  if (existsSync(ROOT_WEBPACK_CONFIG_FILE)) {
+    const config = require(ROOT_WEBPACK_CONFIG_FILE)
+
+    // 如果是函数形式，可能并不仅仅是添加额外的处理流程，而是在原有流程上进行修改
+    // 比如修改markdown-loader,添加options.enableMetaData
+    if (typeof config === 'function') {
+      return merge(defaultConfig, config(defaultConfig))
+    }
+
+    return merge(defaultConfig, config)
+  }
+
+  return defaultConfig
 }
 
 export { getVantConfig }

@@ -6,6 +6,7 @@ import { isScript, isStyle } from '../common'
 import { consola, ora } from '../common/logger'
 import { compileStyle } from '../compiler/compile-style'
 import { compileScript } from '../compiler/compile-script'
+import { compileSite } from '../compiler/compile-site'
 import { build } from './build'
 
 async function compileFile(params: {
@@ -100,8 +101,9 @@ function watchFile() {
   })
 }
 
-export async function watch() {
+export async function dev() {
   await build(false)
+  await compileSite(false)
   consola.log('watching ...')
   watchFile()
 }

@@ -1,8 +1,9 @@
 import { dirname, join } from 'path'
 import { existsSync } from 'fs'
+import { CONFIG_FILE_NAME } from '../common/constant'
 
 function findRootDir(dir) {
-  if (existsSync(join(dir, 'vant.config.js'))) {
+  if (existsSync(join(dir, CONFIG_FILE_NAME))) {
     return dir
   }
 

@@ -5,6 +5,7 @@ import { CWD, ES_DIR, getVantConfig, LIB_DIR } from '../common/constant'
 
 export function getViteConfigForPackage(minify: boolean): InlineConfig {
   setBuildTarget('package')
+
   const { name } = getVantConfig()
 
   return {
