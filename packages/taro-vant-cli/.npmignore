@@ -1,6 +1,6 @@
 *.log
 *.swp
-
+src
 .github
 .cache
 .temp

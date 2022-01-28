@@ -70,14 +70,14 @@ export const baseConfig: WebpackConfig = {
   resolve: {
     extensions: [ ...SCRIPT_EXTS, ...STYLE_EXTS ],
     alias: {
-      'react-vant': resolve(process.cwd(), 'src'),
+      'taro-vant': resolve(process.cwd(), 'src'),
     },
   },
   module: {
     rules: [
       {
         test: /\.(js|ts|jsx|tsx)$/,
-        exclude: /node_modules\/(?!(@react-vant\/cli))/,
+        exclude: /node_modules\/(?!(@taro-vant\/cli))/,
         use: [
           CACHE_LOADER,
           {

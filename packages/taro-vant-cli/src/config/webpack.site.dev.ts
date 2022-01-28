@@ -33,13 +33,12 @@ export function getSiteDevBaseConfig(): WebpackConfig {
 
   const siteConfig = getSiteConfig()
   const title = getTitle(siteConfig)
-
   return merge(baseConfig as WebpackConfig, {
     entry: {
       'site-desktop': [ join(__dirname, '../../site/desktop/main.js') ],
     },
     devServer: {
-      port: 8080,
+      port: 3000,
       quiet: true,
       host: '0.0.0.0',
       stats: 'errors-only',
