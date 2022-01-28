@@ -101,15 +101,7 @@ function watchFile() {
 }
 
 export async function watch() {
-  // if (type === 'es') {
-  //   setModuleEnv('esmodule')
-  // } else if (type === 'lib') {
-  //   setModuleEnv('commonjs')
-  // }
   await build(false)
-
-  consola.log(`
-  watching files update
-`)
+  consola.log('watching ...')
   watchFile()
 }

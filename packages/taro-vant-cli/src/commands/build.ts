@@ -160,6 +160,7 @@ async function runBuildTasks() {
 }
 
 export async function build(product = true) {
+  consola.start('Compile ....')
   setBuildTarget('package')
   if (product) {
     setNodeEnv('production')
