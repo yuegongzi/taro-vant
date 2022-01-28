@@ -21,9 +21,6 @@ packages/**/coverage
 packages/**/dist
 packages/taro-vant/lib
 packages/taro-vant/es
-packages/taro-vant-doc/lib
-packages/taro-vant-doc/es
-packages/taro-vant-doc/dist
 packages/taro-vant/src/style/components/iconfont.less
 packages/taro-vant-demo/weapp
 packages/taro-vant-demo/alipay
@@ -37,4 +34,3 @@ packages/taro-vant-demo/jd
 packages/taro-vant-demo/iot
 packages/taro-vant-demo/build
 packages/taro-vant-demo/dist
-packages/taro-vant-doc

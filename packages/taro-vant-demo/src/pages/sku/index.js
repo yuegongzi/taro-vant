@@ -14,7 +14,7 @@ export default class Index extends Component {
     const { visible } = this.state
 
     return (
-      <DemoPage title='Slider 滑块'>
+      <DemoPage title='Sku 商品选择'>
         <DemoBlock title='基础用法'>
           <Cell
             title='使用'

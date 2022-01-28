@@ -375,7 +375,6 @@ export default class Index extends Component {
             <Calendar
               title='日历'
               poppable={false}
-              footer='哈哈哈哈'
               showConfirm={false}
               minDate={tiledMinDate}
               maxDate={tiledMaxDate}

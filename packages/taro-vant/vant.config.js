@@ -1,26 +1,25 @@
 module.exports = {
-  name: 'taro-vant-doc',
+  name: 'taro.vant',
   build: {
-    srcDir: '',
-    css: {
-      preprocessor: 'less',
-    },
-    site: {
-      publicPath: '/',
-      searchConfig: {},
-    },
+    srcDir: 'src',
+    demoDir: '../taro-vant-demo',
+    namedExport: true,
+    skipInstall: [ 'lazyload' ],
+    packageManager: 'yarn',
   },
   site: {
     simulator: {
       url:
-        process.env.NODE_ENV === 'development' ? 'http://localhost:10086/' : '',
+        process.env.NODE_ENV === 'development'
+          ? 'http://localhost:10086/#'
+          : './mobile.html#',
     },
     title: 'taro-vant',
     logo: 'https://img.yzcdn.cn/vant/logo.png',
     links: [
       {
         logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
-        url: 'https://github.com/youzan/vant-weapp',
+        url: 'https://github.com/yuegongzi/taro-vant',
       },
     ],
     nav: [
@@ -86,7 +85,7 @@ module.exports = {
             title: 'Popup 弹出层',
           },
           {
-            path: 'common',
+            path: 'style',
             title: 'Style 内置样式',
           },
           {
@@ -256,7 +255,6 @@ module.exports = {
             path: 'tag',
             title: 'Tag 标签',
           },
-
         ],
       },
       {
@@ -275,11 +273,15 @@ module.exports = {
             title: 'NavBar 导航栏',
           },
           {
+            path: 'pagination',
+            title: 'Pagination 分页',
+          },
+          {
             path: 'sidebar',
             title: 'Sidebar 侧边导航',
           },
           {
-            path: 'tab',
+            path: 'tabs',
             title: 'Tab 标签页',
           },
           {
@@ -324,7 +326,7 @@ module.exports = {
             title: 'GoodsAction 商品导航',
           },
         ],
-      }
+      },
     ],
   },
 }

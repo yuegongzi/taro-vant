@@ -7,7 +7,7 @@
 ### 引入
 
 ```js
-import { Cascader } from 'react-vant';
+import { Cascader } from 'taro-vant';
 ```
 
 ## 代码演示
@@ -17,7 +17,7 @@ import { Cascader } from 'react-vant';
 级联选择组件可以搭配 Field 和 Popup 组件使用，示例如下：
 
 ```jsx
-import { Field, Popup, Cascader, useSetState } from 'react-vant';
+import { Field, Popup, Cascader } from 'taro-vant';
 
 // 选项列表，children 代表子选项，支持多级嵌套
 const options = [
@@ -82,7 +82,7 @@ export default () => {
 
 ```jsx
 import { useState } from 'react'
-import { Toast, Field, Popup, Cascader, useSetState } from 'react-vant';
+import { Toast, Field, Popup, Cascader, useSetState } from 'taro-vant';
 
 export default () => {
   const [dynamicOpts, setDynamicOpts] = useState([
@@ -169,11 +169,10 @@ const options = [
 
 通过 `value` 属性可以 Cascader 成为受控组件。
 
-> 此处 options 数据和右侧 demo 数据不一致，完整数据请看 [options](https://github.com/3lang3/react-vant/blob/main/src/cascader/demo/index.tsx#L7-L128)
 
 ```jsx
 import { useState } from 'react';
-import { Cascader, Button, Popup, Field } from 'react-vant';
+import { Cascader, Button, Popup, Field } from 'taro-vant';
 
 // 选项列表，children 代表子选项，支持多级嵌套
 const options = [
@@ -252,7 +251,6 @@ export default () => {
 | --- | --- | --- | --- |
 | title | 顶部标题 | _ReactNode_ | - |
 | value | 当前选中的值 | _(string \| number)[]_ | - |
-| defaultValue | 默认选中的值 | _(string \| number)[]_ | - |
 | options | 可选项数据源 | _Option[]_ | `[]` |
 | optionRender | 自定义选项文字 | _({ option: Option, selected: boolean }) => ReactNode_ | - |
 | placeholder | 未选中时的提示文案 | _string_ | `请选择` |
@@ -282,29 +280,3 @@ export default () => {
 | onFinish   | 全部选项选择完成后触发 | `{ value, selectedOptions, tabIndex }` |
 | onClose    | 点击关闭图标时触发     | -                                      |
 | onClickTab | 点击标签时触发         | _tabIndex: number, title: string_      |
-
-
-
-
-## 主题定制
-
-### 样式变量
-
-组件提供了下列 CSS 变量，可用于自定义样式，使用方法请参考 [ConfigProvider 组件](#/zh-CN/config-provider)。
-
-| 名称                                   | 默认值                    | 描述 |
-| -------------------------------------- | ------------------------- | ---- |
-| --rv-cascader-header-height           | _48px_                    | -    |
-| --rv-cascader-header-padding          | _0 var(--rv-padding-md)_ | -    |
-| --rv-cascader-title-font-size         | _var(--rv-font-size-lg)_ | -    |
-| --rv-cascader-title-line-height       | _20px_                    | -    |
-| --rv-cascader-close-icon-size         | _22px_                    | -    |
-| --rv-cascader-close-icon-color        | _var(--rv-gray-5)_       | -    |
-| --rv-cascader-close-icon-active-color | _var(--rv-gray-6)_       | -    |
-| --rv-cascader-selected-icon-size      | _18px_                    | -    |
-| --rv-cascader-tabs-height             | _48px_                    | -    |
-| --rv-cascader-active-color            | _var(--rv-danger-color)_ | -    |
-| --rv-cascader-options-height          | _384px_                   | -    |
-| --rv-cascader-option-disabled-color   | _van(--rv-gray-5)_       | -    |
-| --rv-cascader-tab-color               | _var(--rv-text-color)_   | -    |
-| --rv-cascader-unselected-tab-color    | _var(--rv-gray-6)_       | -    |

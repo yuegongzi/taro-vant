@@ -52,8 +52,6 @@ npm i taro-vant -S --production
 # 通过 yarn 安装
 yarn add taro-vant --production
 
-# 安装 0.x 版本
-npm i vant-weapp -S --production
 ```
 
 

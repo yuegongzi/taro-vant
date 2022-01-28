@@ -137,9 +137,8 @@ function Dialog(props: DialogProps) {
 
   useEffect(() => {
     if (!props.id) {
-      return
+      return null
     }
-
     const alertFn = (params: DialogProps = {}) => {
       if (!params?.selector || props.id === params.selector.replace(/^#/, '')) {
         setOptions({
@@ -176,7 +175,6 @@ function Dialog(props: DialogProps) {
       off('stopLoading')
     }
   }, [])
-  console.log(confirmButtonColor)
   return (
     <Popup
       visible={show}

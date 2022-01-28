@@ -18,10 +18,7 @@ packages/**/yarn.lock
 packages/**/dist
 packages/taro-vant/lib
 packages/taro-vant/es
-packages/taro-vant-doc/lib
-packages/taro-vant-doc/es
-packages/taro-vant-doc/dist
-packages/taro-vant-doc/site
+packages/taro-vant/site
 packages/taro-vant-demo/weapp
 packages/taro-vant-demo/alipay
 packages/taro-vant-demo/swan
