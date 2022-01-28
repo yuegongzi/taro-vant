@@ -1,6 +1,6 @@
 import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
-import { SCRIPT_EXTS } from '../common/constant.js'
+import { SCRIPT_EXTS } from '../common/constant'
 
 let depsMap: Record<string, string[]> = {}
 let existsCache: Record<string, boolean> = {}

@@ -28,3 +28,5 @@ module.exports = function (api, options) {
     ],
   }
 }
+
+export default module.exports

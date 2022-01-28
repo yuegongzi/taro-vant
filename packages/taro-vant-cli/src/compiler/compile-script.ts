@@ -1,9 +1,6 @@
-// import { sep } from 'path'
 import fse from 'fs-extra'
 import { transformAsync } from '@babel/core'
-import { replaceExt } from '../common/index.js'
-// import { replaceCSSImportExt } from '../common/css.js'
-// import { replaceScriptImportExt } from './get-deps.js'
+import { replaceExt } from '../common'
 
 const { readFileSync, removeSync, outputFileSync } = fse
 
@@ -23,20 +20,16 @@ export async function compileScript(
     }
 
     const code = readFileSync(filePath, 'utf-8')
-
-    // if (!filePath.includes(`${sep}style${sep}`)) {
-    //   code = replaceCSSImportExt(code)
-    // }
-    // code = replaceScriptImportExt(code, '.vue', '')
-
-    transformAsync(code, { filename: filePath }).then((result: any) => {
-      if (result) {
-        const jsFilePath = replaceExt(outputPath || filePath, '.js')
-        // watch的时候不删除目标
-        if (!outputPath) removeSync(filePath)
-        outputFileSync(jsFilePath, result.code)
-        resolve()
-      }
-    }).catch(reject)
+    transformAsync(code, { filename: filePath }).
+      then((result: any) => {
+        if (result) {
+          const jsFilePath = replaceExt(outputPath || filePath, '.js')
+          // watch的时候不删除目标
+          if (!outputPath) removeSync(filePath)
+          outputFileSync(jsFilePath, result.code)
+          resolve()
+        }
+      }).
+      catch(reject)
   })
 }

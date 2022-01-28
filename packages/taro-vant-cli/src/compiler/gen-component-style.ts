@@ -3,19 +3,22 @@
  * Build style entry of all components
  */
 
-import { createRequire } from 'module'
 import { join, relative, sep } from 'path'
 import fse from 'fs-extra'
-import { getComponents, replaceExt } from '../common/index.js'
-import { CSS_LANG, getCssBaseFile } from '../common/css.js'
-import { ES_DIR, LIB_DIR, SRC_DIR, STYLE_DEPS_JSON_FILE } from '../common/constant.js'
-import { checkStyleExists } from './gen-style-deps-map.js'
+import { getComponents, replaceExt } from '../common'
+import { CSS_LANG, getCssBaseFile } from '../common/css'
+import {
+  ES_DIR,
+  LIB_DIR,
+  SRC_DIR,
+  STYLE_DEPS_JSON_FILE,
+} from '../common/constant'
+import { checkStyleExists } from './gen-style-deps-map'
 import { existsSync } from 'fs'
 
 const { outputFileSync } = fse
 
 function getDeps(component: string): string[] {
-  const require = createRequire(import.meta.url)
   const styleDepsJson = require(STYLE_DEPS_JSON_FILE)
 
   if (styleDepsJson.map[component]) {
@@ -39,12 +42,12 @@ function getRelativePath(component: string, style: string, ext: string) {
   // return relative(join(ES_DIR, `${component}/style`), getPath(style, ext))
   const relativePath = relative(
     join(ES_DIR, `${component}/style`),
-    getPath(style, ext)
-  );
+    getPath(style, ext),
+  )
   if (!existsSync(relativePath) && relativePath.indexOf('/') === -1) {
-    return `./${relativePath}`;
+    return `./${relativePath}`
   }
-  return relative(join(ES_DIR, `${component}/style`), getPath(style, ext));
+  return relative(join(ES_DIR, `${component}/style`), getPath(style, ext))
 }
 
 const OUTPUT_CONFIG = [
@@ -90,7 +93,6 @@ export function genComponentStyle(
   options: { cache: boolean } = { cache: true },
 ) {
   if (!options.cache) {
-    const require = createRequire(import.meta.url)
     delete require.cache[STYLE_DEPS_JSON_FILE]
   }
 
@@ -104,7 +106,7 @@ export function genComponentStyle(
         component,
         filename: 'index.js',
         ext: `.${CSS_LANG}`,
-      });
+      })
     }
   })
 }

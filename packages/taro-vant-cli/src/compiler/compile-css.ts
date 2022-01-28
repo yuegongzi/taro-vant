@@ -1,7 +1,7 @@
 import postcss from 'postcss'
 import postcssrc from 'postcss-load-config'
 import CleanCss from 'clean-css'
-import { POSTCSS_CONFIG_FILE } from '../common/constant.js'
+import { POSTCSS_CONFIG_FILE } from '../common/constant'
 
 const cleanCss = new CleanCss()
 

@@ -1,11 +1,10 @@
 import type { InlineConfig } from 'vite'
 import { join, sep } from 'path'
 import fse from 'fs-extra'
-import { get } from 'lodash-es'
-import { getVantConfig, SRC_DIR } from './constant.js'
+import { get } from 'lodash'
+import { getVantConfig, SRC_DIR } from './constant'
 
 const { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } = fse
-
 export const EXT_REGEXP = /\.\w+$/
 export const SFC_REGEXP = /\.(vue)$/
 export const DEMO_REGEXP = new RegExp('\\' + sep + 'demo$')

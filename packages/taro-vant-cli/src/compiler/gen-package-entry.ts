@@ -1,7 +1,12 @@
 import { join } from 'path'
-import { get } from 'lodash-es'
-import { getComponents, normalizePath, pascalize, smartOutputFile } from '../common/index.js'
-import { getVantConfig, SRC_DIR } from '../common/constant.js'
+import { get } from 'lodash'
+import {
+  getComponents,
+  normalizePath,
+  pascalize,
+  smartOutputFile,
+} from '../common'
+import { getVantConfig, SRC_DIR } from '../common/constant'
 
 type PathResolver = (path: string) => string
 
@@ -18,13 +23,15 @@ function genImports(
   pathResolver?: PathResolver,
   namedExport?: boolean,
 ): string {
-  return names.map((name) => {
-    const pascalName = pascalize(name)
-    const importName = namedExport ? `{ ${pascalName} }` : pascalName
-    const importPath = getPathByName(name, pathResolver)
+  return names.
+    map((name) => {
+      const pascalName = pascalize(name)
+      const importName = namedExport ? `{ ${pascalName} }` : pascalName
+      const importPath = getPathByName(name, pathResolver)
 
-    return `import ${importName} from '${importPath}';`
-  }).join('\n')
+      return `import ${importName} from '${importPath}';`
+    }).
+    join('\n')
 }
 
 function genExports(
@@ -33,7 +40,9 @@ function genExports(
   namedExport?: boolean,
 ): string {
   if (namedExport) {
-    const exports = names.map((name) => `export * from '${getPathByName(name, pathResolver)}';`).join('\n')
+    const exports = names.
+      map((name) => `export * from '${getPathByName(name, pathResolver)}';`).
+      join('\n')
 
     return `
   ${exports}
@@ -48,9 +57,9 @@ function genExports(
 }
 
 export function genPackageEntry({
-                                  outputPath,
-                                  pathResolver,
-                                }: {
+  outputPath,
+  pathResolver,
+}: {
   outputPath: string
   pathResolver?: PathResolver
 }) {

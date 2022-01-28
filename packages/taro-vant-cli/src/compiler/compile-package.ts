@@ -1,6 +1,6 @@
 import { build } from 'vite'
-import { mergeCustomViteConfig } from '../common/index.js'
-import { getViteConfigForPackage } from '../config/vite.package.js'
+import { mergeCustomViteConfig } from '../common'
+import { getViteConfigForPackage } from '../config/vite.package'
 
 export async function compilePackage(
   minify: boolean,

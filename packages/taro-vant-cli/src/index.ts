@@ -1,16 +1,13 @@
-import fs from 'fs'
-import { fileURLToPath, URL } from 'url'
-import { clean } from './commands/clean.js'
-import { build } from './commands/build.js'
-import { release } from './commands/release.js'
-import { changelog } from './commands/changelog.js'
-import { watch } from './commands/watch.js'
+// @ts-ignore
+import packageJson from '../package.json'
+import { clean } from './commands/clean'
+import { build } from './commands/build'
+import { changelog } from './commands/changelog'
+import { watch } from './commands/dev'
 
-const packagePath = fileURLToPath(new URL('../package.json', import.meta.url))
-const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf-8'))
 export const cliVersion: string = packageJson.version
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 process.env.VANT_CLI_VERSION = cliVersion
 
-export { clean, build, release, changelog, watch }
+export { clean, build, changelog, watch as dev }

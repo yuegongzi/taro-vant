@@ -1,12 +1,12 @@
 import { mkdirSync } from 'fs'
 import { remove } from 'fs-extra'
 import chokidar from 'chokidar'
-import { ES_DIR, LIB_DIR, SRC_DIR } from '../common/constant.js'
-import { isScript, isStyle } from '../common/index.js'
-import { consola, ora } from '../common/logger.js'
-import { compileStyle } from '../compiler/compile-style.js'
-import { compileScript } from '../compiler/compile-script.js'
-import { build } from './build.js'
+import { ES_DIR, LIB_DIR, SRC_DIR } from '../common/constant'
+import { isScript, isStyle } from '../common'
+import { consola, ora } from '../common/logger'
+import { compileStyle } from '../compiler/compile-style'
+import { compileScript } from '../compiler/compile-script'
+import { build } from './build'
 
 async function compileFile(params: {
   fileName: string

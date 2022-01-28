@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { join } = require('path')
-const { existsSync } = require('fs')
-const { ROOT } = require('./shared.cjs')
+import { join } from 'path'
+import { existsSync } from 'fs'
+const { ROOT } = require('./shared')
 
 function getRootPostcssConfig() {
   const ROOT_POSTCSS_CONFIG_FILE = join(ROOT, 'postcss.config.js')
@@ -23,7 +22,7 @@ function getPostcssPlugins(rootConfig) {
       return plugins
     }
 
-    return [require('autoprefixer'), ...plugins]
+    return [ require('autoprefixer'), ...plugins ]
   }
 
   return {

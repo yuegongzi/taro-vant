@@ -1,7 +1,7 @@
 import { join } from 'path'
 import { readFileSync } from 'fs'
 import less from 'less'
-import { CWD } from '../common/constant.js'
+import { CWD } from '../common/constant'
 
 export async function compileLess(filePath: string) {
   const source = readFileSync(filePath, 'utf-8')

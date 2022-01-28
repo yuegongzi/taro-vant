@@ -11,6 +11,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-param-reassign': 'off',
     'no-use-before-define': 'off',
+    'react-hooks/exhaustive-deps': 'off',
     'no-explicit-any': 'off',
     'no-underscore-dangle': 'off',
     'object-curly-spacing': [ 2, 'always' ],
@@ -19,6 +20,8 @@ module.exports = {
     'no-case-declarations': 'error',
     'no-empty-pattern': 'error',
     'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': [ 0 ]
+    '@typescript-eslint/no-shadow': [ 0 ],
+    'react/prop-types': 'off',
+    'react/require-default-props': 'off',
   },
 }

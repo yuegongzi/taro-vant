@@ -1,7 +1,7 @@
 import { execSync } from 'child_process'
 import execa from 'execa'
-import { consola } from './logger.js'
-import { getVantConfig } from './constant.js'
+import { consola } from './logger'
+import { getVantConfig } from './constant'
 
 let hasYarnCache: boolean
 
@@ -37,8 +37,6 @@ export async function installDependencies() {
     await execa(manager, [ 'install', '--prod=false' ], {
       stdio: 'inherit',
     })
-
-    console.log('')
   } catch (err) {
     console.log(err)
     throw err

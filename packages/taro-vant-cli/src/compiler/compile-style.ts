@@ -1,10 +1,10 @@
 import { parse } from 'path'
 import { readFileSync, writeFileSync } from 'fs'
-import { replaceExt } from '../common/index.js'
-import { consola } from '../common/logger.js'
-import { compileCss } from './compile-css.js'
-import { compileLess } from './compile-less.js'
-import { compileSass } from './compile-sass.js'
+import { replaceExt } from '../common'
+import { consola } from '../common/logger'
+import { compileCss } from './compile-css'
+import { compileLess } from './compile-less'
+import { compileSass } from './compile-sass'
 
 async function compileFile(filePath: string) {
   const parsedPath = parse(filePath)

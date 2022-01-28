@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 
-import { build, changelog, clean, cliVersion, release, watch } from './index.js'
+import { build, changelog, clean, cliVersion, dev } from './index'
 
 const program = new Command()
 
@@ -14,16 +14,10 @@ program.
   action(build)
 
 program.
-  command('watch').
+  command('dev').
   description('Compile components in development mode').
   option('--type <type>', 'Build type').
-  action(watch)
-
-program.
-  command('release').
-  description('Compile components and release it').
-  option('--tag <tag>', 'Release tag').
-  action(release)
+  action(dev)
 
 program.command('changelog').description('Generate changelog').action(changelog)
 

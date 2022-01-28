@@ -1,11 +1,9 @@
-import { existsSync, readFileSync } from 'fs'
-import { createRequire } from 'module'
-import { fileURLToPath } from 'url'
+import { existsSync } from 'fs'
 import { dirname, isAbsolute, join } from 'path'
-import { get } from 'lodash-es'
+import { get } from 'lodash'
 
 function findRootDir(dir: string): string {
-  if (existsSync(join(dir, 'vant.config.mjs'))) {
+  if (existsSync(join(dir, 'vant.config.js'))) {
     return dir
   }
 
@@ -22,46 +20,30 @@ export const CWD = process.cwd()
 export const ROOT = findRootDir(CWD)
 export const ES_DIR = join(ROOT, 'es')
 export const LIB_DIR = join(ROOT, 'lib')
-export const VANT_CONFIG_FILE = join(ROOT, 'vant.config.mjs')
-export const PACKAGE_JSON_FILE = join(ROOT, 'package.json')
+export const VANT_CONFIG_FILE = join(ROOT, 'vant.config.js')
 
 // Relative paths
-const __dirname = dirname(fileURLToPath(import.meta.url))
-export const CJS_DIR = join(__dirname, '..', '..', 'cjs')
+// export const CJS_DIR = join(__dirname, '..', '..', 'cjs')
 export const DIST_DIR = join(__dirname, '..', '..', 'dist')
-export const CONFIG_DIR = join(__dirname, '..', 'config')
+export const CONFIG_DIR = join(__dirname, '../config')
 
 // Dist files
-export const PACKAGE_ENTRY_FILE = join(DIST_DIR, 'package-entry.js')
-export const PACKAGE_STYLE_FILE = join(DIST_DIR, 'package-style.css')
 export const STYLE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json')
 
 // Config files
-export const POSTCSS_CONFIG_FILE = join(CJS_DIR, 'postcss.config.cjs')
+// export const POSTCSS_CONFIG_FILE = join(CJS_DIR, 'postcss.config.cjs')
+export const POSTCSS_CONFIG_FILE = join(CONFIG_DIR, 'postcss.config.js')
 
-export const SCRIPT_EXTS = [ '.js', '.jsx',  '.ts', '.tsx' ]
-export const STYLE_EXTS = [ '.css', '.less', '.scss' ]
-
-export function getPackageJson() {
-  const rawJson = readFileSync(PACKAGE_JSON_FILE, 'utf-8')
-  return JSON.parse(rawJson)
-}
-
-async function getVantConfigAsync() {
-  const require = createRequire(import.meta.url)
-  delete require.cache[VANT_CONFIG_FILE]
-
-  try {
-    return (await import(VANT_CONFIG_FILE)).default
-  } catch (err) {
-    return {}
-  }
-}
-
-const vantConfig = await getVantConfigAsync()
+export const SCRIPT_EXTS = [ '.js', '.jsx', '.ts', '.tsx' ]
 
 export function getVantConfig() {
-  return vantConfig
+  delete require.cache[VANT_CONFIG_FILE]
+  try {
+    return require(VANT_CONFIG_FILE)
+  } catch (err) {
+    console.error(err)
+    return {}
+  }
 }
 
 function getSrcDir() {
