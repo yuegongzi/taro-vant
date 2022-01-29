@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="logo" src="https://img.yzcdn.cn/vant/logo.png" width="120" style="margin-bottom: 10px;">
+  <img alt="logo" src="https://img.yzcdn.cn/vant/logo.png" width="120" style="margin-bottom: 10px;width:120px;height: 120px">
 </p>
 <h3 align="center">轻量、可靠的小程序 UI 组件库</h3>
 
@@ -30,11 +30,12 @@ Taro-Vant将Vant进行移植到Taro版本,并进行部分组件的优化调整�
 
 扫描下方小程序二维码，体验官方组件库示例：
 
-<img src="https://img.yzcdn.cn/vant-weapp/qrcode-201808101114.jpg" width="200" height="200" style="margin-top: 10px;" >
+<img src="https://img.yzcdn.cn/vant-weapp/qrcode-201808101114.jpg" width="200" height="200" 
+style="margin-top: 10px;width:200px;height:200px;" >
 
 ## 使用之前
 
-使用 Taro Vant 前，请确保你已经学习过微信官方的 [小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/framework/) 和 [Taro介绍]('https://taro-docs.jd.com/taro/docs/README/index.html')
+> 使用 Taro Vant 前，请确保你已经学习过微信官方的 [小程序简易教程](https://developers.weixin.qq.com/miniprogram/dev/framework/) 和 [Taro介绍]('https://taro-docs.jd.com/taro/docs/README/index.html')
 
 ## 安装
 
