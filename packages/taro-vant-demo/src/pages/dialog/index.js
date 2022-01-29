@@ -1,28 +1,19 @@
 import { Component } from 'react'
 import { Cell, Dialog, Image } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const message = '代码是写出来给人看的，附带能在机器上运行'
-
 export default class Index extends Component {
   state = {
     show: false,
   }
-
-  constructor() {
-    super()
-  }
-
   showCustomDialog = () => {
     this.setState({ show: true })
   }
-
   getUserInfo = (event) => {
     console.log(event.detail)
   }
-
   onClickThemeAlert = () => {
     Dialog.alert({
       title: '标题',
@@ -35,14 +26,12 @@ export default class Index extends Component {
       message,
     })
   }
-
   onClickThemeAlert2 = () => {
     Dialog.alert({
       theme: 'round-button',
       message,
     })
   }
-
   onClickAlert = () => {
     Dialog.alert({
       title: '标题',
@@ -50,20 +39,17 @@ export default class Index extends Component {
       message,
     })
   }
-
   onClickAlert2 = () => {
     Dialog.alert({
       message,
     })
   }
-
   onClickConfirm = () => {
     Dialog.confirm({
       title: '标题',
       message,
     })
   }
-
   onClickAsyncClose = () => {
     const beforeClose = (action) =>
       new Promise((resolve) => {
@@ -76,7 +62,6 @@ export default class Index extends Component {
           }
         }, 1000)
       })
-
     Dialog.confirm({
       title: '标题',
       message,
@@ -85,7 +70,6 @@ export default class Index extends Component {
       console.log(e)
     })
   }
-
   onClose = () => {
     this.setState({
       show: false,
@@ -96,46 +80,44 @@ export default class Index extends Component {
     const { show } = this.state
     return (
       <DemoPage title='Dialog 弹出框'>
-        <>
-          <DemoBlock card title='提示弹窗' padding>
-            <Cell title='提示弹窗' onClick={this.onClickAlert} isLink />
-            <Cell
-              title='提示弹窗（无标题）'
-              onClick={this.onClickAlert2}
-              isLink
-            />
-            <Cell title='确认弹窗' onClick={this.onClickConfirm} isLink />
-          </DemoBlock>
-          <DemoBlock card title='圆角按钮样式' padding>
-            <Cell title='提示弹窗' onClick={this.onClickThemeAlert} isLink />
-            <Cell
-              title='提示弹窗（无标题）'
-              onClick={this.onClickThemeAlert2}
-              isLink
-            />
-          </DemoBlock>
-          <DemoBlock card title='异步关闭' padding>
-            <Cell title='异步关闭' onClick={this.onClickAsyncClose} />
-          </DemoBlock>
-          <DemoBlock card title='组件调用' padding>
-            <Cell title='组件调用' onClick={this.showCustomDialog} />
-          </DemoBlock>
-          <Dialog
-            title='标题'
-            visible={show}
-            showCancelButton
-            onClose={this.onClose}
-            confirmButtonOpenType='getUserInfo'
-            onGetuserinfo={this.getUserInfo}
-          >
-            <Image
-              className='demo-image'
-              height='240px'
-              src='https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg'
-            />
-          </Dialog>
-          <Dialog id='van-dialog' />
-        </>
+        <DemoBlock card title='提示弹窗' padding>
+          <Cell title='提示弹窗' onClick={this.onClickAlert} isLink />
+          <Cell
+            title='提示弹窗（无标题）'
+            onClick={this.onClickAlert2}
+            isLink
+          />
+          <Cell title='确认弹窗' onClick={this.onClickConfirm} isLink />
+        </DemoBlock>
+        <DemoBlock card title='圆角按钮样式' padding>
+          <Cell title='提示弹窗' onClick={this.onClickThemeAlert} isLink />
+          <Cell
+            title='提示弹窗（无标题）'
+            onClick={this.onClickThemeAlert2}
+            isLink
+          />
+        </DemoBlock>
+        <DemoBlock card title='异步关闭' padding>
+          <Cell title='异步关闭' onClick={this.onClickAsyncClose} />
+        </DemoBlock>
+        <DemoBlock card title='组件调用' padding>
+          <Cell title='组件调用' onClick={this.showCustomDialog} />
+        </DemoBlock>
+        <Dialog
+          title='标题'
+          visible={show}
+          showCancelButton
+          onClose={this.onClose}
+          confirmButtonOpenType='getUserInfo'
+          onGetuserinfo={this.getUserInfo}
+        >
+          <Image
+            className='demo-image'
+            height='240px'
+            src='https://img.yzcdn.cn/public_files/2017/09/05/4e3ea0898b1c2c416eec8c11c5360833.jpg'
+          />
+        </Dialog>
+        <Dialog id='van-dialog' />
       </DemoPage>
     )
   }

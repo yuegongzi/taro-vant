@@ -1,4 +1,4 @@
-import type { TouchEvent } from 'react'
+import type { ReactNode, TouchEvent } from 'react'
 import type { StandardProps } from '@tarojs/components'
 
 export interface TreeSelectProps extends StandardProps {
@@ -31,4 +31,5 @@ export interface TreeSelectProps extends StandardProps {
   onClickNav?: (event: { detail: { index: number } }) => void
   contentActiveClass?: string
   contentDisabledClass?: string
+  children: ReactNode
 }

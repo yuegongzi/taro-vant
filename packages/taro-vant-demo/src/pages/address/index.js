@@ -1,6 +1,5 @@
 import { Address } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import { useState } from 'react'
 
 const data = {
@@ -11,7 +10,6 @@ const data = {
   district: '西湖区',
   address: '文三路 138 号东方通信大厦 7 楼 501 室',
 }
-
 const list = Array.from(new Array(10)).map((_val, i) => ({
   ...data,
   id: i,
@@ -19,7 +17,6 @@ const list = Array.from(new Array(10)).map((_val, i) => ({
 }))
 export default () => {
   const [ value, setValue ] = useState(3)
-
   return (
     <DemoPage title='Address 地址卡片'>
       <DemoBlock title='默认用法'>

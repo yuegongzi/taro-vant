@@ -1,13 +1,16 @@
 import { Icon } from 'taro-vant'
 import { View } from '@tarojs/components'
-import { navigateBack, pageScrollTo, useRouter, useShareAppMessage } from '@tarojs/taro'
+import {
+  navigateBack,
+  pageScrollTo,
+  useRouter,
+  useShareAppMessage,
+} from '@tarojs/taro'
 import React, { useEffect } from 'react'
 import './index.less'
 
 export default function Page(props) {
-  // eslint-disable-next-line react/prop-types
   const { title, className = '', children } = props
-
   const { path } = useRouter()
   useEffect(() => {
     if (process.env.LIBRARY_ENV === 'react') {
@@ -17,16 +20,13 @@ export default function Page(props) {
         scrollTop: 0,
       })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ path ])
-
   useShareAppMessage(() => {
     return {
-      title: 'AntM 组件库演示',
+      title: 'Taro Vant 组件库演示',
       path,
     }
   })
-
   return (
     <View className={`demo-page ${className}`}>
       {'h5' === process.env.TARO_ENV && (

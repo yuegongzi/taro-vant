@@ -1,8 +1,7 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Collapse, Icon, Toast } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const CollapseItem = Collapse.Item
@@ -20,22 +19,15 @@ export default class Index extends Component {
       '网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失',
     content3: '线上拓客，随时预约，贴心顺手的开单收银',
   }
-
-  constructor() {
-    super()
-  }
-
   onChange = (event) => {
     const { key } = event.currentTarget.dataset
     this.setState({
       [key]: event.detail,
     })
   }
-
   onOpen = (event) => {
     Toast.show(`展开: ${event.detail}`)
   }
-
   onClose = (event) => {
     Toast.show(`关闭: ${event.detail}`)
   }
@@ -53,129 +45,124 @@ export default class Index extends Component {
       active3,
       active4,
     } = this.state
-    console.log(active1)
     return (
       <DemoPage title='Collapse 折叠面板'>
-        <>
-          <DemoBlock title='基础用法'>
-            <Collapse
-              value={active1}
-              onChange={(e) => {
-                this.onChange({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active1' },
-                  },
-                  target: {
-                    dataset: { key: 'active1' },
-                  },
-                })
-              }}
+        <DemoBlock title='基础用法'>
+          <Collapse
+            value={active1}
+            onChange={(e) => {
+              this.onChange({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active1' },
+                },
+                target: {
+                  dataset: { key: 'active1' },
+                },
+              })
+            }}
+          >
+            <CollapseItem title={title1}>{content1}</CollapseItem>
+            <CollapseItem title={title2}>{content2}</CollapseItem>
+            <CollapseItem title={title3} disabled>
+              {content3}
+            </CollapseItem>
+          </Collapse>
+        </DemoBlock>
+        <DemoBlock title='手风琴'>
+          <Collapse
+            value={active2}
+            accordion
+            onChange={(e) => {
+              this.onChange({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active2' },
+                },
+                target: {
+                  dataset: { key: 'active2' },
+                },
+              })
+            }}
+          >
+            <CollapseItem title={title1}>{content1}</CollapseItem>
+            <CollapseItem title={title2}>{content2}</CollapseItem>
+            <CollapseItem title={title3}>{content3}</CollapseItem>
+          </Collapse>
+        </DemoBlock>
+        <DemoBlock title='事件监听'>
+          <Collapse
+            value={active3}
+            onChange={(e) => {
+              this.onChange({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active3' },
+                },
+                target: {
+                  dataset: { key: 'active3' },
+                },
+              })
+            }}
+            onOpen={(e) => {
+              this.onOpen({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active3' },
+                },
+                target: {
+                  dataset: { key: 'active3' },
+                },
+              })
+            }}
+            onClose={(e) => {
+              this.onClose({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active3' },
+                },
+                target: {
+                  dataset: { key: 'active3' },
+                },
+              })
+            }}
+          >
+            <CollapseItem title={title1}>{content1}</CollapseItem>
+            <CollapseItem title={title2}>{content2}</CollapseItem>
+            <CollapseItem title={title3}>{content3}</CollapseItem>
+          </Collapse>
+        </DemoBlock>
+        <DemoBlock title='自定义标题内容'>
+          <Collapse
+            value={active4}
+            onChange={(e) => {
+              this.onChange({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { key: 'active4' },
+                },
+                target: {
+                  dataset: { key: 'active4' },
+                },
+              })
+            }}
+          >
+            <CollapseItem
+              title={
+                <View>
+                  {title1}
+                  <Icon name='question-o' className='van-icon-question' />
+                </View>
+              }
             >
-              <CollapseItem title={title1}>{content1}</CollapseItem>
-              <CollapseItem title={title2}>{content2}</CollapseItem>
-              <CollapseItem title={title3} disabled>
-                {content3}
-              </CollapseItem>
-            </Collapse>
-          </DemoBlock>
-          <DemoBlock title='手风琴'>
-            <Collapse
-              value={active2}
-              accordion
-              onChange={(e) => {
-                this.onChange({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active2' },
-                  },
-                  target: {
-                    dataset: { key: 'active2' },
-                  },
-                })
-              }}
-            >
-              <CollapseItem title={title1}>{content1}</CollapseItem>
-              <CollapseItem title={title2}>{content2}</CollapseItem>
-              <CollapseItem title={title3}>{content3}</CollapseItem>
-            </Collapse>
-          </DemoBlock>
-          <DemoBlock title='事件监听'>
-            <Collapse
-              value={active3}
-              onChange={(e) => {
-                this.onChange({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active3' },
-                  },
-                  target: {
-                    dataset: { key: 'active3' },
-                  },
-                })
-              }}
-              onOpen={(e) => {
-                this.onOpen({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active3' },
-                  },
-                  target: {
-                    dataset: { key: 'active3' },
-                  },
-                })
-              }}
-              onClose={(e) => {
-                this.onClose({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active3' },
-                  },
-                  target: {
-                    dataset: { key: 'active3' },
-                  },
-                })
-              }}
-            >
-              <CollapseItem title={title1}>{content1}</CollapseItem>
-              <CollapseItem title={title2}>{content2}</CollapseItem>
-              <CollapseItem title={title3}>{content3}</CollapseItem>
-            </Collapse>
-          </DemoBlock>
-          <DemoBlock title='自定义标题内容'>
-            <Collapse
-              value={active4}
-              onChange={(e) => {
-                this.onChange({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { key: 'active4' },
-                  },
-                  target: {
-                    dataset: { key: 'active4' },
-                  },
-                })
-              }}
-            >
-              <CollapseItem
-                title={
-                  <>
-                    <View>
-                      {title1}
-                      <Icon name='question-o' className='van-icon-question' />
-                    </View>
-                  </>
-                }
-              >
-                {content1}
-              </CollapseItem>
-              <CollapseItem title={title2} value='内容' icon='shop-o'>
-                {content2}
-              </CollapseItem>
-            </Collapse>
-          </DemoBlock>
-          <Toast id='van-toast' />
-        </>
+              {content1}
+            </CollapseItem>
+            <CollapseItem title={title2} value='内容' icon='shop-o'>
+              {content2}
+            </CollapseItem>
+          </Collapse>
+        </DemoBlock>
+        <Toast id='van-toast' />
       </DemoPage>
     )
   }

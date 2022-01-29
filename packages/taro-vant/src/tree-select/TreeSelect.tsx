@@ -80,6 +80,7 @@ function TreeSelect(props: TreeSelectProps) {
         </Sidebar>
       </ScrollView>
       <ScrollView scrollY className={clsx(bem('content'))}>
+        {props.children}
         {subItems.map((item: any) => {
           return (
             <View

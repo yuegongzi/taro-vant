@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { DatetimePicker, Toast } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -16,11 +15,6 @@ export default class Index extends Component {
     currentDate4: '12:00',
     loading: false,
   }
-
-  constructor() {
-    super()
-  }
-
   formatter = (type, value) => {
     if (type === 'year') {
       return `${value}年`
@@ -30,22 +24,17 @@ export default class Index extends Component {
     }
     return value
   }
-
   filter = (type, options) => {
     if (type === 'minute') {
       return options.filter((option) => option % 5 === 0)
     }
-
     return options
   }
-
   onInput = (event) => {
     const { detail, currentTarget } = event
     const result = this.getResult(detail, currentTarget.dataset.type)
-
     Toast.show(result)
   }
-
   getResult = (time, type) => {
     const date = new Date(time)
     switch (type) {
@@ -75,91 +64,89 @@ export default class Index extends Component {
     } = this.state
     return (
       <DemoPage title='DatetimePicker 时间选择'>
-        <>
-          <DemoBlock title='选择完整时间'>
-            <DatetimePicker
-              type='datetime'
-              loading={loading}
-              value={currentDate1}
-              minDate={minDate}
-              onInput={(e) => {
-                this.onInput({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'datetime' },
-                  },
-                  target: {
-                    dataset: { type: 'datetime' },
-                  },
-                })
-              }}
-            />
-          </DemoBlock>
-          <DemoBlock title='选择日期（年月日）'>
-            <DatetimePicker
-              type='date'
-              value={currentDate2}
-              minDate={minDate}
-              onInput={(e) => {
-                this.onInput({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'date' },
-                  },
-                  target: {
-                    dataset: { type: 'date' },
-                  },
-                })
-              }}
-              formatter={this.formatter}
-            />
-          </DemoBlock>
-          <DemoBlock title='选择日期（年月）'>
-            <DatetimePicker
-              type='year-month'
-              value={currentDate3}
-              minDate={minDate}
-              onInput={(e) => {
-                this.onInput({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'year-month' },
-                  },
-                  target: {
-                    dataset: { type: 'year-month' },
-                  },
-                })
-              }}
-            />
-          </DemoBlock>
-          <DemoBlock title='选择时间'>
-            <DatetimePicker
-              type='time'
-              value={currentDate4}
-              minHour={minHour}
-              maxHour={maxHour}
-              onInput={(e) => {
-                this.onInput({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'time' },
-                  },
-                  target: {
-                    dataset: { type: 'time' },
-                  },
-                })
-              }}
-            />
-          </DemoBlock>
-          <DemoBlock title='选项过滤器'>
-            <DatetimePicker
-              type='time'
-              value={currentDate4}
-              filter={this.filter}
-            />
-          </DemoBlock>
-          <Toast id='van-toast' />
-        </>
+        <DemoBlock title='选择完整时间'>
+          <DatetimePicker
+            type='datetime'
+            loading={loading}
+            value={currentDate1}
+            minDate={minDate}
+            onInput={(e) => {
+              this.onInput({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'datetime' },
+                },
+                target: {
+                  dataset: { type: 'datetime' },
+                },
+              })
+            }}
+          />
+        </DemoBlock>
+        <DemoBlock title='选择日期（年月日）'>
+          <DatetimePicker
+            type='date'
+            value={currentDate2}
+            minDate={minDate}
+            onInput={(e) => {
+              this.onInput({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'date' },
+                },
+                target: {
+                  dataset: { type: 'date' },
+                },
+              })
+            }}
+            formatter={this.formatter}
+          />
+        </DemoBlock>
+        <DemoBlock title='选择日期（年月）'>
+          <DatetimePicker
+            type='year-month'
+            value={currentDate3}
+            minDate={minDate}
+            onInput={(e) => {
+              this.onInput({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'year-month' },
+                },
+                target: {
+                  dataset: { type: 'year-month' },
+                },
+              })
+            }}
+          />
+        </DemoBlock>
+        <DemoBlock title='选择时间'>
+          <DatetimePicker
+            type='time'
+            value={currentDate4}
+            minHour={minHour}
+            maxHour={maxHour}
+            onInput={(e) => {
+              this.onInput({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'time' },
+                },
+                target: {
+                  dataset: { type: 'time' },
+                },
+              })
+            }}
+          />
+        </DemoBlock>
+        <DemoBlock title='选项过滤器'>
+          <DatetimePicker
+            type='time'
+            value={currentDate4}
+            filter={this.filter}
+          />
+        </DemoBlock>
+        <Toast id='van-toast' />
       </DemoPage>
     )
   }

@@ -228,6 +228,10 @@ export default [
         title: 'NavBar 导航栏',
       },
       {
+        path: '/pagination',
+        title: 'Pagination 分页',
+      },
+      {
         path: '/tab',
         title: 'Tab 标签页',
       },

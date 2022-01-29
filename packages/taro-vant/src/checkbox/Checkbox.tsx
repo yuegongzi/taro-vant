@@ -12,7 +12,7 @@ const [ bem ] = createNamespace('checkbox')
 
 export function Checkbox(
   props: CheckboxProps & {
-    parent: any
+    parent?: any
   },
 ) {
   const [ state, setState ] = useState({

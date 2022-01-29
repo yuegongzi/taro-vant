@@ -2,12 +2,10 @@ import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Col, Icon, Tabs } from 'taro-vant'
 import icons from '@vant/icons'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const Tab = Tabs.Tab
-
 export default class Index extends Component {
   state = {
     icons,
@@ -15,11 +13,6 @@ export default class Index extends Component {
     demoIcon: 'chat-o',
     demoImage: 'https://b.yzcdn.cn/vant/icon-demo-1126.png',
   }
-
-  constructor() {
-    super()
-  }
-
   onSwitch = (event) => {
     this.setState({
       active: event.detail.index,

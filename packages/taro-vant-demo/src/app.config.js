@@ -44,6 +44,7 @@ export default {
     'pages/collapse/index',
     'pages/picker/index',
     'pages/overlay/index',
+    'pages/pagination/index',
     'pages/circle/index',
     'pages/grid/index',
     'pages/dropdown-menu/index',

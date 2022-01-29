@@ -1,11 +1,9 @@
 import { Component } from 'react'
 import { Button, Circle } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const format = (rate) => Math.min(Math.max(rate, 0), 100)
-
 export default class Index extends Component {
   state = {
     value: 25,
@@ -14,11 +12,6 @@ export default class Index extends Component {
       '100%': '#ee0a24',
     },
   }
-
-  constructor() {
-    super()
-  }
-
   run = (e) => {
     const step = parseFloat(e.currentTarget.dataset.step)
     this.setState({

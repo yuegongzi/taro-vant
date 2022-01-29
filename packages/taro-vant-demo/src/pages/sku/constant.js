@@ -69,14 +69,12 @@ export const sku = {
     },
   ],
 }
-
 export const goods = {
   //默认商品信息
   imgUrl: 'https://b.yzcdn.cn/vant/sku/shoes-1.png',
   price: 2000,
   stock: 42,
 }
-
 export const properties = [
   // 商品属性
   {

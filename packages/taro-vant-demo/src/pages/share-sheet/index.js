@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Cell, ShareSheet, Toast } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -22,7 +21,6 @@ export default class Index extends Component {
       { name: '二维码', icon: 'qrcode' },
       { name: '小程序码', icon: 'weapp-qrcode' },
     ],
-
     multiLineOptions: [
       [
         { name: '微信', icon: 'wechat' },
@@ -35,7 +33,6 @@ export default class Index extends Component {
         { name: '二维码', icon: 'qrcode' },
       ],
     ],
-
     customIconOptions: [
       {
         name: '名称',
@@ -50,7 +47,6 @@ export default class Index extends Component {
         icon: 'https://img.yzcdn.cn/vant/custom-icon-water.png',
       },
     ],
-
     optionsWithDesc: [
       { name: '微信', icon: 'wechat' },
       { name: '微博', icon: 'weibo' },
@@ -63,11 +59,6 @@ export default class Index extends Component {
       { name: '二维码', icon: 'qrcode' },
     ],
   }
-
-  constructor() {
-    super()
-  }
-
   onShowShareSheet = (event) => {
     this.setState({
       show: {
@@ -76,7 +67,6 @@ export default class Index extends Component {
       },
     })
   }
-
   onClose = () => {
     this.setState({
       show: {
@@ -87,7 +77,6 @@ export default class Index extends Component {
       },
     })
   }
-
   onSelect = (event) => {
     Toast.show(event.detail.name)
     this.onClose()
@@ -103,105 +92,103 @@ export default class Index extends Component {
     } = this.state
     return (
       <DemoPage title='ShareSheet 分享面板'>
-        <>
-          <DemoBlock card title='基础用法'>
-            <Cell
-              isLink
-              title='显示分享面板'
-              onClick={(e) => {
-                this.onShowShareSheet({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'basic' },
-                  },
-                  target: {
-                    dataset: { type: 'basic' },
-                  },
-                })
-              }}
-            />
-            <ShareSheet
-              visible={show.basic}
-              title='立即分享给好友'
-              options={options}
-              onClose={this.onClose}
-              onSelect={this.onSelect}
-            />
-          </DemoBlock>
-          <DemoBlock card title='展示多行选项'>
-            <Cell
-              isLink
-              title='显示分享面板'
-              onClick={(e) => {
-                this.onShowShareSheet({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'multiLine' },
-                  },
-                  target: {
-                    dataset: { type: 'multiLine' },
-                  },
-                })
-              }}
-            />
-            <ShareSheet
-              visible={show.multiLine}
-              title='立即分享给好友'
-              options={multiLineOptions}
-              onClose={this.onClose}
-              onSelect={this.onSelect}
-            />
-          </DemoBlock>
-          <DemoBlock card title='自定义图标'>
-            <Cell
-              isLink
-              title='显示分享面板'
-              onClick={(e) => {
-                this.onShowShareSheet({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'customIcon' },
-                  },
-                  target: {
-                    dataset: { type: 'customIcon' },
-                  },
-                })
-              }}
-            />
-            <ShareSheet
-              visible={show.customIcon}
-              options={customIconOptions}
-              onClose={this.onClose}
-              onSelect={this.onSelect}
-            />
-          </DemoBlock>
-          <DemoBlock card title='展示描述信息'>
-            <Cell
-              isLink
-              title='显示分享面板'
-              onClick={(e) => {
-                this.onShowShareSheet({
-                  detail: e.detail,
-                  currentTarget: {
-                    dataset: { type: 'withDesc' },
-                  },
-                  target: {
-                    dataset: { type: 'withDesc' },
-                  },
-                })
-              }}
-            />
-            <ShareSheet
-              visible={show.withDesc}
-              title='立即分享给好友'
-              options={optionsWithDesc}
-              description='描述信息'
-              onClose={this.onClose}
-              onSelect={this.onSelect}
-            />
-          </DemoBlock>
-          <Toast id='van-toast' />
-        </>
+        <DemoBlock card title='基础用法'>
+          <Cell
+            isLink
+            title='显示分享面板'
+            onClick={(e) => {
+              this.onShowShareSheet({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'basic' },
+                },
+                target: {
+                  dataset: { type: 'basic' },
+                },
+              })
+            }}
+          />
+          <ShareSheet
+            visible={show.basic}
+            title='立即分享给好友'
+            options={options}
+            onClose={this.onClose}
+            onSelect={this.onSelect}
+          />
+        </DemoBlock>
+        <DemoBlock card title='展示多行选项'>
+          <Cell
+            isLink
+            title='显示分享面板'
+            onClick={(e) => {
+              this.onShowShareSheet({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'multiLine' },
+                },
+                target: {
+                  dataset: { type: 'multiLine' },
+                },
+              })
+            }}
+          />
+          <ShareSheet
+            visible={show.multiLine}
+            title='立即分享给好友'
+            options={multiLineOptions}
+            onClose={this.onClose}
+            onSelect={this.onSelect}
+          />
+        </DemoBlock>
+        <DemoBlock card title='自定义图标'>
+          <Cell
+            isLink
+            title='显示分享面板'
+            onClick={(e) => {
+              this.onShowShareSheet({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'customIcon' },
+                },
+                target: {
+                  dataset: { type: 'customIcon' },
+                },
+              })
+            }}
+          />
+          <ShareSheet
+            visible={show.customIcon}
+            options={customIconOptions}
+            onClose={this.onClose}
+            onSelect={this.onSelect}
+          />
+        </DemoBlock>
+        <DemoBlock card title='展示描述信息'>
+          <Cell
+            isLink
+            title='显示分享面板'
+            onClick={(e) => {
+              this.onShowShareSheet({
+                detail: e.detail,
+                currentTarget: {
+                  dataset: { type: 'withDesc' },
+                },
+                target: {
+                  dataset: { type: 'withDesc' },
+                },
+              })
+            }}
+          />
+          <ShareSheet
+            visible={show.withDesc}
+            title='立即分享给好友'
+            options={optionsWithDesc}
+            description='描述信息'
+            onClose={this.onClose}
+            onSelect={this.onSelect}
+          />
+        </DemoBlock>
+        <Toast id='van-toast' />
       </DemoPage>
     )
   }

@@ -1,8 +1,7 @@
 import { Component } from 'react'
 import { goods, properties, sku } from './constant'
 import { Cell, Sku } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -12,7 +11,6 @@ export default class Index extends Component {
 
   render() {
     const { visible } = this.state
-
     return (
       <DemoPage title='Sku 商品选择'>
         <DemoBlock title='基础用法'>

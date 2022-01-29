@@ -1,5 +1,4 @@
-/* eslint-disable  */
-const npath = require('path')
+import path from 'path'
 const pkg = require('../package.json')
 const miniChain = require('./webpack/miniChain')
 const h5Chain = require('./webpack/h5Chain')
@@ -35,23 +34,19 @@ let config = {
     DEPLOY_VERSION: JSON.stringify(version),
   },
   alias: {
-    '@': npath.resolve(process.cwd(), 'src'),
-    react: npath.resolve(process.cwd(), './node_modules/react'),
+    '@': path.resolve(process.cwd(), 'src'),
+    components: path.resolve(__dirname, '..', 'src/components'),
+    react: path.resolve(process.cwd(), './node_modules/react'),
   },
   framework: 'react',
   mini: {
     webpackChain(chain) {
       miniChain(chain)
     },
-    // lessLoaderOption: {
-    //   additionalData: "@import '~/src/style/index.less';",
-    // },
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-          // autoprefixer 配置项
-        },
+        config: {},
       },
       pxtransform: {
         enable: true,
@@ -76,27 +71,26 @@ let config = {
       if (process.env.NODE_ENV === 'production') {
         chain.mode('production')
         chain.devtool('hidden-source-map')
-        chain.output
-          .path(npath.resolve('./build'))
-          .filename('assets/js/[name].js')
-          .chunkFilename('assets/js/chunk/[name].js')
-          .publicPath(publicPath.replace('VERSION', version))
+        chain.output.
+          path(path.resolve('./build')).
+          filename('assets/js/[name].js').
+          chunkFilename('assets/js/chunk/[name].js').
+          publicPath(publicPath.replace('VERSION', version))
       } else {
         chain.mode('development')
         chain.devtool('eval-cheap-module-source-map')
-        chain.output
-          .path(npath.resolve('./build'))
-          .filename('assets/js/[name].js')
-          .chunkFilename('assets/js/chunk/[name].js')
-          .publicPath(publicPath.replace('VERSION', version))
+        chain.output.
+          path(path.resolve('./build')).
+          filename('assets/js/[name].js').
+          chunkFilename('assets/js/chunk/[name].js').
+          publicPath(publicPath.replace('VERSION', version))
       }
       if (process.env.WATCHING === 'true') {
-        chain.output.publicPath(`/`)
+        chain.output.publicPath('/')
       }
     },
     router: {
       mode: 'hash',
-      // 'pages/empty/index'
     },
     devServer: {
       port: 10086,
@@ -108,17 +102,11 @@ let config = {
         'Access-Control-Allow-Origin': '*', // 表示允许跨域
       },
     },
-    esnextModules: ['taro-vant'],
+    esnextModules: [ 'taro-vant' ],
     proxy: {},
-    // lessLoaderOption: {
-    //   additionalData: "@import '~/src/style/index.less';",
-    // },
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-          // autoprefixer 配置项
-        },
       },
       pxtransform: {
         enable: true,
@@ -140,10 +128,10 @@ let config = {
   },
   plugins: [
     '@tarojs/plugin-platform-alipay-dd',
-    [npath.join(process.cwd(), 'config/webpack/configPlugin')],
+    [ path.join(process.cwd(), 'config/webpack/configPlugin') ],
   ],
 }
 
-module.exports = function(merge) {
+module.exports = function (merge) {
   return merge({}, config, require(`./${process.env.NODE_ENV}`))
 }

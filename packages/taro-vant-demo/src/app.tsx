@@ -9,29 +9,21 @@ export default class Index extends Component {
       url: '/pages/dashboard/index',
     })
   }
-
   componentDidMount() {
     function getUrl(path: string) {
       let url = `/pages${path}/index`
-      const devGuidePaths = [
-        '/home',
-        '/quickstart',
-        '/custom-style',
-        '/theme',
-      ]
+      const devGuidePaths = [ '/home', '/quickstart', '/custom-style', '/theme' ]
       if (devGuidePaths.includes(path)) {
         url = '/pages/dashboard/index'
       }
       return url
     }
-
     if (process.env.TARO_ENV !== 'h5') return
     window.top?.postMessage({ type: 'iframeReady' }, '*')
     window.addEventListener('message', (event) => {
       if (event.data?.type !== 'replacePath') {
         return
       }
-
       const path = event.data?.value || ''
       navigateTo({ url: getUrl(path) })
     })
@@ -39,12 +31,10 @@ export default class Index extends Component {
     const pathMatch = oldHash.match(/^#\/([\w-]+)$/)
     if (pathMatch && pathMatch[1]) {
       setTimeout(() => {
-        window.location.href =
-          '/mobile.html#' + getUrl('/' + pathMatch[1])
+        window.location.href = '/mobile.html#' + getUrl('/' + pathMatch[1])
       }, 600)
     }
   }
-
   componentDidUpdate() {
     if (process.env.TARO_ENV !== 'h5') return
     if (oldHash !== '' && oldHash !== window.location.hash) {
@@ -61,7 +51,6 @@ export default class Index extends Component {
       )
     }
   }
-
   render() {
     return (
       <>

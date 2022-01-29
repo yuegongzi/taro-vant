@@ -1,19 +1,13 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
 import { Image, Skeleton, Switch } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
   state = {
     show: false,
   }
-
-  constructor() {
-    super()
-  }
-
   onChange = () => {
     this.setState({ show: !this.state.show })
   }

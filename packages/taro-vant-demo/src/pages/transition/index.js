@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Cell, Transition } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -10,82 +9,60 @@ export default class Index extends Component {
     name: 'fade',
     showCustom: false,
   }
-
-  constructor() {
-    super()
-  }
-
   onClickFade = () => {
     this.trigger('fade')
   }
-
   onClickFadeUp = () => {
     this.trigger('fade-up')
   }
-
   onClickFadeDown = () => {
     this.trigger('fade-down')
   }
-
   onClickFadeLeft = () => {
     this.trigger('fade-left')
   }
-
   onClickFadeRight = () => {
     this.trigger('fade-right')
   }
-
   onClickSlideUp = () => {
     this.trigger('slide-up')
   }
-
   onClickSlideDown = () => {
     this.trigger('slide-down')
   }
-
   onClickSlideLeft = () => {
     this.trigger('slide-left')
   }
-
   onClickSlideRight = () => {
     this.trigger('slide-right')
   }
-
   trigger = (name) => {
     this.setState({ name, show: true })
     setTimeout(() => {
       this.setState({ show: false })
     }, 500)
   }
-
   onClickCustom = () => {
     this.setState({ showCustom: true })
-
     setTimeout(() => {
       this.setState({ showCustom: false })
     }, 1000)
   }
-
   onBeforeEnter = () => {
     console.log('before enter')
   }
-
   onEnter = () => {
     console.log('enter')
   }
-
   onAfterEnter = () => {
     console.log('after enter')
   }
-
   onBeforeLeave = () => {
     console.log('before leave')
   }
-
   onLeave = () => {
     console.log('leave')
   }
-
   onAfterLeave = () => {
     console.log('after leave')
   }

@@ -15,14 +15,12 @@ import {
   Uploader,
 } from 'taro-vant'
 import { Input } from '@tarojs/components'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const FormItem = Form.Item
 const CheckboxGroup = Checkbox.Group
 const RadioGroup = Radio.Group
-
 export default () => {
   const [ form ] = Form.useForm()
   return (
@@ -55,7 +53,6 @@ export default () => {
           >
             <Field placeholder='请输入用户名（中文）' />
           </FormItem>
-
           <FormItem
             label='密码'
             tooltip='至少为8位字母和数字组合'
@@ -65,11 +62,9 @@ export default () => {
           >
             <Input placeholder='请输入密码' type='password' />
           </FormItem>
-
           <FormItem label='是否打开' name='opened'>
             <Switch activeColor='#07c160' size='45' />
           </FormItem>
-
           <FormItem label='单选框' name='singleSelect'>
             <RadioGroup direction='horizontal'>
               <Radio name='1' checkedColor='#07c160'>
@@ -80,7 +75,6 @@ export default () => {
               </Radio>
             </RadioGroup>
           </FormItem>
-
           <FormItem label='复选框' name='muiltSelect'>
             <CheckboxGroup direction='horizontal'>
               <Checkbox name='1' shape='square' checkedColor='#07c160'>
@@ -91,15 +85,12 @@ export default () => {
               </Checkbox>
             </CheckboxGroup>
           </FormItem>
-
           <FormItem label='滑块选择' name='slider'>
             <Slider activeColor='#07c160' style={{ width: '100%' }} />
           </FormItem>
-
           <FormItem label='评分' name='rate'>
             <Rate activeColor='#07c160' />
           </FormItem>
-
           <FormItem label='步进器' name='stepper'>
             <Stepper />
           </FormItem>

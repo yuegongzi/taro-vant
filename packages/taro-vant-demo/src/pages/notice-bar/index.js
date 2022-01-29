@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { NoticeBar } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 export default class Index extends Component {
@@ -10,41 +9,35 @@ export default class Index extends Component {
     shortText: '技术是开发它的人的共同灵魂。',
   }
 
-  constructor() {
-    super()
-  }
-
   render() {
     const { text, shortText } = this.state
     return (
       <DemoPage title='NoticeBar 通知栏'>
-        <>
-          <DemoBlock title='基础用法'>
-            <NoticeBar text={text} leftIcon='volume-o' />
-          </DemoBlock>
-          <DemoBlock title='滚动模式'>
-            <NoticeBar className='margin-top' scrollable text={shortText} />
-            <NoticeBar className='margin-top' scrollable={false} text={text} />
-          </DemoBlock>
-          <DemoBlock title='多行展示'>
-            <NoticeBar wrapable scrollable={false} text={text} />
-          </DemoBlock>
-          <DemoBlock title='通知栏模式'>
-            <NoticeBar mode='closeable' text={shortText} />
-            <NoticeBar className='margin-top' mode='link' text={shortText} />
-          </DemoBlock>
-          <DemoBlock title='自定义样式'>
-            <NoticeBar
-              text={shortText}
-              color='#1989fa'
-              background='#ecf9ff'
-              leftIcon='info-o'
-            />
-          </DemoBlock>
-          <DemoBlock title='自定义图标'>
-            <NoticeBar text={shortText} />
-          </DemoBlock>
-        </>
+        <DemoBlock title='基础用法'>
+          <NoticeBar text={text} leftIcon='volume-o' />
+        </DemoBlock>
+        <DemoBlock title='滚动模式'>
+          <NoticeBar className='margin-top' scrollable text={shortText} />
+          <NoticeBar className='margin-top' scrollable={false} text={text} />
+        </DemoBlock>
+        <DemoBlock title='多行展示'>
+          <NoticeBar wrapable scrollable={false} text={text} />
+        </DemoBlock>
+        <DemoBlock title='通知栏模式'>
+          <NoticeBar mode='closeable' text={shortText} />
+          <NoticeBar className='margin-top' mode='link' text={shortText} />
+        </DemoBlock>
+        <DemoBlock title='自定义样式'>
+          <NoticeBar
+            text={shortText}
+            color='#1989fa'
+            background='#ecf9ff'
+            leftIcon='info-o'
+          />
+        </DemoBlock>
+        <DemoBlock title='自定义图标'>
+          <NoticeBar text={shortText} />
+        </DemoBlock>
       </DemoPage>
     )
   }

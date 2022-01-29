@@ -1,7 +1,6 @@
 import { View } from '@tarojs/components'
 import { Swiper } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const SwiperItem = Swiper.Item
@@ -27,7 +26,6 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
-
       <DemoBlock title='垂直滚动'>
         <Swiper
           indicatorColor='#999'
@@ -48,7 +46,6 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
-
       <DemoBlock title='圆角风格'>
         <Swiper
           indicatorColor='#999'
@@ -69,7 +66,6 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
-
       <DemoBlock title='前后边距'>
         <Swiper
           indicatorColor='#999'
@@ -92,7 +88,6 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
-
       <DemoBlock title='多个显示'>
         <Swiper
           indicatorColor='#999'
@@ -124,7 +119,6 @@ export default () => {
           </SwiperItem>
         </Swiper>
       </DemoBlock>
-
       <View className='padding' />
     </DemoPage>
   )

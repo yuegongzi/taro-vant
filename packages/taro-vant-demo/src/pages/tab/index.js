@@ -2,8 +2,7 @@ import { Component } from 'react'
 import { showToast } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { Tabs } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const Tab = Tabs.Tab
@@ -19,32 +18,24 @@ export default class Index extends Component {
       { name: 'c', index: 3 },
     ],
   }
-
-  constructor() {
-    super()
-  }
-
   onClickDisabled = (event) => {
     showToast({
       title: `标签 ${event.detail.index + 1} 已被禁用`,
       icon: 'none',
     })
   }
-
   onChange = (event) => {
     showToast({
       title: `切换到标签 ${event.detail.index + 1}`,
       icon: 'none',
     })
   }
-
   onClickNavRight = () => {
     showToast({
       title: '点击 right nav',
       icon: 'none',
     })
   }
-
   onClick = (event) => {
     showToast({
       title: `点击标签 ${event.detail.index + 1}`,

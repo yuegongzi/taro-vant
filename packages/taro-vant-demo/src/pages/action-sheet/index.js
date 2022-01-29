@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { View } from '@tarojs/components'
 import { ActionSheet, Button } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const action1 = [
@@ -23,7 +22,6 @@ const action6 = [
     onGetPhoneNumber: (e) => console.log(e),
   },
 ]
-
 export default () => {
   const [ state, setState ] = useState(0)
   const onClose = () => setState(0)

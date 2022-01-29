@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import { Image, TreeSelect } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import config from './config.js'
 import './index.scss'
 
@@ -20,7 +19,6 @@ const items = [
     children: config.pro3,
   },
 ]
-
 export default class Index extends Component {
   state = {
     items,
@@ -31,7 +29,6 @@ export default class Index extends Component {
       if (index === 1) {
         return { ...item, badge: 5 }
       }
-
       return item
     }),
     mainActiveIndex: 0,
@@ -39,29 +36,20 @@ export default class Index extends Component {
     mainActiveIndexMulti: 0,
     activeIdMulti: [],
   }
-
-  constructor() {
-    super()
-  }
-
   onClickNav = ({ detail }) => {
     this.setState({
       mainActiveIndex: detail.index || 0,
     })
   }
-
   onClickItem = ({ detail }) => {
     const activeId = this.state.activeId === detail.id ? null : detail.id
-
     this.setState({ activeId })
   }
-
   onClickNavMulti = ({ detail }) => {
     this.setState({
       mainActiveIndexMulti: detail.index || 0,
     })
   }
-
   onClickItemMulti = ({ detail }) => {
     const { activeIdMulti } = this.state
     const idx = activeIdMulti.indexOf(detail.id)
@@ -70,7 +58,6 @@ export default class Index extends Component {
     } else {
       activeIdMulti.push(detail.id)
     }
-
     this.setState({ activeIdMulti })
   }
 
@@ -85,73 +72,70 @@ export default class Index extends Component {
     } = this.state
     return (
       <DemoPage title='TreeSelect 分类选择'>
-        <>
-          <DemoBlock title='单选模式'>
-            <TreeSelect
-              items={items}
-              mainActiveIndex={mainActiveIndex}
-              activeId={activeId}
-              onClickItem={this.onClickItem}
-              onClickNav={this.onClickNav}
-            />
-          </DemoBlock>
-          <DemoBlock title='多选模式'>
-            <TreeSelect
-              max='2'
-              items={items}
-              mainActiveIndex={mainActiveIndexMulti}
-              activeId={activeIdMulti}
-              onClickItem={this.onClickItemMulti}
-              onClickNav={this.onClickNavMulti}
-            />
-          </DemoBlock>
-          <DemoBlock title='自定义内容'>
-            <TreeSelect
-              items={[
-                {
-                  text: '分组 1',
-                },
-                {
-                  text: '分组 2',
-                },
-              ]}
-              height='55vw'
-              mainActiveIndex={mainActiveIndex}
-              activeId={activeId}
-              onClickItem={this.onClickItem}
-              onClickNav={this.onClickNav}
-              renderContent={
-                <>
-                  {mainActiveIndex === 0 ? (
-                    <Image
-                      src='https://img.yzcdn.cn/vant/apple-1.jpg'
-                      width='100%'
-                      height='100%'
-                    />
-                  ) : (
-                    mainActiveIndex === 1 && (
-                      <Image
-                        src='https://img.yzcdn.cn/vant/apple-2.jpg'
-                        width='100%'
-                        height='100%'
-                        slot='content'
-                      />
-                    )
-                  )}
-                </>
-              }
-            />
-          </DemoBlock>
-          <DemoBlock title='徽标提示'>
-            <TreeSelect
-              items={badgeItems}
-              mainActiveIndex={mainActiveIndex}
-              activeId={activeId}
-              onClickItem={this.onClickItem}
-              onClickNav={this.onClickNav}
-            />
-          </DemoBlock>
-        </>
+        <DemoBlock title='单选模式'>
+          <TreeSelect
+            items={items}
+            mainActiveIndex={mainActiveIndex}
+            activeId={activeId}
+            onClickItem={this.onClickItem}
+            onClickNav={this.onClickNav}
+          />
+        </DemoBlock>
+        <DemoBlock title='多选模式'>
+          <TreeSelect
+            max='2'
+            items={items}
+            mainActiveIndex={mainActiveIndexMulti}
+            activeId={activeIdMulti}
+            onClickItem={this.onClickItemMulti}
+            onClickNav={this.onClickNavMulti}
+          />
+        </DemoBlock>
+        <DemoBlock title='自定义内容'>
+          <TreeSelect
+            items={[
+              {
+                text: '分组 1',
+              },
+              {
+                text: '分组 2',
+              },
+            ]}
+            height='55vw'
+            mainActiveIndex={mainActiveIndex}
+            activeId={activeId}
+            onClickItem={this.onClickItem}
+            onClickNav={this.onClickNav}
+          >
+            <>
+              {mainActiveIndex === 0 ? (
+                <Image
+                  src='https://img.yzcdn.cn/vant/apple-1.jpg'
+                  width='100%'
+                  height='100%'
+                />
+              ) : (
+                mainActiveIndex === 1 && (
+                  <Image
+                    src='https://img.yzcdn.cn/vant/apple-2.jpg'
+                    width='100%'
+                    height='100%'
+                    slot='content'
+                  />
+                )
+              )}
+            </>
+          </TreeSelect>
+        </DemoBlock>
+        <DemoBlock title='徽标提示'>
+          <TreeSelect
+            items={badgeItems}
+            mainActiveIndex={mainActiveIndex}
+            activeId={activeId}
+            onClickItem={this.onClickItem}
+            onClickNav={this.onClickNav}
+          />
+        </DemoBlock>
       </DemoPage>
     )
   }

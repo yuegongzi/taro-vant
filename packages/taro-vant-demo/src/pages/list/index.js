@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Cell, Image, List, Tabs } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import './index.scss'
 
 const Tab = Tabs.Tab
@@ -19,7 +18,6 @@ const mockRequest = async (start) => {
   }
   return data
 }
-
 export default () => {
   const [ list0, setList0 ] = useState([])
   const [ list1, setList1 ] = useState([])
@@ -30,7 +28,6 @@ export default () => {
       return refresh ? response : [ ...pre, ...response ]
     })
   }
-
   const onErrorLoad = async (refresh) => {
     const response = await mockRequest(refresh ? 0 : list1.length)
     if (list1.length > 20 && err) {
@@ -41,7 +38,6 @@ export default () => {
       return refresh ? response : [ ...pre, ...response ]
     })
   }
-
   return (
     <DemoPage title='List 长列表'>
       <DemoBlock>

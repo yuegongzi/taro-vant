@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Cascader, Field, Popup, Toast } from 'taro-vant'
 import { useSetState } from 'taro-vant/es/hooks'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import { View } from '@tarojs/components'
 
 const options = [
@@ -127,7 +126,6 @@ const options = [
     ],
   },
 ]
-
 export default () => {
   const [ state, set ] = useSetState({
     v1: false,
@@ -163,7 +161,6 @@ export default () => {
       }, 2000)
     }
   }
-
   return (
     <DemoPage title='Cascader 级联选择'>
       <Toast id='van-toast' />
@@ -253,7 +250,6 @@ export default () => {
           />
         </Popup>
       </DemoBlock>
-
       <DemoBlock card title='自定义字段名'>
         <Field
           isLink
@@ -308,7 +304,6 @@ export default () => {
           errorMessage={<View>当前值:{JSON.stringify(state.value5)}</View>}
           onClickInput={() => set({ v5: true })}
         />
-
         <Button
           type='primary'
           size='small'

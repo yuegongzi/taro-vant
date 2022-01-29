@@ -37,6 +37,7 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "minifyWXML": true,
+    "useCompilerModule": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false,
     "ignoreUploadUnusedFiles": true

@@ -1,6 +1,5 @@
 import { Contact, Radio } from 'taro-vant'
-import DemoPage from '../../components/demo-page/index'
-import DemoBlock from '../../components/demo-block/index'
+import { DemoBlock, DemoPage } from 'components'
 import { useState } from 'react'
 
 const data = {
@@ -12,10 +11,8 @@ const list = Array.from(new Array(10)).map((_val, i) => ({
   id: i,
   tel: `130123420${i}`,
 }))
-
 export default () => {
   const [ value, setValue ] = useState()
-
   return (
     <DemoPage title='Contact 联系人卡片'>
       <DemoBlock title='基础用法'>
