@@ -18,15 +18,11 @@ const pl = [
   'leftBottom',
   'leftTop',
 ]
-const action1 = [
-  { text: '选项一' },
-  { text: '选项二' },
-  { text: '选项三', disabled: true },
-]
+const action1 = [ { text: '选项一' }, { text: '选项二' }, { text: '选项三' } ]
 const action2 = [
   { text: '选项一', icon: 'add-o' },
   { text: '选项二', icon: 'music-o' },
-  { text: '选项三', icon: 'more-o', disabled: true },
+  { text: '选项三', icon: 'more-o' },
 ]
 export default () => {
   const [ placement, setPlacement ] = useState(0)
@@ -38,7 +34,32 @@ export default () => {
   const idx = placement % pl.length
   return (
     <DemoPage title='Popover 气泡弹出框'>
-      <DemoBlock title='基础使用'>
+      <DemoBlock title='基础使用' padding>
+        <Popover actions={action1}>
+          <Button type='primary'>浅色风格</Button>
+        </Popover>
+
+        <Popover actions={action1} theme='dark'>
+          <View className='demo-popover-margin'>
+            <Button type='primary'>深色风格</Button>
+          </View>
+        </Popover>
+      </DemoBlock>
+      <DemoBlock title='进阶使用' padding>
+        <Popover actions={action2}>
+          <Button type='primary'>展示图标</Button>
+        </Popover>
+
+        <Popover
+          actions={[ ...action1, { text: '选项四', disabled: true } ]}
+          theme='dark'
+        >
+          <View className='demo-popover-margin'>
+            <Button type='primary'>禁用选项</Button>
+          </View>
+        </Popover>
+      </DemoBlock>
+      <DemoBlock title='变换位置'>
         <View className='demo-popover'>
           <Popover
             onSelect={(...arg) => console.log(arg)}
