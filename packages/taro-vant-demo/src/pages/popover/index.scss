@@ -1,0 +1,22 @@
+.demo-popover{
+  display: flex;
+  width: 100vw;
+  align-content: center;
+  justify-content: center;
+  margin-top: 200px;
+}
+.demo-popover-content{
+  width: 200px;
+  height: 200px;
+  background-color: #07c160;
+}
+
+.demo-popover-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .van-grid-item__content{
+    background-color: transparent;
+  }
+}

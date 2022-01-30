@@ -16,6 +16,7 @@ export default {
     'pages/nav-bar/index',
     'pages/notice-bar/index',
     'pages/notify/index',
+    'pages/popover/index',
     'pages/popup/index',
     'pages/progress/index',
     'pages/stepper/index',

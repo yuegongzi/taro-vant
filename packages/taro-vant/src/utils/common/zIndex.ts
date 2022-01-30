@@ -13,6 +13,7 @@ const GoodsAction = 805
 const Indexbar = 800
 const Sticky = 800
 const Tabs = 600
+const Popover = 600
 
 export const ZIndex = {
   Toast,
@@ -30,4 +31,5 @@ export const ZIndex = {
   Indexbar,
   Sticky,
   Tabs,
+  Popover,
 }

@@ -31,7 +31,7 @@ function Transition(props: TransitionProps) {
   } = props
   const { currentDuration, classes, display, onTransitionEnd } = useTransition({
     visible,
-    duration: duration,
+    duration,
     name,
     enterClass,
     enterActiveClass,

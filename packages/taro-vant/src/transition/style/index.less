@@ -77,3 +77,17 @@
 .van-slide-right-leave-to {
   transform: translate3d(100%, 0, 0);
 }
+
+.van-zoom-enter-from,
+.van-zoom-leave-active {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.van-zoom-enter-active {
+  transition-timing-function: ease-out;
+}
+
+.van-zoom-leave-active {
+  transition-timing-function: ease-in;
+}
