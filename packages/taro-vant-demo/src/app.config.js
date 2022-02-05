@@ -62,6 +62,7 @@ export default {
     'pages/address/index',
     'pages/cascader/index',
     'pages/swiper/index',
+    'pages/pin-nav/index',
   ],
   window: {
     navigationBarBackgroundColor: '#f8f8f8',

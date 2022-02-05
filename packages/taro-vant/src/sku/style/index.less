@@ -1,5 +1,4 @@
-@import "../../style/var.less";
-
+@import '../../style/var.less';
 
 .van-sku {
   &__container {
@@ -16,9 +15,9 @@
   &-body {
     flex: 1 1 auto;
     min-height: 88px;
-    overflow-y: scroll;
     padding-top: @padding-sm;
     padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
       display: none;
@@ -92,7 +91,6 @@
       margin-right: @padding-xs;
       color: @gray-6;
       font-size: @font-size-sm;
-
     }
 
     &__stock-num {
@@ -114,7 +112,6 @@
       display: none;
     }
   }
-
 
   &-group-container {
     padding-top: @padding-sm;
@@ -331,7 +328,6 @@
     }
   }
 
-
   &-messages {
     padding-bottom: @padding-xl;
 
@@ -360,8 +356,8 @@
   &-actions {
     display: flex;
     flex-shrink: 0;
-    background: @white;
     height: calc(100px + env(safe-area-inset-bottom) / 2);
+    background: @white;
 
     .van-button {
       height: 80px;

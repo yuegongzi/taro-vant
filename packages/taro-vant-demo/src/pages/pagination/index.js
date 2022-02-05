@@ -9,7 +9,7 @@ export default () => {
   const [ page3, setPage3 ] = useState(1)
   const [ page4, setPage4 ] = useState(1)
   return (
-    <DemoPage className='demo-badge'>
+    <DemoPage className='demo-badge' title='Pagination 分页'>
       <DemoBlock title='基础用法'>
         <Pagination
           value={page1}

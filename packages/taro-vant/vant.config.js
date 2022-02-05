@@ -281,6 +281,10 @@ module.exports = {
             title: 'Pagination 分页',
           },
           {
+            path: 'pin-nav',
+            title: 'PinNav 图钉导航',
+          },
+          {
             path: 'sidebar',
             title: 'Sidebar 侧边导航',
           },

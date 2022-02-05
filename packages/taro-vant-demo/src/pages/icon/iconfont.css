@@ -1,0 +1,285 @@
+@font-face {
+  font-family: 'cuIcon'; /* Project id 2375795 */
+  src: url('https://at.alicdn.com/t/font_2375795_upenhnpn7kr.woff2?t=1643899861936')
+    format('woff2');
+}
+
+.cuIcon {
+  font-size: 32px;
+  font-family: 'cuIcon' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cuIcon-express::before {
+  content: '\e603';
+}
+
+.cuIcon-wait_pay::before {
+  content: '\e60d';
+}
+
+.cuIcon-receiving::before {
+  content: '\e66a';
+}
+
+.cuIcon-distribution::before {
+  content: '\e627';
+}
+
+.cuIcon-choose::before {
+  content: '\e777';
+}
+
+.cuIcon-voice::before {
+  content: '\e6c0';
+}
+
+.cuIcon-pull_right::before {
+  content: '\e656';
+}
+
+.cuIcon-pull_left::before {
+  content: '\e689';
+}
+
+.cuIcon-photo-error::before {
+  content: '\e778';
+}
+
+.cuIcon-photo::before {
+  content: '\e602';
+}
+
+.cuIcon-success::before {
+  content: '\e630';
+}
+
+.cuIcon-warning::before {
+  content: '\e659';
+}
+
+.cuIcon-more::before {
+  content: '\e618';
+}
+
+.cuIcon-drop-down::before {
+  content: '\e60c';
+}
+
+.cuIcon-close::before {
+  content: '\e646';
+}
+
+.cuIcon-qrcode::before {
+  content: '\e642';
+}
+
+.cuIcon-delete::before {
+  content: '\e647';
+}
+
+.cuIcon-scan::before {
+  content: '\e64b';
+}
+
+.cuIcon-setting::before {
+  content: '\e64c';
+}
+
+.cuIcon-address::before {
+  content: '\e64e';
+}
+
+.cuIcon-refresh::before {
+  content: '\e650';
+}
+
+.cuIcon-search::before {
+  content: '\e651';
+}
+
+.cuIcon-complete::before {
+  content: '\e654';
+}
+
+.cuIcon-order::before {
+  content: '\e655';
+}
+
+.cuIcon-red-packet::before {
+  content: '\e657';
+}
+
+.cuIcon-coupon::before {
+  content: '\e65a';
+}
+
+.cuIcon-up::before {
+  content: '\e65d';
+}
+
+.cuIcon-down::before {
+  content: '\e65e';
+}
+
+.cuIcon-right::before {
+  content: '\e6a3';
+}
+
+.cuIcon-left::before {
+  content: '\e632';
+}
+
+.cuIcon-check::before {
+  content: '\e645';
+}
+
+.cuIcon-favor_fill::before {
+  content: '\e86d';
+}
+
+.cuIcon-favor::before {
+  content: '\e86e';
+}
+
+.cuIcon-zan_fill::before {
+  content: '\e870';
+}
+
+.cuIcon-zan::before {
+  content: '\e871';
+}
+
+.cuIcon-order-success::before {
+  content: '\e899';
+}
+
+.cuIcon-package::before {
+  content: '\e89a';
+}
+
+.cuIcon-cart-add::before {
+  content: '\e89b';
+}
+
+.cuIcon-feedback::before {
+  content: '\e8a1';
+}
+
+.cuIcon-help::before {
+  content: '\e8a3';
+}
+
+.cuIcon-plus-round::before {
+  content: '\e8a6';
+}
+
+.cuIcon-minus-round::before {
+  content: '\e8a7';
+}
+
+.cuIcon-refund::before {
+  content: '\e8ab';
+}
+
+.cuIcon-redemption::before {
+  content: '\e8e7';
+}
+
+.cuIcon-pay::before {
+  content: '\e8f9';
+}
+
+.cuIcon-invoice::before {
+  content: '\e908';
+}
+
+.cuIcon-service::before {
+  content: '\e60e';
+}
+
+.cuIcon-shop::before {
+  content: '\e629';
+}
+
+.cuIcon-female::before {
+  content: '\e649';
+}
+
+.cuIcon-male::before {
+  content: '\e615';
+}
+
+.cuIcon-title::before {
+  content: '\e60a';
+}
+
+.cuIcon-radio_fill::before {
+  content: '\e763';
+}
+
+.cuIcon-emoji::before {
+  content: '\e64a';
+}
+
+.cuIcon-emoji_fill::before {
+  content: '\e6eb';
+}
+
+.cuIcon-loading::before {
+  content: '\e67a';
+}
+
+.cuIcon-close_fill::before {
+  content: '\e658';
+}
+
+.cuIcon-camera::before {
+  content: '\e633';
+}
+
+.cuIcon-classify_fill::before {
+  content: '\e606';
+}
+
+.cuIcon-classify::before {
+  content: '\e70c';
+}
+
+.cuIcon-plus::before {
+  content: '\e620';
+}
+
+.cuIcon-bag::before {
+  content: '\e600';
+}
+
+.cuIcon-bag_fill::before {
+  content: '\e601';
+}
+
+.cuIcon-home::before {
+  content: '\e604';
+}
+
+.cuIcon-home_fill::before {
+  content: '\e605';
+}
+
+.cuIcon-cart::before {
+  content: '\e607';
+}
+
+.cuIcon-user::before {
+  content: '\e608';
+}
+
+.cuIcon-cart_fill::before {
+  content: '\e609';
+}
+
+.cuIcon-user_fill::before {
+  content: '\e60b';
+}

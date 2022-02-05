@@ -236,6 +236,10 @@ export default [
         title: 'Pagination 分页',
       },
       {
+        path: '/pin-nav',
+        title: 'PinNav 图钉导航',
+      },
+      {
         path: '/tab',
         title: 'Tab 标签页',
       },

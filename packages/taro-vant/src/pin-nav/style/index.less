@@ -1,0 +1,135 @@
+@import './var.less';
+
+.van-pin-nav {
+  position: fixed;
+  right: 0;
+  display: inline-block;
+  height: 100px;
+  .theme(z-index, '@pin-nav-zIndex');
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 100%;
+    padding-left: 24px;
+    border-radius: 90px 0 0 90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .theme(z-index, '@pin-nav-btn-zIndex');
+    .theme(width, '@pin-nav-btn-width');
+    .theme(background, '@pin-nav-btn-bg');
+    .theme(color, '@pin-nav-btn-front');
+
+    .van-icon {
+      margin-right: 10px;
+      font-size: 36px;
+      transform: rotate(0deg);
+      transition: all 0.3s;
+    }
+  }
+
+  &__text {
+    flex-shrink: 0;
+    width: 50px;
+    font-size: 24px;
+    line-height: 25px;
+  }
+
+  &__list {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    height: 100%;
+    padding-left: 40px;
+    border-radius: 50px 0 0 50px;
+    box-shadow: 4px 4px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: all 0.5s;
+    .theme(z-index, '@pin-nav-zIndex');
+    .theme(background, '@pin-nav-bg-color');
+    .theme(padding-right, '@pin-nav-btn-width');
+  }
+
+  &__list-item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 100%;
+  }
+
+  &__icon {
+    font-size: 40px;
+    transform: rotate(0deg) !important;
+  }
+
+  &__item-text {
+    font-size: 24px;
+    .theme(color, '@pin-nav-font-color');
+  }
+
+  &__badge {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    min-width: 24px;
+    height: 28px;
+    padding: 0 6px;
+    color: white;
+    font-size: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 14px;
+    .theme(background, '@red');
+  }
+
+  &--active {
+    .van-icon {
+      transform: rotate(180deg);
+    }
+
+    .van-pin-nav__list {
+      transform: translateX(0%) !important;
+    }
+
+    .van-pin-nav__btn--left {
+      .van-icon {
+        transform: rotate(0deg) !important;
+      }
+    }
+  }
+
+  &--left {
+    right: auto;
+    left: 0;
+
+    .van-pin-nav__btn {
+      right: auto;
+      left: 0;
+      flex-direction: row-reverse;
+      border-radius: 0 90px 90px 0;
+
+      .van-icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    .van-pin-nav__list {
+      right: auto;
+      margin: 0;
+      padding-right: 40px;
+      border-radius: 0 50px 50px 0;
+      transform: translateX(-100%);
+      .theme(padding-left, '@pin-nav-btn-width');
+    }
+  }
+}

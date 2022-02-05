@@ -78,6 +78,24 @@ export default class Index extends Component {
                 <Icon name='star' size='40' spin className='icon' />
               </Col>
             </DemoBlock>
+            <DemoBlock title='自定义图标'>
+              <Col className='col' span='6'>
+                <Icon
+                  classPrefix='cuIcon'
+                  name='photo'
+                  size='40'
+                  className='icon'
+                />
+              </Col>
+              <Col className='col' span='6'>
+                <Icon
+                  classPrefix='cuIcon'
+                  name='photo-error'
+                  size='40'
+                  className='icon'
+                />
+              </Col>
+            </DemoBlock>
           </Tab>
           <Tab title='基础图标' className='demo-tab-pane'>
             {icons.basic.map((item, index) => {
