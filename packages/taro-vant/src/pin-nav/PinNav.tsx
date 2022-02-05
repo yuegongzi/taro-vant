@@ -53,10 +53,10 @@ const PinNav: FC<PinNavProps> = (props) => {
                   onClick={() => _onSelect(item)}
                   className={classNames(bem('list-item'))}
                 >
-                  {/*@ts-ignore*/}
                   {ele(
                     item.icon,
                     <Icon
+                      //@ts-ignore
                       name={item.icon}
                       className={classNames(bem('icon'))}
                     />,
