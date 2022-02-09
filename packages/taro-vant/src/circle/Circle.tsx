@@ -182,7 +182,6 @@ function Circle(props: CircleProps) {
     (currentValue: any) => {
       getContext().then((context: any) => {
         if (context) {
-          console.log('执行....')
           context.clearRect(0, 0, size, size)
           renderLayerCircle(context)
           const formatValue = format(currentValue)
