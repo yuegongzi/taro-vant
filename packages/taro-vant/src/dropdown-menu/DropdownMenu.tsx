@@ -11,13 +11,12 @@ import {
 } from 'react'
 import type { DropdownMenuProps } from './PropsType'
 import { displayTitle } from './wxs'
-import { computedStyle, createNamespace, getRect, ZIndex } from '../utils'
+import { computedStyle, createNamespace, getRect, uuid, ZIndex } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('dropdown-menu')
 
 let ARRAY: any[] = []
-let currentIndexInit = 0
 
 function DropdownMenu(props: DropdownMenuProps) {
   const {
@@ -32,20 +31,14 @@ function DropdownMenu(props: DropdownMenuProps) {
     style,
     ...others
   } = props
-
+  const id = useMemo(() => uuid(32), [])
   const [ itemListData, setItemListData ] = useState<any[]>([])
   const childrenInstance = useRef<any[]>([])
   const TimerKey = useRef<Date>()
-  const [ currentIndex, setCurrentIndex ] = useState<number>()
-
   const close = useCallback(function () {
     childrenInstance.current.forEach((child) => {
       child.toggle(false, { immediate: true })
     })
-  }, [])
-
-  useLayoutEffect(function () {
-    setCurrentIndex(currentIndexInit++)
   }, [])
 
   useLayoutEffect(
@@ -123,17 +116,15 @@ function DropdownMenu(props: DropdownMenuProps) {
   [])
 
   const getChildWrapperStyle = useCallback(() => {
-    return getRect(null, `.van-dropdown-menu--${currentIndex}`).then(
-      (rect: any) => {
-        const wrapperStyle: any = {
-          zIndex: zIndex,
-          rect: rect,
-        }
+    return getRect(null, `#${id}`).then((rect: any) => {
+      const wrapperStyle: any = {
+        zIndex: zIndex,
+        rect: rect,
+      }
 
-        return wrapperStyle
-      },
-    )
-  }, [ zIndex, currentIndex ])
+      return wrapperStyle
+    })
+  }, [ zIndex ])
 
   const ResetChildren = useMemo(
     function () {
@@ -145,7 +136,6 @@ function DropdownMenu(props: DropdownMenuProps) {
             key: index,
             setChildrenInstance,
             index,
-            currentIndex,
             parentInstance: {
               overlay,
               duration,
@@ -163,7 +153,6 @@ function DropdownMenu(props: DropdownMenuProps) {
     [
       activeColor,
       closeOnClickOverlay,
-      currentIndex,
       direction,
       duration,
       getChildWrapperStyle,
@@ -175,7 +164,8 @@ function DropdownMenu(props: DropdownMenuProps) {
 
   return (
     <View
-      className={clsx(bem([ `${currentIndex}`, 'top-bottom' ]), className)}
+      id={id}
+      className={clsx(bem([ 'top-bottom' ]), className)}
       style={computedStyle([ style, { position: 'relative' } ])}
     >
       {(itemListData || []).map((item: any, index: number) => {

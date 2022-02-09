@@ -19,7 +19,6 @@ const Popover: FC<PopoverProps> = (props) => {
     onClose,
     onOpen,
     onSelect,
-    duration,
     closeOnClickAction,
     closeOnClickOverlay,
   } = props
@@ -45,8 +44,7 @@ const Popover: FC<PopoverProps> = (props) => {
       <View onClick={onClick}>{props.children}</View>
       <Transition
         visible={visible}
-        name='fade'
-        duration={duration}
+        duration={0}
         className={classNames(bem('container'))}
       >
         <View className={classNames(bem('mask'))} onClick={onMaskClick} />

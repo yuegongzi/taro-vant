@@ -34,7 +34,7 @@ export default class Index extends Component {
             color='#ee0a24'
             text='颜色定制'
           />
-          <Circle type='2d' value={value} color={gradientColor} text='渐变色' />
+          <Circle value={value} color={gradientColor} text='渐变色' />
           <Circle
             value={value}
             color='#07c160'

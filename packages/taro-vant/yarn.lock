@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@antmjs/babel-preset@^1.17.6":
+"@antmjs/babel-preset@1.17.6":
   version "1.17.6"
   resolved "https://npm.ejiexi.com/@antmjs%2fbabel-preset/-/babel-preset-1.17.6.tgz#1a7c4439a5ab155a6619bc79a92aa2f521fd9aab"
   integrity sha512-7nLPuobGkfvrzHMlpPLidM2Bq2ZZCImqstXVCmiG02KYdJwIX/QVVl/YOTTfh7OaL4PcDAlLEAQ9yKuvFbQ3YA==
@@ -1050,10 +1050,17 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
   version "7.16.7"
   resolved "https://npm.ejiexi.com/@babel%2fruntime/-/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
   integrity sha512-9E9FJowqAsytyOY6LG+1KuueckRL+aQW+mKvXRXnuFGyRAyepJPmEo9vgMfXUA6O9u3IeEdv9MAkppFcaQwogQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.14.5":
+  version "7.17.2"
+  resolved "https://npm.ejiexi.com/@babel%2fruntime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
+  integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1430,7 +1437,7 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
-"@react-vant/cli@^1.1.19":
+"@react-vant/cli@1.1.19":
   version "1.1.19"
   resolved "https://npm.ejiexi.com/@react-vant%2fcli/-/cli-1.1.19.tgz#074401162dfada6a3448fb320dabae43364d65a1"
   integrity sha512-6HrTXzBIfzCUGaDmWvrGG+/CiNNMM5lBZFSR3xJ3Ky8TpQDq8HJxXDEgpQwA3Osz8WrI2hnFF08uy+OP5t+w9g==
@@ -1554,29 +1561,21 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@tarojs/api@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.18.tgz#78f7db4481448f702d56df446998d2c9eb9deb25"
-  integrity sha512-QSRcuXrycZkR12j5t4QYP26pzbbX2KJkNkmRv8mAYGyLn/RsHZp9eQveircu8WcNMs/p8DyVrf/VV37bcEBYTA==
+"@tarojs/api@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.4.1.tgz#4a90cf48161eb627fa4abfd6d4b497a683a5aa55"
+  integrity sha512-Gmh0e9cp3rCofCCGQNlmTpdpSvgnHGDKGNwkQzzSTpuqMNih6a0jVQaG6zk3lh5mETVTcf+8tF5q4MTFppRL/g==
   dependencies:
-    "@babel/runtime" "^7.11.2"
-    "@tarojs/runtime" "3.3.18"
+    "@babel/runtime" "^7.14.5"
+    "@tarojs/runtime" "3.4.1"
 
-"@tarojs/api@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fapi/-/api-3.3.20.tgz#66b2ceae3ac114c9715ab8c77d6aa213bb719732"
-  integrity sha512-zNzFcwTp1/tEgMjlKEtXM2baEo5O7tjDW27fxgnMXneiZ/+yVP1dWGRA0qXGxXZTWtIKNOW2irzdHgtTGDzQ/A==
-  dependencies:
-    "@babel/runtime" "^7.11.2"
-    "@tarojs/runtime" "3.3.20"
-
-"@tarojs/components@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fcomponents/-/components-3.3.20.tgz#83a4301f9b87f6ae83cdf4c69ce0de2acb21148d"
-  integrity sha512-1Ec9h/63G0PhtHH1DipwEBpB2o7Jp1Vp+ulE2LkWz1sc3XXofNVCB8f8OU0ebSrMD7D2xhZaVTM15+5ni6v22Q==
+"@tarojs/components@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2fcomponents/-/components-3.4.1.tgz#ba5fbe9308b8ea1501688f8a33ef894a76c8372c"
+  integrity sha512-2w/VdaiPoeJA6moFYVIfNg2WV8sUYwPxS5sHwKyH4iH/IoKOY34xFDh327ePKnqKW1q4plQMEMaUAB85JWWDAA==
   dependencies:
     "@stencil/core" "2.9.0"
-    "@tarojs/taro" "3.3.20"
+    "@tarojs/taro" "3.4.1"
     better-scroll "^1.14.1"
     classnames "^2.2.5"
     intersection-observer "^0.7.0"
@@ -1585,106 +1584,55 @@
     swiper "6.8.0"
     weui "^1.1.2"
 
-"@tarojs/router@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.18.tgz#210607fdb438fcdf26a470fb56aa7d7608cf23bb"
-  integrity sha512-eVBawv754vLlcmKV9L1VZ3m0gyNi0WSD6n4fnSKc7lE22Z8WVY9HxFynzQqF+7rsYSaBIBqxXaS0qWVqzb4nRA==
+"@tarojs/router@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.4.1.tgz#f53ca1cdde19dc98c0426876e9c28afed5df711d"
+  integrity sha512-u0siXz8B6gvhI3g5EGpgBdzP2XCLfoD8SVIg6ZackzW0NMm4qFM73qGS7ZSIrasVqVRNAh3EEOdfjEKUH9EFXw==
   dependencies:
-    "@tarojs/runtime" "3.3.18"
+    "@tarojs/runtime" "3.4.1"
+    "@tarojs/taro" "3.4.1"
     history "^5.1.0"
     query-string "^6.13.8"
     universal-router "^8.3.0"
     url-parse "^1.4.7"
 
-"@tarojs/router@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2frouter/-/router-3.3.20.tgz#fbe33dadda5d8c511675a79cd59ffd6ecf448c1f"
-  integrity sha512-vkO3JCNY99noxSODMEez+bW9Kx6wLVC1FPviNd08MELipwrw8k2DyPzxgzJiE+2YiS0r7V2Sh8l5A+ocAnrcdQ==
+"@tarojs/runtime@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.4.1.tgz#71c2239771e7755a076367ac284e0a487d8a9c1c"
+  integrity sha512-jPh1P/S6JU9lZyC1KOEJy0sE2QRBpDZKQJqRnOu5nCylZzxaZ2TU1ACmnfuNnUX7/CwWt5f/y+h0mVFpvv9hwA==
   dependencies:
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro" "3.3.20"
-    history "^5.1.0"
-    query-string "^6.13.8"
-    universal-router "^8.3.0"
-    url-parse "^1.4.7"
-
-"@tarojs/runtime@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.18.tgz#24f175ddc071e40a04b792d50518337e42c83136"
-  integrity sha512-J5HQSsCBOJL3MOr4oSsp9tgLrlwIl7BsSPf9l/KM6ClA74m85eNKC4MgGL2EFmH8W8yMC1y+YEPO+lZ8jIAYnQ==
-  dependencies:
-    "@tarojs/shared" "3.3.18"
+    "@tarojs/shared" "3.4.1"
     inversify "5.1.1"
     lodash-es "4.17.15"
     reflect-metadata "^0.1.13"
 
-"@tarojs/runtime@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fruntime/-/runtime-3.3.20.tgz#0855a9a2667b0cda3107ce0ea23f98f9fd4341bc"
-  integrity sha512-aVZ0BdwkWK0IxlN9jyrkcfI+JJWOwTOXEpNteFwoiYN7Lz3sTnDatqdO6Us6NxZDXdzLey6LWt4xlf4Rz8glug==
+"@tarojs/shared@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.4.1.tgz#529ff63f52b936573d225856c4f7c6902848592f"
+  integrity sha512-X9LBS/TPBRsDjXj9+wynWQepdCY2jcPEJrpKdOL9Z+lEbvRABhnTOUjuaRKIkBJ+lLRg3/Xf8y1Oln+gnajKQQ==
+
+"@tarojs/taro-h5@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.4.1.tgz#ad6ae7d88eb4afd9548d78d03010edf066a82a6c"
+  integrity sha512-hvwnWJ/EWzHNO5+3QVp6Nb6mJ5e4YCETVeTe2dQrKqbjew8w/DHxu6OzHJP6WlVw+WZHrlIUc5FfSuSIeDisbw==
   dependencies:
-    "@tarojs/shared" "3.3.20"
-    inversify "5.1.1"
-    lodash-es "4.17.15"
-    reflect-metadata "^0.1.13"
-
-"@tarojs/shared@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.18.tgz#8dc6c034bd03292074a4383d7865f7f1e8da319f"
-  integrity sha512-OxDQWpE9+6Lh6bk2WcZZWrIaS79F9QC9Qv5+cRTI3u5zDA88+XhvtGaJGqx4adcPiByLMAsrjftqyEMvg2dnnw==
-
-"@tarojs/shared@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2fshared/-/shared-3.3.20.tgz#7bcb99c9aeb9ef5fd3aab15bd6eed552ad171fec"
-  integrity sha512-uIfbE7F7Hr9CKesC8VL7lxIalQHF+GVhI+GjkaWvfZUaZAGXGQahT1f0B3CjtxZIbkPu7E/raARx+tSVrM29Pg==
-
-"@tarojs/taro-h5@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.18.tgz#4f0904140851d932d2d780680194d8804b87b2a7"
-  integrity sha512-QPgIhY/3m3cJchUFi2HhMrl/my7DfurIWahzm6VKeb+aMkl3ieAuS1YGS7OcTx/lMdLXHI8xu8o6ikxYw0Ohow==
-  dependencies:
-    "@tarojs/api" "3.3.18"
-    "@tarojs/router" "3.3.18"
-    "@tarojs/runtime" "3.3.18"
-    "@tarojs/taro" "3.3.18"
+    "@tarojs/api" "3.4.1"
+    "@tarojs/router" "3.4.1"
+    "@tarojs/runtime" "3.4.1"
+    "@tarojs/taro" "3.4.1"
     base64-js "^1.3.0"
     jsonp-retry "^1.0.3"
     mobile-detect "^1.4.2"
-    raf "^3.4.1"
     whatwg-fetch "^3.4.0"
 
-"@tarojs/taro-h5@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro-h5/-/taro-h5-3.3.20.tgz#8b993cf77767b518c5a30cc0c4ce9101e3d11692"
-  integrity sha512-UqM7Dxr+PUYaiUOKulpxwj6nZsZTeM4t7/l6c3N0fDP8S+7wtKSfPVTtJtbdo7kRllKL5gwtaD/Ux1yXTVuRGg==
+"@tarojs/taro@3.4.1":
+  version "3.4.1"
+  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.4.1.tgz#05b34cfdb363216985c428cc84b2067c0ec7dec0"
+  integrity sha512-10ubTVi4cAgFws1mMJPOgDTWyW+eeMTVwJkB0EfLe3nsZ/tK0w2+ulwMh5At60Tj4mWGzrSF6U4SWZRY4H5Ldw==
   dependencies:
-    "@tarojs/api" "3.3.20"
-    "@tarojs/router" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro" "3.3.20"
-    base64-js "^1.3.0"
-    jsonp-retry "^1.0.3"
-    mobile-detect "^1.4.2"
-    raf "^3.4.1"
-    whatwg-fetch "^3.4.0"
-
-"@tarojs/taro@3.3.18":
-  version "3.3.18"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.18.tgz#bfcd8c48ef72b080a1003ff881656300e91ddba6"
-  integrity sha512-zzzoeReuK6dqU4BRRcWaMJqDBaFPD96xCj+NMqBhdTbEgQfIjIUo6D6LNMvjBqus9xAR6ZzzJiObX+43BIXy7g==
-  dependencies:
-    "@tarojs/api" "3.3.18"
-    "@tarojs/runtime" "3.3.18"
-    "@tarojs/taro-h5" "3.3.18"
-
-"@tarojs/taro@3.3.20":
-  version "3.3.20"
-  resolved "https://npm.ejiexi.com/@tarojs%2ftaro/-/taro-3.3.20.tgz#ba71400186940fcb179c2ad8662f5e5c729f11ce"
-  integrity sha512-UqbEl5vajLfercrRMLz3oW4I9FTqqw204OSzrTurXWqQ0FEE3iITOBcdBwz4MnvDlVh2n2r1L0RmwyJL2KIdBw==
-  dependencies:
-    "@tarojs/api" "3.3.20"
-    "@tarojs/runtime" "3.3.20"
-    "@tarojs/taro-h5" "3.3.20"
+    "@tarojs/api" "3.4.1"
+    "@tarojs/runtime" "3.4.1"
+    "@tarojs/taro-h5" "3.4.1"
 
 "@tootallnate/once@1":
   version "1.1.2"

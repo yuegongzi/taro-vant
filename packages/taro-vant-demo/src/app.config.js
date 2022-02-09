@@ -26,7 +26,7 @@ export default {
     'pages/search/index',
     'pages/slider/index',
     'pages/sidebar/index',
-    'pages/tab/index',
+    'pages/tabs/index',
     'pages/tabbar/index',
     'pages/tag/index',
     'pages/toast/index',

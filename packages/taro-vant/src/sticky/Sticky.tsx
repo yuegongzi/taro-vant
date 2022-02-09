@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { View } from '@tarojs/components'
 import {
   computedStyle,
   createNamespace,
   getRect,
   isDef,
+  uuid,
   ZIndex,
 } from '../utils'
 import type { StickyProps } from './PropsType'
@@ -15,7 +16,7 @@ import clsx from 'clsx'
 const [ bem ] = createNamespace('sticky')
 
 function Sticky(props: StickyProps) {
-  const indexRef = useRef(+new Date())
+  const id = useMemo(() => uuid(32), [])
   const [ state, setState ] = useState({ height: 0, fixed: false, transform: 0 })
   const {
     zIndex = ZIndex.Sticky,
@@ -79,10 +80,7 @@ function Sticky(props: StickyProps) {
       }
       ref.current.scrollTop = scrollTop || ref.current.scrollTop
       if (typeof container === 'function') {
-        Promise.all([
-          getRect(null, `.van-sticky--${indexRef.current}`),
-          getContainerRect(),
-        ]).
+        Promise.all([ getRect(null, `#${id}`), getContainerRect() ]).
           then(([ root, container ]: any) => {
             if (root && container) {
               if (offsetTop + root.height > container.height + container.top) {
@@ -106,7 +104,7 @@ function Sticky(props: StickyProps) {
           })
         return
       } else {
-        getRect(null, `.van-sticky--${indexRef.current}`).then((root: any) => {
+        getRect(null, `#${id}`).then((root: any) => {
           if (!isDef(root)) {
             return
           }
@@ -136,7 +134,8 @@ function Sticky(props: StickyProps) {
 
   return (
     <View
-      className={clsx(bem([ `${indexRef.current}` ]), className)}
+      id={id}
+      className={clsx(bem(), className)}
       style={computedStyle([
         computed.containerStyle({
           fixed: state.fixed,

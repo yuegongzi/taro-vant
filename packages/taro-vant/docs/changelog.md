@@ -12,12 +12,27 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.4.1
+
+`2022-02-09`
+
+**Bug Fixes**
+- 修复`Tab`文档点击时示例无反应的BUG
+- 修复`Circle`在真机上无法展示的BUG
+
+**Refactor**
+- 重构涉及样式选择器的逻辑,改为使用更快的id选择器
+- 删除未使用的组件和方法
+
+**Dependency**
+- 升级taro到3.4.1
+
 
 ### 2.4.0
 
 `2022-02-05`
 
-**Document**
+**Bug Fixes**
 - 新增`PinNav` 📌图钉导航文档
 
 **Feature**

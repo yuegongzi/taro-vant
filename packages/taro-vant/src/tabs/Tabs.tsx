@@ -15,6 +15,7 @@ import {
   getRect,
   isDef,
   requestAnimationFrame,
+  uuid,
   ZIndex,
 } from '../utils'
 import Sticky from '../sticky'
@@ -55,8 +56,6 @@ function parseTabList(children: React.ReactNode): any[] {
     filter((tab) => tab)
 }
 
-let comIndex = 0
-
 export function Tabs(props: TabsProps) {
   const ref = useRef({
     skipInit: false,
@@ -69,8 +68,7 @@ export function Tabs(props: TabsProps) {
     startY: 0,
     swiping: false,
   })
-
-  const indexRef = useRef(comIndex)
+  const id = useMemo(() => uuid(16), [])
   const [ state, setState ]: any = useState({
     tabs: [],
     scrollLeft: 0,
@@ -120,11 +118,6 @@ export function Tabs(props: TabsProps) {
     tabActiveClass,
     ...others
   } = props
-
-  useEffect(() => {
-    comIndex++
-    indexRef.current = comIndex
-  }, [])
 
   const tabs = useMemo(() => {
     return parseTabList(children)
@@ -177,8 +170,8 @@ export function Tabs(props: TabsProps) {
     }
     index = index ?? currentIndex
     Promise.all([
-      getAllRect(null, `.van-tabs--${indexRef.current} .van-tab`),
-      getRect(null, `.van-tabs--${indexRef.current} .van-tabs__line`),
+      getAllRect(null, `.van-tabs--${id} .van-tab`),
+      getRect(null, `.van-tabs--${id} .van-tabs__line`),
     ]).then(([ rects = [], lineRect ]: any) => {
       if (rects && lineRect) {
         const rect = rects[index!]
@@ -210,8 +203,8 @@ export function Tabs(props: TabsProps) {
     }
     index = index ?? currentIndex
     Promise.all([
-      getAllRect(null, `.van-tabs--${indexRef.current} .van-tab`),
-      getRect(null, `.van-tabs--${indexRef.current} .van-tabs__nav`),
+      getAllRect(null, `.van-tabs--${id} .van-tab`),
+      getRect(null, `.van-tabs--${id} .van-tabs__nav`),
     ]).then(([ tabRects, navRect ]: any) => {
       if (tabRects && navRect) {
         const tabRect = tabRects[index!]
@@ -357,9 +350,7 @@ export function Tabs(props: TabsProps) {
       return {
         ...pre,
         container: () =>
-          createSelectorQuery().select(
-            `.van-tabs--${indexRef.current} .van-tabs`,
-          ),
+          createSelectorQuery().select(`.van-tabs--${id} .van-tabs`),
       }
     })
     setTimeout(() => {
@@ -416,7 +407,7 @@ export function Tabs(props: TabsProps) {
 
   return (
     <View
-      className={clsx(bem([ type, `${indexRef.current}` ]), className)}
+      className={clsx(bem([ type, `${id}` ]), className)}
       style={style}
       {...others}
     >

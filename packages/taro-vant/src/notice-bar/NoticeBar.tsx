@@ -1,5 +1,5 @@
 import { createAnimation, nextTick, useReady } from '@tarojs/taro'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { Navigator, View } from '@tarojs/components'
 import type { NoticeBarProps } from './PropsType'
@@ -10,20 +10,20 @@ import {
   ENV,
   getRect,
   requestAnimationFrame,
+  uuid,
 } from '../utils'
 import Icon from '../icon'
 import { rootStyle } from './wxs'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('notice-bar')
-let NOTICE_BAR_INDEX = 0
 
 export function NoticeBar(props: NoticeBarProps) {
+  const [ contentId, wrapId ] = useMemo(() => [ uuid(32), uuid(32) ], [])
   const [ state, setState ] = useState({
     ready: false,
     show: true,
     animationData: { actions: [] },
-    unitag: 0,
   })
 
   const params: any = {
@@ -57,15 +57,6 @@ export function NoticeBar(props: NoticeBarProps) {
     children,
     ...others
   } = props
-
-  useEffect(() => {
-    setState((state) => {
-      return {
-        ...state,
-        unitag: NOTICE_BAR_INDEX++,
-      }
-    })
-  }, [])
 
   useReady(() => {
     if (ENV.h5) {
@@ -130,10 +121,9 @@ export function NoticeBar(props: NoticeBarProps) {
   const init = useCallback(() => {
     requestAnimationFrame(() => {
       Promise.all([
-        getRect(null, `.van-notice-bar__content--${state.unitag}`),
-        getRect(null, `.van-notice-bar__wrap--${state.unitag}`),
+        getRect(null, `#${contentId}`),
+        getRect(null, `#${wrapId}`),
       ]).then((rects) => {
-        console.log(rects)
         const contentRect: any = rects[0]
         const wrapRect: any = rects[1]
 
@@ -162,7 +152,7 @@ export function NoticeBar(props: NoticeBarProps) {
         })
       })
     })
-  }, [ state.unitag, scrollable, speed, delay, scroll ])
+  }, [ scrollable, speed, delay, scroll ])
 
   const onClickIcon = useCallback(
     (event: ITouchEvent) => {
@@ -212,9 +202,10 @@ export function NoticeBar(props: NoticeBarProps) {
           leftIcon,
           <Icon name={leftIcon} className={clsx(bem('left-icon'))} />,
         )}
-        <View className={clsx(bem('wrap', [ `${state.unitag}` ]))}>
+        <View id={wrapId} className={clsx(bem('wrap'))}>
           <View
-            className={clsx(bem('content', [ `${state.unitag}` ]), {
+            id={contentId}
+            className={clsx(bem('content'), {
               'van-ellipsis': scrollable === false && !wrapable,
             })}
             animation={state.animationData}
@@ -240,5 +231,6 @@ export function NoticeBar(props: NoticeBarProps) {
     )
   )
 }
+
 NoticeBar.displayName = 'NoticeBar'
 export default NoticeBar

@@ -240,7 +240,7 @@ export default [
         title: 'PinNav 图钉导航',
       },
       {
-        path: '/tab',
+        path: '/tabs',
         title: 'Tab 标签页',
       },
       {

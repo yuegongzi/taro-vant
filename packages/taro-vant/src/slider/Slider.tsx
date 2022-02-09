@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import type { ITouchEvent } from '@tarojs/components'
 import { View } from '@tarojs/components'
 import type { SliderProps } from './PropsType'
@@ -8,6 +8,7 @@ import {
   computedStyle,
   createNamespace,
   getRect,
+  uuid,
 } from '../utils'
 import clsx from 'clsx'
 
@@ -24,8 +25,6 @@ function getDirection(x: number, y: number) {
   }
   return ''
 }
-
-let currentIndex = 0
 
 function Slider(props: SliderProps) {
   const {
@@ -50,7 +49,7 @@ function Slider(props: SliderProps) {
     style,
     ...others
   } = props
-
+  const id = useMemo(() => uuid(32), [])
   const [ barStyle, setBarStyle ] = useState<React.CSSProperties>()
   const [ wrapperStyle, setWrapperStyle ] = useState<React.CSSProperties>()
   const [ value_, setValue ] = useState<any>()
@@ -59,11 +58,6 @@ function Slider(props: SliderProps) {
   const [ touchState, setTouchState ] = useState<any>({})
   const [ newValue, setNewValue ] = useState<any>({})
   const [ startValue, setstartValue ] = useState<any>()
-  const [ currentIndex_, setCurrentIndex ] = useState<number>()
-
-  useEffect(() => {
-    setCurrentIndex(currentIndex++)
-  }, [])
 
   const resetTouchStatus = useCallback(
     function () {
@@ -252,7 +246,7 @@ function Slider(props: SliderProps) {
       }
       const touchState = touchMove(event)
       setDragStatus('draging')
-      getRect(null, `.van-slider--${currentIndex_}`).then((rect: any) => {
+      getRect(null, `#${id}`).then((rect: any) => {
         const diff = (touchState.deltaX / rect.width) * getRange()
         if (isRange(startValue)) {
           newValue[buttonIndex] = startValue[buttonIndex] + diff
@@ -276,7 +270,6 @@ function Slider(props: SliderProps) {
       startValue,
       touchMove,
       updateValue,
-      currentIndex_,
     ],
   )
 
@@ -294,7 +287,7 @@ function Slider(props: SliderProps) {
   const onClick = useCallback(
     function (event: any) {
       if (disabled) return
-      getRect(null, `.van-slider--${currentIndex_}`).then((rect: any) => {
+      getRect(null, `#${id}`).then((rect: any) => {
         const value =
           (((event.target.x || event.clientX) - rect.left) / rect.width) *
             getRange() +
@@ -313,17 +306,17 @@ function Slider(props: SliderProps) {
         }
       })
     },
-    [ disabled, getRange, isRange, min, updateValue, value_, currentIndex_ ],
+    [ disabled, getRange, isRange, min, updateValue, value_ ],
   )
   return (
     <View
+      id={id}
       className={clsx(
         bem([
           {
             disabled,
             vertical,
           },
-          `${currentIndex_}`,
         ]),
         className,
       )}

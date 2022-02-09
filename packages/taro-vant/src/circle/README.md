@@ -124,7 +124,7 @@ this.state = {
 |  value  | 目标进度 | _number_ | `0` |
 |  type  | 指定 canvas 类型，可选值为 `2d` | _string_ | - |
 |  size  | 圆环直径，默认单位为 `px` | _number_ | `100` |
-|  color  | 进度条颜色，传入对象格式可以定义渐变色 | _string \| object_ | `#1989fa` |
+|  color  | 进度条颜色，传入对象格式可以定义渐变色 渐变色不支持`type='2d'`| _string \| object_ | `#1989fa` |
 |  layerColor  | 轨道颜色 | _string_ | `#fff` |
 |  fill  | 填充颜色 | _string_ | - |
 |  speed  | 动画速度（单位为 value/s） | _number_ | `50` |

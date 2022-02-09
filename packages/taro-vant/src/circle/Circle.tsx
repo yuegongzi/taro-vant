@@ -3,10 +3,10 @@ import {
   createSelectorQuery,
   useReady,
 } from '@tarojs/taro'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, CoverView, View } from '@tarojs/components'
 import type { CircleProps } from './PropsType'
-import { createNamespace, getSystemInfoSync, isObj, ENV } from '../utils'
+import { createNamespace, getSystemInfoSync, isObj, ENV, uuid } from '../utils'
 import { adaptor } from './canvas'
 import clsx from 'clsx'
 
@@ -19,17 +19,16 @@ function format(rate: number) {
 const PERIMETER = 2 * Math.PI
 const BEGIN_ANGLE = -Math.PI / 2
 const STEP = 1
-let CIRCLE_INDEX = 0
 
 function Circle(props: CircleProps) {
+  const canvasId = useMemo(() => uuid(32), [])
   const [ state, setState ] = useState({
     ready: false,
     hoverColor: '',
-    unitag: 'van-circle',
   })
 
   const ref: any = useRef({
-    inited: false,
+    init: false,
     currentValue: undefined,
     interval: undefined,
   })
@@ -51,15 +50,6 @@ function Circle(props: CircleProps) {
     children,
     ...others
   } = props
-
-  useEffect(() => {
-    setState((state) => {
-      return {
-        ...state,
-        unitag: `van-circle_uni_${CIRCLE_INDEX++}`,
-      }
-    })
-  }, [])
 
   useReady(() => {
     setState((state) => {
@@ -87,9 +77,9 @@ function Circle(props: CircleProps) {
       let ctx = null
 
       try {
-        ctx = createCanvasContext(state.unitag)
+        ctx = createCanvasContext(canvasId)
       } catch (error) {
-        // console.error(error)
+        console.error(error)
       }
 
       return Promise.resolve(ctx)
@@ -97,14 +87,14 @@ function Circle(props: CircleProps) {
     const dpr = getSystemInfoSync().pixelRatio
     return new Promise((resolve: any) => {
       createSelectorQuery().
-        select(`.${state.unitag}`).
+        select(`#${canvasId}`).
         node().
         exec((res: any) => {
           const canvas = res[0].node
           if (canvas) {
             const ctx = canvas.getContext(type)
-            if (!ref.current.inited) {
-              ref.current.inited = true
+            if (!ref.current.init) {
+              ref.current.init = true
               canvas.width = size * dpr
               canvas.height = size * dpr
               ctx.scale(dpr, dpr)
@@ -113,14 +103,19 @@ function Circle(props: CircleProps) {
           }
         })
     })
-  }, [ size, type, state.unitag ])
+  }, [ size, type ])
 
   const setHoverColor = function () {
     if (isObj(color)) {
       const _color = color as Record<string, string>
       return getContext().then((context: any) => {
         if (context) {
-          const LinearColor = context.createLinearGradient(size, 0, 0, 0) //TODO h5版本taro官方BUG 等待修复
+          let LinearColor: any
+          if (ENV.h5) {
+            LinearColor = context.ctx.createLinearGradient(size, 0, 0, 0)
+          } else {
+            LinearColor = context.createLinearGradient(size, 0, 0, 0)
+          }
           Object.keys(color).
             sort((a, b) => parseFloat(a) - parseFloat(b)).
             map((key: any) =>
@@ -187,6 +182,7 @@ function Circle(props: CircleProps) {
     (currentValue: any) => {
       getContext().then((context: any) => {
         if (context) {
+          console.log('执行....')
           context.clearRect(0, 0, size, size)
           renderLayerCircle(context)
           const formatValue = format(currentValue)
@@ -262,23 +258,18 @@ function Circle(props: CircleProps) {
   }, [state.ready])
 
   return (
-    <View
-      id={`page-${state.unitag}`}
-      className={clsx(bem(), className)}
-      style={style}
-      {...others}
-    >
+    <View className={clsx(bem(), className)} style={style} {...others}>
       <Canvas
         // eslint-disable-next-line
         // @ts-ignore
         width={size}
         height={size}
         nativeProps={{ width: size, height: size }}
-        className={clsx(bem('canvas'), `${state.unitag}`)}
+        className={clsx(bem('canvas'))}
         type={type}
         style={'width: ' + `${size}px` + ';height:' + `${size}px`}
-        id={state.unitag}
-        canvasId={state.unitag}
+        id={canvasId}
+        canvasId={canvasId}
       />
       {!text ? (
         <View className={clsx(bem('text'))}>{children}</View>

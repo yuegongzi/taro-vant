@@ -1,4 +1,7 @@
-import Taro, { createSelectorQuery, getSystemInfoSync as TaroGetSystemInfoSync } from '@tarojs/taro'
+import Taro, {
+  createSelectorQuery,
+  getSystemInfoSync as TaroGetSystemInfoSync,
+} from '@tarojs/taro'
 import { isPlainObject, isPromise } from '../type'
 import { canIUseNextTick } from './version'
 
@@ -30,11 +33,9 @@ let menuInfo: any
 export function getMenuButtonBoundingClientRect() {
   if (menuInfo == null) {
     menuInfo = Taro.getMenuButtonBoundingClientRect()
-    console.log(menuInfo)
   }
   return menuInfo
 }
-
 
 export function requestAnimationFrame(cb: any) {
   const systemInfo = getSystemInfoSync()
@@ -43,9 +44,12 @@ export function requestAnimationFrame(cb: any) {
       cb()
     }, 33.333333333333336)
   }
-  return createSelectorQuery().selectViewport().boundingClientRect().exec(() => {
-    cb()
-  })
+  return createSelectorQuery().
+    selectViewport().
+    boundingClientRect().
+    exec(() => {
+      cb()
+    })
 }
 
 export function pickExclude(obj: any, keys: any) {
@@ -66,9 +70,12 @@ export function getRect(context: any, selector: any) {
     if (context) {
       query = query.in(context)
     }
-    query.select(selector).boundingClientRect().exec((rect: any = []) => {
-      return resolve(rect[0])
-    })
+    query.
+      select(selector).
+      boundingClientRect().
+      exec((rect: any = []) => {
+        return resolve(rect[0])
+      })
   })
 }
 
@@ -78,7 +85,10 @@ export function getAllRect(context: any, selector: any) {
     if (context) {
       query = query.in(context)
     }
-    query.selectAll(selector).boundingClientRect().exec((rect = []) => resolve(rect[0]))
+    query.
+      selectAll(selector).
+      boundingClientRect().
+      exec((rect = []) => resolve(rect[0]))
   })
 }
 
@@ -89,29 +99,24 @@ export function toPromise(promiseLike: any) {
   return Promise.resolve(promiseLike)
 }
 
-export function getCurrentPage() {
-  const pages = Taro.getCurrentPages()
-  return pages[pages.length - 1]
-}
-
-export function noop(){}
+export function noop() {}
 
 export function toDecimal2(x: string) {
-  let f = parseFloat(x);
+  let f = parseFloat(x)
   if (isNaN(f)) {
-    return '';
+    return ''
   }
-  f = Math.round(f * 100) / 100;
-  let s = f.toString();
-  let rs = s.indexOf('.');
+  f = Math.round(f * 100) / 100
+  let s = f.toString()
+  let rs = s.indexOf('.')
   if (rs < 0) {
-    rs = s.length;
-    s += '.';
+    rs = s.length
+    s += '.'
   }
   while (s.length <= rs + 2) {
-    s += '0';
+    s += '0'
   }
-  return s;
+  return s
 }
 
 /**
@@ -120,10 +125,13 @@ export function toDecimal2(x: string) {
  * @return { String }
  */
 export function fenToYuan(fen: number) {
-  const num = fen * 0.01;
-  let numStr = num + '';
-  const reg = numStr.indexOf('.') > -1 ? /(\d{1,3})(?=(?:\d{3})+\.)/g : /(\d{1,3})(?=(?:\d{3})+$)/g;
-  numStr = numStr.replace(reg, '$1');
-  numStr = toDecimal2(numStr);
-  return numStr;
+  const num = fen * 0.01
+  let numStr = num + ''
+  const reg =
+    numStr.indexOf('.') > -1
+      ? /(\d{1,3})(?=(?:\d{3})+\.)/g
+      : /(\d{1,3})(?=(?:\d{3})+$)/g
+  numStr = numStr.replace(reg, '$1')
+  numStr = toDecimal2(numStr)
+  return numStr
 }
