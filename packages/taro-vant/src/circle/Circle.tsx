@@ -3,10 +3,10 @@ import {
   createSelectorQuery,
   useReady,
 } from '@tarojs/taro'
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, CoverView, View } from '@tarojs/components'
 import type { CircleProps } from './PropsType'
-import { createNamespace, getSystemInfoSync, isObj, ENV, uuid } from '../utils'
+import { createNamespace, ENV, getSystemInfoSync, isObj, uuid } from '../utils'
 import { adaptor } from './canvas'
 import clsx from 'clsx'
 
@@ -22,17 +22,8 @@ const STEP = 1
 
 function Circle(props: CircleProps) {
   const canvasId = useMemo(() => uuid(32), [])
-  const [ state, setState ] = useState({
-    ready: false,
-    hoverColor: '',
-  })
-
-  const ref: any = useRef({
-    init: false,
-    currentValue: undefined,
-    interval: undefined,
-  })
-
+  const [ ready, setReady ] = useState(false)
+  const dpr = getSystemInfoSync().pixelRatio
   const {
     text,
     lineCap = 'round',
@@ -42,7 +33,6 @@ function Circle(props: CircleProps) {
     fill,
     layerColor = '#ffffff',
     color = '#1989fa',
-    type = '',
     strokeWidth = 4,
     clockwise = true,
     style,
@@ -51,40 +41,30 @@ function Circle(props: CircleProps) {
     ...others
   } = props
 
-  useReady(() => {
-    setState((state) => {
-      return {
-        ...state,
-        ready: true,
-      }
-    })
+  const ref: any = useRef({
+    init: false,
+    currentValue: value,
+    interval: undefined,
+    color: undefined,
   })
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (ENV.h5) {
-        setState((state) => {
-          return {
-            ...state,
-            ready: true,
-          }
-        })
-      }
-    }, 100)
-  }, [])
-  const getContext = useCallback(() => {
-    if (type === '' || ENV.h5) {
+  const getContext = (): Promise<any> => {
+    if (ENV.h5) {
       let ctx = null
-
       try {
         ctx = createCanvasContext(canvasId)
+        // @ts-ignore
+        ctx.canvas.width = size * dpr
+        // @ts-ignore
+        ctx.canvas.height = size * dpr
+        // @ts-ignore
+        ctx.ctx.scale(dpr, dpr)
       } catch (error) {
         console.error(error)
       }
 
       return Promise.resolve(ctx)
     }
-    const dpr = getSystemInfoSync().pixelRatio
     return new Promise((resolve: any) => {
       createSelectorQuery().
         select(`#${canvasId}`).
@@ -92,7 +72,7 @@ function Circle(props: CircleProps) {
         exec((res: any) => {
           const canvas = res[0].node
           if (canvas) {
-            const ctx = canvas.getContext(type)
+            const ctx = canvas.getContext('2d')
             if (!ref.current.init) {
               ref.current.init = true
               canvas.width = size * dpr
@@ -103,54 +83,57 @@ function Circle(props: CircleProps) {
           }
         })
     })
-  }, [ size, type ])
-
-  const setHoverColor = function () {
-    if (isObj(color)) {
-      const _color = color as Record<string, string>
-      return getContext().then((context: any) => {
-        if (context) {
-          let LinearColor: any
-          if (ENV.h5) {
-            LinearColor = context.ctx.createLinearGradient(size, 0, 0, 0)
-          } else {
-            LinearColor = context.createLinearGradient(size, 0, 0, 0)
-          }
-          Object.keys(color).
-            sort((a, b) => parseFloat(a) - parseFloat(b)).
-            map((key: any) =>
-              LinearColor.addColorStop(parseFloat(key) / 100, _color[key]),
-            )
-          setState((state) => {
-            return {
-              ...state,
-              hoverColor: LinearColor,
-            }
-          })
-        }
-      })
-    }
-    setState((state: any) => {
-      return {
-        ...state,
-        hoverColor: color,
-      }
-    })
-    return Promise.resolve()
   }
-  const presetCanvas = useCallback(
-    (
-      context: any,
-      strokeStyle: any,
-      beginAngle: any,
-      endAngle: any,
-      fill?: any,
-    ) => {
-      const position = size / 2
-      const radius = position - strokeWidth / 2
-      context.setStrokeStyle(strokeStyle)
+
+  const createStrokeStyle = (context: any, color: any) => {
+    //创建样式
+    let strokeStyle: any
+    const _color = isObj(color) ? color : { '0%': color, '100%': color }
+    if (ENV.h5) {
+      strokeStyle = context.ctx.createLinearGradient(size, 0, 0, 0)
+    } else {
+      strokeStyle = context.createLinearGradient(size, 0, 0, 0)
+    }
+    Object.keys(_color).
+      sort((a, b) => parseFloat(a) - parseFloat(b)).
+      map((key: any) =>
+        strokeStyle.addColorStop(parseFloat(key) / 100, _color[key]),
+      )
+    return strokeStyle
+  }
+  const presetCanvas = (
+    context: any,
+    strokeStyle: any,
+    beginAngle: any,
+    endAngle: any,
+    fill?: any,
+  ) => {
+    const position = size / 2
+    const radius = position - strokeWidth / 2
+    if (ENV.h5) {
+      //Taro API有问题 直接通过ctx调用原生进行画
+      context.ctx.lineWidth = strokeWidth
+      context.ctx.lineCap = lineCap
+      context.ctx.strokeStyle = strokeStyle
+      context.ctx.beginPath()
+      context.ctx.arc(
+        position,
+        position,
+        radius,
+        beginAngle,
+        endAngle,
+        !clockwise,
+      )
+      context.ctx.stroke()
+      if (fill) {
+        context.ctx.fillStyle = fill
+        context.ctx.fill()
+      }
+      context.ctx.closePath()
+    } else {
       context.setLineWidth(strokeWidth)
       context.setLineCap(lineCap)
+      context.setStrokeStyle(strokeStyle)
       context.beginPath()
       context.arc(position, position, radius, beginAngle, endAngle, !clockwise)
       context.stroke()
@@ -158,49 +141,51 @@ function Circle(props: CircleProps) {
         context.setFillStyle(fill)
         context.fill()
       }
-    },
-    [ clockwise, lineCap, size, strokeWidth ],
-  )
-  const renderLayerCircle = useCallback(
-    (context: any) => {
-      presetCanvas(context, layerColor, 0, PERIMETER, fill)
-    },
-    [ fill, layerColor, presetCanvas ],
-  )
-  const renderHoverCircle = useCallback(
-    (context: any, formatValue: any) => {
-      // 结束角度
-      const progress = PERIMETER * (formatValue / 100)
-      const endAngle = clockwise
-        ? BEGIN_ANGLE + progress
-        : 3 * Math.PI - (BEGIN_ANGLE + progress)
-      presetCanvas(context, state.hoverColor, BEGIN_ANGLE, endAngle)
-    },
-    [ clockwise, presetCanvas, state.hoverColor ],
-  )
-  const drawCircle = useCallback(
-    (currentValue: any) => {
-      getContext().then((context: any) => {
-        if (context) {
-          context.clearRect(0, 0, size, size)
-          renderLayerCircle(context)
-          const formatValue = format(currentValue)
-          if (formatValue !== 0) {
-            renderHoverCircle(context, formatValue)
-          }
-          context.draw()
+    }
+  }
+
+  const renderLayerCircle = (context: any) => {
+    presetCanvas(
+      context,
+      createStrokeStyle(context, layerColor),
+      0,
+      PERIMETER,
+      fill,
+    )
+  }
+  const renderHoverCircle = async (context: any, formatValue: any) => {
+    // 结束角度
+    const progress = PERIMETER * (formatValue / 100)
+    const endAngle = clockwise
+      ? BEGIN_ANGLE + progress
+      : 3 * Math.PI - (BEGIN_ANGLE + progress)
+    if (!ref.current.color) {
+      ref.current.color = createStrokeStyle(context, color)
+    }
+    presetCanvas(context, ref.current.color, BEGIN_ANGLE, endAngle)
+    setReady(true)
+  }
+
+  const drawCircle = (currentValue: any) => {
+    getContext().then((context: any) => {
+      if (context) {
+        context.clearRect(0, 0, size, size)
+        renderLayerCircle(context)
+        const formatValue = format(currentValue)
+        if (formatValue !== 0) {
+          renderHoverCircle(context, formatValue)
         }
-      })
-    },
-    [ getContext, renderHoverCircle, renderLayerCircle, size ],
-  )
+      }
+    })
+  }
+
   const clearMockInterval = function () {
     if (ref.current.interval) {
       clearTimeout(ref.current.interval)
       ref.current.interval = null
     }
   }
-  const reRender = useCallback(() => {
+  const draw = () => {
     if (speed <= 0 || speed > 1000) {
       drawCircle(value)
       return
@@ -225,37 +210,29 @@ function Circle(props: CircleProps) {
       }, 1000 / speed)
     }
     run()
-  }, [ drawCircle, speed, value ])
+  }
+
+  useReady(() => {
+    drawCircle(value) //画出第一次的值
+  })
 
   useEffect(() => {
-    if (state.ready) {
-      reRender()
-    }
-  }, [ reRender, state.ready, value ])
-
-  useEffect(() => {
-    if (state.ready) {
-      drawCircle(ref.current.currentValue)
+    if (ready) {
+      draw()
     }
     // eslint-disable-next-line
-  }, [state.ready, size])
+  }, [props.size, props.value])
 
   useEffect(() => {
-    if (state.ready) {
-      setHoverColor().then(() => {
-        drawCircle(ref.current.currentValue)
-      })
-    }
-    // eslint-disable-next-line
-  }, [state.ready, color])
-
+    ref.current.color = undefined
+  }, [ props.color ])
   useEffect(() => {
     return () => {
       clearMockInterval()
     }
     /* eslint-disable-next-line */
-  }, [state.ready])
-
+  }, [])
+  const st = { height: `${size}px`, width: `${size}px` }
   return (
     <View className={clsx(bem(), className)} style={style} {...others}>
       <Canvas
@@ -263,10 +240,10 @@ function Circle(props: CircleProps) {
         // @ts-ignore
         width={size}
         height={size}
-        nativeProps={{ width: size, height: size }}
+        nativeProps={{ width: size, height: size, style: st }}
         className={clsx(bem('canvas'))}
-        type={type}
-        style={'width: ' + `${size}px` + ';height:' + `${size}px`}
+        type='2d'
+        style={st}
         id={canvasId}
         canvasId={canvasId}
       />

@@ -12,6 +12,15 @@ Taro Vant 遵循 [Semver](https://semver.org/lang/zh-CN/) 语义化版本规范�
 
 ## 更新内容
 
+### 2.4.2
+
+`2022-02-15`
+
+**Bug Fixes**
+- 修复`Circle`在H5上失真模糊的BUG
+- 修复`Circle`在有渐变色时`fill` 失效的BUG
+- 重构`Circle`整体逻辑
+
 ### 2.4.1
 
 `2022-02-09`
