@@ -1,7 +1,5 @@
 import path from 'path'
 const pkg = require('../package.json')
-const miniChain = require('./webpack/miniChain')
-const h5Chain = require('./webpack/h5Chain')
 
 function getVersion() {
   function fillZero(value) {
@@ -40,9 +38,6 @@ let config = {
   },
   framework: 'react',
   mini: {
-    webpackChain(chain) {
-      miniChain(chain)
-    },
     postcss: {
       autoprefixer: {
         enable: true,
@@ -67,7 +62,6 @@ let config = {
   h5: {
     webpackChain(chain) {
       const publicPath = process.env.PUBLIC_PATH || '/'
-      h5Chain(chain)
       if (process.env.NODE_ENV === 'production') {
         chain.mode('production')
         chain.devtool('hidden-source-map')
@@ -126,10 +120,6 @@ let config = {
       chunkFilename: 'assets/css/chunk/[name].css',
     },
   },
-  plugins: [
-    '@tarojs/plugin-platform-alipay-dd',
-    [ path.join(process.cwd(), 'config/webpack/configPlugin') ],
-  ],
 }
 
 module.exports = function (merge) {

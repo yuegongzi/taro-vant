@@ -10,7 +10,7 @@ export default class Index extends Component {
     })
   }
   componentDidMount() {
-    function getUrl(path: string) {
+    function getUrl(path) {
       let url = `/pages${path}/index`
       const devGuidePaths = [ '/home', '/quickstart', '/custom-style', '/theme' ]
       if (devGuidePaths.includes(path)) {
@@ -52,12 +52,6 @@ export default class Index extends Component {
     }
   }
   render() {
-    return (
-      <>
-        {/* props.children 是将要被渲染的页面 */}
-        {/* eslint-disable-next-line react/prop-types */}
-        {this.props.children}
-      </>
-    )
+    return this.props.children
   }
 }
