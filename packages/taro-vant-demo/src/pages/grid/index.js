@@ -93,3 +93,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Grid 宫格',
+  enableShareAppMessage: true,
+})

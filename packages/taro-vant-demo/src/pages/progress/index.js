@@ -45,3 +45,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Progress 进度条',
+  enableShareAppMessage: true,
+})

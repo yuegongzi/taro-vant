@@ -38,3 +38,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Sku 商品选择',
+  enableShareAppMessage: true,
+})

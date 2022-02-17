@@ -290,3 +290,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Radio 单选框',
+  enableShareAppMessage: true,
+})

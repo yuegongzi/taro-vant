@@ -60,3 +60,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Card 商品卡片',
+  enableShareAppMessage: true,
+})

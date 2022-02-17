@@ -180,3 +180,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Tab 标签页',
+  enableShareAppMessage: true,
+})

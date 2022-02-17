@@ -48,3 +48,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Address 地址',
+  enableShareAppMessage: true,
+})

@@ -122,3 +122,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Dialog 弹出框',
+  enableShareAppMessage: true,
+})

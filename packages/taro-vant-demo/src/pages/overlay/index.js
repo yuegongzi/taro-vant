@@ -47,3 +47,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Overlay 遮罩层',
+  enableShareAppMessage: true,
+})

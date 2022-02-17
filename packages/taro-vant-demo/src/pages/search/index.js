@@ -105,3 +105,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Search 搜索',
+  enableShareAppMessage: true,
+})

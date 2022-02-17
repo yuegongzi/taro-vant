@@ -87,3 +87,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'GoodsAction 商品导航',
+  enableShareAppMessage: true,
+})

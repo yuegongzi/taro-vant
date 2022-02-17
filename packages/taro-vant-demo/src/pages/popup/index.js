@@ -166,3 +166,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Popup 弹出层',
+  enableShareAppMessage: true,
+})

@@ -60,3 +60,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Sidebar 侧边导航',
+  enableShareAppMessage: true,
+})

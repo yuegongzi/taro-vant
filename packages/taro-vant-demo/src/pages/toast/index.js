@@ -96,3 +96,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Toast 轻提示',
+  enableShareAppMessage: true,
+})

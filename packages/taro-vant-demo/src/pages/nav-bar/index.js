@@ -38,3 +38,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'NavBar 导航栏',
+  enableShareAppMessage: true,
+})

@@ -193,3 +193,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'ShareSheet 分享面板',
+  enableShareAppMessage: true,
+})

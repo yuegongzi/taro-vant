@@ -57,3 +57,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Switch 开关',
+  enableShareAppMessage: true,
+})

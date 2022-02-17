@@ -140,3 +140,5 @@ function DatetimePickerBox(props) {
     </>
   )
 }
+
+definePageConfig({ navigationBarTitleText: 'Form 表单' })

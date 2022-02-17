@@ -47,3 +47,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Skeleton 骨架屏',
+  enableShareAppMessage: true,
+})

@@ -79,3 +79,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Sticky 粘性布局',
+  enableShareAppMessage: true,
+})

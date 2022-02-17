@@ -70,3 +70,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Area 省市区选择',
+  enableShareAppMessage: true,
+})

@@ -167,3 +167,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Collapse 折叠面板',
+  enableShareAppMessage: true,
+})

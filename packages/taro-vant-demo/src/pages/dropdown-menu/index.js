@@ -119,3 +119,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Dropdown Menu',
+  enableShareAppMessage: true,
+})

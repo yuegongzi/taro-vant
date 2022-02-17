@@ -81,3 +81,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Circle 进度条',
+  enableShareAppMessage: true,
+})

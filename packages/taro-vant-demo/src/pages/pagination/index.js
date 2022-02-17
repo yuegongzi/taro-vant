@@ -49,3 +49,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Pagination 分页',
+  enableShareAppMessage: true,
+})

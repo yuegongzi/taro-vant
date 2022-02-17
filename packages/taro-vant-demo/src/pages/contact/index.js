@@ -39,3 +39,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Contact 联系人',
+  enableShareAppMessage: true,
+})

@@ -119,3 +119,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Button 按钮',
+  enableShareAppMessage: true,
+})

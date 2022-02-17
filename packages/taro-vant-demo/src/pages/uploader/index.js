@@ -205,3 +205,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Uploader 文件上传',
+  enableShareAppMessage: true,
+})

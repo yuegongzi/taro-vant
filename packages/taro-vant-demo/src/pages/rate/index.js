@@ -76,3 +76,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Rate 评分',
+  enableShareAppMessage: true,
+})

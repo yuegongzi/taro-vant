@@ -30,3 +30,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Divider 分割线',
+  enableShareAppMessage: true,
+})

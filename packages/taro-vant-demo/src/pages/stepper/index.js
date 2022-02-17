@@ -56,3 +56,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Stepper 步进器',
+  enableShareAppMessage: true,
+})

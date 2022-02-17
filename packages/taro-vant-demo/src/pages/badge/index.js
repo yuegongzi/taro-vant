@@ -61,3 +61,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Badge 徽标',
+  enableShareAppMessage: true,
+})

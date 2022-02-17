@@ -97,5 +97,5 @@ Address.defaultProps = {
   edit: true,
   clickable: false,
 }
-
+Address.displayName = 'Address'
 export default Address

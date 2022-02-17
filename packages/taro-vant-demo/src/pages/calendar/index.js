@@ -386,3 +386,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Calendar 日历',
+  enableShareAppMessage: true,
+})

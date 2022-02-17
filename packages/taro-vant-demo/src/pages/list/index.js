@@ -100,3 +100,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'List 长列表',
+  enableShareAppMessage: true,
+})

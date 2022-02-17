@@ -74,3 +74,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'CountDown 倒计时',
+  enableShareAppMessage: true,
+})

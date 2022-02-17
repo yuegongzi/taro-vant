@@ -30,3 +30,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Loading 加载',
+  enableShareAppMessage: true,
+})

@@ -151,3 +151,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'DatetimePicker 时间选择',
+  enableShareAppMessage: true,
+})

@@ -80,3 +80,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Picker 选择器',
+  enableShareAppMessage: true,
+})

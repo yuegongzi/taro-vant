@@ -91,3 +91,8 @@ export default () => {
     </DemoPage>
   )
 }
+
+definePageConfig({
+  navigationBarTitleText: 'ActionSheet 动作面板',
+  enableShareAppMessage: true,
+})

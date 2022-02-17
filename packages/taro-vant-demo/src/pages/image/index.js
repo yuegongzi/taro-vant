@@ -88,3 +88,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Image 图片',
+  enableShareAppMessage: true,
+})

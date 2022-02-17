@@ -163,7 +163,7 @@ function Index(props: AreaProps, ref?: React.Ref<unknown>) {
     const picker = _getPicker()
 
     if (!picker) {
-      return
+      return null
     }
     let code: any = (codeRef.current || _getDefaultCode()) + ''
 

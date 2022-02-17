@@ -155,3 +155,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Field 输入框',
+  enableShareAppMessage: true,
+})

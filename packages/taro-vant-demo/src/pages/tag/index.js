@@ -138,3 +138,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Tag 标记',
+  enableShareAppMessage: true,
+})

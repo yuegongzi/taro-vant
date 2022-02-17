@@ -76,3 +76,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Slider 滑块',
+  enableShareAppMessage: true,
+})

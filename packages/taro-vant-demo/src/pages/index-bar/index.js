@@ -72,3 +72,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'IndexBar 索引栏',
+  enableShareAppMessage: true,
+})

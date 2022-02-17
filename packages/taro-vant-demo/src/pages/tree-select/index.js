@@ -140,3 +140,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'TreeSelect 分类选择',
+  enableShareAppMessage: true,
+})

@@ -89,3 +89,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Cell 单元格',
+  enableShareAppMessage: true,
+})

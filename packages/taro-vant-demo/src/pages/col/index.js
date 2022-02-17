@@ -50,3 +50,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Layout 布局',
+  enableShareAppMessage: true,
+})

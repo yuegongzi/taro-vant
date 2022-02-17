@@ -12,3 +12,8 @@ export default class Index extends Component {
     return <DemoHome list={list} />
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'taro-vant',
+  enableShareAppMessage: true,
+})

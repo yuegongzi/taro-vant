@@ -7,12 +7,12 @@ import Icon from '../icon'
 import Tabs from '../tabs'
 import { createNamespace } from '../utils'
 import type { eventDetail } from '../tabs/PropsType'
-import { View, Text as TaroText } from '@tarojs/components'
+import { Text as TaroText, View } from '@tarojs/components'
 
 const extend = Object.assign
 const [ bem ] = createNamespace('cascader')
 const INITIAL_STATE = {
-  tabs: [],
+  tabs: [] as CascaderTab[],
   activeTab: 0,
 }
 
@@ -121,6 +121,7 @@ const Cascader: React.FC<CascaderProps> = (props) => {
     if (option[childrenKey] && option[childrenKey].length > 0) {
       const nextTab = {
         options: option[childrenKey],
+        // @ts-ignore
         selectedOption: null,
       }
 

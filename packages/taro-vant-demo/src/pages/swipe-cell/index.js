@@ -91,3 +91,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'SwipeCell 滑动单元格',
+  enableShareAppMessage: true,
+})

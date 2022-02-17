@@ -125,3 +125,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'ConfigProvider 全局配置',
+  enableShareAppMessage: true,
+})

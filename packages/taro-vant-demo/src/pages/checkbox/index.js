@@ -295,3 +295,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Checkbox 复选框',
+  enableShareAppMessage: true,
+})

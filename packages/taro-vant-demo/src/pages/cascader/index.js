@@ -351,3 +351,8 @@ function getTextFromValue(value, opts) {
   }, opts)
   return rs.join('/')
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Cascader 级联选择',
+  enableShareAppMessage: true,
+})

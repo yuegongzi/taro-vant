@@ -52,3 +52,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Empty 空状态',
+  enableShareAppMessage: true,
+})

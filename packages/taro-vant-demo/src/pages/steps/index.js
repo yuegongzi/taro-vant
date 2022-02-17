@@ -108,3 +108,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Steps 步骤条',
+  enableShareAppMessage: true,
+})

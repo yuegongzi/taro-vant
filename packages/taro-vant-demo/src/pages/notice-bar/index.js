@@ -42,3 +42,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'NoticeBar 通知栏',
+  enableShareAppMessage: true,
+})

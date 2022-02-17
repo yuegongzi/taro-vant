@@ -107,3 +107,8 @@ export default class Index extends Component {
     )
   }
 }
+
+definePageConfig({
+  navigationBarTitleText: 'Transition 动画',
+  enableShareAppMessage: true,
+})
