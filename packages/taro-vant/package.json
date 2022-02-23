@@ -65,7 +65,7 @@
     "rc-util": "5.14.0"
   },
   "devDependencies": {
-    "@taro-vant/cli": "2.2.0",
+    "@taro-vant/cli": "2.2.1",
     "@tarojs/components": "3.4.1",
     "@tarojs/taro": "3.4.1",
     "@types/react": "17.0.17",
