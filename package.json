@@ -8,10 +8,9 @@
   "license": "MIT",
   "keywords": [
     "Taro",
-    "VantUI",
+    "Vant UI",
     "React",
-    "antm",
-    "antmjs"
+    "Vant Weapp"
   ],
   "repository": {
     "type": "https",
