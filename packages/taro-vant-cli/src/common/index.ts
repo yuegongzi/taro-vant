@@ -1,10 +1,8 @@
 import { join, sep } from 'path'
 import fse from 'fs-extra'
-import { get } from 'lodash'
 import merge from 'webpack-merge'
 import { getVantConfig, SRC_DIR, ROOT_WEBPACK_CONFIG_FILE } from './constant'
 import type { WebpackConfig } from './types'
-import type { InlineConfig } from 'vite'
 
 const { lstatSync, existsSync, readdirSync, readFileSync, outputFileSync } = fse
 export const EXT_REGEXP = /\.\w+$/
@@ -139,16 +137,6 @@ export function smartOutputFile(filePath: string, content: string) {
   }
 
   outputFileSync(filePath, content)
-}
-
-export function mergeCustomViteConfig(config: InlineConfig) {
-  const vantConfig = getVantConfig()
-  const configureVite = get(vantConfig, 'build.configureVite')
-
-  if (configureVite) {
-    return configureVite(config)
-  }
-  return config
 }
 
 export function getWebpackConfig(defaultConfig: WebpackConfig) {

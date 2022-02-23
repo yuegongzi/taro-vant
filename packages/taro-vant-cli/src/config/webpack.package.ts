@@ -1,50 +1,55 @@
-import type { InlineConfig } from 'vite'
+import { merge } from 'webpack-merge'
 import { join } from 'path'
-import { setBuildTarget } from '../common'
-import { CWD, ES_DIR, getVantConfig, LIB_DIR } from '../common/constant'
+import { baseConfig } from './webpack.base'
+import { setBuildTarget, getWebpackConfig, getVantConfig } from '../common'
+import { ES_DIR, LIB_DIR } from '../common/constant'
+import type { WebpackConfig } from '../common/types'
 
-export function getViteConfigForPackage(minify: boolean): InlineConfig {
+export function getPackageConfig(minify: boolean): WebpackConfig {
   setBuildTarget('package')
 
   const { name } = getVantConfig()
 
-  return {
-    root: CWD,
-
-    logLevel: 'silent',
-
-    build: {
-      lib: {
-        name,
-        entry: join(ES_DIR, 'index.js'),
-        fileName: (format: string) => {
-          const suffix = format === 'umd' ? '' : `.${format}`
-          return minify ? `${name}${suffix}.min.js` : `${name}${suffix}.js`
+  return getWebpackConfig(
+    merge(baseConfig as any, {
+      mode: 'production',
+      entry: {
+        [name]: join(ES_DIR, 'index.js'),
+      },
+      stats: 'none',
+      output: {
+        path: LIB_DIR,
+        library: name,
+        libraryTarget: 'umd',
+        filename: minify ? '[name].min.js' : '[name].js',
+        umdNamedDefine: true,
+        // https://github.com/webpack/webpack/issues/6522
+        globalObject: 'typeof self !== \'undefined\' ? self : this',
+      },
+      externals: {
+        React: {
+          root: 'react',
+          commonjs: 'react',
+          commonjs2: 'react',
+          amd: 'react',
+        },
+        Taro: {
+          root: '@tarojs/taro',
+        },
+        Runtime: {
+          root: '@tarojs/runtime',
+        },
+        Components: {
+          root: '@tarojs/components',
+        },
+        ReactDom: {
+          root: 'react-dom',
         },
       },
-      // terser has better compression than esbuild
-      minify: minify ? 'terser' : false,
-      rollupOptions: {
-        external: [
-          '@babel/runtime-corejs3',
-          '@tarojs/taro',
-          '@tarojs/runtime',
-          '@tarojs/components',
-          'react',
-          'react-dom',
-        ],
-        output: {
-          dir: LIB_DIR,
-          exports: 'named',
-          globals: {
-            react: 'React',
-            'react-dom': 'ReactDom',
-            '@tarojs/taro': 'Taro',
-            '@tarojs/runtime': 'Runtime',
-            '@tarojs/components': 'Components',
-          },
-        },
+      performance: false,
+      optimization: {
+        minimize: minify,
       },
-    },
-  }
+    }),
+  )
 }
