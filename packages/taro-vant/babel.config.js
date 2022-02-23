@@ -1,7 +1,7 @@
 module.exports = {
   presets: [
     [
-      require('@taro-vant/cli/preset'),
+      require.resolve('@taro-vant/cli/preset'),
       {
         presets: {
           env: {
