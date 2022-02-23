@@ -104,7 +104,6 @@
     "up": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
-    "@antmjs/babel-preset": "1.17.3",
     "@commitlint/cli": "16.0.1",
     "@commitlint/config-conventional": "16.0.0",
     "@octokit/core": "3.5.1",
