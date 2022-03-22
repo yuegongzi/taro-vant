@@ -167,13 +167,13 @@ const List: React.FC<ListProps> = (props) => {
   }, [ successDuration ])
 
   // 提前把reachTopRef.current的值 求出来
-  const debounceScrollOffset = useMemo(() => {
+  const debounceScrollOffset = () => {
     return async () => {
       const { scrollTop } = (await scrollOffset(scrollRef.current!)) || {}
       reachTopRef.current = scrollTop === 0
     }
     // return debounce(getScrollTop, 400)
-  }, [])
+  }
   // 如果这是了 scrollTop 要触发ScrollOffset计算
   useEffect(() => {
     debounceScrollOffset()
