@@ -1,9 +1,16 @@
 import { ENV } from '../utils'
-
-export type ScrollElement = Element | Window
 import type { ITouchEvent } from '@tarojs/components'
 import type { TaroElement } from '@tarojs/runtime'
 import { createSelectorQuery } from '@tarojs/taro'
+
+export type ScrollElement = Element | Window
+
+export const sleep = (t: number) =>
+  new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve()
+    }, t)
+  })
 
 function selectorQuery(nodesRef?: TaroElement) {
   if (!nodesRef || nodesRef.nodeName === 'root') {
@@ -29,8 +36,13 @@ export function scrollOffset(nodesRef: TaroElement) {
     }
     return selectorQuery(nodesRef).
       scrollOffset().
-      exec((res) => {
-        resolve(res[0])
+      exec(async (res) => {
+        if (res[0] == null) {
+          await sleep(300)
+          resolve(scrollOffset(nodesRef))
+        } else {
+          resolve(res[0])
+        }
       })
   })
 }

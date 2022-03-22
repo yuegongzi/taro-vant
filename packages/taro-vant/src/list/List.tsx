@@ -13,19 +13,13 @@ import Loading from '../loading'
 import Empty from '../empty'
 import Divider from '../divider'
 import { useTouch } from '../hooks'
-import { preventDefault, scrollOffset } from './utils'
+import { preventDefault, scrollOffset, sleep } from './utils'
 import type { ListProps, PullRefreshStatus } from './PropsType'
 import { createNamespace, ele } from '../utils'
 import clsx from 'clsx'
 
 const [ bem ] = createNamespace('list')
 
-const sleep = (t: number) =>
-  new Promise<void>((resolve) => {
-    setTimeout(() => {
-      resolve()
-    }, t)
-  })
 const DEFAULT_HEAD_HEIGHT = 50
 const TEXT_STATUS = [ 'pulling', 'loosing', 'success' ]
 
@@ -92,22 +86,19 @@ const List: React.FC<ListProps> = (props) => {
     )
   }, [ refresherEnabled, status ])
 
-  const ease = useCallback(
-    (distance: number) => {
-      const _pullDistance = +(pullDistance || headHeight)
+  const ease = (distance: number) => {
+    const _pullDistance = +(pullDistance || headHeight)
 
-      if (distance > _pullDistance) {
-        if (distance < _pullDistance * 2) {
-          distance = _pullDistance + (distance - _pullDistance) / 2
-        } else {
-          distance = _pullDistance * 1.5 + (distance - _pullDistance * 2) / 4
-        }
+    if (distance > _pullDistance) {
+      if (distance < _pullDistance * 2) {
+        distance = _pullDistance + (distance - _pullDistance) / 2
+      } else {
+        distance = _pullDistance * 1.5 + (distance - _pullDistance * 2) / 4
       }
+    }
 
-      return Math.round(distance)
-    },
-    [ headHeight, pullDistance ],
-  )
+    return Math.round(distance)
+  }
 
   const setStatus = useCallback(
     (distance: number, isLoading?: boolean) => {
@@ -167,11 +158,9 @@ const List: React.FC<ListProps> = (props) => {
   }, [ successDuration ])
 
   // 提前把reachTopRef.current的值 求出来
-  const debounceScrollOffset = () => {
-    return async () => {
-      const { scrollTop } = (await scrollOffset(scrollRef.current!)) || {}
-      reachTopRef.current = scrollTop === 0
-    }
+  const debounceScrollOffset = async () => {
+    const { scrollTop } = (await scrollOffset(scrollRef.current)) || {}
+    reachTopRef.current = scrollTop <= 0
     // return debounce(getScrollTop, 400)
   }
   // 如果这是了 scrollTop 要触发ScrollOffset计算
@@ -247,8 +236,7 @@ const List: React.FC<ListProps> = (props) => {
     successText,
   ])
   const onTouchEnd = useCallback(() => {
-    // console.log('end', reachTopRef.current, touch.deltaY.current, isTouchable())
-    if (reachTopRef.current && touch.deltaY.current && isTouchable()) {
+    if (reachTopRef.current && touch.deltaY.current > 0 && isTouchable()) {
       // state.duration = +animationDuration
       setDuration(+animationDuration)
 
@@ -383,7 +371,7 @@ const List: React.FC<ListProps> = (props) => {
       scrollTop={scrollTop}
       onScrollToLower={doLoadMore}
       scrollY={scrollY}
-      className={`${bem()} ${className || ''}`}
+      className={clsx(bem(), className)}
       {...rest}
     >
       <View
@@ -401,6 +389,7 @@ const List: React.FC<ListProps> = (props) => {
         </CustomWrapper>
         {children}
         <View ref={placeholder} className={clsx(bem('placeholder'))} />
+
         {ListScrollContent()}
       </View>
     </ScrollView>
