@@ -251,30 +251,30 @@ import { Button } from "taro-vant";
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  id  | 标识符 | _string_ | - |
-|  type  | 按钮类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
-|  size  | 按钮尺寸，可选值为 `normal` `large` `small` `mini` | _string_ | `normal` |
-|  color  | 按钮颜色，支持传入`linear-gradient`渐变色 | _string_ | - |
-|  icon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
-|  classPrefix  | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon) | _string_ | `van-icon` |
-|  plain  | 是否为朴素按钮 | _boolean_ | `false` |
-|  block  | 是否为块级元素 | _boolean_ | `false` |
-|  round  | 是否为圆形按钮 | _boolean_ | `false` |
-|  square  | 是否为方形按钮 | _boolean_ | `false` |
-|  disabled  | 是否禁用按钮 | _boolean_ | `false` |
-|  hairline  | 是否使用 0.5px 边框 | _boolean_ | `false` |
-|  loading  | 是否显示为加载状态 | _boolean_ | `false` |
-|  loadingText  | 加载状态提示文字 | _string_ | - |
-|  loadingType  | 加载状态图标类型，可选值为 `spinner` | _string_ | `circular` |
-|  loadingSize  | 加载图标大小 | _string_ | `20px` |
-|  style  | 自定义样式 | _string_ | - |
+| 参数          | 说明                                            | 类型        | 默认值        |
+|-------------|-----------------------------------------------|-----------|------------|
+| id          | 标识符                                           | _string_  | -          |
+| type        | 按钮类型，可选值为 `primary` `info` `warning` `danger` | _string_  | `default`  |
+| size        | 按钮尺寸，可选值为 `normal` `large` `small` `mini`     | _string_  | `normal`   |
+| color       | 按钮颜色，支持传入`linear-gradient`渐变色                 | _string_  | -          |
+| icon        | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon)            | _string_  | -          |
+| classPrefix | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/icon)   | _string_  | `van-icon` |
+| plain       | 是否为朴素按钮                                       | _boolean_ | `false`    |
+| block       | 是否为块级元素                                       | _boolean_ | `false`    |
+| round       | 是否为圆形按钮                                       | _boolean_ | `false`    |
+| square      | 是否为方形按钮                                       | _boolean_ | `false`    |
+| disabled    | 是否禁用按钮                                        | _boolean_ | `false`    |
+| hairline    | 是否使用 0.5px 边框                                 | _boolean_ | `false`    |
+| loading     | 是否显示为加载状态                                     | _boolean_ | `false`    |
+| loadingText | 加载状态提示文字                                      | _string_  | -          |
+| loadingType | 加载状态图标类型，可选值为 `spinner`                       | _string_  | `circular` |
+| loadingSize | 加载图标大小                                        | _string_  | `20px`     |
+| style       | 自定义样式                                         | _string_  | -          |
 
 ### Events
 
-|  事件名  | 说明 | 参数 |
-| --- | --- | --- |
-|  onClick  | 点击按钮，且按钮状态不为加载或禁用时触发 | - |
+| 事件名     | 说明                   | 参数  |
+|---------|----------------------|-----|
+| onClick | 点击按钮，且按钮状态不为加载或禁用时触发 | -   |
 
 > Button 提供的是 click 事件而不是原生 tap 事件，按钮禁用时，click 事件不会触发，tap 事件依然会触发。

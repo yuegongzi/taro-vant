@@ -193,36 +193,36 @@ export const properties = [
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| sku | 商品 sku 数据 | _object_ | - |
-| goods | 商品信息 | _object_ | - |
-| stockThreshold | 库存阈值。低于这个值会把库存数高亮显示 | _boolean_ | `50` |
-| showAddCartBtn | 是否显示加入购物车按钮 | _boolean_ | `true` |
-| buyText | 购买按钮文字 | _string_ | `立即购买` |
-| addCartText | 加入购物车按钮文字 | _string_ | `加入购物车` |
-| quota | 限购数，0 表示不限购 | _number_ | `0` |
-| quotaUsed | 已经购买过的数量 | _number_ | `0` |
-| resetOnHide | 隐藏时重置选择的商品数量 | _boolean_ | `false` |
-| disableStepperInput | 是否禁用步进器输入 | _boolean_ | `false` |
-| closeOnClickOverlay | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
-| stepperTitle | 数量选择组件左侧文案 | _ReactNode_ | `购买数量` |
-| customStepperConfig | 步进器相关自定义配置 | _object_ | `{}` |
-| customSkuValidator | 自定义 sku 校验规则 | _(type,selectedValue) => void \| boolean \| Promise\<boolean\>_ | - |
-| initialSku | 默认选中的 sku，具体参考高级用法 | _object_ | - |
-| getContainer | 指定挂载的节点，[用法示例](#/zh-CN/popup#zhi-ding-gua-zai-wei-zhi) | _string \| () => Element_ | - |
-| showSoldoutSku | 是否展示售罄的 sku，默认展示并置灰 | _boolean_ | `true` |
-| disableSoldoutSku | 是否禁用售罄的 sku | _boolean_ | `true` |
-| safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `true` |
-| startSaleNum | 起售数量 | _number_ | `1` |
-| properties | 商品属性 | _array_ | - |
-| previewOnClickImage | 是否在点击商品图片时自动预览 | _boolean_ | `true` |
-| showHeaderImage | 是否展示头部图片 | _boolean_ | `true` |
-| lazyload | 是否开启图片懒加载 | _boolean_ | `false` |
-| bodyOffsetTop | sku 距视窗顶部距离 | _number_ | 200 |
+| 参数                  | 说明                                                             | 类型                              | 默认值            |
+|---------------------|----------------------------------------------------------------|---------------------------------|----------------|
+| sku                 | 商品 sku 数据                                                      | _object_                        | -              |
+| goods               | 商品信息                                                           | _object_                        | -              |
+| stockThreshold      | 库存阈值。低于这个值会把库存数高亮显示                                            | _boolean_                       | `50`           |
+| showAddCartBtn      | 是否显示加入购物车按钮                                                    | _boolean_                       | `true`         |
+| buyText             | 购买按钮文字                                                         | _string_                        | `立即购买`         |
+| addCartText         | 加入购物车按钮文字                                                      | _string_                        | `加入购物车`        |
+| quota               | 限购数，0 表示不限购                                                    | _number_                        | `0`            |
+| quotaUsed           | 已经购买过的数量                                                       | _number_                        | `0`            |
+| resetOnHide         | 隐藏时重置选择的商品数量                                                   | _boolean_                       | `false`        |
+| disableStepperInput | 是否禁用步进器输入                                                      | _boolean_                       | `false`        |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭                                                    | _boolean_                       | `true`         |
+| stepperTitle        | 数量选择组件左侧文案                                                     | _ReactNode_                     | `购买数量`         |
+| customStepperConfig | 步进器相关自定义配置                                                     | _object_                        | `{}`           |
+| customSkuValidator  | 自定义 sku 校验规则                                                   | _(type,selectedValue) => void \ | boolean \      | Promise\<boolean\>_ | - |
+| initialSku          | 默认选中的 sku，具体参考高级用法                                             | _object_                        | -              |
+| getContainer        | 指定挂载的节点，[用法示例](#/zh-CN/popup#zhi-ding-gua-zai-wei-zhi)         | _string \                       | () => Element_ | - |
+| showSoldoutSku      | 是否展示售罄的 sku，默认展示并置灰                                            | _boolean_                       | `true`         |
+| disableSoldoutSku   | 是否禁用售罄的 sku                                                    | _boolean_                       | `true`         |
+| safeAreaInsetBottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_                       | `true`         |
+| startSaleNum        | 起售数量                                                           | _number_                        | `1`            |
+| properties          | 商品属性                                                           | _array_                         | -              |
+| previewOnClickImage | 是否在点击商品图片时自动预览                                                 | _boolean_                       | `true`         |
+| showHeaderImage     | 是否展示头部图片                                                       | _boolean_                       | `true`         |
+| lazyload            | 是否开启图片懒加载                                                      | _boolean_                       | `false`        |
+| bodyOffsetTop       | sku 距视窗顶部距离                                                    | _number_                        | 200            |
 
 ### Events
 
-| 事件名            | 说明                   | 回调参数                                     |
-| ----------------- | ---------------------- | -------------------------------------------- |
-| onSubmit         | 提交时的回调     |  type, skuData: object                              |
+| 事件名      | 说明     | 回调参数                  |
+|----------|--------|-----------------------|
+| onSubmit | 提交时的回调 | type, skuData: object |

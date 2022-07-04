@@ -116,32 +116,32 @@ const actions = [
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| actions | 选项列表 | _Action[]_ | `[]` |
-| placement | 弹出位置 | _string_ | `bottom` |
-| theme | 主题风格，可选值为 `dark` | _string_ | `light` |
-| duration | 动画时长，单位秒，设置为 0 可以禁用动画 | _number \| string_ | `0.3` |
-| closeOnClickAction | 是否在点击选项后关闭 | _boolean_ | `true` |
-| closeOnClickOverlay | 是否在点击遮罩层后关闭菜单 | _boolean_ | `true` |
-| children | 触发 Popover 显示的元素内容 | _React.ReactNode_ | - |
+| 参数                  | 说明                    | 类型                | 默认值      |
+|---------------------|-----------------------|-------------------|----------|
+| actions             | 选项列表                  | _Action[]_        | `[]`     |
+| placement           | 弹出位置                  | _string_          | `bottom` |
+| theme               | 主题风格，可选值为 `dark`      | _string_          | `light`  |
+| duration            | 动画时长，单位秒，设置为 0 可以禁用动画 | _number \         | string_  | `0.3` |
+| closeOnClickAction  | 是否在点击选项后关闭            | _boolean_         | `true`   |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭菜单         | _boolean_         | `true`   |
+| children            | 触发 Popover 显示的元素内容    | _React.ReactNode_ | -        |
 
 ### Action 数据结构
 
 `actions` 属性是一个由对象构成的数组，数组中的每个对象配置一列，对象可以包含以下值：
 
-| 键名 | 说明 | 类型 |
-| --- | --- | --- |
-| text | 选项文字 | _string_ |
-| icon | 文字左侧的图标| _string\|ReactNode_ |
-| color | 选项文字颜色 | _string_ |
-| disabled | 是否为禁用状态 | _boolean_ |
-| className | 为对应选项添加额外的类名 | _string_ |
+| 键名        | 说明           | 类型        |
+|-----------|--------------|-----------|
+| text      | 选项文字         | _string_  |
+| icon      | 文字左侧的图标      | _string\  |ReactNode_ |
+| color     | 选项文字颜色       | _string_  |
+| disabled  | 是否为禁用状态      | _boolean_ |
+| className | 为对应选项添加额外的类名 | _string_  |
 
 ### Events
 
-| 事件名   | 说明           | 回调参数                        |
-| -------- | -------------- | ------------------------------- |
+| 事件名      | 说明      | 回调参数                            |
+|----------|---------|---------------------------------|
 | onSelect | 点击选项时触发 | _action: Action, index: number_ |
-| onOpen          | 打开菜单时触发           | -                               |
-| onClose         | 关闭菜单时触发           | -                               |
+| onOpen   | 打开菜单时触发 | -                               |
+| onClose  | 关闭菜单时触发 | -                               |

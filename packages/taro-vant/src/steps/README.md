@@ -120,17 +120,17 @@ this.state = {
 
 ### Steps Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  active  | 当前步骤 | _number_ | 0 |
-|  direction  | 显示方向，可选值为 `horizontal` `vertical` | _string_ | `horizontal` |
-|  activeColor  | 激活状态颜色 | _string_ | `#07c160` |
-|  inactiveColor  | 未激活状态颜色 | _string_ | `#969799` |
-|  activeIcon  | 激活状态底部图标，可选值见 [Icon 组件](#/icon) | _string_ | `checked` |
-|  inactiveIcon  | 未激活状态底部图标，可选值见 [Icon 组件](#/icon) | _string_ | - |
+| 参数            | 说明                                | 类型       | 默认值          |
+|---------------|-----------------------------------|----------|--------------|
+| active        | 当前步骤                              | _number_ | 0            |
+| direction     | 显示方向，可选值为 `horizontal` `vertical` | _string_ | `horizontal` |
+| activeColor   | 激活状态颜色                            | _string_ | `#07c160`    |
+| inactiveColor | 未激活状态颜色                           | _string_ | `#969799`    |
+| activeIcon    | 激活状态底部图标，可选值见 [Icon 组件](#/icon)   | _string_ | `checked`    |
+| inactiveIcon  | 未激活状态底部图标，可选值见 [Icon 组件](#/icon)  | _string_ | -            |
 
 ### Events
 
-|  事件名称         | 说明                 | 回调参数                    |
-| --------------- | -------------------- | --------------------------- |
-|  onClickStep  | 点击步骤时触发的事件 | event.detail:当前步骤的索引 |
+| 事件名称        | 说明         | 回调参数                 |
+|-------------|------------|----------------------|
+| onClickStep | 点击步骤时触发的事件 | event.detail:当前步骤的索引 |

@@ -240,20 +240,20 @@ function onClose(event) {
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  type  | 类型，可选值为 `primary` `success` `danger` `warning` | _string_ | - |
-|  size  | 大小, 可选值为 `large` `medium` | _string_ | - |
-|  color  | 标签颜色 | _string_ | - |
-|  plain  | 是否为空心样式 | _boolean_ | `false` |
-|  round  | 是否为圆角样式 | _boolean_ | `false` |
-|  mark  | 是否为标记样式 | _boolean_ | `false` |
-|  textColor  | 文本颜色，优先级高于 `color` 属性 | _string_ | `white` |
-|  closeable  | 是否为可关闭标签 | _boolean_ | `false` |
+| 参数        | 说明                                             | 类型        | 默认值     |
+|-----------|------------------------------------------------|-----------|---------|
+| type      | 类型，可选值为 `primary` `success` `danger` `warning` | _string_  | -       |
+| size      | 大小, 可选值为 `large` `medium`                      | _string_  | -       |
+| color     | 标签颜色                                           | _string_  | -       |
+| plain     | 是否为空心样式                                        | _boolean_ | `false` |
+| round     | 是否为圆角样式                                        | _boolean_ | `false` |
+| mark      | 是否为标记样式                                        | _boolean_ | `false` |
+| textColor | 文本颜色，优先级高于 `color` 属性                          | _string_  | `white` |
+| closeable | 是否为可关闭标签                                       | _boolean_ | `false` |
 
 
 ### Events
 
-|  事件名  | 说明           | 回调参数 |
-| ------ | -------------- | -------- |
-|  onClose   | 关闭标签时触发 | -        |
+| 事件名     | 说明      | 回调参数 |
+|---------|---------|------|
+| onClose | 关闭标签时触发 | -    |

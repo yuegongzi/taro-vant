@@ -214,51 +214,51 @@ function onSwitch2Change({
 
 ### DropdownMenu Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  activeColor  | 菜单标题和选项的选中态颜色 | _string_ | `#ee0a24` |
-|  zIndex  | 菜单栏 z-index 层级 | _number_ | `900` |
-|  duration  | 动画时长，单位毫秒 | _number_ | `200` |
-|  direction  | 菜单展开方向，可选值为 up | _string_ | `down` |
-|  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
-|  closeOnClickOverlay  | 是否在点击遮罩层后关闭菜单 | _boolean_ | `true` |
-|  closeOnClickOutside  | 是否在点击外部 menu 后关闭菜单 | _boolean_ | `true` |
+| 参数                  | 说明                 | 类型        | 默认值       |
+|---------------------|--------------------|-----------|-----------|
+| activeColor         | 菜单标题和选项的选中态颜色      | _string_  | `#ee0a24` |
+| zIndex              | 菜单栏 z-index 层级     | _number_  | `900`     |
+| duration            | 动画时长，单位毫秒          | _number_  | `200`     |
+| direction           | 菜单展开方向，可选值为 up     | _string_  | `down`    |
+| overlay             | 是否显示遮罩层            | _boolean_ | `true`    |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭菜单      | _boolean_ | `true`    |
+| closeOnClickOutside | 是否在点击外部 menu 后关闭菜单 | _boolean_ | `true`    |
 
 ### DropdownItem Props
 
-|  参数         | 说明                   | 类型               | 默认值         |
-| ----------- | ---------------------- | ------------------ | -------------- |
-|  value        | 当前选中项对应的 value | _number \| string_ | -              |
-|  title        | 菜单项标题             | _string_           | 当前选中项文字 |
-|  options      | 选项数组               | _Option[]_         | `[]`           |
-|  disabled     | 是否禁用菜单           | _boolean_          | `false`        |
-|  titleClass  | 标题额外类名           | _string_           | -              |
-|  popupStyle  | 自定义弹出层样式       | _string_           | -              |
+| 参数         | 说明             | 类型         | 默认值     |
+|------------|----------------|------------|---------|
+| value      | 当前选中项对应的 value | _number \  | string_ | -              |
+| title      | 菜单项标题          | _string_   | 当前选中项文字 |
+| options    | 选项数组           | _Option[]_ | `[]`    |
+| disabled   | 是否禁用菜单         | _boolean_  | `false` |
+| titleClass | 标题额外类名         | _string_   | -       |
+| popupStyle | 自定义弹出层样式       | _string_   | -       |
 
 ### DropdownItem Events
 
-|  事件名  | 说明                          | 回调参数 |
-| ------ | ----------------------------- | -------- |
-|  onChange  | 点击选项导致 value 变化时触发 | value    |
-|  onOpen    | 打开菜单栏时触发              | -        |
-|  onClose   | 关闭菜单栏时触发              | -        |
-|  onOpened | 打开菜单栏且动画结束后触发    | -        |
-|  onClosed  | 关闭菜单栏且动画结束后触发    | -        |
+| 事件名      | 说明                 | 回调参数  |
+|----------|--------------------|-------|
+| onChange | 点击选项导致 value 变化时触发 | value |
+| onOpen   | 打开菜单栏时触发           | -     |
+| onClose  | 关闭菜单栏时触发           | -     |
+| onOpened | 打开菜单栏且动画结束后触发      | -     |
+| onClosed | 关闭菜单栏且动画结束后触发      | -     |
 
 ### DropdownItem 方法
 
 通过 `ref` 可访问。
 
-|  方法名  | 说明 | 参数 | 返回值 |
-| --- | --- | --- | --- |
-|  toggle  | 切换菜单展示状态，传`true`为显示，`false`为隐藏，不传参为取反 | show?: boolean | - |
+| 方法名    | 说明                                    | 参数             | 返回值 |
+|--------|---------------------------------------|----------------|-----|
+| toggle | 切换菜单展示状态，传`true`为显示，`false`为隐藏，不传参为取反 | show?: boolean | -   |
 
 ### Option 数据结构
 
-|  键名   | 说明                             | 类型               |
-| ----- | -------------------------------- | ------------------ |
-|  text   | 文字                             | _string_           |
-|  value  | 标识符                           | _number \| string_ |
-|  icon   | 左侧[图标名称](#/icon)或图片链接 | _string_           |
+| 键名    | 说明                    | 类型        |
+|-------|-----------------------|-----------|
+| text  | 文字                    | _string_  |
+| value | 标识符                   | _number \ | string_ |
+| icon  | 左侧[图标名称](#/icon)或图片链接 | _string_  |
 
 

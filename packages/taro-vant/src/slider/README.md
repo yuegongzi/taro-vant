@@ -158,26 +158,26 @@ function onDrag(event) {
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  value  | 当前进度百分比，在双滑块模式下为数组格式 | _number \| number[]_ | `0` |
-|  disabled  | 是否禁用滑块 | _boolean_ | `false` |
-|  max  | 最大值 | _number_ | `100` |
-|  min  | 最小值 | _number_ | `0` |
-|  step  | 步长 | _number_ | `1` |
-|  barHeight  | 进度条高度，默认单位为 `px` | _string \| number_ | `2px` |
-|  activeColor  | 进度条激活态颜色 | _string_ | `#1989fa` |
-|  inactiveColor  | 进度条默认颜色 | _string_ | `#e5e5e5` |
-|  range | 是否开启双滑块模式 | _boolean_ | `false` |
-|  vertical | 是否垂直展示 | _boolean_ | `false` |
-|  button   | 自定义滑块按钮 | _ReactNode_ | `-` |
-|  leftButton | 自定义左侧滑块按钮（双滑块模式下） | _ReactNode_ | `-` |
-|  rightButton | 自定义右侧滑块按钮 （双滑块模式下） | _ReactNode_ | `-` |
+| 参数            | 说明                   | 类型          | 默认值       |
+|---------------|----------------------|-------------|-----------|
+| value         | 当前进度百分比，在双滑块模式下为数组格式 | _number \   | number[]_ | `0` |
+| disabled      | 是否禁用滑块               | _boolean_   | `false`   |
+| max           | 最大值                  | _number_    | `100`     |
+| min           | 最小值                  | _number_    | `0`       |
+| step          | 步长                   | _number_    | `1`       |
+| barHeight     | 进度条高度，默认单位为 `px`     | _string \   | number_   | `2px` |
+| activeColor   | 进度条激活态颜色             | _string_    | `#1989fa` |
+| inactiveColor | 进度条默认颜色              | _string_    | `#e5e5e5` |
+| range         | 是否开启双滑块模式            | _boolean_   | `false`   |
+| vertical      | 是否垂直展示               | _boolean_   | `false`   |
+| button        | 自定义滑块按钮              | _ReactNode_ | `-`       |
+| leftButton    | 自定义左侧滑块按钮（双滑块模式下）    | _ReactNode_ | `-`       |
+| rightButton   | 自定义右侧滑块按钮 （双滑块模式下）   | _ReactNode_ | `-`       |
 ### Events
 
-|  事件名           | 说明             | 参数                         |
-| --------------- | ---------------- | ---------------------------- |
-|  onDrag        | 拖动进度条时触发 | event.detail.value: 当前进度 |
-|  onChange      | 进度值改变后触发 | event.detail: 当前进度       |
-|  onDragStart  | 开始拖动时触发   | -                            |
-|  onDragEnd    | 结束拖动时触发   | -                            |
+| 事件名         | 说明       | 参数                       |
+|-------------|----------|--------------------------|
+| onDrag      | 拖动进度条时触发 | event.detail.value: 当前进度 |
+| onChange    | 进度值改变后触发 | event.detail: 当前进度       |
+| onDragStart | 开始拖动时触发  | -                        |
+| onDragEnd   | 结束拖动时触发  | -                        |

@@ -138,37 +138,37 @@ function onClick() {
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 在表单内提交时的标识符 | _string_ | - |
-|  label  | 搜索框左侧文本 | _string\|ReactNode_ | - |
-|  shape  | 形状，可选值为 `round` | _string_ | `square` |
-|  value  | 当前输入的值 | _string \| number_ | - |
-|  background  | 搜索框背景色 | _string_ | `#f2f2f2` |
-|  showAction  | 是否在搜索框右侧显示取消按钮 | _boolean_ | `false` |
-|  actionText | 取消按钮文字 | _string\|ReactNode_ | `取消` |
-|  focus  | 获取焦点 | _boolean_ | `false` |
-|  error  | 是否将输入内容标红 | _boolean_ | `false` |
-|  disabled  | 是否禁用输入框 | _boolean_ | `false` |
-|  readonly  | 是否只读 | _boolean_ | `false` |
-|  clearable  | 是否启用清除控件 | _boolean_ | `true` |
-|  clearTrigger | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_ | `focus` |
-|  clearIcon | 清除[图标名称](#/icon)或图片链接 | _string_ | `clear` |
-|  maxlength  | 最大输入长度，设置为 -1 的时候不限制最大长度 | _number_ | `-1` |
-|  placeholder  | 输入框为空时占位符 | _string_ | - |
-|  placeholderStyle  | 指定占位符的样式 | _string_ | - |
-|  inputAlign  | 输入框内容对齐方式，可选值为 `center` `right` | _string_ | `left` |
-|  leftIcon  | 输入框左侧图标名称或图片链接，可选值见 Icon 组件| _string_ | `search` |
-|  rightIcon  | 输入框右侧图标名称或图片链接，可选值见 Icon 组件| _string_ | - |
+| 参数               | 说明                                                        | 类型        | 默认值        |
+|------------------|-----------------------------------------------------------|-----------|------------|
+| name             | 在表单内提交时的标识符                                               | _string_  | -          |
+| label            | 搜索框左侧文本                                                   | _string\  | ReactNode_ | - |
+| shape            | 形状，可选值为 `round`                                           | _string_  | `square`   |
+| value            | 当前输入的值                                                    | _string \ | number_    | - |
+| background       | 搜索框背景色                                                    | _string_  | `#f2f2f2`  |
+| showAction       | 是否在搜索框右侧显示取消按钮                                            | _boolean_ | `false`    |
+| actionText       | 取消按钮文字                                                    | _string\  | ReactNode_ | `取消` |
+| focus            | 获取焦点                                                      | _boolean_ | `false`    |
+| error            | 是否将输入内容标红                                                 | _boolean_ | `false`    |
+| disabled         | 是否禁用输入框                                                   | _boolean_ | `false`    |
+| readonly         | 是否只读                                                      | _boolean_ | `false`    |
+| clearable        | 是否启用清除控件                                                  | _boolean_ | `true`     |
+| clearTrigger     | 显示清除图标的时机，`always` 表示输入框不为空时展示，<br>`focus` 表示输入框聚焦且不为空时展示 | _string_  | `focus`    |
+| clearIcon        | 清除[图标名称](#/icon)或图片链接                                     | _string_  | `clear`    |
+| maxlength        | 最大输入长度，设置为 -1 的时候不限制最大长度                                  | _number_  | `-1`       |
+| placeholder      | 输入框为空时占位符                                                 | _string_  | -          |
+| placeholderStyle | 指定占位符的样式                                                  | _string_  | -          |
+| inputAlign       | 输入框内容对齐方式，可选值为 `center` `right`                           | _string_  | `left`     |
+| leftIcon         | 输入框左侧图标名称或图片链接，可选值见 Icon 组件                               | _string_  | `search`   |
+| rightIcon        | 输入框右侧图标名称或图片链接，可选值见 Icon 组件                               | _string_  | -          |
 
 ### Events
 
-|  事件名            | 说明               | 参数                     |
-| ---------------- | ------------------ | ------------------------ |
-|  onSearch       | 确定搜索时触发     | event.detail: 当前输入值 |
-|  onChange       | 输入内容变化时触发 | event.detail: 当前输入值 |
-|  onCancel       | 取消搜索搜索时触发 | -                        |
-|  onFocus        | 输入框聚焦时触发   | -                        |
-|  onBlur         | 输入框失焦时触发   | -                        |
-|  onClear        | 点击清空控件时触发 | -                        |
-|  onClickInput  | 点击搜索区域时触发 | -                        |
+| 事件名          | 说明        | 参数                  |
+|--------------|-----------|---------------------|
+| onSearch     | 确定搜索时触发   | event.detail: 当前输入值 |
+| onChange     | 输入内容变化时触发 | event.detail: 当前输入值 |
+| onCancel     | 取消搜索搜索时触发 | -                   |
+| onFocus      | 输入框聚焦时触发  | -                   |
+| onBlur       | 输入框失焦时触发  | -                   |
+| onClear      | 点击清空控件时触发 | -                   |
+| onClickInput | 点击搜索区域时触发 | -                   |

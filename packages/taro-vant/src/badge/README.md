@@ -104,17 +104,17 @@ import { Badge } from "taro-vant";
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 徽标内容 | _ReactNode_ | - |
-| color | 徽标背景颜色 | _string_ | `#f44336` |
-| dot | 是否展示为小红点 | _boolean_ | `false` |
-| max | 最大值，超过最大值会显示 `{max}+`，仅当 content 为数字时有效 | _number \| string_ | - |
-| offset | 设置徽标的偏移量，数组的两项分别对应水平和垂直方向的偏移量，默认单位为 `px` | _[number \| string, number \| string]_ | - |
-| showZero | 当 content 为数字 0 时，是否展示徽标 | _boolean_ | `true` |
+| 参数       | 说明                                       | 类型          | 默认值              |
+|----------|------------------------------------------|-------------|------------------|
+| content  | 徽标内容                                     | _ReactNode_ | -                |
+| color    | 徽标背景颜色                                   | _string_    | `#f44336`        |
+| dot      | 是否展示为小红点                                 | _boolean_   | `false`          |
+| max      | 最大值，超过最大值会显示 `{max}+`，仅当 content 为数字时有效  | _number \   | string_          | - |
+| offset   | 设置徽标的偏移量，数组的两项分别对应水平和垂直方向的偏移量，默认单位为 `px` | _[number \  | string, number \ | string]_ | - |
+| showZero | 当 content 为数字 0 时，是否展示徽标                 | _boolean_   | `true`           |
 
 ### Event
 
-| 事件名  | 说明       | 回调参数       |
-| ------- | ---------- | -------------- |
+| 事件名     | 说明    | 回调参数           |
+|---------|-------|----------------|
 | onClick | 点击时触发 | _event: Event_ |

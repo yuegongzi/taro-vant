@@ -111,22 +111,22 @@ import { Icon } from "taro-vant";
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 图标名称或图片链接 | _string_ | - |
-|  dot  | 是否显示图标右上角小红点 | _boolean_ | `false` |
-|  badge  | 图标右上角文字提示 | _string \| number_ | - |
-|  color  | 图标颜色 | _string_ | `inherit` |
-|  size  | 图标大小，如 `20px`，`2em`，默认单位为`px` | _string \| number_ | `inherit` |
-|  style  | 自定义样式 | _string_ | - |
-|  classPrefix  | 类名前缀 | _string_ | `van-icon` |
-|  spin  | 图标旋转 | _boolean_ | `false` |
+| 参数          | 说明                            | 类型        | 默认值        |
+|-------------|-------------------------------|-----------|------------|
+| name        | 图标名称或图片链接                     | _string_  | -          |
+| dot         | 是否显示图标右上角小红点                  | _boolean_ | `false`    |
+| badge       | 图标右上角文字提示                     | _string \ | number_    | - |
+| color       | 图标颜色                          | _string_  | `inherit`  |
+| size        | 图标大小，如 `20px`，`2em`，默认单位为`px` | _string \ | number_    | `inherit` |
+| style       | 自定义样式                         | _string_  | -          |
+| classPrefix | 类名前缀                          | _string_  | `van-icon` |
+| spin        | 图标旋转                          | _boolean_ | `false`    |
 
 ### Events
 
-|  事件名      | 说明           | 参数 |
-| ---------- | -------------- | ---- |
-|  onClick  | 点击图标时触发 | -    |
+| 事件名     | 说明      | 参数  |
+|---------|---------|-----|
+| onClick | 点击图标时触发 | -   |
 
 ## 常见问题
 

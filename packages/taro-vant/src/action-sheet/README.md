@@ -164,39 +164,39 @@ const [ visible,setVisible ] = useState(false)
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  visible  | 是否显示动作面板 | _boolean_ | - |
-|  actions  | 菜单选项 | _Array_ | `[]` |
-|  title  | 标题 | _string_ | - |
-|  description | 选项上方的描述信息 | _string_ | - |
-|  zIndex  | z-index 层级 | _number_ | `1010` |
-|  cancelText  | 取消按钮文字 | _string_ | - |
-|  overlay  | 是否显示遮罩层 | _boolean_ | - |
-|  round  | 是否显示圆角 | _boolean_ | `true` |
-|  closeOnClickAction  | 是否在点击选项后关闭 | _boolean_ | `true` |
-|  closeOnClickOverlay  | 点击遮罩是否关闭菜单 | _boolean_ | - |
-|  safeAreaInsetBottom  | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
+| 参数                  | 说明                   | 类型        | 默认值    |
+|---------------------|----------------------|-----------|--------|
+| visible             | 是否显示动作面板             | _boolean_ | -      |
+| actions             | 菜单选项                 | _Array_   | `[]`   |
+| title               | 标题                   | _string_  | -      |
+| description         | 选项上方的描述信息            | _string_  | -      |
+| zIndex              | z-index 层级           | _number_  | `1010` |
+| cancelText          | 取消按钮文字               | _string_  | -      |
+| overlay             | 是否显示遮罩层              | _boolean_ | -      |
+| round               | 是否显示圆角               | _boolean_ | `true` |
+| closeOnClickAction  | 是否在点击选项后关闭           | _boolean_ | `true` |
+| closeOnClickOverlay | 点击遮罩是否关闭菜单           | _boolean_ | -      |
+| safeAreaInsetBottom | 是否为 iPhoneX 留出底部安全距离 | _boolean_ | `true` |
 
 ### Events
 
-|  事件名  | 说明 | 参数 |
-| --- | --- | --- |
-|  onSelect  | 选中选项时触发，禁用或加载状态下不会触发 | event.detail: 选项对应的对象 |
-|  onClose  | 关闭时触发 | - |
-|  onCancel  | 取消按钮点击时触发 | - |
-|  onClickOverlay  | 点击遮罩层时触发 | - |
+| 事件名            | 说明                   | 参数                    |
+|----------------|----------------------|-----------------------|
+| onSelect       | 选中选项时触发，禁用或加载状态下不会触发 | event.detail: 选项对应的对象 |
+| onClose        | 关闭时触发                | -                     |
+| onCancel       | 取消按钮点击时触发            | -                     |
+| onClickOverlay | 点击遮罩层时触发             | -                     |
 
 ### actions
 
 `API`中的`actions`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`：
 
-|  键名  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 标题 | _string_ | - |
-|  subname  | 二级标题 | _string_ | - |
-|  color  | 选项文字颜色 | _string_ | - |
-|  loading  | 是否为加载状态 | _boolean_ | - |
-|  disabled  | 是否为禁用状态 | _boolean_ | - |
+| 键名       | 说明      | 类型        | 默认值 |
+|----------|---------|-----------|-----|
+| name     | 标题      | _string_  | -   |
+| subname  | 二级标题    | _string_  | -   |
+| color    | 选项文字颜色  | _string_  | -   |
+| loading  | 是否为加载状态 | _boolean_ | -   |
+| disabled | 是否为禁用状态 | _boolean_ | -   |
 
 > 其他参数参见 [Button](https://docs.taro.zone/docs/components/forms/button)

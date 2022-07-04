@@ -98,31 +98,31 @@ Toast.show({
 
 ### 方法
 
-|  方法名  | 参数 | 返回值 | 介绍 |
-| --- | --- | --- | --- |
-|  Toast.show  | `options \| message` | toast 实例 | 展示提示 |
-|  Toast.loading  | `options \| message` | toast 实例 | 展示加载提示 |
-|  Toast.success  | `options \| message` | toast 实例 | 展示成功提示 |
-|  Toast.fail  | `options \| message` | toast 实例 | 展示失败提示 |
-|  Toast.clear  | `clearAll` | `void` | 关闭提示 |
-|  Toast.setdefaultoptions  | `options` | `void` | 修改默认配置，对所有 Toast 生效 |
-|  Toast.resetdefaultoptions  | - | `void` | 重置默认配置，对所有 Toast 生效 |
+| 方法名                       | 参数         | 返回值      | 介绍                  |
+|---------------------------|------------|----------|---------------------|
+| Toast.show                | `options \ | message` | toast 实例            | 展示提示 |
+| Toast.loading             | `options \ | message` | toast 实例            | 展示加载提示 |
+| Toast.success             | `options \ | message` | toast 实例            | 展示成功提示 |
+| Toast.fail                | `options \ | message` | toast 实例            | 展示失败提示 |
+| Toast.clear               | `clearAll` | `void`   | 关闭提示                |
+| Toast.setdefaultoptions   | `options`  | `void`   | 修改默认配置，对所有 Toast 生效 |
+| Toast.resetdefaultoptions | -          | `void`   | 重置默认配置，对所有 Toast 生效 |
 
 ### Options
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  type  | 提示类型，可选值为 `loading` `success` `fail` `html` | _string_ | `text` |
-|  position  | 位置，可选值为 `top` `middle` `bottom` | _string_ | `middle` |
-|  message  | 内容 | _string_ | `''` |
-|  mask  | 是否显示遮罩层 | _boolean_ | `false` |
-|  forbidClick  | 是否禁止背景点击 | _boolean_ | `false` |
-|  loadingType  | 加载图标类型, 可选值为 `spinner` | _string_ | `circular` |
-|  zIndex  | z-index 层级 | _number_ | `1090` |
-|  duration  | 展示时长(ms)，值为 0 时，toast 不会消失 | _number_ | `2000` |
-|  selector  | 自定义选择器 | _string_ | `van-toast` |
-|  id  | 选择器id | _string_ | `van-toast` |
-|  onClose  | 关闭时的回调函数 | _Function_ | - |
+| 参数          | 说明                                          | 类型         | 默认值         |
+|-------------|---------------------------------------------|------------|-------------|
+| type        | 提示类型，可选值为 `loading` `success` `fail` `html` | _string_   | `text`      |
+| position    | 位置，可选值为 `top` `middle` `bottom`             | _string_   | `middle`    |
+| message     | 内容                                          | _string_   | `''`        |
+| mask        | 是否显示遮罩层                                     | _boolean_  | `false`     |
+| forbidClick | 是否禁止背景点击                                    | _boolean_  | `false`     |
+| loadingType | 加载图标类型, 可选值为 `spinner`                      | _string_   | `circular`  |
+| zIndex      | z-index 层级                                  | _number_   | `1090`      |
+| duration    | 展示时长(ms)，值为 0 时，toast 不会消失                  | _number_   | `2000`      |
+| selector    | 自定义选择器                                      | _string_   | `van-toast` |
+| id          | 选择器id                                       | _string_   | `van-toast` |
+| onClose     | 关闭时的回调函数                                    | _Function_ | -           |
 
 ## 常见问题
 

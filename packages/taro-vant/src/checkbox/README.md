@@ -294,40 +294,40 @@ toggle = (event) => {
 
 ### Checkbox Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 标识 Checkbox 名称 | _string_ | - |
-|  shape  | 形状，可选值为 `round` `square` | _string_ | `round` |
-|  value  | 是否为选中状态 | _boolean_ | `false` |
-|  disabled  | 是否禁用单选框 | _boolean_ | `false` |
-|  labelDisabled  | 是否禁用单选框内容点击 | _boolean_ | `false` |
-|  labelPosition  | 文本位置，可选值为 `left` | _string_ | `right` |
-|  checkedColor  | 选中状态颜色 | _string_ | `#1989fa` |
-|  iconSize  | icon 大小 | _string \| number_ | `20px` |
-|  icon  | 自定义图标 | _ReactNode_ | `-` |
+| 参数            | 说明                       | 类型          | 默认值       |
+|---------------|--------------------------|-------------|-----------|
+| name          | 标识 Checkbox 名称           | _string_    | -         |
+| shape         | 形状，可选值为 `round` `square` | _string_    | `round`   |
+| value         | 是否为选中状态                  | _boolean_   | `false`   |
+| disabled      | 是否禁用单选框                  | _boolean_   | `false`   |
+| labelDisabled | 是否禁用单选框内容点击              | _boolean_   | `false`   |
+| labelPosition | 文本位置，可选值为 `left`         | _string_    | `right`   |
+| checkedColor  | 选中状态颜色                   | _string_    | `#1989fa` |
+| iconSize      | icon 大小                  | _string \   | number_   | `20px` |
+| icon          | 自定义图标                    | _ReactNode_ | `-`       |
 
 ### CheckboxGroup Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 在表单内提交时的标识符 | _string_ | - |
-|  value  | 所有选中项的 name | _Array_ | - |
-|  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
-|  max  | 设置最大可选数 | _number_ | `0`（无限制） |
-|  direction  | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+| 参数        | 说明                     | 类型        | 默认值        |
+|-----------|------------------------|-----------|------------|
+| name      | 在表单内提交时的标识符            | _string_  | -          |
+| value     | 所有选中项的 name            | _Array_   | -          |
+| disabled  | 是否禁用所有单选框              | _boolean_ | `false`    |
+| max       | 设置最大可选数                | _number_  | `0`（无限制）   |
+| direction | 排列方向，可选值为 `horizontal` | _string_  | `vertical` |
 
 ### Checkbox Event
 
-|  事件名       | 说明                     | 回调参数     |
-| ----------- | ------------------------ | ------------ |
-|  onChange  | 当绑定值变化时触发的事件 | 当前组件的值 |
+| 事件名      | 说明           | 回调参数   |
+|----------|--------------|--------|
+| onChange | 当绑定值变化时触发的事件 | 当前组件的值 |
 
 
 
 ### CheckboxGroup Event
 
-|  事件名       | 说明                     | 回调参数     |
-| ----------- | ------------------------ | ------------ |
-|  onChange  | 当绑定值变化时触发的事件 | 当前组件的值 |
+| 事件名      | 说明           | 回调参数   |
+|----------|--------------|--------|
+| onChange | 当绑定值变化时触发的事件 | 当前组件的值 |
 
 

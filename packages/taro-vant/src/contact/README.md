@@ -74,31 +74,31 @@ const data = {
 
 ### ContactCard Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 联系人姓名 | _string_ | - |
-|  tel  | 联系人电话 | _string_ | - |
-|  type  | 类型,可选`edit` | _string_ | `add`  |
-|  addText  | 添加时的文案 | _string_ | `添加联系人` |
-|  disabled  | 禁止编辑 | _boolean_ | `false`  |
+| 参数       | 说明          | 类型        | 默认值     |
+|----------|-------------|-----------|---------|
+| name     | 联系人姓名       | _string_  | -       |
+| tel      | 联系人电话       | _string_  | -       |
+| type     | 类型,可选`edit` | _string_  | `add`   |
+| addText  | 添加时的文案      | _string_  | `添加联系人` |
+| disabled | 禁止编辑        | _boolean_ | `false` |
 
 ### Contact Props
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  data  | 数据 | _object_ | `-` |
-|  telField  | 电话取值字段 | _string_ | `phone` |
-|  nameField  | 名字取值字段 | _string_ | `name` |
+| 参数        | 说明     | 类型       | 默认值     |
+|-----------|--------|----------|---------|
+| data      | 数据     | _object_ | `-`     |
+| telField  | 电话取值字段 | _string_ | `phone` |
+| nameField | 名字取值字段 | _string_ | `name`  |
 
 ### ContactCard Events
 
-|  事件  | 说明 | 回调参数 |
-| --- | --- | --- |
-|  onClick  | 点击联系人卡片 |  |
+| 事件      | 说明      | 回调参数 |
+|---------|---------|------|
+| onClick | 点击联系人卡片 |      |
 
 
 ### Contact Events
 
-|  事件  | 说明 | 回调参数 |
-| --- | --- | --- |
-|  onEdit  | 编辑事件 |  |
+| 事件     | 说明   | 回调参数 |
+|--------|------|------|
+| onEdit | 编辑事件 |      |
 

@@ -111,17 +111,17 @@ function noop() {}
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  visible  | 是否展示遮罩层 | _boolean_ | `false` |
-|  zIndex  | z-index 层级 | _string \| number_ | `1000` |
-|  duration  | 动画时长，单位秒 | _string \| number_ | `0.3` |
-|  className  | 自定义类名 | _string_ | - |
-|  customStyle  | 自定义样式 | _string_ | - |
-|  lockScroll | 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动 | _boolean_ | true |
+| 参数          | 说明                       | 类型        | 默认值     |
+|-------------|--------------------------|-----------|---------|
+| visible     | 是否展示遮罩层                  | _boolean_ | `false` |
+| zIndex      | z-index 层级               | _string \ | number_ | `1000` |
+| duration    | 动画时长，单位秒                 | _string \ | number_ | `0.3` |
+| className   | 自定义类名                    | _string_  | -       |
+| customStyle | 自定义样式                    | _string_  | -       |
+| lockScroll  | 是否锁定背景滚动，锁定时蒙层里的内容也将无法滚动 | _boolean_ | true    |
 
 ### Events
 
-|  事件名      | 说明       | 回调参数 |
-| ---------- | ---------- | -------- |
-|  onClick  | 点击时触发 | -        |
+| 事件名     | 说明    | 回调参数 |
+|---------|-------|------|
+| onClick | 点击时触发 | -    |

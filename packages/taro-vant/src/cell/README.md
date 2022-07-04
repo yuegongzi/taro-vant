@@ -208,41 +208,41 @@ import { CellGroup } from "taro-vant";
 
 ### CellGroup Props
 
-|  参数            | 说明                   | 类型      | 默认值  |
-| -------------- | ---------------------- | --------- | ------- |
-|  title           | 分组标题               | _string_  | `-`     |
-|  inset  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
-|  border          | 是否显示外边框         | _boolean_ | `true`  |
+| 参数     | 说明          | 类型        | 默认值     |
+|--------|-------------|-----------|---------|
+| title  | 分组标题        | _string_  | `-`     |
+| inset  | 是否展示为圆角卡片风格 | _boolean_ | `false` |
+| border | 是否显示外边框     | _boolean_ | `true`  |
 
 
 ### Cell Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  icon  | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon) | _string_ | - |
-|  title  | 左侧标题 | _ReactNode_ | - |
-|  titleWidth  | 标题宽度，须包含单位 | _string_ | - |
-|  value  | 右侧内容 | _ReactNode_ | - |
-|  label  | 标题下方的描述信息 | _ReactNode_ | - |
-|  size  | 单元格大小，可选值为 `large` | _string_ | - |
-|  border  | 是否显示下边框 | _boolean_ | `true` |
-|  center  | 是否使内容垂直居中 | _boolean_ | `false` |
-|  url  | 点击后跳转的链接地址 | _string_ | - |
-|  linkType  | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_ | `navigateTo` |
-|  clickable  | 是否开启点击反馈 | _boolean_ | `false` |
-|  isLink  | 是否展示右侧箭头并开启点击反馈 | _boolean_ | `false` |
-|  required  | 是否显示表单必填星号 | _boolean_ | `false` |
-|  arrowDirection  | 箭头方向，可选值为 `left` `up` `down` | _string_ | - |
-|  titleStyle   | 标题样式 | _string_ | - |
-|  rightIcon   | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效 | _ReactNode_ | - |
-|  extra   | 自定义额外内容 | _ReactNode_ | - |
-|  children   | 子节点 如果设置了value则不生效 | _ReactNode_ | - |
-|  valueClass   | value样式 | _string_ | - |
-|  titleClass   | title样式 | _string_ | - |
+| 参数             | 说明                                              | 类型          | 默认值          |
+|----------------|-------------------------------------------------|-------------|--------------|
+| icon           | 左侧图标名称或图片链接，可选值见 [Icon 组件](#/icon)              | _string_    | -            |
+| title          | 左侧标题                                            | _ReactNode_ | -            |
+| titleWidth     | 标题宽度，须包含单位                                      | _string_    | -            |
+| value          | 右侧内容                                            | _ReactNode_ | -            |
+| label          | 标题下方的描述信息                                       | _ReactNode_ | -            |
+| size           | 单元格大小，可选值为 `large`                              | _string_    | -            |
+| border         | 是否显示下边框                                         | _boolean_   | `true`       |
+| center         | 是否使内容垂直居中                                       | _boolean_   | `false`      |
+| url            | 点击后跳转的链接地址                                      | _string_    | -            |
+| linkType       | 链接跳转类型，可选值为 `redirectTo` `switchTab` `reLaunch` | _string_    | `navigateTo` |
+| clickable      | 是否开启点击反馈                                        | _boolean_   | `false`      |
+| isLink         | 是否展示右侧箭头并开启点击反馈                                 | _boolean_   | `false`      |
+| required       | 是否显示表单必填星号                                      | _boolean_   | `false`      |
+| arrowDirection | 箭头方向，可选值为 `left` `up` `down`                    | _string_    | -            |
+| titleStyle     | 标题样式                                            | _string_    | -            |
+| rightIcon      | 自定义右侧按钮，默认是`arrow`，如果设置了`is-link`属性则不生效         | _ReactNode_ | -            |
+| extra          | 自定义额外内容                                         | _ReactNode_ | -            |
+| children       | 子节点 如果设置了value则不生效                              | _ReactNode_ | -            |
+| valueClass     | value样式                                         | _string_    | -            |
+| titleClass     | title样式                                         | _string_    | -            |
 ### Cell Event
 
-|  事件名      | 说明             | 参数 |
-| ---------- | ---------------- | ---- |
-|  onClick  | 点击单元格时触发 | -    |
+| 事件名     | 说明       | 参数  |
+|---------|----------|-----|
+| onClick | 点击单元格时触发 | -   |
 
 

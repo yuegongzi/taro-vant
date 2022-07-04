@@ -128,20 +128,20 @@ function onChange({
 
 ### Props
 
-|  参数            | 说明                   | 类型      | 默认值    |
-| -------------- | ---------------------- | --------- | --------- |
-|  name            | 在表单内提交时的标识符 | _string_  | -         |
-|  checked         | 开关选中状态           | _any_     | `false`   |
-|  loading         | 是否为加载状态         | _boolean_ | `false`   |
-|  disabled        | 是否为禁用状态         | _boolean_ | `false`   |
-|  size            | 开关尺寸               | _string_  | `30px`    |
-|  activeColor    | 打开时的背景色         | _string_  | `-` |
-|  inactiveColor  | 关闭时的背景色         | _string_  | `#fff`    |
-|  activeValue    | 打开时的值             | _any_     | `true`    |
-|  inactiveValue  | 关闭时的值             | _any_     | `false`   |
+| 参数            | 说明          | 类型        | 默认值     |
+|---------------|-------------|-----------|---------|
+| name          | 在表单内提交时的标识符 | _string_  | -       |
+| checked       | 开关选中状态      | _any_     | `false` |
+| loading       | 是否为加载状态     | _boolean_ | `false` |
+| disabled      | 是否为禁用状态     | _boolean_ | `false` |
+| size          | 开关尺寸        | _string_  | `30px`  |
+| activeColor   | 打开时的背景色     | _string_  | `-`     |
+| inactiveColor | 关闭时的背景色     | _string_  | `#fff`  |
+| activeValue   | 打开时的值       | _any_     | `true`  |
+| inactiveValue | 关闭时的值       | _any_     | `false` |
 
 ### Events
 
-|  事件名       | 说明             | 参数                       |
-| ----------- | ---------------- | -------------------------- |
-|  onChange  | 开关状态切换回调 | event.detail: 是否选中开关 |
+| 事件名      | 说明       | 参数                   |
+|----------|----------|----------------------|
+| onChange | 开关状态切换回调 | event.detail: 是否选中开关 |

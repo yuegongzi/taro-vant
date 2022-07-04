@@ -106,45 +106,45 @@ const [form,{set,get,getAll,submit,clearAll}]  = useForm({value: {}, sync: false
 
 ## API
 ### FormProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| initialValues | 初始化数据 | _object_ | `-` | `false` |
-| className | Form的外层class | _string_ | `-` | `false` |
-| labelWidth | Form.Item的标签的宽度 | _string_ | `5.2em` | `false` |
-| inset | 是否圆角宽度 | _boolean_ | `false` | `false` |
-| border | 是否显示上线边框 | _boolean_ | `false` | `false` |
-| form | useForm实例 | _FormInstance_ | `-` | `true` |
-| submitter | 是否展示提交按钮 | _boolean_ | `true` | `false` |
-| buttonProps | 提交按钮属性 | _boolean_ | `-` | `false` |
-| showValidateMessage | 显示底部校验信息 | _boolean_ | `false` | `false` |
+| 参数                  | 说明              | 类型             | 默认值     | 必填      |
+|---------------------|-----------------|----------------|---------|---------|
+| initialValues       | 初始化数据           | _object_       | `-`     | `false` |
+| className           | Form的外层class    | _string_       | `-`     | `false` |
+| labelWidth          | Form.Item的标签的宽度 | _string_       | `5.2em` | `false` |
+| inset               | 是否圆角宽度          | _boolean_      | `false` | `false` |
+| border              | 是否显示上线边框        | _boolean_      | `false` | `false` |
+| form                | useForm实例       | _FormInstance_ | `-`     | `true`  |
+| submitter           | 是否展示提交按钮        | _boolean_      | `true`  | `false` |
+| buttonProps         | 提交按钮属性          | _boolean_      | `-`     | `false` |
+| showValidateMessage | 显示底部校验信息        | _boolean_      | `false` | `false` |
 > 其他属性见[Form](https://github.com/react-component/field-form)
 
 ### FormItemProps
-| 参数 | 说明 | 类型 | 默认值 | 必填 |
-| --- | --- | --- | --- | --- |
-| name | 对应表单字段名 | _string_ | - | `true` |
-| children | 第一级操作表单组件 | _any_ | - | `true` |
-| label | 表单label | _string_ | - | `false` |
-| required | 是否必填 | _boolean_ | `false` | `false` |
-| labelClass | label的外层className | _string_ | - | `false` |
-| className | formItem最外层className | _string_ | - | `false` |
-| tooltip | 提示语 | _string_ | - | `false` |
-| rightIcon | 右边图标 | _ReactNode\|string_ | - | `false` |
-| leftIcon | 左边图标 | _ReactNode\|string_ | - | `false` |
-| button | 右边按钮 | _ReactNode_ | - | `false` |
-| labelWidth | 标签宽度 | _string_ | 5.2em | `false` |
-| valuePropName | 表单控制展示的具体值的字段名 | _string_ | value | `false` |
-| rules | 正则校验值[参见](https://github.com/yiminghe/async-validator/) | _Rule[]_ | - | `false` |
-| hide | 隐藏该项 | _boolean_ | `false` | `false` |
-| customField | 自定义Field | _boolean_ |`false` | `false` |
-| type | 校验类型`idcard` `tel` `bank` | _string_ |`-` | `false` |
-| showValidateMessage | 显示底部校验信息 | _boolean_ | `false` | `false` |
+| 参数                  | 说明                                                      | 类型          | 默认值     | 必填      |
+|---------------------|---------------------------------------------------------|-------------|---------|---------|
+| name                | 对应表单字段名                                                 | _string_    | -       | `true`  |
+| children            | 第一级操作表单组件                                               | _any_       | -       | `true`  |
+| label               | 表单label                                                 | _string_    | -       | `false` |
+| required            | 是否必填                                                    | _boolean_   | `false` | `false` |
+| labelClass          | label的外层className                                       | _string_    | -       | `false` |
+| className           | formItem最外层className                                    | _string_    | -       | `false` |
+| tooltip             | 提示语                                                     | _string_    | -       | `false` |
+| rightIcon           | 右边图标                                                    | _ReactNode\ | string_ | -       | `false` |
+| leftIcon            | 左边图标                                                    | _ReactNode\ | string_ | -       | `false` |
+| button              | 右边按钮                                                    | _ReactNode_ | -       | `false` |
+| labelWidth          | 标签宽度                                                    | _string_    | 5.2em   | `false` |
+| valuePropName       | 表单控制展示的具体值的字段名                                          | _string_    | value   | `false` |
+| rules               | 正则校验值[参见](https://github.com/yiminghe/async-validator/) | _Rule[]_    | -       | `false` |
+| hide                | 隐藏该项                                                    | _boolean_   | `false` | `false` |
+| customField         | 自定义Field                                                | _boolean_   | `false` | `false` |
+| type                | 校验类型`idcard` `tel` `bank`                               | _string_    | `-`     | `false` |
+| showValidateMessage | 显示底部校验信息                                                | _boolean_   | `false` | `false` |
 
 > 其他属性见[Form](https://github.com/react-component/field-form)
 
 
 ### Events
 
-| 事件名 | 说明 | 回调参数 |
-| --- | --- | --- |
-| onFinish | 提交函数=>`Promise<boolean> `| _value: any _ |
+| 事件名      | 说明                        | 回调参数          |
+|----------|---------------------------|---------------|
+| onFinish | 提交函数=>`Promise<boolean> ` | _value: any _ |

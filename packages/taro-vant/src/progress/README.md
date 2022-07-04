@@ -83,14 +83,14 @@ import { Progress } from "taro-vant";
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  inactive  | 是否置灰 | _boolean_ | `false` |
-|  percentage  | 进度百分比 | _number_ | `0` |
-|  strokeWidth  | 进度条粗细，默认单位为`px` | _string \| number_ | `4px` |
-|  showPivot  | 是否显示进度文字 | _boolean_ | `true` |
-|  color  | 进度条颜色 | _string_ | `-` |
-|  textColor  | 进度文字颜色 | _string_ | `#fff` |
-|  trackColor  | 轨道颜色 | _string_ | `#e5e5e5` |
-|  pivotText  | 文字显示 | _string_ | 百分比文字 |
-|  pivotColor  | 文字背景色 | _string_ | 与进度条颜色一致 |
+| 参数          | 说明              | 类型        | 默认值       |
+|-------------|-----------------|-----------|-----------|
+| inactive    | 是否置灰            | _boolean_ | `false`   |
+| percentage  | 进度百分比           | _number_  | `0`       |
+| strokeWidth | 进度条粗细，默认单位为`px` | _string \ | number_   | `4px` |
+| showPivot   | 是否显示进度文字        | _boolean_ | `true`    |
+| color       | 进度条颜色           | _string_  | `-`       |
+| textColor   | 进度文字颜色          | _string_  | `#fff`    |
+| trackColor  | 轨道颜色            | _string_  | `#e5e5e5` |
+| pivotText   | 文字显示            | _string_  | 百分比文字     |
+| pivotColor  | 文字背景色           | _string_  | 与进度条颜色一致  |

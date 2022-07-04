@@ -62,21 +62,21 @@ export default () => {
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| value | 当前页码 | _number_ | - |
-| mode | 显示模式，可选值为 `simple` | _string_ | `multi` |
-| prevText | 上一页按钮文字 | _ReactNode_ | `上一页` |
-| nextText | 下一页按钮文字 | _ReactNode_ | `下一页` |
-| pageRender | 自定义页码 | _({ number: number, text: string, active: boolean }) => ReactNode_ | - |
-| pageCount | 总页数 | _number \| string_ | 根据页数计算 |
-| totalItems | 总记录数 | _number \| string_ | `0` |
-| itemsPerPage | 每页记录数 | _number \| string_ | `10` |
-| showPageSize | 显示的页码个数 | _number \| string_ | `5` |
-| forceEllipses | 是否显示省略号 | _boolean_ | `false` |
+| 参数            | 说明                 | 类型                                                                 | 默认值     |
+|---------------|--------------------|--------------------------------------------------------------------|---------|
+| value         | 当前页码               | _number_                                                           | -       |
+| mode          | 显示模式，可选值为 `simple` | _string_                                                           | `multi` |
+| prevText      | 上一页按钮文字            | _ReactNode_                                                        | `上一页`   |
+| nextText      | 下一页按钮文字            | _ReactNode_                                                        | `下一页`   |
+| pageRender    | 自定义页码              | _({ number: number, text: string, active: boolean }) => ReactNode_ | -       |
+| pageCount     | 总页数                | _number \                                                          | string_ | 根据页数计算 |
+| totalItems    | 总记录数               | _number \                                                          | string_ | `0` |
+| itemsPerPage  | 每页记录数              | _number \                                                          | string_ | `10` |
+| showPageSize  | 显示的页码个数            | _number \                                                          | string_ | `5` |
+| forceEllipses | 是否显示省略号            | _boolean_                                                          | `false` |
 
 ### Events
 
-| 事件名   | 说明           | 回调参数      |
-| -------- | -------------- | ------------- |
+| 事件名      | 说明      | 回调参数          |
+|----------|---------|---------------|
 | onChange | 页码改变时触发 | _page:number_ |

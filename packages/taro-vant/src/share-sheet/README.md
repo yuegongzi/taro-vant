@@ -188,35 +188,35 @@ this.state = {
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  visible  | 是否显示弹窗 | _boolean_ | - |
-|  options  | 分享选项 | _Option[]_ | `[]` |
-|  title  | 顶部标题 | _string_ | - |
-|  cancelText  | 取消按钮文字 | _string_ | `'取消'` |
-|  description  | 标题下方的辅助描述文字 | _string_ | - |
-|  duration  | 动画时长，单位毫秒 | _number \| string_ | `300` |
-|  overlay  | 是否显示遮罩层 | _boolean_ | `true` |
-|  closeOnClickOverlay  | 是否在点击遮罩层后关闭 | _boolean_ | `true` |
-|  safeAreaInsetBottom  | 是否开启底部安全区适配 | _boolean_ | `true` |
-|  zIndex  | z-index 层级 | _number_ | `1010` |
+| 参数                  | 说明          | 类型         | 默认值     |
+|---------------------|-------------|------------|---------|
+| visible             | 是否显示弹窗      | _boolean_  | -       |
+| options             | 分享选项        | _Option[]_ | `[]`    |
+| title               | 顶部标题        | _string_   | -       |
+| cancelText          | 取消按钮文字      | _string_   | `'取消'`  |
+| description         | 标题下方的辅助描述文字 | _string_   | -       |
+| duration            | 动画时长，单位毫秒   | _number \  | string_ | `300` |
+| overlay             | 是否显示遮罩层     | _boolean_  | `true`  |
+| closeOnClickOverlay | 是否在点击遮罩层后关闭 | _boolean_  | `true`  |
+| safeAreaInsetBottom | 是否开启底部安全区适配 | _boolean_  | `true`  |
+| zIndex              | z-index 层级  | _number_   | `1010`  |
 
 ### Option 数据结构
 
 `options`属性为一个对象数组，数组中的每个对象配置一列，对象可以包含以下值：
 
-|  键名  | 说明 | 类型 |
-| --- | --- | --- |
-|  name  | 分享渠道名称 | _string_ |
-|  description  | 分享选项描述 | _string_ |
-|  icon  | 图标，可选值为 `qq` `link` `weibo` `wechat` `poster` `qrcode` `weapp-qrcode` `wechat-moments`，支持传入图片 URL | _string_ |
-|  opentype  | 按钮 `open-type`，可用于实现分享功能，可选值为 `share` | _string_ |
+| 键名          | 说明                                                                                                | 类型       |
+|-------------|---------------------------------------------------------------------------------------------------|----------|
+| name        | 分享渠道名称                                                                                            | _string_ |
+| description | 分享选项描述                                                                                            | _string_ |
+| icon        | 图标，可选值为 `qq` `link` `weibo` `wechat` `poster` `qrcode` `weapp-qrcode` `wechat-moments`，支持传入图片 URL | _string_ |
+| opentype    | 按钮 `open-type`，可用于实现分享功能，可选值为 `share`                                                             | _string_ |
 
 ### Events
 
-|  事件名         | 说明               | 回调参数                        |
-| ------------- | ------------------ | ------------------------------- |
-|  onSelect         | 点击分享选项时触发 | _option: Option, index: number_ |
-|  onClose          | 关闭时触发         | -                               |
-|  onCancel         | 点击取消按钮时触发 | -                               |
-|  onClickOverlay  | 点击遮罩层时触发   | -                               |
+| 事件名            | 说明        | 回调参数                            |
+|----------------|-----------|---------------------------------|
+| onSelect       | 点击分享选项时触发 | _option: Option, index: number_ |
+| onClose        | 关闭时触发     | -                               |
+| onCancel       | 点击取消按钮时触发 | -                               |
+| onClickOverlay | 点击遮罩层时触发  | -                               |

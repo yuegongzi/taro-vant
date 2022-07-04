@@ -331,34 +331,34 @@ function onClick(event) {
 
 ### RadioGroup Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 在表单内提交时的标识符 | _string_ | - |
-|  value  | 当前选中项的标识符 | _any_ | - |
-|  disabled  | 是否禁用所有单选框 | _boolean_ | `false` |
-|  direction | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+| 参数        | 说明                     | 类型        | 默认值        |
+|-----------|------------------------|-----------|------------|
+| name      | 在表单内提交时的标识符            | _string_  | -          |
+| value     | 当前选中项的标识符              | _any_     | -          |
+| disabled  | 是否禁用所有单选框              | _boolean_ | `false`    |
+| direction | 排列方向，可选值为 `horizontal` | _string_  | `vertical` |
 
 ### Radio Props
 
-|  参数            | 说明                      | 类型               | 默认值    |
-| -------------- | ------------------------- | ------------------ | --------- |
-|  name            | 标识符                    | _string_           | -         |
-|  shape           | 形状，可选值为 `square`   | _string_           | `round`   |
-|  disabled        | 是否为禁用状态            | _boolean_          | `false`   |
-|  labelDisabled  | 是否禁用文本内容点击      | _boolean_          | `false`   |
-|  labelPosition  | 文本位置，可选值为 `left` | _string_           | `right`   |
-|  iconSize       | 图标大小，默认单位为`px`  | _string \| number_ | `20px`    |
-|  checkedColor   | 选中状态颜色              | _string_           | `#1989fa` |
-|  iconRender   | 是否使用自定义icon      | _({ disabled,checked }: params) => ReactNode_          | `-`   |
+| 参数            | 说明               | 类型                                            | 默认值       |
+|---------------|------------------|-----------------------------------------------|-----------|
+| name          | 标识符              | _string_                                      | -         |
+| shape         | 形状，可选值为 `square` | _string_                                      | `round`   |
+| disabled      | 是否为禁用状态          | _boolean_                                     | `false`   |
+| labelDisabled | 是否禁用文本内容点击       | _boolean_                                     | `false`   |
+| labelPosition | 文本位置，可选值为 `left` | _string_                                      | `right`   |
+| iconSize      | 图标大小，默认单位为`px`   | _string \                                     | number_   | `20px`    |
+| checkedColor  | 选中状态颜色           | _string_                                      | `#1989fa` |
+| iconRender    | 是否使用自定义icon      | _({ disabled,checked }: params) => ReactNode_ | `-`       |
 
 ### Radio Event
 
-|  事件名       | 说明                     | 回调参数          |
-| ----------- | ------------------------ | ----------------- |
-|  onChange  | 当绑定值变化时触发的事件 | 当前选中项的 name |
+| 事件名      | 说明           | 回调参数        |
+|----------|--------------|-------------|
+| onChange | 当绑定值变化时触发的事件 | 当前选中项的 name |
 
 ### RadioGroup Event
 
-|  事件名       | 说明                     | 回调参数          |
-| ----------- | ------------------------ | ----------------- |
-|  onChange  | 当绑定值变化时触发的事件 | 当前选中项的 name |
+| 事件名      | 说明           | 回调参数        |
+|----------|--------------|-------------|
+| onChange | 当绑定值变化时触发的事件 | 当前选中项的 name |

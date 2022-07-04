@@ -118,38 +118,38 @@ import { SwipeCell } from "taro-vant";
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  name  | 标识符，可以在 close 事件的参数中获取到 | _string \| number_ | - |
-|  leftWidth  | 左侧滑动区域宽度 | _number_ | `0` |
-|  rightWidth  | 右侧滑动区域宽度 | _number_ | `0` |
-|  asyncClose  | 是否异步关闭 | _boolean_ | `false` |
-|  disabled | 是否禁用滑动 | _boolean_ | `false` |
-|  left   | 左侧滑动内容 | _ReactNode_ | `-` |
-|  right  | 右侧滑动内容 | _ReactNode_ | `-` |
+| 参数         | 说明                      | 类型          | 默认值     |
+|------------|-------------------------|-------------|---------|
+| name       | 标识符，可以在 close 事件的参数中获取到 | _string \   | number_ | - |
+| leftWidth  | 左侧滑动区域宽度                | _number_    | `0`     |
+| rightWidth | 右侧滑动区域宽度                | _number_    | `0`     |
+| asyncClose | 是否异步关闭                  | _boolean_   | `false` |
+| disabled   | 是否禁用滑动                  | _boolean_   | `false` |
+| left       | 左侧滑动内容                  | _ReactNode_ | `-`     |
+| right      | 右侧滑动内容                  | _ReactNode_ | `-`     |
 
 
 ### Events
 
-|  事件名  | 说明 | 参数 |
-| --- | --- | --- |
-|  onOpen  | 点击时触发 | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
-|  onClose  | 关闭时触发 | { position: 'left' \| 'right' , instance , name: string } |
-|  onClick  | 打开时触发 | { position: 'left' \| 'right' , name: string } |
+| 事件名     | 说明    | 参数                                         |
+|---------|-------|--------------------------------------------|
+| onOpen  | 点击时触发 | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
+| onClose | 关闭时触发 | { position: 'left' \                       | 'right' , instance , name: string } |
+| onClick | 打开时触发 | { position: 'left' \                       | 'right' , name: string } |
 
 ### close 参数
 
-|  参数      | 类型     | 说明                                               |
-| -------- | -------- | -------------------------------------------------- |
-|  position  | _string_ | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
-|  instance  | _object_ | SwipeCell 实例                                     |
-|  name      | 标识符   | _string_                                           |
+| 参数       | 类型       | 说明                                         |
+|----------|----------|--------------------------------------------|
+| position | _string_ | 关闭时的点击位置 (`left` `right` `cell` `outside`) |
+| instance | _object_ | SwipeCell 实例                               |
+| name     | 标识符      | _string_                                   |
 
 ### 方法
 
 通过 ref 可以获取到 SwipeCell 实例并调用实例方法
 
-|  方法名  | 参数                      | 返回值 | 介绍             |
-| ------ | ------------------------- | ------ | ---------------- |
-|  open    | position: `left \| right` | -      | 打开单元格侧边栏 |
-|  close   | -                         | -      | 收起单元格侧边栏 |
+| 方法名   | 参数                | 返回值    | 介绍       |
+|-------|-------------------|--------|----------|
+| open  | position: `left \ | right` | -        | 打开单元格侧边栏 |
+| close | -                 | -      | 收起单元格侧边栏 |

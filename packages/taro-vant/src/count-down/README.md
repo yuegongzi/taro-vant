@@ -168,36 +168,36 @@ function finished() {
 
 ### Props
 
-|  参数  | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|  time  | 倒计时时长，单位毫秒 | _number_ | - |
-|  format  | 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒 | _string_ | `HH:mm:ss` |
-|  autoStart  | 是否自动开始倒计时 | _boolean_ | `true` |
-|  millisecond  | 是否开启毫秒级渲染 | _boolean_ | `false` |
+| 参数          | 说明                              | 类型        | 默认值        |
+|-------------|---------------------------------|-----------|------------|
+| time        | 倒计时时长，单位毫秒                      | _number_  | -          |
+| format      | 时间格式，DD-日，HH-时，mm-分，ss-秒，SSS-毫秒 | _string_  | `HH:mm:ss` |
+| autoStart   | 是否自动开始倒计时                       | _boolean_ | `true`     |
+| millisecond | 是否开启毫秒级渲染                       | _boolean_ | `false`    |
 
 ### Events
 
-|  事件名  | 说明                                         | 回调参数 |
-| ------ | -------------------------------------------- | -------- |
-|  onFinish  | 倒计时结束时触发                             | -        |
-|  onChange  | 时间变化时触发| timeData |
+| 事件名      | 说明       | 回调参数     |
+|----------|----------|----------|
+| onFinish | 倒计时结束时触发 | -        |
+| onChange | 时间变化时触发  | timeData |
 
 ### timeData 格式
 
-|  名称          | 说明     | 类型     |
-| ------------ | -------- | -------- |
-|  days          | 剩余天数 | _number_ |
-|  hours         | 剩余小时 | _number_ |
-|  minutes       | 剩余分钟 | _number_ |
-|  seconds       | 剩余秒数 | _number_ |
-|  milliseconds  | 剩余毫秒 | _number_ |
+| 名称           | 说明   | 类型       |
+|--------------|------|----------|
+| days         | 剩余天数 | _number_ |
+| hours        | 剩余小时 | _number_ |
+| minutes      | 剩余分钟 | _number_ |
+| seconds      | 剩余秒数 | _number_ |
+| milliseconds | 剩余毫秒 | _number_ |
 
 ### 方法
 
 通过 ref 可以获取到 CountDown 实例并调用实例方法。
 
-|  方法名  | 参数 | 返回值 | 介绍 |
-| --- | --- | --- | --- |
-|  start  | - | - | 开始倒计时 |
-|  pause  | - | - | 暂停倒计时 |
-|  reset  | - | - | 重设倒计时，若`auto-start`为`true`，重设后会自动开始倒计时 |
+| 方法名   | 参数  | 返回值 | 介绍                                     |
+|-------|-----|-----|----------------------------------------|
+| start | -   | -   | 开始倒计时                                  |
+| pause | -   | -   | 暂停倒计时                                  |
+| reset | -   | -   | 重设倒计时，若`auto-start`为`true`，重设后会自动开始倒计时 |

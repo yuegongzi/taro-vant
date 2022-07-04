@@ -102,9 +102,9 @@ import { Divider } from "taro-vant";
 
 ### Props
 
-|  参数              | 说明                              | 类型      | 默认值 |
-| ---------------- | --------------------------------- | --------- | ------ |
-|  dashed            | 虚线                              | _boolean_ | false  |
-|  hairline          | 细线                              | _boolean_ | false  |
-|  contentPosition  | 文本位置，`left` `center` `right` | _string_  | -      |
-|  customStyle      | 自定义样式                        | _string_  | -      |
+| 参数              | 说明                           | 类型        | 默认值   |
+|-----------------|------------------------------|-----------|-------|
+| dashed          | 虚线                           | _boolean_ | false |
+| hairline        | 细线                           | _boolean_ | false |
+| contentPosition | 文本位置，`left` `center` `right` | _string_  | -     |
+| customStyle     | 自定义样式                        | _string_  | -     |
